@@ -1,0 +1,8 @@
+# Ignore Visual Studio project and solution files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Ignore the binary directory and its contents
+bin/
