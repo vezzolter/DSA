@@ -3,6 +3,7 @@
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+.vs/
 
 # Ignore the binary directory and its contents
 bin/
