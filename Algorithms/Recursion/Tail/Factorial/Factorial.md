@@ -192,7 +192,7 @@ However, the term **factorial** was coined by French mathematician **Christian K
 
 
 # &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../../#-contact-information).
+Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../../#-contributing).
 
 
 
