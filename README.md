@@ -1,5 +1,4 @@
 # &#128209; Table of Contents
-- [📑 Table of Contents](#-table-of-contents)
 - [💡 About](#-about)
 - [📁 Repository Structure](#-repository-structure)
 - [📝 Usage Examples](#-usage-examples)
@@ -15,14 +14,12 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 # &#128193; Repository Structure
 Please note that this structure will remain dynamic and adaptable throughout its evolution. As a starting overview, I aim to offer a straightforward list that outlines the various topics. Over time, this structure will grow and expand, making it a continually improving resource.
 
-Structure will look like:
+**The Structure:**
 - Algorithms
   - Iteration
   - Recursion
-    - Linear
-    - Tree
-    - Indirect
-    - Nested
+    - Tail
+      - Factorial ✅
   - Sorting
   - Search
   - PRNG
