@@ -12,7 +12,7 @@
 // Asks user to enter a non-negative number within specified range and validates the input.
 // The range limit is dictated by the size of data type in order to prevent overflow.
 // e.g. int var can't contain the factorial of 13, the number is too big.
-// Note: to prioritize simplicity and highligh algorithm itself, 'int' is picked as data type.
+// Note: to prioritize simplicity and highlight algorithm itself, 'int' is picked as data type.
 int getUserInput()
 {
 	int n = 0;
