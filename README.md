@@ -18,7 +18,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
 - Algorithms
   - Iteration
   - Recursion
-    - Factorial ✅
+    - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
   - Sorting
   - Search
   - PRNG
@@ -60,6 +60,10 @@ As my educational journey progresses, I may discover new areas of interest withi
   - A cornerstone resource that inspired me to learn DSA.
   - Provides comprehensive coverage of data structures and algorithms as technology.
   - Offers a meticulous analyses, delving into the subtle details and intricate calculations.
+- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
+  - Translates complex concepts into simple, accessible explanations.
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching** — by Robert Sedgewick
+  - Delves deep into core algorithmic concepts, emphasizing their implementation in the C++ programming language.
 - **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
   - Serves as a great collection of C++ implementation examples along with step-by-step analyses.
 ---
@@ -68,6 +72,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/?LSNPUBID=JVFxdTr9V80&ranEAID%3B=JVFxdTr9V80&ranMID%3B=39197&ranSiteID%3B=JVFxdTr9V80-_3GVcwGZFWT4XsSuZYrgGA&utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_535397282064_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_9061020_._pd__._&matchtype=&gad_source=1&gclid=CjwKCAiA3aeqBhBzEiwAxFiOBgRFL7RkV-WJI9tPKml75et478Ai5oJigSKAivJ2txZ9Jhi0mhsTdxoC_foQAvD_BwE) on Udemy
 ---
 &#128156;**Special Thanks:**
+- Sheer gratitude to my university, **the NTUU Igor Sikorsky KPI**, for providing an environment where I had the privilege to connect with numerous ambitious individuals, who inspired me to strive for more.
 - Special thanks to **ChatGPT** for its continuous guidance & support on numerous topics.
 
 # &#128271; License
