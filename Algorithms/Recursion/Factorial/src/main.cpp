@@ -5,7 +5,7 @@
 // This C++ project demonstrates the implementation of the
 // factorial function using tail recursion.
 
-#include "factorialTail.h"
+#include "factorial.h"
 #include <iostream>
 
 
@@ -37,14 +37,14 @@ int getUserInput()
 int main()
 {
 	// Greetings
-	std::cout << "Welcome to the 'Tail-Recursive Factorial' console application!\n\n";
+	std::cout << "Welcome to the 'Factorial' console application!\n\n";
 
 	// Input
 	int n = 0;
 	n = getUserInput();
 
 	// Result
-	std::cout << "The factorial of " << n << " equals to " << factorialTail(n) << ".\n";
+	std::cout << "The factorial of " << n << " equals to " << factorial(n) << ".\n";
 	
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

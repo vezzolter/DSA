@@ -18,8 +18,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
 - Algorithms
   - Iteration
   - Recursion
-    - Tail
-      - Factorial ✅
+    - Factorial ✅
   - Sorting
   - Search
   - PRNG

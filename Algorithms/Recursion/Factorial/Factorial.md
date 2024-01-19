@@ -30,20 +30,20 @@
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
 
 <p align="center">
-      <img src="./img/demonstration.png"/>
+      <img src="./img/demonstration.png"/>   
 </p>
 
 
 ## Iteration vs Recursion
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
 
-The question was is which type of recursion should be picked for that particular algorithm. Upon researching this question, the priority took the the tail-recursion, due to its potential optimization(tail call optimization) by the compiler, hence this option is potentially more effective.
+The question was is which type of recursion should be picked for that particular algorithm. Upon researching this question, the priority took the the **tail-recursion**, due to its potential optimization **(tail call optimization)** by the compiler, hence this option is potentially more effective.
 
 
 ## Detailed Overview
 1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type. 
 
-2. For the same reasons, the algorithm is implemented within the function named `factorialTail(int n)`, and this function is separated into distinct files `factorialTail.h` and `factorialTail.cpp` away from `main.cpp`.
+2. For the same reasons, the algorithm is implemented within the function named `factorial(int n)`, and this function is separated into distinct files `factorial.h` and `factorial.cpp` away from `main.cpp`.
 
 3. The program starts by asking user to enter a non-negative number within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;12]$, because the factorial of $13 (6,227,020,800)$ exceeds the capacity of `int` variable $(2,147,483,647)$.
    ```cpp
@@ -67,16 +67,21 @@ The question was is which type of recursion should be picked for that particular
 
 	   return n;
    }
-   ``` 
+   ```
 
-5. Then control flow is directed to the `factorialTail(int n)` function, where until the number is not equal to zero, the recursive function will call itself:
+   Here is an example of how this function validates the user's input:
+   <p align="center">
+      <img src="./img/validation.png"/>   
+   </p>
+
+4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself:
     - **Base case** — adheres to the rule $0! = 1$, establishing a termination point for the recursion.
     - **Recursive case** — fulfills the other rule $n! = (n - 1)! × n$, breaking down the factorial calculation, until reaching the base case.
    ```cpp
-   int factorialTail(int n)
+   int factorial(int n)
    {
 	   if (n == 0) { return 1; } // Base case
-	   else { return (factorialTail(n - 1) * n); }; // Recursive case
+	   else { return (n * factorial(n - 1)); }; // Recursive case
    }
    ``` 
 
@@ -91,7 +96,7 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
    
    <p align="center">
       <img src="./img/step_1.png" />
-   </p>  
+   </p> 
 
 2. Invoking the recursive case repeatedly until the specified criteria are met (6 times).
    
@@ -99,34 +104,28 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
       <img src="./img/step_2.png" />
    </p> 
 
-3. Upon the 7th recursive call, when the value becomes 0, we initiate the base case.
+3. Upon the 7th recursive call, when the value becomes 0, we initiate the base case, therefore existing the recursive process.
    
    <p align="center">
       <img src="./img/step_3.png" />
-   </p> 
+   </p>
 
-4. Exiting the recursive process.  
+4. This marks the phase where the recursion is concluding, and the process of returning the calculated value is underway.
    
    <p align="center">
       <img src="./img/step_4.png" />
    </p> 
 
-5. This marks the phase where the recursion is concluding, and the process of returning the calculated value is underway.
+5. Continuing this process until we reach the initial (first) function call.
    
    <p align="center">
       <img src="./img/step_5.png" />
-   </p> 
+   </p>
 
-6. Continuing this process until we reach the initial (first) function call.
+6. Concluding the recursion by returning the final calculated value.    
    
    <p align="center">
       <img src="./img/step_6.png" />
-   </p> 
-
-7. Concluding the recursion by returning the final calculated value.    
-   
-   <p align="center">
-      <img src="./img/step_7.png" />
    </p> 
 
 
@@ -192,12 +191,12 @@ However, the term **factorial** was coined by French mathematician **Christian K
 
 
 # &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../../#-contributing).
+Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 
 # &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
 
 
 
@@ -216,7 +215,8 @@ For contact details and additional information, please refer to the [root direct
 - [Permutations and Factorials](https://www.youtube.com/watch?v=e28WnaMQ0ts) (Video)
 - [Fundamental Counting Principle](https://brilliant.org/wiki/fundamental-counting-principle/#:~:text=The%20fundamental%20counting%20principle%20is,perform%20both%20of%20these%20actions.)
 - [What is Tail Recursion](https://www.geeksforgeeks.org/tail-recursion/)
-- [Tail call](https://en.wikipedia.org/wiki/Tail_call)
+- [Tail Call](https://en.wikipedia.org/wiki/Tail_call)
+- [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
 - [The Factorial Notation | Christian Kramp | 1808](https://www.mysciencehistory.com/blog/2021/2/22/the-factorial-notation-christian-kramp)
 
 
