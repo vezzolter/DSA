@@ -1,13 +1,13 @@
 # &#128209; Table of Contents
-- [💡 What is a Factorial](#-what-is-a-factorial)
-- [💻 Implementation](#-implementation)
+- [💡 What is Factorial](#-what-is-factorial)
+- [💻 Implementation of Factorial](#-implementation-of-factorial)
   - [Iteration vs Recursion](#iteration-vs-recursion)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
-- [📝 Usage](#-usage)
+- [📝 Usage of Factorial](#-usage-of-factorial)
   - [Example #1: Basic](#example-1-basic)
   - [Example #2: Practical](#example-2-practical)
-- [⏳ History](#-history)
+- [⏳ Historical Notes](#-historical-notes)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
 - [🙏 Credits](#-credits)
@@ -15,7 +15,7 @@
 
 
 
-# &#128161; What is a Factorial
+# &#128161; What is Factorial
 **Factorial of a Number (n!)** — is a math operation, which represents product of all positive integers from number 1 to the given(n), e.g. $4! = 1×2×3×4 = 24$.
 
 **Main Rules:**
@@ -25,7 +25,7 @@
 
 
 
-# &#x1F4BB; Implementation 
+# &#x1F4BB; Implementation of Factorial
 **Idea**  
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
 
@@ -37,7 +37,6 @@ The program prompts the user to input a number for which the factorial is to be 
 ## Iteration vs Recursion
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
 
-The question was is which type of recursion should be picked for that particular algorithm. Upon researching this question, the priority took the the **tail-recursion**, due to its potential optimization **(tail call optimization)** by the compiler, hence this option is potentially more effective.
 
 
 ## Detailed Overview
@@ -129,7 +128,7 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
    </p> 
 
 
-# &#128221; Usage
+# &#128221; Usage of Factorial
 
 Practically speaking, factorial is a **number of different permutations** you can have with items. Consequently, is it widely used in the field of computer science, especially in combinatorics and probability theory. Here I'll provide only the fundamental overview of what you can think of, whenever you refer to the factorial, without overwhelming with redundant intricacies.
 
@@ -181,7 +180,7 @@ Factorials prove to be a valuable tool in this challenge, as you observed earlie
 A team is tasked with scheduling a series of tasks for an upcoming event, aiming to arrange them in the most efficient order to meet deadlines and dependencies. Given the potential that there could be large number of tasks, instead of manually exploring all permutations, the team likely employs computational methods, leveraging algorithms that take advantage of factorial principles.
 
 
-# &#x23F3; History
+# &#x23F3; Historical Notes
 Throughout human history, we have proven to be inherently drawn to stories, as understanding and retaining information is more effective through narrative and association. Realizing the potential, this historical section is included, offering a versatile approach to additional comprehension.
 
 While the exact historical moment of the discovery of factorials remains elusive, the concept likely emerged organically as mathematicians grappled with combinatorial questions over centuries. Unlike some mathematical concepts with well-documented stories, the origin of factorials might be attributed to the collective evolution of mathematical thought rather than a single revelatory moment.
@@ -214,9 +213,6 @@ For contact details and additional information, please refer to the [root direct
 - [What is a Factorial in Maths](https://www.geeksforgeeks.org/factorial/) 
 - [Permutations and Factorials](https://www.youtube.com/watch?v=e28WnaMQ0ts) (Video)
 - [Fundamental Counting Principle](https://brilliant.org/wiki/fundamental-counting-principle/#:~:text=The%20fundamental%20counting%20principle%20is,perform%20both%20of%20these%20actions.)
-- [What is Tail Recursion](https://www.geeksforgeeks.org/tail-recursion/)
-- [Tail Call](https://en.wikipedia.org/wiki/Tail_call)
-- [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
 - [The Factorial Notation | Christian Kramp | 1808](https://www.mysciencehistory.com/blog/2021/2/22/the-factorial-notation-christian-kramp)
 
 

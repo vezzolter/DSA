@@ -1,4 +1,4 @@
-// Source file for tail-recursive implementation of the factorial function.
+// Source file for recursive implementation of the factorial function.
 // by vezzolter
 // November 13, 2023
 

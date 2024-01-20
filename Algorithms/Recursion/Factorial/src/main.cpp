@@ -1,9 +1,9 @@
-// Tail-Recursive Factorial
+// Recursive Factorial
 // by vezzolter
 // November 13, 2023
 //
 // This C++ project demonstrates the implementation of the
-// factorial function using tail recursion.
+// factorial function using recursion.
 
 #include "factorial.h"
 #include <iostream>
