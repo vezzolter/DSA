@@ -2,8 +2,8 @@
 - [💡 What is Recursion](#-what-is-recursion)
 - [💻 Implementation](#-implementation)
 - [📚 Call Stack](#-call-stack)
-- [📝 Application of Recursion](#-application-of-recursion)
 - [📊 Analysis of Recursion](#-analysis-of-recursion)
+- [📝 Application of Recursion](#-application-of-recursion)
 - [⏳ Historical Notes](#-historical-notes)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
@@ -96,61 +96,12 @@ for (unsigned char i = 0; i < 2 * halfLimit; ++i)
 
 
 
-# &#128221; Application of Recursion
-
-In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
-
-<p align="center">
-  <img src="./img/iterationVsRecursion.png"/>   
-</p>
-
-**Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
-
-**Recursion**, as it was said, is more suitable approach in cases where implementing an algorithm using iteration is challenging, thefore recursion provides clear and natural solutions. However, if feasible, converting recursion into iteration is often preferred for improved performance and resource utilization.
-
-To successfully convert recursion into a loop, it's essential for the recursion to be **tail-recursive**. Tail recursion is characterized by having the recursive call as the last statement executed by the function. In other words, the function's calls involve a single invocation of the recursive call followed by an immediate return of the result without additional processing or calculation. When utilizing a compiler or interpreter that treats tail-recursive calls as jumps rather than function calls, the program becomes essentially iterative. Therefore, equivalent to using control structures like the "for" and "while" loops, which saves both space and time.
-
----
-
-**Some of the Most Well-Known Use Cases:**
-- **Sortings** — recursive algorithms leverage recursion to partition the data into smaller subarrays or sublists, subsequently sorting and merging them to achieve the final ordered result.
-- **Divide-and-Conquer** — numerous algorithms employing a divide-and-conquer strategy, like the binary search, utilize recursion to decompose the problem into more manageable subproblems.
-- **Memoization (Dynamic Programming)** — as long as this technique entails storing the outcomes of resource-intensive function calls and retrieving the cached result when encountering identical inputs in subsequent calls, recursive functions are often employed for those problems.
-- **Backtracking** — backtracking algorithms are used to solve problems that involve making a sequence of decisions, where each decision depends on the previous ones. These algorithms can be implemented using recursion to explore all possible paths and backtrack when a solution is not found.
-- **Trees and Graphs** — recursion finds common application in traversing and searching data structures like trees and graphs. Recursive algorithms prove effective in systematically exploring all nodes or vertices within a tree or graph.
-- **Permutations and Combinations** — recursive algorithms are often used to generate permutations and combinations of a set of elements.
-
----
-
-**Popular Related Problems:**
-- Factorial Calculation
-- Fibonacci Sequence
-- Tower of Hanoi Puzzle
-- Depth-First Search (DFS)
-- Breadth-First Search (BFS)
-- Binary Search
-- Merge Sort
-- Quick Sort
-- Maze Solving
-- N-Queens Problem
-- Palindrome Check
-- Subset Generation
-- Permutations
-- Combinations
-- Ackermann Function
-- Pascal's Triangle
-- Parentheses Matching
-- Expression Evaluation
-- Inversion Count
-
-
-
 # &#128202; Analysis of Recursion
 Certainly, by evaluating multiple candidate algorithms for a given problem, we can pinpoint the most efficient one. The process might be quite complex, considering various factors, such as implementation of a memory model, size of an input, extent of random, programming language, etc. So people came up with two widely adopted measurements to analyze the algorithms, which are no different for the recursive ones:
 1. **Space Complexity** — how the memory usage grows with the input size.
 2. **Time Complexity** — how the time requirements grow with the input size.
 
-Both recursive and non-recursive algorithms may use auxiliary space for data structures, the key difference in space complexity analysis between recursive and non-recursive algorithms lies in the consideration of the call stack, which has been discussed earlier (refer to '[Call Stack](#call-stack)' subsection).
+Both recursive and non-recursive algorithms may use auxiliary space for data structures, the key difference in space complexity analysis between recursive and non-recursive algorithms lies in the consideration of the call stack, which has been discussed in a previous subsection.
 
 When an algorithm containts a recursive call to itself, it is possible to describe running time as reccurence relation, which can be solved in order to provide different bounds on performance, such as lower ($\Omega$), tight ($\Theta$) or upper bound ($O$) each serving its own purpose.
 
@@ -262,6 +213,55 @@ Since $f(n) = \Omega(n^{\log{_b}{a} + \epsilon})$, where $\epsilon = 0.2$, we ca
 **Example for no match**  
 $T(n) = 2T(\frac{n}{2}) + n\log{_2}{n}$  
 This recurrence is not solvable via Master Theorem, because $f(n) = n\log{_2}{n}$, is not polynomially larger than $n^{\log{_b}{a}} = b$
+
+
+
+# &#128221; Application of Recursion
+
+In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
+
+<p align="center">
+  <img src="./img/iterationVsRecursion.png"/>   
+</p>
+
+**Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
+
+**Recursion**, as it was said, is more suitable approach in cases where implementing an algorithm using iteration is challenging, thefore recursion provides clear and natural solutions. However, if feasible, converting recursion into iteration is often preferred for improved performance and resource utilization.
+
+To successfully convert recursion into a loop, it's essential for the recursion to be **tail-recursive**. Tail recursion is characterized by having the recursive call as the last statement executed by the function. In other words, the function's calls involve a single invocation of the recursive call followed by an immediate return of the result without additional processing or calculation. When utilizing a compiler or interpreter that treats tail-recursive calls as jumps rather than function calls, the program becomes essentially iterative. Therefore, equivalent to using control structures like the "for" and "while" loops, which saves both space and time.
+
+---
+
+**Some of the Most Well-Known Use Cases:**
+- **Sortings** — recursive algorithms leverage recursion to partition the data into smaller subarrays or sublists, subsequently sorting and merging them to achieve the final ordered result.
+- **Divide-and-Conquer** — numerous algorithms employing a divide-and-conquer strategy, like the binary search, utilize recursion to decompose the problem into more manageable subproblems.
+- **Memoization (Dynamic Programming)** — as long as this technique entails storing the outcomes of resource-intensive function calls and retrieving the cached result when encountering identical inputs in subsequent calls, recursive functions are often employed for those problems.
+- **Backtracking** — backtracking algorithms are used to solve problems that involve making a sequence of decisions, where each decision depends on the previous ones. These algorithms can be implemented using recursion to explore all possible paths and backtrack when a solution is not found.
+- **Trees and Graphs** — recursion finds common application in traversing and searching data structures like trees and graphs. Recursive algorithms prove effective in systematically exploring all nodes or vertices within a tree or graph.
+- **Permutations and Combinations** — recursive algorithms are often used to generate permutations and combinations of a set of elements.
+
+---
+
+**Popular Related Problems:**
+- Factorial Calculation
+- Fibonacci Sequence
+- Tower of Hanoi Puzzle
+- Depth-First Search (DFS)
+- Breadth-First Search (BFS)
+- Binary Search
+- Merge Sort
+- Quick Sort
+- Maze Solving
+- N-Queens Problem
+- Palindrome Check
+- Subset Generation
+- Permutations
+- Combinations
+- Ackermann Function
+- Pascal's Triangle
+- Parentheses Matching
+- Expression Evaluation
+- Inversion Count
 
 
 
