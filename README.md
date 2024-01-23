@@ -16,9 +16,8 @@ Please note that this structure will remain dynamic and adaptable throughout its
 
 **The Structure:**
 - Algorithms
-  - Iteration
   - Recursion
-    - Recursion.md 🔄
+    - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - Fibonacci 🔄
   - Sorting
