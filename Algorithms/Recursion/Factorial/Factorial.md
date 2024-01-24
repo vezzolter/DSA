@@ -4,9 +4,9 @@
   - [Iteration vs Recursion](#iteration-vs-recursion)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
-- [📝 Usage of Factorial](#-usage-of-factorial)
-  - [Example #1: Basic](#example-1-basic)
-  - [Example #2: Practical](#example-2-practical)
+- [📝 Application of Factorial](#-application-of-factorial)
+  - [Basic Example](#basic-example)
+  - [Practical Example](#practical-example)
 - [⏳ Historical Notes](#-historical-notes)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
@@ -16,7 +16,13 @@
 
 
 # &#128161; What is Factorial
-**Factorial of a Number (n!)** — is a math operation, which represents product of all positive integers from number 1 to the given(n), e.g. $4! = 1×2×3×4 = 24$.
+
+The factorial stands among the fundamental mathematical patterns with widespread applications in permutation and combinatorial algorithms. It serves as an excellent example for understanding recursive principles in mathematics and computer science. A thorough understanding of the factorial enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
+
+---
+
+**Factorial of a Number (n!)** — is a math operation, which represents product of all positive integers from number 1 to the given(n),   
+e.g. $4! = 1×2×3×4 = 24$.
 
 **Main Rules:**
 - number must be a non-negative integer
@@ -128,7 +134,7 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
    </p> 
 
 
-# &#128221; Usage of Factorial
+# &#128221; Application of Factorial
 
 Practically speaking, factorial is a **number of different permutations** you can have with items. Consequently, is it widely used in the field of computer science, especially in combinatorics and probability theory. Here I'll provide only the fundamental overview of what you can think of, whenever you refer to the factorial, without overwhelming with redundant intricacies.
 
@@ -156,7 +162,7 @@ Additionally, when selecting from a consistent pool of options (e.g. such as pic
    The formula is: $C_n^k = \frac{n!}{(n-k)!k!}$
    
 
-## Example #1: Basic
+## Basic Example
 **Permutating 6 books on a shelf**  
 The total number of ways to permutate these (6) books is:  
 $P(n) = 6×5×4×3×2×1 = 6! = 720$.
@@ -170,7 +176,7 @@ The total number of ways to pack these (3) books apart from second shelf (4) is:
 $C_n^k = \frac{4!}{(4-3)!3!} = \frac{4!}{1!3!} = \frac{4×3!}{1×3!} = \frac{4×1}{1×1} = 4$
 
 
-## Example #2: Practical
+## Practical Example
 
 As you may wonder, what is the practical value of factorials and their application in real-life scenarios? This curiosity is an excellent direction. Indeed, it's not always about knowing all possible arrangements; the real goal is often to find the right one.
 
@@ -209,6 +215,7 @@ For contact details and additional information, please refer to the [root direct
    - Section 5: Recursion
 
 &#127760;**Web-Resources:**
+- [Factorial](https://en.wikipedia.org/wiki/Factorial) (Wikipedia)
 - [What is a Factorial? How to Calculate Factorials with Examples](https://www.freecodecamp.org/news/what-is-a-factorial/#:~:text=A%20factorial%20is%20a%20mathematical,1%20(which%20%3D%206).)
 - [What is a Factorial in Maths](https://www.geeksforgeeks.org/factorial/) 
 - [Permutations and Factorials](https://www.youtube.com/watch?v=e28WnaMQ0ts) (Video)
