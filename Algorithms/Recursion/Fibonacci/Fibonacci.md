@@ -122,7 +122,6 @@ Technically speaking, Fibonnaci sequence can be implemented using both iterative
    {
      if (n <= 1) { return n; } // Base case
      else { return fibonacci(n - 1) + fibonacci(n - 2); } // Recursive case
-
    }
    ```
 
@@ -133,15 +132,17 @@ Technically speaking, Fibonnaci sequence can be implemented using both iterative
 To enhance the clarity of the recursion process explanation, I'll illustrate it with a simple example using a relatively small number of elements, specifically $n=5$. This approach aims to avoid navigating to the development environment, where it becomes easier to lose track of the algorithm, especially with higher values.
 
 1. First things first, the program calls `main()` function and its frame is added on top of the call stack.
+   
    <p align="center">
       <img src="./img/step_0.png" />
    </p> 
-2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`: 
+2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:
+   
    <p align="center">
       <img src="./img/step_1.png" />
    </p> 
 
-3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls: 
+3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls:
    
    <p align="center">
       <img src="./img/step_2.png" />

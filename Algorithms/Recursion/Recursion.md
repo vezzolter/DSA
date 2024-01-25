@@ -130,11 +130,11 @@ Determine upper bound $O(n)$ for the next recurrence relation $T(n) = 2T(\lfloor
 4. This yields with $T(\lfloor \frac{n}{2} \rfloor) \leqslant c \lfloor \frac{n}{2} \rfloor × log{_2}({\lfloor \frac{n}{2} \rfloor})$, which we simply substitute into a recurrence $T(n) = 2T(\lfloor \frac{n}{2} \rfloor) + n$.
 
 5. And then solving the default mathematical relation:  
-$T(n) \leqslant 2 \left( c \lfloor \frac{n}{2} \rfloor log{_2}({\lfloor \frac{n}{2} \rfloor})\right) + n$; _(rule: expending brackets)_   
-$T(n) \leqslant cnlog{_2}({\lfloor \frac{n}{2} \rfloor}) + n$; _(rule: $log{_a}{b}=log{_2}{a}-log{_2}{b}$)_  
-$T(n) = cnlog{_2}{n} - cnlog{_2}{2} + n$; _(rule: $log{_a}{a^k}=k$)_  
-$T(n) = cnlog{_2}{n} - cn + n$; _(`const` is not much valuable for asymptotic notation)_  
-$T(n) \leqslant cn×log{_2}{n}$; _(holds as long as $c \leqslant 1$ )_
+$T(n) \leqslant 2 \left( c \lfloor \frac{n}{2} \rfloor log{_2}({\lfloor \frac{n}{2} \rfloor})\right) + n$; (rule: expending brackets)   
+$T(n) \leqslant cnlog{_2}({\lfloor \frac{n}{2} \rfloor}) + n$; (rule: $log{_a}{b}=log{_2}{a}-log{_2}{b}$)  
+$T(n) = cnlog{_2}{n} - cnlog{_2}{2} + n$; (rule: $log{_a}{a^k}=k$)  
+$T(n) = cnlog{_2}{n} - cn + n$; (`const` is not much valuable for asymptotic notation)  
+$T(n) \leqslant cn×log{_2}{n}$; (holds as long as $c \leqslant 1$ )
 
 
 ---
@@ -202,7 +202,7 @@ Since $f(n) = O(n^{\log{_b}{a} - \epsilon})$, where $\epsilon = 1$, we can apply
 
 **Example for case 2**  
 $T(n) =T(\frac{2n}{3}) + 1$  
-We have $a=1, n=\frac{3}{2}, f(n) = 1$, thus $n^{\log{_b}{a}} = n^{\log{_\frac{3}{2}}{1}} = n^0 = 1$  
+We have $a=1, n=\frac{3}{2}, f(n) = 1$, thus $n^{\log{_b}{a}} = n^{\log{_{3/2}}{1}} = n^0 = 1$  
 Since $f(n) = \Theta(n^{\log{_b}{a}}) = \Theta(1)$, we can apply case 2 and conclude $T(n) = \Theta(\log{_2}{n})$.
 
 **Example for case 3**  
