@@ -9,6 +9,8 @@
 #include <iostream>
 
 
+// Asks user to enter the number of an element within specified range and validates the input.
+// The range limit is dictated by the size of data type in order to prevent overflow.
 // Note: to prioritize simplicity and highlight algorithm itself, 'int' is picked as data type.
 int getUserInput()
 {
@@ -16,10 +18,10 @@ int getUserInput()
 
 	while (true)
 	{
-		std::cout << "Enter your number between 0 and 12: ";
+		std::cout << "Specify the number of an element (0 to 45): ";
 		std::cin >> n;
 
-		if (std::cin.fail() || n < 0 || n > 12)
+		if (std::cin.fail() || n < 0 || n > 45)
 		{
 			std::cin.clear(); // ensure that stream is in a good state
 			std::cin.ignore(32767, '\n'); // clear from any remaining chars
@@ -40,8 +42,8 @@ int main()
 	int n = 0;
 	n = getUserInput();
 
-	// Result
-	std::cout << "The factorial of " << n << " equals to " << fibonacci(n) << ".\n";
+	// Output
+	std::cout << "The Fibonacci Number for element '" << n << "' is " << fibonacci(n) << ".\n";
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

@@ -19,7 +19,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Recursion
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
-    - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) 🔄
+    - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Sorting
   - Search
   - PRNG
@@ -33,7 +33,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - Array
     - List
     - Queue
-    - Stack
+    - Stack 🔄
   - Tree
   - Graph
   - Hash

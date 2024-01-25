@@ -1,12 +1,11 @@
 # &#128209; Table of Contents
-- [💡 What is Factorial](#-what-is-factorial)
-- [💻 Implementation of Factorial](#-implementation-of-factorial)
-  - [Iteration vs Recursion](#iteration-vs-recursion)
+- [💡 What is the Factorial](#-what-is-the-factorial)
+- [💻 Implementation](#-implementation)
+  - [Recursive Paragidm](#recursive-paragidm)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
-- [📝 Application of Factorial](#-application-of-factorial)
-  - [Basic Example](#basic-example)
-  - [Practical Example](#practical-example)
+- [📊 Analysis](#-analysis)
+- [📝 Application](#-application)
 - [⏳ Historical Notes](#-historical-notes)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
@@ -15,7 +14,7 @@
 
 
 
-# &#128161; What is Factorial
+# &#128161; What is the Factorial
 
 The factorial stands among the fundamental mathematical patterns with widespread applications in permutation and combinatorial algorithms. It serves as an excellent example for understanding recursive principles in mathematics and computer science. A thorough understanding of the factorial enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
 
@@ -31,7 +30,7 @@ e.g. $4! = 1×2×3×4 = 24$.
 
 
 
-# &#x1F4BB; Implementation of Factorial
+# &#x1F4BB; Implementation
 **Idea**  
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
 
@@ -40,7 +39,7 @@ The program prompts the user to input a number for which the factorial is to be 
 </p>
 
 
-## Iteration vs Recursion
+## Recursive Paragidm
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
 
 
@@ -48,7 +47,29 @@ Technically speaking, factorial can be implemented using both iterative and recu
 ## Detailed Overview
 1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type. 
 
-2. For the same reasons, the algorithm is implemented within the function named `factorial(int n)`, and this function is separated into distinct files `factorial.h` and `factorial.cpp` away from `main.cpp`.
+2. For the same reasons, the algorithm is implemented within the function named `factorial(int n)`, and this function is separated into distinct files `factorial.h` and `factorial.cpp` away from `main.cpp`:
+   ```cpp
+   int main()
+   {
+      // Greetings
+      std::cout << "Welcome to the 'Factorial' console application!\n\n";
+
+      // Input
+      int n = 0;
+      n = getUserInput();
+
+      // Result
+      std::cout << "The factorial of " << n << " equals to " << factorial(n) << ".\n";
+      
+      // Exiting
+      std::cout << "\nThanks for using this program! Have a great day!\n";
+      std::cout << "Press <Enter> to exit...";
+      std::cin.clear(); // ensure that stream is in a good state
+      std::cin.ignore(32767, '\n'); // clear from any remaining chars
+      std::cin.get();
+      return 0;
+   }
+   ```
 
 3. The program starts by asking user to enter a non-negative number within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;12]$, because the factorial of $13 (6,227,020,800)$ exceeds the capacity of `int` variable $(2,147,483,647)$.
    ```cpp
@@ -79,7 +100,7 @@ Technically speaking, factorial can be implemented using both iterative and recu
       <img src="./img/validation.png"/>   
    </p>
 
-4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself:
+4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself, continuously progressing towards this condition:
     - **Base case** — adheres to the rule $0! = 1$, establishing a termination point for the recursion.
     - **Recursive case** — fulfills the other rule $n! = (n - 1)! × n$, breaking down the factorial calculation, until reaching the base case.
    ```cpp
@@ -88,9 +109,9 @@ Technically speaking, factorial can be implemented using both iterative and recu
 	   if (n == 0) { return 1; } // Base case
 	   else { return (n * factorial(n - 1)); }; // Recursive case
    }
-   ``` 
+   ```
 
-5. After the calculation is done, the program displays result, bids farewell to the user and awaits closure.
+5. After completing its intended tasks, the program expresses gratitude and awaits closure.
 
 ## Call Stack Interaction
 
@@ -133,8 +154,15 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
       <img src="./img/step_6.png" />
    </p> 
 
+# &#128202; Analysis
+The current implementation demonstrates inefficient utilization of recursion ([as mentioned earlier, during the discussion of the paradigm approach](#recursive-paragidm)). Simply by converting it into a loop, the running time can be significantly diminished, and there won't be any additional memory allocation involved at all (common designing principle discussed in [recursion](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) file).
 
-# &#128221; Application of Factorial
+**Time Complexity:** $O(n)$ — number of recursive calls made by this algorithm is directly proportional to the input.  
+**Auxiliary Space Complexity:** $O(n)$ — some memory gets allocated in the stack, which depends on the amount of calls.
+
+
+
+# &#128221; Application
 
 Practically speaking, factorial is a **number of different permutations** you can have with items. Consequently, is it widely used in the field of computer science, especially in combinatorics and probability theory. Here I'll provide only the fundamental overview of what you can think of, whenever you refer to the factorial, without overwhelming with redundant intricacies.
 
@@ -142,49 +170,27 @@ For better understanding of the topic, I'll govern the **Fundamental Counting Pr
 
 Additionally, when selecting from a consistent pool of options (e.g. such as picking from a single shelf of books), it is crucial to note a key principle. With each selection of an element $n$, the available options for the next selection reduce by one $(n−1)$ due to the previous selection. This reflects the diminishing pool of choices as elements are chosen **sequentially**.
 
+---
+
 **Well-known combinatoric operations involving factorials:**
-1. **Permutation** — is a distinct arrangement of **all (n)** elements of a finite set $S$  in a **particular order**.
+1. **Permutation** — is a distinct arrangement of **all (n)** elements of a finite set $S$  in a **particular order**.  
+   For example, if $S = \set{a, b, c}$, then $S$ has $6$ permutations $(3! = 6): abc, acb, bac, bca, cab, cba$.  
+   The formula is: $P(n) = n!$  
 
-   For example, if $S = \set{a, b, c}$, then $S$ has $6$ permutations $(3! = 6): abc, acb, bac, bca, cab, cba$.
+   e.g. the total number of ways to permutate these (6) books is: $P(n) = 6×5×4×3×2×1 = 6! = 720$.
 
-   The formula is: $P(n) = n!$
+2. **Arrangement (k-permutation)** — is a distinct arrangement of **particular (k)** elements of a finite set $S$ in a **particular order**.  
+   For example, if $S = \set{a, b, c}$, then possible 2-permutations $(k = 2)$ are: $ab, ac, ba, bc, ca, cb$.  
+   The formula is: $A_n^k = \frac{n!}{(n-k)!}$  
 
-2. **Arrangement (k-permutation)** — is a distinct arrangement of **particular (k)** elements of a finite set $S$ in a **particular order**.
+   e.g. the total number of ways to arrange these (4) books apart from the first (6) is:  $A_n^k = \frac{6!}{(6-4)!} = \frac{6×5×4×3×2!}{2!} = 6×5×4×3 = 360$
 
-   For example, if $S = \set{a, b, c}$, then possible 2-permutations $(k = 2)$ are: $ab, ac, ba, bc, ca, cb$.
-
-   The formula is: $A_n^k = \frac{n!}{(n-k)!}$
-
-3. **Combination**  — is an **unordered** arrangement of **particular (k)** elements of a finite set $S$.
-
-   For example, if $S = \set{a, b, c}$, then possible 2-combinations $(k = 2)$ are: $ab, ac, bc$.
-   
+3. **Combination**  — is an **unordered** arrangement of **particular (k)** elements of a finite set $S$.  
+   For example, if $S = \set{a, b, c}$, then possible 2-combinations $(k = 2)$ are: $ab, ac, bc$.  
    The formula is: $C_n^k = \frac{n!}{(n-k)!k!}$
+
+   e.g. the total number of ways to pack these (3) books apart from second shelf (4) is:  $C_n^k = \frac{4!}{(4-3)!3!} = \frac{4!}{1!3!} = \frac{4×3!}{1×3!} = \frac{4×1}{1×1} = 4$
    
-
-## Basic Example
-**Permutating 6 books on a shelf**  
-The total number of ways to permutate these (6) books is:  
-$P(n) = 6×5×4×3×2×1 = 6! = 720$.
-
-**Placing 4 book on the second shelf**  
-The total number of ways to arrange these (4) books apart from the first (6) is:  
-$A_n^k = \frac{6!}{(6-4)!} = \frac{6×5×4×3×2!}{2!} = 6×5×4×3 = 360$
-
-**Packing 3 books in a backpack**  
-The total number of ways to pack these (3) books apart from second shelf (4) is:  
-$C_n^k = \frac{4!}{(4-3)!3!} = \frac{4!}{1!3!} = \frac{4×3!}{1×3!} = \frac{4×1}{1×1} = 4$
-
-
-## Practical Example
-
-As you may wonder, what is the practical value of factorials and their application in real-life scenarios? This curiosity is an excellent direction. Indeed, it's not always about knowing all possible arrangements; the real goal is often to find the right one.
-
-Factorials prove to be a valuable tool in this challenge, as you observed earlier. Sometimes, to pinpoint the correct arrangement, you may need to consider all possibilities. This process of exploring all possibilities allows to approach challenges systematically, narrowing down choices and increasing the likelihood of finding the optimal solution, making it a powerful **strategy in problem-solving**.
-
-**Practical example in project management**  
-A team is tasked with scheduling a series of tasks for an upcoming event, aiming to arrange them in the most efficient order to meet deadlines and dependencies. Given the potential that there could be large number of tasks, instead of manually exploring all permutations, the team likely employs computational methods, leveraging algorithms that take advantage of factorial principles.
-
 
 # &#x23F3; Historical Notes
 Throughout human history, we have proven to be inherently drawn to stories, as understanding and retaining information is more effective through narrative and association. Realizing the potential, this historical section is included, offering a versatile approach to additional comprehension.
@@ -207,8 +213,12 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Introduction to Algorithms"** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+- **"Introduction to Algorithms"** — by CLRS
   - Appendix C: Counting and Probability.
+- **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
+  - Section 2.4: Running-Time Calculations.
+- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
+  - Section 5.1: Recursive Algorithms.
 
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/?LSNPUBID=JVFxdTr9V80&ranEAID%3B=JVFxdTr9V80&ranMID%3B=39197&ranSiteID%3B=JVFxdTr9V80-_3GVcwGZFWT4XsSuZYrgGA&utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_535397282064_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_9061020_._pd__._&matchtype=&gad_source=1&gclid=CjwKCAiA3aeqBhBzEiwAxFiOBgRFL7RkV-WJI9tPKml75et478Ai5oJigSKAivJ2txZ9Jhi0mhsTdxoC_foQAvD_BwE) on Udemy

@@ -1,9 +1,9 @@
 # &#128209; Table of Contents
-- [💡 What is Recursion](#-what-is-recursion)
+- [💡 What is the Recursion](#-what-is-the-recursion)
 - [💻 Implementation](#-implementation)
 - [📚 Call Stack](#-call-stack)
-- [📊 Analysis of Recursion](#-analysis-of-recursion)
-- [📝 Application of Recursion](#-application-of-recursion)
+- [📊 Analysis](#-analysis)
+- [📝 Application](#-application)
 - [⏳ Historical Notes](#-historical-notes)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
@@ -11,7 +11,7 @@
 - [🔏 License](#-license)
 
 
-# &#128161; What is Recursion
+# &#128161; What is the Recursion
 
 **Recursion** is a widely used idea in computer science to solve complex problems by breaking them down into simpler ones. It helps to develop elegant & efficient data structures and algorithms for all manner of applications. Many important implementations use recursion, so it's important to understand the concept.
 
@@ -96,7 +96,7 @@ for (unsigned char i = 0; i < 2 * halfLimit; ++i)
 
 
 
-# &#128202; Analysis of Recursion
+# &#128202; Analysis
 Certainly, by evaluating multiple candidate algorithms for a given problem, we can pinpoint the most efficient one. The process might be quite complex, considering various factors, such as implementation of a memory model, size of an input, extent of random, programming language, etc. So people came up with two widely adopted measurements to analyze the algorithms, which are no different for the recursive ones:
 1. **Space Complexity** — how the memory usage grows with the input size.
 2. **Time Complexity** — how the time requirements grow with the input size.
@@ -216,7 +216,7 @@ This recurrence is not solvable via Master Theorem, because $f(n) = n\log{_2}{n}
 
 
 
-# &#128221; Application of Recursion
+# &#128221; Application
 
 In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
 
