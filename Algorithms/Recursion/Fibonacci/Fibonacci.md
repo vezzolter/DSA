@@ -49,6 +49,8 @@ The program prompts the user to specify a number of an element, for which the Fi
 
 <p align="center"><img src="./img/demonstration.png"/></p>
 
+
+
 ## Recursive Paragidm
 Technically speaking, Fibonnaci sequence can be implemented using both iterative and recursive approach. For that particular problem iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations). Talking about last one, it is considered more efficient to use memoization or dynamic programming techniques to store previously computed Fibonacci numbers and avoid redundant calculations. However it is important to note that the chosen implementation deliberately emphasizes the recursive paradigm for clarity and instructional purposes.
 
@@ -59,69 +61,67 @@ Technically speaking, Fibonnaci sequence can be implemented using both iterative
 
 2. For the same reasons, the algorithm is implemented within the function named `fibonacci(int n)`, and this function is separated into distinct files `fibonacci.h` and `fibonacci.cpp` away from `main.cpp`:
    
-   ```cpp
-   int main()
-   {
-     // Greetings
-     std::cout << "Welcome to the 'Fibonacci Sequence' console application!\n\n";
+```cpp
+int main()
+{
+  // Greetings
+  std::cout << "Welcome to the 'Fibonacci Sequence' console application!\n\n";
 
-     // Input
-     int n = 0;
-     n = getUserInput();
+  // Input
+  int n = 0;
+  n = getUserInput();
 
-     // Output
-     std::cout << "The Fibonacci Number for element '" << n << "' is " << fibonacci(n) << ".\n";
+  // Output
+  std::cout << "The Fibonacci Number for element '" << n << "' is " << fibonacci(n) << ".\n";
 
-     // Exiting
-     std::cout << "\nThanks for using this program! Have a great day!\n";
-     std::cout << "Press <Enter> to exit...";
-     std::cin.clear(); // ensure that stream is in a good state
-     std::cin.ignore(32767, '\n'); // clear from any remaining chars
-     std::cin.get();
-     return 0;
-   }
-   ```
+  // Exiting
+  std::cout << "\nThanks for using this program! Have a great day!\n";
+  std::cout << "Press <Enter> to exit...";
+  std::cin.clear(); // ensure that stream is in a good state
+  std::cin.ignore(32767, '\n'); // clear from any remaining chars
+  std::cin.get();
+  return 0;
+}
+```
 
 3. The program starts by asking user enter the number of an element within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;45]$, because even though the Fibonacci Number of $46th$ element $(1,836,311,903)$ doesn't exceed the capacity of `int` variable $(2,147,483,647)$, the issue is with redundant calculations that occur during the recursive process.
    
-   ```cpp
-   int getUserInput()
+```cpp
+int getUserInput()
+{
+   int n = 0;
+
+   while (true)
    {
-     int n = 0;
+      std::cout << "Specify the number of an element (0 to 45): ";
+      std::cin >> n;
 
-     while (true)
-     {
-       std::cout << "Specify the number of an element (0 to 45): ";
-       std::cin >> n;
-
-       if (std::cin.fail() || n < 0 || n > 45)
-       {
+      if (std::cin.fail() || n < 0 || n > 45)
+      {
          std::cin.clear(); // ensure that stream is in a good state
          std::cin.ignore(32767, '\n'); // clear from any remaining chars
          std::cout << "Error: invalid input. Please try again.\n\n"; // inform
-       }
-       else { break; }
-     }
-
-     return n;
+      }
+      else { break; }
    }
-   ```
 
-   Here is an example of how this function validates the user's input:
-   
-   <p align="center"><img src="./img/validation.png"/></p>
+   return n;
+}
+```
+
+<p align="center"><img src="./img/validation.png"/></p>
 
 4. Then control flow is directed to the `fibonacci(int n)` function, where until the element is not $0th$ or $1th$, the recursive function will call itself, continuously progressing towards this condition:
     - **Base case** — considers first elements as $F_0=0$ and $F_1 = 1$, establishing a termination point for the recursion.
-    - **Recursive case** — adheres to the formula of general term $F_n = F_{n-1} + F_{n-2}$, breaking down the calculation, until base case is met.
-   
-   ```cpp
-   int fibonacci(int n)
-   {
-     if (n <= 1) { return n; } // Base case
-     else { return fibonacci(n - 1) + fibonacci(n - 2); } // Recursive case
-   }
-   ```
+    - **Recursive case** — adheres to the formula of general term $F_n = F_{n-1} + F_{n-2}$, breaking down the calculation, until base case is met.   
+
+```cpp
+int fibonacci(int n)
+{
+   if (n <= 1) { return n; } // Base case
+   else { return fibonacci(n - 1) + fibonacci(n - 2); } // Recursive case
+}
+```
 
 5. After completing its intended tasks, the program expresses gratitude and awaits closure.
 
@@ -130,28 +130,28 @@ Technically speaking, Fibonnaci sequence can be implemented using both iterative
 To enhance the clarity of the recursion process explanation, I'll illustrate it with a simple example using a relatively small number of elements, specifically $n=5$. This approach aims to avoid navigating to the development environment, where it becomes easier to lose track of the algorithm, especially with higher values.
 
 1. First things first, the program calls `main()` function and its frame is added on top of the call stack.
-   
-   <p align="center"><img src="./img/step_0.png" /></p>
+
+<p align="center"><img src="./img/step_0.png" /></p>
 
 2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:
-   
-   <p align="center"><img src="./img/step_1.png" /></p> 
+
+<p align="center"><img src="./img/step_1.png" /></p> 
 
 3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls:
-   
-   <p align="center"><img src="./img/step_2.png" /></p> 
+
+<p align="center"><img src="./img/step_2.png" /></p> 
 
 4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack.
-   
-   <p align="center"><img src="./img/step_3.png" /></p>
+
+<p align="center"><img src="./img/step_3.png" /></p>
 
 5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in onther area. Unfortunatelly, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming.
-   
-   <p align="center"><img src="./img/step_4.png" /></p> 
+
+<p align="center"><img src="./img/step_4.png" /></p> 
 
 6. So the control flow continues this process until we reach the initial (first) function call.
-   
-   <p align="center"><img src="./img/step_5.png"/></p>
+
+<p align="center"><img src="./img/step_5.png"/></p>
 
 
 
