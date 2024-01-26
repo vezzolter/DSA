@@ -48,28 +48,29 @@ Technically speaking, factorial can be implemented using both iterative and recu
 1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type. 
 
 2. For the same reasons, the algorithm is implemented within the function named `factorial(int n)`, and this function is separated into distinct files `factorial.h` and `factorial.cpp` away from `main.cpp`:
-   ```cpp
-   int main()
-   {
-      // Greetings
-      std::cout << "Welcome to the 'Factorial' console application!\n\n";
 
-      // Input
-      int n = 0;
-      n = getUserInput();
+```cpp
+int main()
+{
+   // Greetings
+   std::cout << "Welcome to the 'Factorial' console application!\n\n";
 
-      // Result
-      std::cout << "The factorial of " << n << " equals to " << factorial(n) << ".\n";
+   // Input
+   int n = 0;
+   n = getUserInput();
+
+   // Result
+   std::cout << "The factorial of " << n << " equals to " << factorial(n) << ".\n";
       
-      // Exiting
-      std::cout << "\nThanks for using this program! Have a great day!\n";
-      std::cout << "Press <Enter> to exit...";
-      std::cin.clear(); // ensure that stream is in a good state
-      std::cin.ignore(32767, '\n'); // clear from any remaining chars
-      std::cin.get();
-      return 0;
-   }
-   ```
+   // Exiting
+   std::cout << "\nThanks for using this program! Have a great day!\n";
+   std::cout << "Press <Enter> to exit...";
+   std::cin.clear(); // ensure that stream is in a good state
+   std::cin.ignore(32767, '\n'); // clear from any remaining chars
+   std::cin.get();
+   return 0;
+}
+```
 
 3. The program starts by asking user to enter a non-negative number within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;12]$, because the factorial of $13 (6,227,020,800)$ exceeds the capacity of `int` variable $(2,147,483,647)$.
    ```cpp
@@ -95,21 +96,19 @@ Technically speaking, factorial can be implemented using both iterative and recu
    }
    ```
 
-   Here is an example of how this function validates the user's input:
-   <p align="center">
-      <img src="./img/validation.png"/>   
-   </p>
+<p align="center"><img src="./img/validation.png"/></p>
 
 4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself, continuously progressing towards this condition:
     - **Base case** — adheres to the rule $0! = 1$, establishing a termination point for the recursion.
     - **Recursive case** — fulfills the other rule $n! = (n - 1)! × n$, breaking down the factorial calculation, until reaching the base case.
-   ```cpp
-   int factorial(int n)
-   {
-	   if (n == 0) { return 1; } // Base case
-	   else { return (n * factorial(n - 1)); }; // Recursive case
-   }
-   ```
+
+```cpp
+int factorial(int n)
+{
+	if (n == 0) { return 1; } // Base case
+	else { return (n * factorial(n - 1)); }; // Recursive case
+}
+```
 
 5. After completing its intended tasks, the program expresses gratitude and awaits closure.
 
@@ -117,30 +116,21 @@ Technically speaking, factorial can be implemented using both iterative and recu
 
 To offer a comprehensive insight into the fundamental mechanics of this recursive approach, here is presented a step-by-step execution of the algorithm along with a detailed description of its interaction with the call stack.
 
-
 1. Starting the recursion process with the input number 6
    
-   <p align="center">
-      <img src="./img/step_1.png" />
-   </p> 
+   <p align="center"><img src="./img/step_1.png" /></p> 
 
 2. Invoking the recursive case repeatedly until the specified criteria are met (6 times).
    
-   <p align="center">
-      <img src="./img/step_2.png" />
-   </p> 
+   <p align="center"><img src="./img/step_2.png" /></p> 
 
 3. Upon the 7th recursive call, when the value becomes 0, we initiate the base case, therefore existing the recursive process.
    
-   <p align="center">
-      <img src="./img/step_3.png" />
-   </p>
+   <p align="center"><img src="./img/step_3.png" /></p>
 
 4. This marks the phase where the recursion is concluding, and the process of returning the calculated value is underway.
    
-   <p align="center">
-      <img src="./img/step_4.png" />
-   </p> 
+   <p align="center"><img src="./img/step_4.png" /></p> 
 
 5. Continuing this process until we reach the initial (first) function call.
    
@@ -150,9 +140,9 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
 
 6. Concluding the recursion by returning the final calculated value.    
    
-   <p align="center">
-      <img src="./img/step_6.png" />
-   </p> 
+   <p align="center"><img src="./img/step_6.png" /></p> 
+
+
 
 # &#128202; Analysis
 The current implementation demonstrates inefficient utilization of recursion ([as mentioned earlier, during the discussion of the paradigm approach](#recursive-paragidm)). Simply by converting it into a loop, the running time can be significantly diminished, and there won't be any additional memory allocation involved at all (common designing principle discussed in [recursion](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) file).

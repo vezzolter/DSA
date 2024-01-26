@@ -202,7 +202,7 @@ Since $f(n) = O(n^{\log{_b}{a} - \epsilon})$, where $\epsilon = 1$, we can apply
 
 **Example for case 2**  
 $T(n) =T(\frac{2n}{3}) + 1$  
-We have $a=1, n=\frac{3}{2}, f(n) = 1$, thus $n^{\log{_b}{a}} = n^{\log{_{3/2}}{1}} = n^0 = 1$  
+We have $a=1, n=\frac{3}{2}, f(n) = 1$, thus $n^{\log{_b}{a}}=n^0=1$  
 Since $f(n) = \Theta(n^{\log{_b}{a}}) = \Theta(1)$, we can apply case 2 and conclude $T(n) = \Theta(\log{_2}{n})$.
 
 **Example for case 3**  
