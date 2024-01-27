@@ -197,17 +197,17 @@ Master Theorem works in a way it provides cases, which are quick way to determin
 
 **Example for case 1**  
 $T(n) = 9T(\frac{n}{3}) + n$
-We have $a=9, n=3, f(n) = n$, thus $n^{\log{_b}{a}} = n^{\log{_9}{3}} = \Theta(n^2)$  
+We have $a=9, b=3, f(n) = n$, thus $n^{\log{_b}{a}} = n^{\log{_3}{9}} = \Theta(n^2)$  
 Since $f(n) = O(n^{\log{_b}{a} - \epsilon})$, where $\epsilon = 1$, we can apply case 1 and conclude $T(n) = \Theta(n^2)$.
 
 **Example for case 2**  
 $T(n) =T(\frac{2n}{3}) + 1$  
-We have $a=1, n=\frac{3}{2}, f(n) = 1$, thus $n^{\log{_b}{a}}=n^0=1$  
+We have $a=1, b=\frac{3}{2}, f(n) = 1$, thus $n^{\log{_b}{a}}=n^0=1$  
 Since $f(n) = \Theta(n^{\log{_b}{a}}) = \Theta(1)$, we can apply case 2 and conclude $T(n) = \Theta(\log{_2}{n})$.
 
 **Example for case 3**  
 $T(n) = 3T(\frac{n}{4}) + n\log{_2}{n}$  
-We have $a=3, n=4, f(n) = n\log{_2}{n}$, thus $n^{\log{_b}{a}} = n^{\log{_4}{3}} = O(n^{0.793})$  
+We have $a=3, b=4, f(n) = n\log{_2}{n}$, thus $n^{\log{_b}{a}} = n^{\log{_4}{3}} = O(n^{0.793})$  
 Since $f(n) = \Omega(n^{\log{_b}{a} + \epsilon})$, where $\epsilon = 0.2$, we can apply case 3 but only if we can show that the regularity condition holds for $f(n)$ for sufficiently large $n$, we have that $af(\frac{n}{b}) = 3(\frac{n}{4})\log{_2}{\frac{n}{4}} \leqslant \frac{3}{4}n\log{_2}{n} = cf(n)$ for $c=\frac{3}{4}$. Consequently, conducting case 3, the solution is $T(n) = \Theta(n\log{_2}{n})$
 
 **Example for no match**  

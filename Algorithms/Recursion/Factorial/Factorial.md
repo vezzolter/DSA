@@ -73,28 +73,29 @@ int main()
 ```
 
 3. The program starts by asking user to enter a non-negative number within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;12]$, because the factorial of $13 (6,227,020,800)$ exceeds the capacity of `int` variable $(2,147,483,647)$.
-   ```cpp
-   int getUserInput()
+
+```cpp
+int getUserInput()
+{
+   int n = 0;
+   
+   while (true)
    {
-	   int n = 0;
-
-   	while (true)
-	   {
-	      std::cout << "Enter your number between 0 and 12: ";
-		   std::cin >> n;
-
-		   if (std::cin.fail() || n < 0 || n > 12)
-		   {
-			   std::cin.clear(); // ensure that stream is in a good state
-			   std::cin.ignore(32767, '\n'); // clear from any remaining chars
-			   std::cout << "Error: invalid input. Please try again.\n\n"; // inform
-		   }
-		   else { break; }
-	   }
-
-	   return n;
+      std::cout << "Enter your number between 0 and 12: ";
+      std::cin >> n;
+      
+      if (std::cin.fail() || n < 0 || n > 12)
+      {
+         std::cin.clear(); // ensure that stream is in a good state
+         std::cin.ignore(32767, '\n'); // clear from any remaining chars
+         std::cout << "Error: invalid input. Please try again.\n\n"; // inform
+      }
+      else { break; }
    }
-   ```
+
+	return n;
+}
+```
 
 <p align="center"><img src="./img/validation.png"/></p>
 
