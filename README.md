@@ -29,11 +29,23 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Greedy
   - Strings
 - DS
-  - Linear
-    - Array
-    - List
-    - Queue
-    - Stack 🔄
+  - Stack 🔄
+  - Array
+    - Static Array
+    - Dynamic Array
+  - Linked List
+    - Singly Linked List
+    - Doubly Linked List
+    - Circular Linked List
+  - Queue
+    - Linear Queue
+      - Input Restricted
+      - Output Restricted
+    - Circular Queue
+    - Priority Queue
+      - Ascending
+      - Descending
+    - Deque
   - Tree
   - Graph
   - Hash
