@@ -29,9 +29,9 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Greedy
   - Strings
 - DS
-  - Stack 🔄
+  - Stack
   - Array
-    - Static Array
+    - Static Array 🔄
     - Dynamic Array
   - Linked List
     - Singly Linked List
