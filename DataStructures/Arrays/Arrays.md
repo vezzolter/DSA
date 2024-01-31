@@ -18,7 +18,7 @@
 An array is a fundamental concept in computer programming. Arrays are widely used not only because they provide a natural, structured way to organize and access data, they also serve as a lower-level mechanism for memory management. The concept of an array encompasses both a basic data structure, as a part of programming language, and an abstract data structure (ADT), which involves a conceptual representation that defines operations without specifying the implementation details. As a part of this repository, this subsection explores the ADT through the illustration of an arrays, because it not only simplifies comprehension, but also establishes a solid foundation for approaching more intricate data structures.
 
 
-<p align="center"><img src="./img/intro.png"/></p>
+<p align="center"><img src="./img/memoryCells.png"/></p>
 
 ---
 
@@ -34,10 +34,13 @@ An array is a fundamental concept in computer programming. Arrays are widely use
 
 In C++, name of an array generates a pointer to the first element of the array (index 0), leading to one of the most prominent features of arrays, among various others — the combination of address arithmetic and array indexing.
 
-**Address Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
+<p align="center"><img src="./img/addressArithmetic.png"/></p>
+
+**Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
 
 ```cpp
-int *ptr = &value; // points onto object of type 'int'                           >>>   002CF9A4
+int value = 5;
+int *ptr = &value; // points onto variable of type 'int'                         >>>   002CF9A4
 cout << ptr + 1;   // point onto next value of int (+4 bytes)                          002CF9A8
 cout << ptr - 1;   // point onto prev value of int (-4 bytes)                          002CF9A0
 ```
@@ -55,203 +58,15 @@ When it comes to implementation, arrays can be broadly classified into two types
 
 <p align="center"><img src="./img/heapStack.png"/></p>
 
-1. **Static Array** — array with a fixed nature.
+1. **Static Array** — array with a fixed nature, possesses the following properties:
     - memory is allocated on the stack during compile time;
     - automatic memory management;
     - length can not be changed during runtime.
 
-Here is a simple example of printing an array using static array:
-```cpp
-// Preventing the pass of the actual array by using modifier const
-void printArray(const int* array, const int length)
-{
-    std::cout << "Array: ";
-    for (int i = 0; i < length; i++)
-        std::cout << array[i] << " ";
-}
-
-int main()
-{
-    int array[] = { 2, 4, 5, 7, 1, 2, 3, 6, 19 }; // compiler automatically identifies the length
-    const int length = sizeof(array) / sizeof(array[0]); // size of whole array / size of first element
-
-    printArray(array, length);
-
-    return 0;
-}
-```
-
-<p align="center"><img src="./img/demoStatic.png"/></p>
-
-
-1. **Dynamic Array** — array with a flexible nature.
+2. **Dynamic Array** — array with a flexible nature, possesses the following properties:
     - memory is allocated on the heap during runtime;
     - manual memory management (potential issues like dangling pointers and memory leaks);
     - length cannot be changed during runtime, but there is a resourceful alternative: creating a new one, copying values, and performing respective memory operations.
-
-
-Here is a simple example of matrix multiplication using dynamic arrays:
-
-```cpp
-void printMatrix(int** matrix, int rows, int cols)
-{
-    for (int row = 0; row < rows; row++)
-    {
-        for (int col = 0; col < cols; col++)
-            std::cout << matrix[row][col] << "\t";
-        std::cout << "\n";
-    }
-    std::cout << "\n";
-}
-
-void fillMatrix(int** matrix, int rows, int cols)
-{
-    for (int row = 0; row < rows; row++)
-    {
-        std::cout << "\nRow #" << row + 1 << "\n";
-        for (int col = 0; col < cols; col++)
-        {
-            std::cout << "[" << row + 1 << "]" << "[" << col + 1 << "] = ";
-            std::cin >> matrix[row][col];
-        }
-    }
-    std::cout << "\n";
-}
-
-// Generates a matrix with random numbers within range of [0, 9]
-void generateMatrix(int** matrix, int rows, int cols)
-{
-    srand(time(0));
-    for (int row = 0; row < rows; row++)
-        for (int col = 0; col < cols; col++)
-            matrix[row][col] = (rand() % 9) + 1;
-}
-
-// Choosing specified or random elements and printing them
-void chooseMatrixType(int** matrixA, int rowsA, int colsA, int** matrixB, int rowsB, int colsB)
-{
-    std::cout << "\nChoose a way you would like to create matrices:\n";
-    std::cout << "1 - Specify elements with keyboard\n";
-    std::cout << "2 - Generate random elements\n";
-    std::cout << ">>> ";
-    int choice = 0;
-    std::cin >> choice;
-    std::cout << "\n";
-    if (choice == 1)
-    {
-        // Filling matrices A&B via keyboard
-        std::cout << "Specify the elements for the Matrix A[" << rowsA << "x" << colsA << "]:\n";
-        fillMatrix(matrixA, rowsA, colsA);
-        std::cout << "Specify the elements for the Matrix B[" << rowsB << "x" << colsB << "]:\n";
-        fillMatrix(matrixB, rowsB, colsB);
-
-        // Showing filled matrices A&B
-        std::cout << "Filled Matrix A[" << rowsA << "x" << colsA << "]:\n";
-        printMatrix(matrixA, rowsA, colsA);
-        std::cout << "Filled Matrix B[" << rowsB << "x" << colsB << "]:\n";
-        printMatrix(matrixB, rowsB, colsB);
-    }
-    else if (choice == 2)
-    {
-        // Generating random matrices A&B
-        std::cout << "\nGenerating Matrices A&B with random numbers...\n\n";
-        generateMatrix(matrixA, rowsA, colsA);
-        generateMatrix(matrixB, rowsB, colsB);
-
-        // Showing randomly generated matrices A&B
-        std::cout << "Randomly Generated Matrix A[" << rowsA << "x" << colsA << "]:\n";
-        printMatrix(matrixA, rowsA, colsA);
-        std::cout << "Randomly Generated matrix B[" << rowsB << "x" << colsB << "]:\n";
-        printMatrix(matrixB, rowsB, colsB);
-    }
-    else
-    {
-        std::cout << "Oops, something wrong, please try again!";
-    }
-}
-void matrixMultiply(int** matrixA, int rowsA, int** matrixB, int rowsB, int colsB)
-{
-    // Creating&printing the resulting matrix C
-    // [axb]x[cxd]=[axc]
-    int** matrixC = new int* [rowsA];
-    for (int row = 0; row < rowsA; row++)
-        matrixC[row] = new int[colsB];
-
-    std::cout << "Resulting Matrix C[" << rowsA << "x" << colsB << "]:\n";
-    for (int row = 0; row < rowsA; row++)
-    {
-        for (int col = 0; col < colsB; col++)
-        {
-            // Initializing (removing trash)
-            matrixC[row][col] = 0;
-
-            for (int i = 0; i < rowsB; i++)
-                matrixC[row][col] += matrixA[row][i] * matrixB[i][col];
-
-            std::cout << matrixC[row][col] << "\t";
-        }
-        std::cout << "\n";
-    }
-    std::cout << "\n";
-
-
-    // Deleting the matrix C
-    for (int row = 0; row < rowsA; row++)
-        delete[] matrixC[row];
-    delete[] matrixC;
-}
-
-int main()
-{
-    std::cout << "\tWelcome to 'Matrix Mulptiplication' by vezzolter!\n";
-
-    // Setting the dimensions of matrices A&B
-    int rowsA = 2, colsA = 3, rowsB = 3, colsB = 2;
-
-    // Creating the matrices A&B
-    int** matrixA = new int* [rowsA];
-    for (int row = 0; row < rowsA; row++)
-        matrixA[row] = new int[colsA];
-
-    int** matrixB = new int* [rowsB];
-    for (int row = 0; row < rowsB; row++)
-        matrixB[row] = new int[colsB];
-
-    // Initializing the matrices A&B (removing trash)
-    for (int row = 0; row < rowsA; row++)
-        for (int col = 0; col < colsA; col++)
-            matrixA[row][col] = 0;
-
-    for (int row = 0; row < rowsB; row++)
-        for (int col = 0; col < colsB; col++)
-            matrixB[row][col] = 0;
-
-    // Choosing specified or random elements and printing them
-    chooseMatrixType(matrixA, rowsA, colsA, matrixB, rowsB, colsB);
-
-    // Multiplying matrix A&B
-    std::cout << "\nMultiplying Matrices A&B...\n\n";
-    matrixMultiply(matrixA, rowsA, matrixB, rowsB, colsB);
-
-    // Deleting the matrices A&B
-    for (int row = 0; row < rowsA; row++)
-        delete[] matrixA[row];
-    delete[] matrixA;
-
-    for (int row = 0; row < rowsB; row++)
-        delete[] matrixB[row];
-    delete[] matrixB;
-
-    // Exiting
-    std::cout << std::endl << "Press <Enter> to Exit...";
-    std::cin.get();
-    return 0;
-}
-``` 
-
-<p align="center"><img src="./img/matrixRand.png"/></p>
-<p align="center"><img src="./img/matrixSpec.png"/></p>
-
 
 
 # &#x1F4BB; Implementation 
@@ -263,44 +78,7 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 **Detailed Overview**:
 1. In order to prioritize simplicity and highlight data structure itself, `int` is picked as sole data type.
-2. As mentioned earlier, a crucial aspect of arrays lies in the synergy between array indexing and address arithmetic. The illustration of a static array in C++, exemplified by `std::array`, achieves this through the utilization of the entire iterator class as one of its components. In this specific implementation, the detailed explanation was omitted to streamline the focus on fundamental learning, sidestepping unnecessary intricacies pertinent to development, such as:
-
-```cpp
-// Iterators
-int* begin();
-const int* cbegin() const;
-int* end();
-const int* cend() const;
-int* rbegin();
-const int* crbegin() const;
-int* rend();
-const int* crend() const;
-
-// Iterator to the beginning of the array without bounds checking
-int* StaticArr::begin() { return mArr; }
-
-// Const iterator to the beginning of the array without bounds checking
-const int* StaticArr::cbegin() const { return mArr; }
-
-// Iterator to one-past-the-end of the array without bounds checking
-int* StaticArr::end() {	return mArr + mLength; }
-
-// Const iterator to one-past-the-end of the array without bounds checking
-const int* StaticArr::cend() const { return mArr + mLength; }
-
-// Reverse iterator to the beginning of the array without bounds checking
-int* StaticArr::rbegin() { return mArr + mLength - 1; }
-
-// Const reverse iterator to the beginning of the array without bounds checking
-const int* StaticArr::crbegin() const { return mArr + mLength - 1; }
-
-// Reverse iterator to one-past-the-end of the array without bounds checking
-int* StaticArr::rend() { return mArr - 1; }
-
-// Const reverse iterator to one-past-the-end of the array without bounds checking
-const int* StaticArr::crend() const { return mArr - 1; }
-```
-
+2. As mentioned earlier, a crucial aspect of arrays lies in the synergy between array indexing and address arithmetic. The illustration of a static array in C++, exemplified by `std::array`, achieves this through the utilization of the entire iterator class as one of its components. In this specific implementation, the iterator related functionality was omitted to streamline the focus on learning ADT basics, e.g. methods like `int* begin();`, `const int* cbegin() const;`, or `int* rbegin();` are absent.
 3. Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::array` was skipped.
 4. The ADT is implemented within the class named `StaticArr`, and this class is divided into two distinct files - header and source. This is done because of encapsulation, modularity and compilation efficiency.
 5. The declaration of the class is presented in `StaticArr.h`:
@@ -499,6 +277,7 @@ For contact details and additional information, please refer to the [root direct
   
 &#127760;**Web-Resources:**
 - [Introduction to Arrays](https://www.geeksforgeeks.org/introduction-to-arrays-data-structure-and-algorithm-tutorials/)
+- [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)
 - [Array (ADT)](https://brilliant.org/wiki/arrays-adt/#:~:text=The%20array%20is%20a%20basic,types%20like%20instances%20of%20classes.)
 - [Difference between Static Arrays and Dynamic Arrays](https://www.geeksforgeeks.org/difference-between-static-arrays-and-dynamic-arrays/)
 - [std::array](https://en.cppreference.com/w/cpp/container/array)
