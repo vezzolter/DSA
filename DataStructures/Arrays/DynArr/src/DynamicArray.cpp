@@ -10,7 +10,7 @@
 // ------------------------
 
 // Default constructor
-DynArr::DynArr() : _data(nullptr), _size(0) {}
+DynArr::DynArr() : _size(0), _data(nullptr) {}
 
 // Parameterized constructor
 // Note: without bounds checking

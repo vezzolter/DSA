@@ -93,31 +93,29 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 class StaticArr
 {
 private:
-	int mLength;
-	int* mArr;
+	static const int MAX_SIZE = 100;  // Maximum size for the static array
+	int _data[MAX_SIZE];  // Static array to store elements
+	int _size;  // Current size of the array
+	
 
 public:
 	// Special Member Functions
 	explicit StaticArr();
-	explicit StaticArr(int length); 
+	explicit StaticArr(int size); 
 	explicit StaticArr(const StaticArr& src) = default;
 	StaticArr& operator=(const StaticArr& rhs) = default;
 	~StaticArr();
 
 
 	// Element Access
-	int& operator[](const int index);
+	int& operator[](const int pos);
 	int front();
 	int back();
 
 
 	// Capacity
-	bool isEmpty() const;
+	bool empty() const;
 	int size() const;
-
-
-	// Operations
-	void fill(const int val);
 };
 ```
 
@@ -129,17 +127,22 @@ public:
 // ------------------------
 
 // Default constructor
-StaticArr::StaticArr() : mLength(0), mArr(nullptr) {}
-
-// Parameterized constructor without bounds checking
-StaticArr::StaticArr(int length) : mLength(length)
+StaticArr::StaticArr() : _size(0)
 {
-	if (length > 0) { mArr = new int[length]; }
-	else { mArr = nullptr; }
+    for (int i = 0; i < MAX_SIZE; ++i)
+        _data[i] = 0;
+}
+
+// Parameterized constructor
+StaticArr::StaticArr(int size) : _size(size)
+{
+    // Initialize the array with default values
+    for (int i = 0; i < MAX_SIZE; ++i)
+        _data[i] = 0;
 }
 
 // Destructor
-StaticArr::~StaticArr() { delete[] mArr; }
+StaticArr::~StaticArr() { }
 
 
 // --------------
@@ -147,13 +150,13 @@ StaticArr::~StaticArr() { delete[] mArr; }
 // --------------
 
 // Access the element at the specified index without bounds checking
-int& StaticArr::operator[](const int index) { return mArr[index]; }
+int& StaticArr::operator[](const int pos) { return _data[pos]; }
 
 // Access the first element of the container without bounds checking
-int StaticArr::front() { return mArr[0]; }
+int StaticArr::front() { return _data[0]; }
 
 // Access the last element of the container without bounds checking
-int StaticArr::back() { return mArr[mLength - 1]; }
+int StaticArr::back() { return _data[_size - 1]; }
 
 
 
@@ -162,22 +165,10 @@ int StaticArr::back() { return mArr[mLength - 1]; }
 // --------
 
 // Check if the container is empty
-bool StaticArr::isEmpty() const { return (mLength == 0); }
+bool StaticArr::empty() const { return (_size == 0); }
 
 // Get the size of the container
-int StaticArr::size() const { return (isEmpty() ? 0 : mLength); }
-
-
-// ----------
-// Operations
-// ----------
-
-// Fill the container with specified value
-void StaticArr::fill(const int val)
-{
-	for (int i = 0; i < mLength; ++i)
-		mArr[i] = val;
-}
+int StaticArr::size() const { return _size; }
 ```
 
 7. A demonstration of the array's capabilities is showcased in the `main()` function, situated within the `main.cpp` file.
@@ -187,34 +178,36 @@ int main()
 	// Greetings
 	std::cout << "Welcome to the 'Static Array' console application!\n\n";
 
-	// Create the array with 10 uninitialized elements
+	// Create the array with 10 elements
 	StaticArr myArr(10);
+
+	// Display the array
+	std::cout << "Initial array:\t";
+	for (int i = 0; i < myArr.size(); i++)
+		std::cout << myArr[i] << " ";
+	std::cout << std::endl;
 
 	// Fill the array with numbers (0-10)
 	for (int i = 0; i < 10; i++)
 		myArr[i] = i + 1;
 
 	// Display the array
-	std::cout << "Array: ";
+	std::cout << "Filled array:\t";
 	for (int i = 0; i < myArr.size(); i++)
 		std::cout << myArr[i] << " ";
 	std::cout << std::endl;
 
 	// Showcase of the capacity
-	if (myArr.isEmpty()) { std::cout << "The array is empty. It has " << myArr.size() << " elements.\n"; }
-	else { std::cout << "The array is not empty. It has " << myArr.size() << " elements.\n"; }
+	if (!myArr.empty())
+	{
+		std::cout << "\nAs long as, the array has " << myArr.size() << " elements, we can name:\n";
 
-	// Showcase of the element access
-	std::cout << "First elements is: " << myArr.front() << std::endl;
-	std::cout << "Second elements is: " << myArr[1] << std::endl;
-	std::cout << "Last elements is: " << myArr.back() << std::endl;
 
-	// Showcase of the operations
-	myArr.fill(1);
-	std::cout << "Filling the array with 1: ";
-	for (int i = 0; i < myArr.size(); i++)
-		std::cout << myArr[i] << " ";
-	std::cout << std::endl;
+		// Showcase of the element access
+		std::cout << " - first element:\t" << myArr.front() << std::endl;
+		std::cout << " - next element:\t" << myArr[1] << std::endl;
+		std::cout << " - last element:\t" << myArr.back() << std::endl;
+	}
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";
@@ -248,9 +241,9 @@ int main()
 class DynArr
 {
 private:
-	int* _data;
 	int _size;
-
+	int* _data;
+	
 public:
 	// Special Member Functions
 	explicit DynArr();
@@ -284,7 +277,7 @@ public:
 // ------------------------
 
 // Default constructor
-DynArr::DynArr() : _data(nullptr), _size(0) {}
+DynArr::DynArr() : _size(0), _data(nullptr) {}
 
 // Parameterized constructor
 // Note: without bounds checking
@@ -488,9 +481,9 @@ int main()
 	std::cout << std::endl;
 
 	// Showcase of the element access
-	std::cout << "First elements is: " << arr_1.front() << std::endl;
-	std::cout << "Second elements is: " << arr_1[1] << std::endl;
-	std::cout << "Last elements is: " << arr_1.back() << std::endl;
+	std::cout << " - first element:\t" << arr_1.front() << std::endl;
+	std::cout << " - next element:\t" << arr_1[1] << std::endl;
+	std::cout << " - last element:\t" << arr_1.back() << std::endl;
 	std::cout << std::endl;
 
 	// Showcase of the capacity
@@ -546,6 +539,7 @@ int main()
 Currently in Progress...
 
 
+
 # &#128221; Application
 
 Types of Operations:
@@ -556,8 +550,6 @@ Types of Operations:
 - Sorting — maintaining the order of elements in the array.
 
 ---
-
-
 
 
 

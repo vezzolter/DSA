@@ -10,17 +10,22 @@
 // ------------------------
 
 // Default constructor
-StaticArr::StaticArr() : mLength(0), mArr(nullptr) {}
-
-// Parameterized constructor without bounds checking
-StaticArr::StaticArr(int length) : mLength(length)
+StaticArr::StaticArr() : _size(0)
 {
-	if (length > 0) { mArr = new int[length]; }
-	else { mArr = nullptr; }
+    for (int i = 0; i < MAX_SIZE; ++i)
+        _data[i] = 0;
+}
+
+// Parameterized constructor
+StaticArr::StaticArr(int size) : _size(size)
+{
+    // Initialize the array with default values
+    for (int i = 0; i < MAX_SIZE; ++i)
+        _data[i] = 0;
 }
 
 // Destructor
-StaticArr::~StaticArr() { delete[] mArr; }
+StaticArr::~StaticArr() { }
 
 
 // --------------
@@ -28,13 +33,13 @@ StaticArr::~StaticArr() { delete[] mArr; }
 // --------------
 
 // Access the element at the specified index without bounds checking
-int& StaticArr::operator[](const int index) { return mArr[index]; }
+int& StaticArr::operator[](const int pos) { return _data[pos]; }
 
 // Access the first element of the container without bounds checking
-int StaticArr::front() { return mArr[0]; }
+int StaticArr::front() { return _data[0]; }
 
 // Access the last element of the container without bounds checking
-int StaticArr::back() { return mArr[mLength - 1]; }
+int StaticArr::back() { return _data[_size - 1]; }
 
 
 
@@ -43,19 +48,7 @@ int StaticArr::back() { return mArr[mLength - 1]; }
 // --------
 
 // Check if the container is empty
-bool StaticArr::isEmpty() const { return (mLength == 0); }
+bool StaticArr::empty() const { return (_size == 0); }
 
 // Get the size of the container
-int StaticArr::size() const { return (isEmpty() ? 0 : mLength); }
-
-
-// ----------
-// Operations
-// ----------
-
-// Fill the container with specified value
-void StaticArr::fill(const int val)
-{
-	for (int i = 0; i < mLength; ++i)
-		mArr[i] = val;
-}
+int StaticArr::size() const { return _size; }

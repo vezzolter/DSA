@@ -7,29 +7,27 @@
 class StaticArr
 {
 private:
-	int mLength;
-	int* mArr;
+	static const int MAX_SIZE = 100;  // Maximum size for the static array
+	int _data[MAX_SIZE];  // Static array to store elements
+	int _size;  // Current size of the array
+	
 
 public:
 	// Special Member Functions
 	explicit StaticArr();
-	explicit StaticArr(int length); 
+	explicit StaticArr(int size); 
 	explicit StaticArr(const StaticArr& src) = default;
 	StaticArr& operator=(const StaticArr& rhs) = default;
 	~StaticArr();
 
 
 	// Element Access
-	int& operator[](const int index);
+	int& operator[](const int pos);
 	int front();
 	int back();
 
 
 	// Capacity
-	bool isEmpty() const;
+	bool empty() const;
 	int size() const;
-
-
-	// Operations
-	void fill(const int val);
 };

@@ -27,9 +27,9 @@ int main()
 	std::cout << std::endl;
 
 	// Showcase of the element access
-	std::cout << "First elements is: " << arr_1.front() << std::endl;
-	std::cout << "Second elements is: " << arr_1[1] << std::endl;
-	std::cout << "Last elements is: " << arr_1.back() << std::endl;
+	std::cout << " - first element:\t" << arr_1.front() << std::endl;
+	std::cout << " - next element:\t" << arr_1[1] << std::endl;
+	std::cout << " - last element:\t" << arr_1.back() << std::endl;
 	std::cout << std::endl;
 
 	// Showcase of the capacity

@@ -7,9 +7,9 @@
 class DynArr
 {
 private:
-	int* _data;
 	int _size;
-
+	int* _data;
+	
 public:
 	// Special Member Functions
 	explicit DynArr();
