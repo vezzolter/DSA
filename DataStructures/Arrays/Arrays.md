@@ -32,6 +32,19 @@ An array is a fundamental concept in computer programming. Arrays are widely use
 
 ---
 
+**Common Operations for ADT Arrays:**
+- **Traversal** — iterating through the elements of an array.
+- **Insertion** — adding a new element to the array.
+- **Deletion** — removing an element from the array.
+- **Searching** — locating a specific element within the array.
+- **Sorting** — arranging the elements of the array in a specific order.
+- **Updating** — changing the value of an existing element.
+- **Merging** — combining two arrays into one.
+- **Splitting** — dividing an array into two or more parts.
+- **Filtering** — selecting specific elements based on certain criteria.
+
+---
+
 In C++, name of an array generates a pointer to the first element of the array (index 0), leading to one of the most prominent features of arrays, among various others — the combination of address arithmetic and array indexing.
 
 <p align="center"><img src="./img/addressArithmetic.png"/></p>
@@ -536,26 +549,45 @@ int main()
 
 
 # &#128202; Analysis
-Currently in Progress...
+
+**Advantages:**
+- **Efficient Element Acess** — arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity of $(O(1))$.
+- **Efficiency Memory Utilization** — as arrays store data in contiguous memory locations, preventing additional memory wastage. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
+- **Convenient Multi-Dimensional Representations** — arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matries.
+
+---
+
+**Disadvantages:**
+- **Allocated Memory is Static** — in scenarios where the size needs adjustments or insertion leads to the shift of other elements, then resourceful operation of creating a new array and copying data arises.
+- **Enourmous Single Block** — allocating a large array can be problematic, especially in systems with limited memory, which potentially can cause a crash.
+- **Wasted Space** — if an array is not fully populated, there may be wasted space in the allocated memory. This can be a concern in memory-constrained environments.
+- **Out-of-Bound Access** — if an index outside the valid range is used, it can lead to unpredictable behavior or even program crashes.
 
 
 
 # &#128221; Application
 
-Types of Operations:
-- Traversal — traverse through the elements of an array.
-- Insertion — inserting a new element in an array.
-- Deletion — deleting element from the array.
-- Searching — search for an element in the array.
-- Sorting — maintaining the order of elements in the array.
+**Some of the Most Well-Known Use Cases:**
+- **Data Storage** — arrays are fundamental for storing collections of data, such as lists of numbers, strings, or objects. They provide a structured and efficient way to organize and access this information.
 
----
+- **Algorithms and Data Structures** — many algorithms and data structures rely on arrays. Sorting algorithms, searching algorithms, and various data structures like stacks, queues, and hash tables often use arrays as their underlying structure.
+
+- **Image and Signal Processing** — arrays are commonly used to represent images or signals in applications like computer vision and audio processing. The pixel values of an image or the samples of a signal can be stored in arrays.
+
+- **Text Processing** — arrays are extensively used in handling strings and characters. Text processing tasks, like searching, parsing, or manipulating strings, often involve the use of arrays.
+
+- **Matrices and Linear Algebra** — matrices, a specialized form of 2D arrays, are fundamental in linear algebra. They are extensively used in scientific computing, graphics, physics simulations, and machine learning.
+
+- **Database Management** — arrays play a role in managing and processing data within databases. Tabular data, such as rows and columns in a database table, can be represented using arrays.
+
+- **Game Development** — arrays are crucial in game development for managing various game elements, such as characters, items, or terrain data. They provide a structured way to organize and manipulate in-game entities.
+
+- **Embedded Systems** — in embedded systems programming, arrays are often used to manage sensor data, control outputs, or store configuration information due to their simplicity and efficiency.
 
 
 
 # &#x23F3; Historical Notes
-Currently in Progress...
-
+The concept of organizing data into ordered sequences has evolved over time and there is no single individual behind array. Even though, the early assembly languages and machine languages also had primitive constructs for managing memory, but they lacked the high-level abstraction and expressiveness that arrays provide in modern programming languages. One notable early contribution to this concept, in the field of programming, comes from the **Fortran** programming language, which in the 1957 provided array notation and syntax for working with vectors and matrices efficiently.
 
 
 # &#129309; Contributing
@@ -586,12 +618,15 @@ For contact details and additional information, please refer to the [root direct
    - Course 2: Ordered Data Structures
   
 &#127760;**Web-Resources:**
+- [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)#:~:text=In%20computer%20science%2C%20an%20array,one%20array%20index%20or%20key.) (Wikipedia)
 - [Introduction to Arrays](https://www.geeksforgeeks.org/introduction-to-arrays-data-structure-and-algorithm-tutorials/)
 - [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)
 - [Array (ADT)](https://brilliant.org/wiki/arrays-adt/#:~:text=The%20array%20is%20a%20basic,types%20like%20instances%20of%20classes.)
 - [Difference between Static Arrays and Dynamic Arrays](https://www.geeksforgeeks.org/difference-between-static-arrays-and-dynamic-arrays/)
 - [std::array](https://en.cppreference.com/w/cpp/container/array)
 - [std::vector](https://en.cppreference.com/w/cpp/container/vector)
+- [Applications, Advantages and Disadvantages of Array](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+- [What are the Advantages and Disadvantages of Arrays?](https://www.prepbytes.com/blog/arrays/advantages-and-disadvantages-of-arrays/)
 
 # &#128271; License
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
