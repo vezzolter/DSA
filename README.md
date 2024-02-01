@@ -30,9 +30,10 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Strings
 - DS
   - Stack
-  - Array
-    - Static Array 🔄
-    - Dynamic Array
+  - Arrays
+    - [Arrays.md](https://github.com/vezzolter/DSA/blob/static-arr/DataStructures/Arrays/Arrays.md) ✅
+    - [Static Array](https://github.com/vezzolter/DSA/tree/static-arr/DataStructures/Arrays/StaticArr) ✅
+    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/static-arr/DataStructures/Arrays/DynArr) ✅
   - Linked List
     - Singly Linked List
     - Doubly Linked List
