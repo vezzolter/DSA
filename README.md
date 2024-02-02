@@ -22,7 +22,19 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Sorting
   - Search
+    - Linear Search
+    - Binary Seacrh
+    - Interpolation Search
+    - Jump Search
+    - Exponential Search
   - PRNG
+    - PRNG.md
+    - Middle-Square Method
+    - Linear Conguential Generator
+    - Permuted Congruential Generator 
+    - Mersenne Twister
+    - Xorshift
+    - Xoshiro128
   - DnC
   - Graph
   - Dynamic
@@ -30,14 +42,15 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Strings
 - DS
   - Stack
-  - Arrays
-    - [Arrays.md](https://github.com/vezzolter/DSA/blob/static-arr/DataStructures/Arrays/Arrays.md) ✅
-    - [Static Array](https://github.com/vezzolter/DSA/tree/static-arr/DataStructures/Arrays/StaticArr) ✅
-    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/static-arr/DataStructures/Arrays/DynArr) ✅
-  - Linked List
-    - Singly Linked List
-    - Doubly Linked List
-    - Circular Linked List
+  - Array
+    - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
+    - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArr) ✅
+    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynArr) ✅
+  - Linked List 
+    - Lists.md 🔄
+    - Singly Linked List 🔄
+    - Doubly Linked List 🔄
+    - Circular Linked List 🔄
   - Queue
     - Linear Queue
       - Input Restricted
