@@ -1,0 +1,67 @@
+# &#128209; Table of Contents
+- [💡 What is the Linked List](#-what-is-the-linked-list)
+- [💻 Implementation](#-implementation)
+  - [Singly Linked List](#singly-linked-list)
+  - [Doubly Linked List](#doubly-linked-list)
+  - [Circular Linked List](#circular-linked-list)
+- [📊 Analysis](#-analysis)
+- [📝 Application](#-application)
+- [⏳ Historical Notes](#-historical-notes)
+- [🤝 Contributing](#-contributing)
+- [📧 Contact Information](#-contact-information)
+- [🙏 Credits](#-credits)
+- [🔏 License](#-license)
+
+
+
+# &#128161; What is the Linked List
+Currently in progress...
+
+
+# &#x1F4BB; Implementation 
+Currently in progress...
+
+##  Singly Linked List
+Currently in progress...
+
+##  Doubly Linked List
+Currently in progress...
+
+##  Circular Linked List
+Currently in progress...
+
+
+# &#128202; Analysis
+Currently in progress...
+
+
+
+# &#128221; Application
+Currently in progress...
+
+
+
+# &#x23F3; Historical Notes
+Currently in progress...
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
+
+
+
+# &#128231; Contact Information
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+
+
+
+# &#128591; Credits
+Currently in progress...
+
+
+
+# &#128271; License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
