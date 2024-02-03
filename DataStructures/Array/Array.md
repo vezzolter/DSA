@@ -591,7 +591,7 @@ The concept of organizing data into ordered sequences has evolved over time and 
 
 
 # &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
+Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 
