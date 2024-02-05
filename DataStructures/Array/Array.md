@@ -15,7 +15,9 @@
 
 # &#128161; What is the Array as ADT
 
-An array is a fundamental concept in computer programming. Arrays are widely used not only because they provide a natural, structured way to organize and access data, they also serve as a lower-level mechanism for memory management. The concept of an array encompasses both a basic data structure, as a part of programming language, and an abstract data structure (ADT), which involves a conceptual representation that defines operations without specifying the implementation details. As a part of this repository, this subsection explores the ADT through the illustration of an arrays, because it not only simplifies comprehension, but also establishes a solid foundation for approaching more intricate data structures.
+An array is a fundamental concept in computer programming. Arrays are widely used not only because they provide a natural, structured way to organize and access data, they also serve as a lower-level mechanism for memory management. The concept of an array encompasses both a basic data structure, as a part of programming language, and an abstract data structure (ADT), which involves a conceptual representation that defines operations without specifying the implementation details.
+
+This subsection explores the ADT of Arrays not only to enhance understanding, but also to establish a solid foundation for approaching more intricate data structures.
 
 
 <p align="center"><img src="./img/memoryCells.png"/></p>
@@ -609,13 +611,15 @@ For contact details and additional information, please refer to the [root direct
   - Section 3.2: Arrays
 - **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
   - Section 3.1: Abstract Data Types
+  - Section 3.3: `vector` and `list` in the STL
+  - Section 3.4: implementation of `vector`
   
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/?LSNPUBID=JVFxdTr9V80&ranEAID%3B=JVFxdTr9V80&ranMID%3B=39197&ranSiteID%3B=JVFxdTr9V80-_3GVcwGZFWT4XsSuZYrgGA&utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_535397282064_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_9061020_._pd__._&matchtype=&gad_source=1&gclid=CjwKCAiA3aeqBhBzEiwAxFiOBgRFL7RkV-WJI9tPKml75et478Ai5oJigSKAivJ2txZ9Jhi0mhsTdxoC_foQAvD_BwE) on Udemy
    - Section 6: Arrays Representations
    - Section 7: Array ADT
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
-   - Course 2: Ordered Data Structures
+   - Course 2.1: Linear Structures
   
 &#127760;**Web-Resources:**
 - [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)#:~:text=In%20computer%20science%2C%20an%20array,one%20array%20index%20or%20key.) (Wikipedia)
