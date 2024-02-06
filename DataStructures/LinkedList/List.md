@@ -30,9 +30,26 @@ This subsection explores the Abstract Data Type (ADT) of Linked List not only to
 - **Node** — each individual element contained within the list. Consists of two main components: data and pointer.
 - **Data** — holds the actual value associated with the node.
 - **Pointer** — stores the memory address of the next node in the sequence.
-- **Head** — pointer to the first node in the list.
-- **Tail** — pointer to the last node in the list.
+- **Head** — first node in the list.
+- **Tail** — last node in the list.
 
+---
+
+When it comes to implementation, lists can be broadly classified into three types: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
+
+**Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
+
+<p align="center"><img src="./img/structureSLL.png"/></p>
+
+**Doubly Linked List** — is a list, where each node contains an additional pointer to the previous node in the sequence enabling bidirectional traversal: forward from the head to the tail and backward from the tail to the head. The first node's "previous pointer" and the last node's "next pointer" point to nullptr, indicating the start and end of the list, respectively.
+
+<p align="center"><img src="./img/structureDLL.png"/></p>
+
+**Circular Linked List** — is a list, where the last node points back to the head node. Allow for circular traversal, which can be unidirectional (if nodes are singly linked) or bidirectional (if nodes are doubly linked).
+
+<p align="center"><img src="./img/structureCLL.png"/></p>
+
+---
 
 
 # &#x1F4BB; Implementation 
