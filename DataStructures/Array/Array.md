@@ -33,42 +33,6 @@ This subsection explores the ADT of Arrays not only to enhance understanding, bu
 <p align="center"><img src="./img/arrayIndices.png"/></p>
 
 ---
-
-**Common Operations for ADT Arrays:**
-- **Traversal** — iterating through the elements of an array.
-- **Insertion** — adding a new element to the array.
-- **Deletion** — removing an element from the array.
-- **Searching** — locating a specific element within the array.
-- **Sorting** — arranging the elements of the array in a specific order.
-- **Updating** — changing the value of an existing element.
-- **Merging** — combining two arrays into one.
-- **Splitting** — dividing an array into two or more parts.
-- **Filtering** — selecting specific elements based on certain criteria.
-
----
-
-In C++, name of an array generates a pointer to the first element of the array (index 0), leading to one of the most prominent features of arrays, among various others — the combination of address arithmetic and array indexing.
-
-<p align="center"><img src="./img/addressArithmetic.png"/></p>
-
-**Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
-
-```cpp
-int value = 5;
-int *ptr = &value; // points onto variable of type 'int'                         >>>   002CF9A4
-cout << ptr + 1;   // point onto next value of int (+4 bytes)                          002CF9A8
-cout << ptr - 1;   // point onto prev value of int (-4 bytes)                          002CF9A0
-```
-
-**Array Indexing** — process of accessing elements within an array, typically achieved internally through address arithmetic.
-```cpp
-int arr[5] = {7, 8, 2}; // simple static array                value:    7     8    2
-cout << array[1];   //  this                                  index:    0     1    2
-cout << *(array+1); //  equals to this                   expression: array  a+1  a+2
-```
-
----
-
 When it comes to implementation, arrays can be broadly classified into two types: static and dynamic. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
 
 <p align="center"><img src="./img/heapStack.png"/></p>
@@ -82,6 +46,80 @@ When it comes to implementation, arrays can be broadly classified into two types
     - memory is allocated on the heap during runtime;
     - manual memory management (potential issues like dangling pointers and memory leaks);
     - length cannot be changed during runtime, but there is a resourceful alternative: creating a new one, copying values, and performing respective memory operations.
+
+---
+
+**Common Operations for ADT Array:**
+- **Traversal** — iterating through the elements of the array.
+- **Acess** — retrieving or updating the value of an existing element.
+- **Insertion** — adding a new element to the array.
+- **Deletion** — removing an element from the array.
+- **Search** — locating a specific element within the array.
+- **Sorting** — arranging the elements of the array in a specific order.
+- **Merging** — combining two arrays into one.
+- **Splitting** — dividing the array into two or more parts.
+- **Filtering** — selecting specific elements based on certain criteria.
+
+---
+
+**Operations That Don't Interfere With Size**
+
+One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
+
+
+**Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
+
+```cpp
+int value = 5;
+int *ptr = &value; // points onto variable of type 'int'                         >>>   002CF9A4
+cout << ptr + 1;   // point onto next value of int (+4 bytes)                          002CF9A8
+cout << ptr - 1;   // point onto prev value of int (-4 bytes)                          002CF9A0
+```
+<p align="center"><img src="./img/addressArithmetic.png"/></p>
+
+**Array Indexing** — process of accessing elements within an array, typically achieved internally through address arithmetic.
+```cpp
+int arr[5] = {7, 8, 2}; // simple static array                value:    7     8    2
+cout << array[1];   //  this                                  index:    0     1    2
+cout << *(array+1); //  equals to this                   expression: array  a+1  a+2
+```
+
+---
+
+**Operations That Interfere With Size**
+
+Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
+
+```cpp
+// Simple mimic of how push back function of a std::vector works for adding new element
+void push_back(const T& element)
+{
+	// If capacity is insufficient,
+    if (size >= capacity)
+	{
+		// Create new array with doubled capacity
+        capacity = (capacity == 0) ? 1 : capacity * 2;
+        T* newData = new T[capacity];
+
+        // Copy existing elements to new array
+        for (size_t i = 0; i < size; ++i)
+            newData[i] = data[i];
+
+        // Add new element to the end
+        newData[size] = element;
+
+        // Delete old array and update pointer
+        delete[] data;
+        data = newData;
+    }
+	else
+	{
+        // Add new element to existing array
+        data[size] = element;
+    }
+    ++size;
+}
+```
 
 
 # &#x1F4BB; Implementation 
