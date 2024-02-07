@@ -62,7 +62,7 @@ When it comes to implementation, arrays can be broadly classified into two types
 
 ---
 
-**Operations That Don't Interfere With Size**
+**"Size-Consistent" Operations**
 
 One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
 
@@ -86,7 +86,7 @@ cout << *(array+1); //  equals to this                   expression: array  a+1 
 
 ---
 
-**Operations That Interfere With Size**
+**"Size-Manipulating" Operations**
 
 Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
 
