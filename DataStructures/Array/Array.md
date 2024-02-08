@@ -123,7 +123,7 @@ void push_back(const T& element)
 
 
 # &#x1F4BB; Implementation 
-Discussing ADT, it's evident that well-established and widely recognized implementations already exist for both static and dynamic arrays. In the context of C++, `std::array` is a representative of static arrays, and `std::vector` stands as the counterpart for dynamic arrays. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these arrays. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.However, within the scope of this subsection, we will closely examine simplified versions of these arrays. This exploration with simplification is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
+Discussing ADT, it's evident that well-established and widely recognized implementations already exist for both static and dynamic arrays. In the context of C++, `std::array` is a representative of static arrays, and `std::vector` stands as the counterpart for dynamic arrays. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these arrays. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
 
 
@@ -591,14 +591,14 @@ int main()
 # &#128202; Analysis
 
 **Advantages:**
-- **Efficient Element Acess** — arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity of $(O(1))$.
+- **Efficient Random Acess** — arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity of $(O(1))$.
 - **Efficiency Memory Utilization** — as arrays store data in contiguous memory locations, preventing additional memory wastage. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
 - **Convenient Multi-Dimensional Representations** — arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matries.
 
 ---
 
 **Disadvantages:**
-- **Allocated Memory is Static** — in scenarios where the size needs adjustments or insertion leads to the shift of other elements, then resourceful operation of creating a new array and copying data arises.
+- **Allocated Memory is Static** — in scenarios where the size needs adjustments or insertion leads to the shift of other elements, then resourceful operation of creating a new array and copying data arises, e.g. insertion and deletion takes $O(n)$ time.
 - **Enourmous Single Block** — allocating a large array can be problematic, especially in systems with limited memory, which potentially can cause a crash.
 - **Wasted Space** — if an array is not fully populated, there may be wasted space in the allocated memory. This can be a concern in memory-constrained environments.
 - **Out-of-Bound Access** — if an index outside the valid range is used, it can lead to unpredictable behavior or even program crashes.
@@ -623,6 +623,26 @@ int main()
 - **Game Development** — arrays are crucial in game development for managing various game elements, such as characters, items, or terrain data. They provide a structured way to organize and manipulate in-game entities.
 
 - **Embedded Systems** — in embedded systems programming, arrays are often used to manage sensor data, control outputs, or store configuration information due to their simplicity and efficiency.
+
+---
+
+**Common Practical Problems:**
+- Reverse the array.
+- Find the Kth largest and Kth smallest number in an array.
+- Find the occurrence of an integer in the array.
+- Subarray with given Sum.
+- Find duplicates in an array.
+- Find GCD of all elements in an array.
+- Finding LCM of an array of numbers.
+- Find the missing integer.
+- Find the factorial of a large number.
+- Minimum number of jumps to reach the end.
+- Find whether an array is a subset of another array.
+- Maximum Index.
+- Coin Change Problem.
+- Longest Alternating subsequence.
+- Stock buy and sell Problem.
+- Move negative elements to front of array.
 
 
 
@@ -669,6 +689,8 @@ For contact details and additional information, please refer to the [root direct
 - [std::vector](https://en.cppreference.com/w/cpp/container/vector)
 - [Applications, Advantages and Disadvantages of Array](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
 - [What are the Advantages and Disadvantages of Arrays?](https://www.prepbytes.com/blog/arrays/advantages-and-disadvantages-of-arrays/)
+- [List of 50+ Array Coding Interview Problems](https://iq.opengenus.org/list-of-array-problems/)
+- [Top 50 Array Coding Problems for Interviews](https://www.geeksforgeeks.org/top-50-array-coding-problems-for-interviews/)
 
 # &#128271; License
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
