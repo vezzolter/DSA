@@ -83,7 +83,8 @@ The true power of linked lists lies in the flexible nature of the size. Dynamic 
 
 
 # &#x1F4BB; Implementation 
-Currently in progress...
+Discussing ADT, it's evident that well-established and widely recognized implementations already exist for singly, doubly and circular linked lists. In the context of C++, `std::forward_list` is a representative of singly linked list, and `std::list` stands as the counterpart for doubly linked list. Both of them, can be altered to create circular structure via manual pointers manipulation.  It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these lists. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
+
 
 ##  Singly Linked List
 Currently in progress...
@@ -96,33 +97,52 @@ Currently in progress...
 
 
 # &#128202; Analysis
-Advantages:
-- rearraging elements is efficient due to simple change of pointers
-- memory can be allocated diversely - in limited scenarios can have impact
+
+**Advantages:**
+- **Efficient Element Rearraging** — elements is efficient due to simple change of pointers, e.g. insertion and deletion takes $O(1)$ time.
+- **Diverse Memory Allocation** — in some scenarios, where it is hard to allocate a single-block of memory, linked list can come in handy, due to the distribution of cells throughout the memory.
+- **Minimizing Unused Space** — unused nodes can be removed, preventing them from occupying memory cells intended for other data.
 
 ---
 
-Disadvantages:
-- in order to get to the element you need to traverse whole array
-- when there's no space left in memory insertions can fail.
-- require additional memory for pointers
-
----
-
-Common Operations Runtime:
-- reading $O(n)$
-- insertion $O(1)$
-- deletion $O(1)$
+**Disadvantages:**
+- **Inefficient Sequential Access** — in order to reach a specific element, it is necessary to traverse through the other elements first, e.g. access and search takes $O(n)$ time.
+- **Additional Memory Consumption** — each node requires memory allocation not only for the data but also for the pointers.
 
 
 
 # &#128221; Application
 
-- stacks and queues
-- adjacency matrix graph.
-- dynamic memory location.
-- hash table
-- functionality known as undo
+**Some of the Most Well-Known Use Cases:**
+- **Algorithms and Data Structures** — graph path traversal algorithms and various data structures like stacks, queues, hash tables, tree and graphs representations often use lists as their underlying structure.
+
+- **Back/Next Functionality** — linked lists are commonly utilized in implementing back/next navigating functionality, such as in web browsers with nodes as web pages or music players with nodes as songs.
+
+- **Undo/Redo Functionality** — something similar to previous point, but desribes the cases, where each action performed by the user is stored as a node in separate linked lists, therefore allowing users to revert to previous states of the application or redo previously undone actions by traversing the respective lists.
+
+- **Scheduling/Ordering** — each task or element is represented as a node in the linked list, and scheduling decisions are made based on the order (by priority, arrival time, or other criteria) of nodes in the list. 
+
+- **File System Management** — lists used in file system management for maintaining directory structures, file metadata, and file allocation tables, where each directory entry or file descriptor is stored as a node, facilitating efficient traversal and manipulation of file system objects.
+
+---
+
+**Common Practical Problems:**
+- Reverse a linked list.
+- Delete without head pointer.
+- Remove duplicate elements from sorted linked list.
+- Mergea linked list into another linked list at alternate positions.
+- Finding the length of a loop in linked list.
+- Occurence of an integer in a Linked List.
+- Convert singly linked list into circular linked list.
+- Merge two sorted linked lists.
+- Intersection point of two Linked Lists.
+- Swap Kth node from beginning with Kth node from end in a Linked List.
+- Convert a given Binary Tree to Doubly Linked List.
+- Rearrange a given linked list in-place.
+- Flattening a Linked List.
+- Partition a linked list around a given value.
+- Move Last Element of Linked List to Front.
+- Sort a Linked List which is already sorted on absolute values.
 
 
 # &#x23F3; Historical Notes
@@ -169,6 +189,13 @@ For contact details and additional information, please refer to the [root direct
 - [How Linked Lists Work](https://www.freecodecamp.org/news/how-linked-lists-work/)
 - [Linked List Data Structure](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
 - [Linked Lists](https://sbme-tutorials.github.io/2020/data-structure-FALL/notes/week03b.html#:~:text=of%20the%20list.-,Singly%20Linked%20Lists,is%20known%20as%20the%20tail.)
+- [std::forward_list](https://en.cppreference.com/w/cpp/container/forward_list)
+- [std::list](https://en.cppreference.com/w/cpp/container/list)
+- [Advantages and Disadvantages of Linked List](https://www.geeksforgeeks.org/advantages-and-disadvantages-of-linked-list/)
+- [Practice Coding Problems on Linked List](https://iq.opengenus.org/list-of-linked-list-problems/)
+- [Top 50 Problems on Linked List Data Structure asked in SDE Interviews](https://www.geeksforgeeks.org/top-20-linked-list-interview-question/)
+
+
 # &#128271; License
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
