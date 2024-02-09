@@ -2,10 +2,8 @@
 // by vezzolter
 // February 3, 2024
 
-#pragma once
-
-
-#include "SinglyLinkedList.h"
+#ifndef SLL_H
+#define SLL_H
 
 template<class T>
 class SLL
@@ -18,17 +16,18 @@ private:
 		T _data;
 
 		// Special Member Functions
-		Node(const T& newData, Node* nextNode = nullptr): _data(newData), _next(nextNode) {}
+		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
 		Node()                           = default;
 		Node(const Node& src)            = delete;
 		Node& operator=(const Node& rhs) = delete;
-	}
+	};
 
-	Node* _head;
+	Node<T>* _head;
+	int _size;
 
 public:
 	// Special Member Functions
-	explicit SLL();
+	SLL();
 	~SLL();
 
 	// Element Access
@@ -53,3 +52,7 @@ public:
 	void unique();
 	void sort();
 };
+
+#include "SinglyLinkedList.cpp"
+
+#endif

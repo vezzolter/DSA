@@ -13,6 +13,13 @@ int main()
 	// Greetings
 	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
 
+	SLL<int> list1;
+	list1.push_front(9);
+	list1.push_front(1);
+	list1.push_front(1);
+	list1.push_front(7);
+
+	std::cout << list1.size() << std::endl;
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";
