@@ -19,7 +19,17 @@ int main()
 	list1.push_front(1);
 	list1.push_front(7);
 
-	std::cout << list1.size() << std::endl;
+	std::cout << "Is empty:\t" << list1.empty() << std::endl;
+
+	std::cout << "Elements:\t";
+	for (int i = 0; i < list1.size(); i++) {
+		std::cout << list1[i] << " ";
+	}
+	std::cout << std::endl;
+
+	std::cout << "\nChanging first element via front() ";
+	list1.front() = 5;
+	std::cout << "to: " << list1[0] << std::endl;
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

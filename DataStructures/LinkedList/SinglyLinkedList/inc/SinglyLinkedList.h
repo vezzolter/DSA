@@ -40,7 +40,7 @@ public:
 
 	// Modifiers
 	void clear();
-	void insert(const int index, const T& value);
+	void insert(const int index, const T& newData);
 	void erase(const int index);
 	void push_front(const T& newData);
 	void pop_front();
