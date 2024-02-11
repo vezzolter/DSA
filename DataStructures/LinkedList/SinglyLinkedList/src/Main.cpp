@@ -45,7 +45,7 @@ int main()
 
 	// Remove from it
 	std::cout << "\nRemove first ('5') and last ('9') elements...\n";
-	// list.popFront();
+	list1.popFront();
 	list1.eraseAfter(list1.size()-2);
 	printList(list1);
 

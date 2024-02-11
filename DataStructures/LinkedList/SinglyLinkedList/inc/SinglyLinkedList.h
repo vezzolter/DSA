@@ -44,14 +44,7 @@ public:
 	void insertAfter(const int index, const T& newData);
 	void eraseAfter(const int index);
 	void pushFront(const T& newData);
-	void pop_front();
-
-	// Operations
-	void merge();
-	void remove();
-	void reverse();
-	void unique();
-	void sort();
+	void popFront();
 };
 
 #include "SinglyLinkedList.cpp"

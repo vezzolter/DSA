@@ -172,4 +172,19 @@ void SLL<T>::pushFront(const T& newData) {
 	_size++;
 }
 
+// Removes the first element of the container.
+template<class T>
+void SLL<T>::popFront() {
+	// TODO: range check
+
+	// Move the head pointer to the next node
+	Node<T>* temp = _head;
+	_head = _head->_next;
+
+	// Delete the original head node
+	delete temp;
+	// Update the size of the list
+	_size--;
+}
+
 #endif
