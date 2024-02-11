@@ -8,28 +8,47 @@
 #include <iostream>
 #include "SinglyLinkedList.h"
 
+void printList(const SLL<int>& list) {
+	std::cout << "Elements:\t";
+	for (int i = 0; i < list.size(); i++) {
+		std::cout << list[i] << " ";
+	}
+	std::cout << std::endl;
+}
+
 int main()
 {
 	// Greetings
 	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
 
+	// Create initial list
+	std::cout << "Creating & filling initial list...\n";
 	SLL<int> list1;
-	list1.push_front(9);
-	list1.push_front(1);
-	list1.push_front(1);
-	list1.push_front(7);
+	list1.pushFront(9);
+	list1.pushFront(1);
+	list1.pushFront(1);
+	list1.pushFront(7);
 
-	std::cout << "Is empty:\t" << list1.empty() << std::endl;
+	// Show it
+	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
+	printList(list1);
 
-	std::cout << "Elements:\t";
-	for (int i = 0; i < list1.size(); i++) {
-		std::cout << list1[i] << " ";
-	}
-	std::cout << std::endl;
-
-	std::cout << "\nChanging first element via front() ";
+	// Modify it
+	std::cout << "\nChange first element ('7') to '5'...\n";
 	list1.front() = 5;
-	std::cout << "to: " << list1[0] << std::endl;
+	printList(list1);
+
+	// Insert to it
+	std::cout << "\nInsert element '3' before '9'...\n";
+	list1.insertAfter(list1.size()-2, 3);
+	printList(list1);
+
+	// Remove from it
+	std::cout << "\nRemove first ('5') and last ('9') elements...\n";
+	// list.popFront();
+	list1.eraseAfter(list1.size()-2);
+	printList(list1);
+
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

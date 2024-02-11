@@ -32,17 +32,18 @@ public:
 
 	// Element Access
 	T& operator[](const int index);
+	T& operator[](const int index) const;
 	T& front();
 
 	// Capacity 
 	bool empty() const;
-	int size();
+	int size() const;
 
 	// Modifiers
 	void clear();
-	void insert(const int index, const T& newData);
-	void erase(const int index);
-	void push_front(const T& newData);
+	void insertAfter(const int index, const T& newData);
+	void eraseAfter(const int index);
+	void pushFront(const T& newData);
 	void pop_front();
 
 	// Operations
