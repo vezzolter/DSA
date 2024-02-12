@@ -43,18 +43,21 @@ int main()
 	list1.insertAfter(list1.size()-2, 3);
 	printList(list1);
 
-	// Copy constructor
-	std::cout << "\nCreate a copy list and compare...\n";
+	// Deep copy mechanics
+	std::cout << "\nCreate a list copies and compare...\n";
 	SLL<int> list2(list1);
+	SLL<int> list3 = list1;
 	printList(list1);
 	printList(list2);
+	printList(list3);
 
-	// Remove from it
+	// Remove from first
 	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
 	list1.popFront();
 	list1.eraseAfter(list1.size() - 2);
 	printList(list1);
 	printList(list2);
+	printList(list3);
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

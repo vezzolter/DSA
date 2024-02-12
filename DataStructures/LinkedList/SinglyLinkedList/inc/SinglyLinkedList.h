@@ -18,7 +18,7 @@ private:
 		// Special Member Functions
 		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
 		Node()                           = default;
-		Node(const Node& src)            = delete;
+		Node(const Node& rhs)            = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
@@ -28,7 +28,9 @@ private:
 public:
 	// Special Member Functions
 	SLL();
-	SLL(const SLL& other);
+	// SLL(const std::initializer_list<T>& initList); remove due to init list
+	SLL(const SLL& rhs);
+	SLL& operator=(const SLL& rhs);
 	~SLL();
 
 	// Element Access

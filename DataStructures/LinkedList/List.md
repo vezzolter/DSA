@@ -110,7 +110,7 @@ private:
 		// Special Member Functions
 		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
 		Node()                           = default;
-		Node(const Node& src)            = delete;
+		Node(const Node& rhs)            = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
@@ -120,7 +120,9 @@ private:
 public:
 	// Special Member Functions
 	SLL();
-  SLL(const SLL& other);
+	// SLL(const std::initializer_list<T>& initList); remove due to init list
+	SLL(const SLL& rhs);
+	SLL& operator=(const SLL& rhs);
 	~SLL();
 
 	// Element Access
@@ -149,13 +151,13 @@ SLL<T>::SLL() : _head(nullptr), _size(0) {}
 
 // Deep Copy Constructor
 template<class T>
-SLL<T>::SLL(const SLL& other) {
+SLL<T>::SLL(const SLL& rhs) {
 	// Initialize head pointer and size
 	_head = nullptr;
 	_size = 0;
 
 	// Iterate and copy nodes
-	Node<T>* current = other._head;
+	Node<T>* current = rhs._head;
 	while (current != nullptr) {
 		// Create a new node for each node in the other list
 		Node<T>* newNode = new Node<T>(current->_data);
@@ -179,6 +181,40 @@ SLL<T>::SLL(const SLL& other) {
 		// Update the size
 		_size++;
 	}
+}
+
+// Deep copy assignment operator
+template<class T>
+SLL<T>& SLL<T>::operator=(const SLL& rhs) {
+	// Check for self-assignment
+	if (this == &rhs) 
+		return *this;
+
+	// Iterate and copy nodes
+	Node<T>* current = rhs._head;
+	while (current != nullptr) {
+		// Create a new node for each node in the other list
+		Node<T>* newNode = new Node<T>(current->_data);
+
+		// Link it to the new list, by making it head
+		if (_head == nullptr) {
+			// No elements
+			_head = newNode;
+		}
+		else {
+			// Some elements, preserve them 
+			Node<T>* tail = _head;
+			while (tail->_next != nullptr) {
+				tail = tail->_next;
+			}
+			tail->_next = newNode;
+		}
+	}
+
+	// Move to the next node in the other list
+	current = current->_next;
+	// Update the size
+	_size = rhs._size;
 }
 
 // Desctuctor
@@ -382,18 +418,21 @@ int main()
 	list1.insertAfter(list1.size()-2, 3);
 	printList(list1);
 
-	// Copy constructor
-	std::cout << "\nCreate a copy list and compare...\n";
+	// Deep copy mechanics
+	std::cout << "\nCreate a list copies and compare...\n";
 	SLL<int> list2(list1);
+	SLL<int> list3 = list1;
 	printList(list1);
 	printList(list2);
+	printList(list3);
 
-	// Remove from it
+	// Remove from first
 	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
 	list1.popFront();
 	list1.eraseAfter(list1.size() - 2);
 	printList(list1);
 	printList(list2);
+	printList(list3);
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";
@@ -406,7 +445,6 @@ int main()
 ```
 
 <p align="center"><img src="./img/demoSLL.png"/></p>
-
 
 
 

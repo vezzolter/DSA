@@ -17,13 +17,13 @@ SLL<T>::SLL() : _head(nullptr), _size(0) {}
 
 // Deep Copy Constructor
 template<class T>
-SLL<T>::SLL(const SLL& other) {
+SLL<T>::SLL(const SLL& rhs) {
 	// Initialize head pointer and size
 	_head = nullptr;
 	_size = 0;
 
 	// Iterate and copy nodes
-	Node<T>* current = other._head;
+	Node<T>* current = rhs._head;
 	while (current != nullptr) {
 		// Create a new node for each node in the other list
 		Node<T>* newNode = new Node<T>(current->_data);
@@ -47,6 +47,40 @@ SLL<T>::SLL(const SLL& other) {
 		// Update the size
 		_size++;
 	}
+}
+
+// Deep copy assignment operator
+template<class T>
+SLL<T>& SLL<T>::operator=(const SLL& rhs) {
+	// Check for self-assignment
+	if (this == &rhs) 
+		return *this;
+
+	// Iterate and copy nodes
+	Node<T>* current = rhs._head;
+	while (current != nullptr) {
+		// Create a new node for each node in the other list
+		Node<T>* newNode = new Node<T>(current->_data);
+
+		// Link it to the new list, by making it head
+		if (_head == nullptr) {
+			// No elements
+			_head = newNode;
+		}
+		else {
+			// Some elements, preserve them 
+			Node<T>* tail = _head;
+			while (tail->_next != nullptr) {
+				tail = tail->_next;
+			}
+			tail->_next = newNode;
+		}
+	}
+
+	// Move to the next node in the other list
+	current = current->_next;
+	// Update the size
+	_size = rhs._size;
 }
 
 // Desctuctor
