@@ -22,7 +22,7 @@ int main()
 	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list...\n";
+	std::cout << "Creating & filling initial list #1...\n";
 	SLL<int> list1;
 	list1.pushFront(9);
 	list1.pushFront(1);
@@ -43,12 +43,18 @@ int main()
 	list1.insertAfter(list1.size()-2, 3);
 	printList(list1);
 
-	// Remove from it
-	std::cout << "\nRemove first ('5') and last ('9') elements...\n";
-	list1.popFront();
-	list1.eraseAfter(list1.size()-2);
+	// Copy constructor
+	std::cout << "\nCreate a copy list and compare...\n";
+	SLL<int> list2(list1);
 	printList(list1);
+	printList(list2);
 
+	// Remove from it
+	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
+	list1.popFront();
+	list1.eraseAfter(list1.size() - 2);
+	printList(list1);
+	printList(list2);
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

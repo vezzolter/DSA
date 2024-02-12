@@ -15,6 +15,40 @@
 template<typename T>
 SLL<T>::SLL() : _head(nullptr), _size(0) {}
 
+// Deep Copy Constructor
+template<class T>
+SLL<T>::SLL(const SLL& other) {
+	// Initialize head pointer and size
+	_head = nullptr;
+	_size = 0;
+
+	// Iterate and copy nodes
+	Node<T>* current = other._head;
+	while (current != nullptr) {
+		// Create a new node for each node in the other list
+		Node<T>* newNode = new Node<T>(current->_data);
+
+		// Link it to the new list, by making it head
+		if (_head == nullptr) {
+			// No elements
+			_head = newNode;
+		}
+		else {
+			// Some elements, preserve them 
+			Node<T>* tail = _head;
+			while (tail->_next != nullptr) {
+				tail = tail->_next;
+			}
+			tail->_next = newNode;
+		}
+
+		// Move to the next node in the other list
+		current = current->_next;
+		// Update the size
+		_size++;
+	}
+}
+
 // Desctuctor
 template<typename T>
 SLL<T>::~SLL() { clear(); }

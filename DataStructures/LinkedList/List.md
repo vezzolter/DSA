@@ -120,6 +120,7 @@ private:
 public:
 	// Special Member Functions
 	SLL();
+  SLL(const SLL& other);
 	~SLL();
 
 	// Element Access
@@ -145,6 +146,40 @@ public:
 // Default Constructor
 template<typename T>
 SLL<T>::SLL() : _head(nullptr), _size(0) {}
+
+// Deep Copy Constructor
+template<class T>
+SLL<T>::SLL(const SLL& other) {
+	// Initialize head pointer and size
+	_head = nullptr;
+	_size = 0;
+
+	// Iterate and copy nodes
+	Node<T>* current = other._head;
+	while (current != nullptr) {
+		// Create a new node for each node in the other list
+		Node<T>* newNode = new Node<T>(current->_data);
+
+		// Link it to the new list, by making it head
+		if (_head == nullptr) {
+			// No elements
+			_head = newNode;
+		}
+		else {
+			// Some elements, preserve them 
+			Node<T>* tail = _head;
+			while (tail->_next != nullptr) {
+				tail = tail->_next;
+			}
+			tail->_next = newNode;
+		}
+
+		// Move to the next node in the other list
+		current = current->_next;
+		// Update the size
+		_size++;
+	}
+}
 
 // Desctuctor
 template<typename T>
@@ -326,7 +361,7 @@ int main()
 	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list...\n";
+	std::cout << "Creating & filling initial list #1...\n";
 	SLL<int> list1;
 	list1.pushFront(9);
 	list1.pushFront(1);
@@ -347,11 +382,18 @@ int main()
 	list1.insertAfter(list1.size()-2, 3);
 	printList(list1);
 
-	// Remove from it
-	std::cout << "\nRemove first ('5') and last ('9') elements...\n";
-	list1.popFront();
-	list1.eraseAfter(list1.size()-2);
+	// Copy constructor
+	std::cout << "\nCreate a copy list and compare...\n";
+	SLL<int> list2(list1);
 	printList(list1);
+	printList(list2);
+
+	// Remove from it
+	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
+	list1.popFront();
+	list1.eraseAfter(list1.size() - 2);
+	printList(list1);
+	printList(list2);
 
 	// Exiting
 	std::cout << "\nThanks for using this program! Have a great day!\n";

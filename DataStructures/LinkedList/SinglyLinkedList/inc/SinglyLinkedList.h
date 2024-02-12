@@ -28,6 +28,7 @@ private:
 public:
 	// Special Member Functions
 	SLL();
+	SLL(const SLL& other);
 	~SLL();
 
 	// Element Access
