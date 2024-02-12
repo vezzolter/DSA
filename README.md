@@ -48,7 +48,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynArr) ✅
   - Linked List 
     - [Lists.md](https://github.com/vezzolter/DSA/blob/lists/DataStructures/LinkedList/List.md) 🔄
-    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/lists/DataStructures/LinkedList/SinglyLinkedList)🔄
+    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/lists/DataStructures/LinkedList/SinglyLinkedList)✅
     - Doubly Linked List 🔄
     - Circular Linked List 🔄
   - Queue
