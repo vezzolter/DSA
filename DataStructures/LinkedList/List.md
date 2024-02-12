@@ -87,10 +87,290 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 
 ##  Singly Linked List
-Currently in progress...
+
+**Detailed Overview**:
+1. Keeping its educational aim in mind, the `SLL` class developed here closely resembles the behavior of `std::forward_list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::forward_list`, allowing to maintain focus on the key features of the ADT.
+
+<p align="center"><img src="./img/stdFlistItr.png"/></p>
+
+3. The `SLL` class is declared in `SinglyLinkedList.h` header file and defined in `SinglyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+4. Whole class declaration:
+```cpp
+template<class T>
+class SLL
+{
+private:
+	template<class T>
+	struct Node {
+	public:
+		Node* _next;
+		T _data;
+
+		// Special Member Functions
+		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
+		Node()                           = default;
+		Node(const Node& src)            = delete;
+		Node& operator=(const Node& rhs) = delete;
+	};
+
+	Node<T>* _head;
+	int _size;
+
+public:
+	// Special Member Functions
+	SLL();
+	~SLL();
+
+	// Element Access
+	T& operator[](const int index);
+	T& operator[](const int index) const;
+	T& front();
+
+	// Capacity 
+	bool empty() const;
+	int size() const;
+
+	// Modifiers
+	void clear();
+	void insertAfter(const int index, const T& newData);
+	void eraseAfter(const int index);
+	void pushFront(const T& newData);
+	void popFront();
+};
+```
+
+5. Special member functions:
+```cpp
+// Default Constructor
+template<typename T>
+SLL<T>::SLL() : _head(nullptr), _size(0) {}
+
+// Desctuctor
+template<typename T>
+SLL<T>::~SLL() { clear(); }
+```
+
+6. Element access:
+```cpp
+// Access the element at the specified index with modification
+template<class T>
+T& SLL<T>::operator[](const int index) {
+	// TODO: potential range check
+
+	// For traversing purposes
+	int counter = 0;
+	Node<T>* current = _head;
+
+	// Loop until end (nullptr)
+	while (current != nullptr) {
+		// Return value of matched node
+		if (counter == index) {
+			return current->_data;
+		}
+		// Otherwise keep traversing
+		current = current->_next;
+		counter++;
+	}
+}
+
+// Access the element at the specified index without modification
+template<class T>
+T& SLL<T>::operator[](const int index) const {
+	// TODO: potential range check
+
+	// For traversing purposes
+	int counter = 0;
+	Node<T>* current = _head;
+
+	// Loop until end (nullptr)
+	while (current != nullptr) {
+		// Return value of matched node
+		if (counter == index) {
+			return current->_data;
+		}
+		// Otherwise keep traversing
+		current = current->_next;
+		counter++;
+	}
+}
+
+// Returns a reference to the first element in the container.
+template<class T>
+T& SLL<T>::front() {
+	// TODO: handle empty case
+
+	return _head->_data;
+}
+```
+
+7. Capacity methods:
+```cpp
+// Checks if the container has no elements
+template<class T>
+bool SLL<T>::empty() const { return _size == 0; }
+
+// Returns the number of elements in the container
+template<typename T>
+int SLL<T>::size() const { return _size; }
+```
+
+8. Modifiers:
+```cpp
+// Erases all elements from the container.
+template<typename T>
+void SLL<T>::clear() {
+	// Loop until end (nullptr)
+	while (_head) {
+		// Create temp node for current, so it can be deleted later
+		Node<T>* current = _head;
+		// Traverse via head
+		_head = _head->_next;
+		// Delete previous
+		delete current;
+	}
+	// Update size of the list
+	_size = 0;
+}
+
+// Inserts elements after the specified position in the container
+template<class T>
+void SLL<T>::insertAfter(const int index, const T& newData) {
+	// TODO: range check
+	
+	// Create a new node with the given data
+	Node<T>* newNode = new Node<T>(newData);
+
+	// Find the node at the specified index
+	Node<T>* current = _head;
+	for (int i = 0; i < index; i++) {
+		current = current->_next;
+	}
+
+	// Insert the new node after the current one
+	newNode->_next = current->_next;
+	current->_next = newNode;
+
+	// Update size of the list
+	_size++;
+}
+
+// Removes an element at the specified position
+template<class T>
+void SLL<T>::eraseAfter(const int index) {
+	// TODO: range check
+
+	// Traverse to the node before the node to be erased
+	Node<T>* current = _head;
+	for (int i = 0; i < index; ++i) {
+		current = current->_next;
+	}
+
+	// Store a pointer to the node to be removed
+	Node<T>* temp = current->_next;
+	// Update the next pointer of the current node to skip over the node to be removed
+	current->_next = temp->_next;
+	// Free up memory
+	delete temp;
+	// Update size of the list
+	_size--;
+}
+
+// Prepends the given element value to the beginning of the container.
+template<typename T>
+void SLL<T>::pushFront(const T& newData) {
+	// Create a new node with the given data
+	Node<T>* newNode = new Node<T>(newData);
+
+	// If list has elements
+	if (_head != nullptr) {
+		// Point newNode to current head
+		newNode->_next = _head;
+	}
+
+	// Update head
+	_head = newNode;
+	// Update size of the list
+	_size++;
+}
+
+// Removes the first element of the container.
+template<class T>
+void SLL<T>::popFront() {
+	// TODO: range check
+
+	// Move the head pointer to the next node
+	Node<T>* temp = _head;
+	_head = _head->_next;
+
+	// Delete the original head node
+	delete temp;
+	// Update the size of the list
+	_size--;
+}
+```
+
+9. Demonstration:
+```cpp
+void printList(const SLL<int>& list) {
+	std::cout << "Elements:\t";
+	for (int i = 0; i < list.size(); i++) {
+		std::cout << list[i] << " ";
+	}
+	std::cout << std::endl;
+}
+
+int main()
+{
+	// Greetings
+	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
+
+	// Create initial list
+	std::cout << "Creating & filling initial list...\n";
+	SLL<int> list1;
+	list1.pushFront(9);
+	list1.pushFront(1);
+	list1.pushFront(1);
+	list1.pushFront(7);
+
+	// Show it
+	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
+	printList(list1);
+
+	// Modify it
+	std::cout << "\nChange first element ('7') to '5'...\n";
+	list1.front() = 5;
+	printList(list1);
+
+	// Insert to it
+	std::cout << "\nInsert element '3' before '9'...\n";
+	list1.insertAfter(list1.size()-2, 3);
+	printList(list1);
+
+	// Remove from it
+	std::cout << "\nRemove first ('5') and last ('9') elements...\n";
+	list1.popFront();
+	list1.eraseAfter(list1.size()-2);
+	printList(list1);
+
+	// Exiting
+	std::cout << "\nThanks for using this program! Have a great day!\n";
+	std::cout << "Press <Enter> to exit...";
+	std::cin.clear(); // ensure that stream is in a good state
+	std::cin.ignore(32767, '\n'); // clear from any remaining chars
+	std::cin.get();
+	return 0;
+}
+```
+
+<p align="center"><img src="./img/demoSLL.png"/></p>
+
+
+
 
 ##  Doubly Linked List
 Currently in progress...
+
 
 ##  Circular Linked List
 Currently in progress...
