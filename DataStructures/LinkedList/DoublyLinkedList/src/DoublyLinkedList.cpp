@@ -7,6 +7,36 @@
 
 #include "DoublyLinkedList.h"
 
+
+// --------------------
+// Facilitator Function
+// --------------------
+
+// Determine whether to start traversal from the head or tail
+template<typename T>
+typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
+	Node<T>* startingNode;
+	int distanceFromHead = index;
+	int distanceFromTail = _size - index - 1;
+
+	if (distanceFromHead <= distanceFromTail) {
+		startingNode = _head;
+		for (int i = 0; i < index; ++i) {
+			startingNode = startingNode->_next;
+		}
+	}
+	else {
+		startingNode = _tail;
+		for (int i = _size - 1; i > index; --i) {
+			startingNode = startingNode->_prev;
+		}
+	}
+
+	return startingNode;
+}
+
+
+
 // ------------------------
 // Special Member Functions
 // ------------------------
@@ -14,6 +44,10 @@
 // Default Constructor
 template<typename T>
 DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
+
+//// Parametrized Constructor
+//template<class T>
+//DLL<T>::DLL(const std::initializer_list<T>& initList) { }
 
 // Deep Copy Constructor
 template<class T>
@@ -82,6 +116,7 @@ DLL<T>& DLL<T>::operator=(const DLL& rhs) {
 
 	// Maintain proper reference to the end
 	_tail = current;
+
 	return *this;
 }
 
@@ -95,54 +130,58 @@ DLL<T>::~DLL() { clear(); }
 // Element Access
 // --------------
 
-// Access the element at the specified index with modification
+// Access the element at the specified index, allows modification
 template<class T>
 T& DLL<T>::operator[](const int index) {
 	// TODO: potential range check
+ 
+	// Traverse to the required node
+	Node<T>* current = getStartingNode(index);
 
-	// For traversing purposes
-	int counter = 0;
-	Node<T>* current = _head;
-
-	// Loop until end (nullptr)
-	while (current != nullptr) {
-		// Return value of matched node
-		if (counter == index) {
-			return current->_data;
-		}
-		// Otherwise keep traversing
-		current = current->_next;
-		counter++;
-	}
+	return current->_data;
 }
 
-// Access the element at the specified index without modification
+// Access the element at the specified index, denies modification
 template<class T>
 T& DLL<T>::operator[](const int index) const {
 	// TODO: potential range check
 
-	// For traversing purposes
-	int counter = 0;
-	Node<T>* current = _head;
+	// Traverse to the required node
+	Node<T>* current = getStartingNode(index);
 
-	// Loop until end (nullptr)
-	while (current != nullptr) {
-		// Return value of matched node
-		if (counter == index) {
-			return current->_data;
-		}
-		// Otherwise keep traversing
-		current = current->_next;
-		counter++;
-	}
+	return current->_data;
 }
 
-// Returns a reference to the first element in the container.
+// Returns a reference to the first element in the container, allows modification
 template<class T>
 T& DLL<T>::front() {
 	// TODO: handle empty case
 
 	return _head->_data;
+}
+
+// Returns a reference to the first element in the container, denies modification
+template<class T>
+const T& DLL<T>::front() const {
+	// TODO: handle empty case
+
+	return _head->_data;
+}
+
+// Returns a reference to the last element in the container, allows modification
+template<class T>
+T& DLL<T>::back() {
+	// TODO: handle empty case
+
+	return _tail->_data;
+}
+
+// Returns a reference to the last element in the container, denies modification
+template<class T>
+const T& DLL<T>::back() const {
+	// TODO: handle empty case
+
+	return _tail->_data;
 }
 
 
@@ -165,63 +204,69 @@ int DLL<T>::size() const { return _size; }
 // Modifiers
 // ---------
 
-// Erases all elements from the container.
+// Erases all elements from the container
 template<typename T>
 void DLL<T>::clear() {
-	// Loop until end (nullptr)
+	// Traverse the list and deallocate memory for each node
 	while (_head) {
-		// Create temp node for current, so it can be deleted later
-		Node<T>* current = _head;
-		// Traverse via head
+		Node<T>* temp = _head;
 		_head = _head->_next;
-		// Delete previous
-		delete current;
+		delete temp;
 	}
-	// Update the size
+
+	// Update the size and pointers
+	_tail = _head = nullptr;
 	_size = 0;
 }
 
 // Inserts elements after the specified position in the container
 template<class T>
-void DLL<T>::insertAfter(const int index, const T& newData) {
+void DLL<T>::insert(const int index, const T& newData) {
 	// TODO: range check
 
 	// Create a new node with the given data
+	Node<T>* current = getStartingNode(index);
 	Node<T>* newNode = new Node<T>(newData);
-
-	// Find the node at the specified index
-	Node<T>* current = _head;
-	for (int i = 0; i < index; i++) {
-		current = current->_next;
-	}
-
-	// Insert the new node after the current one
 	newNode->_next = current->_next;
+	newNode->_prev = current;
 	current->_next = newNode;
 
+	// Insert the new node after the current node
+	if (newNode->_next) {
+		newNode->_next->_prev = newNode;
+	}
+	else {
+		// If the new node is inserted at the end, update the tail pointer
+		_tail = newNode;
+	}
+
 	// Update the size
-	_size++;
+	++_size;
 }
 
 // Removes an element at the specified position
 template<class T>
-void DLL<T>::eraseAfter(const int index) {
+void DLL<T>::erase(const int index) {
 	// TODO: range check
 
-	// Traverse to the node before the node to be erased
-	Node<T>* current = _head;
-	for (int i = 0; i < index; ++i) {
-		current = current->_next;
+	// Save a pointer to the node to be erased
+	Node<T>* current = getStartingNode(index);
+	Node<T>* nodeToErase = current->_next;
+
+	// Update the pointers to remove the node from the list
+	current->_next = nodeToErase->_next;
+	if (nodeToErase->_next) {
+		nodeToErase->_next->_prev = current;
+	}
+	else {
+		_tail = current;
 	}
 
-	// Store a pointer to the node to be removed
-	Node<T>* temp = current->_next;
-	// Update the next pointer of the current node to skip over the node to be removed
-	current->_next = temp->_next;
-	// Free up memory
-	delete temp;
+	// Delete the node
+	delete nodeToErase;
+
 	// Update the size
-	_size--;
+	--_size;
 }
 
 // Prepends the given element value to the beginning of the container.
@@ -230,16 +275,16 @@ void DLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If list has elements
-	if (_head != nullptr) {
-		// Point newNode to current head
-		newNode->_next = _head;
-	}
+	// If the list is empty, set the new node as both head and tail
+	if (_size == 0) { _head = _tail = newNode; }
 
-	// Update the head
+	// Push front
+	_head->_prev = newNode;
+	newNode->_next = _head;
 	_head = newNode;
-	// Update the size
-	_size++;
+
+	// Increase the size of the list
+	++_size;
 }
 
 // Removes the first element of the container.
@@ -247,14 +292,19 @@ template<class T>
 void DLL<T>::popFront() {
 	// TODO: range check
 
-	// Move the head pointer to the next node
-	Node<T>* temp = _head;
-	_head = _head->_next;
+	// Case: one element
+	if (_size == 1) {
+		clear();
+		return;
+	}
 
-	// Delete the original head node
-	delete temp;
+	// Move the head pointer to the next node
+	_head = _head->_next;
+	delete _head->_prev;
+	_head->_prev = nullptr;
+
 	// Update the size
-	_size--;
+	--_size;
 }
 
 // Appends the given element to the end of the container.
@@ -263,23 +313,36 @@ void DLL<T>::pushBack(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// Append node to the head if list is empty, otherwise to the end
-	if (_head == nullptr) {
-		_head = newNode;
-	}
-	else {
-		Node<T>* tail = _head;
-		while (tail->_next != nullptr) {
-			tail = tail->_next;
-		}
+	// If the list is empty, set the new node as both head and tail
+	if (_size == 0) { _head = _tail = newNode; }
 
-		// Link the new node to the last one
-		tail->_next = newNode;
-		newNode->_prev = tail;
-	}
+	// Push back
+	_tail->_next = newNode;
+	newNode->_prev = _tail;
+	_tail = newNode;
 
 	// Update the size
-	_size++;
+	++_size;
 }
-			
+
+// Removes the last element of the container
+template<class T>
+void DLL<T>::popBack() {
+	// TODO: range check
+
+	// Case: one element
+	if (_size == 1) {
+		clear();
+		return;
+	}
+
+	// Move the tail pointer to the previous node
+	_tail = _tail->_prev;
+	delete _tail->_next;
+	_tail->_next = nullptr;
+
+	// Update the size
+	--_size;
+}
+
 #endif

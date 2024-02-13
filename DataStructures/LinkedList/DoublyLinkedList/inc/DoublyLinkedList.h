@@ -28,6 +28,8 @@ private:
 	Node<T>* _head;
 	Node<T>* _tail;
 
+	// Facilitator function
+	Node<T>* getStartingNode(int index) const;
 public:
 	// Special Member Functions
 	DLL();
@@ -40,6 +42,9 @@ public:
 	T& operator[](const int index);
 	T& operator[](const int index) const;
 	T& front();
+	const T& front() const;
+	T& back();
+	const T& back() const ;
 
 	// Capacity 
 	bool empty() const;
@@ -47,8 +52,8 @@ public:
 
 	// Modifiers
 	void clear();
-	void insertAfter(const int index, const T& newData);
-	void eraseAfter(const int index);
+	void insert(const int index, const T& newData);
+	void erase(const int index);
 	void pushFront(const T& newData);
 	void popFront();
 	void pushBack(const T& newData);
