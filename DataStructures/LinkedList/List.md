@@ -449,7 +449,474 @@ int main()
 
 
 ##  Doubly Linked List
-Currently in progress...
+**Detailed Overview**:
+1. Keeping its educational aim in mind, the `DLL` class developed here closely resembles the behavior of `std::list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::list`, allowing to maintain focus on the key features of the ADT.
+
+<p align="center"><img src="./img/stdListItr.png"/></p>
+
+3. The `DLL` class is declared in `DoublyLinkedList.h` header file and defined in `DoublyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+4. Whole class declaration:
+```cpp
+template<class T>
+class DLL
+{
+private:
+	template<class T>
+	struct Node {
+	public:
+		T _data;
+		Node* _next;
+		Node* _prev;
+		
+		// Special Member Functions
+		Node(const T& newData, Node* nextNode = nullptr, Node* prevNode = nullptr)
+			: _data(newData), _next(nextNode), _prev(prevNode) {}
+		Node() = default;
+		Node(const Node& rhs) = delete;
+		Node& operator=(const Node& rhs) = delete;
+	};
+
+	int _size;
+	Node<T>* _head;
+	Node<T>* _tail;
+
+	// Facilitator method
+	Node<T>* getStartingNode(int index) const;
+public:
+	// Special Member Functions
+	DLL();
+	// DLL(const std::initializer_list<T>& initList); remove due to init list
+	DLL(const DLL& rhs);
+	DLL& operator=(const DLL& rhs);
+	~DLL();
+
+	// Element Access
+	T& operator[](const int index);
+	T& operator[](const int index) const;
+	T& front();
+	const T& front() const;
+	T& back();
+	const T& back() const ;
+
+	// Capacity 
+	bool empty() const;
+	int size() const;
+
+	// Modifiers
+	void clear();
+	void insert(const int index, const T& newData);
+	void erase(const int index);
+	void pushFront(const T& newData);
+	void popFront();
+	void pushBack(const T& newData);
+	void popBack();
+};
+```
+
+5. Facilitator Method (replaces iterator functionaly of determining whether to start from head or tail):
+```cpp
+// Determine whether to start traversal from the head or tail
+template<typename T>
+typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
+	Node<T>* startingNode;
+	int distanceFromHead = index;
+	int distanceFromTail = _size - index - 1;
+
+	if (distanceFromHead <= distanceFromTail) {
+		startingNode = _head;
+		for (int i = 0; i < index; ++i) {
+			startingNode = startingNode->_next;
+		}
+	}
+	else {
+		startingNode = _tail;
+		for (int i = _size - 1; i > index; --i) {
+			startingNode = startingNode->_prev;
+		}
+	}
+
+	return startingNode;
+}
+```
+
+6. Special member functions:
+```cpp
+// Default constructor
+template<typename T>
+DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
+
+//// Parametrized Constructor
+//template<class T>
+//DLL<T>::DLL(const std::initializer_list<T>& initList) { }
+
+// Deep copy constructor
+template<class T>
+DLL<T>::DLL(const DLL& rhs) {
+	// Set corresponding size
+	_size = rhs._size;
+
+	// Case: empty list, avoid dangling pointers
+	if (rhs._head == nullptr) {
+		_head = _tail = nullptr;
+		return;
+	}
+
+	// Create corresponding node
+	_head = new Node<T>(rhs._head->_data);
+
+	// Initialize traversal pointers
+	Node<T>* currentRhs = rhs._head->_next;
+	Node<T>* current = _head;
+
+	// Copy elements
+	while (currentRhs) {
+		current->_next = new Node<T>(currentRhs->_data);
+		current->_next->_prev = current;
+		current = current->_next;
+		currentRhs = currentRhs->_next;
+	}
+
+	// Maintain proper reference to the end
+	_tail = current;
+}
+
+// Deep copy assignment operator
+template<class T>
+DLL<T>& DLL<T>::operator=(const DLL& rhs) {
+	// Self-assignment guard
+	if (this == &rhs) 
+		return *this;
+
+	// Ensure that the destination list doesn't retain any of its existing elements
+	clear();
+
+	// Set corresponding size
+	_size = rhs._size;
+
+	// Case: empty list, avoid dangling pointers
+	if (rhs._head == nullptr) {
+		_head = _tail = nullptr;
+		return *this;
+	}
+
+	// Create corresponding node
+	_head = new Node<T>(rhs._head->_data);
+
+	// Initialize traversal pointers
+	Node<T>* currentRhs = rhs._head->_next;
+	Node<T>* current = _head;
+
+	// Copy elements
+	while (currentRhs) {
+		current->_next = new Node<T>(currentRhs->_data);
+		current->_next->_prev = current;
+		current = current->_next;
+		currentRhs = currentRhs->_next;
+	}
+
+	// Maintain proper reference to the end
+	_tail = current;
+
+	return *this;
+}
+
+// Destructor
+template<typename T>
+DLL<T>::~DLL() { clear(); }
+```
+
+6. Element access:
+```cpp
+// Access the element at the specified index, allows modification
+template<class T>
+T& DLL<T>::operator[](const int index) {
+	// TODO: potential range check
+ 
+	// Traverse to the required node
+	Node<T>* current = getStartingNode(index);
+
+	return current->_data;
+}
+
+// Access the element at the specified index, denies modification
+template<class T>
+T& DLL<T>::operator[](const int index) const {
+	// TODO: potential range check
+
+	// Traverse to the required node
+	Node<T>* current = getStartingNode(index);
+
+	return current->_data;
+}
+
+// Returns a reference to the first element in the container, allows modification
+template<class T>
+T& DLL<T>::front() {
+	// TODO: handle empty case
+
+	return _head->_data;
+}
+
+// Returns a reference to the first element in the container, denies modification
+template<class T>
+const T& DLL<T>::front() const {
+	// TODO: handle empty case
+
+	return _head->_data;
+}
+
+// Returns a reference to the last element in the container, allows modification
+template<class T>
+T& DLL<T>::back() {
+	// TODO: handle empty case
+
+	return _tail->_data;
+}
+
+// Returns a reference to the last element in the container, denies modification
+template<class T>
+const T& DLL<T>::back() const {
+	// TODO: handle empty case
+
+	return _tail->_data;
+}
+```
+
+7. Capacity methods:
+```cpp
+// Checks if the container has no elements
+template<class T>
+bool DLL<T>::empty() const { return _size == 0; }
+
+// Returns the number of elements in the container
+template<typename T>
+int DLL<T>::size() const { return _size; }
+```
+
+8. Modifiers:
+```cpp
+// Erases all elements from the container
+template<typename T>
+void DLL<T>::clear() {
+	// Traverse the list and deallocate memory for each node
+	while (_head) {
+		Node<T>* temp = _head;
+		_head = _head->_next;
+		delete temp;
+	}
+
+	// Update the size and pointers
+	_tail = _head = nullptr;
+	_size = 0;
+}
+
+// Inserts elements after the specified position in the container
+template<class T>
+void DLL<T>::insert(const int index, const T& newData) {
+	// TODO: range check
+
+	// Create a new node with the given data
+	Node<T>* current = getStartingNode(index);
+	Node<T>* newNode = new Node<T>(newData);
+	newNode->_next = current->_next;
+	newNode->_prev = current;
+	current->_next = newNode;
+
+	// Insert the new node after the current node
+	if (newNode->_next) {
+		newNode->_next->_prev = newNode;
+	}
+	else {
+		// If the new node is inserted at the end, update the tail pointer
+		_tail = newNode;
+	}
+
+	// Update the size
+	++_size;
+}
+
+// Removes an element at the specified position
+template<class T>
+void DLL<T>::erase(const int index) {
+	// TODO: range check
+
+	// Save a pointer to the node to be erased
+	Node<T>* current = getStartingNode(index);
+	Node<T>* nodeToErase = current->_next;
+
+	// Update the pointers to remove the node from the list
+	current->_next = nodeToErase->_next;
+	if (nodeToErase->_next) {
+		nodeToErase->_next->_prev = current;
+	}
+	else {
+		_tail = current;
+	}
+
+	// Delete the node
+	delete nodeToErase;
+
+	// Update the size
+	--_size;
+}
+
+// Prepends the given element value to the beginning of the container.
+template<typename T>
+void DLL<T>::pushFront(const T& newData) {
+	// Create a new node with the given data
+	Node<T>* newNode = new Node<T>(newData);
+
+	// If the list is empty, set the new node as both head and tail
+	if (_size == 0) { _head = _tail = newNode; }
+
+	// Push front
+	_head->_prev = newNode;
+	newNode->_next = _head;
+	_head = newNode;
+
+	// Increase the size of the list
+	++_size;
+}
+
+// Removes the first element of the container.
+template<class T>
+void DLL<T>::popFront() {
+	// TODO: range check
+
+	// Case: one element
+	if (_size == 1) {
+		clear();
+		return;
+	}
+
+	// Move the head pointer to the next node
+	_head = _head->_next;
+	delete _head->_prev;
+	_head->_prev = nullptr;
+
+	// Update the size
+	--_size;
+}
+
+// Appends the given element to the end of the container.
+template<class T>
+void DLL<T>::pushBack(const T& newData) {
+	// Create a new node with the given data
+	Node<T>* newNode = new Node<T>(newData);
+
+	// If the list is empty, set the new node as both head and tail
+	if (_size == 0) { _head = _tail = newNode; }
+
+	// Push back
+	_tail->_next = newNode;
+	newNode->_prev = _tail;
+	_tail = newNode;
+
+	// Update the size
+	++_size;
+}
+
+// Removes the last element of the container
+template<class T>
+void DLL<T>::popBack() {
+	// TODO: range check
+
+	// Case: one element
+	if (_size == 1) {
+		clear();
+		return;
+	}
+
+	// Move the tail pointer to the previous node
+	_tail = _tail->_prev;
+	delete _tail->_next;
+	_tail->_next = nullptr;
+
+	// Update the size
+	--_size;
+}
+```
+
+9. Demonstration:
+```cpp
+void printList(const DLL<int>& list) {
+	std::cout << "Elements:\t";
+	for (int i = 0; i < list.size(); i++) {
+		std::cout << list[i] << " ";
+	}
+	std::cout << std::endl;
+}
+
+int main()
+{
+	// Greetings
+	std::cout << "Welcome to the 'Doubly Linked List' console application!\n\n";
+
+	// Create initial list
+	std::cout << "Creating & filling initial list #1...\n";
+	DLL<int> list1;
+	list1.pushFront(7);
+	list1.pushBack(1);
+	list1.pushBack(1);
+	list1.pushBack(9);
+
+	// Show list #1
+	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
+	printList(list1);
+
+	// Modify list #1
+	std::cout << "\nChange first ('7') and last ('9') element  to '0'...\n";
+	list1.front() = 0;
+	list1.back() = 0;
+	printList(list1);
+
+	// Insert into list #1
+	std::cout << "\nInsert element '3' in the middle...\n";
+	list1.insert((list1.size() / 2) - 1, 3);
+    printList(list1);
+
+	// Deep copy functionality
+	std::cout << "\nCreate a list copies and compare...\n";
+	DLL<int> list2(list1);
+	DLL<int> list3 = list1;
+	printList(list1);
+	printList(list2);
+	printList(list3);
+
+	// Remove functionality
+	std::cout << "\nFrom list #1 remove middle ('3'), first ('0')  and last ('0') elements...\n";
+	list1.erase((list1.size() / 2) - 1);
+	list1.popFront();
+	list1.popBack();
+	printList(list1);
+	printList(list2);
+	printList(list3);
+
+	// Clear
+	std::cout << "\nClear list #2 and #3...\n";
+	list2.clear();
+	list3.clear();
+	printList(list1);
+	printList(list2);
+	printList(list3);
+	std::cout << "Are they empty: ";
+	std::cout << list1.empty();
+	std::cout << list2.empty();
+	std::cout << list3.empty();
+	std::cout << std::endl;
+
+	// Exiting
+	std::cout << "\nThanks for using this program! Have a great day!\n";
+	std::cout << "Press <Enter> to exit...";
+	std::cin.clear(); // ensure that stream is in a good state
+	std::cin.ignore(32767, '\n'); // clear from any remaining chars
+	std::cin.get();
+	return 0;
+}
+```
+
+<p align="center"><img src="./img/demoDLL.png"/></p>
 
 
 ##  Circular Linked List

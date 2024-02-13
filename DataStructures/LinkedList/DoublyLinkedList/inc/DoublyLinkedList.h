@@ -28,7 +28,7 @@ private:
 	Node<T>* _head;
 	Node<T>* _tail;
 
-	// Facilitator function
+	// Facilitator method
 	Node<T>* getStartingNode(int index) const;
 public:
 	// Special Member Functions

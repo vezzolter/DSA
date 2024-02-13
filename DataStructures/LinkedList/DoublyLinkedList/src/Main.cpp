@@ -61,7 +61,6 @@ int main()
 	printList(list2);
 	printList(list3);
 
-
 	// Clear
 	std::cout << "\nClear list #2 and #3...\n";
 	list2.clear();

@@ -8,9 +8,9 @@
 #include "DoublyLinkedList.h"
 
 
-// --------------------
-// Facilitator Function
-// --------------------
+// ------------------
+// Facilitator Method
+// ------------------
 
 // Determine whether to start traversal from the head or tail
 template<typename T>
@@ -41,7 +41,7 @@ typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
 // Special Member Functions
 // ------------------------
 
-// Default Constructor
+// Default constructor
 template<typename T>
 DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 
@@ -49,7 +49,7 @@ DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 //template<class T>
 //DLL<T>::DLL(const std::initializer_list<T>& initList) { }
 
-// Deep Copy Constructor
+// Deep copy constructor
 template<class T>
 DLL<T>::DLL(const DLL& rhs) {
 	// Set corresponding size
@@ -120,7 +120,7 @@ DLL<T>& DLL<T>::operator=(const DLL& rhs) {
 	return *this;
 }
 
-// Desctuctor
+// Destructor
 template<typename T>
 DLL<T>::~DLL() { clear(); }
 
