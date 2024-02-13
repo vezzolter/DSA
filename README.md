@@ -49,7 +49,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Linked List 
     - [Lists.md](https://github.com/vezzolter/DSA/blob/lists/DataStructures/LinkedList/List.md) 🔄
     - [Singly Linked List](https://github.com/vezzolter/DSA/tree/lists/DataStructures/LinkedList/SinglyLinkedList)✅
-    - Doubly Linked List 🔄
+    - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/lists/DataStructures/LinkedList/DoublyLinkedList) ✅
     - Circular Linked List 🔄
   - Queue
     - Linear Queue
