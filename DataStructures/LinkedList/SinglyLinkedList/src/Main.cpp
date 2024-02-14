@@ -29,21 +29,21 @@ int main()
 	list1.pushFront(1);
 	list1.pushFront(7);
 
-	// Show it
+	// Show list #1
 	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
 	printList(list1);
 
-	// Modify it
+	// Modify list #1
 	std::cout << "\nChange first element ('7') to '5'...\n";
 	list1.front() = 5;
 	printList(list1);
 
-	// Insert to it
+	// Insert into list #1
 	std::cout << "\nInsert element '3' before '9'...\n";
 	list1.insertAfter(list1.size()-2, 3);
 	printList(list1);
 
-	// Deep copy mechanics
+	// Deep copy functionality
 	std::cout << "\nCreate a list copies and compare...\n";
 	SLL<int> list2(list1);
 	SLL<int> list3 = list1;
@@ -51,7 +51,7 @@ int main()
 	printList(list2);
 	printList(list3);
 
-	// Remove from first
+	// Remove functionality
 	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
 	list1.popFront();
 	list1.eraseAfter(list1.size() - 2);
@@ -59,7 +59,20 @@ int main()
 	printList(list2);
 	printList(list3);
 
-	// Exiting
+	// Clear
+	std::cout << "\nClear list #2 and #3...\n";
+	list2.clear();
+	list3.clear();
+	printList(list1);
+	printList(list2);
+	printList(list3);
+	std::cout << "Are they empty: ";
+	std::cout << list1.empty();
+	std::cout << list2.empty();
+	std::cout << list3.empty();
+	std::cout << std::endl;
+
+	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
 	std::cin.clear(); // ensure that stream is in a good state

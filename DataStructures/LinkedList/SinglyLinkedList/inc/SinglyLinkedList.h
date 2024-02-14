@@ -17,8 +17,8 @@ private:
 
 		// Special Member Functions
 		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
-		Node()                           = default;
-		Node(const Node& rhs)            = delete;
+		Node() = default;
+		Node(const Node& rhs) = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
