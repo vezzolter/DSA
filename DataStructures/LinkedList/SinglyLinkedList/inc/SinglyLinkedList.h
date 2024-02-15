@@ -12,18 +12,19 @@ private:
 	template<class T>
 	struct Node {
 	public:
+		T _data; 
 		Node* _next;
-		T _data;
 
 		// Special Member Functions
-		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
-		Node() = default;
-		Node(const Node& rhs) = delete;
+		Node(const T& newData, Node* nextNode = nullptr) 
+			: _data(newData), _next(nextNode) {}
+		Node()                           = default;
+		Node(const Node& rhs)            = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
-	Node<T>* _head;
 	int _size;
+	Node<T>* _head;
 
 public:
 	// Special Member Functions
@@ -37,6 +38,7 @@ public:
 	T& operator[](const int index);
 	T& operator[](const int index) const;
 	T& front();
+	const T& front() const;
 
 	// Capacity 
 	bool empty() const;

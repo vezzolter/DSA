@@ -18,8 +18,8 @@ void printList(const SLL<int>& list) {
 
 int main()
 {
-	// Greetings
-	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
+	// Greet
+	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n\n";
 
 	// Create initial list
 	std::cout << "Creating & filling initial list #1...\n";
@@ -39,8 +39,8 @@ int main()
 	printList(list1);
 
 	// Insert into list #1
-	std::cout << "\nInsert element '3' before '9'...\n";
-	list1.insertAfter(list1.size()-2, 3);
+	std::cout << "\nInsert element '3' in the middle...\n";
+	list1.insertAfter(list1.size()/2, 3);
 	printList(list1);
 
 	// Deep copy functionality

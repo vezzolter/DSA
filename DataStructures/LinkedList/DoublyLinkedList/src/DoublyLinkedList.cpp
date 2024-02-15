@@ -207,6 +207,10 @@ int DLL<T>::size() const { return _size; }
 // Erases all elements from the container
 template<typename T>
 void DLL<T>::clear() {
+	// Case: empty list
+	if (!_head)
+		return;
+
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
 		Node<T>* current = _head;
@@ -232,7 +236,7 @@ void DLL<T>::insert(const int index, const T& newData) {
 	}
 	else {
 		// Insert new node at specified position
-		Node<T>* prevNode = getStartingNode(index);
+		Node<T>* prevNode = getStartingNode(index - 1);
 		Node<T>* newNode = new Node<T>(newData);
 		newNode->_next = prevNode->_next;
 		newNode->_prev = prevNode;
@@ -273,14 +277,17 @@ void DLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If the list is empty, set the new node as both head and tail
-	if (_size == 0) { _head = _tail = newNode; }
-
-	// Push front
-	_head->_prev = newNode;
-	newNode->_next = _head;
-	_head = newNode;
-
+	// Case: empty list
+	if (_size == 0) {
+		_head = _tail = newNode;
+	}
+	else {
+		// Push front
+		_head->_prev = newNode;
+		newNode->_next = _head;
+		_head = newNode;
+	}
+	
 	// Update the size
 	++_size;
 }
@@ -312,13 +319,17 @@ void DLL<T>::pushBack(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If the list is empty, set the new node as both head and tail
-	if (_size == 0) { _head = _tail = newNode; }
-
-	// Push back
-	_tail->_next = newNode;
-	newNode->_prev = _tail;
-	_tail = newNode;
+	// Case: empty list
+	if (_size == 0) { 
+		_head = _tail = newNode;
+	}
+	else {
+		// Push back
+		_tail->_next = newNode;
+		newNode->_prev = _tail;
+		_tail = newNode;
+	}
+	
 
 	// Update the size
 	++_size;

@@ -18,8 +18,8 @@ void printList(const DLL<int>& list) {
 
 int main()
 {
-	// Greetings
-	std::cout << "Welcome to the 'Doubly Linked List' console application!\n\n";
+	// Greet
+	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n\n";
 
 	// Create initial list
 	std::cout << "Creating & filling initial list #1...\n";
@@ -34,14 +34,14 @@ int main()
 	printList(list1);
 
 	// Modify list #1
-	std::cout << "\nChange first ('7') and last ('9') element  to '0'...\n";
+	std::cout << "\nChange first ('7') and last ('9') element to '0'...\n";
 	list1.front() = 0;
 	list1.back() = 0;
 	printList(list1);
 
 	// Insert into list #1
 	std::cout << "\nInsert element '3' in the middle...\n";
-	list1.insert((list1.size() / 2) - 1, 3);
+	list1.insert((list1.size() / 2), 3);
     printList(list1);
 
 	// Deep copy functionality
@@ -53,8 +53,8 @@ int main()
 	printList(list3);
 
 	// Remove functionality
-	std::cout << "\nFrom list #1 remove middle ('3'), first ('0')  and last ('0') elements...\n";
-	list1.erase((list1.size() / 2) - 1);
+	std::cout << "\nFrom list #1 remove middle ('3'), first ('0') and last ('0') elements...\n";
+	list1.erase(list1.size() / 2);
 	list1.popFront();
 	list1.popBack();
 	printList(list1);
@@ -74,7 +74,7 @@ int main()
 	std::cout << list3.empty();
 	std::cout << std::endl;
 
-	// Exiting
+	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
 	std::cin.clear(); // ensure that stream is in a good state

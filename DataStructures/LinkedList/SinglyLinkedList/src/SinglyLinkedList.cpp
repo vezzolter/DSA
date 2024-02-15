@@ -13,7 +13,7 @@
 
 // Default Constructor
 template<typename T>
-SLL<T>::SLL() : _head(nullptr), _size(0) {}
+SLL<T>::SLL() : _size(0), _head(nullptr) {}
 
 //// Parametrized constructor
 //template<class T>
@@ -25,7 +25,7 @@ SLL<T>::SLL(const SLL& rhs) {
 	// Set corresponding size
 	_size = rhs._size;
 
-	// Case: empty list, avoid dangling pointers
+	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
 		return;
@@ -59,7 +59,7 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 	// Set corresponding size
 	_size = rhs._size;
 
-	// Case: empty list, avoid dangling pointers
+	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
 		return *this;
@@ -112,9 +112,6 @@ T& SLL<T>::operator[](const int index) {
 		current = current->_next;
 		counter++;
 	}
-
-	// Just for the compiler
-	return current->_data;
 }
 
 // Access the element at the specified index, denies modification
@@ -135,14 +132,19 @@ T& SLL<T>::operator[](const int index) const {
 		current = current->_next;
 		counter++;
 	}
-
-	// Just for the compiler
-	return current->_data;
 }
 
 // Returns a reference to the first element in the container, allows modification
 template<class T>
 T& SLL<T>::front() {
+	// TODO: handle empty case
+
+	return _head->_data;
+}
+
+// Returns a reference to the first element in the container, denies modification
+template<class T>
+const T& SLL<T>::front() const {
 	// TODO: handle empty case
 
 	return _head->_data;
@@ -171,6 +173,10 @@ int SLL<T>::size() const { return _size; }
 // Erases all elements from the container
 template<typename T>
 void SLL<T>::clear() {
+	// Case: empty list
+	if (!_head)
+		return;
+	
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
 		Node<T>* current = _head;
@@ -197,7 +203,7 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 
 		// Find the node at the specified index
 		Node<T>* current = _head;
-		for (int i = 0; i < index; i++) {
+		for (int i = 0; i < index - 1; i++) {
 			current = current->_next;
 		}
 
@@ -241,12 +247,15 @@ void SLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If the list is empty, set the new node as both head
-	if (_size == 0) { _head = newNode; }
-
-	// Push front
-	newNode->_next = _head;
-	_head = newNode;
+	// Case: empty list
+	if (_size == 0) {
+		_head = newNode;
+	}
+	else {
+		// Push front
+		newNode->_next = _head;
+		_head = newNode;
+	}
 
 	// Update the size
 	++_size;

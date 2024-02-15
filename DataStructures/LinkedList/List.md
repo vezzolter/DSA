@@ -104,18 +104,19 @@ private:
 	template<class T>
 	struct Node {
 	public:
+		T _data; 
 		Node* _next;
-		T _data;
 
 		// Special Member Functions
-		Node(const T& newData, Node* nextNode = nullptr) : _data(newData), _next(nextNode) {}
+		Node(const T& newData, Node* nextNode = nullptr) 
+			: _data(newData), _next(nextNode) {}
 		Node()                           = default;
 		Node(const Node& rhs)            = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
-	Node<T>* _head;
 	int _size;
+	Node<T>* _head;
 
 public:
 	// Special Member Functions
@@ -129,6 +130,7 @@ public:
 	T& operator[](const int index);
 	T& operator[](const int index) const;
 	T& front();
+	const T& front() const;
 
 	// Capacity 
 	bool empty() const;
@@ -147,7 +149,7 @@ public:
 ```cpp
 // Default Constructor
 template<typename T>
-SLL<T>::SLL() : _head(nullptr), _size(0) {}
+SLL<T>::SLL() : _size(0), _head(nullptr) {}
 
 //// Parametrized constructor
 //template<class T>
@@ -159,7 +161,7 @@ SLL<T>::SLL(const SLL& rhs) {
 	// Set corresponding size
 	_size = rhs._size;
 
-	// Case: empty list, avoid dangling pointers
+	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
 		return;
@@ -193,7 +195,7 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 	// Set corresponding size
 	_size = rhs._size;
 
-	// Case: empty list, avoid dangling pointers
+	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
 		return *this;
@@ -243,9 +245,6 @@ T& SLL<T>::operator[](const int index) {
 		current = current->_next;
 		counter++;
 	}
-
-	// Just for the compiler
-	return current->_data;
 }
 
 // Access the element at the specified index, denies modification
@@ -266,14 +265,19 @@ T& SLL<T>::operator[](const int index) const {
 		current = current->_next;
 		counter++;
 	}
-
-	// Just for the compiler
-	return current->_data;
 }
 
 // Returns a reference to the first element in the container, allows modification
 template<class T>
 T& SLL<T>::front() {
+	// TODO: handle empty case
+
+	return _head->_data;
+}
+
+// Returns a reference to the first element in the container, denies modification
+template<class T>
+const T& SLL<T>::front() const {
 	// TODO: handle empty case
 
 	return _head->_data;
@@ -296,6 +300,10 @@ int SLL<T>::size() const { return _size; }
 // Erases all elements from the container
 template<typename T>
 void SLL<T>::clear() {
+	// Case: empty list
+	if (!_head)
+		return;
+	
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
 		Node<T>* current = _head;
@@ -322,7 +330,7 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 
 		// Find the node at the specified index
 		Node<T>* current = _head;
-		for (int i = 0; i < index; i++) {
+		for (int i = 0; i < index - 1; i++) {
 			current = current->_next;
 		}
 
@@ -366,12 +374,15 @@ void SLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If the list is empty, set the new node as both head
-	if (_size == 0) { _head = newNode; }
-
-	// Push front
-	newNode->_next = _head;
-	_head = newNode;
+	// Case: empty list
+	if (_size == 0) {
+		_head = newNode;
+	}
+	else {
+		// Push front
+		newNode->_next = _head;
+		_head = newNode;
+	}
 
 	// Update the size
 	++_size;
@@ -410,8 +421,8 @@ void printList(const SLL<int>& list) {
 
 int main()
 {
-	// Greetings
-	std::cout << "Welcome to the 'Singly Linked List' console application!\n\n";
+	// Greet
+	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n\n";
 
 	// Create initial list
 	std::cout << "Creating & filling initial list #1...\n";
@@ -431,8 +442,8 @@ int main()
 	printList(list1);
 
 	// Insert into list #1
-	std::cout << "\nInsert element '3' before '9'...\n";
-	list1.insertAfter(list1.size()-2, 3);
+	std::cout << "\nInsert element '3' in the middle...\n";
+	list1.insertAfter(list1.size()/2, 3);
 	printList(list1);
 
 	// Deep copy functionality
@@ -471,7 +482,6 @@ int main()
 	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
-}
 ```
 
 <p align="center"><img src="./img/demoSLL.png"/></p>
@@ -577,7 +587,7 @@ typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
 template<typename T>
 DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 
-//// Parametrized Constructor
+//// Parametrized constructor
 //template<class T>
 //DLL<T>::DLL(const std::initializer_list<T>& initList) { }
 
@@ -730,6 +740,10 @@ int DLL<T>::size() const { return _size; }
 // Erases all elements from the container
 template<typename T>
 void DLL<T>::clear() {
+	// Case: empty list
+	if (!_head)
+		return;
+
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
 		Node<T>* current = _head;
@@ -755,7 +769,7 @@ void DLL<T>::insert(const int index, const T& newData) {
 	}
 	else {
 		// Insert new node at specified position
-		Node<T>* prevNode = getStartingNode(index);
+		Node<T>* prevNode = getStartingNode(index - 1);
 		Node<T>* newNode = new Node<T>(newData);
 		newNode->_next = prevNode->_next;
 		newNode->_prev = prevNode;
@@ -796,14 +810,17 @@ void DLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If the list is empty, set the new node as both head and tail
-	if (_size == 0) { _head = _tail = newNode; }
-
-	// Push front
-	_head->_prev = newNode;
-	newNode->_next = _head;
-	_head = newNode;
-
+	// Case: empty list
+	if (_size == 0) {
+		_head = _tail = newNode;
+	}
+	else {
+		// Push front
+		_head->_prev = newNode;
+		newNode->_next = _head;
+		_head = newNode;
+	}
+	
 	// Update the size
 	++_size;
 }
@@ -835,13 +852,17 @@ void DLL<T>::pushBack(const T& newData) {
 	// Create a new node with the given data
 	Node<T>* newNode = new Node<T>(newData);
 
-	// If the list is empty, set the new node as both head and tail
-	if (_size == 0) { _head = _tail = newNode; }
-
-	// Push back
-	_tail->_next = newNode;
-	newNode->_prev = _tail;
-	_tail = newNode;
+	// Case: empty list
+	if (_size == 0) { 
+		_head = _tail = newNode;
+	}
+	else {
+		// Push back
+		_tail->_next = newNode;
+		newNode->_prev = _tail;
+		_tail = newNode;
+	}
+	
 
 	// Update the size
 	++_size;
@@ -870,9 +891,6 @@ void DLL<T>::popBack() {
 
 9. Demonstration:
 ```cpp
-#include <iostream>
-#include "DoublyLinkedList.h"
-
 void printList(const DLL<int>& list) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < list.size(); i++) {
@@ -883,8 +901,8 @@ void printList(const DLL<int>& list) {
 
 int main()
 {
-	// Greetings
-	std::cout << "Welcome to the 'Doubly Linked List' console application!\n\n";
+	// Greet
+	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n\n";
 
 	// Create initial list
 	std::cout << "Creating & filling initial list #1...\n";
@@ -899,14 +917,14 @@ int main()
 	printList(list1);
 
 	// Modify list #1
-	std::cout << "\nChange first ('7') and last ('9') element  to '0'...\n";
+	std::cout << "\nChange first ('7') and last ('9') element to '0'...\n";
 	list1.front() = 0;
 	list1.back() = 0;
 	printList(list1);
 
 	// Insert into list #1
 	std::cout << "\nInsert element '3' in the middle...\n";
-	list1.insert((list1.size() / 2) - 1, 3);
+	list1.insert((list1.size() / 2), 3);
     printList(list1);
 
 	// Deep copy functionality
@@ -918,8 +936,8 @@ int main()
 	printList(list3);
 
 	// Remove functionality
-	std::cout << "\nFrom list #1 remove middle ('3'), first ('0')  and last ('0') elements...\n";
-	list1.erase((list1.size() / 2) - 1);
+	std::cout << "\nFrom list #1 remove middle ('3'), first ('0') and last ('0') elements...\n";
+	list1.erase(list1.size() / 2);
 	list1.popFront();
 	list1.popBack();
 	printList(list1);
@@ -939,7 +957,7 @@ int main()
 	std::cout << list3.empty();
 	std::cout << std::endl;
 
-	// Exiting
+	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
 	std::cin.clear(); // ensure that stream is in a good state
@@ -952,7 +970,80 @@ int main()
 
 
 ##  Circular Linked List
-Currently in progress...
+Circular linked lists can be implemented based on either singly or doubly linked lists. This implementation doesn't fundamentally alter the functionality; rather, it changes how operations are performed. Unlike standard linked lists, there isn't a built-in container for circular linked lists in the STL. Therefore, I chose to implement it based on a doubly linked list for personal preference.
+
+The concept behind creating this type of container revolves around ensuring that the tail node's next pointer points to the head and vice versa. This necessitates minor adjustments to the overall structure to avoid circular references. Specifically, it means you can't iterate through the list by checking for nullptr, and it requires assigning proper values to the pointers after making corresponding changes. For the complete implementation, please refer to the [project's directory](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList). Here, I'll provide a simple examples:
+
+You can't iterate via check for nullptr:
+```cpp
+// Deep copy assignment operator
+template<class T>
+CLL<T>& CLL<T>::operator=(const CLL& rhs) {
+	// Self-assignment guard
+	if (this == &rhs)
+		return *this;
+
+	clear();
+	_size = rhs._size;
+
+	// Case: empty list
+	if (rhs._head == nullptr) {
+		_head = _tail = nullptr;
+		return *this;
+	}
+
+	_head = new Node<T>(rhs._head->_data);
+	Node<T>* currentRhs = rhs._head->_next;
+	Node<T>* current = _head;
+	Node<T>* originalHead = rhs._head; // Save the original head of the list
+
+	while (currentRhs != originalHead) {
+		current->_next = new Node<T>(currentRhs->_data);
+		current->_next->_prev = current;
+		current = current->_next;
+		currentRhs = currentRhs->_next;
+	}
+
+	// Make the list circular
+	_tail = current;
+	_tail->_next = _head;
+	_head->_prev = _tail;
+
+	return *this;
+}
+```
+
+You have to ensure, that referrences to the tail/head are proper:
+```cpp
+// Prepends the given element value to the beginning of the container
+template<typename T>
+void CLL<T>::pushFront(const T& newData) {
+	Node<T>* newNode = new Node<T>(newData);
+
+	// Case: empty list
+	if (_size == 0) { 
+		_head = _tail = newNode;
+		newNode->_next = newNode->_prev = newNode; // Make the list circular
+	}
+	else {
+		// Push front
+		newNode->_next = _head;
+		newNode->_prev = _tail;
+		_head->_prev = newNode;
+		_head = newNode;
+
+		// Update the tail's next pointer to point to the new head
+		_tail->_next = _head;
+	}
+
+	++_size;
+}
+```
+
+Overall, the demonstration looks pretty much the same:
+<p align="center"><img src="./img/demoCLL.png"/></p>
+
+
 
 
 # &#128202; Analysis
