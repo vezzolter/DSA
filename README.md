@@ -21,7 +21,19 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Sorting
+    - Sorting.md 🔄
+    - Bubble Sort 🔄
+    - Selection Sort 🔄
+    - Insertion Sort 🔄
+    - Merge Sort
+    - Quick Sort
+    - Heap Sort
+    - Radix Sort
+    - Counting Sort
+    - Bucket Sort
+    - Shell Sort
   - Search
+    - Search.md
     - Linear Search
     - Binary Seacrh
     - Interpolation Search
@@ -47,10 +59,10 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArr) ✅
     - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynArr) ✅
   - Linked List 
-    - [Lists.md](https://github.com/vezzolter/DSA/blob/lists/DataStructures/LinkedList/List.md) 🔄
-    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/lists/DataStructures/LinkedList/SinglyLinkedList)✅
-    - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/lists/DataStructures/LinkedList/DoublyLinkedList) ✅
-    - Circular Linked List 🔄
+    - [Lists.md](https://github.com/vezzolter/DSA/blob/lists/DataStructures/LinkedList/List.md) ✅
+    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList)✅
+    - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
+    - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
   - Queue
     - Linear Queue
       - Input Restricted
