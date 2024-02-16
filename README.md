@@ -56,7 +56,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Stack
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
-    - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArr) ✅
+    - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray) ✅
     - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray) ✅
   - Linked List 
     - [List.md](https://github.com/vezzolter/DSA/blob/lists/DataStructures/LinkedList/List.md) ✅

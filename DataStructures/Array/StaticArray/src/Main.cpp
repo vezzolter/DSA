@@ -8,7 +8,7 @@
 #include <iostream>
 #include "StaticArray.h"
 
-void printArray(const SA& arr) {
+void printArray(const SA<int, 100>& arr) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < arr.size(); i++)
 		std::cout << arr[i] << " ";
@@ -22,7 +22,7 @@ int main()
 
 	// Create initial array #1
 	std::cout << "\nCreating & filling initial array #1...\n";
-	SA arr1(9);
+	SA<int, 100> arr1(9);
 	for (int i = 0; i < 9; i++)
 		arr1[i] = i + 1;
 	
@@ -42,9 +42,8 @@ int main()
 
 	// Copy functionality
 	std::cout << "\nCreate an array copies and compare...\n";
-	SA arr2(arr1);
-	SA arr3;
-	arr3 = arr1;
+	SA<int, 100> arr2(arr1);
+	SA<int, 100> arr3 = arr1;
 	printArray(arr1);
 	printArray(arr2);
 	printArray(arr3);

@@ -130,8 +130,9 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 ## 🧍‍♂️ Static Array
 
 **Detailed Overview**:
-1. In order to prioritize simplicity and highlight data structure itself, `int` is picked as sole data type.
-2. As mentioned earlier, a crucial aspect of arrays lies in the synergy between array indexing and address arithmetic. The illustration of a static array in C++, exemplified by `std::array`, achieves this through the utilization of the entire iterator class as one of its components. In this specific implementation, the iterator related functionality was omitted to streamline the focus on learning ADT basics, e.g. even methods like `int* begin();`, `const int* cbegin() const;`, or `int* rbegin();` are absent.
+1. Keeping its educational aim in mind, the `SA` class developed here closely resembles the behavior of `std::array`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+
+2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
 
 <p align="center"><img src="./img/stdArrIt.png"/></p>
 
@@ -139,32 +140,31 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 <p align="center"><img src="./img/stdArrAt.png"/></p>
 
-4. The ADT is implemented within the class named `StaticArr`, and this class is divided into two distinct files - header and source. This is done because of encapsulation, modularity and compilation efficiency.
-5. The declaration of the class is presented in `StaticArr.h`:
+4. The `SA` class is declared in `StaticArray.h` header file and defined in `StaticArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
 
+5. Whole class declaration:
 ```cpp
-class StaticArr
-{
+template<class T, int MAX_SIZE>
+class SA {
 private:
-	static const int MAX_SIZE = 100;  // Maximum size for the static array
-	int _data[MAX_SIZE];  // Static array to store elements
-	int _size;  // Current size of the array
-	
+	int _size;
+	T _data[MAX_SIZE];
 
 public:
 	// Special Member Functions
-	explicit StaticArr();
-	explicit StaticArr(int size); 
-	explicit StaticArr(const StaticArr& src) = default;
-	StaticArr& operator=(const StaticArr& rhs) = default;
-	~StaticArr();
-
+	SA();
+	SA(int size);
+	SA(const SA& rhs);
+	SA& operator=(const SA& rhs);
+	~SA() = default;
 
 	// Element Access
-	int& operator[](const int pos);
-	int front();
-	int back();
-
+	T& operator[](const int index);
+	const T& operator[](const int index) const;
+	T& front();
+	const T& front() const;
+	T& back();
+	const T& back() const;
 
 	// Capacity
 	bool empty() const;
@@ -172,97 +172,125 @@ public:
 };
 ```
 
-6. While the definition is in `StaticArr.cpp`:
-
+6. Special member functions:
 ```cpp
-// ------------------------
-// Special Member Functions
-// ------------------------
-
 // Default constructor
-StaticArr::StaticArr() : _size(0)
-{
+template<class T, int MAX_SIZE>
+SA<T, MAX_SIZE>::SA() : _size(0) {
     for (int i = 0; i < MAX_SIZE; ++i)
         _data[i] = 0;
 }
 
-// Parameterized constructor
-StaticArr::StaticArr(int size) : _size(size)
-{
-    // Initialize the array with default values
+// Parameterized constructor, no range check
+template<class T, int MAX_SIZE>
+SA<T, MAX_SIZE>::SA(int size) : _size(size) {
     for (int i = 0; i < MAX_SIZE; ++i)
         _data[i] = 0;
 }
 
-// Destructor
-StaticArr::~StaticArr() { }
+// Shallow copy constructor
+template<class T, int MAX_SIZE>
+SA<T, MAX_SIZE>::SA(const SA& rhs) : _size(rhs._size) {
+    for (int i = 0; i < _size; ++i)
+        _data[i] = rhs._data[i];
+}
 
+// Shallow copy assignment operator
+template<class T, int MAX_SIZE>
+SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
+    // Self-assignment guard
+    if (this == &rhs)
+        return *this;
 
-// --------------
-// Element Access
-// --------------
+    _size = rhs._size;
+    for (int i = 0; i < _size; ++i)
+        _data[i] = rhs._data[i];
 
-// Access the element at the specified index without bounds checking
-int& StaticArr::operator[](const int pos) { return _data[pos]; }
-
-// Access the first element of the container without bounds checking
-int StaticArr::front() { return _data[0]; }
-
-// Access the last element of the container without bounds checking
-int StaticArr::back() { return _data[_size - 1]; }
-
-
-
-// --------
-// Capacity
-// --------
-
-// Check if the container is empty
-bool StaticArr::empty() const { return (_size == 0); }
-
-// Get the size of the container
-int StaticArr::size() const { return _size; }
+    return *this;
+}
 ```
 
-7. A demonstration of the array's capabilities is showcased in the `main()` function, situated within the `main.cpp` file.
+7. Element access:
 ```cpp
+// Accesses the element at the specified index, allows modification, no range check
+template<class T, int MAX_SIZE>
+T& SA<T, MAX_SIZE>::operator[](const int index) { return _data[index]; }
+
+// Accesses the element at the specified index, denies modification, no range check
+template<class T, int MAX_SIZE>
+const T& SA<T, MAX_SIZE>::operator[](const int index) const { return _data[index]; }
+
+// Accesses the first element in the container, allows modification, no range check
+template<class T, int MAX_SIZE>
+T& SA<T, MAX_SIZE>::front() { return _data[0]; }
+
+// Accesses the first element in the container, denies modification, no range check
+template<class T, int MAX_SIZE>
+const T& SA<T, MAX_SIZE>::front() const { return 0; }
+
+// Accesses the last element in the container, allows modification, no range check
+template<class T, int MAX_SIZE>
+T& SA<T, MAX_SIZE>::back() { return _data[_size - 1]; }
+
+// Accesses the last element in the container, denies modification, no range check
+template<class T, int MAX_SIZE>
+const T& SA<T, MAX_SIZE>::back() const { return 0; }
+```
+
+8. Capacity methods:
+```cpp
+// Checks if the container has no elements
+template<class T>
+bool DA<T>::empty() const { return (_size == 0); }
+
+// Returns the number of elements in the container
+template<class T>
+int DA<T>::size() const { return _size; }
+```
+
+9. Demonstration:
+```cpp
+void printArray(const SA<int, 100>& arr) {
+	std::cout << "Elements:\t";
+	for (int i = 0; i < arr.size(); i++)
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
+}
+
 int main()
 {
-	// Greetings
-	std::cout << "Welcome to the 'Static Array' console application!\n\n";
+	// Greet
+	std::cout << "\tWelcome to the 'Static Array' console application!\n";
 
-	// Create the array with 10 elements
-	StaticArr myArr(10);
+	// Create initial array #1
+	std::cout << "\nCreating & filling initial array #1...\n";
+	SA<int, 100> arr1(9);
+	for (int i = 0; i < 9; i++)
+		arr1[i] = i + 1;
+	
+	// Show array #1
+	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
+	printArray(arr1);
 
-	// Display the array
-	std::cout << "Initial array:\t";
-	for (int i = 0; i < myArr.size(); i++)
-		std::cout << myArr[i] << " ";
-	std::cout << std::endl;
+	// Access elements
+	std::cout << " - first:\t" << arr1.front() << std::endl;
+	std::cout << " - middle:\t" << arr1[arr1.size() / 2] << std::endl;
+	std::cout << " - last:\t" << arr1.back() << std::endl;
 
-	// Fill the array with numbers (0-10)
-	for (int i = 0; i < 10; i++)
-		myArr[i] = i + 1;
+	// Modify array #1
+	std::cout << "\nChange first ('1') and last ('9') element to '0'...\n";
+	arr1[0] = arr1[arr1.size() - 1] = 0;
+	printArray(arr1);
 
-	// Display the array
-	std::cout << "Filled array:\t";
-	for (int i = 0; i < myArr.size(); i++)
-		std::cout << myArr[i] << " ";
-	std::cout << std::endl;
+	// Copy functionality
+	std::cout << "\nCreate an array copies and compare...\n";
+	SA<int, 100> arr2(arr1);
+	SA<int, 100> arr3 = arr1;
+	printArray(arr1);
+	printArray(arr2);
+	printArray(arr3);
 
-	// Showcase of the capacity
-	if (!myArr.empty())
-	{
-		std::cout << "\nAs long as, the array has " << myArr.size() << " elements, we can name:\n";
-
-
-		// Showcase of the element access
-		std::cout << " - first element:\t" << myArr.front() << std::endl;
-		std::cout << " - next element:\t" << myArr[1] << std::endl;
-		std::cout << " - last element:\t" << myArr.back() << std::endl;
-	}
-
-	// Exiting
+	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
 	std::cin.clear(); // ensure that stream is in a good state
@@ -271,7 +299,10 @@ int main()
 	return 0;
 }
 ```
-<p align="center"><img src="./img/staticArr.png"/></p>
+
+<p align="center"><img src="./img/demoSA.png"/></p>
+
+
 
 ## 🚶‍♂️ Dynamic Array
 
@@ -328,7 +359,7 @@ public:
 };
 ```
 
-5. Special member functions:
+7. Special member functions:
 ```cpp
 // Default constructor
 template<class T>
@@ -396,7 +427,7 @@ template<class T>
 DA<T>::~DA() { delete[] _data; }
 ```
 
-6. Element access:
+8. Element access:
 ```cpp
 // Accesses the element at the specified index, allows modification, no range check
 template<class T>
@@ -423,7 +454,7 @@ template<class T>
 const T& DA<T>::back() const { return _data[_size - 1]; }
 ```
 
-7. Capacity methods:
+9. Capacity methods:
 ```cpp
 // Checks if the container has no elements
 template<class T>
@@ -434,7 +465,7 @@ template<class T>
 int DA<T>::size() const { return _size; }
 ```
 
-8. Modifiers:
+10. Modifiers:
 ```cpp
 // Appends the given element to the end of the container
 // Note: without potential memory-reserving adjustments and bounds checking
@@ -547,7 +578,7 @@ void DA<T>::clear() {
 }
 ```
 
-9. Demonstration:
+11. Demonstration:
 ```cpp
 void printArray(const DA<int>& arr) {
 	std::cout << "Elements:\t";
@@ -619,6 +650,7 @@ int main()
 ```
 
 <p align="center"><img src="./img/demoDA.png"/></p>
+
 
 
 # &#128202; Analysis

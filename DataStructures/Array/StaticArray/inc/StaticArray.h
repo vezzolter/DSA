@@ -2,33 +2,38 @@
 // by vezzolter
 // January 29, 2024
 
-#pragma once
+#ifndef SA_H
+#define SA_H
 
-class SA
-{
+
+template<class T, int MAX_SIZE>
+class SA {
 private:
-	static const int MAX_SIZE = 100;
-	int _data[MAX_SIZE];
 	int _size;
-
+	T _data[MAX_SIZE];
 
 public:
 	// Special Member Functions
 	SA();
 	SA(int size);
-	SA(const SA& rhs)            = default;
-	SA& operator=(const SA& rhs) = default;
-	~SA()                        = default;
+	SA(const SA& rhs);
+	SA& operator=(const SA& rhs);
+	~SA() = default;
 
 	// Element Access
-	int& operator[](const int index);
-	const int& operator[](const int index) const;
-	int front();
-	const int front() const;
-	int back();
-	const int back() const;
+	T& operator[](const int index);
+	const T& operator[](const int index) const;
+	T& front();
+	const T& front() const;
+	T& back();
+	const T& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
 };
+
+
+#include "StaticArray.cpp"
+
+#endif
