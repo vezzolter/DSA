@@ -9,11 +9,10 @@
 #include "DynamicArray.h"
 
 
-void printArray(const DynArr& arr) {
+void printArray(const DA<int>& arr) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < arr.size(); i++) {
+	for (int i = 0; i < arr.size(); i++)
 		std::cout << arr[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
@@ -24,10 +23,9 @@ int main()
 
 	// Create initial array #1
 	std::cout << "\nCreating & filling initial array #1...\n";
-	DynArr arr1;
-	for (int i = 0; i < 10; i++) {
-		arr1.insert(i, i + 1);
-	}
+	DA<int> arr1;
+	for (int i = 0; i < 10; i++)
+		arr1.pushBack(i);
 
 	// Show array #1
 	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
@@ -41,13 +39,11 @@ int main()
 
 	// Deep copy functionality
 	std::cout << "\nCreate an array copies and compare...\n";
-	DynArr arr2(arr1);
-	DynArr arr3;
-	arr3 = arr1;
+	DA<int> arr2(arr1);
+	DA<int> arr3 = arr1;
 	printArray(arr1);
 	printArray(arr2);
 	printArray(arr3);
-
 
 	// Remove functionality
 	std::cout << "\nShorten an array #2 to 7 elements, and #3 to 3 elements...\n";

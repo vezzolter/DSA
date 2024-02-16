@@ -2,36 +2,45 @@
 // by vezzolter
 // January 31, 2024
 
-#pragma once
+#ifndef DA_H
+#define DA_H
 
-class DynArr
+template<class T>
+class DA
 {
 private:
 	int _size;
-	int* _data;
+	T* _data;
 
 public:
 	// Special Member Functions
-	explicit DynArr();
-	explicit DynArr(int size, int defVal = 0);
-	explicit DynArr(const DynArr& rhs);
-	DynArr& operator=(const DynArr& rhs);
-	~DynArr();
+	DA();
+	DA(int newSize, T newData = T());
+	DA(const DA& rhs);
+	DA& operator=(const DA& rhs);
+	~DA();
 
 	// Element Access
-	int& operator[](const int index);
-	int& operator[](const int index) const;
-	int front();
-	int back();
+	T& operator[](const int index);
+	const T& operator[](const int index) const;
+	T& front();
+	const T& front() const;
+	T& back();
+	const T& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
 	
 	// Modifiers
-	void insert(int index, int val);
+	void pushBack(const T& newData);
+	void insert(int index, const T& newData);
 	void remove(int index);
 	void resize(int newSize);
 	void clear();
-
 };
+
+
+#include "DynamicArray.cpp"
+
+#endif

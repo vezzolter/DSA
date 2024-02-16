@@ -276,8 +276,9 @@ int main()
 ## 🚶‍♂️ Dynamic Array
 
 **Detailed Overview**:
-1. In order to prioritize simplicity and highlight data structure itself, `int` is picked as sole data type.
-2. As mentioned earlier, a crucial aspect of arrays lies in the synergy between array indexing and address arithmetic. The illustration of a dynamicarray in C++, exemplified by `std::vector`, achieves this through the utilization of the entire iterator classes as one of its components. In this specific implementation, the iterator related functionality was omitted to streamline the focus on learning ADT basics, e.g. even methods like `int* begin();`, `const int* cbegin() const;`, or `int* rbegin();` are absent.
+1. Keeping its educational aim in mind, the `DA` class developed here closely resembles the behavior of `std::vector`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+
+2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
 
 <p align="center"><img src="./img/stdVecIt.png"/></p>
 
@@ -286,297 +287,328 @@ int main()
 <p align="center"><img src="./img/stdVecAt.png"/></p>
 
 4. Key difference between static and dynamic ADT lies in the implementation of the memory management. The well-known `std::vector` operates on the principle of capacity, meaning _"The storage of the vector is handled automatically, being expanded as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted — cppreference"_. At first glance, I thought I will just double the capacity each time it requires more for explanatory purposes, but I guess it may lead to misinformation, so I just chosen to implement solely based on the length. Even though it contradics the main principle, it doesn't abstruct to grasp the idea behind other memory management. This resulted in some type of misleading nature of some methods, thus I've placed notes, where it does so.
+   
+5. The `DA` class is declared in `DynamicArray.h` header file and defined in `DynamicArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
 
-5. The ADT is implemented within the class named `DynArr`, and this class is divided into two distinct files - header and source. This is done because of encapsulation, modularity and compilation efficiency.
-6. The declaration of the class is presented in `DynamicArray.h`:
-
+6. Whole class declaration:
 ```cpp
-class DynArr
+template<class T>
+class DA
 {
 private:
 	int _size;
-	int* _data;
-	
+	T* _data;
+
 public:
 	// Special Member Functions
-	explicit DynArr();
-	explicit DynArr(int size, int defVal = 0);
-	explicit DynArr(const DynArr& src);
-	DynArr& operator=(const DynArr& rhs);
-	~DynArr();
+	DA();
+	DA(int newSize, T newData = T());
+	DA(const DA& rhs);
+	DA& operator=(const DA& rhs);
+	~DA();
 
 	// Element Access
-	int& operator[](const int index);
-	int front();
-	int back();
+	T& operator[](const int index);
+	const T& operator[](const int index) const;
+	T& front();
+	const T& front() const;
+	T& back();
+	const T& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
+	
+	// Modifiers
+	void pushBack(const T& newData);
+	void insert(int index, const T& newData);
+	void remove(int index);
 	void resize(int newSize);
-
-	// Operations
 	void clear();
-	void remove(int pos);
-	void insert(int pos, int val);
 };
 ```
 
-6. While the definition is in `DynamicArray.cpp`:
-
+5. Special member functions:
 ```cpp
-// ------------------------
-// Special Member Functions
-// ------------------------
-
 // Default constructor
-DynArr::DynArr() : _size(0), _data(nullptr) {}
+template<class T>
+DA<T>::DA() : _size(0), _data(nullptr) {}
 
-// Parameterized constructor
-// Note: without bounds checking
-DynArr::DynArr(int size, int defVal) : _size(size)
-{
-    _data = new int[size];
-    for (int i = 0; i < size; ++i)
-        _data[i] = defVal;
-}
+// Parameterized constructor, no range check
+template<class T>
+DA<T>::DA(int newSize, T newData) : _size(size) {
+    // Allocate memory for new array
+    _data = new T[size];
 
-// Copy constructor
-DynArr::DynArr(const DynArr& src) : _size(src._size)
-{
-    // Shallow Copy
-    _size = src._size;
-
-    // Deep Copy if has data
-    if (src._data)
-    {
-        // Allocate new array
-        _data = new int[_size];
-
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            _data[i] = src._data[i];
+    // Fill with elements
+    for (int i = 0; i < size; ++i) {
+        _data[i] = newData;
     }
-    else
-        _data = nullptr;
+        
 }
 
-// Copy Assignment Operator
-DynArr& DynArr::operator=(const DynArr& rhs)
-{
-    // Self assignment check
-    if (this == &rhs)
-        return *this;
-
-    // Prevent memory leak
-    delete[] _data;
-
-    // Shallow copy
-    _size = rhs._size;
-
-    // Deep Copy is has data
-    if (rhs._data)
-    {
-        // Allocate new array
-        _data = new int[_size];
+// Deep copy constructor
+template<class T>
+DA<T>::DA(const DA& rhs) : _size(rhs._size) {
+    if (rhs._data) {
+        // Allocate memory for new array
+        _data = new T[_size];
 
         // Copy the elements
         for (int i = 0; i < _size; ++i)
             _data[i] = rhs._data[i];
     }
-    else
+    else {
         _data = nullptr;
+    }
+        
+}
+
+// Deep copy assignment operator
+template<class T>
+DA<T>& DA<T>::operator=(const DA& rhs) {
+    // Self-assignment guard
+    if (this == &rhs)
+        return *this;
+        
+    // Prevent memory leak
+    delete[] _data;
+    // Set corresponding size
+    _size = rhs._size;
+
+    if (rhs._data) {
+        // Allocate memory for new array
+        _data = new T[_size];
+
+        // Copy the elements
+        for (int i = 0; i < _size; ++i)
+            _data[i] = rhs._data[i];
+    }
+    else {
+        _data = nullptr;
+    }
         
     return *this;
 }
 
 // Destructor
-DynArr::~DynArr() { delete[] _data; }
+template<class T>
+DA<T>::~DA() { delete[] _data; }
+```
 
+6. Element access:
+```cpp
+// Accesses the element at the specified index, allows modification, no range check
+template<class T>
+T& DA<T>::operator[](const int index) { return _data[index]; }
 
-// --------------
-// Element Access
-// --------------
+// Accesses the element at the specified index, denies modification, no range check
+template<class T>
+const T& DA<T>::operator[](const int index) const { return _data[index]; }
 
-// Access the element at the specified index without bounds checking
-int& DynArr::operator[](const int index) { return _data[index]; }
+// Accesses the first element in the container, allows modification, no range check
+template<class T>
+T& DA<T>::front() { return _data[0]; }
 
-// Access the first element of the container without bounds checking
-int DynArr::front() { return _data[0]; }
+// Accesses the first element in the container, denies modification, no range check
+template<class T>
+const T& DA<T>::front() const { return _data[0]; }
 
-// Access the last element of the container without bounds checking
-int DynArr::back() { return _data[_size - 1]; }
+// Accesses the last element in the container, allows modification, no range check
+template<class T>
+T& DA<T>::back() { return _data[_size - 1]; }
 
+// Accesses the last element in the container, denies modification, no range check
+template<class T>
+const T& DA<T>::back() const { return _data[_size - 1]; }
+```
 
+7. Capacity methods:
+```cpp
+// Checks if the container has no elements
+template<class T>
+bool DA<T>::empty() const { return (_size == 0); }
 
-// --------
-// Capacity
-// --------
+// Returns the number of elements in the container
+template<class T>
+int DA<T>::size() const { return _size; }
+```
 
-// Check if the container has elements
-bool DynArr::empty() const { return (_size == 0); }
+8. Modifiers:
+```cpp
+// Appends the given element to the end of the container
+// Note: without potential memory-reserving adjustments and bounds checking
+template<class T>
+void DA<T>::pushBack(const T& newData) {
+    // Allocate memory for new array, one element more
+    T* newArray = new T[_size + 1];
 
-// Get the size of the container
-int DynArr::size() const { return _size; }
+    // Copy elements
+    for (int i = 0; i < _size; ++i)
+        newArray[i] = _data[i];
 
+    // Insert the new value at the end
+    newArray[_size] = newData;
 
-// Changes the size of an array exactly to the given
-// Note: without potential memory-reserving adjustments
-void DynArr::resize(int newSize)
-{
-    // Either already required or leads to deleting
-    if (newSize <= _size)
-        return;
-     
-    // Greater, every element preserves
-    if (newSize > _size)
-    {
-        // Allocate new array
-        int* newData = new int[newSize];
+    // Manage memory and pointers
+    delete[] _data; // dealloc
+    _data = newArray; // point to new
+    ++_size; // reflect change on the size
 
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            newData[i] = _data[i];
+}
 
-        // Manage memory
-        delete[] _data;
-        _data = newData;
-        _size = newSize;
+// Inserts elements at the specified position, shifting other elements as needed.
+// Note: without potential memory-reserving adjustments and bounds checking
+template<class T>
+void DA<T>::insert(int index, const T& newData) {
+    if (index == _size - 1) {
+      pushBack(newData);
+    }
+    else {
+        // Allocate memory for new array, one element more
+        T* newArray = new T[_size + 1];
+
+        // Copy elements before the position
+        for (int before = 0; before < index; ++before)
+            newArray[before] = _data[before];
+
+        // Insert the new value at the specified position
+        newArray[index] = newData;
+
+        // Copy elements after the position
+        for (int after = index; after < _size; ++after)
+            newArray[after + 1] = _data[after];
+
+        // Manage memory and pointers
+        delete[] _data; // dealloc
+        _data = newArray; // point to new
+        ++_size; // reflect change on the size
     }
 }
 
-
-// ----------
-// Operations
-// ----------
-
-// Clears the entire content of the dynamic array, freeing memory.
-// Note: without potential memory-reserving adjustments
-void DynArr::clear()
-{
-    delete[] _data;
-    _data = nullptr;
-    _size = 0;
-}
-
-
 // Removes an element at the specified position
 // Note: without potential memory-reserving adjustments and bounds checking
-void DynArr::remove(int pos)
-{
-    // Sole element
-    if (_size == 1)
-    {
+template<class T>
+void DA<T>::remove(int index) {
+    // Case: one element
+    if (_size == 1) {
         clear();
         return;
     }
 
-    // New array, one element less
-    int* data = new int[_size - 1];
+    // Allocate memory for new array, one element less
+    T* newArray = new T[_size - 1];
 
-    // Copy until position
-    for (int before = 0; before < pos; ++before)
-        data[before] = _data[before];
+    // Copy before position
+    for (int before = 0; before < index; ++before)
+        newArray[before] = _data[before];
 
     // Copy after position
-    for (int after = pos + 1; after < _size; ++after)
-        data[after - 1] = _data[after];
+    for (int after = index + 1; after < _size; ++after)
+        newArray[after - 1] = _data[after];
 
-    // Manage memory
-    delete[] _data;
-    _data = data;
-    --_size;
+    // Manage memory and pointers
+    delete[] _data; // dealloc
+    _data = newArray; // point to new
+    --_size; // reflect change on the size
 }
 
-// Inserts a new element at the specified position, shifting other elements as needed.
-// Note: without potential memory-reserving adjustments and bounds checking
-void DynArr::insert(int pos, int val)
-{
-    // New array, one element more
-    int* newData = new int[_size + 1];
+// Changes the size of an array exactly to the given
+// Note: without potential memory-reserving adjustments
+template<class T>
+void DA<T>::resize(int newSize) {
+    // Case: already required size
+    if (newSize <= _size) {
+        return;
+    }
 
-    // Copy elements before the position
-    for (int before = 0; before < pos; ++before)
-        newData[before] = _data[before];
+    if (newSize > _size) {
+        // Allocate memory for new array
+        T* newArray = new T[newSize];
 
-    // Insert the new value at the specified position
-    newData[pos] = val;
+        // Copy the elements
+        for (int i = 0; i < _size; ++i)
+            newArray[i] = _data[i];
 
-    // Copy elements after the position
-    for (int after = pos; after < _size; ++after)
-        newData[after + 1] = _data[after];
+        // Manage memory and pointers
+        delete[] _data; // dealloc
+        _data = newArray; // point to new
+        _size = newSize; // reflect change on the size
+    }
+}
 
-    // Manage memory
-    delete[] _data;
-    _data = newData;
-    ++_size;
+// Clears the entire content of the dynamic array, freeing memory.
+// Note: without potential memory-reserving adjustments
+template<class T>
+void DA<T>::clear() {
+    delete[] _data; // dealloc
+    _data = nullptr; // avoid dangling pointer
+    _size = 0; // reflect change on the size
 }
 ```
 
-7. A demonstration of the array's capabilities is showcased in the `main()` function, situated within the `main.cpp` file.
+9. Demonstration:
 ```cpp
+void printArray(const DA<int>& arr) {
+	std::cout << "Elements:\t";
+	for (int i = 0; i < arr.size(); i++)
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
+}
+
 int main()
 {
-	// Greetings
-	std::cout << "Welcome to the 'Dynamic Array' console application!\n\n";
+	// Greet
+	std::cout << "\tWelcome to the 'Dynamic Array' console application!\n";
 
-	// Showcase default constructor
-	DynArr arr_1;
-
-	// Fill the array with numbers (0-10)
+	// Create initial array #1
+	std::cout << "\nCreating & filling initial array #1...\n";
+	DA<int> arr1;
 	for (int i = 0; i < 10; i++)
-		arr_1.insert(i, i+1);
+		arr1.pushBack(i);
 
-	// Display the array
-	std::cout << "Array #1: ";
-	for (int i = 0; i < arr_1.size(); i++)
-		std::cout << arr_1[i] << " ";
+	// Show array #1
+	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
+	printArray(arr1);
+
+
+	// Modify array #1
+	std::cout << "\nChange first ('1') and last ('10') element to '0'...\n";
+	arr1[0] = arr1[arr1.size() - 1] = 0;
+	printArray(arr1);
+
+	// Deep copy functionality
+	std::cout << "\nCreate an array copies and compare...\n";
+	DA<int> arr2(arr1);
+	DA<int> arr3 = arr1;
+	printArray(arr1);
+	printArray(arr2);
+	printArray(arr3);
+
+	// Remove functionality
+	std::cout << "\nShorten an array #2 to 7 elements, and #3 to 3 elements...\n";
+	for (int i = arr2.size() - 1; i >= 7; --i)
+		arr2.remove(i);
+	for (int i = arr3.size() - 1; i >= 3; --i)
+		arr3.remove(i);
+	printArray(arr1);
+	printArray(arr2);
+	printArray(arr3);
+
+	// Clear
+	std::cout << "\nClear array #2 and #3...\n";
+	arr2.clear();
+	arr3.clear();
+	printArray(arr1);
+	printArray(arr2);
+	printArray(arr3);
+	std::cout << "Are they empty: ";
+	std::cout << arr1.empty();
+	std::cout << arr2.empty();
+	std::cout << arr3.empty();
 	std::cout << std::endl;
 
-	// Showcase of the element access
-	std::cout << " - first element:\t" << arr_1.front() << std::endl;
-	std::cout << " - next element:\t" << arr_1[1] << std::endl;
-	std::cout << " - last element:\t" << arr_1.back() << std::endl;
-	std::cout << std::endl;
-
-	// Showcase of the capacity
-	if (!arr_1.empty())
-	{
-		std::cout << "As long as array is not empty (it has " << arr_1.size() << " elements).\n";
-		arr_1.resize(15);
-		std::cout << "We can resize it to " << arr_1.size() << " elements.\n\n";
-	}
-
-	std::cout << "Additionally, we can copy initial array and shorten them:\n";
-	// Showcase copy constructor
-	DynArr arr_2(arr_1);
-
-	// Shorten an array #2 to 7 elements
-	for (int i = arr_2.size() - 1; i >= 7; --i)
-		arr_2.remove(i);
-
-	// Display the array #2
-	std::cout << "Array #2: ";
-	for (int i = 0; i < arr_2.size(); i++)
-		std::cout << arr_2[i] << " ";
-	std::cout << std::endl;
-
-	// Showcase copy assignment
-	DynArr arr_3;
-	arr_3 = arr_1;
-
-	// Shorten an array #3 to 3 elements
-	for (int i = arr_3.size() - 1; i >= 3; --i)
-		arr_3.remove(i);
-
-	// Display the array
-	std::cout << "Array #3: ";
-	for (int i = 0; i < arr_3.size(); i++)
-		std::cout << arr_3[i] << " ";
-	std::cout << std::endl;
-
-
-	// Exiting
+	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
 	std::cin.clear(); // ensure that stream is in a good state
@@ -585,7 +617,8 @@ int main()
 	return 0;
 }
 ```
-<p align="center"><img src="./img/dynamicArr.png"/></p>
+
+<p align="center"><img src="./img/demoDA.png"/></p>
 
 
 # &#128202; Analysis
