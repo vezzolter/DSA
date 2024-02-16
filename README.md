@@ -59,7 +59,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray) ✅
     - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray) ✅
   - Linked List 
-    - [List.md](https://github.com/vezzolter/DSA/blob/lists/DataStructures/LinkedList/List.md) ✅
+    - [List.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) ✅
     - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList)✅
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
