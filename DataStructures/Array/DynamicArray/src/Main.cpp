@@ -31,7 +31,6 @@ int main()
 	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
 	printArray(arr1);
 
-
 	// Modify array #1
 	std::cout << "\nChange first ('1') and last ('10') element to '0'...\n";
 	arr1[0] = arr1[arr1.size() - 1] = 0;

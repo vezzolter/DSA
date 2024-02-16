@@ -6,8 +6,7 @@
 #define DA_H
 
 template<class T>
-class DA
-{
+class DA {
 private:
 	int _size;
 	T* _data;
