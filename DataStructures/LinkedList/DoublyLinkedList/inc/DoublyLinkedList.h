@@ -5,6 +5,7 @@
 #ifndef DLL_H
 #define DLL_H
 
+
 template<class T>
 class DLL
 {
@@ -41,7 +42,7 @@ public:
 
 	// Element Access
 	T& operator[](const int index);
-	T& operator[](const int index) const;
+	const T& operator[](const int index) const;
 	T& front();
 	const T& front() const;
 	T& back();
@@ -60,6 +61,7 @@ public:
 	void pushBack(const T& newData);
 	void popBack();
 };
+
 
 #include "DoublyLinkedList.cpp"
 

@@ -51,10 +51,7 @@ DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 
 // Deep copy constructor
 template<class T>
-DLL<T>::DLL(const DLL& rhs) {
-	// Set corresponding size
-	_size = rhs._size;
-
+DLL<T>::DLL(const DLL& rhs) : _size(rhs._size) {
 	// Case: empty list, avoid dangling pointers
 	if (rhs._head == nullptr) {
 		_head = _tail = nullptr;
@@ -130,59 +127,37 @@ DLL<T>::~DLL() { clear(); }
 // Element Access
 // --------------
 
-// Access the element at the specified index, allows modification
+// Accesses the element at the specified index, no range check, allows modification
 template<class T>
 T& DLL<T>::operator[](const int index) {
-	// TODO: range check
- 
 	// Traverse to the required node
 	Node<T>* current = getStartingNode(index);
-
 	return current->_data;
 }
 
-// Access the element at the specified index, denies modification
+// Accesses the element at the specified index, no range check, denies modification
 template<class T>
-T& DLL<T>::operator[](const int index) const {
-	// TODO: range check
-
+const T& DLL<T>::operator[](const int index) const {
 	// Traverse to the required node
 	Node<T>* current = getStartingNode(index);
-
 	return current->_data;
 }
 
-// Returns a reference to the first element in the container, allows modification
+// Accesses the first element in the container, no range check, allows modification
 template<class T>
-T& DLL<T>::front() {
-	// TODO: handle empty case
+T& DLL<T>::front() { return _head->_data; }
 
-	return _head->_data;
-}
-
-// Returns a reference to the first element in the container, denies modification
+// Accesses the first element in the container, no range check, denies modification
 template<class T>
-const T& DLL<T>::front() const {
-	// TODO: handle empty case
+const T& DLL<T>::front() const { return _head->_data; }
 
-	return _head->_data;
-}
-
-// Returns a reference to the last element in the container, allows modification
+// Accesses the last element in the container, no range check, allows modification
 template<class T>
-T& DLL<T>::back() {
-	// TODO: handle empty case
+T& DLL<T>::back() { return _tail->_data; }
 
-	return _tail->_data;
-}
-
-// Returns a reference to the last element in the container, denies modification
+// Accesses the last element in the container, no range check, denies modification
 template<class T>
-const T& DLL<T>::back() const {
-	// TODO: handle empty case
-
-	return _tail->_data;
-}
+const T& DLL<T>::back() const { return _tail->_data; }
 
 
 
@@ -224,10 +199,9 @@ void DLL<T>::clear() {
 }
 
 // Inserts elements after the specified position in the container
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void DLL<T>::insert(const int index, const T& newData) {
-	// TODO: range check
-
 	if (index == 0) {
 		pushFront(newData);
 	}
@@ -248,10 +222,9 @@ void DLL<T>::insert(const int index, const T& newData) {
 }
 
 // Removes an element at the specified position
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void DLL<T>::erase(const int index) {
-	// TODO: range check
-
 	if (index == 0) {
 		popFront();
 	}
@@ -293,10 +266,9 @@ void DLL<T>::pushFront(const T& newData) {
 }
 
 // Removes the first element of the container
+// Note: with no bounds check, assumes that list contains at least 1 element
 template<class T>
 void DLL<T>::popFront() {
-	// TODO: range check
-
 	// Case: one element
 	if (_size == 1) {
 		clear();
@@ -336,10 +308,9 @@ void DLL<T>::pushBack(const T& newData) {
 }
 
 // Removes the last element of the container
+// Note: with no bounds check, assumes that list contains at least 1 element
 template<class T>
 void DLL<T>::popBack() {
-	// TODO: range check
-
 	// Case: one element
 	if (_size == 1) {
 		clear();

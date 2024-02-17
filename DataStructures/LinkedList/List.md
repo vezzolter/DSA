@@ -86,6 +86,7 @@ The true power of linked lists lies in the flexible nature of the size. Dynamic 
 Discussing ADT, it's evident that well-established and widely recognized implementations already exist for singly, doubly and circular linked lists. In the context of C++, `std::forward_list` is a representative of singly linked list, and `std::list` stands as the counterpart for doubly linked list. Both of them, can be altered to create circular structure via manual pointers manipulation.  It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these lists. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
 
+
 ##  Singly Linked List
 
 **Detailed Overview**:
@@ -128,7 +129,7 @@ public:
 
 	// Element Access
 	T& operator[](const int index);
-	T& operator[](const int index) const;
+	const T& operator[](const int index) const;
 	T& front();
 	const T& front() const;
 
@@ -157,10 +158,7 @@ SLL<T>::SLL() : _size(0), _head(nullptr) {}
 
 // Deep copy constructor 
 template<class T>
-SLL<T>::SLL(const SLL& rhs) {
-	// Set corresponding size
-	_size = rhs._size;
-
+SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
 	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
@@ -191,7 +189,6 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 
 	// Ensure that the destination list doesn't retain any of its existing elements
 	clear();
-
 	// Set corresponding size
 	_size = rhs._size;
 
@@ -215,6 +212,7 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 		currentRhs = currentRhs->_next;
 	}
 
+	// Maintain the proper reference to the head
 	_head = current;
 
 	return *this;
@@ -227,11 +225,9 @@ SLL<T>::~SLL() { clear(); }
 
 6. Element access:
 ```cpp
-// Access the element at the specified index, allows modification
+// Accesses the element at the specified index, no range check, allows modification
 template<class T>
 T& SLL<T>::operator[](const int index) {
-	// TODO: range check
-
 	// Initialize traversal variables
 	int counter = 0;
 	Node<T>* current = _head;
@@ -247,7 +243,7 @@ T& SLL<T>::operator[](const int index) {
 	}
 }
 
-// Access the element at the specified index, denies modification
+// Accesses the element at the specified index, no range check, denies modification
 template<class T>
 T& SLL<T>::operator[](const int index) const {
 	// TODO: range check
@@ -267,21 +263,13 @@ T& SLL<T>::operator[](const int index) const {
 	}
 }
 
-// Returns a reference to the first element in the container, allows modification
+// Accesses the first element in the container, no range check, allows modification
 template<class T>
-T& SLL<T>::front() {
-	// TODO: handle empty case
+T& SLL<T>::front() { return _head->_data; }
 
-	return _head->_data;
-}
-
-// Returns a reference to the first element in the container, denies modification
+// Accesses the first element in the container, no range check, denies modification
 template<class T>
-const T& SLL<T>::front() const {
-	// TODO: handle empty case
-
-	return _head->_data;
-}
+const T& SLL<T>::front() const { return _head->_data; }
 ```
 
 7. Capacity methods:
@@ -317,10 +305,9 @@ void SLL<T>::clear() {
 }
 
 // Inserts elements after the specified position in the container
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void SLL<T>::insertAfter(const int index, const T& newData) {
-	// TODO: range check
-
 	if (index == 0) {
 		pushFront(newData);
 	}
@@ -344,10 +331,9 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 }
 
 // Removes an element at the specified position
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void SLL<T>::eraseAfter(const int index) {
-	// TODO: range check
-
 	if (index == 0) {
 		popFront();
 	}
@@ -389,6 +375,7 @@ void SLL<T>::pushFront(const T& newData) {
 }
 
 // Removes the first element of the container
+// Note: with no bounds check, assumes that list contains at least 1 element
 template<class T>
 void SLL<T>::popFront() {
 	// TODO: range check
@@ -422,10 +409,10 @@ void printList(const SLL<int>& list) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n\n";
+	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list #1...\n";
+	std::cout << "\nCreating & filling initial list #1...\n";
 	SLL<int> list1;
 	list1.pushFront(9);
 	list1.pushFront(1);
@@ -482,6 +469,7 @@ int main()
 	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
+}
 ```
 
 <p align="center"><img src="./img/demoSLL.png"/></p>
@@ -534,7 +522,7 @@ public:
 
 	// Element Access
 	T& operator[](const int index);
-	T& operator[](const int index) const;
+	const T& operator[](const int index) const;
 	T& front();
 	const T& front() const;
 	T& back();
@@ -583,20 +571,9 @@ typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
 
 6. Special member functions:
 ```cpp
-// Default constructor
-template<typename T>
-DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
-
-//// Parametrized constructor
-//template<class T>
-//DLL<T>::DLL(const std::initializer_list<T>& initList) { }
-
 // Deep copy constructor
 template<class T>
-DLL<T>::DLL(const DLL& rhs) {
-	// Set corresponding size
-	_size = rhs._size;
-
+DLL<T>::DLL(const DLL& rhs) : _size(rhs._size) {
 	// Case: empty list, avoid dangling pointers
 	if (rhs._head == nullptr) {
 		_head = _tail = nullptr;
@@ -669,59 +646,37 @@ DLL<T>::~DLL() { clear(); }
 
 6. Element access:
 ```cpp
-// Access the element at the specified index, allows modification
+// Accesses the element at the specified index, no range check, allows modification
 template<class T>
 T& DLL<T>::operator[](const int index) {
-	// TODO: range check
- 
 	// Traverse to the required node
 	Node<T>* current = getStartingNode(index);
-
 	return current->_data;
 }
 
-// Access the element at the specified index, denies modification
+// Accesses the element at the specified index, no range check, denies modification
 template<class T>
-T& DLL<T>::operator[](const int index) const {
-	// TODO: range check
-
+const T& DLL<T>::operator[](const int index) const {
 	// Traverse to the required node
 	Node<T>* current = getStartingNode(index);
-
 	return current->_data;
 }
 
-// Returns a reference to the first element in the container, allows modification
+// Accesses the first element in the container, no range check, allows modification
 template<class T>
-T& DLL<T>::front() {
-	// TODO: handle empty case
+T& DLL<T>::front() { return _head->_data; }
 
-	return _head->_data;
-}
-
-// Returns a reference to the first element in the container, denies modification
+// Accesses the first element in the container, no range check, denies modification
 template<class T>
-const T& DLL<T>::front() const {
-	// TODO: handle empty case
+const T& DLL<T>::front() const { return _head->_data; }
 
-	return _head->_data;
-}
-
-// Returns a reference to the last element in the container, allows modification
+// Accesses the last element in the container, no range check, allows modification
 template<class T>
-T& DLL<T>::back() {
-	// TODO: handle empty case
+T& DLL<T>::back() { return _tail->_data; }
 
-	return _tail->_data;
-}
-
-// Returns a reference to the last element in the container, denies modification
+// Accesses the last element in the container, no range check, denies modification
 template<class T>
-const T& DLL<T>::back() const {
-	// TODO: handle empty case
-
-	return _tail->_data;
-}
+const T& DLL<T>::back() const { return _tail->_data; }
 ```
 
 7. Capacity methods:
@@ -757,10 +712,9 @@ void DLL<T>::clear() {
 }
 
 // Inserts elements after the specified position in the container
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void DLL<T>::insert(const int index, const T& newData) {
-	// TODO: range check
-
 	if (index == 0) {
 		pushFront(newData);
 	}
@@ -781,10 +735,9 @@ void DLL<T>::insert(const int index, const T& newData) {
 }
 
 // Removes an element at the specified position
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void DLL<T>::erase(const int index) {
-	// TODO: range check
-
 	if (index == 0) {
 		popFront();
 	}
@@ -826,10 +779,9 @@ void DLL<T>::pushFront(const T& newData) {
 }
 
 // Removes the first element of the container
+// Note: with no bounds check, assumes that list contains at least 1 element
 template<class T>
 void DLL<T>::popFront() {
-	// TODO: range check
-
 	// Case: one element
 	if (_size == 1) {
 		clear();
@@ -869,10 +821,9 @@ void DLL<T>::pushBack(const T& newData) {
 }
 
 // Removes the last element of the container
+// Note: with no bounds check, assumes that list contains at least 1 element
 template<class T>
 void DLL<T>::popBack() {
-	// TODO: range check
-
 	// Case: one element
 	if (_size == 1) {
 		clear();
@@ -902,10 +853,10 @@ void printList(const DLL<int>& list) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n\n";
+	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list #1...\n";
+	std::cout << "\nCreating & filling initial list #1...\n";
 	DLL<int> list1;
 	list1.pushFront(7);
 	list1.pushBack(1);

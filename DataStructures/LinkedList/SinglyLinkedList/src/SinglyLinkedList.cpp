@@ -7,6 +7,7 @@
 
 #include "SinglyLinkedList.h"
 
+
 // ------------------------
 // Special Member Functions
 // ------------------------
@@ -21,10 +22,7 @@ SLL<T>::SLL() : _size(0), _head(nullptr) {}
 
 // Deep copy constructor 
 template<class T>
-SLL<T>::SLL(const SLL& rhs) {
-	// Set corresponding size
-	_size = rhs._size;
-
+SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
 	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
@@ -55,7 +53,6 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 
 	// Ensure that the destination list doesn't retain any of its existing elements
 	clear();
-
 	// Set corresponding size
 	_size = rhs._size;
 
@@ -79,6 +76,7 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 		currentRhs = currentRhs->_next;
 	}
 
+	// Maintain the proper reference to the head
 	_head = current;
 
 	return *this;
@@ -94,11 +92,9 @@ SLL<T>::~SLL() { clear(); }
 // Element Access
 // --------------
 
-// Access the element at the specified index, allows modification
+// Accesses the element at the specified index, no range check, allows modification
 template<class T>
 T& SLL<T>::operator[](const int index) {
-	// TODO: range check
-
 	// Initialize traversal variables
 	int counter = 0;
 	Node<T>* current = _head;
@@ -114,7 +110,7 @@ T& SLL<T>::operator[](const int index) {
 	}
 }
 
-// Access the element at the specified index, denies modification
+// Accesses the element at the specified index, no range check, denies modification
 template<class T>
 T& SLL<T>::operator[](const int index) const {
 	// TODO: range check
@@ -134,21 +130,13 @@ T& SLL<T>::operator[](const int index) const {
 	}
 }
 
-// Returns a reference to the first element in the container, allows modification
+// Accesses the first element in the container, no range check, allows modification
 template<class T>
-T& SLL<T>::front() {
-	// TODO: handle empty case
+T& SLL<T>::front() { return _head->_data; }
 
-	return _head->_data;
-}
-
-// Returns a reference to the first element in the container, denies modification
+// Accesses the first element in the container, no range check, denies modification
 template<class T>
-const T& SLL<T>::front() const {
-	// TODO: handle empty case
-
-	return _head->_data;
-}
+const T& SLL<T>::front() const { return _head->_data; }
 
 
 
@@ -190,10 +178,9 @@ void SLL<T>::clear() {
 }
 
 // Inserts elements after the specified position in the container
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void SLL<T>::insertAfter(const int index, const T& newData) {
-	// TODO: range check
-
 	if (index == 0) {
 		pushFront(newData);
 	}
@@ -217,10 +204,9 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 }
 
 // Removes an element at the specified position
+// Note: with no bounds check, assumes that index is correct
 template<class T>
 void SLL<T>::eraseAfter(const int index) {
-	// TODO: range check
-
 	if (index == 0) {
 		popFront();
 	}
@@ -262,6 +248,7 @@ void SLL<T>::pushFront(const T& newData) {
 }
 
 // Removes the first element of the container
+// Note: with no bounds check, assumes that list contains at least 1 element
 template<class T>
 void SLL<T>::popFront() {
 	// TODO: range check
@@ -280,5 +267,6 @@ void SLL<T>::popFront() {
 	// Update the size
 	--_size;
 }
+
 
 #endif

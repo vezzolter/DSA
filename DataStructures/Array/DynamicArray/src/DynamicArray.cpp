@@ -82,27 +82,27 @@ DA<T>::~DA() { delete[] _data; }
 // Element Access
 // --------------
 
-// Accesses the element at the specified index, allows modification, no range check
+// Accesses the element at the specified index, no range check, allows modification
 template<class T>
 T& DA<T>::operator[](const int index) { return _data[index]; }
 
-// Accesses the element at the specified index, denies modification, no range check
+// Accesses the element at the specified index, no range check, denies modification
 template<class T>
 const T& DA<T>::operator[](const int index) const { return _data[index]; }
 
-// Accesses the first element in the container, allows modification, no range check
+// Accesses the first element in the container, no range check, allows modification
 template<class T>
 T& DA<T>::front() { return _data[0]; }
 
-// Accesses the first element in the container, denies modification, no range check
+// Accesses the first element in the container, no range check, denies modification
 template<class T>
 const T& DA<T>::front() const { return _data[0]; }
 
-// Accesses the last element in the container, allows modification, no range check
+// Accesses the last element in the container, no range check, allows modification
 template<class T>
 T& DA<T>::back() { return _data[_size - 1]; }
 
-// Accesses the last element in the container, denies modification, no range check
+// Accesses the last element in the container, no range check, denies modification
 template<class T>
 const T& DA<T>::back() const { return _data[_size - 1]; }
 

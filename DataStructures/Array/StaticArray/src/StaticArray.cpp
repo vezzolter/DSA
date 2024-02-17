@@ -53,27 +53,27 @@ SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
 // Element Access
 // --------------
 
-// Accesses the element at the specified index, allows modification, no range check
+// Accesses the element at the specified index, no range check, allows modification
 template<class T, int MAX_SIZE>
 T& SA<T, MAX_SIZE>::operator[](const int index) { return _data[index]; }
 
-// Accesses the element at the specified index, denies modification, no range check
+// Accesses the element at the specified index, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::operator[](const int index) const { return _data[index]; }
 
-// Accesses the first element in the container, allows modification, no range check
+// Accesses the first element in the container, no range check, allows modification
 template<class T, int MAX_SIZE>
 T& SA<T, MAX_SIZE>::front() { return _data[0]; }
 
-// Accesses the first element in the container, denies modification, no range check
+// Accesses the first element in the container, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::front() const { return 0; }
 
-// Accesses the last element in the container, allows modification, no range check
+// Accesses the last element in the container, no range check, allows modification
 template<class T, int MAX_SIZE>
 T& SA<T, MAX_SIZE>::back() { return _data[_size - 1]; }
 
-// Accesses the last element in the container, denies modification, no range check
+// Accesses the last element in the container, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::back() const { return 0; }
 

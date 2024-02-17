@@ -9,6 +9,7 @@
 #include <iostream>
 #include "CircularLinkedList.h"
 
+
 void printList(const CLL<int>& list) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < list.size(); i++) {
@@ -20,10 +21,10 @@ void printList(const CLL<int>& list) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Circular Linked List' console application!\n\n";
+	std::cout << "\tWelcome to the 'Circular Linked List' console application!\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list #1...\n";
+	std::cout << "\nCreating & filling initial list #1...\n";
 	CLL<int> list1;
 	list1.pushFront(7);
 	list1.pushBack(1);

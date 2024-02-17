@@ -36,7 +36,7 @@ public:
 
 	// Element Access
 	T& operator[](const int index);
-	T& operator[](const int index) const;
+	const T& operator[](const int index) const;
 	T& front();
 	const T& front() const;
 

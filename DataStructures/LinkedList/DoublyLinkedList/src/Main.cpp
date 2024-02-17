@@ -19,10 +19,10 @@ void printList(const DLL<int>& list) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n\n";
+	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list #1...\n";
+	std::cout << "\nCreating & filling initial list #1...\n";
 	DLL<int> list1;
 	list1.pushFront(7);
 	list1.pushBack(1);

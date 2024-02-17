@@ -212,27 +212,27 @@ SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
 
 7. Element access:
 ```cpp
-// Accesses the element at the specified index, allows modification, no range check
+// Accesses the element at the specified index, no range check, allows modification
 template<class T, int MAX_SIZE>
 T& SA<T, MAX_SIZE>::operator[](const int index) { return _data[index]; }
 
-// Accesses the element at the specified index, denies modification, no range check
+// Accesses the element at the specified index, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::operator[](const int index) const { return _data[index]; }
 
-// Accesses the first element in the container, allows modification, no range check
+// Accesses the first element in the container, no range check, allows modification
 template<class T, int MAX_SIZE>
 T& SA<T, MAX_SIZE>::front() { return _data[0]; }
 
-// Accesses the first element in the container, denies modification, no range check
+// Accesses the first element in the container, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::front() const { return 0; }
 
-// Accesses the last element in the container, allows modification, no range check
+// Accesses the last element in the container, no range check, allows modification
 template<class T, int MAX_SIZE>
 T& SA<T, MAX_SIZE>::back() { return _data[_size - 1]; }
 
-// Accesses the last element in the container, denies modification, no range check
+// Accesses the last element in the container, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::back() const { return 0; }
 ```
@@ -429,27 +429,27 @@ DA<T>::~DA() { delete[] _data; }
 
 8. Element access:
 ```cpp
-// Accesses the element at the specified index, allows modification, no range check
+// Accesses the element at the specified index, no range check, allows modification
 template<class T>
 T& DA<T>::operator[](const int index) { return _data[index]; }
 
-// Accesses the element at the specified index, denies modification, no range check
+// Accesses the element at the specified index, no range check, denies modification
 template<class T>
 const T& DA<T>::operator[](const int index) const { return _data[index]; }
 
-// Accesses the first element in the container, allows modification, no range check
+// Accesses the first element in the container, no range check, allows modification
 template<class T>
 T& DA<T>::front() { return _data[0]; }
 
-// Accesses the first element in the container, denies modification, no range check
+// Accesses the first element in the container, no range check, denies modification
 template<class T>
 const T& DA<T>::front() const { return _data[0]; }
 
-// Accesses the last element in the container, allows modification, no range check
+// Accesses the last element in the container, no range check, allows modification
 template<class T>
 T& DA<T>::back() { return _data[_size - 1]; }
 
-// Accesses the last element in the container, denies modification, no range check
+// Accesses the last element in the container, no range check, denies modification
 template<class T>
 const T& DA<T>::back() const { return _data[_size - 1]; }
 ```
@@ -601,7 +601,6 @@ int main()
 	// Show array #1
 	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
 	printArray(arr1);
-
 
 	// Modify array #1
 	std::cout << "\nChange first ('1') and last ('10') element to '0'...\n";

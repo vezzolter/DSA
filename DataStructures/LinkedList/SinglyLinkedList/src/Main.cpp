@@ -8,6 +8,7 @@
 #include <iostream>
 #include "SinglyLinkedList.h"
 
+
 void printList(const SLL<int>& list) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < list.size(); i++) {
@@ -19,10 +20,10 @@ void printList(const SLL<int>& list) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n\n";
+	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n";
 
 	// Create initial list
-	std::cout << "Creating & filling initial list #1...\n";
+	std::cout << "\nCreating & filling initial list #1...\n";
 	SLL<int> list1;
 	list1.pushFront(9);
 	list1.pushFront(1);
