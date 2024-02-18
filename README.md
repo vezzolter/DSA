@@ -21,10 +21,10 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Sorting
-    - Sorting.md 🔄
+    - [Sorting.md](https://github.com/vezzolter/DSA/blob/sort-insertion/Algorithms/Sorting/Sorting.md) 🔄
     - Bubble Sort 🔄
     - Selection Sort 🔄
-    - Insertion Sort 🔄
+    - [Insertion Sort](https://github.com/vezzolter/DSA/tree/sort-insertion/Algorithms/Sorting/InsertionSort) 🔄
     - Merge Sort
     - Quick Sort
     - Heap Sort
