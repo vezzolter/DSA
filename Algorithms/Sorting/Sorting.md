@@ -45,8 +45,25 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in progres...
+&#128218; **Books:**
+- **"Introduction to Algorithms"** — by CLRS
+  - Chapter 2: Sorting and Order Statistics
+- **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
+  - Chapter 7: Sorting
+- **"Grokking Algorithms"** — by Aditya Bhargava
+  - Chapter 2: Selection Sort
+  - Chapter 5: Quicksort
+- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
+  - Chapter 6: Elementary Sorting Methods
+  - Chapter 7: Quicksort
+  - Chapter 8: Merging and Mergesort
 
+&#127891;**Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Section 20: Sorting Techniques
+  
+&#127760;**Web-Resources:**  
+- [Sorting](https://en.wikipedia.org/wiki/Sorting) (Wikipedia)
 
 
 # &#128271; License

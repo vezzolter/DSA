@@ -47,7 +47,21 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in progres...
+# &#128591; Credits
+&#128218; **Books:**
+- **"Introduction to Algorithms"** — by CLRS
+  - Section 2.1: Insertion Sort
+- **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
+  - Section 7.2: Insertion Sort
+- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
+  - Section 6.3: Insertion Sort
+
+&#127891;**Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Section 20: Sorting Techniques
+  
+&#127760;**Web-Resources:**  
+- [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) (Wikipedia)
 
 
 
