@@ -7,6 +7,7 @@
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
 - [🙏 Credits](#-credits)
+- [🙏 Credits](#-credits-1)
 - [🔏 License](#-license)
 
 
