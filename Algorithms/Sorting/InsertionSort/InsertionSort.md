@@ -13,12 +13,86 @@
 
 
 # &#128161; What is the Insertion Sort
-Currently in progres...
+The **Insertion Sort** stands out as one of the simplest and earliest known sorting techniques, renowned for its straightforward implementation and effectiveness. Knowledge and understanding of which, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
+
+<p align="center"><img src="./img/insertionSort.png"/></p>
+
+---
+
+**Insertion Sort** — places an unsorted element at its suitable place in each iteration, much like the intuitive process of arranging playing cards in a hand. It consists of the following steps:
+1. Assume that the first element is in the sorted part.
+2. Pick the first element from the unsorted part.
+3. Place it in the correct position within the sorted part.
+4. Repeat steps 2 and 3 until there are no elements remaining in the unsorted part.
 
 
 
 # &#x1F4BB; Implementation
-Currently in progres...
+ 
+The program initializes an array with specified integers, performs ascending order sorting using the insertion sort algorithm, and finally displays the sorted result.
+<p align="center"><img src="./img/demonstration.png"/></p>
+
+In order to prioritize simplicity and highlight algorithm itself there had done few things:
+- the array serves as a basic collection
+- `int` was chosen as data type
+- sorting is exclusively performed in ascending order
+- certain optimizations were omitted from the algorithm
+
+---
+
+The function `insertionSort()` is declared in `InsertionSort.h` header file and defined in `InsertionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+
+**The whole body of a function:**
+```cpp
+void insertionSort(int arr[], int size) {
+	for (int unsorted = 1; unsorted < size; unsorted++) {
+		int current = arr[unsorted];
+
+		int sorted = unsorted - 1; // start from the end of sorted part
+        // For descending order: arr[sorted] < current
+		while (sorted >= 0 && arr[sorted] > current) {
+			arr[sorted + 1] = arr[sorted]; // can be optimized via swap
+			sorted = sorted - 1;
+		}
+		arr[sorted + 1] = current;
+	}
+}
+```
+
+---
+
+**The Detailed Algorithm Overview:**
+1. Iterate over the unsorted part of the array, starting with the second element (because the first one is considered as sorted part).
+```cpp
+for (int unsorted = 1; unsorted < size; unsorted++) {
+```
+
+2. Pick the first element from the unsorted part for comparison.
+```cpp
+int current = arr[unsorted];
+```
+
+3. Initialize the iterator of the sorted part to the last element of it.
+```cpp
+int sorted = unsorted - 1; // start from the end of sorted part
+```
+
+4. Then "iterate" over sorted part from the end of it and compare selected element with sorted elements.  Continue this process until either beginning is reached or the selected element becomes lower than comparing one.
+```cpp
+// For descending order: arr[sorted] < current
+while (sorted >= 0 && arr[sorted] > current) {
+```
+
+5. If the selected element is lower than the compared element, shift the compared element to the right and move iterator to the next. This process can be optimized by swapping elements, not copying.
+```cpp
+arr[sorted + 1] = arr[sorted]; // can be optimized via swap
+sorted = sorted - 1;
+```
+
+6. Finally, assign the selected element to its correct position. If selected element was higher than all the sorted, it is placed to right of the highest sorted, otherwise `sorted` iterator should be pointing to the next comparing element (thats why + 1).
+```cpp
+arr[sorted + 1] = current;
+``` 
 
 
 
