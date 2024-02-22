@@ -34,14 +34,14 @@ The list of known sorting algorithms is extensive and continues to grow. When it
    - **Non-Comparison-Based** — sort elements without explicitly comparing them, often using specific properties of data; suitable for scenarios where the comparison of elements' values are impractical and unnecessary.
 
 - **Time Complexities:**
-   - $O(n×logn)$ — effecient performance, divide the input into smaller subproblems and solve them recursively.
+   - $O(nlogn)$ — effecient performance, divide the input into smaller subproblems and solve them recursively.
    - $O(n)$ — proportional to the size of the input data, each element is compared or moved at most once.
    - $O(n^2)$ — less eficient, typically involve nested loops or multiple comparisons.
    - **Other** — although they are in the minority, it is worth mentioning them.
   
 - **Space Complexity:**
    - **In-Place** $\big(O(1)\big)$  — do not require additional memory; suitable for small amount of data.
-   - **Out-of-Space** $\big($e.g. $O(n)\big)$ — require some additional memory; suitable for massive amount of data.
+   - **Out-of-Space** $\big(O(n)/O(nlogn)/...\big)$ — require some additional memory; suitable for massive amount of data.
 
 - **Stability:**
    - **Stable** — preserve the relative order of equal elements; suitable for the data, which has multiple essential criteria.
@@ -101,7 +101,7 @@ The analysis of sorting algorithms in general relies on the assessment of previo
 # &#x23F3; Historical Notes
 While sorting as concept emerged unknown-long time ago and throughout the whole world naturally, the development of sorting algorithms dates back in the early days of computing. One notable early milestone in the history of sorting methods goes back in the late **1880s**, when American genius **Herman Hollerith** started to work on tabulating machines and came up with efficient solution to automate the manual process by formulating an algorithm, which only later led to the **Radix Sort**.
 
-The breakthrough came with the invention of divide-and-conquer sorting algorithm **Merge Sort** by Hungarian-American computer scientist **John von Neumann** in **1945** and other pioneers, that were born in the **1950s** such as **Bubble Sort** and the **Selection Sort**, which were simple but quite inefficient and thus impractical for large datasets. Later the famous **Quicksort** was developed by British computer scientist **Tony Hoare** in **1959** and published in **1961**, which still remains a commonly used algorithm for sorting and. These individuals, among others, played crucial roles in integrating sorting into practical programming paradigms.
+The breakthrough came with the invention of divide-and-conquer sorting algorithm **Merge Sort** by Hungarian-American computer scientist **John von Neumann** in **1945** and other pioneers, that were born in the **1950s** such as **Bubble Sort** and the **Selection Sort**, which were simple but quite inefficient and thus impractical for large datasets. Later the famous **Quicksort** was developed by British computer scientist **Tony Hoare** in **1959** and published in **1961**, which still remains a commonly used algorithm for sorting. Summarizing, these individuals, among others, played crucial roles in integrating sorting into practical programming paradigms.
 
 
 
