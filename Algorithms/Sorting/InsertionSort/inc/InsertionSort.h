@@ -4,5 +4,4 @@
 
 #pragma once
 
-
-void insertionSort();
+void insertionSort(int arr[], int size);

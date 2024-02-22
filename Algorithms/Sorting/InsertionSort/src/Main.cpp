@@ -8,17 +8,28 @@
 #include "InsertionSort.h"
 
 
+void printArray(int arr[], int size) {
+	std::cout << "Elements:\t";
+	for (int i = 0; i < size; i++)
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
+}
+
 int main()
 {
 	// Greet
 	std::cout << "\tWelcome to the 'Insertion Sort' console application!\n";
 
 	// Create initial array
-	std::cout << "\nGenerating initial array...\n";
-	insertionSort();
+	std::cout << "\nCreating initial array...\n";
+	int arr[] = { 4, 3, 5, 1, 2, 5 };
+	int size = sizeof(arr) / sizeof(arr[1]);
+	printArray(arr, size);
 
 	// Sort Elements
-	std::cout << "\nSorting it...\n";
+	std::cout << "\nSorting generated array...\n";
+	insertionSort(arr, size);
+	printArray(arr, size);
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
