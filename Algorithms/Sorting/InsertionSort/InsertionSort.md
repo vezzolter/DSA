@@ -97,17 +97,40 @@ arr[sorted + 1] = current;
 
 
 # &#128202; Analysis
-Currently in progres...
+Insertion Sort, though conceptually simple and intuitive, exhibits limitations in practical scenarios. It is better suited for small datasets, especially when they are either already sorted or nearly sorted, and when the additional memory usage needs to be minimized. Thus, while algorithm may find niche applications, its overall utility is limited in modern software development contexts.
 
+---
+
+- **Comparison Approach:** 
+  - **Comparison-Based** — operates by comparing elements pairwise to arrange them in order.
+
+- **Time Complexity:**
+     - Worst Case: $O(n^2)$ — data is in reverse sorted order (or almost), nested loop used nearly each iteration.
+     - Average Case: $O(n^2)$ — data is randomly shuffled, nested loop used frequently enough.
+     - Best Case: $O(n)$ — data is already sorted (or almost), condition for nested loop will be rarely true.
+
+- **Auxiliary Space Complexity:** 
+  - $O(1)$ — as no additional space is required beyond the input array.
+
+- **Stability:** 
+  - **Stable** — if two elements are equal, they are not swapped, thus preserving their relative order.
+
+- **Adaptabillity:** 
+  - **Adaptive** — amount of shifts depends on extent to which data is already sorted.
 
 
 # &#128221; Application
-Currently in progres...
+**Some of the Most Well-Known Use Cases:**
+- **Trivial Small Datasets** — generally it is used where the overhead of more complex algorithms is just unnecessary; e.g. configuration settings, small list of people.
+
+- **Resource-Constrained Environments** — occurs to be a practical choice in scenarios where memory and processing power are limited; e.g. embedded systems, microcontrollers.
+
+- **Hybrid Sorting Approaches** — may be used as auxiliary sorting algorithm in larger ones; e.g. Timsort, Introsort.
 
 
 
 # &#x23F3; Historical Notes
-Currently in progres...
+The idea of Insertion Sort can be observed in many real life activities due to its simplicity, such as arranging playing cards in a hand, sorting stones by size, or organizing items in a list. These and many other manual sortings involve repeatedly inserting elements into their correct positions relative to the already sorted. In terms of computer science, Insertion Sort was one of the earliest sorting algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity.
 
 
 
