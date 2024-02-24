@@ -7,7 +7,6 @@
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
 - [🙏 Credits](#-credits)
-- [🙏 Credits](#-credits-1)
 - [🔏 License](#-license)
 
 
@@ -144,7 +143,6 @@ For contact details and additional information, please refer to the [root direct
 
 
 
-# &#128591; Credits
 # &#128591; Credits
 &#128218; **Books:**
 - **"Introduction to Algorithms"** — by CLRS
