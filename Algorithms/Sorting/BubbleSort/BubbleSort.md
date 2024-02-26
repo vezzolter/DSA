@@ -26,7 +26,80 @@ The **Bubble Sort** stands out as the simplest and one of the earliest known sor
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array of specified integers, performs ascending order sorting using the bubble sort algorithm, and finally displays the result.
+<p align="center"><img src="./img/demonstration.png"/></p>
+
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing an integer array as a fundamental data structure.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations from the algorithm.
+
+---
+
+Sorting algorithm implemented within the function `bubbleSort()`, which is declared in `BubbleSort.h` header file and defined in `BubbleSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+
+**The complete implementation of a sorting function:**
+```cpp
+void bubbleSort(int arr[], int size) {
+	for (int i = 0; i < size - 1; i++) {
+		bool swapped = false; 
+
+		for (int j = 0; j < size - i - 1; j++) {
+			// For descending order: arr[j] < arr[j + 1]
+			if (arr[j] > arr[j + 1]) {
+				// Can be optimized via swap
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+
+				swapped = true;
+			}
+		}
+
+		if (!swapped) {
+			break;
+		}
+	}
+}
+```
+
+---
+
+**The Detailed Algorithm Overview:**
+1. We manage the overall passes through the **entire collection** using `size - 1` because, after each pass, the largest element is guaranteed to be at its correct position. Therefore, there is no need to iterate over the already sorted elements.
+```cpp
+	for (int i = 0; i < size - 1; i++) {
+```
+
+2. In the program, we utilize the variable `swapped` to facilitate loop termination. By initializing it with a value of `false`, we ensure that no swaps have occurred initially. This enables us to monitor whether any swaps take place during each pass.
+```cpp
+	bool swapped = false; 
+```
+
+3. Within each pass of the collection, we start another loop to **compare and move** elements using `size - i - 1`. This enables us to skip iterating over elements that are already sorted in previous passes and the current one.
+```cpp
+	for (int j = 0; j < size - i - 1; j++) {
+```
+
+4. Next, we compare the current element with the next one. If their order is incorrect, we swap the elements and update the indicator state; if their order is correct, we skip these actions. This process can be optimized by swapping elements, not copying.
+```cpp
+	// For descending order: arr[j] < arr[j + 1]
+	if (arr[j] > arr[j + 1]) {
+		// Can be optimized via swap
+		int temp = arr[j];
+		arr[j] = arr[j + 1];
+		arr[j + 1] = temp;
+
+		swapped = true;
+	}
+```
+
+5. Finally, after completing a pass through the collection, we check if any swaps were made. If no swaps were made, it indicates that the elements are already sorted, and we can exit the loop.
+```cpp
+	if (!swapped) {
+			break;
+	}
+```
 
 
 

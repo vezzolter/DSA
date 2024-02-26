@@ -4,4 +4,4 @@
 
 #pragma once
 
-void bubbleSort();
+void bubbleSort(int arr[], int size);

@@ -21,14 +21,14 @@ int main()
 	std::cout << "\tWelcome to the 'Bubble Sort' console application!\n";
 
 	// Create initial array
-	std::cout << "\nCreating initial array...\n";
+	std::cout << "\nCreating the initial array...\n";
 	int arr[] = { 5, 2, 4, 6, 1, 3 };
 	int size = sizeof(arr) / sizeof(arr[1]);
 	printArray(arr, size);
 
 	// Sort Elements
-	std::cout << "\nSorting generated array...\n";
-	//bubbleSort(arr, size);
+	std::cout << "\nSorting the elements of it...\n";
+	bubbleSort(arr, size);
 	printArray(arr, size);
 
 	// Exit
