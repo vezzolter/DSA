@@ -2,6 +2,7 @@
 - [💡 What is the Bubble Sort](#-what-is-the-bubble-sort)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
+- [📝 Application](#-application)
 - [⏳ Historical Notes](#-historical-notes)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
@@ -104,12 +105,31 @@ void bubbleSort(int arr[], int size) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+- **Comparison Approach:** 
+  - **Comparison-Based** — operates by comparing elements pairwise to arrange them in order.
+
+- **Time Complexity:**
+     - Worst Case: $O(n^2)$ — data is in reverse sorted order (or almost), nested loop's operations are used nearly each iteration.
+     - Average Case: $O(n^2)$ — data is randomly shuffled, nested loop's operations are used frequently enough.
+     - Best Case: $O(n)$ — data is already sorted (or almost), nested loop's operations are rarely used.
+
+- **Auxiliary Space Complexity:** 
+  - $O(1)$ — no additional space is required beyond the input collection.
+
+- **Stability:** 
+  - **Stable** — if two elements are equal, they are not swapped, thus preserving their relative order.
+
+- **Adaptabillity:** 
+  - **Non-adaptive** — always performs the same sequence of comparisons and swaps regardless of the characteristics of the input data.
+
+
+# &#128221; Application
+Bubble Sort's utility is limited in modern software development contexts due to its inefficiency. Even for niche applications, there are better alternatives readily available, making Bubble Sort largely obsolete. Its primary relevance lies solely in educational purpose.
 
 
 
 # &#x23F3; Historical Notes
-Currently in Progress...
+In terms of computer science, Bubble Sort was one of the earliest sorting algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. One notable contribution to this term, was documented in **1956** paper by mathematician and actuary **Edward Harry Friend**, who referred to it as "sorting exchange algorithm" and only later the well-known "Bubble Sort" name was coined by **Kenneth Eugene Iverson** in **1962**.
 
 
 
@@ -135,6 +155,7 @@ For contact details and additional information, please refer to the [root direct
 &#127760;**Web-Resources:**  
 - [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sortt) (Wikipedia)
 - [Bubble Sort Algorithm](https://www.geeksforgeeks.org/bubble-sort/)
+- [Bubble Sort: An Archaeological Algorithmic Analysis](https://users.cs.duke.edu/~ola/papers/bubble.pdf)
 
 
 # &#128271; License
