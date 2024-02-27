@@ -22,7 +22,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Sorting
     - [Sorting.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Sorting.md) ✅
-    - [Bubble Sort](https://github.com/vezzolter/DSA/tree/sort-bubble/Algorithms/Sorting/BubbleSort) 🔄
+    - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
     - Selection Sort 🔄
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
     - Merge Sort
@@ -52,7 +52,7 @@ Please note that this structure will remain dynamic and adaptable throughout its
   - Dynamic
   - Greedy
   - Strings
-- DS
+- Data Structures
   - Stack
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
