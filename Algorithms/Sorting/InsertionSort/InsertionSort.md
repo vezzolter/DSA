@@ -12,13 +12,12 @@
 
 
 # &#128161; What is the Insertion Sort
-The **Insertion Sort** stands out as one of the simplest and earliest known sorting techniques, renowned for its straightforward implementation and effectiveness. Knowledge and understanding of which, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
-
+The **Insertion Sort** stands out as one of the simplest and earliest known sorting techniques, renowned for its straightforward implementation and effectiveness. The algorithm is named for the way the elements are inserted into their proper portion of the collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
 <p align="center"><img src="./img/insertionSort.png"/></p>
 
 ---
 
-**Insertion Sort** — places an unsorted element at its suitable place in each iteration, much like the intuitive process of arranging playing cards in a hand. It consists of the following steps:
+**Insertion Sort** treats collection as two parts sorted and unsorted. Algorithm iterates over unsorted elements and places them at their suitable place in sorted portion, much like the intuitive process of arranging playing cards in a hand. It consists of the following steps:
 1. Assume that the first element is in the sorted part.
 2. Pick the first element from the unsorted part.
 3. Place it in the correct position within the sorted part.
@@ -27,21 +26,19 @@ The **Insertion Sort** stands out as one of the simplest and earliest known sort
 
 
 # &#x1F4BB; Implementation
- 
-The program initializes an array with specified integers, performs ascending order sorting using the insertion sort algorithm, and finally displays the sorted result.
+The program initializes an array of specified integers, performs ascending order sorting using the insertion sort algorithm, and finally displays the result.
 <p align="center"><img src="./img/demonstration.png"/></p>
 
-In order to prioritize simplicity and highlight algorithm itself there had done few things:
-- the array serves as a basic collection
-- `int` was chosen as data type
-- sorting is exclusively performed in ascending order
-- certain optimizations were omitted from the algorithm
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing an integer array as a fundamental data structure.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations from the algorithm.
 
 ---
 
-The function `insertionSort()` is declared in `InsertionSort.h` header file and defined in `InsertionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+Sorting algorithm implemented within the function `insertionSort()` is declared in `InsertionSort.h` header file and defined in `InsertionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**The whole body of a function:**
+**The complete implementation of a sorting function:**
 ```cpp
 void insertionSort(int arr[], int size) {
 	for (int unsorted = 1; unsorted < size; unsorted++) {
@@ -96,10 +93,6 @@ arr[sorted + 1] = current;
 
 
 # &#128202; Analysis
-Insertion Sort, though conceptually simple and intuitive, exhibits limitations in practical scenarios. It is better suited for small datasets, especially when they are either already sorted or nearly sorted, and when the additional memory usage needs to be minimized. Thus, while algorithm may find niche applications, its overall utility is limited in modern software development contexts.
-
----
-
 - **Comparison Approach:** 
   - **Comparison-Based** — operates by comparing elements pairwise to arrange them in order.
 
@@ -116,6 +109,11 @@ Insertion Sort, though conceptually simple and intuitive, exhibits limitations i
 
 - **Adaptabillity:** 
   - **Adaptive** — amount of shifts depends on extent to which data is already sorted.
+
+---
+
+Insertion Sort, though conceptually simple and intuitive, exhibits limitations in practical scenarios. It is better suited for small datasets, especially when they are either already sorted or nearly sorted, and when the additional memory usage needs to be minimized. Thus, while algorithm may find niche applications, its overall utility is limited in modern software development contexts.
+
 
 
 # &#128221; Application
