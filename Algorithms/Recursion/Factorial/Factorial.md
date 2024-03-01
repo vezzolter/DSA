@@ -15,11 +15,9 @@
 
 
 # &#128161; What is the Factorial
-
 The factorial stands among the fundamental mathematical patterns with widespread applications in permutation and combinatorial algorithms. It serves as an excellent example for understanding recursive principles in mathematics and computer science. A thorough understanding of the factorial enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
 
 ---
-
 **Factorial of a Number (n!)** — is a math operation, which represents product of all positive integers from number 1 to the given(n),   
 e.g. $4! = 1×2×3×4 = 24$.
 
@@ -33,10 +31,7 @@ e.g. $4! = 1×2×3×4 = 24$.
 # &#x1F4BB; Implementation
 **Idea**  
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
-
-<p align="center">
-      <img src="./img/demonstration.png"/>   
-</p>
+<p align="center"><img src="./img/demonstration.png"/></p>
 
 
 ## Recursive Paragidm
@@ -48,7 +43,6 @@ Technically speaking, factorial can be implemented using both iterative and recu
 1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type. 
 
 2. For the same reasons, the algorithm is implemented within the function named `factorial(int n)`, and this function is separated into distinct files `factorial.h` and `factorial.cpp` away from `main.cpp`:
-
 ```cpp
 int main()
 {
@@ -73,7 +67,6 @@ int main()
 ```
 
 3. The program starts by asking user to enter a non-negative number within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;12]$, because the factorial of $13 (6,227,020,800)$ exceeds the capacity of `int` variable $(2,147,483,647)$.
-
 ```cpp
 int getUserInput()
 {
@@ -102,7 +95,6 @@ int getUserInput()
 4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself, continuously progressing towards this condition:
     - **Base case** — adheres to the rule $0! = 1$, establishing a termination point for the recursion.
     - **Recursive case** — fulfills the other rule $n! = (n - 1)! × n$, breaking down the factorial calculation, until reaching the base case.
-
 ```cpp
 int factorial(int n)
 {
@@ -113,35 +105,28 @@ int factorial(int n)
 
 5. After completing its intended tasks, the program expresses gratitude and awaits closure.
 
-## Call Stack Interaction
 
+
+## Call Stack Interaction
 To offer a comprehensive insight into the fundamental mechanics of this recursive approach, here is presented a step-by-step execution of the algorithm along with a detailed description of its interaction with the call stack.
 
 1. Starting the recursion process with the input number 6
-   
-   <p align="center"><img src="./img/step_1.png" /></p> 
+<p align="center"><img src="./img/step_1.png"/></p> 
 
 2. Invoking the recursive case repeatedly until the specified criteria are met (6 times).
-   
-   <p align="center"><img src="./img/step_2.png" /></p> 
+<p align="center"><img src="./img/step_2.png"/></p> 
 
 3. Upon the 7th recursive call, when the value becomes 0, we initiate the base case, therefore existing the recursive process.
-   
-   <p align="center"><img src="./img/step_3.png" /></p>
+<p align="center"><img src="./img/step_3.png"/></p>
 
 4. This marks the phase where the recursion is concluding, and the process of returning the calculated value is underway.
-   
-   <p align="center"><img src="./img/step_4.png" /></p> 
+<p align="center"><img src="./img/step_4.png"/></p> 
 
 5. Continuing this process until we reach the initial (first) function call.
-   
-   <p align="center">
-      <img src="./img/step_5.png" />
-   </p>
+<p align="center"><img src="./img/step_5.png"/></p>
 
 6. Concluding the recursion by returning the final calculated value.    
-   
-   <p align="center"><img src="./img/step_6.png" /></p> 
+<p align="center"><img src="./img/step_6.png"/></p> 
 
 
 
@@ -154,7 +139,6 @@ The current implementation demonstrates inefficient utilization of recursion ([a
 
 
 # &#128221; Application
-
 Practically speaking, factorial is a **number of different permutations** you can have with items. Consequently, is it widely used in the field of computer science, especially in combinatorics and probability theory. Here I'll provide only the fundamental overview of what you can think of, whenever you refer to the factorial, without overwhelming with redundant intricacies.
 
 For better understanding of the topic, I'll govern the **Fundamental Counting Principle**, which states that if there are $m$ ways to do one thing and $n$ ways to do another, then there are $m×n$ ways to do both. For example creating a meal, if you have $3$ different main courses, $4$ different side dishes and $2$ drinks, this means that you can create a meal in $3×4×2=24$ ways.  
@@ -162,7 +146,6 @@ For better understanding of the topic, I'll govern the **Fundamental Counting Pr
 Additionally, when selecting from a consistent pool of options (e.g. such as picking from a single shelf of books), it is crucial to note a key principle. With each selection of an element $n$, the available options for the next selection reduce by one $(n−1)$ due to the previous selection. This reflects the diminishing pool of choices as elements are chosen **sequentially**.
 
 ---
-
 **Well-known combinatoric operations involving factorials:**
 1. **Permutation** — is a distinct arrangement of **all (n)** elements of a finite set $S$  in a **particular order**.  
    For example, if $S = \set{a, b, c}$, then $S$ has $6$ permutations $(3! = 6): abc, acb, bac, bca, cab, cba$.  
@@ -204,17 +187,19 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Introduction to Algorithms"** — by CLRS
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Appendix C: Counting and Probability.
-- **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 2.4: Running-Time Calculations.
-- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 5.1: Recursive Algorithms.
 
+---
 &#127891;**Courses:**
-- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/?LSNPUBID=JVFxdTr9V80&ranEAID%3B=JVFxdTr9V80&ranMID%3B=39197&ranSiteID%3B=JVFxdTr9V80-_3GVcwGZFWT4XsSuZYrgGA&utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_535397282064_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_9061020_._pd__._&matchtype=&gad_source=1&gclid=CjwKCAiA3aeqBhBzEiwAxFiOBgRFL7RkV-WJI9tPKml75et478Ai5oJigSKAivJ2txZ9Jhi0mhsTdxoC_foQAvD_BwE) on Udemy
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 5: Recursion
 
+---
 &#127760;**Web-Resources:**
 - [Factorial](https://en.wikipedia.org/wiki/Factorial) (Wikipedia)
 - [What is a Factorial? How to Calculate Factorials with Examples](https://www.freecodecamp.org/news/what-is-a-factorial/#:~:text=A%20factorial%20is%20a%20mathematical,1%20(which%20%3D%206).)
@@ -226,6 +211,6 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128271; License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](https://github.com/vezzolter/DSA/blob/main/LICENSE) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

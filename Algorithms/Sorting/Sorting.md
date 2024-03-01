@@ -117,17 +117,19 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Introduction to Algorithms"** — by CLRS
-  - Chapter 2: Sorting and Order Statistics
-- **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
-  - Chapter 7: Sorting
-- **"Grokking Algorithms"** — by Aditya Bhargava
+- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
   - Chapter 2: Selection Sort
   - Chapter 5: Quicksort
-- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Chapter 2: Sorting and Order Statistics
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Chapter 6: Elementary Sorting Methods
   - Chapter 7: Quicksort
   - Chapter 8: Merging and Mergesort
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Chapter 7: Sorting
+- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
+  - Chapter 5: Sorting
 
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
@@ -142,6 +144,6 @@ For contact details and additional information, please refer to the [root direct
 - [The Evolution of Sorting Algorithms Over the Years](https://dev.to/shhossain/the-evolution-of-sorting-algorithms-over-the-years-bubble-sort-to-ai-driven-sort-31pg#:~:text=The%20birth%20of%20sorting%20algorithms,them%20impractical%20for%20large%20datasets.)
 
 # &#128271; License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](https://github.com/vezzolter/DSA/blob/main/LICENSE) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

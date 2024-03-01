@@ -12,7 +12,6 @@
 
 
 # &#128161; What is the Recursion
-
 **Recursion** is a widely used idea in computer science to solve complex problems by breaking them down into simpler ones. It helps to develop elegant & efficient data structures and algorithms for all manner of applications. Many important implementations use recursion, so it's important to understand the concept.
 
 As a practical instance showcasing the nonmathematical application of recursion, let's turn to the example outlined by Mark Allen Weiss in his work "Data Structures and Algorithm Analysis in C++", listed below:
@@ -22,9 +21,7 @@ As a practical instance showcasing the nonmathematical application of recursion,
 
 
 # &#x1F4BB; Implementation
-
-**Recursive Algorithm** — is one that solves a problem by solving smaller instances of the same problem. Implemented via recursive functions.
-
+**Recursive Algorithm** — is one that solves a problem by solving smaller instances of the same problem. Implemented via recursive functions.  
 **Recursive Function** — is one that calls itself and has two main components:
 1. **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
 2. **Recursive Case** — represents other situation, where the solution to the bigger problem is expressed in terms of smaller problems.
@@ -55,12 +52,8 @@ It's noteworthy that recursion is possible to achieve in two different ways: eit
 
 
 # &#128218; Call Stack
-
 Another vital consideration when discussing recursion is the role of the Call Stack in it.
-
-<p align="center">
-  <img src="./img/callStack.png"/>   
-</p>
+<p align="center"><img src="./img/callStack.png"/></p>
 
 **Call Stack** — is a region of memory, that stores information about the active function calls in a program by forming a stack (pile) of frames for each caller, i.e. tracks the order of calls. It operates based on the principles of a fundamental abstract data structure known as a Stack _(a link to the repository's dedicated section will be added in the near future)_, meaning items that entered the last are the first to be removed or simply Last In First Out (LIFO).
 
@@ -75,10 +68,7 @@ The detailed interaction of recursion with the Call Stack is actually quite comp
 4. When the termination condition is reached, the function returns its value to the calling function, and memory is de-allocated, allowing the process to continue
 
 Using stack is convenient, because there is no need to manually keep tracking the pile, but saving all that info can take up a lot of memory. In some programming languages, the maximum size of the call stack is much less than the space available in the heap, and recursive algorithms tend to require more stack space than iterative algorithms. Consequently, these languages sometimes place a limit on the depth of recursion to avoid stack overflows.
-
-<p align="center">
-  <img src="./img/callStackOverflow.png"/>   
-</p>
+<p align="center"><img src="./img/callStackOverflow.png"/></p>
 
 **Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, systen instability and other destructive behaviour if it is not handled appropriately.
 
@@ -115,7 +105,6 @@ When an algorithm containts a recursive call to itself, it is possible to descri
 Analyzing and solving recurrences is a nuanced process, and the choice of method depends on the characteristics of the recurrence relation. Each method has its strengths, making it well-suited for certain types of recurrences. In simple terms, if recurrence is not solvable by Master Theorem, you can try Substitution and tree can help in both cases. Detailed overview of each of these methods and CLRS examples you can find below.
 
 ---
-
 **Substitution Method** — guess a bound, than prove with mathematical induction. Method is powerful, but in order to apply there must be good guess of a form and there is no general way to do so, it takes experience and creativity, although heuristics and recursion trees can help generate those guesses. Beneficial when encounter non-trivial cases or you have a good guess.
 
 **Induction** — proving method, which's key idea is to establish the base case and then prove that a statement is true for all natural numbers.
@@ -138,7 +127,6 @@ $T(n) \leqslant cn×log{_2}{n}$; (holds as long as $c \leqslant 1$ )
 
 
 ---
-
 **Recursion Tree Method**  — visualize the recurrence as a tree, where each node represents the cost of a single subproblem, those costs on each tree level form a per-level costs, and the sum of those per-level costs is the overall complexity. If there is no need to prove anything in master theorem, this method allows for a degree of flexibility or informality in the analysis for generating guesses.
 
 **Example**   
@@ -146,9 +134,7 @@ Making a good guess for the next recurrence relation $T(n) = 3T(\frac{n}{4}) + c
 
 Having in mind, that this is a guess and not a proof case, the assumption, that $n$ can be a power of $4$ can be tolerated due to the possible flexibility. This is done, so the number of subproblems would be an integer and thus building a tree would be easier.
 
-<p align="center">
-  <img src="./img/recursiveTreeMethod.png"/>   
-</p>
+<p align="center"><img src="./img/recursiveTreeMethod.png"/>   </p>
 
 The $cn^2$ term at the root represents the cost at the top level of recursion. 
 Three subtrees represent the costs (each $c(\frac{n}{4})^2$) incurred by the subproblems of size $\frac{n}{4}$. This process of expending the nodes by breaking them into smaller parts continues until the bottom of a tree.
@@ -180,7 +166,6 @@ $T(n) = O(n^2)$
 So the result of building the tree is a guess of $T(n) = O(n^2)$, which is actually true if you try to prove it with substitution method.
 
 ---
-
 **Master Theorem Method** — provides solution for recurrences of the form $T(n) = aT(\frac{n}{b}) + f(n)$, where:
 - $f(n)$ — is asymptotically positive function, represents cost of the work done outside the recursive call (with merging and dividing);
 - `const` $a \geqslant 1$ — number of subproblems; 
@@ -217,12 +202,8 @@ This recurrence is not solvable via Master Theorem, because $f(n) = n\log{_2}{n}
 
 
 # &#128221; Application
-
 In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
-
-<p align="center">
-  <img src="./img/iterationVsRecursion.png"/>   
-</p>
+<p align="center"><img src="./img/iterationVsRecursion.png"/>   </p>
 
 **Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
 
@@ -231,7 +212,6 @@ In computer science, **iteration** and **recursion** stand out as two fundamenta
 To successfully convert recursion into a loop, it's essential for the recursion to be **tail-recursive**. Tail recursion is characterized by having the recursive call as the last statement executed by the function. In other words, the function's calls involve a single invocation of the recursive call followed by an immediate return of the result without additional processing or calculation. When utilizing a compiler or interpreter that treats tail-recursive calls as jumps rather than function calls, the program becomes essentially iterative. Therefore, equivalent to using control structures like the "for" and "while" loops, which saves both space and time.
 
 ---
-
 **Some of the Most Well-Known Use Cases:**
 - **Sortings** — recursive algorithms leverage recursion to partition the data into smaller subarrays or sublists, subsequently sorting and merging them to achieve the final ordered result.
 - **Divide-and-Conquer** — numerous algorithms employing a divide-and-conquer strategy, like the binary search, utilize recursion to decompose the problem into more manageable subproblems.
@@ -241,7 +221,6 @@ To successfully convert recursion into a loop, it's essential for the recursion 
 - **Permutations and Combinations** — recursive algorithms are often used to generate permutations and combinations of a set of elements.
 
 ---
-
 **Popular Related Problems:**
 - Factorial Calculation
 - Fibonacci Sequence
@@ -292,19 +271,21 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Grokking Algorithms"** — by Aditya Bhargava
-  - Section 3: Recursion.
-- **"Data Structures and Algorithm Analysis in C++""** — by Mark A. Weiss
+- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
+  - Chapter 3: Recursion.
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 1.3: A Brief Introduction to Recursion
-- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
-  - Section 5: Recursion and Trees.
-- **"Introduction to Algorithms"** — by CLRS
-  - Section 4: Divide-and-Conquer.
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Chapter 5: Recursion and Trees.
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Chapter 4: Divide-and-Conquer.
 
+---
 &#127891;**Courses:**
-- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/?LSNPUBID=JVFxdTr9V80&ranEAID%3B=JVFxdTr9V80&ranMID%3B=39197&ranSiteID%3B=JVFxdTr9V80-_3GVcwGZFWT4XsSuZYrgGA&utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_88010211481_._ad_535397282064_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_9061020_._pd__._&matchtype=&gad_source=1&gclid=CjwKCAiA3aeqBhBzEiwAxFiOBgRFL7RkV-WJI9tPKml75et478Ai5oJigSKAivJ2txZ9Jhi0mhsTdxoC_foQAvD_BwE) on Udemy
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 5: Recursion
 
+---
 &#127760;**Web-Resources:**
 - [Introduction to Recursion](https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/)
 - [Fundamentals of Recursion in Programming](https://www.enjoyalgorithms.com/blog/recursion-explained-how-recursion-works-in-programming)
@@ -333,6 +314,6 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128271; License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](https://github.com/vezzolter/DSA/blob/main/LICENSE) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
