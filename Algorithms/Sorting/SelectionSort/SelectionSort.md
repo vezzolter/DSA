@@ -118,12 +118,13 @@ void selectionSort(int arr[], int size) {
 
 
 # &#128221; Application
-Currently in progress...
+Selection Sort's utility is limited in modern software development contexts due to its inefficiency. Even for niche applications, there are better alternatives readily available, making Bubble Sort largely obsolete. Its primary relevance lies solely in educational purpose.
+
 
 
 
 # &#x23F3; Historical Notes
-Currently in progress...
+The idea of Selection Sort can be observed in many real life activities due to its simplicity, such as arranging playing cards in a hand, sorting stones by size, or organizing items in a list. These and many other manual sortings involve repeatedly selecting the smallest/highest elements and moving to the start/end. In terms of computer science, Selection Sort was one of the earliest sorting algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity.
 
 
 
@@ -141,9 +142,9 @@ For contact details and additional information, please refer to the [root direct
 &#128218; **Books:**
 - **"Grokking Algorithms"** — by Aditya Bhargava
   - Section 2: Selection Sort
-- **"Algorithms in C++, Parts 1-4"** — by Robert Sedgewick
+- **"Algorithms in C++, Parts 1-4 (Ed. 3)"** — by Robert Sedgewick
   - Section 6.2: Selection Sort
-- **"The Art of Computer Programming, Volume 3"** — by Donald Ervin Knuth
+- **"The Art of Computer Programming" (Vol. 3, Ed. 2)** — by Donald Ervin Knuth
   - Section 5.2.3: Sorting by Selection
 
 &#127891;**Courses:**
