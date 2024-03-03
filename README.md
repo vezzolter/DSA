@@ -68,11 +68,12 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
   - Queue
-    - Linear Queue
-    - Circular Queue
-    - Priority Queue
-    - Deque
-  - Stack 🔄
+    - [Queue.md](https://github.com/vezzolter/DSA/tree/queue/DataStructures/Queue/Queue.md) 🔄
+    - [Linear Queue](https://github.com/vezzolter/DSA/tree/queue/DataStructures/Queue/LinearQueue) 🔄
+    - Circular Queue 🔄
+    - Priority Queue 🔄
+    - Deque 🔄
+  - [Stack](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack) 🔄
   - Tree
   - Graph
   - Hash
