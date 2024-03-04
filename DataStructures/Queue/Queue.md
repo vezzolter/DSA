@@ -16,35 +16,40 @@
 
 
 # &#128161; What is the Queue
-The Queue as a linear ADT (abstract data structure) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. Regardless of the specific implementation details or optimizations used, queue operates on the FIFO (First-In-First-Out) principle, which ensures that elements are processed in the order they were inserted, overall maintaining the general idea. This subsection explores the ADT of Queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for algorithmic design and problem-solving strategies.
+The Queue as a linear ADT (abstract data structure) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. This subsection explores the ADT of Queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for algorithmic design and problem-solving strategies.
 <p align="center"><img src="./img/introduction.png"/></p>
 
 ---
-**Queue** — is a term used to encompass the abstract concept of a data structure with FIFO behavior, with specific implementation details varying. It introduces the following essential terms:
+**Queue** — is a term used to encompass a variety of ADTs with similar sequential behavior. It introduces the following essential terms:
 - **Front/Head** — the end of the sequence at which elements are added.
 - **Rear/Back/Tail** — the end of the sequence at which elements are removed.
 - **Enqueue** — operation of adding an element to the rear.
 - **Dequeue** — operation of removing an element from the front.
 
-
 ---
-When it comes to implementation, queues can be broadly classified into four types: linear queue, circular queue, priority queue, and deque. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with priority queue functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
+When it comes to implementation, queues can be broadly classified into four types: linear queue, double-ended queue, circular queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
 
-**Linear Queue** — is a queue variation, where all insertions are made at one end of and all deletions at the other. Typically based on an array or a linked list data structure.
+1. **Linear Queue** — all insertions are made at one end of and all deletions at the other, operates on the First-In-First-Out principle.  
+**Typical underlying DS:** arrays, linked lists.
 <p align="center"><img src="./img/structureLQ.png"/></p>
 
-**Deque (Double-Ended Queue)** — is a queue variation, which allows insertion and deletion of elements from both ends. It can be either input or output restricted: input-restricted deques allow elements to be added at one end only, while output-restricted deques permit removal from only one end. Typically based on an array or a linked list data structure.
+2. **Deque (Double-Ended Queue)** — allows insertion and deletion of elements from both ends.
+    - **Input Restricted Deque** — allows insertion from only one end (either rear or front).
+    - **Output Restricted Deque** — allows removal from only one end (either rear or front).
+    
+   **Typical Underlying DS:** arrays, linked lists.
 <p align="center"><img src="./img/structureDQ.png"/></p>
 
-**Priority Queue** — is a queue variation, where elements are dequeued based on their priority level, rather than their order of insertion. It can have either ascending or descending priority order, determining whether elements with lower or higher priority levels are dequeued first. Typically based on a heap data structure.
-<p align="center"><img src="./img/structurePQ.png"/></p>
-
-**Circular Queue** — is a queue variation, where the rear of the queue is connected to the front. Typically based on an array data structure.
+3. **Circular Queue** — variation of deque or linear queue, that connects front with rear ends. 
+**Typical underlying DS:** arrays, linked lists.
 <p align="center"><img src="./img/structureCQ.png"/></p>
 
-
-
-
+4. **Priority Queue** — elements are dequeued based on their priority level, rather than their order of insertion.
+    - **Ascending Priority Queue** — elements with higher priority levels are dequed first.
+    - **Descending Priority Queue** — elements with lower priority levels are dequed first. 
+    
+   **Typical underlying DS:** max-heaps, min-heaps.  
+<p align="center"><img src="./img/structurePQ.png"/></p>
 
 
 
@@ -58,6 +63,11 @@ Currently in Progress...
 
 
 
+##  Deque
+Currently in Progress...
+
+
+
 ##  Circular Queue
 Currently in Progress...
 
@@ -65,12 +75,6 @@ Currently in Progress...
 
 ##  Priority Queue
 Currently in Progress...
-
-
-
-##  Deque
-Currently in Progress...
-
 
 
 
@@ -122,10 +126,23 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760;**Web-Resources:**  
 - [Queue (abstract data structure)](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
-- [What is Queue Data Structure?](https://www.geeksforgeeks.org/what-is-queue-data-structure/)
-- [Queue Data Structure](https://www.tutorialspoint.com/data_structures_algorithms/dsa_queue.htm)
+- [Queue Data Structure](https://www.programiz.com/dsa/queue)
+- [std::queue](https://en.cppreference.com/w/cpp/container/queue)
+- [Applications, Advantages and Disadvantages of Queue](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-queue/)
+- [Double-ended queue](https://en.wikipedia.org/wiki/Double-ended_queue) (Wikipedia)
+- [Deque Data Structure](https://www.programiz.com/dsa/deque)
+- [std::deque](https://en.cppreference.com/w/cpp/container/deque)
+- [Applications, Advantages and Disadvantages of Deque](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-deque/)
+- [Circular buffer](https://en.wikipedia.org/wiki/Circular_buffer) (Wikipedia)
+- [Introduction to Circular Queue](https://www.geeksforgeeks.org/introduction-to-circular-queue/)
+- [Circular Queue](https://www.programiz.com/dsa/circular-queue)
+- [Applications, Advantages and Disadvantages of Circular Queue](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-circular-queue/)
+- [Priority Queue](https://en.wikipedia.org/wiki/Priority_queue) (Wikipedia)
+- [Priority Queue](https://www.programiz.com/dsa/priority-queue)
+- [std::priority_queue](https://en.cppreference.com/w/cpp/container/priority_queue)
+- [Applications of Priority Queue](https://www.geeksforgeeks.org/applications-priority-queue/)
+- [Different Types of Queues and its Applications](https://www.geeksforgeeks.org/different-types-of-queues-and-its-applications/)
 - [Array-Based Queues vs List-Based Queues](https://www.geeksforgeeks.org/array-based-queues-vs-list-based-queues/)
-
 
 
 # &#128271; License
