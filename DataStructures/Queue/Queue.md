@@ -2,9 +2,9 @@
 - [💡 What is the Queue](#-what-is-the-queue)
 - [💻 Implementation](#-implementation)
   - [Linear Queue](#linear-queue)
+  - [Deque](#deque)
   - [Circular Queue](#circular-queue)
   - [Priority Queue](#priority-queue)
-  - [Deque](#deque)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
 - [⏳ Historical Notes](#-historical-notes)
@@ -19,12 +19,14 @@
 The Queue as a linear ADT (abstract data structure) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. This subsection explores the ADT of Queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for algorithmic design and problem-solving strategies.
 <p align="center"><img src="./img/introduction.png"/></p>
 
+
 ---
 **Queue** — is a term used to encompass a variety of ADTs with similar sequential behavior. It introduces the following essential terms:
 - **Front/Head** — the end of the sequence at which elements are added.
 - **Rear/Back/Tail** — the end of the sequence at which elements are removed.
 - **Enqueue** — operation of adding an element to the rear.
 - **Dequeue** — operation of removing an element from the front.
+
 
 ---
 When it comes to implementation, queues can be broadly classified into four types: linear queue, double-ended queue, circular queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
@@ -40,7 +42,7 @@ When it comes to implementation, queues can be broadly classified into four type
    **Typical Underlying DS:** arrays, linked lists.
 <p align="center"><img src="./img/structureDQ.png"/></p>
 
-3. **Circular Queue** — variation of deque or linear queue, that connects front with rear ends. 
+3. **Circular Queue** — variation of deque or linear queue, that connects front with rear ends.  
 **Typical underlying DS:** arrays, linked lists.
 <p align="center"><img src="./img/structureCQ.png"/></p>
 
@@ -50,6 +52,13 @@ When it comes to implementation, queues can be broadly classified into four type
     
    **Typical underlying DS:** max-heaps, min-heaps.  
 <p align="center"><img src="./img/structurePQ.png"/></p>
+
+
+---
+**Common Operations for Queues:**
+- **Accessing Specific Elements** — retrieving or updating the value of an existing element at a specific position.
+- **Enqueueing (Insertion)** — adding a new element to the queue.
+- **Dequeueing (Deletion)** — removing an element from the queue.
 
 
 
