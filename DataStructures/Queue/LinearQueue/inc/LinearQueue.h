@@ -9,6 +9,19 @@
 template<class T>
 class LQ {
 private:
+	struct Node {
+		T _data;
+		Node* _next;
+
+		Node(const T& newData) : _data(newData), _next(nullptr) {}
+		Node()                           = default;
+		Node(const Node& rhs)            = delete;
+		Node& operator=(const Node& rhs) = delete;
+	};
+
+	size_t _size;
+	Node* _front;
+	Node* _rear;
 
 public:
 	// Special Member Functions
@@ -20,12 +33,12 @@ public:
 	// Element Access
 	T& front();
 	const T& front() const;
-	T& back();
-	const T& back() const;
+	T& rear();
+	const T& rear() const;
 
 	// Capacity 
 	bool empty() const;
-	int size() const;
+	size_t size() const;
 
 	// Modifiers
 	void push(const T& newData);

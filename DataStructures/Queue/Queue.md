@@ -63,12 +63,279 @@ When it comes to implementation, queues can be broadly classified into four type
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+Discussing ADT, it's evident that well-established and widely recognized implementations already exist for linear, double-ended, circular and priority queues. In the context of C++, `std::queue` is a representative of linear queue, `std::deque` stands for double-ended queue, and `std::priority_queue` for priority queue. First two, can be altered to create circular structure via manual pointers manipulation.  It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these queues. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
 
 
 ##  Linear Queue
-Currently in Progress...
+**Detailed Overview**:
+1. Keeping its educational aim in mind, the `LQ` class developed here closely resembles the behavior of `std::queue`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+2. One significant design decision is the implementation of a linear queue solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of classes and templates, allowing for a focus on the key features of the ADT.
+<p align="center"><img src="./img/simplificationLQ.png"/></p>
+
+3. The `LQ` class is declared in `LinearQueue.h` header file and defined in `LinearQueu.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+4. Whole class declaration:
+```cpp
+template<class T>
+class LQ {
+private:
+	struct Node {
+		T _data;
+		Node* _next;
+
+		Node(const T& newData) : _data(newData), _next(nullptr) {}
+		Node()                           = default;
+		Node(const Node& rhs)            = delete;
+		Node& operator=(const Node& rhs) = delete;
+	};
+
+	size_t _size;
+	Node* _front;
+	Node* _rear;
+
+public:
+	// Special Member Functions
+	LQ();
+	LQ(const LQ& rhs);
+	LQ& operator=(const LQ& rhs);
+	~LQ();
+
+	// Element Access
+	T& front();
+	const T& front() const;
+	T& rear();
+	const T& rear() const;
+
+	// Capacity 
+	bool empty() const;
+	size_t size() const;
+
+	// Modifiers
+	void push(const T& newData);
+	void pop();
+};
+```
+
+5. Special member functions:
+```cpp
+// Default constructor
+template<class T>
+LQ<T>::LQ() : _size(0), _front(nullptr), _rear(nullptr) {}
+
+// Deep copy constructor
+template<class T>
+LQ<T>::LQ(const LQ& rhs) : _size(rhs._size), _front(nullptr), _rear(nullptr) {
+	// Case: empty queue
+	if (rhs._front == nullptr)
+		return;
+
+	// Create corresponding first node
+	_front = new Node(rhs._front->_data);
+	_rear = _front;
+
+	// Copy other nodes
+	Node* currentRhs = rhs._front->_next;
+	while (currentRhs) {
+		_rear->_next = new Node(currentRhs->_data);
+		_rear = _rear->_next;
+		currentRhs = currentRhs->_next;
+	}
+}
+
+// Deep copy assignment operator
+template<class T>
+LQ<T>& LQ<T>::operator=(const LQ& rhs) {
+	// Self-assignment guard
+	if (this == &rhs)
+		return *this;
+
+	// Ensure that the destination list doesn't retain any of its existing elements
+	while (_front) {
+		Node* temp = _front;
+		_front = _front->_next;
+		delete temp;
+	}
+
+	// Set corresponding size
+	_size = rhs._size;
+
+	// Case: empty queue
+	if (rhs._front == nullptr) {
+		_front = _rear = nullptr;
+	}
+	else {
+		// Create corresponding first node
+		_front = new Node(rhs._front->_data);
+		_rear = _front;
+
+		// Copy other nodes
+		Node* currentRhs = rhs._front->_next;
+		while (currentRhs) {
+			_rear->_next = new Node(currentRhs->_data);
+			_rear = _rear->_next;
+			currentRhs = currentRhs->_next;
+		}
+	}
+
+	return *this;
+}
+
+// Destructor
+template<class T>
+LQ<T>::~LQ() {
+	while (_front) {
+		Node* temp = _front;
+		_front = _front->_next;
+		delete temp;
+	}
+
+	// Update the state
+	_rear = nullptr;
+	_size = 0;
+}
+```
+
+6. Element access:
+```cpp
+// Accesses the first element in the container, no range check, allows modification
+template<class T>
+T& LQ<T>::front() { return _front->_data; }
+
+// Accesses the first element in the container, no range check, denies modification
+template<class T>
+const T& LQ<T>::front() const { return _front->_data; }
+
+// Accesses the last element in the container, no range check, allows modification
+template<class T>
+T& LQ<T>::rear() { return _rear->_data; }
+
+// Accesses the last element in the container, no range check, denies modification
+template<class T>
+const T& LQ<T>::rear() const { return _rear->_data; }
+```
+
+7. Capacity methods:
+```cpp
+// Checks if the container has no elements
+template<class T>
+bool LQ<T>::empty() const { return _size == 0; }
+
+// Returns the number of elements in the container
+template<typename T>
+size_t LQ<T>::size() const { return _size; }
+```
+
+8. Modifiers:
+```cpp
+// Pushes the given element to the end of the queue
+template<class T>
+void LQ<T>::push(const T& newData) {
+	// Create a new node with the given data
+	Node* newNode = new Node(newData);
+
+	// Case: empty queue
+	if (_front == nullptr) {
+		_front = _rear = newNode;
+	}
+	else {
+		_rear->_next = newNode;
+		_rear = newNode;
+	}
+
+	// Update the size
+	++_size;
+}
+
+// Removes an element from the front of the queue
+// Note: with no bounds check, assumes that queue contains at least 1 element
+template<class T>
+void LQ<T>::pop() {
+	// Case: empty queue
+	if (_front == nullptr)
+		return;
+	
+	// Move the head pointer to the next node
+	Node* temp = _front;
+	_front = _front->_next;
+	delete temp;
+
+	// Case: last element
+	if (_front == nullptr)
+		_rear = nullptr;
+
+	// Update the size
+	--_size;
+}
+```
+
+9. Demonstration:
+```cpp
+// via copy of queue
+void printQueue(const LQ<int>& q) {
+	LQ<int> tempQueue(q);
+	std::cout << "Elements:\t";
+	while (!tempQueue.empty()) {
+		std::cout << tempQueue.front() << " ";
+		tempQueue.pop();
+	}
+	std::cout << std::endl;
+	
+}
+
+int main()
+{
+	// Greet
+	std::cout << "\tWelcome to the 'Linear Queue' console application!\n";
+
+	// Create initial queue
+	std::cout << "\nCreating & filling initial queue #1...\n";
+	LQ<int> q1;
+	q1.push(7);
+	q1.push(1);
+	q1.push(1);
+	q1.push(9);
+
+	// Show queue #1
+	std::cout << "Is it empty:\t" << q1.empty() << std::endl;
+	printQueue(q1);
+
+	// Modify queue #1
+	std::cout << "\nChange first ('7') and last ('9') element to '0'...\n";
+	q1.front() = 0;
+	q1.rear() = 0;
+	printQueue(q1);
+
+	// Insert into queue #1
+	std::cout << "\nAdd element '3' to the end...\n";
+	q1.push(3);
+	printQueue(q1);
+
+	// Deep copy functionality
+	std::cout << "\nCreate a queue copies and compare...\n";
+	LQ<int> q2(q1);
+	LQ<int> q3 = q1;
+	printQueue(q1);
+	printQueue(q2);
+	printQueue(q3);
+
+	// Remove functionality
+	std::cout << "\nFrom queue #1 remove first two ('0' and '1') elements...\n";
+	q1.pop();
+	q1.pop();
+	printQueue(q1);
+	printQueue(q2);
+	printQueue(q3);
+
+	// Exit
+	std::cout << "\nThanks for using this program! Have a great day!\n";
+	std::cout << "Press <Enter> to exit...";
+	std::cin.clear(); // ensure that stream is in a good state
+	std::cin.ignore(32767, '\n'); // clear from any remaining chars
+	std::cin.get();
+	return 0;
+}
+```
+<p align="center"><img src="./img/demonstrationLQ.png"/></p>
 
 
 

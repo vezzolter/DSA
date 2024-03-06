@@ -3,16 +3,22 @@
 // March 2, 2024
 //
 // This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called linear queue.
+// simplified version of ADT linear queue based on linked list.
 
 #include <iostream>
 #include "LinearQueue.h"
 
 
+// via copy of queue
 void printQueue(const LQ<int>& q) {
+	LQ<int> tempQueue(q);
 	std::cout << "Elements:\t";
-	// Implementation
+	while (!tempQueue.empty()) {
+		std::cout << tempQueue.front() << " ";
+		tempQueue.pop();
+	}
 	std::cout << std::endl;
+	
 }
 
 int main()
@@ -35,7 +41,7 @@ int main()
 	// Modify queue #1
 	std::cout << "\nChange first ('7') and last ('9') element to '0'...\n";
 	q1.front() = 0;
-	q1.back() = 0;
+	q1.rear() = 0;
 	printQueue(q1);
 
 	// Insert into queue #1
@@ -52,7 +58,7 @@ int main()
 	printQueue(q3);
 
 	// Remove functionality
-	std::cout << "\nFrom queue #1 remove last two ('0') elements...\n";
+	std::cout << "\nFrom queue #1 remove first two ('0' and '1') elements...\n";
 	q1.pop();
 	q1.pop();
 	printQueue(q1);
