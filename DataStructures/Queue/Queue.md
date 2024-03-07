@@ -68,13 +68,14 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 
 ##  Linear Queue
-**Detailed Overview**:
-1. Keeping its educational aim in mind, the `LQ` class developed here closely resembles the behavior of `std::queue`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-2. One significant design decision is the implementation of a linear queue solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of classes and templates, allowing for a focus on the key features of the ADT.
+Keeping its educational aim in mind, the `LQ` class developed here closely resembles the behavior of `std::queue`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+
+One significant design decision is the implementation of a linear queue solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque.
 <p align="center"><img src="./img/simplificationLQ.png"/></p>
 
-3. The `LQ` class is declared in `LinearQueue.h` header file and defined in `LinearQueu.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-4. Whole class declaration:
+**Detailed Overview**:
+1. The `LQ` class is declared in `LinearQueue.h` header file and defined in `LinearQueu.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+2. Whole class declaration:
 ```cpp
 template<class T>
 class LQ {
@@ -115,8 +116,7 @@ public:
 	void pop();
 };
 ```
-
-5. Special member functions:
+3. Special member functions:
 ```cpp
 // Default constructor
 template<class T>
@@ -194,8 +194,7 @@ LQ<T>::~LQ() {
 	_size = 0;
 }
 ```
-
-6. Element access:
+4. Element access:
 ```cpp
 // Accesses the first element in the container, no range check, allows modification
 template<class T>
@@ -213,8 +212,7 @@ T& LQ<T>::rear() { return _rear->_data; }
 template<class T>
 const T& LQ<T>::rear() const { return _rear->_data; }
 ```
-
-7. Capacity methods:
+5. Capacity methods:
 ```cpp
 // Checks if the container has no elements
 template<class T>
@@ -224,8 +222,7 @@ bool LQ<T>::empty() const { return _size == 0; }
 template<typename T>
 size_t LQ<T>::size() const { return _size; }
 ```
-
-8. Modifiers:
+6. Modifiers:
 ```cpp
 // Pushes the given element to the end of the queue
 template<class T>
@@ -267,8 +264,7 @@ void LQ<T>::pop() {
 	--_size;
 }
 ```
-
-9. Demonstration:
+7. Demonstration:
 ```cpp
 // via copy of queue
 void printQueue(const LQ<int>& q) {
@@ -338,19 +334,19 @@ int main()
 <p align="center"><img src="./img/demonstrationLQ.png"/></p>
 
 
-
-##  Deque
-Currently in Progress...
-
-
-
 ##  Circular Queue
-Currently in Progress...
+Currently in progress...
 
+##  Double-Ended Queue
+Will be updated in the future...
+
+P.s. the typical implementations of a deque utilize *«a sequence of individually allocated fixed-size arrays, with additional bookkeeping — cppreference»*. Personally, I consider this to be a crucial defining design decision for the deque. However, right now I don't really know how to illustrate it in a simple and accessible manner, neither do I want to merely create a copy of a doubly linked list just to be. If anyone reading this would like to collaborate on this topic, I would gladly welcome the opportunity to finalize this section and hopefully one day help someone with it.
 
 
 ##  Priority Queue
-Currently in Progress...
+Will be updated in the future...
+
+P.s. after sections with trees will be done.
 
 
 
@@ -419,6 +415,7 @@ For contact details and additional information, please refer to the [root direct
 - [Applications of Priority Queue](https://www.geeksforgeeks.org/applications-priority-queue/)
 - [Different Types of Queues and its Applications](https://www.geeksforgeeks.org/different-types-of-queues-and-its-applications/)
 - [Array-Based Queues vs List-Based Queues](https://www.geeksforgeeks.org/array-based-queues-vs-list-based-queues/)
+- [Performance of a Circular Buffer vs. Vector, Deque, and List](https://www.codeproject.com/Articles/1185449/Performance-of-a-Circular-Buffer-vs-Vector-Deque-a)
 
 
 # &#128271; License
