@@ -359,12 +359,27 @@ The analysis of queues can be quite confusing. Different implementations have th
 
 
 # &#128221; Application
-Currently in Progress...
+**Some of the Most Well-Known Use Cases:**
+- **Scheduling** — in scenarios, where it is convenient to represent each element as a node and make decisions based on the order (by priority, arrival time, or other criteria); e.g. task scheduling, traffic management.
+- **Buffering** — in various systems, where incoming data packets are stored temorarily before being processed; e.g. user input, layers of BFS algorithm.
+- **Resource Allocation** — in resource allocation systems, where resource access based on predefined criteria such as priority, fairness, or availability; e.g. how CPU controls the resources, game mechanics with resources.
+
+---
+**Common Practical Problems:**
+- Reverse first k elements of queue.
+- BFS for a graph.
+- Check whether a given graph is Bipartite or not.
+- Flood fill algorithm.
+- Maximum cost path from source node to destination.
+- Turn a queue into a priority queue.
+- Design a Sliding Window maximum algorithm.
+- Find Maximum Non-decreasing Array Length.
 
 
 
 # &#x23F3; Historical Notes
-Currently in Progress...
+
+The concept of queues has evolved over time and its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. If anyone reading this would like to collaborate on this topic, I would gladly welcome the opportunity to finalize this section and hopefully one day help someone with it.
 
 
 
@@ -419,6 +434,9 @@ For contact details and additional information, please refer to the [root direct
 - [Different Types of Queues and its Applications](https://www.geeksforgeeks.org/different-types-of-queues-and-its-applications/)
 - [Array-Based Queues vs List-Based Queues](https://www.geeksforgeeks.org/array-based-queues-vs-list-based-queues/)
 - [Performance of a Circular Buffer vs. Vector, Deque, and List](https://www.codeproject.com/Articles/1185449/Performance-of-a-Circular-Buffer-vs-Vector-Deque-a)
+- [Top 50 Problems on Queue Data Structure asked in SDE Interviews](https://www.geeksforgeeks.org/top-50-problems-on-queue-data-structure-asked-in-sde-interviews/)
+- [Top 25 Queue (Data Structure) Interview Questions and Answers](https://interviewprep.org/queue-data-structure-interview-questions-2/)
+
 
 
 # &#128271; License
