@@ -1,10 +1,10 @@
 # &#128209; Table of Contents
 - [💡 What is the Queue](#-what-is-the-queue)
 - [💻 Implementation](#-implementation)
-  - [Linear Queue](#linear-queue)
-  - [Deque](#deque)
-  - [Circular Queue](#circular-queue)
-  - [Priority Queue](#priority-queue)
+	- [Linear Queue](#linear-queue)
+	- [Double-Ended Queue](#double-ended-queue)
+	- [Circular Queue](#circular-queue)
+	- [Priority Queue](#priority-queue)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
 - [⏳ Historical Notes](#-historical-notes)
@@ -29,7 +29,7 @@ The Queue as a linear ADT (abstract data structure) in computer programming, bec
 
 
 ---
-When it comes to implementation, queues can be broadly classified into four types: linear queue, double-ended queue, circular queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
+When it comes to implementation, queues can be broadly classified into four types: linear queue, circular queue, double-ended queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
 
 1. **Linear Queue** — all insertions are made at one end of and all deletions at the other, operates on the First-In-First-Out principle.  
 **Typical underlying DS:** arrays, linked lists.
@@ -334,24 +334,27 @@ int main()
 <p align="center"><img src="./img/demonstrationLQ.png"/></p>
 
 
-##  Circular Queue
-Currently in progress...
-
 ##  Double-Ended Queue
 Will be updated in the future...
 
 P.s. the typical implementations of a deque utilize *«a sequence of individually allocated fixed-size arrays, with additional bookkeeping — cppreference»*. Personally, I consider this to be a crucial defining design decision for the deque. However, right now I don't really know how to illustrate it in a simple and accessible manner, neither do I want to merely create a copy of a doubly linked list just to be. If anyone reading this would like to collaborate on this topic, I would gladly welcome the opportunity to finalize this section and hopefully one day help someone with it.
 
 
+##  Circular Queue
+Will be updated in the future...
+
+P.s. Circular queues are not as prevalent in usage compared to other data structures, which may explain their absence from the standard library. Despite their *potential* effectiveness, there seems to be a lack of *practical* examples showcasing their usage. This leaves the question of whether to develop this container open for consideration. If anyone reading this would like to collaborate on this topic, I would gladly welcome the opportunity to finalize this section and hopefully one day help someone with it. 
+
+
 ##  Priority Queue
 Will be updated in the future...
 
-P.s. after sections with trees will be done.
+P.s. in order to grasp this topic in a better way, I'm going to update this section after respective tree section.
 
 
 
 # &#128202; Analysis
-Currently in Progress...
+The analysis of queues can be quite confusing. Different implementations have their own set of advantages and disadvantages. However, the information available across various resources can sometimes be overwhelming mix of all types, don't really useful or discussing not existing cases at all. The analysis from point of time and space complexities mostly based on underlaying data structure. Overall, the queues provide the "wrapping" behaviour, that is preffarably can be replaced by a better alternative, and only remaining relevant primarily when the **natural sequential behavior** is crucial.
 
 
 
