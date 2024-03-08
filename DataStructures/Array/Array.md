@@ -658,7 +658,6 @@ int main()
 - **Embedded Systems** — in embedded systems programming, arrays are often used to manage sensor data, control outputs, or store configuration information due to their simplicity and efficiency.
 
 ---
-
 **Common Practical Problems:**
 - Reverse the array.
 - Find the Kth largest and Kth smallest number in an array.
@@ -709,7 +708,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 2.5: Dynamic Storage Allocation
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 6: Arrays Representations
    - Section 7: Array ADT
@@ -719,7 +718,7 @@ For contact details and additional information, please refer to the [root direct
    - Course 2.1: Linear Structures
 
 --- 
-&#127760;**Web-Resources:**
+&#127760; **Web-Resources:**
 - [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)#:~:text=In%20computer%20science%2C%20an%20array,one%20array%20index%20or%20key.) (Wikipedia)
 - [Introduction to Arrays](https://www.geeksforgeeks.org/introduction-to-arrays-data-structure-and-algorithm-tutorials/)
 - [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)

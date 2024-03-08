@@ -33,7 +33,6 @@ e.g. $4! = 1×2×3×4 = 24$.
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
 <p align="center"><img src="./img/demonstration.png"/></p>
 
-
 ## Recursive Paragidm
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
 
@@ -89,7 +88,6 @@ int getUserInput()
 	return n;
 }
 ```
-
 <p align="center"><img src="./img/validation.png"/></p>
 
 4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself, continuously progressing towards this condition:
@@ -195,12 +193,12 @@ For contact details and additional information, please refer to the [root direct
   - Section 5.1: Recursive Algorithms.
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 5: Recursion
 
 ---
-&#127760;**Web-Resources:**
+&#127760; **Web-Resources:**
 - [Factorial](https://en.wikipedia.org/wiki/Factorial) (Wikipedia)
 - [What is a Factorial? How to Calculate Factorials with Examples](https://www.freecodecamp.org/news/what-is-a-factorial/#:~:text=A%20factorial%20is%20a%20mathematical,1%20(which%20%3D%206).)
 - [What is a Factorial in Maths](https://www.geeksforgeeks.org/factorial/) 

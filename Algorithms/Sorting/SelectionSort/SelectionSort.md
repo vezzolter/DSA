@@ -16,7 +16,6 @@ The **Selection Sort** stands out as one of the simplest and earliest known sort
 <p align="center"><img src="./img/selectionSort.png"/></p>
 
 ---
-
 **Selection Sort** treats a collection as two parts: sorted and unsorted. The algorithm iterates over the unsorted elements, selecting the lowest (or highest) value and exchanging it with the element at the beginning of the unsorted part, thus forming the sorted portion; much like the intuitive process of arranging books on a shelf from shortest to tallest. It consists of the following steps:
 1. Assume that all elements belong to the unsorted part, thus start with the first one in it.
 2. Select the element with the smallest (or highest) value.
@@ -36,7 +35,6 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 - Omitting certain optimizations from the algorithm.
 
 ---
-
 Sorting algorithm implemented within the function `selectionSort()`, which is declared in `SelectionSort.h` header file and defined in `SelectionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
 **The complete implementation of a sorting function:**
@@ -63,7 +61,6 @@ void selectionSort(int arr[], int size) {
 ```
 
 ---
-
 **The Detailed Algorithm Overview:**
 1. Iterate over the unsorted elements, excluding the last one `size - 1`, as it is going to be at correct position, naturally after all the previous iterations.
 ```cpp
@@ -113,7 +110,7 @@ void selectionSort(int arr[], int size) {
   - **Unstable** — doesn't guarantee the preservation of the relative order of equal elements, because the algorithm doesn't consider the original positions of equal elements when performing swaps.
 
 - **Adaptabillity:** 
-  - **Non-adaptive** — always performs the same sequence of comparisons regardless of the characteristics of the input data, although number of swaps is adaptive.
+  - **Non-adaptive** — while algorithm has check, that provides more 'adaptive' behavior for number of swaps, the overall adaptability of the algorithm doesn't change, because the number of comparisons, which mostly contribute to the time complexity, stays the same.
 
 
 
@@ -147,14 +144,17 @@ For contact details and additional information, please refer to the [root direct
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 5.2.3: Sorting by Selection
 
+---
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
-  
+
+---  
 &#127760;**Web-Resources:**  
 - [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) (Wikipedia)
 - [How does Selection Sort Algorithm work?](https://www.geeksforgeeks.org/selection-sort/)
 - [Selection Sort Algorithm](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm)
+
 
 
 # &#128271; License

@@ -975,7 +975,6 @@ Overall, the demonstration looks pretty much the same:
 
 
 
-
 # &#128202; Analysis
 **Advantages:**
 - **Efficient Element Rearraging** — elements is efficient due to simple change of pointers, e.g. insertion and deletion takes $O(1)$ time.
@@ -1055,7 +1054,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 2.5: Dynamic Storage Allocation
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 11: Linked List
    - Section 12: Sparse Matrix and Polynomial using Linked List
@@ -1063,7 +1062,7 @@ For contact details and additional information, please refer to the [root direct
    - Course 2.1: Linear Structures
 
 ---  
-&#127760;**Web-Resources:**  
+&#127760; **Web-Resources:**  
 - [Linked List](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
 - [Understanding the basics of Linked List](https://www.geeksforgeeks.org/what-is-linked-list/)
 - [How Linked Lists Work](https://www.freecodecamp.org/news/how-linked-lists-work/)

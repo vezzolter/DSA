@@ -1,7 +1,6 @@
 # &#128209; Table of Contents
 - [💡 About](#-about)
 - [📁 Repository Structure](#-repository-structure)
-- [📝 Usage Examples](#-usage-examples)
 - [🤝 Contributing](#-contributing)
 - [📧 Contact Information](#-contact-information)
 - [🙏 Credits](#-credits)
@@ -15,9 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Repository Structure
-Please note that this structure will remain dynamic and adaptable throughout its evolution. As a starting overview, I aim to offer a straightforward list that outlines the various topics. Over time, this structure will grow and expand, making it a continually improving resource.
-
-
+This list provides a straightforward overview of the repository's contents. For a better navigation, Completed projects are marked with ✅, while projects currently under development are marked with 🔄. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 **The Structure:**
 - Algorithms
@@ -38,9 +35,9 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - Bucket Sort
     - Shell Sort
   - Search
-    - Search.md
-    - Linear Search
-    - Binary Seacrh
+    - Search.md 🔄
+    - Linear Search 🔄
+    - Binary Seacrh 🔄
     - Interpolation Search
     - Jump Search
     - Exponential Search
@@ -73,15 +70,12 @@ Please note that this structure will remain dynamic and adaptable throughout its
     - Double-Ended Queue
     - Circular Queue
     - Priority Queue
-  - [Stack](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack) 🔄
+  - Stack
+    - [Stack.md](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack.md) 🔄
+    - [Stack](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack) 🔄
   - Tree
   - Graph
   - Hash
-
-
-
-# &#128221; Usage Examples
-By the analogue to previous section, as the repository evolves, expect this section to expand. It will contain real-world scenarios and use cases of DSA.
 
 
 
@@ -119,12 +113,12 @@ As my educational journey progresses, I may discover new areas of interest withi
   - Explicitly describes computational background behind sorting and searching algorithms.
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
 
 ---
-&#128156;**Special Thanks:**
+&#128156; **Special Thanks:**
 - Sheer gratitude to my university, **the NTUU Igor Sikorsky KPI**, for providing an environment where I had the privilege to connect with numerous ambitious individuals, who inspired me to strive for more.
 - Special thanks to **ChatGPT** for its continuous guidance & support on numerous topics.
 

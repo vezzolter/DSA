@@ -12,11 +12,10 @@
 
 
 # &#128161; What is the Bubble Sort
-The **Bubble Sort** stands out as the simplest and one of the earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for the way the larger elements "bubble" up (move) to the top of the list. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
+The **Bubble Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for the way the larger elements "bubble" up (move) to the top of the list. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
 <p align="center"><img src="./img/bubbleSort.png"/></p>
 
 ---
-
 **Bubble Sort** iterates over a collection, comparing adjacent elements and swapping them if they are in the wrong order. This way, in each pass of the algorithm, the largest unsorted element move to its correct position at the end of the collection, much like bubbles gradually rising in water. It consists of the following steps:
 1. Start at the beginning of the collection.
 2. Compare the first two elements.
@@ -36,7 +35,6 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 - Omitting certain optimizations from the algorithm.
 
 ---
-
 Sorting algorithm implemented within the function `bubbleSort()`, which is declared in `BubbleSort.h` header file and defined in `BubbleSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
 **The complete implementation of a sorting function:**
@@ -65,41 +63,40 @@ void bubbleSort(int arr[], int size) {
 ```
 
 ---
-
 **The Detailed Algorithm Overview:**
 1. We manage the overall passes through the **entire collection** using `size - 1` because, after each pass, the largest element is guaranteed to be at its correct position. Therefore, there is no need to iterate over the already sorted elements.
 ```cpp
-	for (int i = 0; i < size - 1; i++) {
+for (int i = 0; i < size - 1; i++) {
 ```
 
 2. In the program, we utilize the variable `swapped` to facilitate loop termination. By initializing it with a value of `false`, we ensure that no swaps have occurred initially. This enables us to monitor whether any swaps take place during each pass.
 ```cpp
-	bool swapped = false; 
+bool swapped = false; 
 ```
 
 3. Within each pass of the collection, we start another loop to **compare and move** elements using `size - i - 1`. This enables us to skip iterating over elements that are already sorted in previous passes and the current one.
 ```cpp
-	for (int j = 0; j < size - i - 1; j++) {
+for (int j = 0; j < size - i - 1; j++) {
 ```
 
 4. Next, we compare the current element with the next one. If their order is incorrect, we swap the elements and update the indicator state; if their order is correct, we skip these actions. This process can be optimized by swapping elements, not copying.
 ```cpp
-	// For descending order: arr[j] < arr[j + 1]
-	if (arr[j] > arr[j + 1]) {
-		// Can be optimized via swap
-		int temp = arr[j];
-		arr[j] = arr[j + 1];
-		arr[j + 1] = temp;
+// For descending order: arr[j] < arr[j + 1]
+if (arr[j] > arr[j + 1]) {
+	// Can be optimized via swap
+	int temp = arr[j];
+	arr[j] = arr[j + 1];
+	arr[j + 1] = temp;
 
-		swapped = true;
-	}
+	swapped = true;
+}
 ```
 
 5. Finally, after completing a pass through the collection, we check if any swaps were made. If no swaps were made, it indicates that the elements are already sorted, and we can exit the loop.
 ```cpp
-	if (!swapped) {
-			break;
-	}
+if (!swapped) {
+	break;
+}
 ```
 
 
@@ -120,7 +117,8 @@ void bubbleSort(int arr[], int size) {
   - **Stable** — if two elements are equal, they are not swapped, thus preserving their relative order.
 
 - **Adaptabillity:** 
-  - **Non-adaptive** — always performs the same sequence of comparisons and swaps regardless of the characteristics of the input data.
+  - **Non-adaptive** — while it does avoid swaps for elements that are already in their correct positions, it does not adapt its overall behavior based on the existing order.
+
 
 
 # &#128221; Application
@@ -150,10 +148,12 @@ For contact details and additional information, please refer to the [root direct
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 5.2.2: Sorting by Exchanging
 
+---
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
   
+---
 &#127760;**Web-Resources:**  
 - [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sortt) (Wikipedia)
 - [Bubble Sort Algorithm](https://www.geeksforgeeks.org/bubble-sort/)

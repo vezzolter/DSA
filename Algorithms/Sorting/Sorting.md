@@ -15,7 +15,6 @@
 <p align="center"><img src="./img/sorting.png"/></p>
 
 ---
-
 **Sorting Algorithm** — set of steps used to arrange elements in a specific order. It introduces the following terms:
 - **Collection** — a grouping of elements arranged in a specific order.
 - **Specific Order** — the arrangement of elements within a collection based on a defined set of criteria. 
@@ -30,8 +29,8 @@
 The list of known sorting algorithms is extensive and continues to grow. When it comes to implementation, some share some common ideas, while others possess distinctive characteristics. The choice between them depends on the specific requirements of the cases at hand. There are plenty of metrics to classify algorithms by (each of which can impose certain specifications on implementation), most used of them are:
 
 - **Comparison Approach:**
-   - **Comparison-Based** — sort elements by comparing them using pairwise comparisons to determine their relative order; suitable for scenarios where the comparison of elements' values are practical and necessary.
-   - **Non-Comparison-Based** — sort elements without explicitly comparing them, often using specific properties of data; suitable for scenarios where the comparison of elements' values are impractical and unnecessary.
+   - **Comparison-Based** — algorithm sort elements by comparing them using pairwise comparisons to determine their relative order.
+   - **Non-Comparison-Based** — sort elements without explicitly comparing them, often using specific properties of data.
 
 - **Time Complexities:**
    - $O(nlogn)$ — effecient performance, divide the input into smaller subproblems and solve them recursively.
@@ -40,24 +39,24 @@ The list of known sorting algorithms is extensive and continues to grow. When it
    - **Other** — although they are in the minority, it is worth mentioning them.
   
 - **Auxiliary Space Complexity:**
-   - **In-Place** $\big(O(1)\big)$  — do not require additional memory; suitable for small amount of data.
-   - **Out-of-Space** $\big(O(n)/O(nlogn)/...\big)$ — require some additional memory; suitable for massive amount of data.
+   - **In-Place** $\big(O(1)\big)$  — do not require additional memory.
+   - **Out-of-Space** $\big(O(n)/O(nlogn)/...\big)$ — require some additional memory.
 
 - **Stability:**
-   - **Stable** — preserve the relative order of equal elements; suitable for the data, which has multiple essential criteria.
-   - **Unstable** — disregard the relative order of equal elements; suitable for the data, which prioritize only efficiency.
+   - **Stable** — algorithm preserves the relative order of equal elements, i.e. if two elements from the input are considered equal, stable algorithm ensures that they will maintain this order in sorted output.
+   - **Unstable** — algorithm doesn't guarantee the preservation of the relative order of equal elements; i.e. they can either be swapped or kept, algorithm doesn't consider the original positions.
 
 - **Adaptability:**
-   - **Adaptive** — sequences of operations depend on comparison result; suitable for varying input data.
-   - **Non-Adaptive** — sequences of operations disregard the comparison result; suitable for relatively consistent input data.
+   - **Adaptive** — algorithm adjusts its overall behavior (sequence of operations) based on the initial order of elements to improve performance.
+   - **Non-Adaptive** — data processed through the same path of steps, regardless of their values.
 
 - **Directness:**
-   - **Direct Algorithms** — sort elements, directly manipulating the elements themselves to reorder them; suitable for small amount of data.
-   - **Indirect Algorithms** — sort elements, via manipulating the identifiers, rather then actual data; suitable for massive amount of data.
+   - **Direct Algorithms** — algorithm sorts elements directly manipulating themselves to reorder them.
+   - **Indirect Algorithms** — algorithm utilizes some sort of 'pointer' onto elements in order to sort them, because moving huge chunks can be more resourceful operation compared to little ones.
 
 - **Storage:**
-   - **Internal** — takes place entirely within the main memory (RAM) of computer; suitable for small amount of data.
-   - **External** — takes place within other devices (e.g. hard disk); suitable for massive amount of data.
+   - **Internal** — algorithm takes place entirely within the main memory (RAM) of computer.
+   - **External** — algorithm takes place within other devices (e.g. hard disk).
 
 
 
@@ -80,7 +79,6 @@ The analysis of sorting algorithms in general relies on the assessment of previo
 - **Data Deduplication** — Sorting helps identify and remove duplicate entries or records from datasets efficiently. By sorting the data, duplicate entries can be easily identified and eliminated, improving data quality and reducing storage overhead.
 
 ---
-
 **Common Practical Problems:**
 - Sort elements by frequency.
 - Sort an array in wave form.
@@ -131,17 +129,23 @@ For contact details and additional information, please refer to the [root direct
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Chapter 5: Sorting
 
+---
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
-  
+
+---  
 &#127760;**Web-Resources:**  
 - [Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) (Wikipedia)
 - [Sorting Algorithms in Computer Science](https://www.studysmarter.co.uk/explanations/computer-science/algorithms-in-computer-science/sorting-algorithms/)
 - [Sorting Algorithms Explained](https://www.freecodecamp.org/news/sorting-algorithms-explained/)
 - [Sorting Algorithms](https://www.geeksforgeeks.org/sorting-algorithms/)
+- [Comparative Analysis of Comparison and Non Comparison based Sorting Algorithms](https://www.ijcaonline.org/archives/volume175/number28/fenyi-2020-ijca-920813.pdf) (Journal)
 - [The first sorting algorithm and the founding of IBM](https://www.linkedin.com/pulse/first-sorting-algorithm-founding-ibm-nilesh-d/)
 - [The Evolution of Sorting Algorithms Over the Years](https://dev.to/shhossain/the-evolution-of-sorting-algorithms-over-the-years-bubble-sort-to-ai-driven-sort-31pg#:~:text=The%20birth%20of%20sorting%20algorithms,them%20impractical%20for%20large%20datasets.)
+
+
+
 
 # &#128271; License
 This project is licensed under the MIT License — see the [LICENSE](https://github.com/vezzolter/DSA/blob/main/LICENSE) file for details.

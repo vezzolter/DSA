@@ -192,12 +192,12 @@ For contact details and additional information, please refer to the [root direct
   - Section 1.2.8: Fibonacci Numbers
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 5: Recursion
 
 ---
-&#127760;**Web-Resources:**
+&#127760; **Web-Resources:**
 - [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) (Wikipedia)
 - [Fibonacci Sequence](https://www.cuemath.com/numbers/fibonacci-sequence/)
 - [What is the Fibonacci sequence?](https://www.livescience.com/37470-fibonacci-sequence.html)

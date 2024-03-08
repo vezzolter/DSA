@@ -16,7 +16,6 @@ The **Insertion Sort** stands out as one of the simplest and earliest known sort
 <p align="center"><img src="./img/insertionSort.png"/></p>
 
 ---
-
 **Insertion Sort** treats collection as two parts sorted and unsorted. Algorithm iterates over unsorted elements and places them at their suitable place in sorted portion, much like the intuitive process of arranging playing cards in a hand. It consists of the following steps:
 1. Assume that the first element is in the sorted part.
 2. Pick the first element from the unsorted part.
@@ -35,7 +34,6 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 - Omitting certain optimizations from the algorithm.
 
 ---
-
 Sorting algorithm implemented within the function `insertionSort()` is declared in `InsertionSort.h` header file and defined in `InsertionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
 **The complete implementation of a sorting function:**
@@ -56,7 +54,6 @@ void insertionSort(int arr[], int size) {
 ```
 
 ---
-
 **The Detailed Algorithm Overview:**
 1. Iterate over the unsorted part of the array, starting with the second element (because the first one is considered as sorted part).
 ```cpp
@@ -111,7 +108,6 @@ arr[sorted + 1] = current;
   - **Adaptive** — amount of shifts depends on extent to which data is already sorted.
 
 ---
-
 Insertion Sort, though conceptually simple and intuitive, exhibits limitations in practical scenarios. It is better suited for small datasets, especially when they are either already sorted or nearly sorted, and when the additional memory usage needs to be minimized. Thus, while algorithm may find niche applications, its overall utility is limited in modern software development contexts.
 
 
@@ -119,9 +115,7 @@ Insertion Sort, though conceptually simple and intuitive, exhibits limitations i
 # &#128221; Application
 **Some of the Most Well-Known Use Cases:**
 - **Trivial Small Datasets** — generally it is used where the overhead of more complex algorithms is just unnecessary; e.g. configuration settings, small list of people.
-
 - **Resource-Constrained Environments** — occurs to be a practical choice in scenarios where memory and processing power are limited; e.g. embedded systems, microcontrollers.
-
 - **Hybrid Sorting Approaches** — may be used as auxiliary sorting algorithm in larger ones; e.g. Timsort, Introsort.
 
 
@@ -151,11 +145,13 @@ For contact details and additional information, please refer to the [root direct
   - Section 6.3: Insertion Sort
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 5.2.1: Sorting by Insertion
-  
+
+---  
 &#127891;**Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
-  
+
+---  
 &#127760;**Web-Resources:**  
 - [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) (Wikipedia)
 

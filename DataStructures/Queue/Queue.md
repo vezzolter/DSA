@@ -407,14 +407,14 @@ For contact details and additional information, please refer to the [root direct
   - Section 2.2.2: Linked Allocation
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 14: Queues
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
    - Course 2.1: Linear Structures
 
 ---  
-&#127760;**Web-Resources:**  
+&#127760; **Web-Resources:**  
 - [Queue (abstract data structure)](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
 - [Queue Data Structure](https://www.programiz.com/dsa/queue)
 - [std::queue](https://en.cppreference.com/w/cpp/container/queue)
