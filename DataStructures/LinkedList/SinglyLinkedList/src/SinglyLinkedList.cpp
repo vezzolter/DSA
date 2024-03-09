@@ -30,15 +30,15 @@ SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
 	}
 
 	// Create corresponding first node
-	_head = new Node<T>(rhs._head->_data);
+	_head = new Node(rhs._head->_data);
 
 	// Initialize traversal pointers
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
 
 	// Copy other nodes
 	while (currentRhs) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current = current->_next;
 		currentRhs = currentRhs->_next;
 	}
@@ -66,8 +66,8 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 	_head = new Node<T>(rhs._head->_data);
 
 	// Initialize traversal pointers
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
 
 	// Copy other nodes
 	while (currentRhs) {
@@ -97,7 +97,7 @@ template<class T>
 T& SLL<T>::operator[](const int index) {
 	// Initialize traversal variables
 	int counter = 0;
-	Node<T>* current = _head;
+	Node* current = _head;
 
 	while (current != nullptr) {
 		// Return value of matched node
@@ -112,12 +112,12 @@ T& SLL<T>::operator[](const int index) {
 
 // Accesses the element at the specified index, no range check, denies modification
 template<class T>
-T& SLL<T>::operator[](const int index) const {
+const T& SLL<T>::operator[](const int index) const {
 	// TODO: range check
 
 	// Initialize traversal variables
 	int counter = 0;
-	Node<T>* current = _head;
+	Node* current = _head;
 
 	while (current != nullptr) {
 		// Return value of matched node
@@ -164,10 +164,10 @@ void SLL<T>::clear() {
 	// Case: empty list
 	if (!_head)
 		return;
-	
+
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
-		Node<T>* current = _head;
+		Node* current = _head;
 		_head = _head->_next;
 		delete current;
 	}
@@ -186,10 +186,10 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 	}
 	else {
 		// Create a new node with the given data
-		Node<T>* newNode = new Node<T>(newData);
+		Node* newNode = new Node(newData);
 
 		// Find the node at the specified index
-		Node<T>* current = _head;
+		Node* current = _head;
 		for (int i = 0; i < index - 1; i++) {
 			current = current->_next;
 		}
@@ -212,13 +212,13 @@ void SLL<T>::eraseAfter(const int index) {
 	}
 	else {
 		// Traverse to the node before the node to be erased
-		Node<T>* current = _head;
+		Node* current = _head;
 		for (int i = 0; i < index; ++i) {
 			current = current->_next;
 		}
 
 		// Remove
-		Node<T>* nodeToDelete = current->_next;
+		Node* nodeToDelete = current->_next;
 		current->_next = nodeToDelete->_next;
 		delete nodeToDelete;
 
@@ -231,7 +231,7 @@ void SLL<T>::eraseAfter(const int index) {
 template<typename T>
 void SLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
 	if (_size == 0) {
@@ -260,7 +260,7 @@ void SLL<T>::popFront() {
 	}
 
 	// Move the head pointer to the next node
-	Node<T>* temp = _head;
+	Node* temp = _head;
 	_head = _head->_next;
 	delete temp;
 

@@ -107,7 +107,6 @@ template<class T>
 const T& DA<T>::back() const { return _data[_size - 1]; }
 
 
-
 // --------
 // Capacity
 // --------
@@ -119,7 +118,6 @@ bool DA<T>::empty() const { return (_size == 0); }
 // Returns the number of elements in the container
 template<class T>
 int DA<T>::size() const { return _size; }
-
 
 
 // ---------

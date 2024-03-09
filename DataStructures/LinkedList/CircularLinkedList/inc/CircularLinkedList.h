@@ -7,10 +7,8 @@
 
 
 template<class T>
-class CLL
-{
+class CLL {
 private:
-	template<class T>
 	struct Node {
 	public:
 		T _data;
@@ -20,17 +18,17 @@ private:
 		// Special Member Functions
 		Node(const T& newData, Node* nextNode = nullptr, Node* prevNode = nullptr)
 			: _data(newData), _next(nextNode), _prev(prevNode) {}
-		Node() = default;
-		Node(const Node& rhs) = delete;
+		Node()                           = default;
+		Node(const Node& rhs)            = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
 	int _size;
-	Node<T>* _head;
-	Node<T>* _tail;
+	Node* _head;
+	Node* _tail;
 
 	// Facilitator method
-	Node<T>* getStartingNode(int index) const;
+	Node* getStartingNode(int index) const;
 
 public:
 	// Special Member Functions

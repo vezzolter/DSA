@@ -89,7 +89,6 @@ LQ<T>::~LQ() {
 }
 
 
-
 // --------------
 // Element Access
 // --------------
@@ -111,7 +110,6 @@ template<class T>
 const T& LQ<T>::rear() const { return _rear->_data; }
 
 
-
 // --------
 // Capacity
 // --------
@@ -122,8 +120,7 @@ bool LQ<T>::empty() const { return _size == 0; }
 
 // Returns the number of elements in the container
 template<typename T>
-size_t LQ<T>::size() const { return _size; }
-
+int LQ<T>::size() const { return _size; }
 
 
 // ---------

@@ -16,8 +16,7 @@ void printArray(const DA<int>& arr) {
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Dynamic Array' console application!\n";
 

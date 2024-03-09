@@ -8,16 +8,15 @@
 #include <iostream>
 #include "DoublyLinkedList.h"
 
+
 void printList(const DLL<int>& list) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++) {
+	for (int i = 0; i < list.size(); i++)
 		std::cout << list[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n";
 

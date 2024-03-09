@@ -21,8 +21,7 @@ void printQueue(const LQ<int>& q) {
 	
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Linear Queue' console application!\n";
 

@@ -241,8 +241,7 @@ void printArray(const SA<int, 100>& arr) {
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Static Array' console application!\n";
 
@@ -304,8 +303,7 @@ int main()
 6. Whole class declaration:
 ```cpp
 template<class T>
-class DA
-{
+class DA {
 private:
 	int _size;
 	T* _data;
@@ -567,8 +565,7 @@ void printArray(const DA<int>& arr) {
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Dynamic Array' console application!\n";
 

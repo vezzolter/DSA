@@ -14,8 +14,8 @@
 
 // Determine whether to start traversal from the head or tail
 template<typename T>
-typename CLL<T>::Node<T>* CLL<T>::getStartingNode(int index) const {
-	Node<T>* startingNode;
+typename CLL<T>::Node* CLL<T>::getStartingNode(int index) const {
+	Node* startingNode;
 	int distanceFromHead = index;
 	int distanceFromTail = _size - index - 1;
 
@@ -34,7 +34,6 @@ typename CLL<T>::Node<T>* CLL<T>::getStartingNode(int index) const {
 
 	return startingNode;
 }
-
 
 
 // ------------------------
@@ -58,13 +57,13 @@ CLL<T>::CLL(const CLL& rhs) : _size(rhs._size) {
 		return;
 	}
 
-	_head = new Node<T>(rhs._head->_data);
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
-	Node<T>* originalHead = rhs._head; // Save the original head of the list
+	_head = new Node(rhs._head->_data);
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
+	Node* originalHead = rhs._head; // Save the original head of the list
 
 	while (currentRhs != originalHead) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current->_next->_prev = current;
 		current = current->_next;
 		currentRhs = currentRhs->_next;
@@ -92,13 +91,13 @@ CLL<T>& CLL<T>::operator=(const CLL& rhs) {
 		return *this;
 	}
 
-	_head = new Node<T>(rhs._head->_data);
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
-	Node<T>* originalHead = rhs._head; // Save the original head of the list
+	_head = new Node(rhs._head->_data);
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
+	Node* originalHead = rhs._head; // Save the original head of the list
 
 	while (currentRhs != originalHead) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current->_next->_prev = current;
 		current = current->_next;
 		currentRhs = currentRhs->_next;
@@ -117,7 +116,6 @@ template<typename T>
 CLL<T>::~CLL() { clear(); }
 
 
-
 // --------------
 // Element Access
 // --------------
@@ -126,7 +124,7 @@ CLL<T>::~CLL() { clear(); }
 template<class T>
 T& CLL<T>::operator[](const int index) {
 	// Traverse to the required node
-	Node<T>* current = getStartingNode(index);
+	Node* current = getStartingNode(index);
 	return current->_data;
 }
 
@@ -134,7 +132,7 @@ T& CLL<T>::operator[](const int index) {
 template<class T>
 const T& CLL<T>::operator[](const int index) const {
 	// Traverse to the required node
-	Node<T>* current = getStartingNode(index);
+	Node* current = getStartingNode(index);
 	return current->_data;
 }
 
@@ -155,7 +153,6 @@ template<class T>
 const T& CLL<T>::back() const { return _tail->_data; }
 
 
-
 // --------
 // Capacity
 // --------
@@ -167,7 +164,6 @@ bool CLL<T>::empty() const { return _size == 0; }
 // Returns the number of elements in the container
 template<typename T>
 int CLL<T>::size() const { return _size; }
-
 
 
 // ---------
@@ -182,9 +178,9 @@ void CLL<T>::clear() {
 		return;
 
 	// Traverse the list and deallocate memory for each node
-	Node<T>* current = _head;
+	Node* current = _head;
 	while (current) {
-		Node<T>* temp = current;
+		Node* temp = current;
 		current = current->_next;
 		delete temp;
 
@@ -210,8 +206,8 @@ void CLL<T>::insert(const int index, const T& newData) {
 	}
 	else {
 		// Insert new node at specified position
-		Node<T>* prevNode = getStartingNode(index - 1);
-		Node<T>* newNode = new Node<T>(newData);
+		Node* prevNode = getStartingNode(index - 1);
+		Node* newNode = new Node(newData);
 		newNode->_next = prevNode->_next;
 		newNode->_prev = prevNode;
 		prevNode->_next->_prev = newNode; // Update next node's previous pointer
@@ -233,8 +229,8 @@ void CLL<T>::erase(const int index) {
 	}
 	else {
 		// Remove specified node
-		Node<T>* prevNode = getStartingNode(index - 1);
-		Node<T>* nodeToErase = prevNode->_next;
+		Node* prevNode = getStartingNode(index - 1);
+		Node* nodeToErase = prevNode->_next;
 		prevNode->_next = nodeToErase->_next;
 		nodeToErase->_next->_prev = prevNode;
 
@@ -246,10 +242,10 @@ void CLL<T>::erase(const int index) {
 // Prepends the given element value to the beginning of the container
 template<typename T>
 void CLL<T>::pushFront(const T& newData) {
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
-	if (_size == 0) { 
+	if (_size == 0) {
 		_head = _tail = newNode;
 		newNode->_next = newNode->_prev = newNode; // Make the list circular
 	}
@@ -277,7 +273,7 @@ void CLL<T>::popFront() {
 		return;
 	}
 
-	Node<T>* temp = _head;
+	Node* temp = _head;
 	_head = _head->_next;
 	_head->_prev = _tail; // Update head's previous pointer to point to tail
 	_tail->_next = _head; // Update tail's next pointer to point to head
@@ -289,10 +285,10 @@ void CLL<T>::popFront() {
 // Appends the given element to the end of the container
 template<class T>
 void CLL<T>::pushBack(const T& newData) {
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
-	if (_size == 0) { 
+	if (_size == 0) {
 		_head = _tail = newNode;
 		newNode->_next = newNode->_prev = newNode; // Make the list circular
 	}
@@ -321,7 +317,7 @@ void CLL<T>::popBack() {
 	}
 
 	// Move the tail pointer to the previous node
-	Node<T>* temp = _tail;
+	Node* temp = _tail;
 	_tail = _tail->_prev;
 	_tail->_next = _head; // Update tail's next pointer to point to head
 	delete temp;

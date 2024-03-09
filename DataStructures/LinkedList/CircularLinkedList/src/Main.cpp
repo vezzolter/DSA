@@ -12,14 +12,12 @@
 
 void printList(const CLL<int>& list) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++) {
+	for (int i = 0; i < list.size(); i++)
 		std::cout << list[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Circular Linked List' console application!\n";
 

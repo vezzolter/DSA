@@ -7,16 +7,14 @@
 
 
 template<class T>
-class DLL
-{
+class DLL {
 private:
-	template<class T>
 	struct Node {
 	public:
 		T _data;
 		Node* _next;
 		Node* _prev;
-		
+
 		// Special Member Functions
 		Node(const T& newData, Node* nextNode = nullptr, Node* prevNode = nullptr)
 			: _data(newData), _next(nextNode), _prev(prevNode) {}
@@ -26,11 +24,11 @@ private:
 	};
 
 	int _size;
-	Node<T>* _head;
-	Node<T>* _tail;
+	Node* _head;
+	Node* _tail;
 
 	// Facilitator method
-	Node<T>* getStartingNode(int index) const; 
+	Node* getStartingNode(int index) const;
 
 public:
 	// Special Member Functions
@@ -46,7 +44,7 @@ public:
 	T& front();
 	const T& front() const;
 	T& back();
-	const T& back() const ;
+	const T& back() const;
 
 	// Capacity 
 	bool empty() const;

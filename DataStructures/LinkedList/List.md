@@ -80,17 +80,15 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 4. Whole class declaration:
 ```cpp
 template<class T>
-class SLL
-{
+class SLL {
 private:
-	template<class T>
 	struct Node {
 	public:
-		T _data; 
+		T _data;
 		Node* _next;
 
 		// Special Member Functions
-		Node(const T& newData, Node* nextNode = nullptr) 
+		Node(const T& newData, Node* nextNode = nullptr)
 			: _data(newData), _next(nextNode) {}
 		Node()                           = default;
 		Node(const Node& rhs)            = delete;
@@ -98,7 +96,7 @@ private:
 	};
 
 	int _size;
-	Node<T>* _head;
+	Node* _head;
 
 public:
 	// Special Member Functions
@@ -147,15 +145,15 @@ SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
 	}
 
 	// Create corresponding first node
-	_head = new Node<T>(rhs._head->_data);
+	_head = new Node(rhs._head->_data);
 
 	// Initialize traversal pointers
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
 
 	// Copy other nodes
 	while (currentRhs) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current = current->_next;
 		currentRhs = currentRhs->_next;
 	}
@@ -183,8 +181,8 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 	_head = new Node<T>(rhs._head->_data);
 
 	// Initialize traversal pointers
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
 
 	// Copy other nodes
 	while (currentRhs) {
@@ -211,7 +209,7 @@ template<class T>
 T& SLL<T>::operator[](const int index) {
 	// Initialize traversal variables
 	int counter = 0;
-	Node<T>* current = _head;
+	Node* current = _head;
 
 	while (current != nullptr) {
 		// Return value of matched node
@@ -226,12 +224,12 @@ T& SLL<T>::operator[](const int index) {
 
 // Accesses the element at the specified index, no range check, denies modification
 template<class T>
-T& SLL<T>::operator[](const int index) const {
+const T& SLL<T>::operator[](const int index) const {
 	// TODO: range check
 
 	// Initialize traversal variables
 	int counter = 0;
-	Node<T>* current = _head;
+	Node* current = _head;
 
 	while (current != nullptr) {
 		// Return value of matched node
@@ -272,10 +270,10 @@ void SLL<T>::clear() {
 	// Case: empty list
 	if (!_head)
 		return;
-	
+
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
-		Node<T>* current = _head;
+		Node* current = _head;
 		_head = _head->_next;
 		delete current;
 	}
@@ -294,10 +292,10 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 	}
 	else {
 		// Create a new node with the given data
-		Node<T>* newNode = new Node<T>(newData);
+		Node* newNode = new Node(newData);
 
 		// Find the node at the specified index
-		Node<T>* current = _head;
+		Node* current = _head;
 		for (int i = 0; i < index - 1; i++) {
 			current = current->_next;
 		}
@@ -320,13 +318,13 @@ void SLL<T>::eraseAfter(const int index) {
 	}
 	else {
 		// Traverse to the node before the node to be erased
-		Node<T>* current = _head;
+		Node* current = _head;
 		for (int i = 0; i < index; ++i) {
 			current = current->_next;
 		}
 
 		// Remove
-		Node<T>* nodeToDelete = current->_next;
+		Node* nodeToDelete = current->_next;
 		current->_next = nodeToDelete->_next;
 		delete nodeToDelete;
 
@@ -339,7 +337,7 @@ void SLL<T>::eraseAfter(const int index) {
 template<typename T>
 void SLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
 	if (_size == 0) {
@@ -368,7 +366,7 @@ void SLL<T>::popFront() {
 	}
 
 	// Move the head pointer to the next node
-	Node<T>* temp = _head;
+	Node* temp = _head;
 	_head = _head->_next;
 	delete temp;
 
@@ -381,9 +379,8 @@ void SLL<T>::popFront() {
 ```cpp
 void printList(const SLL<int>& list) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++) {
+	for (int i = 0; i < list.size(); i++)
 		std::cout << list[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
@@ -466,16 +463,14 @@ int main()
 4. Whole class declaration:
 ```cpp
 template<class T>
-class DLL
-{
+class DLL {
 private:
-	template<class T>
 	struct Node {
 	public:
 		T _data;
 		Node* _next;
 		Node* _prev;
-		
+
 		// Special Member Functions
 		Node(const T& newData, Node* nextNode = nullptr, Node* prevNode = nullptr)
 			: _data(newData), _next(nextNode), _prev(prevNode) {}
@@ -485,11 +480,11 @@ private:
 	};
 
 	int _size;
-	Node<T>* _head;
-	Node<T>* _tail;
+	Node* _head;
+	Node* _tail;
 
 	// Facilitator method
-	Node<T>* getStartingNode(int index) const; 
+	Node* getStartingNode(int index) const;
 
 public:
 	// Special Member Functions
@@ -505,7 +500,7 @@ public:
 	T& front();
 	const T& front() const;
 	T& back();
-	const T& back() const ;
+	const T& back() const;
 
 	// Capacity 
 	bool empty() const;
@@ -526,8 +521,8 @@ public:
 ```cpp
 // Determine whether to start traversal from the head or tail
 template<typename T>
-typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
-	Node<T>* startingNode;
+typename DLL<T>::Node* DLL<T>::getStartingNode(int index) const {
+	Node* startingNode;
 	int distanceFromHead = index;
 	int distanceFromTail = _size - index - 1;
 
@@ -550,25 +545,33 @@ typename DLL<T>::Node<T>* DLL<T>::getStartingNode(int index) const {
 
 6. Special member functions:
 ```cpp
+// Default constructor
+template<typename T>
+DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
+
+//// Parametrized constructor
+//template<class T>
+//DLL<T>::DLL(const std::initializer_list<T>& initList) { }
+
 // Deep copy constructor
 template<class T>
 DLL<T>::DLL(const DLL& rhs) : _size(rhs._size) {
-	// Case: empty list, avoid dangling pointers
+	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = _tail = nullptr;
 		return;
 	}
 
 	// Create corresponding first node
-	_head = new Node<T>(rhs._head->_data);
+	_head = new Node(rhs._head->_data);
 
 	// Initialize traversal pointers
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
 
 	// Copy other nodes
 	while (currentRhs) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current->_next->_prev = current;
 		current = current->_next;
 		currentRhs = currentRhs->_next;
@@ -582,7 +585,7 @@ DLL<T>::DLL(const DLL& rhs) : _size(rhs._size) {
 template<class T>
 DLL<T>& DLL<T>::operator=(const DLL& rhs) {
 	// Self-assignment guard
-	if (this == &rhs) 
+	if (this == &rhs)
 		return *this;
 
 	// Ensure that the destination list doesn't retain any of its existing elements
@@ -591,22 +594,22 @@ DLL<T>& DLL<T>::operator=(const DLL& rhs) {
 	// Set corresponding size
 	_size = rhs._size;
 
-	// Case: empty list, avoid dangling pointers
+	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = _tail = nullptr;
 		return *this;
 	}
 
 	// Create corresponding first node
-	_head = new Node<T>(rhs._head->_data);
+	_head = new Node(rhs._head->_data);
 
 	// Initialize traversal pointers
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
 
 	// Copy other nodes
 	while (currentRhs) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current->_next->_prev = current;
 		current = current->_next;
 		currentRhs = currentRhs->_next;
@@ -629,7 +632,7 @@ DLL<T>::~DLL() { clear(); }
 template<class T>
 T& DLL<T>::operator[](const int index) {
 	// Traverse to the required node
-	Node<T>* current = getStartingNode(index);
+	Node* current = getStartingNode(index);
 	return current->_data;
 }
 
@@ -637,7 +640,7 @@ T& DLL<T>::operator[](const int index) {
 template<class T>
 const T& DLL<T>::operator[](const int index) const {
 	// Traverse to the required node
-	Node<T>* current = getStartingNode(index);
+	Node* current = getStartingNode(index);
 	return current->_data;
 }
 
@@ -680,12 +683,12 @@ void DLL<T>::clear() {
 
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
-		Node<T>* current = _head;
+		Node* current = _head;
 		_head = _head->_next;
 		delete current;
 	}
 
-	// Update the state of list
+	// Update the state
 	_size = 0;
 	_tail = _head = nullptr;
 }
@@ -702,8 +705,8 @@ void DLL<T>::insert(const int index, const T& newData) {
 	}
 	else {
 		// Insert new node at specified position
-		Node<T>* prevNode = getStartingNode(index - 1);
-		Node<T>* newNode = new Node<T>(newData);
+		Node* prevNode = getStartingNode(index - 1);
+		Node* newNode = new Node(newData);
 		newNode->_next = prevNode->_next;
 		newNode->_prev = prevNode;
 		prevNode->_next = newNode;
@@ -725,8 +728,8 @@ void DLL<T>::erase(const int index) {
 	}
 	else {
 		// Remove specified node
-		Node<T>* prevNode = getStartingNode(index - 1);
-		Node<T>* nodeToErase = prevNode->_next;
+		Node* prevNode = getStartingNode(index - 1);
+		Node* nodeToErase = prevNode->_next;
 		prevNode->_next = nodeToErase->_next;
 		nodeToErase->_next->_prev = prevNode;
 		delete nodeToErase;
@@ -740,7 +743,7 @@ void DLL<T>::erase(const int index) {
 template<typename T>
 void DLL<T>::pushFront(const T& newData) {
 	// Create a new node with the given data
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
 	if (_size == 0) {
@@ -752,7 +755,7 @@ void DLL<T>::pushFront(const T& newData) {
 		newNode->_next = _head;
 		_head = newNode;
 	}
-	
+
 	// Update the size
 	++_size;
 }
@@ -766,9 +769,9 @@ void DLL<T>::popFront() {
 		clear();
 		return;
 	}
-	
+
 	// Move the head pointer to the next node
-	Node<T>* temp = _head;
+	Node* temp = _head;
 	_head = _head->_next;
 	_head->_prev = nullptr;
 	delete temp;
@@ -781,10 +784,10 @@ void DLL<T>::popFront() {
 template<class T>
 void DLL<T>::pushBack(const T& newData) {
 	// Create a new node with the given data
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
-	if (_size == 0) { 
+	if (_size == 0) {
 		_head = _tail = newNode;
 	}
 	else {
@@ -793,7 +796,6 @@ void DLL<T>::pushBack(const T& newData) {
 		newNode->_prev = _tail;
 		_tail = newNode;
 	}
-	
 
 	// Update the size
 	++_size;
@@ -823,14 +825,12 @@ void DLL<T>::popBack() {
 ```cpp
 void printList(const DLL<int>& list) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++) {
+	for (int i = 0; i < list.size(); i++)
 		std::cout << list[i] << " ";
-	}
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n";
 
@@ -922,13 +922,13 @@ CLL<T>& CLL<T>::operator=(const CLL& rhs) {
 		return *this;
 	}
 
-	_head = new Node<T>(rhs._head->_data);
-	Node<T>* currentRhs = rhs._head->_next;
-	Node<T>* current = _head;
-	Node<T>* originalHead = rhs._head; // Save the original head of the list
+	_head = new Node(rhs._head->_data);
+	Node* currentRhs = rhs._head->_next;
+	Node* current = _head;
+	Node* originalHead = rhs._head; // Save the original head of the list
 
 	while (currentRhs != originalHead) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current->_next->_prev = current;
 		current = current->_next;
 		currentRhs = currentRhs->_next;
@@ -948,10 +948,10 @@ You have to ensure, that referrences to the tail/head are proper:
 // Prepends the given element value to the beginning of the container
 template<typename T>
 void CLL<T>::pushFront(const T& newData) {
-	Node<T>* newNode = new Node<T>(newData);
+	Node* newNode = new Node(newData);
 
 	// Case: empty list
-	if (_size == 0) { 
+	if (_size == 0) {
 		_head = _tail = newNode;
 		newNode->_next = newNode->_prev = newNode; // Make the list circular
 	}

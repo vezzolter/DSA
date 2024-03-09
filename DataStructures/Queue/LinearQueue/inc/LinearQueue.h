@@ -19,7 +19,7 @@ private:
 		Node& operator=(const Node& rhs) = delete;
 	};
 
-	size_t _size;
+	int _size;
 	Node* _front;
 	Node* _rear;
 
@@ -38,7 +38,7 @@ public:
 
 	// Capacity 
 	bool empty() const;
-	size_t size() const;
+	int size() const;
 
 	// Modifiers
 	void push(const T& newData);

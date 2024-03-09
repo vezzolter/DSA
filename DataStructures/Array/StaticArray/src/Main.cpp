@@ -8,6 +8,7 @@
 #include <iostream>
 #include "StaticArray.h"
 
+
 void printArray(const SA<int, 100>& arr) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < arr.size(); i++)
@@ -15,8 +16,7 @@ void printArray(const SA<int, 100>& arr) {
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Static Array' console application!\n";
 

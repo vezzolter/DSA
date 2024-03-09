@@ -48,7 +48,6 @@ SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
 }
 
 
-
 // --------------
 // Element Access
 // --------------
@@ -76,7 +75,6 @@ T& SA<T, MAX_SIZE>::back() { return _data[_size - 1]; }
 // Accesses the last element in the container, no range check, denies modification
 template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::back() const { return 0; }
-
 
 
 // --------
