@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Repository Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, Completed projects are marked with ✅, while projects currently under development are marked with 🔄. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects are marked with ✅ and ones currently under development with 🔄. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 **The Structure:**
 - Algorithms
@@ -119,8 +119,9 @@ As my educational journey progresses, I may discover new areas of interest withi
 
 ---
 &#128156; **Special Thanks:**
-- Sheer gratitude to my university, **the NTUU Igor Sikorsky KPI**, for providing an environment where I had the privilege to connect with numerous ambitious individuals, who inspired me to strive for more.
-- Special thanks to **ChatGPT** for its continuous guidance & support on numerous topics.
+- I am grateful to the [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) for providing valuable insights on applying best practices to code, all while maintaining simplicity to convey ideas clearly and concisely.
+- Sheer gratitude to my university, [the NTUU Igor Sikorsky KPI](https://kpi.ua/en), for providing an environment where I had the privilege to connect with numerous ambitious individuals, who inspired me to strive for more.
+- Special thanks to [ChatGPT](https://chat.openai.com/) for its continuous guidance & support on numerous topics.
 
 
 
