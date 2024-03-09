@@ -34,10 +34,10 @@ This list provides a straightforward overview of the repository's contents. For 
     - Counting Sort
     - Bucket Sort
     - Shell Sort
-  - Search
-    - Search.md 🔄
-    - Linear Search 🔄
-    - Binary Seacrh 🔄
+  - Searching
+    - [Searching.md](https://github.com/vezzolter/DSA/tree/linear-search/Algorithms/Searching/Searching.md) 🔄
+    - [Linear Search](https://github.com/vezzolter/DSA/tree/linear-search/Algorithms/Searching/LinearSearch) 🔄
+    - Binary Seacrh
     - Interpolation Search
     - Jump Search
     - Exponential Search
