@@ -124,6 +124,9 @@ For contact details and additional information, please refer to the [root direct
   - Chapter 6: Elementary Sorting Methods
   - Chapter 7: Quicksort
   - Chapter 8: Merging and Mergesort
+  - Chapter 9: Priority Queues and Heapsort
+  - Chapter 10: Radix Sort
+  - Chapter 11: Special-Purpose Sorts
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Chapter 7: Sorting
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
