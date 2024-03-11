@@ -15,13 +15,17 @@
 <p align="center"><img src="./img/sorting.png"/></p>
 
 ---
-**Sorting Algorithm** — set of steps used to arrange elements in a specific order. It introduces the following terms:
-- **Collection** — a grouping of elements arranged in a specific order.
-- **Specific Order** — the arrangement of elements within a collection based on a defined set of criteria. 
-- **Criterion** — a rule used to make the decisions about the order of elements.
-- **Element** — an individual entity within a collection.
-- **Index of an Element** — the position of an element within collection.
-- **Value of an Element** — the actual data stored within the element.
+**Essential Terminology:**
+- **Sorting Algorithm** — is set of steps used to obtain a particular order of elements within a collection of data.
+- **Specific Order** — is an arrangement of elements within a collection based on a defined set of criteria. 
+- **Criterion** — is a rule used to make the decisions about the order of elements.
+- **Collection** — is a data structure, which is used to group multiple elements together.
+  - **Table** — is a small collection of all elements.
+  - **File** — is a big collection of all elements.
+  - **Database** — is a large collection of all elements.
+- **Element/Record/Item** — is an individual entity within a collection.
+  - **Index/Key of Element** — is a position of an element within collection.
+  - **Value/Data of Element** — is an actual information stored within the element.
 
 
 
@@ -133,12 +137,12 @@ For contact details and additional information, please refer to the [root direct
   - Chapter 5: Sorting
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
 
 ---  
-&#127760;**Web-Resources:**  
+&#127760; **Web-Resources:**  
 - [Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) (Wikipedia)
 - [Sorting Algorithms in Computer Science](https://www.studysmarter.co.uk/explanations/computer-science/algorithms-in-computer-science/sorting-algorithms/)
 - [Sorting Algorithms Explained](https://www.freecodecamp.org/news/sorting-algorithms-explained/)
