@@ -33,7 +33,47 @@
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The list of known searching algorithms is extensive and continues to grow. When it comes to implementation, some share some common ideas, while others possess distinctive characteristics. The choice between them depends on the specific requirements of the cases at hand. There are plenty of metrics to classify algorithms by (each of which can impose certain specifications on implementation), most used of them are:
+
+- **Search Strategies:**
+   - **Linear Algorithms** — sequentially examine each element in the collection until the target is found or the end of the dataset is reached.
+   - **Binary Algorithms** — operate on sorted datasets and repeatedly divide the search space in half until the target element is found
+   - **Tree-Based Algorithms** — utilize tree data structures, such as binary search trees (BSTs), balanced binary search trees (AVL trees, Red-Black trees), or B-trees.
+   - **Hashing Algorithms** — use hash functions to map keys to indices in an array (hash table).
+   - **Graph-Based Algorithms** — explore graphs to find paths or relationships between nodes
+   - **String Algorithms** — focus on finding occurrences of patterns within text or string data.
+   - **Heuristic Algorithms** — use domain-specific knowledge or heuristic information to guide the search process towards more promising areas of the search space.
+   - **Other** — although they are in the minority, it is worth mentioning them.
+  
+- **Time Complexities:**
+  - $O(1)$ — occurs when the search operation takes the same amount of time regardless of the size of the dataset, usually via known key and straightforward access.
+   - $O(log(n))$ — occurs when the search operation divides the search space in half with each step.
+  - $O(n × log(n))$ — occurs when the time of search increases linearly with the size of collection and also influenced by logarithmic factor due to divide-and-conquer strategies.
+   - $O(n)$ — occurs when the search operation examines each element one by one, therefore making its time proportional to the size of the collection.
+   - $O(n^2)$ — can occur in certain nested loop-based search algorithms where each element is compared with every other element in the collection.
+   - $O(2^n)$ — typically associated with brute-force search algorithms that explore all possible combinations of elements.
+   - **Other** — although they are in the minority, it is worth mentioning them.
+  
+- **Auxiliary Space Complexity:**
+   - **In-Place** $\big(O(1)\big)$  — algorithm does not require additional memory.
+   - **Out-of-Space** $\big(O(n)/O(n×logn)/...\big)$ — algorithm does require some additional memory.
+
+- **Element's Mutability:**
+   - **Static** — contents of the collection either rarely change or don't change at all.
+   - **Dynamic** — contents of the collection frequently change.
+
+- **Key Representation:**
+   - **Actual Keys** — refers to the original keys or values used for identification and retrieval within the search algorithm.
+   - **Transofrmed Keys** — refers to the keys, that have undergone some form of transformation (e.g. encryption, different format, preprocessing, etc) to optimize the search process.
+
+- **Adaptability:**
+   - **Adaptive** — algorithm adjusts its overall behavior (sequence of operations) based on the initial order of elements to improve performance.
+   - **Non-Adaptive** — data processed through the same path of steps, regardless of their values.
+
+- **Storage:**
+   - **Internal** — algorithm takes place entirely within the main memory (RAM) of computer.
+   - **External** — algorithm takes place within other storage devices (e.g. hard disk).
+
 
 
 # &#128202; Analysis
