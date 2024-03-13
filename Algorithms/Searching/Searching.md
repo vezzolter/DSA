@@ -56,7 +56,8 @@ The list of known searching algorithms is extensive and continues to grow. When 
   
 - **Auxiliary Space Complexity:**
    - **In-Place** $\big(O(1)\big)$  — algorithm does not require additional memory.
-   - **Out-of-Space** $\big(O(n)/O(n×logn)/...\big)$ — algorithm does require some additional memory.
+   - **Out-of-Space** $\big(O(n)/O(n×logn)/...\big)$ — algorithm does require some additional memory.  
+   P.s. those terms used mostly only for sorting, even though they mean the same for both algorithms' classes.
 
 - **Element's Mutability:**
    - **Static** — contents of the collection either rarely change or don't change at all.
@@ -82,7 +83,25 @@ Currently in Progress...
 
 
 # &#128221; Application
-Currently in Progress...
+**Some of the Most Well-Known Use Cases in Various Fields:**
+- **Information Retrieval in Search Engines** —  search algorithms used to retrieve relevant information from vast amounts of data on the web by analyzing the content of web pages, index them based on keywords and relevance, and rank the results.
+- **Pathfinding and Navigation** — type of search algorithms that efficiently find the shortest or most optimal path between two points in a graph or network, considering factors like distance, time, or cost.
+- **Genetic Algorithms in Optimization** — type of search algorithms that mimic the process of natural selection and evolution to iteratively generate and improve solutions to complex optimization problems.
+- **Game Development & Artificial Intelligence** — search algorithms are used to figure out a strategy, by searching through the possilities and picking the best move, also gamedev utilize pathfinding algorithms in building a route for a player.
+
+
+
+---
+**Common Practical Problems:**
+- Find the largest three elements in an array.
+- Find the closest pair.
+- Find the missing and repeating number.
+- Find a pair with the given difference.
+- k largest(or smallest) elements in an array.
+- Find all duplicates.
+- Find a peak element.
+- Search in an almost sorted array.
+- Find the majority element.
 
 
 
@@ -120,7 +139,9 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) (Wikipedia)
-
+- [Searching algorithms compared](https://adacomputerscience.org/concepts/search_searching_compared)
+- [Search algorithms and their implementations](https://codecoda.com/en/blog/entry/search-algorithms-and-their-implementations)
+- [Searching Algorithms](https://www.geeksforgeeks.org/searching-algorithms/)
 
 
 # &#128271; License
