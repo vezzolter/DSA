@@ -89,8 +89,6 @@ Currently in Progress...
 - **Genetic Algorithms in Optimization** — type of search algorithms that mimic the process of natural selection and evolution to iteratively generate and improve solutions to complex optimization problems.
 - **Game Development & Artificial Intelligence** — search algorithms are used to figure out a strategy, by searching through the possilities and picking the best move, also gamedev utilize pathfinding algorithms in building a route for a player.
 
-
-
 ---
 **Common Practical Problems:**
 - Find the largest three elements in an array.
@@ -106,7 +104,7 @@ Currently in Progress...
 
 
 # &#x23F3; Historical Notes
-Currently in Progress...
+The concept of searching emerged unknown-long time ago and primarly attributed to the collective ingenuity of humanity, the development of searching algorithms dates back in the early days of computing. The first search algorithms, such as **Linear Search** and **Binary Search** quickly gained widespread adoption and underwent continuous development by programmers worldwide, becoming a fundamental component in various applications. As people started to utilize tree and graph based data structures more, the relevant search algorithms like following ones appeared: **DFS**, **BFS**, **Dijkstra's Algorithm**, **A\***, **Greedy Best-First Search**, — which are still extremely valuable and efficient to this day. Another breakthrough came with the rising popularity of the internet, which created a need in sophisticated and compex search engines, that could both filtrate the large amounts of different data and decide what is relevant. One notable invention, that revolutioized web search was the **PageRank** developed by **Larry Page** and **Sergey Brin** in **1996**, which first prototype was utilized at **Google** in **1998**. Nowadays the direction of searching tend to utilize the **AI** and **NLP** driven ideas in order to deliver more accurate search results.
 
 
 
@@ -142,6 +140,7 @@ For contact details and additional information, please refer to the [root direct
 - [Searching algorithms compared](https://adacomputerscience.org/concepts/search_searching_compared)
 - [Search algorithms and their implementations](https://codecoda.com/en/blog/entry/search-algorithms-and-their-implementations)
 - [Searching Algorithms](https://www.geeksforgeeks.org/searching-algorithms/)
+
 
 
 # &#128271; License
