@@ -78,7 +78,7 @@ The list of known searching algorithms is extensive and continues to grow. When 
 
 
 # &#128202; Analysis
-Currently in Progress...
+When it comes to analysis of searching algorithms in general there is no "one-size-fits-all" solution and the analysis relies heavily on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder.
 
 
 
@@ -109,7 +109,7 @@ The concept of searching emerged unknown-long time ago and primarly attributed t
 
 
 # &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
+Unfortunatelly, I couldn't find much information about how to design or to analyze the search algorithms. If anyone reading this can suggest a helpful resource where I can learn about it more, I would be extremely grateful for that! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 
