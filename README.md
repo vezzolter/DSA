@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Repository Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects are marked with ✅ and ones currently under development with 🔄. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects (but still can receive updates) are marked with ✅ and ones currently under development with 🔄. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 **The Structure:**
 - Algorithms
@@ -35,12 +35,13 @@ This list provides a straightforward overview of the repository's contents. For 
     - Bucket Sort
     - Shell Sort
   - Searching
-    - [Searching.md](https://github.com/vezzolter/DSA/tree/linear-search/Algorithms/Searching/Searching.md) 🔄
-    - [Linear Search](https://github.com/vezzolter/DSA/tree/linear-search/Algorithms/Searching/LinearSearch) 🔄
-    - Binary Seacrh
-    - Interpolation Search
+    - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) ✅
+    - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
+    - Binary Seacrh 🔄
     - Jump Search
+    - Interpolation Search
     - Exponential Search
+    - Fibonacci Search
   - PRNG
     - PRNG.md
     - Middle-Square Method
@@ -49,11 +50,14 @@ This list provides a straightforward overview of the repository's contents. For 
     - Mersenne Twister
     - Xorshift
     - Xoshiro128
-  - DnC
+  - Tree
   - Graph
+  - Hash
+  - String
+  - DnC
   - Dynamic
   - Greedy
-  - Strings
+
 - Data Structures
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
@@ -76,6 +80,7 @@ This list provides a straightforward overview of the repository's contents. For 
   - Tree
   - Graph
   - Hash
+  - String
 
 
 
