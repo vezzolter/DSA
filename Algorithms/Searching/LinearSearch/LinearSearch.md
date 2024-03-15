@@ -94,12 +94,15 @@ return -1;
 
 
 # &#128221; Application
-Currently in Progress...
+**Some of the Most Well-Known Use Cases:**
+- **Trivial Small Collections** — generally it is used where the overhead of more complex algorithms is just unnecessary.
+- **Unsorted Collections** — since algorithm doesn't require the data to be in any particular order.
+- **Debugging** — may be used to quickly identify and fix issues in code, due to simplicity in implementation and validation.
 
 
 
 # &#x23F3; Historical Notes
-Currently in Progress...
+The idea of Linear Search can be observed in many real life activities due to its simplicity. In terms of computer science, it was one of the earliest searching algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity.
 
 
 
