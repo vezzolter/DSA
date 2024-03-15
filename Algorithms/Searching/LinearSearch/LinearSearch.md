@@ -27,8 +27,44 @@ The **Linear Search** stands out as the simplest known approach to search for an
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the linear search algorithm, and finally displays the result indicating whether the operation was successful or not.
+<p align="center"><img src="./img/DemoSuccess.png"/></p>
+<p align="center"><img src="./img/DemoFailure.png"/></p>
 
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing a small integer array as a collection.
+- Omitting certain optimizations to the algorithm.
+
+---
+Searching algorithm implemented within the function `linearSearch()`, which is declared in `LinearSearch.h` header file and defined in `LinearSearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+
+**The Complete Implementation of a Search:**
+```cpp
+int linearSearch(int arr[], int size, int target) {
+	for (int i = 0; i < size; i++)
+		if (arr[i] == target)
+			return i;
+	return -1;
+}
+```
+
+---
+**The Detailed Algorithm Overview:**
+1. Iterate over a collection.
+```cpp
+for (int i = 0; i < size; i++)
+```
+
+2. Compare the current element of iteration with the target one. If it matches, then return it; otherwise keep traversing.
+```cpp
+if (arr[i] == target)
+	return i;
+```
+
+3. If target element didn't match with any of present in collection and reached the end of it, return an error code, indicating that the search is unsuccessful.
+```cpp
+return -1;
+```
 
 
 # &#128202; Analysis

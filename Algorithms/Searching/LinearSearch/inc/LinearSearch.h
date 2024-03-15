@@ -5,4 +5,4 @@
 #pragma once
 
 
-void linearSearch(int arr[], int size);
+int linearSearch(int arr[], int size, int target);
