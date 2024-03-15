@@ -68,7 +68,28 @@ return -1;
 
 
 # &#128202; Analysis
-Currently in Progress...
+- **Search Strategy:** 
+  - **Linear Approach** — sequentially examine each element in the collection until the target is found or the end of the dataset is reached.
+
+- **Time Complexity:**
+     - Worst Case: $O(n)$ — occurs when target is either not present or at the end, therefore algorithm requires iterating through all elements.
+     - Average Case: $O(n)$ — occurs when target is spread within uniform probability, therefore algorithm checks half of the elements.
+     - Best Case: $O(1)$ — occurs when target is found at the beggining, therefore only one comparison.
+
+- **Auxiliary Space Complexity:** 
+  - $O(1)$ — as no additional space is required beyond the input collection and a few variables.
+
+- **Element's Mutability:**
+   - **Suitable for Static** — algorithm require to scan the whole collection sequentially and frequent changes could lead to starting the process all over, thus making it not the best option for a dynamic collection.
+
+- **Key Representation:**
+   - **Suitable for Actual Keys** — even though algorithm can work with transformed keys, it is primarily concerned with comparing keys directly in their original form because of better alternatives out there.
+
+- **Adaptability:**
+   - **Non-Adaptive** — data processed through the same path of steps, regardless of their values.
+
+- **Storage:**
+   - **Suitable for Internal** — as algorithm mainly used on collections that can fit entirely in RAM.
 
 
 
