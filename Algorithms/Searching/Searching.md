@@ -27,6 +27,7 @@
 - **Element/Record/Item** — is an individual entity within a collection.
   - **Index/Key of Element** — is a position of an element within collection.
   - **Value/Data of Element** — is an actual information stored within the element.
+- **Target/Key Element** — is a one that search algorithm seeks to find within a collection, serves as a reference for comparison.
 - **Argument** — is a parameter passed to an algorithm, which provides the criteria, which will be used to find the desired element.
 - **Criterion** — is a rule used to determine whether an element meets the requirements of the search.
 
