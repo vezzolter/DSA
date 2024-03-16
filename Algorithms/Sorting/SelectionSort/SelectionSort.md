@@ -30,9 +30,9 @@ The program initializes an array of specified integers, performs ascending order
 <p align="center"><img src="./img/demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
-- Utilizing an integer array as a fundamental data structure.
+- Utilizing an integer array as a collection.
 - Exclusively implementing sorting in ascending order.
-- Omitting certain optimizations from the algorithm.
+- Omitting certain optimizations to the algorithm.
 
 ---
 Sorting algorithm implemented within the function `selectionSort()`, which is declared in `SelectionSort.h` header file and defined in `SelectionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
@@ -145,12 +145,12 @@ For contact details and additional information, please refer to the [root direct
   - Section 5.2.3: Sorting by Selection
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
 
 ---  
-&#127760;**Web-Resources:**  
+&#127760; **Web-Resources:**  
 - [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) (Wikipedia)
 - [How does Selection Sort Algorithm work?](https://www.geeksforgeeks.org/selection-sort/)
 - [Selection Sort Algorithm](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm)

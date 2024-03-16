@@ -30,9 +30,9 @@ The program initializes an array of specified integers, performs ascending order
 <p align="center"><img src="./img/demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
-- Utilizing an integer array as a fundamental data structure.
+- Utilizing an integer array as a collection.
 - Exclusively implementing sorting in ascending order.
-- Omitting certain optimizations from the algorithm.
+- Omitting certain optimizations to the algorithm.
 
 ---
 Sorting algorithm implemented within the function `bubbleSort()`, which is declared in `BubbleSort.h` header file and defined in `BubbleSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
@@ -149,12 +149,12 @@ For contact details and additional information, please refer to the [root direct
   - Section 5.2.2: Sorting by Exchanging
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 20: Sorting Techniques
   
 ---
-&#127760;**Web-Resources:**  
+&#127760; **Web-Resources:**  
 - [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sortt) (Wikipedia)
 - [Bubble Sort Algorithm](https://www.geeksforgeeks.org/bubble-sort/)
 - [Bubble Sort: An Archaeological Algorithmic Analysis](https://users.cs.duke.edu/~ola/papers/bubble.pdf)

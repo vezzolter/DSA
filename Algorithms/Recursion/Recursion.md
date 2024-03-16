@@ -281,12 +281,12 @@ For contact details and additional information, please refer to the [root direct
   - Chapter 4: Divide-and-Conquer.
 
 ---
-&#127891;**Courses:**
+&#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 5: Recursion
 
 ---
-&#127760;**Web-Resources:**
+&#127760; **Web-Resources:**
 - [Introduction to Recursion](https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/)
 - [Fundamentals of Recursion in Programming](https://www.enjoyalgorithms.com/blog/recursion-explained-how-recursion-works-in-programming)
 - [Recursion in Computer Science](https://en.wikipedia.org/wiki/Recursion_(computer_science)) (Wikipedia)
