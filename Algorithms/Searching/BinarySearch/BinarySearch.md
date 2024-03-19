@@ -43,7 +43,7 @@ Currently in Progress...
 
 
 # &#x23F3; Historical Notes
-Currently in Progress...
+The idea of Binary Search has evolved over time and there is no single individual behind them, especially because historical origins are not always well-recorded. In terms of computer science, it was one of the earliest searching algorithms to be implemented in early computer programs. Since then, many others have contributed to its understanding, analysis, and optimization.
 
 
 
