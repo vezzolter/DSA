@@ -37,26 +37,59 @@ This list provides a straightforward overview of the repository's contents. For 
   - Searching
     - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) ✅
     - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
-    - [Binary Seacrh](https://github.com/vezzolter/DSA/tree/binary-search/Algorithms/Searching/BinarySearch) 🔄
+    - [Binary Seacrh](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
     - Jump Search
     - Interpolation Search
     - Exponential Search
     - Fibonacci Search
   - PRNG
-    - PRNG.md
-    - Middle-Square Method
-    - Linear Conguential Generator
-    - Permuted Congruential Generator 
+    - PRNG.md 🔄
+    - Middle-Square Method 🔄
+    - LCG (Linear Conguential Generator)
+    - PCG (Permuted Congruential Generator )
     - Mersenne Twister
     - Xorshift
     - Xoshiro128
-  - Tree
-  - Graph
-  - Hash
-  - String
-  - DnC
-  - Dynamic
-  - Greedy
+  - Tree Algorithms
+    - TreeAlgorithms.md
+    - Inorder Traversal
+    - Preorder Traversal
+    - Postoreder Traversal
+    - Height Calculation
+    - Size Calculation
+    - LCA (Lowest Common Ancestor)
+  - Graph Algorithms
+    - GraphAlgorithms.md
+    - DFS (Depth-First Search)
+    - BFS (Breadth-First Search)
+    - A*
+    - Dijkstra's Algorithm
+    - Bellman-Ford Algorithm
+    - Prim's Algorithms
+    - Kruskal's Algorithm
+    - Floyd-Warshall Algorithm 
+  - DnC Algorithms
+    - DnC.md
+    - Strassen's Algorithm
+    - Karatsuba Algorithm
+    - Closest Pair of Points
+  - Dynamic Algorithms
+    - Knapsack
+    - Coin Change
+    - LCS (Longest Common Subsequence)
+    - LIS (Lingest Increasing Subsequence)
+  - Greedy Algorithms
+    - Activity Selection
+    - Fractional Knapsack
+    - Huffman Coding
+  - String Algorithms
+    - StringAlgorithms.md
+    - KMP (Knuth-Morris-Pratt)
+    - Rabin-Karp
+    - Boyer-Moore
+    - Levenshtein Distance
+    - Needleman-Wunsh Algorithm
+    - RLE (Run-Length Encoding) 
 
 - Data Structures
   - Array
@@ -78,9 +111,38 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Stack.md](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack.md) 🔄
     - [Stack](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack) 🔄
   - Tree
+    - Tree.md
+    - Binary Tree
+    - BST (Binary Search Tree)
+    - AVL Tree  
+    - Red-Black Tree 
+    - Splay Tree
+    - B-Tree
+    - B+ Tree
   - Graph
+    - Graph.md
+    - Undirected Graph
+    - Directed Graph
+    - Weighted Graph
+    - Sparse Graph
+    - Dense Graph
+  - Heap
+    - Heap.md
+    - Binary Heap
+    - Min Heap 
+    - Max Heap
+    - Fibonacci Heap
+    - Binomial Heap
   - Hash
+    - Hash.md
+    - Hash Table
+    - Hash Map
+    - Hash Set
+    - Bloom filter
+    - Cuckoo filter
   - String
+    - String.md
+    - String
 
 
 
