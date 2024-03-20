@@ -37,7 +37,7 @@ This list provides a straightforward overview of the repository's contents. For 
   - Searching
     - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) ✅
     - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
-    - Binary Seacrh 🔄
+    - [Binary Seacrh](https://github.com/vezzolter/DSA/tree/binary-search/Algorithms/Searching/BinarySearch) 🔄
     - Jump Search
     - Interpolation Search
     - Exponential Search
