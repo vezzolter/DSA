@@ -5,4 +5,4 @@
 #pragma once
 
 
-int binarySearch(int arr[], int size, int target);
+int binarySearch(int arr[], int left, int right, int target);

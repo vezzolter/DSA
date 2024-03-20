@@ -6,18 +6,19 @@
 // illustrated with an example using a small static array of integers as the collection.
 
 #include <iostream>
+#include <iomanip>
 #include "BinarySearch.h"
 
 
 void printArray(int arr[], int size) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < size; i++)
-		std::cout << arr[i] << " ";
+		std::cout << std::setw(3) << arr[i] << " ";
 	std::cout << std::endl;
 
 	std::cout << "Indices:\t";
 	for (int i = 0; i < size; i++)
-		std::cout << i << " ";
+		std::cout << std::setw(3) << i << " ";
 	std::cout << std::endl;
 }
 
@@ -27,7 +28,7 @@ int main() {
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 5, 2, 4, 6, 1, 3 };
+	int arr[] = { 0, 2, 2, 3, 4, 6, 7, 9, 10, 12, 13, 14, 15, 19, 19 };
 	int size = sizeof(arr) / sizeof(arr[1]);
 	printArray(arr, size);
 
@@ -38,7 +39,7 @@ int main() {
 
 	// Search the value
 	std::cout << "\nSearching the index of an element '" << target << "'..." << std::endl;
-	int index = binarySearch(arr, size, target);
+	int index = binarySearch(arr, 0, size - 1, target);
 	if (index != -1)
 		std::cout << "Element '" << target << "' found at index '" << index << "'.\n";
 	else
