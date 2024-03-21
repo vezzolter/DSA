@@ -43,10 +43,10 @@ This list provides a straightforward overview of the repository's contents. For 
     - Exponential Search
     - Fibonacci Search
   - PRNG
-    - PRNG.md 🔄
-    - Middle-Square Method 🔄
+    - [PRNG.md](https://github.com/vezzolter/DSA/tree/prng-msm/Algorithms/PRNG/PRNG.md) 🔄
+    - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/prng-msm/PRNG/MiddleSquareMethod) 🔄
     - LCG (Linear Conguential Generator)
-    - PCG (Permuted Congruential Generator )
+    - PCG (Permuted Congruential Generator)
     - Mersenne Twister
     - Xorshift
     - Xoshiro128
@@ -159,7 +159,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 - &#128236; Email: [vezzolter@gmail.com](mailto:vezzolter@gmail.com)
 - &#128572; GitHub: [Maksym Ozerov's profile](https://github.com/vezzolter)
 - &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/maksym-ozerov-b07873231/)
-- &#128172;Telegram: [@vezzolter](https://t.me/vezzolter)
+- &#128172; Telegram: [@vezzolter](https://t.me/vezzolter)
 
 
 
@@ -178,11 +178,14 @@ As my educational journey progresses, I may discover new areas of interest withi
   - Explicitly describes computational background behind basic algorithms and data structures.
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Explicitly describes computational background behind sorting and searching algorithms.
+- **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
+  - Provides an overview over PRNG algorithms, which are absent at all in previous books.
 
 ---
 &#127891; **Courses:**
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+- [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
 
 ---
 &#128156; **Special Thanks:**
