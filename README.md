@@ -42,8 +42,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - Interpolation Search
     - Exponential Search
     - Fibonacci Search
-  - PRNG
-    - [PRNG.md](https://github.com/vezzolter/DSA/tree/prng-msm/Algorithms/PRNG/PRNG.md) 🔄
+  - RNG
+    - [RNG.md](https://github.com/vezzolter/DSA/tree/prng-msm/Algorithms/RNG/RNG.md) 🔄
     - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/prng-msm/PRNG/MiddleSquareMethod) 🔄
     - LCG (Linear Conguential Generator)
     - PCG (Permuted Congruential Generator)
