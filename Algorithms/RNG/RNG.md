@@ -70,6 +70,8 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
+- **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Section 3: Random Numbers
 - **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
   - Section 1: Introduction
   - Section 4: Cryptographically Secure Pseudorandom Number Generators

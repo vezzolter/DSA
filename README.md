@@ -178,8 +178,10 @@ As my educational journey progresses, I may discover new areas of interest withi
   - Explicitly describes computational background behind basic algorithms and data structures.
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Explicitly describes computational background behind sorting and searching algorithms.
+- **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Introduces to the idea of randomness in computer science, along with distributions and testing.
 - **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
-  - Provides an overview over PRNG algorithms, which are absent at all in previous books.
+  - Provides an overview over modern RNG algorithms from practical perspective.
 
 ---
 &#127891; **Courses:**
