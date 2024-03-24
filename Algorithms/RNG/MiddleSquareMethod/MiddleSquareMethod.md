@@ -23,7 +23,7 @@ The **Middle-Square Method** stands out as one of the simplest and earliest know
 4. Use extracted digits as the new seed value.
 5. Repeat this process to generate required amount of random numbers.
 
-**Note:** obtaining a specific range of random numbers is possible by applying some additional processing to the generated random number.
+> **Note:** obtaining a specific range of random numbers is possible by applying some additional processing to the generated random number.
 
 
 
@@ -43,7 +43,7 @@ Currenlty in progress...
 
 
 # &#x23F3; Historical Notes
-Currenlty in progress...
+The **Middle-Square Method** was one of the first attempts to use a computational approach to generate sequences of seemingly random numbers, proposed and described by Hungarian-American mathematician and physicist **John von Neumann** at a conference in **1949**. At the time of its invention, digital computers were still in their infancy, and there was a need for methods to generate sequences of numbers that appeared random for various scientific and engineering applications. While the method is rudimentary by modern standards and has well-known shortcomings, it laid the foundation for subsequent developments in pseudorandom number generation.
 
 
 
