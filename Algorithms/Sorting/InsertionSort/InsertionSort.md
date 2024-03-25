@@ -60,29 +60,29 @@ void insertionSort(int arr[], int size) {
 for (int unsorted = 1; unsorted < size; unsorted++) {
 ```
 
-1. Pick the first element from the unsorted part for comparison.
+2. Pick the first element from the unsorted part for comparison.
 ```cpp
 int current = arr[unsorted];
 ```
 
-1. Initialize the iterator of the sorted part to the last element of it.
+3. Initialize the iterator of the sorted part to the last element of it.
 ```cpp
 int sorted = unsorted - 1; // start from the end of sorted part
 ```
 
-1. Then "iterate" over sorted part from the end of it and compare selected element with sorted elements.  Continue this process until either beginning is reached or the selected element becomes lower than comparing one.
+4. Then "iterate" over sorted part from the end of it and compare selected element with sorted elements.  Continue this process until either beginning is reached or the selected element becomes lower than comparing one.
 ```cpp
 // For descending order: arr[sorted] < current
 while (sorted >= 0 && arr[sorted] > current) {
 ```
 
-1. If the selected element is lower than the compared element, shift the compared element to the right and move iterator to the next. This process can be optimized by swapping elements, not copying.
+5. If the selected element is lower than the compared element, shift the compared element to the right and move iterator to the next. This process can be optimized by swapping elements, not copying.
 ```cpp
 arr[sorted + 1] = arr[sorted]; // can be optimized via swap
 sorted = sorted - 1;
 ```
 
-1. Finally, assign the selected element to its correct position. If selected element was higher than all the sorted, it is placed to right of the highest sorted, otherwise `sorted` iterator should be pointing to the next comparing element (thats why + 1).
+6. Finally, assign the selected element to its correct position. If selected element was higher than all the sorted, it is placed to right of the highest sorted, otherwise `sorted` iterator should be pointing to the next comparing element (thats why + 1).
 ```cpp
 arr[sorted + 1] = current;
 ``` 
