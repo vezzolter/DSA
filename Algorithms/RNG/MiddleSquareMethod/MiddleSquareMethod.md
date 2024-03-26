@@ -83,13 +83,16 @@ int randomNumber = (squared / static_cast<long long>(pow(10, shift - 1))) % powe
 return randomNumber;
 ```
 
+
 # &#128202; Analysis
-Currenlty in progress...
+Will be updated in the future...
+
+P.s. in order to grasp this topic in a better way, I'm going to update this section after respective RNG section. Right now, I can only suppose that the analysis of this RNG relies on metrics such as: destribution, period, predictability, patterns, implementation detais.
 
 
 
 # &#128221; Application
-Currenlty in progress...
+Middle-Square Method's utility is limited in modern software development contexts due to its inefficiency. Even for niche applications, there are better alternatives readily available, making this PRNG largely obsolete and making its purpose solely to be an educational.
 
 
 
@@ -116,9 +119,10 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Middle-square method](https://en.wikipedia.org/wiki/Middle-square_method) (Wikipedia)
-- [Pseudo random number using the Middle Square Method](https://www.educative.io/answers/pseudo-random-number-using-the-middle-square-method)\
+- [Pseudo random number using the Middle Square Method](https://www.educative.io/answers/pseudo-random-number-using-the-middle-square-method)
 - [Solved Example: Extracting Digits of a Number](https://www.knowledgeboat.com/learn/icse-computer-applications-bluej-class-10/lecture/ml4Jm/java-digit-extract)
 - [The Middle of the Square](http://bit-player.org/2022/the-middle-of-the-square)
+- [Too Big to Fail](https://www.pcg-random.org/posts/too-big-to-fail.html)
 
 
 # &#128271; License
