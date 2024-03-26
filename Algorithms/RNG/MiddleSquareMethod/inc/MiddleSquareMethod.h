@@ -5,4 +5,4 @@
 #pragma once
 
 
-void middleSquareMethod();
+int middleSquareMethod(int seed, int digits);
