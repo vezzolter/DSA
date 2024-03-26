@@ -122,13 +122,13 @@ For contact details and additional information, please refer to the [root direct
 # &#128591; Credits
 &#128218; **Books:**
 - **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Chapter 1.2: Binary Search
+  - Section 1.2: Binary Search
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Chapter 12: Symbol Tables and BSTs
-  - Chapter 15: Radix Search
-  - Chapter 16: External Searching
+  - Section 12: Symbol Tables and BSTs
+  - Section 15: Radix Search
+  - Section 16: External Searching
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
-  - Chapter 6: Searching
+  - Section 6: Searching
 
 ---
 &#127891; **Courses:**
