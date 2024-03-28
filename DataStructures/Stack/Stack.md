@@ -231,13 +231,22 @@ void Stack<T>::pop() {
 
 
 # &#128202; Analysis
-Currently in progress...
+The analysis of stack in terms of space and time mostly based on underlaying data structure. Overall, this data structure provide the "wrapping" behaviour, which remains relevant primarly when the natural LIFO manner is crucial for the application, otherwise it is preffarabe to replace with a better alternative.
+
+---
+**Advantages:**
+- **LIFO** — stack's main plus is the way it manages elements, which can find numerous applications.
+
+---
+**Disadvantages:**
+- **Limited Access** — stack allows to modify/remove/access only top element, making it unsuitable for many scenarios; e.g. searching, sorting, random access.
 
 
 
 # &#128221; Application
 **Some of the Most Well-Known Use Cases:**
 - **Call Stack** — stack is used in programming languages to keep track of function calls. Whenever function is called its respective information is pushed onto the call stack, and when function returns it is popped off from the stack.
+- **Exception Handling** — stack is invloved in exception handling mechanisms to propagate and handle exceptions. Technique known as stack unwinding implies the process of stack "unwound" or traversal backwards to find the appropriate exception handler.
 - **Backtracking Algorithms** — stack is used in backtracking algorithms to keep track of the current path or state. Whenever those algorithms reach a dead-end, they can backtrack by popping elements off the stack.
 - **Undo Mechanics** — stack is used in different applications to implement undo functionality. Each action performed is recorded as an operation on the stack, allowing to undo certain actions by popping off the stack in reverse order.
 - **Expression Evaluation** — stack is used in reverse Polish notation to evaluate expressions. It helps to track the order of operations allowing to evaluate the result linearly; e.g. the conventional notation expression $3-4+5$ in Polish becomes $34-5+$, adding each entity sequentially to the stack.
