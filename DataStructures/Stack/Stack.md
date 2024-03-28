@@ -236,12 +236,28 @@ Currently in progress...
 
 
 # &#128221; Application
-Currently in progress...
+**Some of the Most Well-Known Use Cases:**
+- **Call Stack** — stack is used in programming languages to keep track of function calls. Whenever function is called its respective information is pushed onto the call stack, and when function returns it is popped off from the stack.
+- **Backtracking Algorithms** — stack is used in backtracking algorithms to keep track of the current path or state. Whenever those algorithms reach a dead-end, they can backtrack by popping elements off the stack.
+- **Undo Mechanics** — stack is used in different applications to implement undo functionality. Each action performed is recorded as an operation on the stack, allowing to undo certain actions by popping off the stack in reverse order.
+- **Expression Evaluation** — stack is used in reverse Polish notation to evaluate expressions. It helps to track the order of operations allowing to evaluate the result linearly; e.g. the conventional notation expression $3-4+5$ in Polish becomes $34-5+$, adding each entity sequentially to the stack.
+
+---
+**Common Practical Problems:**
+- Conversion of (in/pre/post)fix to (in/pre/post)fix
+- Reverse individual words
+- Reverse a string
+- Arithmetic expression evaluation
+- Reverse a number
+- Celebrity problem
+- Convert a queue into the stack
+- Sort a stack using recursion
+- Sort s stack using another stack
 
 
 
 # &#x23F3; Historical Notes
-Currently in progress...
+Due to the simple and natural concept of this data structure it was quite common in computer programming from the earliest days and its origins cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. However, it is still possible to retrace a few notable contributions to understanding of stack to the following people **Jan Lukasiewicz**, **Konrad Zuse**, **Alan Mathison Turing**, **Charles Leonard Hamblin** and most notably **Klaus Samelson** with **Friedirch Ludwig Bauer**, who in March 1988 received the IEEE Computer Pioneer Award for the invention of the stack principle.
 
 
 
@@ -280,8 +296,11 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**  
 - [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (Wikipedia)
 - [Stack Data Structure](https://www.geeksforgeeks.org/stack-data-structure/)
-- [std::stack](https://en.cppreference.com/w/cpp/container/stack)
 - [Stack Data Structures](https://www.codesdope.com/course/data-structures-stacks/)
+- [std::stack](https://en.cppreference.com/w/cpp/container/stack)
+- [A brief history of the stack](https://www.sigcis.org/files/A%20brief%20history.pdf)
+- [Second-Generation Stack Computer Architecture](http://fpgacpu.ca/publications/Second-Generation_Stack_Computer_Architecture.pdf)
+- [Top 25 Stacks Interview Questions And Answers](https://www.fullstack.cafe/interview-questions/stacks)
 
 
 
