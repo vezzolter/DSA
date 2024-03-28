@@ -9,12 +9,17 @@
 #include "Stack.h"
 
 
+
+// via copy of stack
 void printStack(const Stack<int>& stack) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < stack.size(); i++) {
-		std::cout << stack.top() << " ";
+	Stack<int> tempStack = stack; 
+	while (!tempStack.empty()) {
+		std::cout << tempStack.peek() << " ";
+		tempStack.pop();
 	}
 	std::cout << std::endl;
+
 }
 
 int main()
@@ -33,14 +38,15 @@ int main()
 	// Show stack #1
 	std::cout << "Is it empty:\t" << stack1.empty() << std::endl;
 	printStack(stack1);
+	std::cout << "Top element:\t" << stack1.peek() << std::endl;
 
 	// Modify stack #1
-	std::cout << "\nChange last ('9') element to '0'...\n";
-	stack1.top() = 0;
+	std::cout << "\nChange top element '9' to '0'...\n";
+	stack1.peek() = 0;
 	printStack(stack1);
 
 	// Insert into stack #1
-	std::cout << "\nAdd element '3' to the end...\n";
+	std::cout << "\nAdd element '3' to the stack..\n";
 	stack1.push(3);
 	printStack(stack1);
 
@@ -53,7 +59,7 @@ int main()
 	printStack(stack3);
 
 	// Remove functionality
-	std::cout << "\nFrom stack #1 remove last two elements...\n";
+	std::cout << "\nFrom stack #1 remove two top-most elements: '3' and '0'...\n";
 	stack1.pop();
 	stack1.pop();
 	printStack(stack1);

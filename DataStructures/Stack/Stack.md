@@ -13,7 +13,7 @@
 
 # &#128161; What is the Stack
 The **Stack** stands out as one of the most fundamental abstract data type (ADT) in computer science that serves as a linear collection of elements, which becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a last-in-first-out (LIFO) manner. It is named this way, because of how it resembles the behavior of adding or removing items from the top of a physical stack. This subsection explores the stack ADT not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/Stack2.png"/></p>
+<p align="center"><img src="./img/Stack.png"/></p>
 
 ---
 **Essential Terminology:**
@@ -44,7 +44,189 @@ While these types share some common ideas, each possesses distinctive characteri
 
 
 # &#x1F4BB; Implementation
-Currently in progress...
+Discussing ADT, it's evident that well-established and widely recognized implementations already exist for stack. In the context of C++, `std::stack` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified version of thhis collection. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
+
+---
+Keeping its educational aim in mind, the `Stack` class developed here closely resembles the behavior of `std::stack`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+<p align="center"><img src="./img/StdStack.png"/></p>
+
+One significant design decision is the implementation of a stack solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque (which can "blur" the comprehension of the topic, because of how intricate it is implemented - neither like array or list, rather a mix of those two).
+
+---
+<p align="center"><img src="./img/DemonstrationStack.png"/></p>
+
+**Detailed Overview**:
+1. The `Stack` class is declared in `Stack.h` header file and defined in `Stack.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+2. Whole class declaration:
+```cpp
+template<class T>
+class Stack {
+private:
+	class Node {
+	public:
+		T _data;
+		Node* _next;
+
+		Node(T data) : _data(data), _next(nullptr) {}
+		Node()                           = default;
+		Node(const Node& rhs)            = delete;
+		Node& operator=(const Node& rhs) = delete;
+	};
+
+	int _size;
+	Node* _top;
+
+public:
+	// Special Member Functions
+	Stack();
+	Stack(const Stack& rhs);
+	Stack& operator=(const Stack& rhs);
+	~Stack();
+
+	// Element Access
+	T& peek();
+	const T& peek() const;
+
+	// Capacity 
+	bool empty() const;
+	int size() const;
+
+	// Modifiers
+	void push(const T& newData);
+	void pop();
+};
+```
+
+5. Special member functions:
+```cpp
+// Default constructor
+template<typename T>
+Stack<T>::Stack() : _size(0), _top(nullptr) {}
+
+// Deep copy constructor
+template<class T>
+Stack<T>::Stack(const Stack& rhs) : _size(0), _top(nullptr) {
+	// Iterate through the nodes of rhs stack and copy each element
+	Node* rhsCurrent = rhs._top;
+	Node* prevNode = nullptr;
+	while (rhsCurrent != nullptr) {
+		// Create a new node with the same data
+		Node* newNode = new Node(rhsCurrent->_data);
+
+		// Attach the new node to the current stack
+		if (prevNode == nullptr)
+			_top = newNode;
+		else
+			prevNode->_next = newNode;
+
+		// Move to the next node in rhs stack
+		prevNode = newNode;
+		rhsCurrent = rhsCurrent->_next;
+	}
+
+	// Update the size
+	_size = rhs._size;
+}
+
+// Deep copy assignment operator
+template<class T>
+Stack<T>& Stack<T>::operator=(const Stack& rhs) {
+	// Self-assignnment guard
+	if (this == &rhs)
+		return *this;
+
+	// Ensure that the destination stack doesn't retain any of its existing elements
+	while (!empty())
+		pop();
+
+	// Set corresponding size
+	_size = rhs._size;
+
+	// Case: empty stack
+	if (rhs._top == nullptr) {
+		_top = nullptr;
+	}
+	else {
+		// Perform deep copy from rhs to this stack
+		Node* rhsCurrent = rhs._top;
+		while (rhsCurrent != nullptr) {
+			push(rhsCurrent->data);
+			rhsCurrent = rhsCurrent->next;
+		}
+	}
+
+	return *this;
+}
+
+// Destructor
+template<typename T>
+Stack<T>::~Stack() {
+	while (!empty())
+		pop();
+}
+```
+
+6. Element access:
+```cpp
+// Accesses the last element in the container, no range validation, allows modification
+template<class T>
+T& Stack<T>::peek() { return _top->_data; }
+
+// Accesses the last element in the container, no range validation, denies modification
+template<class T>
+const T& Stack<T>::peek() const { return _top->_data; };
+
+```
+
+7. Capacity methods:
+```cpp
+// Checks if the container has no elements
+template<class T>
+bool Stack<T>::empty() const { return _size == 0; }
+
+// Returns the number of elements in the container
+template<typename T>
+int Stack<T>::size() const { return _size; }
+```
+
+8. Modifiers:
+```cpp
+// Appends the given element to the end of the container
+template<class T>
+void Stack<T>::push(const T& newData) {
+	// Create a new node with the given data
+	Node* newNode = new Node(newData);
+
+	// Case: empty stack
+	if (_top == nullptr) {
+		_top = newNode;
+	}
+	else {
+		newNode->_next = _top;
+		_top = newNode;
+	}
+
+	// Update the size
+	++_size;
+}
+
+// Removes the last element of the container
+// Note: with no bounds check, assumes that stack contains at least 1 element
+template<class T>
+void Stack<T>::pop() {
+	// Case: empty stack
+	if (_top == nullptr)
+		return;
+
+	// Move the top ptr to the next node
+	Node* temp = _top;
+	_top = _top->_next;
+	delete temp;
+
+	// Update the size
+	--_size;
+}
+```
 
 
 
@@ -99,6 +281,7 @@ For contact details and additional information, please refer to the [root direct
 - [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (Wikipedia)
 - [Stack Data Structure](https://www.geeksforgeeks.org/stack-data-structure/)
 - [std::stack](https://en.cppreference.com/w/cpp/container/stack)
+- [Stack Data Structures](https://www.codesdope.com/course/data-structures-stacks/)
 
 
 

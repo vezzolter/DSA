@@ -9,6 +9,20 @@
 template<class T>
 class Stack {
 private:
+	class Node {
+	public:
+		T _data;
+		Node* _next;
+
+		Node(T data) : _data(data), _next(nullptr) {}
+		Node()                           = default;
+		Node(const Node& rhs)            = delete;
+		Node& operator=(const Node& rhs) = delete;
+	};
+
+	int _size;
+	Node* _top;
+
 public:
 	// Special Member Functions
 	Stack();
@@ -17,8 +31,8 @@ public:
 	~Stack();
 
 	// Element Access
-	T& top();
-	const T& top() const;
+	T& peek();
+	const T& peek() const;
 
 	// Capacity 
 	bool empty() const;
