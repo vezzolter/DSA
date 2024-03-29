@@ -43,7 +43,7 @@ The **Array** stands out as one of the most fundamental concept in computer scie
 
 ---
 One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
-<p align="center"><img src="./img/addressArithmetic.png"/></p>
+<p align="center"><img src="./img/Pointers.png"/></p>
 
 **Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
 ```cpp
@@ -130,7 +130,7 @@ public:
 };
 ```
 
-6. Special member functions:
+3. Special member functions:
 ```cpp
 // Default constructor
 template<class T, int MAX_SIZE>
@@ -168,7 +168,7 @@ SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
 }
 ```
 
-7. Element access:
+4. Element access:
 ```cpp
 // Accesses the element at the specified index, no range check, allows modification
 template<class T, int MAX_SIZE>
@@ -195,7 +195,7 @@ template<class T, int MAX_SIZE>
 const T& SA<T, MAX_SIZE>::back() const { return 0; }
 ```
 
-8. Capacity methods:
+5. Capacity methods:
 ```cpp
 // Checks if the container has no elements
 template<class T>
