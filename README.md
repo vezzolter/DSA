@@ -9,13 +9,14 @@
   
   
 # &#128161; About
-Greetings! In this repository I'm dedicated to mastering problem-solving approaches & techniques, building a solid theoretical foundation and exploring a variety of data structures & algorithms using the C++ programming language. With a commitment to practical application, I explore these critical components of computer science, continuously enhancing my skills and knowledge along the way.
+Greetings! In this repository I'm dedicated to mastering problem-solving approaches & techniques, building a solid theoretical foundation and exploring a variety of data structures & algorithms using the C++ programming language. With a commitment to practical application, I explore these critical components of computer science, continuously enhancing my skills and knowledge along the way with a hope, that one day this repository will be a great practical learning resource for others.
 
 
 
 # &#128193; Repository Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects (but still can receive updates) are marked with ✅ and ones currently under development with 🔄. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects (but still can receive updates) are marked with ✅, currently paused ones with 🔄 and the main target under development as 🎯. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
+---
 **The Structure:**
 - Algorithms
   - Recursion
@@ -27,7 +28,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
     - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
-    - Merge Sort
+    - Merge Sort 🎯
     - Quick Sort
     - Heap Sort
     - Radix Sort
@@ -43,8 +44,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - Exponential Search
     - Fibonacci Search
   - RNG
-    - [RNG.md](https://github.com/vezzolter/DSA/tree/prng-msm/Algorithms/RNG/RNG.md) 🔄
-    - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/prng-msm/PRNG/MiddleSquareMethod) 🔄
+    - [RNG.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/RNG.md) 🔄
+    - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/PRNG/MiddleSquareMethod) ✅
     - LCG (Linear Conguential Generator)
     - PCG (Permuted Congruential Generator)
     - Mersenne Twister
@@ -104,12 +105,12 @@ This list provides a straightforward overview of the repository's contents. For 
   - Queue
     - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
     - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
-    - Double-Ended Queue
-    - Circular Queue
-    - Priority Queue
+    - Double-Ended Queue 🔄
+    - Circular Queue 🔄
+    - Priority Queue 🔄
   - Stack
-    - [Stack.md](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack.md) 🔄
-    - [Stack](https://github.com/vezzolter/DSA/tree/stack/DataStructures/Stack) 🔄
+    - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack.md) ✅
+    - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
   - Tree
     - Tree.md
     - Binary Tree
@@ -186,8 +187,11 @@ As my educational journey progresses, I may discover new areas of interest withi
 ---
 &#127891; **Courses:**
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
+  - Gives a great structural understanding of the data structures along with decent practical quizes & coding challenges.
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+  - Guides into any topics with ease, no matter how complex you think it is, therefore makes you start.
 - [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
+  - Governs important field of study, which contributes to design decisions from another inalienable perspective.
 
 ---
 &#128156; **Special Thanks:**
