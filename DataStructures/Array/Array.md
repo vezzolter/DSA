@@ -1,45 +1,33 @@
 # &#128209; Table of Contents
-- [💡 What is the Array as ADT](#-what-is-the-array-as-adt)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
   - [🧍‍♂️ Static Array](#️-static-array)
   - [🚶‍♂️ Dynamic Array](#️-dynamic-array)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [⏳ Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Array as ADT
-An array is a fundamental concept in computer programming. Arrays are widely used not only because they provide a natural, structured way to organize and access data, they also serve as a lower-level mechanism for memory management. The concept of an array encompasses both a basic data structure, as a part of programming language, and an abstract data structure (ADT), which involves a conceptual representation that defines operations without specifying the implementation details.
-
-This subsection explores the ADT of Arrays not only to enhance understanding, but also to establish a solid foundation for approaching more intricate data structures.
-<p align="center"><img src="./img/memoryCells.png"/></p>
+# &#128161; Overview
+The **Array** stands out as one of the most fundamental concept in computer science, that serves as a linear collection of elements. The term array encompasses both a basic data structure in programming language, and an abstract data type (ADT), which involves a representation that defines operations without specifying the implementation details. This subsection explores the last meaning not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./img/Array.png"/></p>
 
 ---
-**Array** — is a linear data structure that collects elements of the same data type and stores them in contiguous and adjacent memory locations. It introduces the following essential terms:
-- **Element** — each individual data value contained within the array. These data values can be anything from promitive types such as integers to more complex types like instances of classes. Since elements don't have their unique names, the only way to access them is through their respective indices.
-- **Index** — integer value which specifies the element's position within the array, usually starting with the first as $0$ and concluding with the last as $length-1$.
-- **Length (Size)** — is a number of elements contained in the array.
-- **Capacity** — is the maximum number of possilbe elements for which there is currently allocated memory within array. This term is primarily associated with dynamic arrays because they aim to minimize frequent resize operations by reserving additional space for potential future elements.
-<p align="center"><img src="./img/arrayIndices.png"/></p>
+**Essential Terminology:**
+- **Collection** — is a data structure (or container), which is used to group multiple elements together.
+  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
+- **Array** — is a linear collection that stores elements of the same data type in contiguous and adjacent memory locations.
+  - **Length/Size** — is a number of elements contained in the array.
+  - **Capacity** — is the maximum number of possilbe elements for which there is currently allocated memory within array. This term is primarily associated with dynamic arrays because they aim to minimize frequent resize operations by reserving additional space for potential future elements. 
+- **Element/Record/Item** — is an individual entity within a collection.
+  - **Index/Key of Element** — is an integer value which specifies position of an element within collection. Since elements of an array don't have their unique names, the only way to access them is through their respective indices.
+  - **Value/Data of Element** — is an actual information stored within the element. It can be anything from promitive types such as integers to more complex types like instances of classes.
 
----
-When it comes to implementation, arrays can be broadly classified into two types: static and dynamic. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
-<p align="center"><img src="./img/heapStack.png"/></p>
-
-1. **Static Array** — array with a fixed nature, possesses the following properties:
-    - memory is allocated on the stack during compile time;
-    - automatic memory management;
-    - length can not be changed during runtime.
-
-2. **Dynamic Array** — array with a flexible nature, possesses the following properties:
-    - memory is allocated on the heap during runtime;
-    - manual memory management (potential issues like dangling pointers and memory leaks);
-    - length cannot be changed during runtime, but there is a resourceful alternative: creating a new one, copying values, and performing respective memory operations.
 
 ---
 **Common Operations for ADT Array:**
@@ -54,8 +42,8 @@ When it comes to implementation, arrays can be broadly classified into two types
 - **Filtering** — selecting specific elements based on certain criteria.
 
 ---
-**"Size-Consistent" Operations**
 One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
+<p align="center"><img src="./img/addressArithmetic.png"/></p>
 
 **Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
 ```cpp
@@ -64,7 +52,6 @@ int *ptr = &value; // points onto variable of type 'int'                        
 cout << ptr + 1;   // point onto next value of int (+4 bytes)                          002CF9A8
 cout << ptr - 1;   // point onto prev value of int (-4 bytes)                          002CF9A0
 ```
-<p align="center"><img src="./img/addressArithmetic.png"/></p>
 
 **Array Indexing** — process of accessing elements within an array, typically achieved internally through address arithmetic.
 ```cpp
@@ -74,38 +61,22 @@ cout << *(array+1); //  equals to this                   expression: array  a+1 
 ```
 
 ---
-**"Size-Manipulating" Operations**
 Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
-```cpp
-// Simple mimic of how push back function of a std::vector works for adding new element
-void push_back(const T& element)
-{
-	// If capacity is insufficient,
-    if (size >= capacity)
-	{
-		// Create new array with doubled capacity
-        capacity = (capacity == 0) ? 1 : capacity * 2;
-        T* newData = new T[capacity];
+<p align="center"><img src="./img/InsertionProcess.png"/></p>
 
-        // Copy existing elements to new array
-        for (size_t i = 0; i < size; ++i)
-            newData[i] = data[i];
+---
+When it comes to classification, there are broadly two types of arrays: static and dynamic. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
+<p align="center"><img src="./img/Types.png"/></p>
 
-        // Add new element to the end
-        newData[size] = element;
+1. **Static Array** — array with a fixed nature, possesses the following properties:
+    - memory is allocated on the stack during compile time;
+    - automatic memory management;
+    - length can not be changed during runtime.
 
-        // Delete old array and update pointer
-        delete[] data;
-        data = newData;
-    }
-	else
-	{
-        // Add new element to existing array
-        data[size] = element;
-    }
-    ++size;
-}
-```
+2. **Dynamic Array** — array with a flexible nature, possesses the following properties:
+    - memory is allocated on the heap during runtime;
+    - manual memory management (potential issues like dangling pointers and memory leaks);
+    - length cannot be changed during runtime, but there is a resourceful alternative: creating a new one, copying values, and performing respective memory operations.
 
 
 
@@ -115,18 +86,21 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 
 ## 🧍‍♂️ Static Array
-**Detailed Overview**:
-1. Keeping its educational aim in mind, the `SA` class developed here closely resembles the behavior of `std::array`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+Keeping its educational aim in mind, the `SA` class developed here closely resembles the behavior of `std::array`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
 
-2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./img/stdArrIt.png"/></p>
+<p align="center"><img src="./img/LibraryIterators.png"/></p>
+One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
 
-3. Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::array` was skipped.
-<p align="center"><img src="./img/stdArrAt.png"/></p>
+<p align="center"><img src="./img/LibraryAt.png"/></p>
+Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::array` was skipped.
 
-4. The `SA` class is declared in `StaticArray.h` header file and defined in `StaticArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+---
+<p align="center"><img src="./img/DemonstrationSA.png"/></p>
 
-5. Whole class declaration:
+**Detailed Overview:**
+1. The `SA` class is declared in `StaticArray.h` header file and defined in `StaticArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+
+2. Whole class declaration:
 ```cpp
 template<class T, int MAX_SIZE>
 class SA {
@@ -232,75 +206,22 @@ template<class T>
 int DA<T>::size() const { return _size; }
 ```
 
-9. Demonstration:
-```cpp
-void printArray(const SA<int, 100>& arr) {
-	std::cout << "Elements:\t";
-	for (int i = 0; i < arr.size(); i++)
-		std::cout << arr[i] << " ";
-	std::cout << std::endl;
-}
-
-int main() {
-	// Greet
-	std::cout << "\tWelcome to the 'Static Array' console application!\n";
-
-	// Create initial array #1
-	std::cout << "\nCreating & filling initial array #1...\n";
-	SA<int, 100> arr1(9);
-	for (int i = 0; i < 9; i++)
-		arr1[i] = i + 1;
-	
-	// Show array #1
-	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
-	printArray(arr1);
-
-	// Access elements
-	std::cout << " - first:\t" << arr1.front() << std::endl;
-	std::cout << " - middle:\t" << arr1[arr1.size() / 2] << std::endl;
-	std::cout << " - last:\t" << arr1.back() << std::endl;
-
-	// Modify array #1
-	std::cout << "\nChange first ('1') and last ('9') element to '0'...\n";
-	arr1[0] = arr1[arr1.size() - 1] = 0;
-	printArray(arr1);
-
-	// Copy functionality
-	std::cout << "\nCreate an array copies and compare...\n";
-	SA<int, 100> arr2(arr1);
-	SA<int, 100> arr3 = arr1;
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
-
-	// Exit
-	std::cout << "\nThanks for using this program! Have a great day!\n";
-	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
-	std::cin.get();
-	return 0;
-}
-```
-<p align="center"><img src="./img/demoSA.png"/></p>
-
 
 
 ## 🚶‍♂️ Dynamic Array
-**Detailed Overview**:
-1. Keeping its educational aim in mind, the `DA` class developed here closely resembles the behavior of `std::vector`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+Key difference between static and dynamic ADT lies in the implementation of the memory management. The well-known `std::vector` operates on the principle of capacity, meaning:
 
-2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./img/stdVecIt.png"/></p>
+> The storage of the vector is handled automatically, being expanded as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted — cppreference
 
-3. Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::vector` was skipped.
-<p align="center"><img src="./img/stdVecAt.png"/></p>
+At first glance, I thought I will just double the capacity each time it requires more for explanatory purposes, but I guess it may lead to misinformation, so I just chosen to implement solely based on the length. Even though it contradics the main principle, it doesn't abstruct to grasp the idea behind other memory management. This resulted in some type of misleading nature of some methods, thus I've placed notes, where it does so. Overall, this implementation has the same minor adjustments as previous type.
 
-4. Key difference between static and dynamic ADT lies in the implementation of the memory management. The well-known `std::vector` operates on the principle of capacity, meaning _"The storage of the vector is handled automatically, being expanded as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted — cppreference"_. At first glance, I thought I will just double the capacity each time it requires more for explanatory purposes, but I guess it may lead to misinformation, so I just chosen to implement solely based on the length. Even though it contradics the main principle, it doesn't abstruct to grasp the idea behind other memory management. This resulted in some type of misleading nature of some methods, thus I've placed notes, where it does so.
-   
-5. The `DA` class is declared in `DynamicArray.h` header file and defined in `DynamicArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+---
+<p align="center"><img src="./img/DemonstrationDA.png"/></p>
 
-6. Whole class declaration:
+**Detailed Overview:**
+1. The `DA` class is declared in `DynamicArray.h` header file and defined in `DynamicArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+
+2. Whole class declaration:
 ```cpp
 template<class T>
 class DA {
@@ -337,7 +258,7 @@ public:
 };
 ```
 
-7. Special member functions:
+3. Special member functions:
 ```cpp
 // Default constructor
 template<class T>
@@ -405,7 +326,7 @@ template<class T>
 DA<T>::~DA() { delete[] _data; }
 ```
 
-8. Element access:
+4. Element access:
 ```cpp
 // Accesses the element at the specified index, no range check, allows modification
 template<class T>
@@ -432,7 +353,7 @@ template<class T>
 const T& DA<T>::back() const { return _data[_size - 1]; }
 ```
 
-9. Capacity methods:
+5. Capacity methods:
 ```cpp
 // Checks if the container has no elements
 template<class T>
@@ -443,7 +364,7 @@ template<class T>
 int DA<T>::size() const { return _size; }
 ```
 
-10. Modifiers:
+6. Modifiers:
 ```cpp
 // Appends the given element to the end of the container
 // Note: without potential memory-reserving adjustments and bounds checking
@@ -556,76 +477,6 @@ void DA<T>::clear() {
 }
 ```
 
-11. Demonstration:
-```cpp
-void printArray(const DA<int>& arr) {
-	std::cout << "Elements:\t";
-	for (int i = 0; i < arr.size(); i++)
-		std::cout << arr[i] << " ";
-	std::cout << std::endl;
-}
-
-int main() {
-	// Greet
-	std::cout << "\tWelcome to the 'Dynamic Array' console application!\n";
-
-	// Create initial array #1
-	std::cout << "\nCreating & filling initial array #1...\n";
-	DA<int> arr1;
-	for (int i = 0; i < 10; i++)
-		arr1.pushBack(i);
-
-	// Show array #1
-	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
-	printArray(arr1);
-
-	// Modify array #1
-	std::cout << "\nChange first ('1') and last ('10') element to '0'...\n";
-	arr1[0] = arr1[arr1.size() - 1] = 0;
-	printArray(arr1);
-
-	// Deep copy functionality
-	std::cout << "\nCreate an array copies and compare...\n";
-	DA<int> arr2(arr1);
-	DA<int> arr3 = arr1;
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
-
-	// Remove functionality
-	std::cout << "\nShorten an array #2 to 7 elements, and #3 to 3 elements...\n";
-	for (int i = arr2.size() - 1; i >= 7; --i)
-		arr2.remove(i);
-	for (int i = arr3.size() - 1; i >= 3; --i)
-		arr3.remove(i);
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
-
-	// Clear
-	std::cout << "\nClear array #2 and #3...\n";
-	arr2.clear();
-	arr3.clear();
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
-	std::cout << "Are they empty: ";
-	std::cout << arr1.empty();
-	std::cout << arr2.empty();
-	std::cout << arr3.empty();
-	std::cout << std::endl;
-
-	// Exit
-	std::cout << "\nThanks for using this program! Have a great day!\n";
-	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
-	std::cin.get();
-	return 0;
-}
-```
-<p align="center"><img src="./img/demoDA.png"/></p>
-
 
 
 # &#128202; Analysis
@@ -675,8 +526,8 @@ int main() {
 
 
 
-# &#x23F3; Historical Notes
-The concept of organizing data into ordered sequences has evolved over time and there is no single individual behind array. Even though, the early assembly languages and machine languages also had primitive constructs for managing memory, but they lacked the high-level abstraction and expressiveness that arrays provide in modern programming languages. One notable early contribution to this concept, in the field of programming, comes from the **Fortran** programming language, which in the 1957 provided array notation and syntax for working with vectors and matrices efficiently.
+# &#x23F3; Origins
+While early assembly and machine languages offered basic memory management constructs, they lacked the sophisticated abstraction and versatility inherent in arrays found in modern programming languages. Consequently, individuals worldwide independently devised solutions to address this limitation. As a result, the concept of organizing data into ordered sequences has undergone continuous evolution, with no single individual credited for the development of arrays.
 
 
 
@@ -685,7 +536,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
+# &#128231; Contacts
 For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
 
 
