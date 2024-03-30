@@ -1,45 +1,33 @@
 # &#128209; Table of Contents
-- [💡 What is the Linked List](#-what-is-the-linked-list)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
-  - [Singly Linked List](#singly-linked-list)
-  - [Doubly Linked List](#doubly-linked-list)
-  - [Circular Linked List](#circular-linked-list)
+	- [Singly Linked List](#singly-linked-list)
+	- [Doubly Linked List](#doubly-linked-list)
+	- [Circular Linked List](#circular-linked-list)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [⏳ Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Linked List
-A linked list, a fundamental data structure in computer programming, becomes particularly valuable when the primary objective involves traversing a collection of items sequentially, one by one. In contrast to arrays, linked lists allow for non-contiguous memory allocation, offering a dynamic and flexible approach to data organization.
-
-This subsection explores the Abstract Data Type (ADT) of Linked List not only to enhance understanding, but also to establish a solid foundation for approaching more intricate data structures.
-<p align="center"><img src="./img/memoryCells.png"/></p>
+# &#128161; Overview
+The **Linked List** stands out as one of the most fundamental abstract data type (ADT) in computer science, that serves as a linear collection of elements, which becomes particularly valuable when the primary objective involves traversing a collection of items sequentially, one by one. It is named this way, because of the way how elements are connected via links to each other. This subsection explores the linked list not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./img/LinkedList.png"/></p>
 
 ---
-**Linked List** — is a linear data structure, consists of elements named as nodes that are linked together using pointers, because they are not necessarily adjacent in memory. It introduces the following essential terms:
-- **Node** — each individual element contained within the list. Consists of two main components: data and pointer.
-- **Data** — holds the actual value associated with the node.
-- **Pointer** — stores the memory address of the next node in the sequence.
-- **Head** — first node in the list.
-- **Tail** — last node in the list.
-
----
-When it comes to implementation, lists can be broadly classified into three types: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
-
-**Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
-<p align="center"><img src="./img/structureSLL.png"/></p>
-
-**Doubly Linked List** — is a list, where each node contains an additional pointer to the previous node in the sequence enabling bidirectional traversal: forward from the head to the tail and backward from the tail to the head. The first node's "previous pointer" and the last node's "next pointer" point to nullptr, indicating the start and end of the list, respectively.
-<p align="center"><img src="./img/structureDLL.png"/></p>
-
-**Circular Linked List** — is a list, where the last node points back to the head node. Allow for circular traversal, which can be unidirectional (if nodes are singly linked) or bidirectional (if nodes are doubly linked).
-<p align="center"><img src="./img/structureCLL.png"/></p>
-
+**Essential Terminology:**
+- **Collection** — is a data structure (or container), which is used to group multiple elements together.
+  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
+- **Linked List** — is a linear collection, consists of elements named as nodes that are linked together using pointers, because they are not necessarily adjacent in memory.
+- **Node** — is an each individual element contained within the list, which consists of two main components:
+  - **Data** — is an actual information stored within the element.
+  - **Pointer** — is a pointer or reference, that stores the memory address of the next node in the sequence.
+- **Head** — is the first node in the list.
+- **Tail** — is the last node in the list.
 
 ---
 **Common Operations for ADT Linked List:**
@@ -53,17 +41,25 @@ When it comes to implementation, lists can be broadly classified into three type
 - **Splitting** — dividing the list into two or more parts.
 - **Filtering** — selecting specific elements based on certain criteria.
 
-
 ---
-**"Size-Consistent" Operations**
 Lists provide **sequential access** meaning that we need to traverse the list's elements one by one in order to access them, which certainly requires time. Furthermore, as as the number of nodes in the list increases, the time required to traverse to a particular location also does. This results in the conclusion, that linked lists are not the preferred option in scenarios where you have to perform lots of operation that dona lot or the data structure size remains constant, although they still can be a natural fit for some cases.
-<p align="center"><img src="./img/sizeConsistentOperations.png"/></p>
+<p align="center"><img src="./img/TraversalProcess.png"/></p>
 
 ---
-**"Size-Manipulating" Operations**
 The true power of linked lists lies in the flexible nature of the size. Dynamic memory allocation of lists allow for flexible resizing, making them suitable for scenarios where the size of the data structure needs to change frequently. All of the "size-manipulating operations" are based on the the principle of "updating" nodes' pointers. Rather than delving into the intricacies of every possible operation, I'll illustrate a fundamental example of deleting an element that encapsulates the essence of the concept.
-<p align="center"><img src="./img/sizeManipulatingOperations.png"/></p>
+<p align="center"><img src="./img/DeletionProcess.png"/></p>
 
+---
+When it comes to classification, there are broadly three types of lists: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
+
+**Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
+<p align="center"><img src="./img/StructureSLL.png"/></p>
+
+**Doubly Linked List** — is a list, where each node contains an additional pointer to the previous node in the sequence enabling bidirectional traversal: forward from the head to the tail and backward from the tail to the head. The first node's "previous pointer" and the last node's "next pointer" point to nullptr, indicating the start and end of the list, respectively.
+<p align="center"><img src="./img/StructureDLL.png"/></p>
+
+**Circular Linked List** — is a list, where the last node points back to the head node. Allow for circular traversal, which can be unidirectional (if nodes are singly linked) or bidirectional (if nodes are doubly linked).
+<p align="center"><img src="./img/StructureCLL.png"/></p>
 
 # &#x1F4BB; Implementation 
 Discussing ADT, it's evident that well-established and widely recognized implementations already exist for singly, doubly and circular linked lists. In the context of C++, `std::forward_list` is a representative of singly linked list, and `std::list` stands as the counterpart for doubly linked list. Both of them, can be altered to create circular structure via manual pointers manipulation.  It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these lists. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
@@ -71,13 +67,17 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 
 ##  Singly Linked List
-**Detailed Overview**:
-1. Keeping its educational aim in mind, the `SLL` class developed here closely resembles the behavior of `std::forward_list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::forward_list`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./img/stdFlistItr.png"/></p>
+Keeping its educational aim in mind, the `SLL` class developed here closely resembles the behavior of `std::forward_list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+<p align="center"><img src="./img/LibraryFlistItr.png"/></p>
 
-3. The `SLL` class is declared in `SinglyLinkedList.h` header file and defined in `SinglyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-4. Whole class declaration:
+One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::forward_list`, allowing to maintain focus on the key features of the ADT.
+
+---
+<p align="center"><img src="./img/DemonstrationSLL.png"/></p>
+
+**Detailed Overview:**
+1. The `SLL` class is declared in `SinglyLinkedList.h` header file and defined in `SinglyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+2. Whole class declaration:
 ```cpp
 template<class T>
 class SLL {
@@ -125,7 +125,7 @@ public:
 };
 ```
 
-5. Special member functions:
+3. Special member functions:
 ```cpp
 // Default Constructor
 template<typename T>
@@ -202,7 +202,7 @@ template<typename T>
 SLL<T>::~SLL() { clear(); }
 ```
 
-6. Element access:
+4. Element access:
 ```cpp
 // Accesses the element at the specified index, no range check, allows modification
 template<class T>
@@ -251,7 +251,7 @@ template<class T>
 const T& SLL<T>::front() const { return _head->_data; }
 ```
 
-7. Capacity methods:
+5. Capacity methods:
 ```cpp
 // Checks if the container has no elements
 template<class T>
@@ -262,7 +262,7 @@ template<typename T>
 int SLL<T>::size() const { return _size; }
 ```
 
-8. Modifiers:
+6. Modifiers:
 ```cpp
 // Erases all elements from the container
 template<typename T>
@@ -375,92 +375,20 @@ void SLL<T>::popFront() {
 }
 ```
 
-9. Demonstration:
-```cpp
-void printList(const SLL<int>& list) {
-	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++)
-		std::cout << list[i] << " ";
-	std::cout << std::endl;
-}
-
-int main()
-{
-	// Greet
-	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n";
-
-	// Create initial list
-	std::cout << "\nCreating & filling initial list #1...\n";
-	SLL<int> list1;
-	list1.pushFront(9);
-	list1.pushFront(1);
-	list1.pushFront(1);
-	list1.pushFront(7);
-
-	// Show list #1
-	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
-	printList(list1);
-
-	// Modify list #1
-	std::cout << "\nChange first element ('7') to '5'...\n";
-	list1.front() = 5;
-	printList(list1);
-
-	// Insert into list #1
-	std::cout << "\nInsert element '3' in the middle...\n";
-	list1.insertAfter(list1.size()/2, 3);
-	printList(list1);
-
-	// Deep copy functionality
-	std::cout << "\nCreate a list copies and compare...\n";
-	SLL<int> list2(list1);
-	SLL<int> list3 = list1;
-	printList(list1);
-	printList(list2);
-	printList(list3);
-
-	// Remove functionality
-	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
-	list1.popFront();
-	list1.eraseAfter(list1.size() - 2);
-	printList(list1);
-	printList(list2);
-	printList(list3);
-
-	// Clear
-	std::cout << "\nClear list #2 and #3...\n";
-	list2.clear();
-	list3.clear();
-	printList(list1);
-	printList(list2);
-	printList(list3);
-	std::cout << "Are they empty: ";
-	std::cout << list1.empty();
-	std::cout << list2.empty();
-	std::cout << list3.empty();
-	std::cout << std::endl;
-
-	// Exit
-	std::cout << "\nThanks for using this program! Have a great day!\n";
-	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
-	std::cin.get();
-	return 0;
-}
-```
-<p align="center"><img src="./img/demoSLL.png"/></p>
-
 
 
 ##  Doubly Linked List
-**Detailed Overview**:
-1. Keeping its educational aim in mind, the `DLL` class developed here closely resembles the behavior of `std::list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-2. One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::list`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./img/stdListItr.png"/></p>
+Keeping its educational aim in mind, the `DLL` class developed here closely resembles the behavior of `std::list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+<p align="center"><img src="./img/LibraryListItr.png"/></p>
 
-3. The `DLL` class is declared in `DoublyLinkedList.h` header file and defined in `DoublyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-4. Whole class declaration:
+One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::list`, allowing to maintain focus on the key features of the ADT.
+
+---
+<p align="center"><img src="./img/DemonstrationDLL.png"/></p>
+
+**Detailed Overview:**
+1. The `DLL` class is declared in `DoublyLinkedList.h` header file and defined in `DoublyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
+2. Whole class declaration:
 ```cpp
 template<class T>
 class DLL {
@@ -517,7 +445,7 @@ public:
 };
 ```
 
-5. Facilitator Method (replaces iterator functionaly of determining whether to start from head or tail):
+3. Facilitator Method (replaces iterator functionaly of determining whether to start from head or tail):
 ```cpp
 // Determine whether to start traversal from the head or tail
 template<typename T>
@@ -543,7 +471,7 @@ typename DLL<T>::Node* DLL<T>::getStartingNode(int index) const {
 }
 ```
 
-6. Special member functions:
+4. Special member functions:
 ```cpp
 // Default constructor
 template<typename T>
@@ -626,7 +554,7 @@ template<typename T>
 DLL<T>::~DLL() { clear(); }
 ```
 
-6. Element access:
+5. Element access:
 ```cpp
 // Accesses the element at the specified index, no range check, allows modification
 template<class T>
@@ -661,7 +589,7 @@ template<class T>
 const T& DLL<T>::back() const { return _tail->_data; }
 ```
 
-7. Capacity methods:
+6. Capacity methods:
 ```cpp
 // Checks if the container has no elements
 template<class T>
@@ -672,7 +600,7 @@ template<typename T>
 int DLL<T>::size() const { return _size; }
 ```
 
-8. Modifiers:
+7. Modifiers:
 ```cpp
 // Erases all elements from the container
 template<typename T>
@@ -821,86 +749,10 @@ void DLL<T>::popBack() {
 }
 ```
 
-9. Demonstration:
-```cpp
-void printList(const DLL<int>& list) {
-	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++)
-		std::cout << list[i] << " ";
-	std::cout << std::endl;
-}
-
-int main() {
-	// Greet
-	std::cout << "\tWelcome to the 'Doubly Linked List' console application!\n";
-
-	// Create initial list
-	std::cout << "\nCreating & filling initial list #1...\n";
-	DLL<int> list1;
-	list1.pushFront(7);
-	list1.pushBack(1);
-	list1.pushBack(1);
-	list1.pushBack(9);
-
-	// Show list #1
-	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
-	printList(list1);
-
-	// Modify list #1
-	std::cout << "\nChange first ('7') and last ('9') element to '0'...\n";
-	list1.front() = 0;
-	list1.back() = 0;
-	printList(list1);
-
-	// Insert into list #1
-	std::cout << "\nInsert element '3' in the middle...\n";
-	list1.insert((list1.size() / 2), 3);
-    printList(list1);
-
-	// Deep copy functionality
-	std::cout << "\nCreate a list copies and compare...\n";
-	DLL<int> list2(list1);
-	DLL<int> list3 = list1;
-	printList(list1);
-	printList(list2);
-	printList(list3);
-
-	// Remove functionality
-	std::cout << "\nFrom list #1 remove middle ('3'), first ('0') and last ('0') elements...\n";
-	list1.erase(list1.size() / 2);
-	list1.popFront();
-	list1.popBack();
-	printList(list1);
-	printList(list2);
-	printList(list3);
-
-	// Clear
-	std::cout << "\nClear list #2 and #3...\n";
-	list2.clear();
-	list3.clear();
-	printList(list1);
-	printList(list2);
-	printList(list3);
-	std::cout << "Are they empty: ";
-	std::cout << list1.empty();
-	std::cout << list2.empty();
-	std::cout << list3.empty();
-	std::cout << std::endl;
-
-	// Exit
-	std::cout << "\nThanks for using this program! Have a great day!\n";
-	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
-	std::cin.get();
-	return 0;
-}
-```
-<p align="center"><img src="./img/demoDLL.png"/></p>
-
 
 ##  Circular Linked List
 Circular linked lists can be implemented based on either singly or doubly linked lists. This implementation doesn't fundamentally alter the functionality; rather, it changes how operations are performed. Unlike standard linked lists, there isn't a built-in container for circular linked lists in the STL. Therefore, I chose to implement it based on a doubly linked list for personal preference.
+<p align="center"><img src="./img/DemonstrationCLL.png"/></p>
 
 The concept behind creating this type of container revolves around ensuring that the tail node's next pointer points to the head and vice versa. This necessitates minor adjustments to the overall structure to avoid circular references. Specifically, it means you can't iterate through the list by checking for nullptr, and it requires assigning proper values to the pointers after making corresponding changes. For the complete implementation, please refer to the [project's directory](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList). Here, I'll provide a simple examples:
 
@@ -970,9 +822,6 @@ void CLL<T>::pushFront(const T& newData) {
 }
 ```
 
-Overall, the demonstration looks pretty much the same:
-<p align="center"><img src="./img/demoCLL.png"/></p>
-
 
 
 # &#128202; Analysis
@@ -1016,7 +865,7 @@ Overall, the demonstration looks pretty much the same:
 - Sort a Linked List which is already sorted on absolute values.
 
 
-# &#x23F3; Historical Notes
+# &#x23F3; Origins
 The concept of linked lists, renowned for their efficient dynamic memory management, has evolved over time and there is no single individual behind them, especially because historical origins are not always well-recorded. Documented mention of them comes from **Hans Peter Luhn** in **1953**, who conceived of linked lists as a solution for Chained Hash Maps. Nevertheless, the first notable contribution to the practical implementation of this concept in the field of programming comes from **Allen Newell**, **Cliff Shaw** and **Herbert Alexander Simon**, who developed Information Processing Language in **1955–1956** at RAND Corporation and Carnegie Mellon University. From that point on in programming history, 
 linked lists quickly gained widespread adoption and underwent continuous development by programmers worldwide, becoming a fundamental component in various programming languages and data structures.
 
@@ -1027,7 +876,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
+# &#128231; Contacts
 For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
 
 
