@@ -1,5 +1,5 @@
 # &#128209; Table of Contents
-- [💡 What is the Queue](#-what-is-the-queue)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 	- [Linear Queue](#linear-queue)
 	- [Double-Ended Queue](#double-ended-queue)
@@ -7,58 +7,61 @@
 	- [Priority Queue](#priority-queue)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [⏳ Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Queue
-The Queue as a linear ADT (abstract data structure) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. This subsection explores the ADT of Queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for algorithmic design and problem-solving strategies.
-<p align="center"><img src="./img/introduction.png"/></p>
-
-
----
-**Queue** — is a term used to encompass a variety of ADTs with similar sequential behavior. It introduces the following essential terms:
-- **Front/Head** — the end of the sequence at which elements are added.
-- **Rear/Back/Tail** — the end of the sequence at which elements are removed.
-- **Enqueue** — operation of adding an element to the rear.
-- **Dequeue** — operation of removing an element from the front.
-
+# &#128161; Overview
+The **Queue** as abstract data type (ADT) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. It is named this way, because of how it resembles the behavior of queue (line) in real life. This subsection explores idea of queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./img/Queue.png"/></p>
 
 ---
-When it comes to implementation, queues can be broadly classified into four types: linear queue, circular queue, double-ended queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
-
-1. **Linear Queue** — all insertions are made at one end of and all deletions at the other, operates on the First-In-First-Out principle.  
-**Typical underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/structureLQ.png"/></p>
-
-2. **Deque (Double-Ended Queue)** — allows insertion and deletion of elements from both ends.
-    - **Input Restricted Deque** — allows insertion from only one end (either rear or front).
-    - **Output Restricted Deque** — allows removal from only one end (either rear or front).
-    
-   **Typical Underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/structureDQ.png"/></p>
-
-3. **Circular Queue** — variation of deque or linear queue, that connects front with rear ends.  
-**Typical underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/structureCQ.png"/></p>
-
-4. **Priority Queue** — elements are dequeued based on their priority level, rather than their order of insertion.
-    - **Ascending Priority Queue** — elements with higher priority levels are dequed first.
-    - **Descending Priority Queue** — elements with lower priority levels are dequed first. 
-    
-   **Typical underlying DS:** max-heaps, min-heaps.  
-<p align="center"><img src="./img/structurePQ.png"/></p>
-
+**Essential Terminology:**
+- **Collection** — is a data structure (or container), which is used to group multiple elements together.
+  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
+- **Queue** — is a term used to encompass a variety of ADTs with similar sequential behavior.
+- **Front/Head** — is the end of the sequence at which elements are added.
+- **Rear/Back/Tail** — is the end of the sequence at which elements are removed.
+- **Enqueue** — is an operation of adding an element to the rear.
+- **Dequeue** — is an operation of removing an element from the front.
 
 ---
 **Common Operations for Queues:**
-- **Accessing Specific Elements** — retrieving or updating the value of an existing element at a specific position.
-- **Enqueueing (Insertion)** — adding a new element to the queue.
-- **Dequeueing (Deletion)** — removing an element from the queue.
+- **peek()** — retrieving or updating the value of an existing element at a specific position.
+- **enqueue()** — adding a new element to the queue.
+- **dequeue()** — removing an element from the queue.
+- **empty()** — checks whether the container adaptor is empty.
+- **size()** — returns the number of elements.
+- **clear()** — remove all elements.
+
+---
+When it comes to classification, there are broadly four types of queues: linear queue, circular queue, double-ended queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
+<p align="center"><img src="./img/StructureLQ.png"/></p>  
+
+**Linear Queue** — all insertions are made at one end of and all deletions at the other, operates on the First-In-First-Out principle.  
+**Typical underlying DS:** arrays, linked lists.
+<p align="center"><img src="./img/StructureDQ.png"/></p>
+
+**Deque (Double-Ended Queue)** — allows insertion and deletion of elements from both ends.
+  - **Input Restricted Deque** — allows insertion from only one end (either rear or front).
+  - **Output Restricted Deque** — allows removal from only one end (either rear or front).
+    
+**Typical Underlying DS:** arrays, linked lists.
+<p align="center"><img src="./img/StructureCQ.png"/></p>
+
+**Circular Queue** — variation of deque or linear queue, that connects front with rear ends.  
+**Typical underlying DS:** arrays, linked lists.
+<p align="center"><img src="./img/StructurePQ.png"/></p>
+
+**Priority Queue** — elements are dequeued based on their priority level, rather than their order of insertion.
+  - **Ascending Priority Queue** — elements with higher priority levels are dequed first.
+  - **Descending Priority Queue** — elements with lower priority levels are dequed first. 
+    
+**Typical underlying DS:** max-heaps, min-heaps.  
 
 
 
@@ -69,9 +72,13 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 ##  Linear Queue
 Keeping its educational aim in mind, the `LQ` class developed here closely resembles the behavior of `std::queue`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
+<p align="center"><img src="./img/LibraryLQ.png"/></p>
 
 One significant design decision is the implementation of a linear queue solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque.
-<p align="center"><img src="./img/simplificationLQ.png"/></p>
+
+
+---
+<p align="center"><img src="./img/DemonstrationLQ.png"/></p>
 
 **Detailed Overview**:
 1. The `LQ` class is declared in `LinearQueue.h` header file and defined in `LinearQueu.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
@@ -264,74 +271,7 @@ void LQ<T>::pop() {
 	--_size;
 }
 ```
-7. Demonstration:
-```cpp
-// via copy of queue
-void printQueue(const LQ<int>& q) {
-	LQ<int> tempQueue(q);
-	std::cout << "Elements:\t";
-	while (!tempQueue.empty()) {
-		std::cout << tempQueue.front() << " ";
-		tempQueue.pop();
-	}
-	std::cout << std::endl;
-	
-}
 
-int main()
-{
-	// Greet
-	std::cout << "\tWelcome to the 'Linear Queue' console application!\n";
-
-	// Create initial queue
-	std::cout << "\nCreating & filling initial queue #1...\n";
-	LQ<int> q1;
-	q1.push(7);
-	q1.push(1);
-	q1.push(1);
-	q1.push(9);
-
-	// Show queue #1
-	std::cout << "Is it empty:\t" << q1.empty() << std::endl;
-	printQueue(q1);
-
-	// Modify queue #1
-	std::cout << "\nChange first ('7') and last ('9') element to '0'...\n";
-	q1.front() = 0;
-	q1.rear() = 0;
-	printQueue(q1);
-
-	// Insert into queue #1
-	std::cout << "\nAdd element '3' to the end...\n";
-	q1.push(3);
-	printQueue(q1);
-
-	// Deep copy functionality
-	std::cout << "\nCreate a queue copies and compare...\n";
-	LQ<int> q2(q1);
-	LQ<int> q3 = q1;
-	printQueue(q1);
-	printQueue(q2);
-	printQueue(q3);
-
-	// Remove functionality
-	std::cout << "\nFrom queue #1 remove first two ('0' and '1') elements...\n";
-	q1.pop();
-	q1.pop();
-	printQueue(q1);
-	printQueue(q2);
-	printQueue(q3);
-
-	// Exit
-	std::cout << "\nThanks for using this program! Have a great day!\n";
-	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
-	std::cin.get();
-	return 0;
-}
-```
-<p align="center"><img src="./img/demonstrationLQ.png"/></p>
 
 
 ##  Double-Ended Queue
@@ -377,8 +317,7 @@ The analysis of queues can be quite confusing. Different implementations have th
 
 
 
-# &#x23F3; Historical Notes
-
+# &#x23F3; Origins
 The concept of queues has evolved over time and its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. If anyone reading this would like to collaborate on this topic, I would gladly welcome the opportunity to finalize this section and hopefully one day help someone with it.
 
 
@@ -388,7 +327,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
+# &#128231; Contacts
 For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
 
 
