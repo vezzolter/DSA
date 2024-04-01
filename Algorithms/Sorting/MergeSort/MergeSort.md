@@ -12,7 +12,23 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Merge Sort** stands out as one of the most well-known and efficient sorting technique. The algorithm is named for the way it utilizes the idea of ability to combine two ordered inputs into one ordered output. This subsection explores idea of merge sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./img/MergeSort.png"/></p>
+
+---
+**Merge Sort** recursively divides the initial collection into halves until there is nothing to divide left, and then it starts the process of merging (combining) those subcollections back together, but only now applying the desired order, basically following the divide-and-conquer paradigm's principles.
+
+**Algorithm Steps:**
+1. Initialize the base case where conduct the check if there is a need to divide collection or it is already one element.
+2. Calculate the midddle index, i.e. split the collection into two subcollections - the first containing elements before the middle index and the second containing elements after the middle index.
+3. Divide each half again by utilizing a recursive process of calling the merge sort with updated start and end indices (via middle index) for every iteration until initial check stops it.
+4. Merge the results of previous steps by calling additional helper function `merge()` which does next steps:
+   1. Creates an empty auxiliary collection to store the upcoming merge result.
+   2. Initializes two pointers to compare elements of halves - first indicating the start of the left subcollection, and second indicating the start of the right subcollection.
+   3. Compares the elements from left and right parts via pointers.
+   4. Appends the required element (depending on the order) to the auxiliary collection.
+   5. Moves the pointer of the respective half to the next element in it.
+   6. Repeats the comparison and selection process untill one half is empty, then copies any remaining elements form it to the auxiliary collection.
 
 
 
