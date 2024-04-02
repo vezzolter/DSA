@@ -20,15 +20,17 @@ The **Merge Sort** stands out as one of the most well-known and efficient sortin
 
 **Algorithm Steps:**
 1. Initialize the base case where conduct the check if there is a need to divide collection or it is already one element.
-2. Calculate the midddle index, i.e. split the collection into two subcollections - the first containing elements before the middle index and the second containing elements after the middle index.
-3. Divide each half again by utilizing a recursive process of calling the merge sort with updated start and end indices (via middle index) for every iteration until initial check stops it.
-4. Merge the results of previous steps by calling additional helper function `merge()` which does next steps:
-   1. Creates an empty auxiliary collection to store the upcoming merge result.
-   2. Initializes two pointers to compare elements of halves - first indicating the start of the left subcollection, and second indicating the start of the right subcollection.
-   3. Compares the elements from left and right parts via pointers.
-   4. Appends the required element (depending on the order) to the auxiliary collection.
+2. Calculate the middle index, i.e. split the collection into two subcollections - the first containing elements before the middle index and the second containing elements after the middle index.
+3. Divide first half by utilizing a recursive process of calling the merge sort with updated start and end indices for every iteration until initial check stops it.
+4. Divide the second half in the same manner.
+5. Merge the results of previous steps by calling additional helper function `merge()` which merges elements together based on the desired sorted order and stores the them in the original collection (or in a separate temporary collection, depending on the implementation):
+   1. Create an empty auxiliary collection to store the upcoming merge result.
+   2. Initialize two pointers to compare elements of halves - first indicating the start of the left subcollection, and second indicating the start of the right subcollection.
+   3. Compare the elements from left and right parts via pointers.
+   4. Append the required element (depending on the order) to the auxiliary collection.
    5. Moves the pointer of the respective half to the next element in it.
-   6. Repeats the comparison and selection process untill one half is empty, then copies any remaining elements form it to the auxiliary collection.
+   6. Repeats the comparison and selection process untill one half is empty, then copies any remaining elements from it to the auxiliary collection.
+   7. Finally, merge the temporary collections in original one (or elsewhere).
 
 
 
