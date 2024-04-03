@@ -10,7 +10,7 @@
 #include "MergeSort.h"
 
 
-void printArray(int arr[], int size) {
+void printArray(const int* arr, const int size) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < size; i++)
 		std::cout << arr[i] << " ";
@@ -24,13 +24,13 @@ int main()
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 5, 2, 4, 6, 1, 3 };
-	int size = sizeof(arr) / sizeof(arr[1]);
+	int arr[] = { 7, 2, 0, 3, 1, 9, 1 };
+	const int size = sizeof(arr) / sizeof(arr[0]);
 	printArray(arr, size);
 
 	// Sort Elements
 	std::cout << "\nSorting the elements of it...\n";
-	mergeSort(arr, size);
+	mergeSort(arr, 0, size - 1);
 	printArray(arr, size);
 
 	// Exit

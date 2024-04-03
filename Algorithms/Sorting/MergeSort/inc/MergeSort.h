@@ -4,4 +4,6 @@
 
 #pragma once
 
-void mergeSort(int arr[], int size);
+
+void merge(int* arr, const int left, const int mid, const int right);
+void mergeSort(int* arr, const int left, const int right);

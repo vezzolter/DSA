@@ -35,6 +35,73 @@ The **Merge Sort** stands out as one of the most well-known and efficient sortin
 
 
 # &#x1F4BB; Implementation
+The program initializes an array of specified integers, performs ascending order sorting using the merge sort algorithm, and finally displays the result.
+<p align="center"><img src="./img/Demonstration.png"/></p>
+
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing an integer array as a collection.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations to the algorithm.
+
+---
+Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, which are declared in `MergeSort.h` header file and defined in `MergeSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+
+**The Complete Implementation:**
+```cpp
+void merge(int* arr, const int left, const int mid, const int right) {
+	int arrLeftSize = mid - left + 1;
+	int arrRightSize = right - mid;
+	int* arrLeft = new int[arrLeftSize];
+	int* arrRight = new int[arrRightSize];
+	for (int i = 0; i < arrLeftSize; i++)
+		arrLeft[i] = arr[left + i]; // arr[begin...mid]
+	for (int i = 0; i < arrRightSize; i++)
+		arrRight[i] = arr[mid + 1 + i]; // arr[mid+1...end]
+
+	int arrLeftIndex = 0;
+	int arrRightIndex = 0;
+	int arrIndex = left;
+	for (; arrLeftIndex < arrLeftSize && arrRightIndex < arrRightSize; ) {
+		if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
+			arr[arrIndex] = arrLeft[arrLeftIndex];
+			arrLeftIndex++;
+		}
+		else {
+			arr[arrIndex] = arrRight[arrRightIndex];
+			arrRightIndex++;
+		}
+		arrIndex++;
+	}
+
+	for (; arrLeftIndex < arrLeftSize;) {
+		arr[arrIndex] = arrLeft[arrLeftIndex];
+		arrLeftIndex++;
+		arrIndex++;
+	}
+
+	for (; arrRightIndex < arrRightSize;) {
+		arr[arrIndex] = arrRight[arrRightIndex];
+		arrRightIndex++;
+		arrIndex++;
+	}
+
+	delete[] arrLeft;
+	delete[] arrRight;
+}
+
+void mergeSort(int* arr, const int left, const int right) {
+	if (left >= right)
+		return;
+
+	int mid = left + (right - left) / 2; 
+	mergeSort(arr, left, mid); // arr[begin...mid]
+	mergeSort(arr, mid + 1, right); // arr[mid+1...end]
+	merge(arr, left, mid, right);
+}
+```
+
+---
+**The Detailed Overview:**  
 Currently in Progress...
 
 
