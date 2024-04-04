@@ -201,12 +201,16 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 
 
 # &#128221; Application
-Currently in Progress...
+**Some of the Most Well-Known Use Cases:**
+- **General Sorting** — merge sort is widely used sorting in general. Its time complexity, and especially the lack of difference between the time cases, makes it a preferred choice in many scenarios.
+- **Linked List** — merge sort is the best sorting (or one of the) for linked lists. It doesn't require an additional space for subcollections and random access to operate, which is significant advantage for this data structure. 
+- **External Sorting** — merge sort is a good choice to sort data too large to fit entirely in the RAM. Its division approach allows to handle data in manageable chunks.
+- **Parallel Processing** — merge sort is an efficient decision to implement a sorting utilizing a multiple processors at once. Since the process of one half doesn't really differ from the other, it is a good idea to do them both simultaneously.
 
 
 
 # &#x23F3; Origins
-Currently in Progress...
+The idea of merging goes back in **1938** to the invention of a card machine, the collator. It could merge two sorted decks of cards into one in only one pass. Few years later, the well-known Hungarian-American mathematician and physicist **John von Neumann** prepared programs for internal merge sorting in **1945**, in order to test the adequacy of some instruction codes he was proposing for the EDVAC computer. From that point on in computer science history, the idea of merging quickly gained widespread adoption and underwent continuous development by many people worldwide, becoming a widely used sorting technique.
 
 
 
@@ -239,6 +243,8 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) (Wikipedia)
+- [Merge Sort Algorithm: Design, Implementation, and Analysis](https://www.enjoyalgorithms.com/blog/merge-sort-algorithm)
+- [Merge Sort And It's Early History](https://www.linkedin.com/pulse/merge-sort-its-early-history-abdur-rahmaan-janhangeer/)
 
 
 
