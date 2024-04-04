@@ -46,7 +46,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 ---
 Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, which are declared in `MergeSort.h` header file and defined in `MergeSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**The Complete Implementation:**
+**Complete Implementation:**
 ```cpp
 	void merge(int* arr, const int left, const int mid, const int right) {
 		int arrLeftSize = mid - left + 1;
@@ -101,7 +101,7 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 ```
 
 ---
-**The Detailed Overview:**  
+**Detailed Walkthrough:**  
 1. Start with the setting up the base case for `mergeSort()`, which prevents following recursive division by checking whether the array contains more than one or zero elements.
 ```cpp
 	if (left >= right)
@@ -174,7 +174,29 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 
 
 # &#128202; Analysis
-Currently in Progress...
+- **Comparison Approach:** 
+  - **Comparison-Based** — operates by comparing elements pairwise to arrange them in order.
+
+- **Time Complexity:**
+     - Worst Case: $O(nlogn)$ — data is in reverse sorted order (or almost), algorithm still divides into halves until individual elements and merging required $O(n)$ time in each recursion level, and there are $O(logn)$ levels.
+     - Average Case: $O(nlogn)$ — data is randomly shuffled, the same steps involved as in worst case.
+     - Best Case: $O(nlogn)$ — data is already sorted (or almost), the same steps involved as in worst case.
+
+- **Auxiliary Space Complexity:** 
+  - Array — besides function calls on the call stack $O(n)$, algorithm  requires additional space $O(n)$ for temporary left and right subarrays.
+  - List — only function calls on the call stack $O(n)$, because algorithm only rearranges the pointers to connect the sorted sublists.
+
+- **Stability:** 
+  - **Stable** — if two elements are equal, they are not swapped, thus preserving their relative order.
+
+- **Adaptabillity:** 
+   - **Non-Adaptive** — data processed through the same path of steps, regardless of their values.
+
+- **Directness:**
+   - **Direct Algorithms** — algorithm sorts elements directly manipulating themselves to reorder them.
+
+- **Storage:**
+   - **Internal and External** — algorithm can be used in both cases.
 
 
 
