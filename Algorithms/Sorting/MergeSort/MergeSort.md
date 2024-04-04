@@ -48,7 +48,80 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 
 **The Complete Implementation:**
 ```cpp
-void merge(int* arr, const int left, const int mid, const int right) {
+	void merge(int* arr, const int left, const int mid, const int right) {
+		int arrLeftSize = mid - left + 1;
+		int arrRightSize = right - mid;
+		int* arrLeft = new int[arrLeftSize];
+		int* arrRight = new int[arrRightSize];
+		for (int i = 0; i < arrLeftSize; i++)
+			arrLeft[i] = arr[left + i]; // arr[begin...mid]
+		for (int i = 0; i < arrRightSize; i++)
+			arrRight[i] = arr[mid + 1 + i]; // arr[mid+1...end]
+
+		int arrLeftIndex = 0;
+		int arrRightIndex = 0;
+		int arrIndex = left;
+		for (; arrLeftIndex < arrLeftSize && arrRightIndex < arrRightSize; ) {
+			if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
+				arr[arrIndex] = arrLeft[arrLeftIndex];
+				arrLeftIndex++;
+			}
+			else {
+				arr[arrIndex] = arrRight[arrRightIndex];
+				arrRightIndex++;
+			}
+			arrIndex++;
+		}
+
+		for (; arrLeftIndex < arrLeftSize;) {
+			arr[arrIndex] = arrLeft[arrLeftIndex];
+			arrLeftIndex++;
+			arrIndex++;
+		}	
+
+		for (; arrRightIndex < arrRightSize;) {
+			arr[arrIndex] = arrRight[arrRightIndex];
+			arrRightIndex++;
+			arrIndex++;
+		}	
+
+		delete[] arrLeft;
+		delete[] arrRight;
+	}
+
+	void mergeSort(int* arr, const int left, const int right) {
+		if (left >= right)
+			return;
+
+		int mid = left + (right - left) / 2; 
+		mergeSort(arr, left, mid); // arr[begin...mid]
+		mergeSort(arr, mid + 1, right); // arr[mid+1...end]
+		merge(arr, left, mid, right);
+	}
+```
+
+---
+**The Detailed Overview:**  
+1. Start with the setting up the base case for `mergeSort()`, which prevents following recursive division by checking whether the array contains more than one or zero elements.
+```cpp
+	if (left >= right)
+		return;
+```
+2. Calculate the middle index of an array. This formula is used due to avoidance of overflow.
+```cpp
+	int mid = left + (right - left) / 2; 
+```
+3. Recursively call the merge sort on the left half until it reaches the base case and then move to the the right one and do the same. This way initial array would be divided into one-element subarrays, which are basically sorted.
+```cpp
+	mergeSort(arr, left, mid); // arr[begin...mid]
+	mergeSort(arr, mid + 1, right); // arr[mid+1...end]
+```
+4. Call additional helper function to merge the sorted halves back together.
+```cpp
+	merge(arr, left, mid, right);
+```
+5. In `merge()` start by creating two auxiliary subarrays from the passed one for left and right half, which will be used to compare the elements and apply the desired order.
+```cpp
 	int arrLeftSize = mid - left + 1;
 	int arrRightSize = right - mid;
 	int* arrLeft = new int[arrLeftSize];
@@ -57,10 +130,15 @@ void merge(int* arr, const int left, const int mid, const int right) {
 		arrLeft[i] = arr[left + i]; // arr[begin...mid]
 	for (int i = 0; i < arrRightSize; i++)
 		arrRight[i] = arr[mid + 1 + i]; // arr[mid+1...end]
-
+```
+6. Initialize the indices for each to keep track of the current positions. Assigning `left` to the passed array instead of `0` allows to preserve the relative positioning.
+```cpp
 	int arrLeftIndex = 0;
 	int arrRightIndex = 0;
 	int arrIndex = left;
+```
+7. Compare and store the elements as long as there are elements remaining in both the left and right subarrays to be merged. This process works by comparing indices of each half and choosing the smaller  value (or whichever required) to be stored in the passed array and moving respective pointers to the next elements.
+```cpp
 	for (; arrLeftIndex < arrLeftSize && arrRightIndex < arrRightSize; ) {
 		if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
 			arr[arrIndex] = arrLeft[arrLeftIndex];
@@ -72,37 +150,26 @@ void merge(int* arr, const int left, const int mid, const int right) {
 		}
 		arrIndex++;
 	}
-
+```
+8. If condition of previous loop becomes `false` it means that at least one of the half reached the end and some elements can be still left uncopied in the passed array. Therefore it is crucial to ensure that each half copied its elements, which is possible by respective iteration.
+```cpp
 	for (; arrLeftIndex < arrLeftSize;) {
 		arr[arrIndex] = arrLeft[arrLeftIndex];
 		arrLeftIndex++;
 		arrIndex++;
-	}
+	}	
 
 	for (; arrRightIndex < arrRightSize;) {
 		arr[arrIndex] = arrRight[arrRightIndex];
 		arrRightIndex++;
 		arrIndex++;
 	}
-
+```
+9. Deallocate the memory for auxiliary arrays, since their values are preserved in the passed one.
+```cpp
 	delete[] arrLeft;
 	delete[] arrRight;
-}
-
-void mergeSort(int* arr, const int left, const int right) {
-	if (left >= right)
-		return;
-
-	int mid = left + (right - left) / 2; 
-	mergeSort(arr, left, mid); // arr[begin...mid]
-	mergeSort(arr, mid + 1, right); // arr[mid+1...end]
-	merge(arr, left, mid, right);
-}
 ```
-
----
-**The Detailed Overview:**  
-Currently in Progress...
 
 
 
