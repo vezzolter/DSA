@@ -101,9 +101,9 @@ void selectionSort(int arr[], int size) {
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
 
 - **Time Complexity:**
-     - Worst Case $\big($$O(n^2)$$\big)$ — occurs when the data is in reverse sorted order (or almost).
-     - Average Case $\big($$O(n^2)$$\big)$  — occurs when the data is randomly shuffled. 
-     - Best Case $\big($$O(n^2)$$\big)$ — occurs when the data is already sorted (or almost).
+     - Worst Case $O(n^2)$ — occurs when the data is in reverse sorted order (or almost).
+     - Average Case $O(n^2)$  — occurs when the data is randomly shuffled. 
+     - Best Case $O(n^2)$ — occurs when the data is already sorted (or almost).
 
 - **Space Complexity:** 
   - $O(1)$ — algorithm doesn't require any additional space.
