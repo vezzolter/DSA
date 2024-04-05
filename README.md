@@ -24,8 +24,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
     - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
-    - [Merge Sort](https://github.com/vezzolter/DSA/tree/sort-merge/Algorithms/Sorting/MergeSort) 🎯
-    - Quick Sort
+    - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
+    - Quick Sort 🎯
     - Heap Sort
     - Radix Sort
     - Counting Sort
@@ -177,21 +177,22 @@ As my educational journey progresses, I may discover new areas of interest withi
   - Serves as a great collection of C++ implementation examples along with step-by-step analyses.
 - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Explicitly describes computational background behind basic algorithms and data structures.
-- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
-  - Explicitly describes computational background behind sorting and searching algorithms.
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Introduces to the idea of randomness in computer science, along with distributions and testing.
+- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
+  - Explicitly describes computational background behind sorting and searching algorithms.
+
 - **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
   - Provides an overview over modern RNG algorithms from practical perspective.
 
 ---
 &#127891; **Courses:**
-- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
+- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
   - Gives a great structural understanding of the data structures along with decent practical quizes & coding challenges.
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
   - Guides into any topics with ease, no matter how complex you think it is, therefore makes you start.
 - [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
-  - Governs important field of study, which contributes to design decisions from another inalienable perspective.
+  - Covers important field of study, which contributes to design decisions from another inalienable perspective.
 
 ---
 &#128156; **Special Thanks:**

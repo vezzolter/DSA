@@ -1,22 +1,24 @@
 # &#128209; Table of Contents
-- [💡 What is the Selection Sort](#-what-is-the-selection-sort)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [⏳ Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Selection Sort
+# &#128161; Overview
 The **Selection Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for its method of selecting the smallest (or largest) elements from a collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
-<p align="center"><img src="./img/selectionSort.png"/></p>
+<p align="center"><img src="./img/SelectionSort.png"/></p>
 
 ---
-**Selection Sort** treats a collection as two parts: sorted and unsorted. The algorithm iterates over the unsorted elements, selecting the lowest (or highest) value and exchanging it with the element at the beginning of the unsorted part, thus forming the sorted portion; much like the intuitive process of arranging books on a shelf from shortest to tallest. It consists of the following steps:
+**Selection Sort** treats a collection as two parts: sorted and unsorted. The algorithm iterates over the unsorted elements, selecting the lowest (or highest) value and exchanging it with the element at the beginning of the unsorted part, thus forming the sorted portion; much like the intuitive process of arranging books on a shelf from shortest to tallest. 
+
+**Algorithm Steps:**
 1. Assume that all elements belong to the unsorted part, thus start with the first one in it.
 2. Select the element with the smallest (or highest) value.
 3. Exchange it with the first element of the unsorted part; thus form a sorted part.
@@ -27,7 +29,7 @@ The **Selection Sort** stands out as one of the simplest and earliest known sort
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the selection sort algorithm, and finally displays the result.
-<p align="center"><img src="./img/demonstration.png"/></p>
+<p align="center"><img src="./img/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.
@@ -37,7 +39,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 ---
 Sorting algorithm implemented within the function `selectionSort()`, which is declared in `SelectionSort.h` header file and defined in `SelectionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**The complete implementation of a sorting function:**
+**Complete Implementation:**
 ```cpp
 void selectionSort(int arr[], int size) {
 	for (int i = 0; i < size - 1; i++) {
@@ -61,17 +63,15 @@ void selectionSort(int arr[], int size) {
 ```
 
 ---
-**The Detailed Algorithm Overview:**
+**Detailed Walkthrough:**  
 1. Iterate over the unsorted elements, excluding the last one `size - 1`, as it is going to be at correct position, naturally after all the previous iterations.
 ```cpp
 	for (int i = 0; i < size - 1; i++) {
 ```
-
 2. Select the index of first element from the unsorted part as the minimum, because there are no other known elements at this stage.
 ```cpp
 	int min = i;
 ```
-
 3. Iterate over the remaining unsorted elements to determine if there is a lower value, by comparing value of current minimum element with the rest of remaining unsorted elements. By starting at `j = i + 1`, we ensure that we don't compare the already previously selected element with itself.
 ```cpp
 	for (int j = i + 1; j < size; j++) {
@@ -81,8 +81,7 @@ void selectionSort(int arr[], int size) {
 		}
 	}
 ```
-
-4. Finally, we swap the selected minimum element with the first element from the unsorted part if they are different. While this check provides more 'adaptive' behavior, the overall adaptability of the algorithm doesn't change, because the number of comparisons, which mostly contribute to the time complexity, stays the same.
+4. Swap the selected minimum element with the first element from the unsorted part if they are different. While this check provides more 'adaptive' behavior, the overall adaptability of the algorithm doesn't change, because the number of comparisons, which mostly contribute to the time complexity, stays the same.
 ```cpp
 	// Can be optimized via swap
 	if (min != i) {
@@ -95,22 +94,31 @@ void selectionSort(int arr[], int size) {
 
 
 # &#128202; Analysis
+> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who have related questions.
+
+---
 - **Comparison Approach:** 
-  - **Comparison-Based** — operates by comparing elements pairwise to arrange them in order.
+  - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
 
 - **Time Complexity:**
-     - Worst Case: $O(n^2)$ — data is in reverse sorted order (or almost); algorithm traverses over elements and compares each element with min.
-     - Average Case: $O(n^2)$ — data is randomly shuffled; algorithm traverses over elements and compares each element with min.
-     - Best Case: $O(n^2)$ — data is already sorted (or almost); algorithm traverses over elements and compares each element with min.
+     - Worst Case $\big($$O(n^2)$$\big)$ — occurs when the data is in reverse sorted order (or almost).
+     - Average Case $\big($$O(n^2)$$\big)$  — occurs when the data is randomly shuffled. 
+     - Best Case $\big($$O(n^2)$$\big)$ — occurs when the data is already sorted (or almost).
 
-- **Auxiliary Space Complexity:** 
-  - $O(1)$ — no additional space is required beyond the input collection.
+- **Space Complexity:** 
+  - $O(1)$ — algorithm doesn't require any additional space.
 
 - **Stability:** 
-  - **Unstable** — doesn't guarantee the preservation of the relative order of equal elements, because the algorithm doesn't consider the original positions of equal elements when performing swaps.
+  - **Unstable** — algorithm considered to be unstable due to the fact that it doesn't consider the original positions of equal elements when performing swaps, thus it doesn't  guarantee the preservation of the relative order.
 
 - **Adaptabillity:** 
-  - **Non-adaptive** — while algorithm has check, that provides more 'adaptive' behavior for number of swaps, the overall adaptability of the algorithm doesn't change, because the number of comparisons, which mostly contribute to the time complexity, stays the same.
+   - **Non-Adaptive** — algorithm processes data through the same path of steps, regardless of their values.
+
+- **Directness:**
+   - **Direct** — algorithm sorts elements by directly manipulating themselves.
+
+- **Storage:**
+   - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
 
@@ -119,8 +127,7 @@ Selection Sort's utility is limited in modern software development contexts due 
 
 
 
-
-# &#x23F3; Historical Notes
+# &#x23F3; Origins
 The idea of Selection Sort can be observed in many real life activities due to its simplicity, such as arranging playing cards in a hand, sorting stones by size, or organizing items in a list. These and many other manual sortings involve repeatedly selecting the smallest/highest elements and moving to the start/end. In terms of computer science, Selection Sort was one of the earliest sorting algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity.
 
 
@@ -130,7 +137,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
+# &#128231; Contacts
 For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
 
 

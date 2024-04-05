@@ -174,29 +174,33 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 
 
 # &#128202; Analysis
+> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who have related questions.
+
+---
 - **Comparison Approach:** 
-  - **Comparison-Based** — operates by comparing elements pairwise to arrange them in order.
+  - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
 
 - **Time Complexity:**
-     - Worst Case: $O(nlogn)$ — data is in reverse sorted order (or almost), algorithm still divides into halves until individual elements and merging required $O(n)$ time in each recursion level, and there are $O(logn)$ levels.
-     - Average Case: $O(nlogn)$ — data is randomly shuffled, the same steps involved as in worst case.
-     - Best Case: $O(nlogn)$ — data is already sorted (or almost), the same steps involved as in worst case.
+     - Worst Case $\big($$O(nlogn)$$\big)$ — occurs when the data is in reverse sorted order (or almost).
+     - Average Case $\big($$O(nlogn)$$\big)$  — occurs when the data is randomly shuffled. 
+     - Best Case $\big($$O(nlogn)$$\big)$ — occurs when the data is already sorted (or almost).
 
-- **Auxiliary Space Complexity:** 
-  - Array — besides function calls on the call stack $O(n)$, algorithm  requires additional space $O(n)$ for temporary left and right subarrays.
-  - List — only function calls on the call stack $O(n)$, because algorithm only rearranges the pointers to connect the sorted sublists.
+- **Space Complexity:** 
+  - Array$\big($$O(n)$$\big)$ — algorithm requires additional space $O(n)$ for temporary subarrays and some space on call stack to store function calls $O(logn)$.
+  - List$\big($$O(logn)$$\big)$ — algorithm only rearranges the pointers to connect the sorted sublists, therefore it requires only some space on call stack to store function calls $O(logn)$.
 
 - **Stability:** 
-  - **Stable** — if two elements are equal, they are not swapped, thus preserving their relative order.
+  - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
 
 - **Adaptabillity:** 
-   - **Non-Adaptive** — data processed through the same path of steps, regardless of their values.
+   - **Non-Adaptive** — algorithm processes data through the same path of steps, regardless of their values.
 
 - **Directness:**
-   - **Direct Algorithms** — algorithm sorts elements directly manipulating themselves to reorder them.
+   - **Direct** — algorithm sorts elements by directly manipulating themselves.
 
 - **Storage:**
    - **Internal and External** — algorithm can be used in both cases.
+
 
 
 
