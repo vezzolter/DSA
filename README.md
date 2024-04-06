@@ -25,7 +25,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
     - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
-    - Quick Sort 🎯
+    - [Quick Sort](https://github.com/vezzolter/DSA/tree/sort-quick/Algorithms/Sorting/QuickSort) 🎯
     - Heap Sort
     - Radix Sort
     - Counting Sort
@@ -181,7 +181,6 @@ As my educational journey progresses, I may discover new areas of interest withi
   - Introduces to the idea of randomness in computer science, along with distributions and testing.
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Explicitly describes computational background behind sorting and searching algorithms.
-
 - **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
   - Provides an overview over modern RNG algorithms from practical perspective.
 
