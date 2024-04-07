@@ -46,7 +46,26 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progres...
+&#128218; **Books:**
+- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
+  - Section 4: Quicksort
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 7: Quicksort
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 7: Quicksort
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 7.7: Quicksort
+- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
+  - Section 5.2.1: Sorting by Exchanging
+
+---  
+&#127891; **Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Section 20: Sorting Techniques
+
+---  
+&#127760; **Web-Resources:**  
+- [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) (Wikipedia)
 
 
 
