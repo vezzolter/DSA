@@ -16,9 +16,31 @@ The **Quicksort** stands out as one of the most well-known and efficient sorting
 <p align="center"><img src="./img/QuickSort.png"/></p>
 
 ---
-The **Quicksort** selects the pivot element from the collection, recursively partitions the collection into two sub-collections based on the pivot (refer below) until each of them consist of one or zero elements (i.e. basically sorted), and then algorithm combines them back together to form the final sorted collection. 
+The **Quicksort** selects the pivot element from the collection, recursively partitions the collection into two sub-collections based on the pivot (refer below) until each of them consist of one or zero elements (i.e. basically sorted), and then algorithm combines them back together to form the final sorted collection. The process of partitioning generally classified into two schemes:
+- **Hoare** — is a classic version, which ensures that the pivot is positioned between the smaller and greater parts, but it may not always be in the correct final position.
+- **Lomuto** — is an alternative version, which ensures that the pivot is placed in the correct position after partitioning.
 
-**Pivot** — is the element of collection, which serves as a reference point for determining the position of elements.
+**Pivot Element** — is the element of collection, which serves as a reference point for determining the position of elements. It can be picked in a several ways, some of them are:
+- **First/Last** — can provide a good partition, if the input is random, but if the input is presorted (or in reverse) order, then all the elements consistently go to only one side throughout the recursive calls, therefore providing a poor partition.
+- **Middle** — can provide a better partition then previous methods, because in this case the middle element is closer to the median.
+- **Random** — provides a generally good partition, unless the random number generator has a flaw and the resource to use it are available.
+- **Median** — the best choice in terms of partitioning, but can considerably slow down the algorithm.
+  - **Median of 3** — although can be obtained from the random elements, the preferable way is to use first, middle and last elements.
+  - **Median of Medians** — although can be obtained from the random elements, the preferable way is to divide collection into groups, find the median of each and select median of those as the pivot.
+
+---
+**Algorithm Steps (Hoare Scheme):**
+1. Initialize the base case where conduct the check if there is a need to partition collection further or it already contains $0$ or $1$ elements.
+2. Choose a pivot from the collection using any desirable method for it.
+3. Partition the collection so that all elements smaller than the pivot are moved to its left, and all elements greater - to its right, following next procedure steps:
+   1. Get pivot element out the way by swapping it with the last one.
+   2. Create two pointer: left as first, right as next-to-last.
+   3. Start moving left pointer until it becomes greater or equal to the pivot, then stop.
+   4. Start moving right pointer until it becomes less or equal to the pivot, then stop.
+   5. Swap the left and right elements.
+   6. Continue this process until right element is not crossed with left.
+   7. Swap the pivot element with left, therefore ensuring that the all elements to the left of pivot are smaller, and all to the right are greater.
+4. Recursively apply the same process to each sub-collection until initial check stops this, eventually sorting out the initial collection.
 
 
 
@@ -73,6 +95,7 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**  
 - [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) (Wikipedia)
 - [Quicksort by C. A. R. Hoare](https://academic.oup.com/comjnl/article-pdf/5/1/10/1111445/050010.pdf)
+- [Hoare’s vs Lomuto partition scheme in QuickSort](https://www.educative.io/answers/hoares-vs-lomuto-partition-scheme-in-quicksort)
 
 
 
