@@ -1,13 +1,13 @@
-// Quick Sort
+// Quicksort
 // by vezzolter
 // April 5, 2024
 //
-// This C++ project demonstrates the simplified implementation of a quick sort algorithm. 
+// This C++ project demonstrates the simplified implementation of a quicksort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.
 
 
 #include <iostream>
-#include "QuickSort.h"
+#include "Quicksort.h"
 
 
 void printArray(const int* arr, const int size) {
@@ -20,7 +20,7 @@ void printArray(const int* arr, const int size) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Quick Sort' console application!\n";
+	std::cout << "\tWelcome to the 'Quicksort' console application!\n";
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
@@ -30,7 +30,7 @@ int main()
 
 	// Sort Elements
 	std::cout << "\nSorting the elements of it...\n";
-	//quickSort(arr, 0, size - 1);
+	//quicksort(arr, 0, size - 1);
 	printArray(arr, size);
 
 	// Exit
