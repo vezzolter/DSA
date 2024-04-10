@@ -1,4 +1,4 @@
-// Quicksort
+// Quicksort (Hoare Scheme)
 // by vezzolter
 // April 5, 2024
 //
@@ -20,7 +20,7 @@ void printArray(const int* arr, const int size) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Quicksort' console application!\n";
+	std::cout << "\tWelcome to the 'Quicksort (Hoare Scheme)' console application!\n";
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
@@ -30,7 +30,7 @@ int main()
 
 	// Sort Elements
 	std::cout << "\nSorting the elements of it...\n";
-	//quicksort(arr, 0, size - 1);
+	quicksort(arr, 0, size - 1);
 	printArray(arr, size);
 
 	// Exit

@@ -25,7 +25,7 @@ The **Quicksort** selects the pivot element from the collection, recursively par
 - **Middle** — can provide a better partition then previous methods, because in this case the middle element is closer to the median.
 - **Random** — provides a generally good partition, unless the random number generator has a flaw and the resource to use it are available.
 - **Median** — the best choice in terms of partitioning, but can considerably slow down the algorithm.
-  - **Median of 3** — although can be obtained from the random elements, the preferable way is to use first, middle and last elements.
+  - **Median of 3** — although can be obtained from the random elements, the preferable way is to select middle value from the first, middle and last elements.
   - **Median of Medians** — although can be obtained from the random elements, the preferable way is to divide collection into groups, find the median of each and select median of those as the pivot.
 
 ---
@@ -45,7 +45,92 @@ The **Quicksort** selects the pivot element from the collection, recursively par
 
 
 # &#x1F4BB; Implementation
-Currently in Progres...
+The program initializes an array of specified integers, performs ascending order sorting using the quicksort algorithm, and finally displays the result.
+<p align="center"><img src="./img/Demonstration.png"/></p>
+
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing an integer array as a collection.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations to the algorithm.
+
+---
+Sorting algorithm implemented within the `quicksort()` and `partition()` functions with a few helper ones `swap()` and `selectPivot()`, which are declared in `Quicksort.h` header file and defined in `Quicksort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+
+**Complete Implementation:**
+```cpp
+int partition(int* arr, int l, int r) {
+	int p = selectPivot(arr, l, r); // median of 3
+	
+	swap(arr[p], arr[r]);
+	p = r;
+
+	for (; l < r; ) {
+		for (; l <= r && arr[l] < arr[p]; l++);
+		for (; r >= l && arr[r] >= arr[p]; r--);
+		if (l >= r)
+			break;
+		swap(arr[l], arr[r]);
+	}
+
+	swap(arr[l], arr[p]);
+	p = l;
+
+	return p;
+}
+
+void quicksort(int* arr, int l, int r) {
+	if (l < r) {
+		int p = partition(arr, l, r);
+		quicksort(arr, l, p - 1);
+		quicksort(arr, p + 1, r);
+	}
+}
+```
+
+---
+**Detailed Walkthrough:**  
+1. Start with the setting up the check for `quicksort()`, which prevents following recursive division by checking whether the array contains more than one or zero elements.
+```cpp
+	if (l < r)
+```
+2. Partition the collection using additional function and return a value that signifies the position where the pivot element is now located within the partitioned array, which will be used in further recursive calls.
+```cpp
+	int p = partition(arr, l, r); 
+```
+3. In the `partition()` function, start by selecting the pivot element from the array. There I use a helper function implementing the median of three strategy, which can be substituted with other methods if required. See the respective file for its implementation details.
+```cpp
+	int p = selectPivot(arr, l, r); // median of 3
+```
+4. Start partitioning by iterating over considered elements until `l` and `r` meet, indicating that the process is complete.
+```cpp
+	for (; l < r; ) {
+```
+5. Now move the left pointer to the point where it encounters an element that is greater than or equal to the pivot (or exceeds the indices) and do the same but vice versa for right pointer.
+```cpp
+	for (; l <= r && arr[l] < arr[p]; l++);
+	for (; r >= l && arr[r] >= arr[p]; r--);
+```
+6. Eventually they will stop. This can be achieved either if they have crossed or if they encounter elements that require swapping. Therefore you either leave or swap.
+```cpp
+	if (l >= r)
+    break;
+  swap(arr[l], arr[r]);
+```
+7. After all the arrangements have been done (or skipped), swap the pivot element with the last (and update the index) to ensure that all elements to the left are less or equal to the pivot and all to the right are greater or equal to the pivot.
+```cpp
+	if (l >= r)
+			break;
+  swap(arr[l], arr[r]);
+```
+8. Handle subsequent recursive calls by returning the index of the pivot element.
+```cpp
+	return p;
+```
+9. Back to `quicksort()`, where quicksort is recursively called again for remaining sub-arrays until initial check stops the process, eventually sorting out the rest of the elements by the analogue.
+```cpp
+	quicksort(arr, l, p - 1);
+	quicksort(arr, p + 1, r);
+```
 
 
 
