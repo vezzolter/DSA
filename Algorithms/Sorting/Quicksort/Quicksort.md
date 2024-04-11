@@ -164,12 +164,14 @@ void quicksort(int* arr, int l, int r) {
 
 
 # &#128221; Application
-Currently in Progres...
+**Some of the Most Well-Known Use Cases:**
+- **General Sorting** — quicksort is widely used sorting in general. Its efficient time complexity and a better space complexity compared to merge sort, makes it a preferred choice in many scenarios; e.g. libraries, programming languages, operating systems, networking applications.
+- **Hybrid Sorting** — quicksort is beneficial tool for hybrid sortings. Initially partitioning a collection can provide a great nearly sorted result, which can be finished with more appropriate sorting like heapsort; e.g. introsort. 
 
 
 
 # &#x23F3; Origins
-Currently in Progres...
+QuickSort was conceived by British computer scientist **Tony Hoare** in **1959**. Hoare developed QuickSort while working on his PhD thesis at Moscow State University in the Soviet Union. He was tasked with translating a Russian-English dictionary and sought a more efficient method for sorting words than existing ones. Inspired by the divide-and-conquer paradigm, Hoare devised the QuickSort algorithm, which partitions the array into smaller subarrays just like merge sort, but avoids its excessive use of memory by adding a pivotal logic. Hoare initially presented QuickSort as a paper titled "Algorithm 64: Quicksort" in the Communications of the ACM (Association for Computing Machinery) journal in **1961**. However, it wasn't until later years that QuickSort gained widespread recognition and became one of the most commonly used sorting algorithms in computer science.
 
 
 
