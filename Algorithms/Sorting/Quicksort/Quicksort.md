@@ -135,7 +135,31 @@ void quicksort(int* arr, int l, int r) {
 
 
 # &#128202; Analysis
-Currently in Progres...
+> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who has related questions.
+
+---
+- **Comparison Approach:** 
+  - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
+
+- **Time Complexity:**
+     - Worst Case $O(n^2)$ — occurs when the choice of pivot is poor for the input data, leading to consistently unbalanced partitions during each recursive call.
+     - Average Case $O(nlogn)$ — occurs when the choice of pivot is good enough for the input data, leading to consistently relatively balanced partitions during each recursive call.
+     - Best Case $O(nlogn)$$ — occurs when the choice of pivot is optimal for the input data, leading to consistently nearly equal partitions during each recursive call.
+
+- **Space Complexity:** 
+  - Array — algorithm requires some space on call stack to store function calls $O(logn)$, and only in some of the worst cases it can go up to $O(n)$.
+
+- **Stability:** 
+  - **Unstable** — algorithm can swap two equal elements, thus altering their relative order. This happens because of depending on the pivot selection and paritioning strategy, equal elements may end up in different relative positions in the sorted output. 
+
+- **Adaptabillity:** 
+   - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
+
+- **Directness:**
+   - **Direct** — algorithm sorts elements by directly manipulating themselves.
+
+- **Storage:**
+   - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
 

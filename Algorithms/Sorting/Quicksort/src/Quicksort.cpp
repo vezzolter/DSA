@@ -33,6 +33,8 @@ int partition(int* arr, int l, int r) {
 	for (; l < r; ) {
 		for (; l <= r && arr[l] < arr[p]; l++);
 		for (; r >= l && arr[r] >= arr[p]; r--);
+		if (l >= r)
+			break;
 		swap(arr[l], arr[r]);
 	}
 
