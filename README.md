@@ -1,8 +1,8 @@
 # &#128209; Table of Contents
 - [💡 About](#-about)
-- [📁 Repository Structure](#-repository-structure)
+- [📁 Structure](#-structure)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
@@ -13,8 +13,8 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 
-# &#128193; Repository Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects (but still can receive updates) are marked with ✅, currently paused ones with 🔄 and the main target under development as 🎯. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+# &#128193; Structure
+This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects (although they still can receive updates to improve quality) are marked with ✅, currently paused ones with 🔄 and the main target under development with 🎯. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 ---
 **The Structure:**
@@ -25,7 +25,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
     - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
-    - [Quicksort](https://github.com/vezzolter/DSA/tree/sort-quick/Algorithms/Sorting/Quicksort) 🎯
+    - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
     - Heap Sort
     - Radix Sort
     - Counting Sort
@@ -64,25 +64,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - Bellman-Ford Algorithm
     - Prim's Algorithms
     - Kruskal's Algorithm
-    - Floyd-Warshall Algorithm 
-  - Recursion
-    - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
-    - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
-    - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
-  - DnC Algorithms
-    - DnC.md
-    - Strassen's Algorithm
-    - Karatsuba Algorithm
-    - Closest Pair of Points
-  - Dynamic Algorithms
-    - Knapsack
-    - Coin Change
-    - LCS (Longest Common Subsequence)
-    - LIS (Lingest Increasing Subsequence)
-  - Greedy Algorithms
-    - Activity Selection
-    - Fractional Knapsack
-    - Huffman Coding
+    - Floyd-Warshall Algorithm
   - String Algorithms
     - StringAlgorithms.md
     - KMP (Knuth-Morris-Pratt)
@@ -90,8 +72,27 @@ This list provides a straightforward overview of the repository's contents. For 
     - Boyer-Moore
     - Levenshtein Distance
     - Needleman-Wunsh Algorithm
-    - RLE (Run-Length Encoding) 
-
+    - RLE (Run-Length Encoding)  
+  - Recursion
+    - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
+    - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
+    - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
+  - Divide-and-Conquer 🎯
+    - DivideAndConquer.md 🎯
+    - Strassen's Algorithm 🎯
+    - Karatsuba Algorithm
+    - Closest Pair of Points
+  - Dynamic Programming
+    - DynamicProgramming.md
+    - Knapsack
+    - Coin Change
+    - LCS (Longest Common Subsequence)
+    - LIS (Lingest Increasing Subsequence)
+  - Greedy Programming
+    - GreedyProgramming.md
+    - Activity Selection
+    - Fractional Knapsack
+    - Huffman Coding
 - Data Structures
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
@@ -111,6 +112,9 @@ This list provides a straightforward overview of the repository's contents. For 
   - Stack
     - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
     - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
+  - String
+    - String.md
+    - String
   - Tree
     - Tree.md
     - Binary Tree
@@ -141,22 +145,18 @@ This list provides a straightforward overview of the repository's contents. For 
     - Hash Set
     - Bloom filter
     - Cuckoo filter
-  - String
-    - String.md
-    - String
 
 
 
 # &#129309; Contributing
-As my educational journey progresses, I may discover new areas of interest within data structures and algorithms. I welcome and value contributions from the community, as they greatly enrich my competence and knowledge in this domain. Whether it's code improvements, bug reports, suggestions for new topics or you are just interested in discussions on particular topics — feel free to reach out. Your input is highly appreciated indeed!
-
+As my educational journey progresses, I may discover new areas of interest within data structures and algorithms. I welcome and value contributions from the community, as they greatly enrich my competence and knowledge in this domain. Whether it's code improvements, bug reports, suggestions for new projects or you are just interested in discussions on particular topics — feel free to reach out. Your input is highly appreciated indeed!  
 - If you have any suggestions or ideas, please reach out via email, GitHube, LinkedIn or Telegram. 
 - If you want to contribute code or other resources, please try to keep the existing style guidelines.
 - Please respect both your and mine time and effort.
 
 
 
-# &#128231; Contact Information
+# &#128231; Contacts
 - &#128236; Email: [vezzolter@gmail.com](mailto:vezzolter@gmail.com)
 - &#128572; GitHub: [Maksym Ozerov's profile](https://github.com/vezzolter)
 - &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/maksym-ozerov-b07873231/)

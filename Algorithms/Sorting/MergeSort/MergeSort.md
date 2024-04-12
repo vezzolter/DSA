@@ -186,14 +186,14 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
      - Best Case $O(nlogn)$$ — occurs when the data is already sorted (or almost).
 
 - **Space Complexity:** 
-  - Array$\big($$O(n)$$\big)$ — algorithm requires additional space $O(n)$ for temporary subarrays and some space on call stack to store function calls $O(logn)$.
-  - List$\big($$O(logn)$$\big)$ — algorithm only rearranges the pointers to connect the sorted sublists, therefore it requires only some space on call stack to store function calls $O(logn)$.
+  - Array $O(n)$ — algorithm requires additional space $O(n)$ for temporary subarrays and some space $O(logn)$ on call stack to store function calls.
+  - List $O(logn)$ — algorithm only rearranges the pointers to connect the sorted sublists, therefore it requires only some space $O(logn)$ on call stack to store function calls.
 
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
 
 - **Adaptabillity:** 
-   - **Non-Adaptive** — algorithm processes data through the same path of steps, regardless of their values.
+   - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
 
 - **Directness:**
    - **Direct** — algorithm sorts elements by directly manipulating themselves.

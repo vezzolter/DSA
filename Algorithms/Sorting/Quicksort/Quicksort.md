@@ -147,7 +147,7 @@ void quicksort(int* arr, int l, int r) {
      - Best Case $O(nlogn)$$ — occurs when the choice of pivot is optimal for the input data, leading to consistently nearly equal partitions during each recursive call.
 
 - **Space Complexity:** 
-  - Array — algorithm requires some space on call stack to store function calls $O(logn)$, and only in some of the worst cases it can go up to $O(n)$.
+  - Array — algorithm requires some space $O(logn)$ on call stack to store function calls, and only in some of the worst cases it can go up to $O(n)$.
 
 - **Stability:** 
   - **Unstable** — algorithm can swap two equal elements, thus altering their relative order. This happens because of depending on the pivot selection and paritioning strategy, equal elements may end up in different relative positions in the sorted output. 

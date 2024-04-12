@@ -109,10 +109,10 @@ void selectionSort(int arr[], int size) {
   - $O(1)$ — algorithm doesn't require any additional space.
 
 - **Stability:** 
-  - **Unstable** — algorithm considered to be unstable due to the fact that it doesn't consider the original positions of equal elements when performing swaps, thus it doesn't  guarantee the preservation of the relative order.
+  - **Unstable** — algorithm considered to be unstable due to the fact that it doesn't consider the original positions of equal elements when performing swaps, thus it doesn't guarantee the preservation of the relative order.
 
 - **Adaptabillity:** 
-   - **Non-Adaptive** — algorithm processes data through the same path of steps, regardless of their values.
+    - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
 
 - **Directness:**
    - **Direct** — algorithm sorts elements by directly manipulating themselves.

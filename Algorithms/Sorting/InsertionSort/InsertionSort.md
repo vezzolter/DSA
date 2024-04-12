@@ -102,7 +102,7 @@ Sorting algorithm implemented within the function `insertionSort()` is declared 
   - $O(1)$ — algorithm doesn't require any additional space.
 
 - **Stability:** 
-  - **Stable** — if two elements are equal, they are not swapped, thus preserving their relative order.
+  - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
 
 - **Adaptabillity:** 
   - **Adaptive** — algorithm's adaptive logic lies in the inner loop, where it shifts elements only if they are not in sorted order, thus extent to which data is already sorted affects the perfomance.
