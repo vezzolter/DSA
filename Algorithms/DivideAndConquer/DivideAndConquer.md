@@ -47,7 +47,19 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#128218; **Books:**
+- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
+  - Section 4.1: Divide & Conquer
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 4: Divide-and-Conquer
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 10.2: Divide and Conquer
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven Skiena
+  - Section 4.10: Divide-and-Conquer
+
+---  
+&#127760; **Web-Resources:**  
+- [Divide-and-conquer algorithm](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) (Wikipedia)
 
 
 
