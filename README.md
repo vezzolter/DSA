@@ -77,9 +77,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
-  - Divide-and-Conquer 🎯
-    - DivideAndConquer.md 🎯
-    - Strassen's Algorithm 🎯
+  - Divide and Conquer
+    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/strassen/Algorithms/DivideAndConquer/DivideAndConquer.md)🎯
+    - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/strassen/Algorithms/DivideAndConquer/StrassensAlgorithm)🎯
     - Karatsuba Algorithm
     - Closest Pair of Points
   - Dynamic Programming
@@ -159,7 +159,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 # &#128231; Contacts
 - &#128236; Email: [vezzolter@gmail.com](mailto:vezzolter@gmail.com)
 - &#128572; GitHub: [Maksym Ozerov's profile](https://github.com/vezzolter)
-- &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/maksym-ozerov-b07873231/)
+- &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/vezzolter/)
 - &#128172; Telegram: [@vezzolter](https://t.me/vezzolter)
 
 
@@ -191,7 +191,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
   - Guides into any topics with ease, no matter how complex you think it is, therefore makes you start.
 - [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
-  - Covers important field of study, which contributes to design decisions from another inalienable perspective.
+  - Covers important field of study, which contributes to design decisions from another inalienable perspective of security.
 
 ---
 &#128156; **Special Thanks:**
