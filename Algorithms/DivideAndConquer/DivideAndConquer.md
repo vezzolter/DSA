@@ -12,7 +12,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Divide and Conquer** is a widely used problem-solving strategy in computer science to solve complex problems by breaking them down into simpler ones. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
+<p align="center"><img src="./img/DivideAndConquer.png"/></p>
 
 
 
@@ -52,6 +53,8 @@ For contact details and additional information, please refer to the [root direct
   - Section 4.1: Divide & Conquer
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 4: Divide-and-Conquer
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 5.2: Divide and Conquer
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 10.2: Divide and Conquer
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven Skiena
