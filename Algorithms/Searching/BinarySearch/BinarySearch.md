@@ -141,15 +141,16 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Section 1.2: Binary Search
-- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
-  - Section 6.2.1: Searching an Ordered Table
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 12.4: Binary Search
   - Section 2.6: Examples of Algorithm Analysis
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 2.4.4: Logarithms in the Running Time
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 2.6.1: Logarithms and Binary Search
+  - Section 4.9: Binary Search and Related Algorithms
+- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
+  - Section 6.2.1: Searching an Ordered Table
 
 ---  
 &#127891; **Courses:**

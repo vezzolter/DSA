@@ -271,14 +271,14 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Section 3: Recursion.
-- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 1.3: A Brief Introduction to Recursion
-- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Section 5: Recursion and Trees.
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 4: Divide-and-Conquer.
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 5.1: Recursive Algorithms
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 1.3: A Brief Introduction to Recursion
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 1.3.4: Induction and Recursion
 
 ---
 &#127891; **Courses:**
@@ -287,17 +287,12 @@ For contact details and additional information, please refer to the [root direct
 
 ---
 &#127760; **Web-Resources:**
-- [Introduction to Recursion](https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/)
-- [Fundamentals of Recursion in Programming](https://www.enjoyalgorithms.com/blog/recursion-explained-how-recursion-works-in-programming)
 - [Recursion in Computer Science](https://en.wikipedia.org/wiki/Recursion_(computer_science)) (Wikipedia)
-- [Recursive Functions](https://www.geeksforgeeks.org/recursive-functions/)
 - [Recursion: Direct vs Indirect](https://www.baeldung.com/cs/recursion-direct-vs-indirect)
-- [Call Stacks - CS50 Shorts](https://www.youtube.com/watch?v=aCPkszeKRa4) (Video)
-- [How stack frames work](https://nordvpn.com/ru/cybersecurity/glossary/stack-frame/#:~:text=A%20stack%20frame%2C%20often%20just,%2DOut%20(LIFO)%20manner.)
+- [How stack frames work](https://nordvpn.com/ru/cybersecurity/glossary/stack-frame/#:~:text=A%20stack%20frame%2C%20often%20just,%2DOut%20(LIFO)%20manner)
 - [What are the benefits and drawbacks of using stack frames for nested function calls?](https://www.linkedin.com/advice/0/what-benefits-drawbacks-using-stack-frames-nested#:~:text=A%20stack%20frame%20is%20a,registers%20of%20the%20caller%20function.)
 - [Difference Between Recursion and Iteration](https://www.enjoyalgorithms.com/blog/difference-between-iteration-and-recursion)
 - [Types of Recursion](https://datatrained.com/post/types-of-recursion/)
-- [What is Tail Recursion](https://www.geeksforgeeks.org/tail-recursion/)
 - [Tail Call](https://en.wikipedia.org/wiki/Tail_call) (Wikipedia)
 - [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
 - [Recursion in Data Structure](https://www.codingninjas.com/studio/library/types-of-recursion)

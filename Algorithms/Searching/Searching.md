@@ -121,12 +121,17 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Section 1.2: Binary Search
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 11: Hash Tables
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 12: Symbol Tables and BSTs
+  - Section 13: Balanced Trees
+  - Section 14: Hashing
   - Section 15: Radix Search
   - Section 16: External Searching
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 4: Sorting and Searching
+  - Section 14: Combinatorial Problems
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 6: Searching
 

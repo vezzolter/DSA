@@ -334,17 +334,24 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 3.7: The Queue ADT
-- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Section 4: Abstract Data Types
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
-  - Section 10.1: Stacks and Queues.
+  - Section 10.1: Stacks and Queues
+  - Section 10.3: Implementing Pointers and Objects
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 3.7: Compound Data Structures
+  - Section 4: Abstract Data Types
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 3.1: Abstract Data Types
+  - Section 3.7: The Queue ADT
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 3.2: Stacks and Queues
+  - Section 3.5: Priority Queues
+  - Section 12.2: Priority Queues
 - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth 
   - Section 2.2.1: Stacks, Queues, and Deques
   - Section 2.2.2: Sequential Allocation
   - Section 2.2.2: Linked Allocation
-
+  - Section 2.6: History and Bibliography
 ---
 &#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy

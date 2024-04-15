@@ -232,10 +232,12 @@ For contact details and additional information, please refer to the [root direct
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 2.3: Designining Algorithms (Merge Sort)
-- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 7.6: Mergesort
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 8: Merging and Mergesort
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 7.6: Mergesort
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 4.5: Mergesort: Sorting by Divide-and-Conquer
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 5.2.4: Sorting by Merging
 

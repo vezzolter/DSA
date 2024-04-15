@@ -543,17 +543,19 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Section 2.1: How memory works
-  - Section 2.2: Arrays and linked lists
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 3.1: Building Blocks
   - Section 3.2: Arrays
+  - Section 4: Abstract Data Types
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 3.1: Abstract Data Types
   - Section 3.3: `vector` and `list` in the STL
   - Section 3.4: implementation of `vector`
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 3.1: Contiguous vs. Linked Data Structures
 - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth 
   - Section 2.5: Dynamic Storage Allocation
+  - Section 2.6: History and Bibliography
 
 ---
 &#127891; **Courses:**
@@ -568,7 +570,6 @@ For contact details and additional information, please refer to the [root direct
 --- 
 &#127760; **Web-Resources:**
 - [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)#:~:text=In%20computer%20science%2C%20an%20array,one%20array%20index%20or%20key.) (Wikipedia)
-- [Introduction to Arrays](https://www.geeksforgeeks.org/introduction-to-arrays-data-structure-and-algorithm-tutorials/)
 - [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)
 - [Array (ADT)](https://brilliant.org/wiki/arrays-adt/#:~:text=The%20array%20is%20a%20basic,types%20like%20instances%20of%20classes.)
 - [Difference between Static Arrays and Dynamic Arrays](https://www.geeksforgeeks.org/difference-between-static-arrays-and-dynamic-arrays/)
