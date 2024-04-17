@@ -78,8 +78,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Divide and Conquer
-    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/strassen/Algorithms/DivideAndConquer/DivideAndConquer.md)🎯
-    - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/strassen/Algorithms/DivideAndConquer/StrassensAlgorithm)🎯
+    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/strassen/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
+    - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/strassen/Algorithms/DivideAndConquer/StrassensAlgorithm) 🎯
     - Karatsuba Algorithm
     - Closest Pair of Points
   - Dynamic Programming
