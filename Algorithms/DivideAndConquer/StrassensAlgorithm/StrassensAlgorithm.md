@@ -210,17 +210,25 @@ Matrix strassensAlgorithm(const Matrix& A, const Matrix& B) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+**Advantages:**
+- **Asymptotic Improvement** — algorithm reduces the number of multiplications, resulting in a better time complexity of $O(n^{2.81})$ compared to the standard one  $O(n^{3})$.
+
+---
+**Disadvantages:**
+- **Overhead** — algorithm requires extra additions and subtractions, as well as recursively partitioning the matrices and respective memory operations, which can outweigh its benefits quite often in practice.
+- **Accuracy Issues** — algorithm involves more floating-point operations compared to the traditional version, which can introduce numerical instability and rounding errors, especially in the long run.
+- **Size Requirements** — algorithm typically requires matrices to be of size of a power of two for efficient recursion, which is not often the case in day-to-day scenarios, and fixing it could add extra overhead to an already existing one.
+- **Implementation Complexity** — The algorithm contains lots of implementation intricacies, making it not as convenient as the standard one.
 
 
 
 # &#128221; Application
-Currently in Progress...
+Considering the previously mentioned advantages and disadvantages of Strassen's algorithm, it is fair to say that this algorithm can elicit the benefit of its asymptotic notation only in certain scenarios, which makes its applicability mostly limited. Nonetheless, it serves as a valuable tool for educational purposes, as it explicitly illustrates the concept of divide and conquer. Moreover, it provides a platform to explore and weigh the pros and cons of various implementation decisions in algorithm design.
 
 
 
 # &#x23F3; Origins
-Currently in Progress...
+The idea of this algorithm dates back to **1969**, when the well-known German mathematician **Volker Strassen** developed the first program for performing matrix multiplication faster than the $O(n^3)$ time bound that would result from a standard method. This invention represented an important theoretical breakthrough in the history of computer science, demonstrating that even when a problem seems to have a fixed time complexity, nothing is certain until proven.
 
 
 

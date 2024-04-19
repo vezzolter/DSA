@@ -32,7 +32,6 @@
 The list of known divide and conquer algorithms is extensive and continues to grow. When it comes to implementation, some share some common ideas, while others possess distinctive characteristics. The choice between them depends on the specific requirements of the cases at hand. Generally, there are lot of ways to achieve behavior of this approach, most used of them are:
 - **Recursion** — solves each sub-problem either by recursively dividing again or if small enough solves directly; e.g. merge sort.
 - **Iteration** — divides the problem in each iteration of the loop until original problem is solved; e.g. binary search.
-- **Dynamic Programming** — stores and reuses solutions to sub-problems to avoid redundant computations, particularly useful when there are overlapping sub-problems; e.g. matrix chain multiplication.
 
 > Personal note: Since you can observe the ideas of Divide and Conquer in many other approaches (probably due to its extremely general steps), it could be quite confusing to determine which specific implementation is being considered. In most cases I have encountered, Divide and Conquer is associated with recursion. Therefore, I recommend associating it as the default approach, but not limiting your design thinking only to it.
 
