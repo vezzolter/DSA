@@ -883,24 +883,27 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Section 2.1: How memory works
-  - Section 2.2: Arrays and linked lists
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 10.2: Linked Lists
+  - Section 10.3: Implementing Pointers and Objects
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 3.1: Building Blocks
+  - Section 3.3: Linked Lists
+  - Section 3.4: Elementary List Processing
+  - Section 3.5: Memory Allocation for Lists
+  - Section 4: Abstract Data Types
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 3.1: Abstract Data Types
   - Section 3.2: The List ADT
   - Section 3.3: `vector` and `list` in the STL
   - Section 3.5: Implementation of `list`
-- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Section 3.3: Linked Lists
-  - Section 3.4: Elementary List Processing
-  - Section 3.5: Memory Allocation for Lists
-- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
-  - Section 10.2: Linked Lists
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 3.1: Contiguous vs. Linked Data Structures
 - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth 
   - Section 2.2: Linear Lists
   - Section 2.4: Multilinked Structures
   - Section 2.5: Dynamic Storage Allocation
+  - Section 2.6: History and Bibliography
 
 ---
 &#127891; **Courses:**
@@ -913,7 +916,6 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Linked List](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
-- [Understanding the basics of Linked List](https://www.geeksforgeeks.org/what-is-linked-list/)
 - [How Linked Lists Work](https://www.freecodecamp.org/news/how-linked-lists-work/)
 - [Linked List Data Structure](https://www.tutorialspoint.com/data_structures_algorithms/linked_list_algorithms.htm)
 - [Linked Lists](https://sbme-tutorials.github.io/2020/data-structure-FALL/notes/week03b.html#:~:text=of%20the%20list.-,Singly%20Linked%20Lists,is%20known%20as%20the%20tail.)

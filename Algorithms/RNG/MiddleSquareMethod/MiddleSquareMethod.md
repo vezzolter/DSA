@@ -112,11 +112,6 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-&#127891; **Courses:**
-- [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
-
-
----  
 &#127760; **Web-Resources:**  
 - [Middle-square method](https://en.wikipedia.org/wiki/Middle-square_method) (Wikipedia)
 - [Pseudo random number using the Middle Square Method](https://www.educative.io/answers/pseudo-random-number-using-the-middle-square-method)

@@ -70,19 +70,12 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 13.7: Random Number Generation
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 10.4.1: Random-Number Generators
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 3: Random Numbers
-- **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
-  - Section 1: Introduction
-  - Section 4: Cryptographically Secure Pseudorandom Number Generators
-  - Section 5: Nondeterministic Random Number Generators
-  - Section 6: Statistically Uniform Noncryptographic PRNGs
-
----
-&#127891; **Courses:**
-- [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
-  - Week 2: Computational Secrecy and Principles of Modern Cryptography
-
 
 ---  
 &#127760; **Web-Resources:**  

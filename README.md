@@ -77,9 +77,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
-  - Divide-and-Conquer 🎯
-    - DivideAndConquer.md 🎯
-    - Strassen's Algorithm 🎯
+  - Divide and Conquer
+    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
+    - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
     - Karatsuba Algorithm
     - Closest Pair of Points
   - Dynamic Programming
@@ -115,8 +115,8 @@ This list provides a straightforward overview of the repository's contents. For 
   - String
     - String.md
     - String
-  - Tree
-    - Tree.md
+  - Tree 🎯
+    - Tree.md 🎯
     - Binary Tree
     - BST (Binary Search Tree)
     - AVL Tree  
@@ -159,7 +159,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 # &#128231; Contacts
 - &#128236; Email: [vezzolter@gmail.com](mailto:vezzolter@gmail.com)
 - &#128572; GitHub: [Maksym Ozerov's profile](https://github.com/vezzolter)
-- &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/maksym-ozerov-b07873231/)
+- &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/vezzolter/)
 - &#128172; Telegram: [@vezzolter](https://t.me/vezzolter)
 
 
@@ -168,30 +168,26 @@ As my educational journey progresses, I may discover new areas of interest withi
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - A cornerstone resource that inspired me to learn DSA.
-  - Provides comprehensive coverage of data structures and algorithms as technology.
-- **"Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People"** — by Aditya Bhargava
-  - Translates complex concepts into simple, accessible explanations.
+  - Provides comprehensive and structural coverage of data structures and algorithms as technology.
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Delves deep into core algorithmic concepts, emphasizing their implementation in the C++ programming language.
+  - Describes concepts of implementing DSA in C++ programming language.
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Serves as a great collection of C++ implementation examples along with step-by-step analyses.
+  - Serves as an easy to understand collection of step-by-step analyses for DSA with C++ implementation.
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Helps to build a "designer/architectural" view on how to look at DSA.
 - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
-  - Explicitly describes computational background behind basic algorithms and data structures.
+  - Explains the basic computational background behind DSA.
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Introduces to the idea of randomness in computer science, along with distributions and testing.
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
-  - Explicitly describes computational background behind sorting and searching algorithms.
-- **"Random Number Generators―Principles and Practices: A Guide for Engineers and Programmers"** — by David Johnson
-  - Provides an overview over modern RNG algorithms from practical perspective.
+  - Tells you about basics of sorting and searching algorithms.
 
 ---
 &#127891; **Courses:**
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
-  - Gives a great structural understanding of the data structures along with decent practical quizes & coding challenges.
+  - Gives a great structural understanding of the data structures along with decent practical quizes & coding challenges in C++.
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
   - Guides into any topics with ease, no matter how complex you think it is, therefore makes you start.
-- [Cryptography](https://www.coursera.org/learn/cryptography) on Coursera
-  - Covers important field of study, which contributes to design decisions from another inalienable perspective.
 
 ---
 &#128156; **Special Thanks:**
