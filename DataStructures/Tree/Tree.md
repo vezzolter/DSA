@@ -12,7 +12,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Tree** stands out as one of the most fundamental concept in computer science. Trees represents a category of collections that mirror the hierarchical nature of trees in nature, making them a particularly well-suited choice for depicting relationships that have a parent-child or ancestor-descendant structure. This subsection explores trees to establish a solid foundation of understanding, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
+<p align="center"><img src="./img/Tree.png"/></p>
 
 
 
