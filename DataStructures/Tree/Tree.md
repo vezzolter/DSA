@@ -12,8 +12,38 @@
 
 
 # &#128161; Overview
-The **Tree** stands out as one of the most fundamental concept in computer science. Trees represents a category of collections that mirror the hierarchical nature of trees in nature, making them a particularly well-suited choice for depicting relationships that have a parent-child or ancestor-descendant structure. This subsection explores trees to establish a solid foundation of understanding, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
+The **Tree** stands out as one of the most fundamental concept in computer science. Trees represents a category of collections that mirror the hierarchical behaviour of trees in nature, making them a particularly well-suited choice for depicting relationships that have a parent-child or ancestor-descendant structure. This subsection explores trees to establish a solid foundation of understanding, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
 <p align="center"><img src="./img/Tree.png"/></p>
+
+---
+**Essential Terminology:**
+- **Collection** — is a data structure (or container) used to group multiple elements together.
+  - **Tree** — is a collection consisting of nodes and edges that satisfies requirements based on the tree type and maintains ascendant-descendant relationships.
+  - **Subtree** — is a tree within a tree formed by selecting a node and all its descendants.
+- **Node** — is an each individual element contained within the tree, containing actual information stored within and pointers (or references) to other nodes.
+  - **Root** — the topmost node serving as a starting point, thus having no parent.
+  - **Parent** — is a node that has one or more child nodes connected to it.
+  - **Child** — is a node connected to a parent node.
+  - **Siblings** — nodes that share the same parent.
+  - **External Node (Leaf)** — is a node with no children.
+  - **Internal Node** — any node in a tree that is not a leaf.
+  - **Ancestor** — is a node located above another node, along the path leading from the root node to that node.
+  - **Descendant** — is a node located below another node, along the path leading from the root node to that node.
+  - **Neighbour of a Node** — any other node that is directly connected to particular node by an edge.
+- **Edge** — is a connection between two nodes in a tree, which helps to manage the relationships.
+- **Path** — is a sequence of nodes and edges from one node to another one, which must be **only one** for any pair of nodes, otherwise it is a graph.
+  - **Length of Path** — is a number of edges (sometimes people consider nodes) that path contains.
+  - **Shortest Path** — is a path with minimum length, i.e. the path that requires the fewest number of edges to traverse from one node to another.
+  - **Longest Path** — is a path with maximum length, i.e. the path that requires the greatest number of edges to traverse from one node to another.
+- **Height of the Node** — is a number of edges from leaf node to a particular node in the longest path.
+  - **Height of the Tree** — is a number of edges from leaf node to a root in the longest path.
+- **Depth of the Node** — is a number of egdes from root node to a particular node.
+  - **Depth of the Tree** — is a number of egdes from root node to a leaf node in the longest path.
+- **Level of the Node** — is a number of egdes from root (level 0) down to the particular node (depth - 1).
+  - **Width of the Tree** — is the maximum number of nodes among all the levels.
+  - **Breadth of the Tree** — is the number of nodes at the last level of the tree, i.e. number of leaves.
+- **Degree of a Node** — is a total number of children of a particular node.
+  - **Degreee of a Tree** — is the highest degree among all the nodes.
 
 
 
@@ -87,6 +117,7 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure)) (Wikipedia)
+- [Tree - Terminology](http://www.btechsmartclass.com/data_structures/tree-terminology.html)
 
 
 
