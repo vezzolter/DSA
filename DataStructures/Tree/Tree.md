@@ -25,10 +25,10 @@ The **Tree** stands out as one of the most fundamental concept in computer scien
   - **Parent** — is a node that has one or more child nodes connected to it.
   - **Child** — is a node connected to a parent node.
   - **Siblings** — nodes that share the same parent.
-  - **External Node (Leaf)** — is a node with no children.
-  - **Internal Node** — any node in a tree that is not a leaf.
-  - **Ancestor** — is a node located above another node, along the path leading from the root node to that node.
-  - **Descendant** — is a node located below another node, along the path leading from the root node to that node.
+  - **External Node/Leaf** — is a node with no children.
+  - **Internal Node** — is a node with children.
+  - **Ancestor/Predecessor** — is a node located above another node, along the path leading from the root node to that node.
+  - **Descendant/Successor** — is a node located below another node, along the path leading from the root node to that node.
   - **Neighbour of a Node** — any other node that is directly connected to particular node by an edge.
 - **Edge** — is a connection between two nodes in a tree, which helps to manage the relationships.
 - **Path** — is a sequence of nodes and edges from one node to another one, which must be **only one** for any pair of nodes, otherwise it is a graph.
@@ -44,6 +44,17 @@ The **Tree** stands out as one of the most fundamental concept in computer scien
   - **Breadth of the Tree** — is the number of nodes at the last level of the tree, i.e. number of leaves.
 - **Degree of a Node** — is a total number of children of a particular node.
   - **Degreee of a Tree** — is the highest degree among all the nodes.
+
+---
+**Tree May Include Operations For:**
+- **Access/Search** — finding a specific element, checking if an element exists in the tree, or retrieving elements based on certain criteria (e.g. minimum, maximum, predecessor, successor)
+- **Insertion** — inserting a new element into the tree, while maintaining the tree's properties.
+- **Removal** — removing specific elements or based on certain criteria.
+- **Clear** — removing all elements, resetting it to an empty state.
+- **Empty** — checking if the tree contains no elements.
+- **Size** — determining the number of elements (nodes).
+- **Height** — determining the height or depth of elements/tree.
+- **Traversal** — visiting all the elements (nodes) in a specific order.
 
 
 
