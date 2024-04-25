@@ -1,7 +1,7 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
-  - [💻 Binary Tree](#-binary-tree)
+  - [Binary Tree](#binary-tree)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
 - [⏳ Origins](#-origins)
@@ -62,10 +62,22 @@ The **Tree** stands out as one of the most fundamental concept in computer scien
 # &#x1F4BB; Implementation 
 When it comes to the implementation of abstract data types (ADTs), there are many different ways to represent trees. While some share common ideas, each possesses distinctive characteristics. To cover them all, it's essential to understand the fundamental concept behind the most well-known representations and make slight adjustments to the chosen tree structure.
 
-Note that it is commonly recommended to rely on proven, well-established, and widely recognized implementations that already exist, rather than reinventing the wheel. In the context of C++, these could include tree-based containers (e.g. `boost::multiway_tree`, `boost::tree`) from the **Boost Graph Library**, or several containers (e.g. `std::set`, `std::map`) from the **STL**, which can be used to implement trees. Generally speaking, trees are typically implemented similarly to [linked lists](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md), where each node is a structure or class containing information, pointers, and optional logic.
+Note that it is commonly recommended to rely on proven, well-established, and widely recognized implementations that already exist, rather than reinventing the wheel. In the context of C++, these could include tree-based containers (e.g. `boost::multiway_tree`, `boost::tree`) from the **Boost Graph Library**, or several containers (e.g. `std::set`, `std::map`) from the **STL**, which can be used to implement trees. Although trees can be implemented via arrrays (binary heaps), typically they are implemented similarly to [linked lists](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md), where each node is a structure or class containing information, pointers, and optional logic.
 
 Within the scope of this repository, we'll take a closer look at simplified versions of popular trees to gain a deeper understanding of the fundamental concepts that underlie them. After this section, it would be beneficial to examine previously mentioned implementations in practice (e.g., pet-projects, LeetCode-like sites) to solidify the knowledge
 
+
+
+## Binary Tree
+<p align="center"><img src="./img/BinaryTreeTypes.png"/></p>
+
+**Binary Tree** — is a tree structure in which each node can have a maximum of two child nodes, referred to as the left child and the right child. It can be broadly characterized using the following terms:
+  - **Rooted (Default)** — all nodes have a maximum of $2$ children.
+  - **Perfect** — all nodes have two children and all leaves have the same level.
+  - **Full** — all nodes have either $0$ or $2$ children.
+  - **Complete** — all levels are filled with the maximum amount of nodes ($2$), except last one.
+  - **Balanced** — the maximum difference in height between all subtrees must be $1$.
+  - **Degenerate (Pathological)** — all nodes have only $1$ child.
 
 
 # &#128202; Analysis
