@@ -72,12 +72,31 @@ Within the scope of this repository, we'll take a closer look at simplified vers
 <p align="center"><img src="./img/BinaryTreeTypes.png"/></p>
 
 **Binary Tree** — is a tree structure in which each node can have a maximum of two child nodes, referred to as the left child and the right child. It can be broadly characterized using the following terms:
-  - **Rooted (Default)** — all nodes have a maximum of $2$ children.
-  - **Perfect** — all nodes have two children and all leaves have the same level.
-  - **Full** — all nodes have either $0$ or $2$ children.
-  - **Complete** — all levels are filled with the maximum amount of nodes ($2$), except last one.
-  - **Balanced** — the maximum difference in height between all subtrees must be $1$.
-  - **Degenerate (Pathological)** — all nodes have only $1$ child.
+- **Rooted (Default)** — all nodes have a maximum of $2$ children.
+- **Perfect** — all nodes have two children and all leaves have the same level.
+- **Full** — all nodes have either $0$ or $2$ children.
+- **Complete** — all levels are filled with the maximum amount of nodes ($2$), except last one.
+- **Balanced** — height of the left and right subtrees of every node differ by at most $1$.
+- **Degenerate (Pathological)** — all nodes have only $1$ child, basically it is a linked list.
+
+---
+**Some of the Derived Properties:**
+1. Number of null links (absent children) for $x$ nodes is $x+1$.
+2. Maximum number of nodes at $l$ level is $2^l$.
+3. Maximum number of nodes for tree of $h$ height is $2^h-1$.
+4. Maximum possible height for $x$ nodes is $log{_2}{(x+1)}$.
+5. Minimum number of levels for $x$ nodes is $log{_2}{(x+1)}$.
+6. Minimum number of levels for $x$ external nodes is $|log{_2}{(x)}|+1$.
+7. Minimum height of the tree for $x$ external nodes is $log{_2}{(x)}$.
+8. In non-empty tree, number of edges for $x$ nodes is $e=n-1$.
+9. In perfect tree, number of external nodes $x$ is $\frac{x+1}{2}$.
+10. In full tree, number of external nodes is awalys one more than nodes with two children.
+11. In full tree, minimum number of nodes for $h$ height of the tree is $2h+1$.
+12. In full tree, maximum number of nodes for $h$ height of the tree is $2^{h+1}-1$.
+13. In complete tree, number of internal nodes for $x$ nodes is $⌊x/2⌋$.
+
+> Note: There is no need to remember all the properties, but you should understand how to come up with them if the task requires. Additionally, practice breaking down binary tree structures and analyzing their components to build intuition for deriving relevant knowledge.
+
 
 
 # &#128202; Analysis
@@ -146,6 +165,8 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**  
 - [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure)) (Wikipedia)
 - [Tree - Terminology](http://www.btechsmartclass.com/data_structures/tree-terminology.html)
+- [Binary tree](https://en.wikipedia.org/wiki/Binary_tree) (Wikipedia)
+- [Binary Tree: Properties, Types, Representation, Application](https://www.enjoyalgorithms.com/blog/introduction-to-binary-tree)
 
 
 
