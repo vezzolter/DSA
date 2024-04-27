@@ -1,20 +1,20 @@
 # &#128209; Table of Contents
-- [💡 What is the Fibonacci Sequence](#-what-is-the-fibonacci-sequence)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
   - [Recursive Paragidm](#recursive-paragidm)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Fibonacci Sequence
+# &#128161; Overview
 The Fibonacci sequence is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. Knowledge of the Fibonacci sequence enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
 <p align="center"><img src="./img/intro.png"/></p>
 
@@ -161,7 +161,7 @@ In **computer science**, beside laying foundation for tackling more complex math
 - **Lagged Fibonacci Generator (LFG)** — employs the Fibonacci sequence in a lagged recurrence relation to generate pseudo-random numbers. The algorithm combines two or more previous values, resembling the Fibonacci sequence, and introduces a lagged aspect for variations, impacting the statistical properties and period length of the generated sequence.
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 The first mention of sequence was around 200 BC done by Indian mathematician **Acharya Pingala** in his work on Sanskrit prosody. Though Pingala did not employ the modern notation or terminology, he comprehended the fundamental nature of the sequence and its correlation with the golden ratio. Later those series were mentioned by other indian mathematicians such as **Bharata Muni** and **Virahanka**,**Gopala**.
 
 Centuries later, in 1170, an Italian mathematician named **Leonardo** was born in Pisa. As a teenager, he accompanied his father to work in the port city of Bugia, present-day Algeria, where he represented Italian merchants. In Bugia, Leonardo encountered numerous merchants using Hindi and Arab numerals in their calculations. Intrigued by the efficiency and simplicity of this numerical system, which contrasted with the widely used Roman numerals in Europe, Leonardo began to learn and appreciate the advantages of it.
@@ -177,8 +177,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

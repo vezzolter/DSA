@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the Binary Search](#-what-is-the-binary-search)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Binary Search
+# &#128161; Overview
 The **Binary Search** stands out as one of the most fundamental approaches to search for an element in the ordered collection. The algorithm is named for the way it divides the search interval in half. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./img/BinarySearch.png"/></p>
 
@@ -124,7 +124,7 @@ return -1;
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 The idea of Binary Search has evolved over time and there is no single individual behind them, especially because historical origins are not always well-recorded. In terms of computer science, it was one of the earliest searching algorithms to be implemented in early computer programs. Since then, many others have contributed to its understanding, analysis, and optimization.
 
 
@@ -134,8 +134,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

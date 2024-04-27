@@ -3,7 +3,7 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -227,7 +227,7 @@ Considering the previously mentioned advantages and disadvantages of Strassen's 
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 The idea of this algorithm dates back to **1969**, when the well-known German mathematician **Volker Strassen** developed the first program for performing matrix multiplication faster than the $O(n^3)$ time bound that would result from a standard method. This invention represented an important theoretical breakthrough in the history of computer science, demonstrating that even when a problem seems to have a fixed time complexity, nothing is certain until proven.
 
 

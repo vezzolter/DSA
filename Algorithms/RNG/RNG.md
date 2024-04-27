@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the RNG](#-what-is-the-rng)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the RNG
+# &#128161; Overview
 **Random number generation** is a widely used operation in computer science to acquire number(s) that can be count as random. It helps to exhibit desired statistical properties and behaviors in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
 <p align="center"><img src="./img/RNG.png"/></p>
 
@@ -53,7 +53,7 @@ Currently in Progress...
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 Currently in Progress...
 
 
@@ -63,8 +63,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

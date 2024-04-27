@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the Recursion](#-what-is-the-recursion)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📚 Call Stack](#-call-stack)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
-# &#128161; What is the Recursion
+# &#128161; Overview
 **Recursion** is a widely used idea in computer science to solve complex problems by breaking them down into simpler ones. It helps to develop elegant & efficient data structures and algorithms for all manner of applications. Many important implementations use recursion, so it's important to understand the concept.
 
 As a practical instance showcasing the nonmathematical application of recursion, let's turn to the example outlined by Mark Allen Weiss in his work "Data Structures and Algorithm Analysis in C++", listed below:
@@ -244,7 +244,7 @@ To successfully convert recursion into a loop, it's essential for the recursion 
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 Recursion, as a concept, has deep historical roots that trace back to ancient times, where it found expression in various fields, including mathematics, linguistics and even philosophy and theological discussions, where it appeared reflecting a fundamental human tendency to contemplate self-reference and iteration.
 
 The notion of recursion goes back to the **1888** year, when mathematician **Richard Dedekind** used the notion to obtain functions needed in his formal analysis of the concept of natural number. In 1889 Dadekind and Giuseppe Peano used the principle of defining a function by induction. This principle played an important role in the foundations of mathematics and was only much later called "primitive recursion".
@@ -264,8 +264,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

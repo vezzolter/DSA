@@ -7,7 +7,7 @@
 	- [Priority Queue](#priority-queue)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -317,7 +317,7 @@ The analysis of queues can be quite confusing. Different implementations have th
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 The concept of queues has evolved over time and its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. If anyone reading this would like to collaborate on this topic, I would gladly welcome the opportunity to finalize this section and hopefully one day help someone with it.
 
 
@@ -328,7 +328,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

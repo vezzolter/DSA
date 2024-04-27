@@ -4,7 +4,7 @@
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
 - [⏳ Origins](#-origins)
-- [🤝 Contributing](#-contributing)
+- [🕙 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
@@ -175,13 +175,13 @@ QuickSort was conceived by British computer scientist **Tony Hoare** in **1959**
 
 
 
-# &#129309; Contributing
+# &#x1F559; Contributing
 Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

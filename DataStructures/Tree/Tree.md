@@ -4,7 +4,7 @@
   - [Binary Tree](#binary-tree)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -109,7 +109,7 @@ Currently in Progress...
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 Currently in Progress...
 
 

@@ -5,7 +5,7 @@
   - [🚶‍♂️ Dynamic Array](#️-dynamic-array)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -526,7 +526,7 @@ void DA<T>::clear() {
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 While early assembly and machine languages offered basic memory management constructs, they lacked the sophisticated abstraction and versatility inherent in arrays found in modern programming languages. Consequently, individuals worldwide independently devised solutions to address this limitation. As a result, the concept of organizing data into ordered sequences has undergone continuous evolution, with no single individual credited for the development of arrays.
 
 
@@ -537,7 +537,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 
