@@ -117,12 +117,10 @@ This list provides a straightforward overview of the repository's contents. For 
     - String
   - Tree
     - [Tree.md](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/Tree.md) 🎯
-    - [Binary Tree](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BinaryTree)🎯
-    - BST (Binary Search Tree)
+    - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BST)🎯
     - AVL Tree  
     - Red-Black Tree 
     - B-Tree
-    - B+ Tree
   - Graph
     - Graph.md
     - Undirected Graph

@@ -1,13 +1,13 @@
-// Header file for Binary Tree
+// Header file for Binary Search Tree
 // by vezzolter
-// April 20, 2024
+// April 29, 2024
 
-#ifndef BINARY_TREE_H
-#define BINARY_TREE_H
+#ifndef BST_H
+#define BST_H
 
 
 template <typename T>
-class BinaryTree {
+class BST {
 private:
     struct Node {
         T _data;
@@ -21,10 +21,10 @@ private:
 
 public:
     // Special Member Functions
-    BinaryTree();
-    BinaryTree(const BinaryTree& rhs);
-    BinaryTree& operator=(const BinaryTree& rhs);
-    ~BinaryTree();
+    BST();
+    BST(const BST& rhs);
+    BST& operator=(const BST& rhs);
+    ~BST();
 
     // Capacity
     bool empty() const;
@@ -41,6 +41,6 @@ public:
 };
 
 
-#include "BinaryTree.cpp"
+#include "BST.cpp"
 
 #endif

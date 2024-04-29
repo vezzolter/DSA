@@ -1,24 +1,24 @@
-// Simplified ADT: Binary Tree
+// Simplified ADT: Binary Search Tree
 // by vezzolter
-// April 20, 2024
+// April 29, 2024
 //
 // This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called Binary Tree.
+// simplified version of abstract data type called Binary Search Tree
 
 #include <iostream>
-#include "BinaryTree.h"
+#include "BST.h"
 
 
-void printList(const BinaryTree<int>& tree) {
+void printList(const BST<int>& tree) {
 }
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Binary Tree' console application!\n";
+	std::cout << "\tWelcome to the 'Binary Search Tree' console application!\n";
 
 	// Create initial tree 
 	std::cout << "\nCreating & filling initial tree #1...\n";
-	BinaryTree<int> tree1;
+	BST<int> tree1;
 	tree1.insert(7);
 	tree1.insert(2);
 	tree1.insert(0);

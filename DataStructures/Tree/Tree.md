@@ -1,7 +1,6 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
-  - [Binary Tree](#binary-tree)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
 - [🕙 Origins](#-origins)
@@ -64,20 +63,23 @@ When it comes to the implementation of abstract data types (ADTs), there are man
 
 Note that it is commonly recommended to rely on proven, well-established, and widely recognized implementations that already exist, rather than reinventing the wheel. In the context of C++, these could include tree-based containers (e.g. `boost::multiway_tree`, `boost::tree`) from the **Boost Graph Library**, or several containers (e.g. `std::set`, `std::map`) from the **STL**, which can be used to implement trees. Although trees can be implemented via arrrays (binary heaps), typically they are implemented similarly to [linked lists](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md), where each node is a structure or class containing information, pointers, and optional logic.
 
-Within the scope of this repository, we'll take a closer look at simplified versions of popular trees to gain a deeper understanding of the fundamental concepts that underlie them. After this section, it would be beneficial to examine previously mentioned implementations in practice (e.g., pet-projects, LeetCode-like sites) to solidify the knowledge
+Within the scope of this repository, we'll take a closer look at simplified versions of popular trees to gain a deeper understanding of the fundamental concepts that underlie them. After this section, it would be beneficial to examine previously mentioned implementations in practice (e.g. pet-projects, LeetCode-like sites) to solidify the knowledge
 
+---
+When delving into the world of trees, it's essential to begin with binary trees, often regarded as the foundational building blocks. Before exploring more intricate tree structures, let's first establish a solid understanding of two fundamental concepts:
+- **Binary Tree** — is a tree structure in which each node can have a maximum of $2$ children, referred to as the left child and the right child.  
+- **M-ary Tree** — is a generalization of binary trees, where each node can have a maximum of `m` children.
 
-
-## Binary Tree
+---
 <p align="center"><img src="./img/BinaryTreeTypes.png"/></p>
 
-**Binary Tree** — is a tree structure in which each node can have a maximum of two child nodes, referred to as the left child and the right child. It can be broadly characterized using the following terms:
+**Binary Trees can be described as:**
 - **Rooted (Default)** — all nodes have a maximum of $2$ children.
-- **Perfect** — all nodes have two children and all leaves have the same level.
+- **Perfect** — all nodes have $2$ children and all leaves have the same level.
 - **Full** — all nodes have either $0$ or $2$ children.
 - **Complete** — all levels are filled with the maximum amount of nodes ($2$), except last one.
 - **Balanced** — height of the left and right subtrees of every node differ by at most $1$.
-- **Degenerate (Pathological)** — all nodes have only $1$ child, basically it is a linked list.
+- **Degenerate (Pathological)** — all nodes have only $1$ child, if all nodes are aligned in a single direction it can be referred to as **skewed**.
 
 ---
 **Some of the Derived Properties:**
@@ -96,6 +98,15 @@ Within the scope of this repository, we'll take a closer look at simplified vers
 13. In complete tree, number of internal nodes for $x$ nodes is $⌊x/2⌋$.
 
 > Note: There is no need to remember all the properties, but you should understand how to come up with them if the task requires. Additionally, practice breaking down binary tree structures and analyzing their components to build intuition for deriving relevant knowledge.
+
+---
+**Implementation Details** 
+
+One of the most important things behind binary trees is how elements are inserted into them. The insertion process similiar linked lists, albeit with slight adjustments — elements are inserted based on specific criteria. These criteria can vary, making the binary tree an adaptable container to diverse needs. Perhaps this adaptability is the reason why there's no single container that precisely represents a general binary tree, and it's certainly the reason I've chosen not to implement one. Instead, I suggest starting with this brief overview of binary trees to avoid overwhelming complexity, and head to next types of trees listed in this repository in the following order:
+  - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BST)🎯
+  - AVL Tree (will be updated in the future...)
+  - Red-Black Tree (will be updated in the future...)
+  - B-Tree (will be updated in the future...)
 
 
 
