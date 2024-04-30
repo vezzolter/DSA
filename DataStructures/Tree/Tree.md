@@ -47,21 +47,22 @@ The **Tree** stands out as one of the most fundamental concept in computer scien
 
 ---
 **Tree May Include Operations For:**
-- **Access/Search** — finding a specific element, checking if an element exists in the tree, or retrieving elements based on certain criteria (e.g. minimum, maximum, predecessor, successor)
+- **Access/Search** — retrieving elements based on certain criteria (e.g. minimum, maximum, predecessor, successor)
 - **Insertion/Grafting** — inserting a new element (or whole section) into the tree, while maintaining the tree's properties.
-- **Removal/Pruning** — removing specific elements (or whole section) or based on certain criteria.
+- **Deletion/Pruning** — removing specific elements (or whole section), while maintaining the tree's properties.
 - **Clear** — removing all elements, resetting it to an empty state.
 - **Empty** — checking if the tree contains no elements.
-- **Size** — determining the number of elements (nodes).
-- **Height** — determining the height or depth of elements/tree.
-- **Traversal** — visiting all the elements (nodes) in a specific order.
+- **Size** — determining the number of elements.
+- **Height** — determining the height of elements/tree.
+- **Depth** — determining the depth of elements/tree.
+- **Traversal** — visiting all the elements in a specific order (e.g. in-order, pre-order, post-order, DFS)
 
 
 
 # &#x1F4BB; Implementation 
 When it comes to the implementation of abstract data types (ADTs), there are many different ways to represent trees. While some share common ideas, each possesses distinctive characteristics. To cover them all, it's essential to understand the fundamental concept behind the most well-known representations and make slight adjustments to the chosen tree structure.
 
-Note that it is commonly recommended to rely on proven, well-established, and widely recognized implementations that already exist, rather than reinventing the wheel. In the context of C++, these could include tree-based containers (e.g. `boost::multiway_tree`, `boost::tree`) from the **Boost Graph Library**, or several containers (e.g. `std::set`, `std::map`) from the **STL**, which can be used to implement trees. Although trees can be implemented via arrrays (binary heaps), typically they are implemented similarly to [linked lists](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md), where each node is a structure or class containing information, pointers, and optional logic.
+Note that it is commonly recommended to rely on proven, well-established, and widely recognized implementations that already exist, rather than reinventing the wheel. In the context of C++, these could include tree-based containers (e.g. `boost::multiway_tree`, `boost::tree`) from the **Boost Graph Library**, or several containers (e.g. `std::set`, `std::map`) from the **STL**, which can be used to implement trees. Although trees can be implemented via [arrrays](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) (binary heaps), typically they are implemented similarly to [linked lists](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md), where each node is a structure or class containing information, pointers, and optional logic.
 
 Within the scope of this repository, we'll take a closer look at simplified versions of popular trees to gain a deeper understanding of the fundamental concepts that underlie them. After this section, it would be beneficial to examine previously mentioned implementations in practice (e.g. pet-projects, LeetCode-like sites) to solidify the knowledge
 
@@ -70,7 +71,7 @@ When delving into the world of trees, it's essential to begin with binary trees,
 - **Binary Tree** — is a tree structure in which each node can have a maximum of $2$ children, referred to as the left child and the right child.  
 - **M-ary Tree** — is a generalization of binary trees, where each node can have a maximum of `m` children.
 
----
+
 <p align="center"><img src="./img/BinaryTreeTypes.png"/></p>
 
 **Binary Trees can be described as:**
