@@ -17,7 +17,8 @@ private:
         Node(const T& val) : _data(val), _left(nullptr), _right(nullptr) {}
     };
 
-    Node* root;
+    Node* _root;
+    int _size;
 
 public:
     // Special Member Functions
@@ -26,13 +27,18 @@ public:
     BST& operator=(const BST& rhs);
     ~BST();
 
+    // Element Access
+    Node* search(const T& value) const;
+    Node* maximum() const;
+    Node* minimum() const;
+    T predecessor(const T& value) const;
+    Node* successor(const T& value) const;
+
     // Capacity
     bool empty() const;
     int size() const;
-    bool contains(const T& value) const;
     int height() const;
     int depth() const;
-
 
     // Modifiers
     void insert(const T& value);

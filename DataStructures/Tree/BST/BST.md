@@ -80,6 +80,7 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**  
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/)
+- [Balancing a binary search tree](https://appliedgo.net/balancedtree/)
 
 
 
