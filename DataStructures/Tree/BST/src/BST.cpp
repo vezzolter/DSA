@@ -8,6 +8,7 @@
 #include "BST.h"
 
 
+
 // ------------------------
 // Special Member Functions
 // ------------------------
@@ -35,18 +36,19 @@ template<typename T>
 BST<T>::~BST() { clear(); }
 
 
+
 // --------------
 // Element Access
 // --------------
 
-// Finds a specific element within the container
+// Checks if a specific element is present within the container
 template<typename T>
-typename BST<T>::Node* BST<T>::search(const T& value) const {
+bool BST<T>::search(const T& value) const {
     Node* current = _root;
 
     while (current != nullptr) {
         if (current->_data == value) {
-            return current;
+            return true;
         }
         else if (current->_data > value) {
             current = current->_left;
@@ -56,39 +58,42 @@ typename BST<T>::Node* BST<T>::search(const T& value) const {
         }
     }
 
-    return nullptr;
+    return false;
 }
 
-// Finds the maximum element within the container
+// Finds the value of maximum element within the container
 template<typename T>
-typename BST<T>::Node* BST<T>::maximum() const {
+T BST<T>::maximum() const {
+    if (_root == nullptr) {
+        return 0;
+    }
+
+    Node* current = _root;
+
+    while (current->_right != nullptr) {
+        current = current->_right;
+    }
+
+    return current->_data; 
 }
 
-// Finds the minimum element within the container
+// Finds the value of minimum element within the container
 template<typename T>
-typename BST<T>::Node* BST<T>::minimum() const {
+T BST<T>::minimum() const {
+    if (_root == nullptr) {
+        return 0;
+    }
+
+    Node* current = _root;
+
+    while (current->_left != nullptr) {
+        current = current->_left;
+    }
+
+    return current->_data;
 }
 
-//// Finds the predecessor of a given value in the BST
-//template<typename T>
-//typename BST<T>::Node* BST<T>::predecessor(const T& value) const {
-//    Node* current = _root;
-//    Node* pred = nullptr;
-//
-//    while (current != nullptr) {
-//        if (current->_data < value) {
-//            pred = current;
-//            current = current->_right;
-//        }
-//        else {
-//            current = current->_left;
-//        }
-//    }
-//
-//    return pred;
-//}
-
-// Finds the value of the predecessor of a given value in the BST
+// Finds the value of predecessor for a given value
 template<typename T>
 T BST<T>::predecessor(const T& value) const {
     Node* current = _root;
@@ -112,10 +117,30 @@ T BST<T>::predecessor(const T& value) const {
     }
 }
 
-// Finds the successor of a given value in the BST
+// Finds the value of successor for a given value
 template<typename T>
-typename BST<T>::Node* BST<T>::successor(const T& value) const {
+T BST<T>::successor(const T& value) const {
+    Node* current = _root;
+    Node* succ = nullptr;
+
+    while (current != nullptr) {
+        if (current->_data > value) {
+            succ = current;
+            current = current->_left;
+        }
+        else {
+            current = current->_right;
+        }
+    }
+
+    if (succ != nullptr) {
+        return succ->_data;
+    }
+    else {
+        return T(); // 0
+    }
 }
+
 
 
 // --------
@@ -141,6 +166,7 @@ int BST<T>::height() const {
 template<typename T>
 int BST<T>::depth() const {
 }
+
 
 
 // ---------
@@ -188,46 +214,6 @@ void BST<T>::insert(const T& value) {
 template<typename T>
 void BST<T>::remove(const T& value) {
 }
-
-//// Erases all elements from the container
-//template<typename T>
-//void BST<T>::clear() {
-//    // Post-order traversal
-//    while (_root != nullptr) {
-//        Node* current = _root;
-//        
-//        // Traverse to the leftmost leaf node
-//        while (current->_left != nullptr || current->_right != nullptr) {
-//            if (current->_left != nullptr) {
-//                current = current->_left;
-//            }
-//            else {
-//                current = current->_right;
-//            }
-//        }
-//
-//        // Leaf delete directly, internal based on position
-//        if (current == _root) {
-//            delete _root;
-//            _root = nullptr;
-//        }
-//        else {
-//            Node* parent = predecessor(current->_data);
-//            
-//            // Left or right child
-//            if (parent->_left == current) {
-//                delete parent->_left;
-//                parent->_left = nullptr;
-//            }
-//            else {
-//                delete parent->_right;
-//                parent->_right = nullptr;
-//            }
-//        }
-//    }
-//
-//    _size = 0;
-//}
 
 // Erases all elements from the container
 template<typename T>

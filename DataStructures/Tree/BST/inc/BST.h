@@ -27,12 +27,12 @@ public:
     BST& operator=(const BST& rhs);
     ~BST();
 
-    // Element Access
-    Node* search(const T& value) const;
-    Node* maximum() const;
-    Node* minimum() const;
+    // Element Access (values, not pointers to nodes)
+    bool search(const T& value) const;
+    T maximum() const;
+    T minimum() const;
     T predecessor(const T& value) const;
-    Node* successor(const T& value) const;
+    T successor(const T& value) const;
 
     // Capacity
     bool empty() const;
