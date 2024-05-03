@@ -8,7 +8,6 @@
 #include "BST.h"
 
 
-
 // ------------------------
 // Special Member Functions
 // ------------------------
@@ -23,18 +22,15 @@ BST<T>::BST() : _root(nullptr), _size(0) { }
 
 // Deep copy constructor
 template<typename T>
-BST<T>::BST(const BST& rhs) {
-}
+BST<T>::BST(const BST& rhs) { }
 
 // Deep copy assignment operator
 template<class T>
-BST<T>& BST<T>::operator=(const BST& rhs) {
-}
+BST<T>& BST<T>::operator=(const BST& rhs) { }
 
 // Destructor
 template<typename T>
 BST<T>::~BST() { clear(); }
-
 
 
 // --------------
@@ -142,31 +138,64 @@ T BST<T>::successor(const T& value) const {
 }
 
 
-
 // --------
 // Capacity
 // --------
 
 // Checks if the container has no elements
 template<class T>
-bool BST<T>::empty() const {
-}
+bool BST<T>::empty() const { return _root == nullptr; }
 
 // Returns the number of elements in the container
 template<typename T>
-int BST<T>::size() const {
+int BST<T>::size() const { return _size; }
+
+// Helper function to calculate the height
+template<typename T>
+int BST<T>::heightHelper(Node* root, const T& value) const {
+    if (root == nullptr) {
+        return -1; // Height of an empty subtree is -1
+    }
+
+    if (value < root->_data) {
+        return 1 + heightHelper(root->_left, value);
+    }
+    else if (value > root->_data) {
+        return 1 + heightHelper(root->_right, value);
+    }
+    else {
+        auto maxHeight = [](int leftHeight, int rightHeight) {
+            return leftHeight > rightHeight ? leftHeight : rightHeight;
+        };
+        return maxHeight(heightHelper(root->_left, value), heightHelper(root->_right, value)) + 1;
+    }
 }
 
 // Returns the number of edges from leaf node to a particular node
 template<typename T>
-int BST<T>::height() const {
+int BST<T>::height(const T& value) const { return heightHelper(_root, value); }
+
+// Helper function to calculate the depth
+template<typename T>
+int BST<T>::depthHelper(Node* root, const T& value, int depth) const {
+    if (root == nullptr) {
+        return -1; // Node not found, return -1
+    }
+
+    if (root->_data == value) {
+        return depth;
+    }
+    else if (value < root->_data) {
+        return depthHelper(root->_left, value, depth + 1);
+    }
+    else {
+        return depthHelper(root->_right, value, depth + 1);
+    }
 }
 
 // Returns the number of edges from root to a particular node
 template<typename T>
-int BST<T>::depth() const {
-}
-
+int BST<T>::depth(const T& value) const { return depthHelper(_root, value, 0); }
 
 
 // ---------

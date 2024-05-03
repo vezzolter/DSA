@@ -20,6 +20,10 @@ private:
     Node* _root;
     int _size;
 
+    // Helper functions
+    int heightHelper(Node* root, const T& value) const;
+    int depthHelper(Node* root, const T& value, int depth) const;
+
 public:
     // Special Member Functions
     BST();
@@ -27,7 +31,7 @@ public:
     BST& operator=(const BST& rhs);
     ~BST();
 
-    // Element Access (values, not pointers to nodes)
+    // Element Access
     bool search(const T& value) const;
     T maximum() const;
     T minimum() const;
@@ -37,8 +41,8 @@ public:
     // Capacity
     bool empty() const;
     int size() const;
-    int height() const;
-    int depth() const;
+    int height(const T& value) const;
+    int depth(const T& value) const;
 
     // Modifiers
     void insert(const T& value);
