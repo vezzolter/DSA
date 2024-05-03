@@ -20,9 +20,12 @@ The **Binary Search Tree (BST)** stands out as one of the most common implementa
 
 ---
 **Important Details:**
-- **Duplicates** — while some implementations disallow duplicates elements, some allow. The question is how to handle them is up to developer, one common approach is to add counter to each node and simply update it.
-- **Balance** — insertion and deletion can affect the balance of the BST, meaning that the heights of the left and right subtrees of nodes may differ significantly. If that happens tree may still function correctly, but it may exhibit degraded performance (both space and time), especially for large datasets. To prevent this, balancing mechanisms may be employed (e.g. AVL, Red-Black).
+- **Duplicates** — while some implementations disallow duplicates elements, some allow. The question is how to handle them is up to developer, one common approach can be either to add counter to each node and simply update it, or entirely skip duplicates.
+- **Balance** — insertions and deletions can affect the balance of the BST, meaning that the heights of the left and right subtrees of nodes may differ significantly. If that happens tree may still function correctly, but it may exhibit degraded performance (both space and time), especially for large datasets. To prevent this, balancing mechanisms may be employed (e.g. AVL, Red-Black).
 
+---
+**Operations:**  
+Currently in Progress...
 
 
 
@@ -32,8 +35,16 @@ Currently in Progress...
 
 
 # &#128202; Analysis
-Currently in Progress...
+Assuming that BST is based on a [linked list](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) structure, it incorporates its pros (Efficient element rearranging, diverse memory allocation, minimizing unused space) and cons (inefficient sequential access, additional memory consumption), which you have to keep in mind.
 
+---
+**Advantages:**
+- **Efficient Operations** — due to ordered structure searching space reduces in half at each step, e.g. insertion, deletion, search on average takes $O(logn)$ time and only in some cases when tree is highly disbalanced it can reach $O(n)$.
+
+---
+**Disadvantages:**
+- **Lack of Balance** — as mentioned earlier, the lack of balance can degrade performance, so to avoid this you should either implement balancing techniques or provide specific input.
+- **Handling Duplicates** — also mentioned earlier, handling duplicates can introduce ambiguity and additional complexity, which can affect the design.
 
 
 # &#128221; Application
