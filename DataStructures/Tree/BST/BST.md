@@ -48,7 +48,23 @@ Assuming that BST is based on a [linked list](https://github.com/vezzolter/DSA/b
 
 
 # &#128221; Application
-Currently in Progress...
+**Some of the Most Well-Known Use Cases:**
+- **Searching and Retrieval** — BST trees are mainly utilized for effective data retrieval and searchin operations. Their main property is what makes them a well-suited choice for numerous applications.
+- **Symbol Tables** — BST trees are used to implement symbol tables to ensure efficient operations. Identifiers such as variables and functions are stored as keys, their associated data or attributes are stored as values, and BSTs allow for quick retrieval based on keys.
+- **Database Systems** — BST trees are used in database systems to ensure efficient operations. Just like with symbol tables, BSTs allow to organize records based on keys and perform quick retrieval.
+- **Auto-Completing/Checking** — BST trees can be used in various search/checking engines to help make a right decision. Based on the prefix entered, BSTs allow to reduce the space and provide fitting options within entered data.
+
+---
+**Common Practical Problems:**
+- Find median of BST
+- Find the node with minimum value
+- Lowest Common Ancestor
+- Count of pairs violating BST property
+- Balance a BST
+- Find the maximum sum leaf to root path
+- Find a pair with given sum in a balanced BST
+- Merge BSTs to create single BST
+- Range sum of BST
 
 
 
@@ -92,7 +108,7 @@ For contact details and additional information, please refer to the [root direct
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/)
 - [Balancing a binary search tree](https://appliedgo.net/balancedtree/)
-
+- [Top 50 Binary Search Tree Coding Problems for Interviews](https://www.geeksforgeeks.org/top-50-binary-search-tree-coding-problems-for-interviews/)
 
 
 # &#128271; License
