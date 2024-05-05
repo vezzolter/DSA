@@ -69,7 +69,7 @@ Assuming that BST is based on a [linked list](https://github.com/vezzolter/DSA/b
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The concept of Binary Search Trees as a data structure is attributed to the work of several computer scientists and mathematicians over the years. This list includes **A.S. Douglas(?)**, **P.F. Windley(?)**, **Andrew Donald Booth**, **Andrew John Theodore Colin** and **Thomas Nathaniel Hibbard**. All of them contributed in some way to the idea of BST around **1959-1962**. Establishing the starting point for the development of new data structures, balanced versions.
 
 
 
@@ -109,6 +109,8 @@ For contact details and additional information, please refer to the [root direct
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/)
 - [Balancing a binary search tree](https://appliedgo.net/balancedtree/)
 - [Top 50 Binary Search Tree Coding Problems for Interviews](https://www.geeksforgeeks.org/top-50-binary-search-tree-coding-problems-for-interviews/)
+- [On the efficiency of a new method of dictionary construction](https://www.sciencedirect.com/science/article/pii/S0019995860909013)
+- [More combinatorial properties of certain trees](http://comjnl.oxfordjournals.org/content/7/4/299.full.pdf)
 
 
 # &#128271; License
