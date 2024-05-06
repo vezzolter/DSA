@@ -67,7 +67,7 @@ Note that it is commonly recommended to rely on proven, well-established, and wi
 Within the scope of this repository, we'll take a closer look at simplified versions of popular trees to gain a deeper understanding of the fundamental concepts that underlie them. After this section, it would be beneficial to examine previously mentioned implementations in practice (e.g. pet-projects, LeetCode-like sites) to solidify the knowledge
 
 ---
-When delving into the world of trees, it's essential to begin with binary trees, often regarded as the foundational building blocks. Before exploring more intricate tree structures, let's first establish a solid understanding of two fundamental concepts:
+When delving into the world of trees, it's essential to begin with binary tree, often regarded as the foundational building block. Before exploring more intricate tree structures, let's first establish a solid understanding of two fundamental concepts:
 - **Binary Tree** — is a tree structure in which each node can have a maximum of $2$ children, referred to as the left child and the right child.  
 - **M-ary Tree** — is a generalization of binary trees, where each node can have a maximum of `m` children.
 
@@ -112,7 +112,17 @@ One of the most important things behind binary trees is how elements are inserte
 
 
 # &#128202; Analysis
-Currently in Progress...
+
+**Advantages:**
+- **Hierarchical Structure** — trees structure allows for a natural representation of parent-child relationships, making it easy to understand and visualize the data.
+- **Dynamic Nature** — trees can grow and shrink as needed, by simple change of required pointers.
+- **Searching and Retrieval** — some trees that posses ordering properties like Binary Search Tree ensure rapid access, as they can reduce the searching space in half at each step.
+
+---
+**Disadvantages:**
+- **Space Overhead** — trees may incur a higher memory consumption compared to other data structure, due to the need for additional pointers or metadata to maintain the structure.
+- **Complexity of Operations** — trees have more complex implementation of operations compared to linear data structures. Handling balancing, traversal, and manipulations require additional attention to intricate details, which can easily be overlooked.
+- **Potential Degraded Performance** — trees may suffer from degraded performance if they become unbalanced or exhibit poor structural properties. This can compromise the efficiency of searching and maintenance, adding to the complexity of implementation and resource requirements.
 
 
 
@@ -176,6 +186,7 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure)) (Wikipedia)
+- [Tree structure](https://en.wikipedia.org/wiki/Tree_structure) (Wikipedia)
 - [Tree - Terminology](http://www.btechsmartclass.com/data_structures/tree-terminology.html)
 - [Binary tree](https://en.wikipedia.org/wiki/Binary_tree) (Wikipedia)
 - [Binary Tree: Properties, Types, Representation, Application](https://www.enjoyalgorithms.com/blog/introduction-to-binary-tree)
