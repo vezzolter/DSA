@@ -127,7 +127,23 @@ One of the most important things behind binary trees is how elements are inserte
 
 
 # &#128221; Application
-Currently in Progress...
+**Some of the Most Well-Known Use Cases:**
+- **File Systems** — trees are used in file systems to represent hierarchy. Each node in the tree represents a directory or folder, and the branches represent subdirectories or files contained within each directory.
+- **Database Indexing** — trees often used in database indexing to organize and search records based on keys. They enable quick retrieval of data in databases by providing an efficient index structure that allows for fast lookup operations.
+- **GUIs** — trees often used in GUIs to represent the hierarchical structure of user interface elements such as menus, widgets, and windows. Each node in the tree represents a UI component, and the branches represent the containment relationships between these components.
+- **Networking** — trees often used in networking to represent network topologies and routing tables. They provide a structured way to organize and manage network devices and connections, making it easier to route data packets efficiently between different nodes in the network.
+- **Decision Making** — trees often used in decision-making processes to model complex decision scenarios and evaluate different options. Each node in the tree represents a decision or a possible outcome, and the branches represent the different choices or paths that can be taken. By traversing the tree, decision-makers can analyze the potential outcomes of different choices and make informed decisions based on the available information.
+
+---
+**Common Practical Problems:**
+- Maximum depth of binary tree
+- Construct binary tree from preorder and inorder traversal
+- Invert binary tree
+- Same tree
+- Binary tree level order traversal
+- Binary tree maximum path sum
+- Serialize and deserialize binary tree
+- Count valid paths in a tree
 
 
 
