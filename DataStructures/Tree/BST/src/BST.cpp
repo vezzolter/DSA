@@ -265,6 +265,84 @@ void BST<T>::insert(const T& value) {
 // Removes the particular element of the container
 template<typename T>
 void BST<T>::remove(const T& value) {
+    Node* parent = nullptr;
+    Node* current = _root;
+
+    // Search for the node with the given value (instead of iterator)
+    while (current != nullptr && current->_data != value) {
+        parent = current;
+        if (value < current->_data) {
+            current = current->_left;
+        }
+        else {
+            current = current->_right;
+        }
+    }
+
+    // If the value is not found, return
+    if (current == nullptr) {
+        return;
+    }
+
+    // Case 1: Node to be deleted has no children (leaf node)
+    if (current->_left == nullptr && current->_right == nullptr) {
+        if (parent == nullptr) {
+            _root = nullptr;
+        }
+        else if (parent->_left == current) {
+            parent->_left = nullptr;
+        }
+        else {
+            parent->_right = nullptr;
+        }
+        delete current;
+        _size--;
+    }
+    // Case 2: Node to be deleted has one child
+    else if (current->_left == nullptr) {
+        if (parent == nullptr) {
+            _root = current->_right;
+        }
+        else if (parent->_left == current) {
+            parent->_left = current->_right;
+        }
+        else {
+            parent->_right = current->_right;
+        }
+        delete current;
+        _size--;
+    }
+    else if (current->_right == nullptr) {
+        if (parent == nullptr) {
+            _root = current->_left;
+        }
+        else if (parent->_left == current) {
+            parent->_left = current->_left;
+        }
+        else {
+            parent->_right = current->_left;
+        }
+        delete current;
+        _size--;
+    }
+    // Case 3: Node to be deleted has two children
+    else {
+        Node* successorParent = current;
+        Node* successor = current->_right;
+        while (successor->_left != nullptr) {
+            successorParent = successor;
+            successor = successor->_left;
+        }
+        current->_data = successor->_data;
+        if (successorParent->_left == successor) {
+            successorParent->_left = successor->_right;
+        }
+        else {
+            successorParent->_right = successor->_right;
+        }
+        delete successor;
+        _size--;
+    }
 }
 
 // Erases all elements from the container

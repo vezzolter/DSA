@@ -63,37 +63,33 @@ int main() {
 	std::cout << "Success: BST #2 has been created!\n";
 
 	// Verify
-	std::cout << "\nShowing capacity methods for tree #2...\n";
-	std::cout << "Is it empty:\t" << (tree2.empty() ? "Yes" : "No") << std::endl;
 	std::cout << "Tree size:\t" << tree2.size() << std::endl;
-	std::cout << "Height of '8':\t" << tree2.height(8) << std::endl;
-	std::cout << "Depth of '8':\t" << tree2.depth(8) << std::endl;
-
-	std::cout << "\nShowing element access methods for tree #2...\n";
-	std::cout << "Is '14' present:\t" << (tree2.search(14) ? "Yes" : "No") << std::endl;
-	std::cout << "Maximum element:\t" << tree2.maximum() << std::endl;
-	std::cout << "Minimum element:\t" << tree2.minimum() << std::endl;
-	std::cout << "Predecessor of '8':\t" << tree2.predecessor(8) << std::endl;
-	std::cout << "Successor of '8':\t" << tree2.successor(8) << std::endl;
+	std::cout << "Maximum:\t" << tree2.maximum() << std::endl;
+	std::cout << "Minimum:\t" << tree2.minimum() << std::endl;
 	
 	// Show assignment operator
 	std::cout << "\nCreating a copy tree #3 via assignment operator...\n";
 	BST<int> tree3 = tree1;
 	std::cout << "Success: BST #3 has been created!\n";
+	std::cout << "Tree size:\t" << tree3.size() << std::endl;
+	std::cout << "Maximum:\t" << tree3.maximum() << std::endl;
+	std::cout << "Minimum:\t" << tree3.minimum() << std::endl;
+
+	// Remove
+	std::cout << "\nRemoving all elements from tree #1 at 3 level...\n";
+	tree1.remove(0); // level 3
+	tree1.remove(3);
+	tree1.remove(7);
+	tree1.remove(9);
+	tree1.remove(11);
+	tree1.remove(14);
+	std::cout << "Success: Elements from BST #1 has been removed!\n";
 
 	// Verify
-	std::cout << "\nShowing capacity methods for tree #3...\n";
-	std::cout << "Is it empty:\t" << (tree3.empty() ? "Yes" : "No") << std::endl;
-	std::cout << "Tree size:\t" << tree3.size() << std::endl;
-	std::cout << "Height of '8':\t" << tree3.height(8) << std::endl;
-	std::cout << "Depth of '8':\t" << tree3.depth(8) << std::endl;
-
-	std::cout << "\nShowing element access methods for tree #3...\n";
-	std::cout << "Is '14' present:\t" << (tree3.search(14) ? "Yes" : "No") << std::endl;
-	std::cout << "Maximum element:\t" << tree3.maximum() << std::endl;
-	std::cout << "Minimum element:\t" << tree3.minimum() << std::endl;
-	std::cout << "Predecessor of '8':\t" << tree3.predecessor(8) << std::endl;
-	std::cout << "Successor of '8':\t" << tree3.successor(8) << std::endl;
+	std::cout << "\nChecking how it affected the trees...\n";
+	std::cout << "Tree #1 size:\t" << tree1.size() << std::endl;
+	std::cout << "Tree #2 size:\t" << tree2.size() << std::endl;
+	std::cout << "Tree #3 size:\t" << tree3.size() << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
