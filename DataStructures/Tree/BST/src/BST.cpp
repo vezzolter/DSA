@@ -20,13 +20,36 @@ BST<T>::BST() : _root(nullptr), _size(0) { }
 //template<class T>
 //BST<T>::BST(const std::initializer_list<T>& initList) { }
 
+
+// Helper function to recursively copy nodes
+template<typename T>
+typename BST<T>::Node* BST<T>::copyNodes(Node* src) {
+    if (src == nullptr) {
+        return nullptr;
+    }
+
+    Node* newNode = new Node(src->_data);
+    newNode->_left = copyNodes(src->_left);
+    newNode->_right = copyNodes(src->_right);
+    return newNode;
+}
+
 // Deep copy constructor
 template<typename T>
-BST<T>::BST(const BST& rhs) { }
+BST<T>::BST(const BST& rhs) : _root(nullptr), _size(rhs._size) {
+    _root = copyNodes(rhs._root);
+}
 
 // Deep copy assignment operator
-template<class T>
-BST<T>& BST<T>::operator=(const BST& rhs) { }
+template<typename T>
+BST<T>& BST<T>::operator=(const BST& rhs) {
+    if (this != &rhs) {
+        clear(); // prevent existing values
+        _root = copyNodes(rhs._root);
+        _size = rhs._size;
+    }
+    return *this;
+}
 
 // Destructor
 template<typename T>
