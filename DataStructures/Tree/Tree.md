@@ -148,7 +148,9 @@ One of the most important things behind binary trees is how elements are inserte
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The concept of tree data structures, due to its natural and simple idea, emerged long ago and independently throughout the world. One notable documented mention comes from the field of mathematics, particularly from the German physicist and mathematician **Gustav Robert Kirchhoff**. In **1847**, Kirchhoff used trees to find a set of fundamental cycles in an electrical network in connection with the law that bears his name. Another German mathematician, **Karl Georg Christian von Staudt**, also used the same concept around this time in his book _«Geometrie der Lage»_. About ten years later (**1857**), the British mathematician **Arthur Cayley** described trees in terms of enumeration in his series of papers _«Collected Mathematical Papers of A. Cayley»_. Since then, numerous people have contributed to the idea of trees, such as Carl Wilhelm Borchardt, Johann Benedict Listing, Marie Ennemond Camille Jordan, Denes Konig, Luitzen Egbertus Jan "Bertus" Brouwer.
+
+In the context of computer programming, the origins of trees came from mathematics, quickly gaining widespread adoption and undergoing continuous development by many people worldwide around **1950**. This led to the appearance of many different versions such as AVL (1962), B-Tree (1970), Red-Black (1978), Fenwick (1989), and many others along the way.
 
 
 
