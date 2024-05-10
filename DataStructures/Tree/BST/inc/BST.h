@@ -20,7 +20,7 @@ private:
     Node* _root;
     int _size;
 
-    // Helper functions (Due to lack of iterator class)
+    // Helper functions (due to lack of iterator class)
     Node* copyNodes(Node* root);
     int heightHelper(Node* root, const T& value) const;
     int depthHelper(Node* root, const T& value, int depth) const;

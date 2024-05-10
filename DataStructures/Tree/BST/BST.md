@@ -30,14 +30,65 @@ Currently in Progress...
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+Since it's commonly recommended to rely on proven implementations rather than reinventing the wheel, you might think that there must be some well-established and widely recognized containers. The truth is that in the context of C++, people usually refer to [std::map](https://en.cppreference.com/w/cpp/container/map) or [std::set](https://en.cppreference.com/w/cpp/container/set) to fulfill the access characteristics. This happens because people choose containers based on guarantees and not based on how the containers are implemented (even though map and set are usually implemented as Red-Black trees). An alternative to this approach is to use some of the containers from [Boost Graph Library](https://www.boost.org/doc/libs/?view=category_containers). Long story short, there is no container exactly replicating a BST, and there are reasons for this. Therefore, this section explores only a simplified version to gain a deeper understanding of the fundamental concepts underlying this data structure.
+
+---
+<p align="center"><img src="./img/Demonstration.png"/></p>
+
+**Implementation Overview:**
+1. One significant design decision is the implementation of a container without the iterator class. Generally speaking, most BST functions are supposed to return a pointer to a node. Since the node is a private part of the class, there is no way to store or access this type of node outside the class. In order to allow this behavior, classes have iterator classes, but it slightly adds to the overall complexity and shifts the focus from how operations are done to an additional layer of processing. Therefore, to remove this additional layer, the class primarily operates on the data and some additional functions. Basically, all the ideas behind are the same; once you grasp them (which is much easier directly), you will see that updating the class for iterators is not going to change approaches drastically, but rather the return types and comparing values. (This decision is still under review).
+
+2. Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/blob/bin-tree/DataStructures/Tree/BST/src/Main.cpp) file. The `BST` class is declared in [BST.h](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BST/inc) header file and defined in [BST.cpp](https://github.com/vezzolter/DSA/blob/bin-tree/DataStructures/Tree/BST/src/BST.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency. Here's the class declaration for convenience:
+```cpp
+  template <typename T>
+  class BST {
+  private:
+      struct Node {
+          T _data;
+          Node* _left;
+          Node* _right;
+
+          Node(const T& val) : _data(val), _left(nullptr), _right(nullptr) {}
+      };
+
+      Node* _root;
+      int _size;
+
+      // Helper functions (due to lack of iterator class)
+      Node* copyNodes(Node* root);
+      int heightHelper(Node* root, const T& value) const;
+      int depthHelper(Node* root, const T& value, int depth) const;
+
+  public:
+      // Special Member Functions
+      BST();
+      BST(const BST& rhs);
+      BST& operator=(const BST& rhs);
+      ~BST();
+
+      // Element Access
+      bool search(const T& value) const;
+      T maximum() const;
+      T minimum() const;
+      T predecessor(const T& value) const;
+      T successor(const T& value) const;
+
+      // Capacity
+      bool empty() const;
+      int size() const;
+      int height(const T& value) const;
+      int depth(const T& value) const;
+
+      // Modifiers
+      void insert(const T& value);
+      void remove(const T& value);
+      void clear();
+  };
+```
 
 
 
 # &#128202; Analysis
-Assuming that BST is based on a [linked list](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) structure, it incorporates its pros (Efficient element rearranging, diverse memory allocation, minimizing unused space) and cons (inefficient sequential access, additional memory consumption), which you have to keep in mind.
-
----
 **Advantages:**
 - **Efficient Operations** — due to ordered structure searching space reduces in half at each step, e.g. insertion, deletion, search on average takes $O(logn)$ time and only in some cases when tree is highly disbalanced it can reach $O(n)$.
 
@@ -49,10 +100,8 @@ Assuming that BST is based on a [linked list](https://github.com/vezzolter/DSA/b
 
 # &#128221; Application
 **Some of the Most Well-Known Use Cases:**
-- **Searching and Retrieval** — BST trees are mainly utilized for effective data retrieval and searchin operations. Their main property is what makes them a well-suited choice for numerous applications.
-- **Symbol Tables** — BST trees are used to implement symbol tables to ensure efficient operations. Identifiers such as variables and functions are stored as keys, their associated data or attributes are stored as values, and BSTs allow for quick retrieval based on keys.
-- **Database Systems** — BST trees are used in database systems to ensure efficient operations. Just like with symbol tables, BSTs allow to organize records based on keys and perform quick retrieval.
-- **Auto-Completing/Checking** — BST trees can be used in various search/checking engines to help make a right decision. Based on the prefix entered, BSTs allow to reduce the space and provide fitting options within entered data.
+- **Tree Data Structures** — BST trees are used as base for other trees, specifically balanced and string trees. They all use this data structure for its property of maintaining sorted order but modify it for its needs.
+- **Subset of Tree Cases** — BST trees also can be modified to fit in numerous other types of [trees'](https://github.com/vezzolter/DSA/blob/bin-tree/DataStructures/Tree/Tree.md) applications, such as file systems, database indexing, networking.
 
 ---
 **Common Practical Problems:**
@@ -69,7 +118,7 @@ Assuming that BST is based on a [linked list](https://github.com/vezzolter/DSA/b
 
 
 # &#x1F559; Origins
-The concept of Binary Search Trees as a data structure is attributed to the work of several computer scientists and mathematicians over the years. This list includes **A.S. Douglas(?)**, **P.F. Windley(?)**, **Andrew Donald Booth**, **Andrew John Theodore Colin** and **Thomas Nathaniel Hibbard**. All of them contributed in some way to the idea of BST around **1959-1962**. Establishing the starting point for the development of new data structures, balanced versions.
+The concept of Binary Search Trees as a data structure is attributed to the work of several computer scientists and mathematicians over the years. This list includes **A.S. Douglas(?)**, **P.F. Windley(?)**, **Andrew Donald Booth**, **Andrew John Theodore Colin** and **Thomas Nathaniel Hibbard**. All of them contributed in some way to the idea of BST around **1959-1962**. Establishing the starting point for the development of new types of trees, such as balanced and string versions.
 
 
 
