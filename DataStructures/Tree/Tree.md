@@ -104,7 +104,7 @@ When delving into the world of trees, it's essential to begin with binary tree, 
 **Implementation Details** 
 
 One of the most important things behind binary trees is how elements are inserted into them. The insertion process similiar linked lists, albeit with slight adjustments — elements are inserted based on specific criteria. These criteria can vary, making the binary tree an adaptable container to diverse needs. Perhaps this adaptability is the reason why there's no single container that precisely represents a general binary tree, and it's certainly the reason I've chosen not to implement one. Instead, I suggest starting with this brief overview of binary trees to avoid overwhelming complexity, and head to next types of trees listed in this repository in the following order:
-  - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BST)🎯
+  - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BST)✅
   - AVL Tree (will be updated in the future...)
   - Red-Black Tree (will be updated in the future...)
   - B-Tree (will be updated in the future...)
@@ -112,10 +112,11 @@ One of the most important things behind binary trees is how elements are inserte
 
 
 # &#128202; Analysis
+Assuming that tree is based on a [linked list](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) structure, it incorporates its pros (dynamic nature, diverse memory allocation, minimizing unused space) and cons (inefficient sequential access, additional memory consumption), which is worthwhile to keep in mind.
 
+---
 **Advantages:**
 - **Hierarchical Structure** — trees structure allows for a natural representation of parent-child relationships, making it easy to understand and visualize the data.
-- **Dynamic Nature** — trees can grow and shrink as needed, by simple change of required pointers.
 - **Searching and Retrieval** — some trees that posses ordering properties like Binary Search Tree ensure rapid access, as they can reduce the searching space in half at each step.
 
 ---

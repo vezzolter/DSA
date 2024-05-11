@@ -24,8 +24,20 @@ The **Binary Search Tree (BST)** stands out as one of the most common implementa
 - **Balance** — insertions and deletions can affect the balance of the BST, meaning that the heights of the left and right subtrees of nodes may differ significantly. If that happens tree may still function correctly, but it may exhibit degraded performance (both space and time), especially for large datasets. To prevent this, balancing mechanisms may be employed (e.g. AVL, Red-Black).
 
 ---
-**Operations:**  
-Currently in Progress...
+**Operations Details:**  
+
+Most operations in BST heavily rely on recursion, although it's possible to implement them using iteration, people generally prefer the first option due to its natural and intuitive approach. To understand them all thoroughly, it's much easier to comprehend the general concepts behind them. This way, understanding how _minimum_ operates will make replicating _maximum_ straightforward. Here are some explanations to functions (probably will be updated in the future to include more):
+
+- **Searching** — this function takes a pointer to the root and the value of the node to search for. If such a node exists, it returns a pointer to it; otherwise, it returns `nullptr`. The typical recursive implementation involves starting the traversal of the tree at the root node and comparing the current node's value to the value being searched for. If the current node's value is equal to the search value, the function returns a pointer to this node. If the current node's value is greater than the search value, the function moves to the left child and repeats the process. Similarly, if the current node's value is less than the search value, the function moves to the right child and repeats the process. If the entire tree has been traversed without finding the search value, the function returns `nullptr`.
+
+- **Removing** — this function takes a pointer to the root and the value of the node to delete. It iterates through the tree, just like previous function and considers 4 basic cases:
+  - **Node is Absent** — usually people simply return the function, laying responsibility on the user, but it depends on the implementation.
+  - **No Children** — update parent's node respective pointer (left/right child) to `nullptr`, free the memory and optionally handle any metadata logic.
+  - **One Child** — redirect parent's node pointer to respective child node (left/right), free the memory and optionally handle any metadata logic.
+  - **Two Children** — find successor for node to be deleted, which is smallest node in the right subtree, copy successor's data into deleting node, free the memory of successor, update it's parent's relative pointer and optionally handle any metadata logic.
+
+- **Traversal** — here are several ways to traverse the tree. For this topic, there is a dedicated subsection on Graph & Tree Traversals (the link will be updated in the future).
+
 
 
 
