@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the Middle-Square Method](#-what-is-the-middle-square-method)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Middle-Square Method
+# &#128161; Overview
 The **Middle-Square Method** stands out as one of the simplest and earliest known pseudorandom number generators (PRNG). The algorithm is named this way, because of its two primary operations in it, which is squaring the seed value and then extracting the middle digits from the squared result. Knowledge and understanding of it, lays the foundation for tackling more complex random number generation methods and problem-solving strategies.
 <p align="center"><img src="./img/MiddleSquareMethod.png"/></p>
 
@@ -96,7 +96,7 @@ Middle-Square Method's utility is limited in modern software development context
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 The **Middle-Square Method** was one of the first attempts to use a computational approach to generate sequences of seemingly random numbers, proposed and described by Hungarian-American mathematician and physicist **John von Neumann** at a conference in **1949**. At the time of its invention, digital computers were still in their infancy, and there was a need for methods to generate sequences of numbers that appeared random for various scientific and engineering applications. While the method is rudimentary by modern standards and has well-known shortcomings, it laid the foundation for subsequent developments in pseudorandom number generation.
 
 
@@ -106,8 +106,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

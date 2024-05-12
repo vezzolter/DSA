@@ -3,7 +3,7 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -127,7 +127,7 @@ Selection Sort's utility is limited in modern software development contexts due 
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 The idea of Selection Sort can be observed in many real life activities due to its simplicity, such as arranging playing cards in a hand, sorting stones by size, or organizing items in a list. These and many other manual sortings involve repeatedly selecting the smallest/highest elements and moving to the start/end. In terms of computer science, Selection Sort was one of the earliest sorting algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity.
 
 
@@ -138,7 +138,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

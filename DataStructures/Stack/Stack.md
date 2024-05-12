@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the Stack](#-what-is-the-stack)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Stack
+# &#128161; Overview
 The **Stack** stands out as one of the most fundamental abstract data type (ADT) in computer science that serves as a linear collection of elements, which becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a last-in-first-out (LIFO) manner. It is named this way, because of how it resembles the behavior of adding or removing items from the top of a physical stack. This subsection explores the stack ADT not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./img/Stack.png"/></p>
 
@@ -265,7 +265,7 @@ The analysis of stack in terms of space and time mostly based on underlaying dat
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 Due to the simple and natural concept of this data structure it was quite common in computer programming from the earliest days and its origins cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. However, it is still possible to retrace a few notable contributions to understanding of stack to the following people **Jan Lukasiewicz**, **Konrad Zuse**, **Alan Mathison Turing**, **Charles Leonard Hamblin** and most notably **Klaus Samelson** with **Friedirch Ludwig Bauer**, who in March 1988 received the IEEE Computer Pioneer Award for the invention of the stack principle.
 
 
@@ -275,8 +275,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

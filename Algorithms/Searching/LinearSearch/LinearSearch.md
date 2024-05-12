@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the Insertion Sort](#-what-is-the-insertion-sort)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Linear Search
+# &#128161; Overview
 The **Linear Search** stands out as the simplest known approach to search for an element in a collection. The algorithm is named for the way it applies linear (or also known as sequential) manner to the search. Knowledge and understanding of it, lays the foundation for tackling more complex searching algorithms and problem-solving strategies.
 <p align="center"><img src="./img/LinearSearch.png"/></p>
 
@@ -101,7 +101,7 @@ return -1;
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 The idea of Linear Search can be observed in many real life activities due to its simplicity. In terms of computer science, it was one of the earliest searching algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity.
 
 
@@ -111,8 +111,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

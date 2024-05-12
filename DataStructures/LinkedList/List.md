@@ -6,7 +6,7 @@
 	- [Circular Linked List](#circular-linked-list)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -865,7 +865,7 @@ void CLL<T>::pushFront(const T& newData) {
 - Sort a Linked List which is already sorted on absolute values.
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 The concept of linked lists, renowned for their efficient dynamic memory management, has evolved over time and there is no single individual behind them, especially because historical origins are not always well-recorded. Documented mention of them comes from **Hans Peter Luhn** in **1953**, who conceived of linked lists as a solution for Chained Hash Maps. Nevertheless, the first notable contribution to the practical implementation of this concept in the field of programming comes from **Allen Newell**, **Cliff Shaw** and **Herbert Alexander Simon**, who developed Information Processing Language in **1955–1956** at RAND Corporation and Carnegie Mellon University. From that point on in programming history, 
 linked lists quickly gained widespread adoption and underwent continuous development by programmers worldwide, becoming a fundamental component in various programming languages and data structures.
 
@@ -877,7 +877,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

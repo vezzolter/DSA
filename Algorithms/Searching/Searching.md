@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
-- [💡 What is the Searching](#-what-is-the-searching)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Searching
+# &#128161; Overview
 **Searching** is a widely used operation in computer science to retrieve information. It helps to locate specific items or data within datasets in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
 <p align="center"><img src="./img/searching.png"/></p>
 
@@ -104,7 +104,7 @@ When it comes to analysis of searching algorithms in general there is no "one-si
 
 
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 The concept of searching emerged unknown-long time ago and primarly attributed to the collective ingenuity of humanity, the development of searching algorithms dates back in the early days of computing. The first search algorithms, such as **Linear Search** and **Binary Search** quickly gained widespread adoption and underwent continuous development by programmers worldwide, becoming a fundamental component in various applications. As people started to utilize tree and graph based data structures more, the relevant search algorithms like following ones appeared: **DFS**, **BFS**, **Dijkstra's Algorithm**, **A\***, **Greedy Best-First Search**, — which are still extremely valuable and efficient to this day. Another breakthrough came with the rising popularity of the internet, which created a need in sophisticated and compex search engines, that could both filtrate the large amounts of different data and decide what is relevant. One notable invention, that revolutioized web search was the **PageRank** developed by **Larry Page** and **Sergey Brin** in **1996**, which first prototype was utilized at **Google** in **1998**. Nowadays the direction of searching tend to utilize the **AI** and **NLP** driven ideas in order to deliver more accurate search results.
 
 
@@ -114,8 +114,8 @@ Unfortunatelly, I couldn't find much information about how to design or to analy
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

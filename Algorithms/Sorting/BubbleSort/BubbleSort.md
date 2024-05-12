@@ -3,7 +3,7 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -133,7 +133,7 @@ Bubble Sort's utility is limited in modern software development contexts due to 
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 In terms of computer science, Bubble Sort was one of the earliest sorting algorithms to be implemented in early computer programs. Its origin cannot be attributed to a single individual, rather it reflects the collective ingenuity of humanity. One notable contribution to this term, was documented in **1956** paper by mathematician and actuary **Edward Harry Friend**, who referred to it as "sorting exchange algorithm" and only later the well-known "Bubble Sort" name was coined by **Kenneth Eugene Iverson** in **1962**.
 
 
@@ -144,7 +144,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

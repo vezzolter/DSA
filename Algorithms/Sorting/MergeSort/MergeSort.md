@@ -3,7 +3,7 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -213,7 +213,7 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 The idea of merging goes back in **1938** to the invention of a card machine, the collator. It could merge two sorted decks of cards into one in only one pass. Few years later, the well-known Hungarian-American mathematician and physicist **John von Neumann** prepared programs for internal merge sorting in **1945**, in order to test the adequacy of some instruction codes he was proposing for the EDVAC computer. From that point on in computer science history, the idea of merging quickly gained widespread adoption and underwent continuous development by many people worldwide, becoming a widely used sorting technique.
 
 
@@ -224,7 +224,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

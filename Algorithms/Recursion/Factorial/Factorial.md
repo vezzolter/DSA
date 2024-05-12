@@ -1,20 +1,20 @@
 # &#128209; Table of Contents
-- [💡 What is the Factorial](#-what-is-the-factorial)
+- [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
   - [Recursive Paragidm](#recursive-paragidm)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Historical Notes](#-historical-notes)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact Information](#-contact-information)
+- [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
 
-# &#128161; What is the Factorial
+# &#128161; Overview
 The factorial stands among the fundamental mathematical patterns with widespread applications in permutation and combinatorial algorithms. It serves as an excellent example for understanding recursive principles in mathematics and computer science. A thorough understanding of the factorial enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
 
 ---
@@ -164,7 +164,7 @@ Additionally, when selecting from a consistent pool of options (e.g. such as pic
    e.g. the total number of ways to pack these (3) books apart from second shelf (4) is:  $C_n^k = \frac{4!}{(4-3)!3!} = \frac{4!}{1!3!} = \frac{4×3!}{1×3!} = \frac{4×1}{1×1} = 4$
    
 
-# &#x23F3; Historical Notes
+# &#x1F559; Origins
 Throughout human history, we have proven to be inherently drawn to stories, as understanding and retaining information is more effective through narrative and association. Realizing the potential, this historical section is included, offering a versatile approach to additional comprehension.
 
 While the exact historical moment of the discovery of factorials remains elusive, the concept likely emerged organically as mathematicians grappled with combinatorial questions over centuries. Unlike some mathematical concepts with well-documented stories, the origin of factorials might be attributed to the collective evolution of mathematical thought rather than a single revelatory moment.
@@ -178,8 +178,8 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 
-# &#128231; Contact Information
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contact-information).
+# &#128231; Contacts
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 

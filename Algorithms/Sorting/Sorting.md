@@ -3,7 +3,7 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
+- [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
@@ -97,7 +97,7 @@ The analysis of sorting algorithms in general relies on the assessment of previo
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 While sorting as concept emerged unknown-long time ago and throughout the whole world naturally, the development of sorting algorithms dates back in the early days of computing. One notable early milestone in the computer science's history of sorting methods goes back in the late **1880s**, when American genius **Herman Hollerith** started to work on tabulating machines and came up with efficient solution to automate the manual process by formulating an algorithm, which only later led to the **Radix Sort**.
 
 The breakthrough came with the invention of divide-and-conquer sorting algorithm **Merge Sort** by Hungarian-American computer scientist **John von Neumann** in **1945** and other pioneers, that were born in the **1950s** such as **Bubble Sort** and the **Selection Sort**, which were simple but quite inefficient and thus impractical for large datasets. Later the famous **Quicksort** was developed by British computer scientist **Tony Hoare** in **1959** and published in **1961**, which still remains a commonly used algorithm for sorting. Summarizing, these individuals, among others, played crucial roles in integrating sorting into practical programming paradigms.
@@ -110,7 +110,7 @@ Contributions are highly appreciated! For detailed guidelines, please refer to t
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contact-information).
+For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
 
 
 

@@ -87,7 +87,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - Knapsack
     - Coin Change
     - LCS (Longest Common Subsequence)
-    - LIS (Lingest Increasing Subsequence)
+    - LIS (Longest Increasing Subsequence)
   - Greedy Programming
     - GreedyProgramming.md
     - Activity Selection
@@ -115,15 +115,12 @@ This list provides a straightforward overview of the repository's contents. For 
   - String
     - String.md
     - String
-  - Tree 🎯
-    - Tree.md 🎯
-    - Binary Tree
-    - BST (Binary Search Tree)
+  - Tree
+    - [Tree.md](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/Tree.md) 🎯
+    - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/bin-tree/DataStructures/Tree/BST)✅
     - AVL Tree  
     - Red-Black Tree 
-    - Splay Tree
     - B-Tree
-    - B+ Tree
   - Graph
     - Graph.md
     - Undirected Graph
