@@ -66,8 +66,18 @@ The list of known sorting algorithms is extensive and continues to grow. When it
 
 
 # &#128202; Analysis
-The analysis of sorting algorithms in general relies on the assessment of previously mentioned metrics. Here I will provide a continually updated overview with relevant to this repository sortings. The following table represents a concise summary of these algorithms, highlighting their respective performances. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding subsection.
-<p align="center"><img src="./img/SortingAnalysis.png"/></p>
+The analysis of sorting algorithms in general relies on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder via list below:
+- [Sorting.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Sorting.md) ✅
+- [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
+- [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
+- [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
+- [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
+- [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
+- Heap Sort
+- Radix Sort
+- Counting Sort
+- Bucket Sort
+ - Shell Sort
 
 
 

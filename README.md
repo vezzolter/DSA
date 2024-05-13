@@ -151,21 +151,20 @@ As my educational journey progresses, I may discover new areas of interest withi
 ---
 **Backlog:**
 1. **Search, Sorting:** add more test cases.
-2. **Search, Sorting:** delegate analysis to respective algorithms by creating a reference list.
-3. **RNG:** find a proper learning resource and continue the work.
-4. **Recursion:** rewrite to be more concise, in analysis explain pros and cons, in applicaiton cases, time complexity analysis in separate section (maybe create even a dedicated section for analysis).
-5. **Data Structures:** rewrite structure in manner to BST: intro, definition, important details, operation details, existing containers, simplification details, only class declaration (maybe even only links), pros cons, use cases, problems.
-6. **Data Structures:** add iterator classes.
-7. **Data Structures:** explain all operations with images.
-8. **Deque, Circular Queue:** decide how to implement.
-9. **Array, List, Queue:** take out types in separate folders with markdownsm, just like BST out of trees.
-
+2. **RNG:** find a proper learning resource and continue the work.
+3. **Recursion:** rewrite to be more concise, in analysis explain pros and cons, in applicaiton cases, time complexity analysis in separate section (maybe create even a dedicated section for analysis).
+4. **Data Structures:** rewrite structure in manner to BST: intro, definition, important details, operation details, existing containers, simplification details, only class declaration (maybe even only links), pros cons, use cases, problems.
+5. **Data Structures:** add iterator classes.
+6. **Data Structures:** explain all operations with images.
+7. **Deque, Circular Queue:** decide how to implement.
+8. **Array, List, Queue:** take out types in separate folders with markdownsm, just like BST out of trees.
 
 ---
 **Wishlist:**
 - **Tips Subsections:** this subsection could provide some practical solutions that can benefit design decisions.
 - **Make Practical Problems Practical:** practice should be fast because there are plenty things to do besides DSA, so it's much better to list problems, which can be solved/learned/assested directly via platform. To achieve this, I should look for problems on popular sites (leetcode, codewars, etc), provide links to those problems, remove problems that can't be solved directly.
 - **Additional Approaches:** add sections for approaches: iteration, two pointers, sliding window.
+
 
 
 # &#128231; Contacts

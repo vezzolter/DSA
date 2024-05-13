@@ -79,7 +79,13 @@ The list of known searching algorithms is extensive and continues to grow. When 
 
 
 # &#128202; Analysis
-When it comes to analysis of searching algorithms in general there is no "one-size-fits-all" solution and the analysis relies heavily on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder.
+The analysis of searching algorithms in general relies primarily on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder via list below:
+- [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
+- [Binary Seacrh](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
+- Jump Search
+- Interpolation Search
+- Exponential Search
+- Fibonacci Search
 
 
 
