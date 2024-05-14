@@ -12,12 +12,8 @@
 
 
 # &#128161; Overview
-**Recursion** is a widely used idea in computer science to solve complex problems by breaking them down into simpler ones. It helps to develop elegant & efficient data structures and algorithms for all manner of applications. Many important implementations use recursion, so it's important to understand the concept.
-
-As a practical instance showcasing the nonmathematical application of recursion, let's turn to the example outlined by Mark Allen Weiss in his work "Data Structures and Algorithm Analysis in C++", listed below:
-
-> Consider a large dictionary. Words in dictionaries are defined in terms of other words. When we look up a word, we might not always understand the definition, so we might have to look up words in the definition. Likewise, we might not understand some of those, so we might have to continue this search for a while. Because the dictionary is finite, eventually either (1) we will come to a point where we understand all of the words in some definition (and thus understand that definition and retrace our path through the other definitions) or (2) we will find that the definitions are circular and we are stuck, or that some word we need to understand for a definition is not in the dictionary.
-
+**Recursion** is a widely used problem-solving approach in computer science to solve complex problems by recalling to the same entity, typically function, multiple times. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
+<p align="center"><img src="./img/Recursion.png"/></p>
 
 
 # &#x1F4BB; Implementation

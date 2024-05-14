@@ -12,7 +12,7 @@
 
 
 # &#128161; Overview
-**Divide and Conquer** is a widely used problem-solving strategy in computer science to solve complex problems by breaking them down into simpler ones. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
+**Divide and Conquer** is a widely used problem-solving approach in computer science to solve complex problems by breaking them down into simpler ones. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
 <p align="center"><img src="./img/DivideAndConquer.png"/></p>
 
 ---
