@@ -16,7 +16,7 @@
 <p align="center"><img src="./img/DivideAndConquer.png"/></p>
 
 ---
-**Essential Terminology (in the DSA context):**
+**Essential Terminology:**
 - **Problem** — is a task or challenge that requires a solution, typically defined by a set of inputs, constraints, and desired outputs. It can vary in complexity and scope, ranging from simple arithmetic calculations to complex optimization tasks.
   - **Sub Problem** — is a smaller, more manageable instance of the original problem.
 - **Problem-Solving Strategy** — is a method of approaching a problem to find a solution.

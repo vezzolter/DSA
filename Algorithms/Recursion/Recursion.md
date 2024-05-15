@@ -12,29 +12,32 @@
 
 
 # &#128161; Overview
-**Recursion** is a widely used problem-solving approach in computer science to solve complex problems by recalling to the same entity, typically function, multiple times. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
+**Recursion** is a widely used problem-solving approach in computer science to solve complex problems by recalling to the same instance, typically function, multiple times if needed. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
 <p align="center"><img src="./img/Recursion.png"/></p>
 
 
 # &#x1F4BB; Implementation
-**Recursive Algorithm** — is one that solves a problem by solving smaller instances of the same problem. Implemented via recursive functions.  
-**Recursive Function** — is one that calls itself and has two main components:
-1. **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
-2. **Recursive Case** — represents other situation, where the solution to the bigger problem is expressed in terms of smaller problems.
+**Essential Terminology:**
+- **Problem-Solving Approach** — is a method of approaching a problem to find a solution.
+- **Recursion** — is an approach that solves a problem by recalling to the same instance (e.g. function) with updated values multiple times, i.e. it solves smaller instances of the same problem.
+  - **Direct Recursion** — whole recursive process proceeds within a single entity.
+  - **Indirect Recursion** — whole recursive process distributed across at least two entities.
+- **Recursive Function** — is one that calls itself and has both base and recursive cases.
+- **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
+- **Recursive Case** — represents other situation, where the solution to the bigger problem is expressed in terms the same problem but with modified values.
 
 ```cpp
-// Recursive function which calculates the sum of elements in an array
-int recursiveArraySum(int arr[], int size)
-{
-    // Base case: when the array is empty, the sum (0) is directly known 
+// Recursive function to calculate sum of elements in array
+int recursiveArraySum(int arr[], int size) {
+    // Base case: when the array is empty, the sum is directly known (0)
     if (size == 0) { return 0; }
-    // Recursive case: sum the current element with the sum of the rest
+    // Recursive case: sum current element with sum of the rest
     else { return arr[size - 1] + recursiveArraySum(arr, size - 1); }
 }
-
-// Note: example just illustrates the key components of a recursive function;
-// this implementation is not the most preferred way to achieve this
 ```
+
+--- 
+**Important Details:**  
 
 Not all mathematically recursive functions are efficiently (or correctly) implemented by C++’s simulation of recursion. Recursion is used when it makes the solution clearer. In order to make a good use of this approach, it's worth to consider a few deducable guidelines for designing:
 
@@ -43,12 +46,9 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 3. **Trust the encapsulation** — assume the functionality of all recursive calls is correct. This attempt to trace the sequence of calls, may spend unnecessary time, which actually, can be an indication of a good use of recursion, since the computer is being allowed to work out the complicated details.
 4. **No duplicating** — the recursion should avoid duplicating work by solving the same instance of a problem in distinct recursive calls, because it could lead to inefficiencies and unnecessary computations.
 
-It's noteworthy that recursion is possible to achieve in two different ways: either within the body of a single recursive function, known as **Direct Recursion**, or distributed across at least two functions, referred to as **Indirect Recursion**. The former is commonly preferred for its contribution to code readability, while the latter is beneficial when several related tasks or subproblems require to be divided and conquered.
-
 
 
 # &#128218; Call Stack
-Another vital consideration when discussing recursion is the role of the Call Stack in it.
 <p align="center"><img src="./img/callStack.png"/></p>
 
 **Call Stack** — is a region of memory, that stores information about the active function calls in a program by forming a stack (pile) of frames for each caller, i.e. tracks the order of calls. It operates based on the principles of a fundamental abstract data structure known as a Stack _(a link to the repository's dedicated section will be added in the near future)_, meaning items that entered the last are the first to be removed or simply Last In First Out (LIFO).
