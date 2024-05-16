@@ -77,8 +77,9 @@ This list provides a straightforward overview of the repository's contents. For 
   - Divide and Conquer
     - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
     - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
+    - [Binary Seacrh](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
+    - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
     - Karatsuba Algorithm
-    - Closest Pair of Points
   - Dynamic Programming
     - DynamicProgramming.md
     - Knapsack

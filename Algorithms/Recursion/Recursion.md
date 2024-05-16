@@ -15,8 +15,7 @@
 **Recursion** is a widely used problem-solving approach in computer science to solve complex problems by recalling to the same instance, typically function, multiple times if needed. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
 <p align="center"><img src="./img/Recursion.png"/></p>
 
-
-# &#x1F4BB; Implementation
+---
 **Essential Terminology:**
 - **Problem-Solving Approach** — is a method of approaching a problem to find a solution.
 - **Recursion** — is an approach that solves a problem by recalling to the same instance (e.g. function) with updated values multiple times, i.e. it solves smaller instances of the same problem.
@@ -26,18 +25,8 @@
 - **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
 - **Recursive Case** — represents other situation, where the solution to the bigger problem is expressed in terms the same problem but with modified values.
 
-```cpp
-// Recursive function to calculate sum of elements in array
-int recursiveArraySum(int arr[], int size) {
-    // Base case: when the array is empty, the sum is directly known (0)
-    if (size == 0) { return 0; }
-    // Recursive case: sum current element with sum of the rest
-    else { return arr[size - 1] + recursiveArraySum(arr, size - 1); }
-}
-```
-
 --- 
-**Important Details:**  
+**Important Details**  
 
 Not all mathematically recursive functions are efficiently (or correctly) implemented by C++’s simulation of recursion. Recursion is used when it makes the solution clearer. In order to make a good use of this approach, it's worth to consider a few deducable guidelines for designing:
 
@@ -74,11 +63,31 @@ Common causes for exceeding stack limits include uncontrolled recursion, infinit
 // which, upon reaching 255, will overflow and return to 0, thus infinite loop
 unsigned char halfLimit = 150;
 
-for (unsigned char i = 0; i < 2 * halfLimit; ++i)
-{
+for (unsigned char i = 0; i < 2 * halfLimit; ++i) {
   // do something
 }
 ```
+
+
+
+# &#x1F4BB; Implementation
+When it comes to implementation, the number of times people have resorted to using recursion can't be counted. In fact, the majority of those scenarios share some common ideas, which are built through practice.
+
+```cpp
+// Recursive function to calculate sum of elements in array
+int recursiveArraySum(int arr[], int size) {
+    // Base case: when the array is empty, the sum is directly known (0)
+    if (size == 0) { return 0; }
+    // Recursive case: sum current element with sum of the rest
+    else { return arr[size - 1] + recursiveArraySum(arr, size - 1); }
+}
+```
+
+---
+Therefore, I will present some of the most illustrative examples specifically to enlighten the details of the recursive approach:  
+- [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial)
+- [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci)
+- Power (Will be updated in the future...)
 
 
 
@@ -284,22 +293,17 @@ For contact details and additional information, please refer to the [root direct
 ---
 &#127760; **Web-Resources:**
 - [Recursion in Computer Science](https://en.wikipedia.org/wiki/Recursion_(computer_science)) (Wikipedia)
-- [Recursion: Direct vs Indirect](https://www.baeldung.com/cs/recursion-direct-vs-indirect)
 - [How stack frames work](https://nordvpn.com/ru/cybersecurity/glossary/stack-frame/#:~:text=A%20stack%20frame%2C%20often%20just,%2DOut%20(LIFO)%20manner)
-- [What are the benefits and drawbacks of using stack frames for nested function calls?](https://www.linkedin.com/advice/0/what-benefits-drawbacks-using-stack-frames-nested#:~:text=A%20stack%20frame%20is%20a,registers%20of%20the%20caller%20function.)
 - [Difference Between Recursion and Iteration](https://www.enjoyalgorithms.com/blog/difference-between-iteration-and-recursion)
 - [Types of Recursion](https://datatrained.com/post/types-of-recursion/)
 - [Tail Call](https://en.wikipedia.org/wiki/Tail_call) (Wikipedia)
 - [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
-- [Recursion in Data Structure](https://www.codingninjas.com/studio/library/types-of-recursion)
-- [Recursion in C++](https://favtutor.com/blogs/recursion-cpp)
-- [Complexity analysis for recursion](https://tarunjain07.medium.com/complexity-analysis-for-recursion-notes-cd4930e26683)
 - [Time Complexity Analysis of Recursive Function in DSA](https://www.enjoyalgorithms.com/blog/time-complexity-analysis-of-recursion-in-programming)
 - [Recurrence Relations](https://youtu.be/NESmtDBA6Cw?si=Mr9Pl_mPC98pp9WZ) (Lecture)
 - [Top 50 Problems on Recursion Algorithm asked in SDE Interviews](https://www.geeksforgeeks.org/top-50-interview-problems-on-recursion-algorithm/)
 - [30 Recursion Interview Questions and Coding Exercises for Programming Interviews](https://medium.com/javarevisited/30-recursion-interview-questions-and-coding-exercises-for-programming-interviews-2816302e9ab)
-- [The Advent of Recursion in Programming, 1950s-1960s](https://eprints.illc.uva.nl/id/document/935#:~:text=The%20notion%20of%20recursion%20dates,the%20foundations%20of%20mathematics%20cf.) (Research)
-- [Computability and Recursion](http://www.people.cs.uchicago.edu/~soare/History/compute.pdf) (Research)
+- [The Advent of Recursion in Programming, 1950s-1960s](https://eprints.illc.uva.nl/id/document/935#:~:text=The%20notion%20of%20recursion%20dates,the%20foundations%20of%20mathematics%20cf.)
+- [Computability and Recursion](http://www.people.cs.uchicago.edu/~soare/History/compute.pdf)
 - [How recursion got into programming](https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/)
 
 
