@@ -40,7 +40,7 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 # &#128218; Call Stack
 <p align="center"><img src="./img/callStack.png"/></p>
 
-**Call Stack** — is a region of memory, that stores information about the active function calls in a program by forming a stack (pile) of frames for each caller, i.e. tracks the order of calls. It operates based on the principles of a fundamental abstract data structure known as a Stack _(a link to the repository's dedicated section will be added in the near future)_, meaning items that entered the last are the first to be removed or simply Last In First Out (LIFO).
+**Call Stack** — is a region of memory, that stores information about the active function calls in a program by forming a stack (pile) of frames for each caller, i.e. tracks the order of calls. It operates based on the principles of a fundamental abstract data structure known as a [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack), meaning items that entered the last are the first to be removed or simply Last In First Out (LIFO).
 
 **Stack Frame** — section of memory, allocated on stack, which stores function related information, such as: return adress, parameters, local variables, saved registers, flags, frame pointer. As the function executes, its frame provides the necessary context. When the function completes, its stack frame is popped off the stack, and control returns to the calling function.
 

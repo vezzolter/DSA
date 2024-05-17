@@ -1,6 +1,6 @@
 // Header file for Merge Sort
 // by vezzolter
-// February 18, 2024
+// March 31, 2024
 
 #pragma once
 
