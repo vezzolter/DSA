@@ -45,12 +45,13 @@ Therefore, I will present some of the most illustrative examples specifically to
 
 
 # &#128202; Analysis
-The analysis of divide-and-conquer generally hinges on the assessment of the underlying implementation approach taken. For instance, if recursion is employed, one would need to construct the recurrence relation and solve it to determine the time complexity (please refer to the [Recursion section](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) for detailed guidance on this process). However, for algorithms like binary search, which are typically implemented iteratively, the same steps cannot be applied to estimate their complexity.
+**How to Analyze:**   
+When an divide-and-conquer algorithm containts a recursive call to itself, it is possible to describe running time as [reccurence relation](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md), which can be solved in order to provide different bounds on performance. However, for algorithms like binary search, which are typically implemented iteratively, the same steps cannot be applied to estimate their complexity.
 
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases in Various Fields:**
+**Some of the Most Well-Known Use Cases:**
 - **Sorting** — divide-and-conquer strategies are used in sorting algorithms to optimize the process of arranging data in a specific order. They achieve this by efficiently partitioning the data into smaller subsets, sorting each subset independently, and merging them back together to achieve the final sorted result. E.g. Merge sort, Quicksort, Heap sort.
 - **Searching** — divide-and-conquer approach enhances searching algorithms by efficiently locating specific elements within a dataset. These algorithms partition the search space into smaller segments, recursively searching each segment, and converging on the target element or determining its absence, thereby facilitating efficient search operations. E.g. Binary search, maximum and minimum element search.
 - **Matricex Operations** — divide-and-conquer techniques are applied to matrix operations. These techniques break down the matrices into smaller sub-matrices, perform computations recursively, and combine the results, enabling efficient matrix manipulations. E.g. Strassen's algorithm, recursive algorithms for matrix exponentiation
