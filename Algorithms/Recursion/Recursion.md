@@ -1,7 +1,6 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
-- [📚 Call Stack](#-call-stack)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
 - [🕙 Origins](#-origins)
@@ -35,14 +34,14 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 3. **Trust the encapsulation** — assume the functionality of all recursive calls is correct. This attempt to trace the sequence of calls, may spend unnecessary time, which actually, can be an indication of a good use of recursion, since the computer is being allowed to work out the complicated details.
 4. **No duplicating** — the recursion should avoid duplicating work by solving the same instance of a problem in distinct recursive calls, because it could lead to inefficiencies and unnecessary computations.
 
-
-
-# &#128218; Call Stack
-<p align="center"><img src="./img/callStack.png"/></p>
+---
+**Stack**  
 
 **Call Stack** — is a region of memory, that stores information about the active function calls in a program by forming a stack (pile) of frames for each caller, i.e. tracks the order of calls. It operates based on the principles of a fundamental abstract data structure known as a [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack), meaning items that entered the last are the first to be removed or simply Last In First Out (LIFO).
 
 **Stack Frame** — section of memory, allocated on stack, which stores function related information, such as: return adress, parameters, local variables, saved registers, flags, frame pointer. As the function executes, its frame provides the necessary context. When the function completes, its stack frame is popped off the stack, and control returns to the calling function.
+
+<p align="center"><img src="./img/CallStack.png"/></p>
 
 The detailed interaction of recursion with the Call Stack is actually quite complex topic with lots of intricacies, particularly in the context of C++. This complexity arises from various factors, including: templates, diverse variables/parameters types (static, global, ...), inlining mechanisms, aspects of OOP, exception handling, and more. Attempting to govern all of those moments in a single list can be quite challenging. With that in mind, I aim to offer a general overview of how functions interact with the Call Stack below.
 
@@ -53,7 +52,7 @@ The detailed interaction of recursion with the Call Stack is actually quite comp
 4. When the termination condition is reached, the function returns its value to the calling function, and memory is de-allocated, allowing the process to continue
 
 Using stack is convenient, because there is no need to manually keep tracking the pile, but saving all that info can take up a lot of memory. In some programming languages, the maximum size of the call stack is much less than the space available in the heap, and recursive algorithms tend to require more stack space than iterative algorithms. Consequently, these languages sometimes place a limit on the depth of recursion to avoid stack overflows.
-<p align="center"><img src="./img/callStackOverflow.png"/></p>
+<p align="center"><img src="./img/StackOverflow.png"/></p>
 
 **Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, systen instability and other destructive behaviour if it is not handled appropriately.
 
@@ -67,6 +66,19 @@ for (unsigned char i = 0; i < 2 * halfLimit; ++i) {
   // do something
 }
 ```
+
+---
+**Converting Recursion to Iteration**
+
+In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
+
+<p align="center"><img src="./img/ConvertingRecursion.png"/></p>
+
+**Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
+
+**Recursion**, as it was said, is more suitable approach in cases where implementing an algorithm using iteration is challenging, thefore recursion provides clear and natural solutions. However, if feasible, converting recursion into iteration is often preferred for improved performance and resource utilization.
+
+To successfully convert recursion into a loop, it's essential for the recursion to be **tail-recursive**. Tail recursion is characterized by having the recursive call as the last statement executed by the function. In other words, the function's calls involve a single invocation of the recursive call followed by an immediate return of the result without additional processing or calculation. When utilizing a compiler or interpreter that treats tail-recursive calls as jumps rather than function calls, the program becomes essentially iterative. Therefore, equivalent to using control structures like the "for" and "while" loops, which saves both space and time.
 
 
 
@@ -108,16 +120,6 @@ When an algorithm containts a recursive call to itself, it is possible to descri
 
 
 # &#128221; Application
-In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
-<p align="center"><img src="./img/iterationVsRecursion.png"/>   </p>
-
-**Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
-
-**Recursion**, as it was said, is more suitable approach in cases where implementing an algorithm using iteration is challenging, thefore recursion provides clear and natural solutions. However, if feasible, converting recursion into iteration is often preferred for improved performance and resource utilization.
-
-To successfully convert recursion into a loop, it's essential for the recursion to be **tail-recursive**. Tail recursion is characterized by having the recursive call as the last statement executed by the function. In other words, the function's calls involve a single invocation of the recursive call followed by an immediate return of the result without additional processing or calculation. When utilizing a compiler or interpreter that treats tail-recursive calls as jumps rather than function calls, the program becomes essentially iterative. Therefore, equivalent to using control structures like the "for" and "while" loops, which saves both space and time.
-
----
 **Some of the Most Well-Known Use Cases:**
 - **Sortings** — recursive algorithms leverage recursion to partition the data into smaller subarrays or sublists, subsequently sorting and merging them to achieve the final ordered result.
 - **Divide-and-Conquer** — numerous algorithms employing a divide-and-conquer strategy, like the binary search, utilize recursion to decompose the problem into more manageable subproblems.
@@ -199,8 +201,6 @@ For contact details and additional information, please refer to the [root direct
 - [Types of Recursion](https://datatrained.com/post/types-of-recursion/)
 - [Tail Call](https://en.wikipedia.org/wiki/Tail_call) (Wikipedia)
 - [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
-- [Time Complexity Analysis of Recursive Function in DSA](https://www.enjoyalgorithms.com/blog/time-complexity-analysis-of-recursion-in-programming)
-- [Recurrence Relations](https://youtu.be/NESmtDBA6Cw?si=Mr9Pl_mPC98pp9WZ) (Lecture)
 - [Top 50 Problems on Recursion Algorithm asked in SDE Interviews](https://www.geeksforgeeks.org/top-50-interview-problems-on-recursion-algorithm/)
 - [30 Recursion Interview Questions and Coding Exercises for Programming Interviews](https://medium.com/javarevisited/30-recursion-interview-questions-and-coding-exercises-for-programming-interviews-2816302e9ab)
 - [The Advent of Recursion in Programming, 1950s-1960s](https://eprints.illc.uva.nl/id/document/935#:~:text=The%20notion%20of%20recursion%20dates,the%20foundations%20of%20mathematics%20cf.)
