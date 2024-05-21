@@ -164,8 +164,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 ---
 **Wishlist:**
 - **Tips Subsections:** this subsection could provide some practical solutions that can benefit design decisions.
-- **Make Practical Problems Practical:** practice should be fast because there are plenty things to do besides DSA, so it's much better to list problems, which can be solved/learned/assested directly via platform. To achieve this, I should look for problems on popular sites (leetcode, codewars, etc), provide links to those problems, remove problems that can't be solved directly.
-- **Additional Approaches:** add sections for approaches: iteration, two pointers, sliding window.
+- **Additional Sections:** iteration, two pointers, sliding window, analysis.
 
 
 

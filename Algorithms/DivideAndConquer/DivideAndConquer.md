@@ -61,7 +61,6 @@ When an divide-and-conquer algorithm containts a recursive call to itself, it is
 
 
 
-
 # &#128221; Application
 **Some of the Most Well-Known Use Cases:**
 - **Sorting** — divide-and-conquer strategies are used in sorting algorithms to optimize the process of arranging data in a specific order. They achieve this by efficiently partitioning the data into smaller subsets, sorting each subset independently, and merging them back together to achieve the final sorted result; e.g. Merge sort, Quicksort, Heap sort.

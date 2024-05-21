@@ -43,9 +43,7 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 
 <p align="center"><img src="./img/CallStack.png"/></p>
 
-The detailed interaction of recursion with the Call Stack is actually quite complex topic with lots of intricacies, particularly in the context of C++. This complexity arises from various factors, including: templates, diverse variables/parameters types (static, global, ...), inlining mechanisms, aspects of OOP, exception handling, and more. Attempting to govern all of those moments in a single list can be quite challenging. With that in mind, I aim to offer a general overview of how functions interact with the Call Stack below.
-
-**Fundametal Aspects of Call Stack Interaction:**
+The detailed interaction of recursion with the Call Stack is actually quite complex topic with lots of intricacies, particularly in the context of C++. This complexity arises from various factors, including: templates, diverse variables/parameters types (static, global, ...), inlining mechanisms, aspects of OOP, exception handling, and more. Attempting to govern all of those moments in a single list can be quite challenging. With that in mind, I aim to offer a general overview of how functions interact with the Call Stack below:
 1. When a function is called, the function's stack frame is added to the top of the call stack.
 2. When function (a) calls another function (b), the variables' state of the calling function (a) is still stored in memory.
 3. Each call to a function has its own set of local variables; therefore, it's not possible to access a different function's set of a local variables.
