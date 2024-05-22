@@ -1,8 +1,18 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Essential Terminology](#essential-terminology)
+	- [Important Details](#important-details)
+	- [Operation Details](#operation-details)
 - [💻 Implementation](#-implementation)
+	- [Design Decisions](#design-decisions)
+	- [Detailed Overview](#detailed-overview)
 - [📊 Analysis](#-analysis)
+	- [How to Analyze](#how-to-analyze)
+	- [Advantages](#advantages)
+	- [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
+	- [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
+	- [Common Practical Problems](#common-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -12,11 +22,10 @@
 
 
 # &#128161; Overview
-The **Stack** stands out as one of the most fundamental abstract data type (ADT) in computer science that serves as a linear collection of elements, which becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a last-in-first-out (LIFO) manner. It is named this way, because of how it resembles the behavior of adding or removing items from the top of a physical stack. This subsection explores the stack ADT not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+The **Stack** stands out as one of the most fundamental abstract data type (ADT) in computer science that serves as a linear collection of elements, which becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a last-in-first-out (LIFO) manner. It is named this way, because of how it resembles the behavior of adding or removing items from the top of a physical stack.  This subsection explores stack to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
 <p align="center"><img src="./img/Stack.png"/></p>
 
----
-**Essential Terminology:**
+## Essential Terminology
 - **Stack** — is a ADT that serves as a linear collection that operates on the LIFO principle.
 - **Top** — is the end of the of a collection at which elements are added and removed.
 - **Bottom** — is the end of the of a collection opposite to the top.
@@ -26,38 +35,34 @@ The **Stack** stands out as one of the most fundamental abstract data type (ADT)
 - **Overflow** — is a condition that occurs when trying to push an element onto a full stack.
 - **Underflow** — is a condition that occurs when trying to pop an element from an empty stack.
 
----
-What identifies the data structure as stack is not the implementation but the interface: the user is only allowed to pop or push elements with few other helper operations. The interface includes next common operations:
+## Important Details
+Stack generally can be broadly classified based on underlaying data structure into two types: 
+- **Array-Based Stack** — utilizes a fixed-size or dynamic array to store elements.  
+- **List-Based Stack** — utilizes a singly, doubly or circular linked list to store elements.
+
+While these types share some common ideas, each possesses distinctive characteristics related to the "base" of ADT. For example, while frequent insertion/removal on array can lead to a quite resourceful reallocation, those same operations in linked list require dereferencing. Overall the choice between them depends on the specific requirements of the case at hand. But most of the time people use list-based stack.
+
+## Operation Details
 - **push** — inserts element at the top.
 - **pop** — removes the top element.
 - **peek** — accesses the top element.
 - **empty** — checks whether the container adaptor is empty.
 - **size** — returns the number of elements.
 
----
-When it comes to the underlaying data structure, a stack generally can be broadly classified into two types: 
-- **Array-Based Stack** — utilizes a fixed-size or dynamic array to store elements.  
-- **List-Based Stack** — utilizes a singly, doubly or circular linked list to store elements.
-
-While these types share some common ideas, each possesses distinctive characteristics related to the "base" of ADT. For example, while frequent insertion/removal on array can lead to a quite resourceful reallocation, those same operations in linked list require dereferencing. Overall the choice between them depends on the specific requirements of the case at hand.  
-
-
-
 # &#x1F4BB; Implementation
 Discussing ADT, it's evident that well-established and widely recognized implementations already exist for stack. In the context of C++, `std::stack` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified version of thhis collection. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
----
+## Design Decisions
 Keeping its educational aim in mind, the `Stack` class developed here closely resembles the behavior of `std::stack`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/StdStack.png"/></p>
+<p align="center"><img src="./img/StackStd.png"/></p>
 
 One significant design decision is the implementation of a stack solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque (which can "blur" the comprehension of the topic, because of how intricate it is implemented - neither like array or list, rather a mix of those two).
 
----
-<p align="center"><img src="./img/DemonstrationStack.png"/></p>
+## Detailed Overview
+<p align="center"><img src="./img/StackDemonstration.png"/></p>
 
-**Detailed Overview**:
-1. The `Stack` class is declared in `Stack.h` header file and defined in `Stack.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-2. Whole class declaration:
+Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/src/Main.cpp) file. The `Stack` class is declared in [Stack.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/inc/Stack.h) header file and defined in [Stack.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/src/Stack.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
+
 ```cpp
 template<class T>
 class Stack {
@@ -97,171 +102,44 @@ public:
 };
 ```
 
-5. Special member functions:
-```cpp
-// Default constructor
-template<typename T>
-Stack<T>::Stack() : _size(0), _top(nullptr) {}
-
-// Deep copy constructor
-template<class T>
-Stack<T>::Stack(const Stack& rhs) : _size(0), _top(nullptr) {
-	// Iterate through the nodes of rhs stack and copy each element
-	Node* rhsCurrent = rhs._top;
-	Node* prevNode = nullptr;
-	while (rhsCurrent != nullptr) {
-		// Create a new node with the same data
-		Node* newNode = new Node(rhsCurrent->_data);
-
-		// Attach the new node to the current stack
-		if (prevNode == nullptr)
-			_top = newNode;
-		else
-			prevNode->_next = newNode;
-
-		// Move to the next node in rhs stack
-		prevNode = newNode;
-		rhsCurrent = rhsCurrent->_next;
-	}
-
-	// Update the size
-	_size = rhs._size;
-}
-
-// Deep copy assignment operator
-template<class T>
-Stack<T>& Stack<T>::operator=(const Stack& rhs) {
-	// Self-assignnment guard
-	if (this == &rhs)
-		return *this;
-
-	// Ensure that the destination stack doesn't retain any of its existing elements
-	while (!empty())
-		pop();
-
-	// Set corresponding size
-	_size = rhs._size;
-
-	// Case: empty stack
-	if (rhs._top == nullptr) {
-		_top = nullptr;
-	}
-	else {
-		// Perform deep copy from rhs to this stack
-		Node* rhsCurrent = rhs._top;
-		while (rhsCurrent != nullptr) {
-			push(rhsCurrent->data);
-			rhsCurrent = rhsCurrent->next;
-		}
-	}
-
-	return *this;
-}
-
-// Destructor
-template<typename T>
-Stack<T>::~Stack() {
-	while (!empty())
-		pop();
-}
-```
-
-6. Element access:
-```cpp
-// Accesses the last element in the container, no range validation, allows modification
-template<class T>
-T& Stack<T>::peek() { return _top->_data; }
-
-// Accesses the last element in the container, no range validation, denies modification
-template<class T>
-const T& Stack<T>::peek() const { return _top->_data; };
-
-```
-
-7. Capacity methods:
-```cpp
-// Checks if the container has no elements
-template<class T>
-bool Stack<T>::empty() const { return _size == 0; }
-
-// Returns the number of elements in the container
-template<typename T>
-int Stack<T>::size() const { return _size; }
-```
-
-8. Modifiers:
-```cpp
-// Appends the given element to the end of the container
-template<class T>
-void Stack<T>::push(const T& newData) {
-	// Create a new node with the given data
-	Node* newNode = new Node(newData);
-
-	// Case: empty stack
-	if (_top == nullptr) {
-		_top = newNode;
-	}
-	else {
-		newNode->_next = _top;
-		_top = newNode;
-	}
-
-	// Update the size
-	++_size;
-}
-
-// Removes the last element of the container
-// Note: with no bounds check, assumes that stack contains at least 1 element
-template<class T>
-void Stack<T>::pop() {
-	// Case: empty stack
-	if (_top == nullptr)
-		return;
-
-	// Move the top ptr to the next node
-	Node* temp = _top;
-	_top = _top->_next;
-	delete temp;
-
-	// Update the size
-	--_size;
-}
-```
-
 
 
 # &#128202; Analysis
-The analysis of stack in terms of space and time mostly based on underlaying data structure. Overall, this data structure provide the "wrapping" behaviour, which remains relevant primarly when the natural LIFO manner is crucial for the application, otherwise it is preffarabe to replace with a better alternative.
+Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
 
----
-**Advantages:**
-- **LIFO** — stack's main plus is the way it manages elements, which can find numerous applications.
+## How to Analyze  
+Overall, stack provides «wrapping» behaviour, therefore analysis in terms of space and time complexities mostly based on the underlaying data structure coupled with additional intended logic.
 
----
-**Disadvantages:**
-- **Limited Access** — stack allows to modify/remove/access only top element, making it unsuitable for many scenarios; e.g. searching, sorting, random access.
+## Advantages
+- **LIFO** — stack allows to modify/remove/access only top element, which can find numerous applications.
+- **Constant Time Complexity** — stack usually allows to have $O(1)$ time complexity for push, pop and peek operations.
+
+## Disadvantages
+- **LIFO** — stack allows to modify/remove/access only top element, making it unsuitable for many scenarios; e.g. searching, sorting, random access.
 
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+## Some of the Most Well-Known Use Cases
 - **Call Stack** — stack is used in programming languages to keep track of function calls. Whenever function is called its respective information is pushed onto the call stack, and when function returns it is popped off from the stack.
 - **Exception Handling** — stack is invloved in exception handling mechanisms to propagate and handle exceptions. Technique known as stack unwinding implies the process of stack "unwound" or traversal backwards to find the appropriate exception handler.
 - **Backtracking Algorithms** — stack is used in backtracking algorithms to keep track of the current path or state. Whenever those algorithms reach a dead-end, they can backtrack by popping elements off the stack.
 - **Undo Mechanics** — stack is used in different applications to implement undo functionality. Each action performed is recorded as an operation on the stack, allowing to undo certain actions by popping off the stack in reverse order.
 - **Expression Evaluation** — stack is used in reverse Polish notation to evaluate expressions. It helps to track the order of operations allowing to evaluate the result linearly; e.g. the conventional notation expression $3-4+5$ in Polish becomes $34-5+$, adding each entity sequentially to the stack.
 
----
-**Common Practical Problems:**
-- Conversion of (in/pre/post)fix to (in/pre/post)fix
-- Reverse individual words
-- Reverse a string
+## Common Practical Problems
+- [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [Reverse a string](https://leetcode.com/problems/reverse-string/)
+- [Min stack](https://leetcode.com/problems/min-stack/)
 - Arithmetic expression evaluation
-- Reverse a number
+- [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 - Celebrity problem
 - Convert a queue into the stack
+- [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 - Sort a stack using recursion
-- Sort s stack using another stack
+- [Max Stack](https://leetcode.com/problems/max-stack/)
 
 
 
