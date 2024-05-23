@@ -155,11 +155,10 @@ As my educational journey progresses, I may discover new areas of interest withi
 **Backlog:**
 1. **Search, Sorting:** add more test cases.
 2. **RNG:** find a proper learning resource and continue the work.
-3. **Data Structures:** rewrite structure in manner to BST: intro, definition, important details, operation details, existing containers, simplification details, only class declaration (maybe even only links), pros cons, use cases, problems.
-4. **Data Structures:** add iterator classes.
-5. **Data Structures:** explain all operations with images.
-6. **Deque, Circular Queue:** decide how to implement.
-7. **Array, List, Queue:** take out types in separate folders with markdownsm, just like BST out of trees.
+3. **Data Structures:** add iterator classes.
+4. **Data Structures:** explain all operations with images.
+5. **Deque, Circular Queue:** decide how to implement.
+6. **Array, List, Queue:** take out types in separate folders with markdownsm, just like BST out of trees.
 
 ---
 **Wishlist:**
