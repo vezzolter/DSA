@@ -158,7 +158,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 3. **Data Structures:** add iterator classes.
 4. **Data Structures:** explain all operations with images.
 5. **Deque, Circular Queue:** decide how to implement.
-6. **Array, List, Queue:** take out types in separate folders with markdownsm, just like BST out of trees.
+6. **Array, List, Queue:** take out types in separate folders with markdowns, just like BST out of trees.
 
 ---
 **Wishlist:**
