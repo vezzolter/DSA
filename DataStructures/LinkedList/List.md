@@ -1,11 +1,23 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Essential Terminology](#essential-terminology)
+	- [Important Details](#important-details)
+	- [Types of Lists](#types-of-lists)
+	- [Operation Details](#operation-details)
 - [💻 Implementation](#-implementation)
-	- [Singly Linked List](#singly-linked-list)
-	- [Doubly Linked List](#doubly-linked-list)
-	- [Circular Linked List](#circular-linked-list)
+	- [Singly Linked List | Design Decisions](#singly-linked-list--design-decisions)
+	- [Singly Linked List | Detailed Overview](#singly-linked-list--detailed-overview)
+	- [Doubly Linked List | Design Decisions](#doubly-linked-list--design-decisions)
+	- [Doubly Linked List | Detailed Overview](#doubly-linked-list--detailed-overview)
+	- [Circular Linked List | Design Decisions](#circular-linked-list--design-decisions)
+	- [Circular Linked List | Detailed Overview](#circular-linked-list--detailed-overview)
 - [📊 Analysis](#-analysis)
+	- [How to Analyze](#how-to-analyze)
+	- [Advantages](#advantages)
+	- [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
+	- [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
+	- [Common Practical Problems](#common-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -15,11 +27,11 @@
 
 
 # &#128161; Overview
-The **Linked List** stands out as one of the most fundamental abstract data type (ADT) in computer science, that serves as a linear collection of elements, which becomes particularly valuable when the primary objective involves traversing a collection of items sequentially, one by one. It is named this way, because of the way how elements are connected via links to each other. This subsection explores the linked list not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/LinkedList.png"/></p>
+The **Linked List** stands out as one of the most fundamental concept in computer science, that serves as a linear collection of elements, which becomes particularly valuable when the primary objective involves traversing a collection of items sequentially, one by one. It is named this way, due to the manner in which elements are connected via links to each other. This subsection explores linked list to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
+<p align="center"><img src="./img/List.png"/></p>
 
----
-**Essential Terminology:**
+
+## Essential Terminology
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
   - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
 - **Linked List** — is a linear collection, consists of elements named as nodes that are linked together using pointers, because they are not necessarily adjacent in memory.
@@ -29,8 +41,30 @@ The **Linked List** stands out as one of the most fundamental abstract data type
 - **Head** — is the first node in the list.
 - **Tail** — is the last node in the list.
 
+
+## Important Details
+Lists provide **sequential access** meaning that we need to traverse the list's elements one by one in order to access them, which certainly requires time. Furthermore, as as the number of nodes in the list increases, the time required to traverse to a particular location also does. This results in the conclusion, that linked lists are not the preferred option in scenarios where you have to perform lots of operation that dona lot or the data structure size remains constant, although they still can be a natural fit for some cases.
+<p align="center"><img src="./img/ListTraversal.png"/></p>
+
 ---
-**Common Operations for ADT Linked List:**
+The true power of linked lists lies in the flexible nature of the size. Dynamic memory allocation of lists allow for flexible resizing, making them suitable for scenarios where the size of the data structure needs to change frequently. All of the "size-manipulating operations" are based on the the principle of "updating" nodes' pointers. Rather than delving into the intricacies of every possible operation, I'll illustrate a fundamental example of deleting an element that encapsulates the essence of the concept.
+<p align="center"><img src="./img/ListDeletion.png"/></p>
+
+
+## Types of Lists
+When it comes to classification, there are broadly three types of lists: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
+
+**Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
+<p align="center"><img src="./img/ListStructureSingly.png"/></p>
+
+**Doubly Linked List** — is a list, where each node contains an additional pointer to the previous node in the sequence enabling bidirectional traversal: forward from the head to the tail and backward from the tail to the head. The first node's "previous pointer" and the last node's "next pointer" point to nullptr, indicating the start and end of the list, respectively.
+<p align="center"><img src="./img/ListStructureDoubly.png"/></p>
+
+**Circular Linked List** — is a list, where the last node points back to the head node. Allow for circular traversal, which can be unidirectional (if nodes are singly linked) or bidirectional (if nodes are doubly linked).
+<p align="center"><img src="./img/ListStructureCircular.png"/></p>
+
+
+## Operation Details
 - **Traversal** — iterating through the elements of the list.
 - **Acess** — retrieving or updating the value of an existing element.
 - **Insertion** — adding a new element to the list.
@@ -41,43 +75,22 @@ The **Linked List** stands out as one of the most fundamental abstract data type
 - **Splitting** — dividing the list into two or more parts.
 - **Filtering** — selecting specific elements based on certain criteria.
 
----
-Lists provide **sequential access** meaning that we need to traverse the list's elements one by one in order to access them, which certainly requires time. Furthermore, as as the number of nodes in the list increases, the time required to traverse to a particular location also does. This results in the conclusion, that linked lists are not the preferred option in scenarios where you have to perform lots of operation that dona lot or the data structure size remains constant, although they still can be a natural fit for some cases.
-<p align="center"><img src="./img/TraversalProcess.png"/></p>
-
----
-The true power of linked lists lies in the flexible nature of the size. Dynamic memory allocation of lists allow for flexible resizing, making them suitable for scenarios where the size of the data structure needs to change frequently. All of the "size-manipulating operations" are based on the the principle of "updating" nodes' pointers. Rather than delving into the intricacies of every possible operation, I'll illustrate a fundamental example of deleting an element that encapsulates the essence of the concept.
-<p align="center"><img src="./img/DeletionProcess.png"/></p>
-
----
-When it comes to classification, there are broadly three types of lists: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
-
-**Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
-<p align="center"><img src="./img/StructureSLL.png"/></p>
-
-**Doubly Linked List** — is a list, where each node contains an additional pointer to the previous node in the sequence enabling bidirectional traversal: forward from the head to the tail and backward from the tail to the head. The first node's "previous pointer" and the last node's "next pointer" point to nullptr, indicating the start and end of the list, respectively.
-<p align="center"><img src="./img/StructureDLL.png"/></p>
-
-**Circular Linked List** — is a list, where the last node points back to the head node. Allow for circular traversal, which can be unidirectional (if nodes are singly linked) or bidirectional (if nodes are doubly linked).
-<p align="center"><img src="./img/StructureCLL.png"/></p>
 
 # &#x1F4BB; Implementation 
 Discussing ADT, it's evident that well-established and widely recognized implementations already exist for singly, doubly and circular linked lists. In the context of C++, `std::forward_list` is a representative of singly linked list, and `std::list` stands as the counterpart for doubly linked list. Both of them, can be altered to create circular structure via manual pointers manipulation.  It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these lists. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
 
-
-##  Singly Linked List
+##  Singly Linked List | Design Decisions
 Keeping its educational aim in mind, the `SLL` class developed here closely resembles the behavior of `std::forward_list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/LibraryFlistItr.png"/></p>
+<p align="center"><img src="./img/ListSinglyLibItr.png"/></p>
 
 One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::forward_list`, allowing to maintain focus on the key features of the ADT.
 
----
-<p align="center"><img src="./img/DemonstrationSLL.png"/></p>
 
-**Detailed Overview:**
-1. The `SLL` class is declared in `SinglyLinkedList.h` header file and defined in `SinglyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-2. Whole class declaration:
+##  Singly Linked List | Detailed Overview
+<p align="center"><img src="./img/ListSinglyDemonstration.png"/></p>
+
+Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList/src/Main.cpp) file. The `SLL` class is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList/inc/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList/src/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
 template<class T>
 class SLL {
@@ -125,270 +138,18 @@ public:
 };
 ```
 
-3. Special member functions:
-```cpp
-// Default Constructor
-template<typename T>
-SLL<T>::SLL() : _size(0), _head(nullptr) {}
 
-//// Parametrized constructor
-//template<class T>
-//SLL<T>::SLL(const std::initializer_list<T>& initList) { }
-
-// Deep copy constructor 
-template<class T>
-SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
-	// Case: empty list
-	if (rhs._head == nullptr) {
-		_head = nullptr;
-		return;
-	}
-
-	// Create corresponding first node
-	_head = new Node(rhs._head->_data);
-
-	// Initialize traversal pointers
-	Node* currentRhs = rhs._head->_next;
-	Node* current = _head;
-
-	// Copy other nodes
-	while (currentRhs) {
-		current->_next = new Node(currentRhs->_data);
-		current = current->_next;
-		currentRhs = currentRhs->_next;
-	}
-}
-
-// Deep copy assignment operator
-template<class T>
-SLL<T>& SLL<T>::operator=(const SLL& rhs) {
-	// Self-assignment guard
-	if (this == &rhs)
-		return *this;
-
-	// Ensure that the destination list doesn't retain any of its existing elements
-	clear();
-	// Set corresponding size
-	_size = rhs._size;
-
-	// Case: empty list
-	if (rhs._head == nullptr) {
-		_head = nullptr;
-		return *this;
-	}
-
-	// Create corresponding first node
-	_head = new Node<T>(rhs._head->_data);
-
-	// Initialize traversal pointers
-	Node* currentRhs = rhs._head->_next;
-	Node* current = _head;
-
-	// Copy other nodes
-	while (currentRhs) {
-		current->_next = new Node<T>(currentRhs->_data);
-		current = current->_next;
-		currentRhs = currentRhs->_next;
-	}
-
-	// Maintain the proper reference to the head
-	_head = current;
-
-	return *this;
-}
-
-// Destructor
-template<typename T>
-SLL<T>::~SLL() { clear(); }
-```
-
-4. Element access:
-```cpp
-// Accesses the element at the specified index, no range check, allows modification
-template<class T>
-T& SLL<T>::operator[](const int index) {
-	// Initialize traversal variables
-	int counter = 0;
-	Node* current = _head;
-
-	while (current != nullptr) {
-		// Return value of matched node
-		if (counter == index) {
-			return current->_data;
-		}
-		// Otherwise keep traversing
-		current = current->_next;
-		counter++;
-	}
-}
-
-// Accesses the element at the specified index, no range check, denies modification
-template<class T>
-const T& SLL<T>::operator[](const int index) const {
-	// TODO: range check
-
-	// Initialize traversal variables
-	int counter = 0;
-	Node* current = _head;
-
-	while (current != nullptr) {
-		// Return value of matched node
-		if (counter == index) {
-			return current->_data;
-		}
-		// Otherwise keep traversing
-		current = current->_next;
-		counter++;
-	}
-}
-
-// Accesses the first element in the container, no range check, allows modification
-template<class T>
-T& SLL<T>::front() { return _head->_data; }
-
-// Accesses the first element in the container, no range check, denies modification
-template<class T>
-const T& SLL<T>::front() const { return _head->_data; }
-```
-
-5. Capacity methods:
-```cpp
-// Checks if the container has no elements
-template<class T>
-bool SLL<T>::empty() const { return _size == 0; }
-
-// Returns the number of elements in the container
-template<typename T>
-int SLL<T>::size() const { return _size; }
-```
-
-6. Modifiers:
-```cpp
-// Erases all elements from the container
-template<typename T>
-void SLL<T>::clear() {
-	// Case: empty list
-	if (!_head)
-		return;
-
-	// Traverse the list and deallocate memory for each node
-	while (_head) {
-		Node* current = _head;
-		_head = _head->_next;
-		delete current;
-	}
-
-	// Update the state of list
-	_size = 0;
-	_head = nullptr;
-}
-
-// Inserts elements after the specified position in the container
-// Note: with no bounds check, assumes that index is correct
-template<class T>
-void SLL<T>::insertAfter(const int index, const T& newData) {
-	if (index == 0) {
-		pushFront(newData);
-	}
-	else {
-		// Create a new node with the given data
-		Node* newNode = new Node(newData);
-
-		// Find the node at the specified index
-		Node* current = _head;
-		for (int i = 0; i < index - 1; i++) {
-			current = current->_next;
-		}
-
-		// Insert the new node after the current one
-		newNode->_next = current->_next;
-		current->_next = newNode;
-
-		// Update the size
-		++_size;
-	}
-}
-
-// Removes an element at the specified position
-// Note: with no bounds check, assumes that index is correct
-template<class T>
-void SLL<T>::eraseAfter(const int index) {
-	if (index == 0) {
-		popFront();
-	}
-	else {
-		// Traverse to the node before the node to be erased
-		Node* current = _head;
-		for (int i = 0; i < index; ++i) {
-			current = current->_next;
-		}
-
-		// Remove
-		Node* nodeToDelete = current->_next;
-		current->_next = nodeToDelete->_next;
-		delete nodeToDelete;
-
-		// Update the size
-		--_size;
-	}
-}
-
-// Prepends the given element value to the beginning of the container
-template<typename T>
-void SLL<T>::pushFront(const T& newData) {
-	// Create a new node with the given data
-	Node* newNode = new Node(newData);
-
-	// Case: empty list
-	if (_size == 0) {
-		_head = newNode;
-	}
-	else {
-		// Push front
-		newNode->_next = _head;
-		_head = newNode;
-	}
-
-	// Update the size
-	++_size;
-}
-
-// Removes the first element of the container
-// Note: with no bounds check, assumes that list contains at least 1 element
-template<class T>
-void SLL<T>::popFront() {
-	// TODO: range check
-
-	// Case: one element
-	if (_size == 1) {
-		clear();
-		return;
-	}
-
-	// Move the head pointer to the next node
-	Node* temp = _head;
-	_head = _head->_next;
-	delete temp;
-
-	// Update the size
-	--_size;
-}
-```
-
-
-
-##  Doubly Linked List
+##  Doubly Linked List | Design Decisions
 Keeping its educational aim in mind, the `DLL` class developed here closely resembles the behavior of `std::list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/LibraryListItr.png"/></p>
+<p align="center"><img src="./img/ListDoublyLibItr.png"/></p>
 
 One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::list`, allowing to maintain focus on the key features of the ADT.
 
----
-<p align="center"><img src="./img/DemonstrationDLL.png"/></p>
 
-**Detailed Overview:**
-1. The `DLL` class is declared in `DoublyLinkedList.h` header file and defined in `DoublyLinkedList.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-2. Whole class declaration:
+##  Doubly Linked List | Detailed Overview
+<p align="center"><img src="./img/ListDoublyDemonstration.png"/></p>
+
+Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList/src/Main.cpp) file. The `DLL` class is declared in [DoublyLinkedList.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList/inc/DoublyLinkedList.h) header file and defined in [DoublyLinkedList.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList/src/DoublyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
 template<class T>
 class DLL {
@@ -445,314 +206,13 @@ public:
 };
 ```
 
-3. Facilitator Method (replaces iterator functionaly of determining whether to start from head or tail):
-```cpp
-// Determine whether to start traversal from the head or tail
-template<typename T>
-typename DLL<T>::Node* DLL<T>::getStartingNode(int index) const {
-	Node* startingNode;
-	int distanceFromHead = index;
-	int distanceFromTail = _size - index - 1;
-
-	if (distanceFromHead <= distanceFromTail) {
-		startingNode = _head;
-		for (int i = 0; i < index; ++i) {
-			startingNode = startingNode->_next;
-		}
-	}
-	else {
-		startingNode = _tail;
-		for (int i = _size - 1; i > index; --i) {
-			startingNode = startingNode->_prev;
-		}
-	}
-
-	return startingNode;
-}
-```
-
-4. Special member functions:
-```cpp
-// Default constructor
-template<typename T>
-DLL<T>::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
-
-//// Parametrized constructor
-//template<class T>
-//DLL<T>::DLL(const std::initializer_list<T>& initList) { }
-
-// Deep copy constructor
-template<class T>
-DLL<T>::DLL(const DLL& rhs) : _size(rhs._size) {
-	// Case: empty list
-	if (rhs._head == nullptr) {
-		_head = _tail = nullptr;
-		return;
-	}
-
-	// Create corresponding first node
-	_head = new Node(rhs._head->_data);
-
-	// Initialize traversal pointers
-	Node* currentRhs = rhs._head->_next;
-	Node* current = _head;
-
-	// Copy other nodes
-	while (currentRhs) {
-		current->_next = new Node(currentRhs->_data);
-		current->_next->_prev = current;
-		current = current->_next;
-		currentRhs = currentRhs->_next;
-	}
-
-	// Maintain proper reference to the end
-	_tail = current;
-}
-
-// Deep copy assignment operator
-template<class T>
-DLL<T>& DLL<T>::operator=(const DLL& rhs) {
-	// Self-assignment guard
-	if (this == &rhs)
-		return *this;
-
-	// Ensure that the destination list doesn't retain any of its existing elements
-	clear();
-
-	// Set corresponding size
-	_size = rhs._size;
-
-	// Case: empty list
-	if (rhs._head == nullptr) {
-		_head = _tail = nullptr;
-		return *this;
-	}
-
-	// Create corresponding first node
-	_head = new Node(rhs._head->_data);
-
-	// Initialize traversal pointers
-	Node* currentRhs = rhs._head->_next;
-	Node* current = _head;
-
-	// Copy other nodes
-	while (currentRhs) {
-		current->_next = new Node(currentRhs->_data);
-		current->_next->_prev = current;
-		current = current->_next;
-		currentRhs = currentRhs->_next;
-	}
-
-	// Maintain proper reference to the end
-	_tail = current;
-
-	return *this;
-}
-
-// Destructor
-template<typename T>
-DLL<T>::~DLL() { clear(); }
-```
-
-5. Element access:
-```cpp
-// Accesses the element at the specified index, no range check, allows modification
-template<class T>
-T& DLL<T>::operator[](const int index) {
-	// Traverse to the required node
-	Node* current = getStartingNode(index);
-	return current->_data;
-}
-
-// Accesses the element at the specified index, no range check, denies modification
-template<class T>
-const T& DLL<T>::operator[](const int index) const {
-	// Traverse to the required node
-	Node* current = getStartingNode(index);
-	return current->_data;
-}
-
-// Accesses the first element in the container, no range check, allows modification
-template<class T>
-T& DLL<T>::front() { return _head->_data; }
-
-// Accesses the first element in the container, no range check, denies modification
-template<class T>
-const T& DLL<T>::front() const { return _head->_data; }
-
-// Accesses the last element in the container, no range check, allows modification
-template<class T>
-T& DLL<T>::back() { return _tail->_data; }
-
-// Accesses the last element in the container, no range check, denies modification
-template<class T>
-const T& DLL<T>::back() const { return _tail->_data; }
-```
-
-6. Capacity methods:
-```cpp
-// Checks if the container has no elements
-template<class T>
-bool DLL<T>::empty() const { return _size == 0; }
-
-// Returns the number of elements in the container
-template<typename T>
-int DLL<T>::size() const { return _size; }
-```
-
-7. Modifiers:
-```cpp
-// Erases all elements from the container
-template<typename T>
-void DLL<T>::clear() {
-	// Case: empty list
-	if (!_head)
-		return;
-
-	// Traverse the list and deallocate memory for each node
-	while (_head) {
-		Node* current = _head;
-		_head = _head->_next;
-		delete current;
-	}
-
-	// Update the state
-	_size = 0;
-	_tail = _head = nullptr;
-}
-
-// Inserts elements after the specified position in the container
-// Note: with no bounds check, assumes that index is correct
-template<class T>
-void DLL<T>::insert(const int index, const T& newData) {
-	if (index == 0) {
-		pushFront(newData);
-	}
-	else if (index == _size - 1) {
-		pushBack(newData);
-	}
-	else {
-		// Insert new node at specified position
-		Node* prevNode = getStartingNode(index - 1);
-		Node* newNode = new Node(newData);
-		newNode->_next = prevNode->_next;
-		newNode->_prev = prevNode;
-		prevNode->_next = newNode;
-
-		// Update the size
-		++_size;
-	}
-}
-
-// Removes an element at the specified position
-// Note: with no bounds check, assumes that index is correct
-template<class T>
-void DLL<T>::erase(const int index) {
-	if (index == 0) {
-		popFront();
-	}
-	else if (index == _size - 1) {
-		popBack();
-	}
-	else {
-		// Remove specified node
-		Node* prevNode = getStartingNode(index - 1);
-		Node* nodeToErase = prevNode->_next;
-		prevNode->_next = nodeToErase->_next;
-		nodeToErase->_next->_prev = prevNode;
-		delete nodeToErase;
-
-		// Update the size
-		--_size;
-	}
-}
-
-// Prepends the given element value to the beginning of the container
-template<typename T>
-void DLL<T>::pushFront(const T& newData) {
-	// Create a new node with the given data
-	Node* newNode = new Node(newData);
-
-	// Case: empty list
-	if (_size == 0) {
-		_head = _tail = newNode;
-	}
-	else {
-		// Push front
-		_head->_prev = newNode;
-		newNode->_next = _head;
-		_head = newNode;
-	}
-
-	// Update the size
-	++_size;
-}
-
-// Removes the first element of the container
-// Note: with no bounds check, assumes that list contains at least 1 element
-template<class T>
-void DLL<T>::popFront() {
-	// Case: one element
-	if (_size == 1) {
-		clear();
-		return;
-	}
-
-	// Move the head pointer to the next node
-	Node* temp = _head;
-	_head = _head->_next;
-	_head->_prev = nullptr;
-	delete temp;
-
-	// Update the size
-	--_size;
-}
-
-// Appends the given element to the end of the container
-template<class T>
-void DLL<T>::pushBack(const T& newData) {
-	// Create a new node with the given data
-	Node* newNode = new Node(newData);
-
-	// Case: empty list
-	if (_size == 0) {
-		_head = _tail = newNode;
-	}
-	else {
-		// Push back
-		_tail->_next = newNode;
-		newNode->_prev = _tail;
-		_tail = newNode;
-	}
-
-	// Update the size
-	++_size;
-}
-
-// Removes the last element of the container
-// Note: with no bounds check, assumes that list contains at least 1 element
-template<class T>
-void DLL<T>::popBack() {
-	// Case: one element
-	if (_size == 1) {
-		clear();
-		return;
-	}
-
-	// Move the tail pointer to the previous node
-	_tail = _tail->_prev;
-	delete _tail->_next;
-	_tail->_next = nullptr;
-
-	// Update the size
-	--_size;
-}
-```
-
-
-##  Circular Linked List
+##  Circular Linked List | Design Decisions
 Circular linked lists can be implemented based on either singly or doubly linked lists. This implementation doesn't fundamentally alter the functionality; rather, it changes how operations are performed. Unlike standard linked lists, there isn't a built-in container for circular linked lists in the STL. Therefore, I chose to implement it based on a doubly linked list for personal preference.
-<p align="center"><img src="./img/DemonstrationCLL.png"/></p>
+
+
+
+##  Circular Linked List | Detailed Overview
+<p align="center"><img src="./img/ListCircularDemonstration.png"/></p>
 
 The concept behind creating this type of container revolves around ensuring that the tail node's next pointer points to the head and vice versa. This necessitates minor adjustments to the overall structure to avoid circular references. Specifically, it means you can't iterate through the list by checking for nullptr, and it requires assigning proper values to the pointers after making corresponding changes. For the complete implementation, please refer to the [project's directory](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList). Here, I'll provide a simple examples:
 
@@ -825,44 +285,50 @@ void CLL<T>::pushFront(const T& newData) {
 
 
 # &#128202; Analysis
-**Advantages:**
+Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
+
+
+## How to Analyze
+Will be updated in the future...
+
+
+## Advantages
 - **Efficient Element Rearraging** — elements is efficient due to simple change of pointers, e.g. insertion and deletion takes $O(1)$ time.
 - **Diverse Memory Allocation** — in some scenarios, where it is hard to allocate a single-block of memory, linked list can come in handy, due to the distribution of cells throughout the memory.
 - **Minimizing Unused Space** — unused nodes can be removed, preventing them from occupying memory cells intended for other data.
 
----
-**Disadvantages:**
+## Disadvantages
 - **Inefficient Sequential Access** — in order to reach a specific element, it is necessary to traverse through the other elements first, e.g. access and search takes $O(n)$ time.
 - **Additional Memory Consumption** — each node requires memory allocation not only for the data but also for the pointers.
 
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Some of the Most Well-Known Use Cases
 - **Algorithms and Data Structures** — graph path traversal algorithms and various data structures like stacks, queues, hash tables, tree and graphs representations often use lists as their underlying structure.
 - **Back/Next Functionality** — linked lists are commonly utilized in implementing back/next navigating functionality, such as in web browsers with nodes as web pages or music players with nodes as songs.
 - **Undo/Redo Functionality** — something similar to previous point, but desribes the cases, where each action performed by the user is stored as a node in separate linked lists, therefore allowing users to revert to previous states of the application or redo previously undone actions by traversing the respective lists.
 - **Scheduling/Ordering** — each task or element is represented as a node in the linked list, and scheduling decisions are made based on the order (by priority, arrival time, or other criteria) of nodes in the list. 
 - **File System Management** — lists used in file system management for maintaining directory structures, file metadata, and file allocation tables, where each directory entry or file descriptor is stored as a node, facilitating efficient traversal and manipulation of file system objects.
 
----
-**Common Practical Problems:**
-- Reverse a linked list.
-- Delete without head pointer.
-- Remove duplicate elements from sorted linked list.
-- Mergea linked list into another linked list at alternate positions.
-- Finding the length of a loop in linked list.
-- Occurence of an integer in a Linked List.
-- Convert singly linked list into circular linked list.
-- Merge two sorted linked lists.
-- Intersection point of two Linked Lists.
-- Swap Kth node from beginning with Kth node from end in a Linked List.
-- Convert a given Binary Tree to Doubly Linked List.
-- Rearrange a given linked list in-place.
-- Flattening a Linked List.
-- Partition a linked list around a given value.
-- Move Last Element of Linked List to Front.
-- Sort a Linked List which is already sorted on absolute values.
+
+## Common Practical Problems
+- [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+- [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+- [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+- [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+- [Reorder List](https://leetcode.com/problems/reorder-list/)
+- [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+- [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
+- [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+- [LRU Cache](https://leetcode.com/problems/lru-cache/)
+- [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)
+- [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+- [LFU Cache](https://leetcode.com/problems/lfu-cache/)
+
 
 
 # &#x1F559; Origins
