@@ -1,12 +1,22 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Essential Terminology](#essential-terminology)
+	- [Important Details](#important-details)
+	- [Types of Queues](#types-of-queues)
+	- [Operation Details](#operation-details)
 - [💻 Implementation](#-implementation)
-	- [Linear Queue](#linear-queue)
+	- [Linear Queue | Design Decisions](#linear-queue--design-decisions)
+	- [Linear Queue | Detailed Overview](#linear-queue--detailed-overview)
 	- [Double-Ended Queue](#double-ended-queue)
 	- [Circular Queue](#circular-queue)
 	- [Priority Queue](#priority-queue)
 - [📊 Analysis](#-analysis)
+	- [How to Analyze](#how-to-analyze)
+	- [Advantages](#advantages)
+	- [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
+	- [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
+	- [Common Practical Problems](#common-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -19,8 +29,8 @@
 The **Queue** as abstract data type (ADT) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. It is named this way, because of how it resembles the behavior of queue (line) in real life. This subsection explores idea of queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./img/Queue.png"/></p>
 
----
-**Essential Terminology:**
+
+## Essential Terminology
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
   - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
 - **Queue** — is a term used to encompass a variety of ADTs with similar sequential behavior.
@@ -29,33 +39,29 @@ The **Queue** as abstract data type (ADT) in computer programming, becomes parti
 - **Enqueue** — is an operation of adding an element to the rear.
 - **Dequeue** — is an operation of removing an element from the front.
 
----
-**Common Operations for Queues:**
-- **peek()** — retrieving or updating the value of an existing element at a specific position.
-- **enqueue()** — adding a new element to the queue.
-- **dequeue()** — removing an element from the queue.
-- **empty()** — checks whether the container adaptor is empty.
-- **size()** — returns the number of elements.
-- **clear()** — remove all elements.
 
----
+## Important Details
+Will be updated in the future...
+
+
+## Types of Queues
 When it comes to classification, there are broadly four types of queues: linear queue, circular queue, double-ended queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
-<p align="center"><img src="./img/StructureLQ.png"/></p>  
+<p align="center"><img src="./img/QueueLinear.png"/></p>  
 
 **Linear Queue** — all insertions are made at one end of and all deletions at the other, operates on the First-In-First-Out principle.  
 **Typical underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/StructureDQ.png"/></p>
+<p align="center"><img src="./img/QueueDouble.png"/></p>
 
 **Deque (Double-Ended Queue)** — allows insertion and deletion of elements from both ends.
   - **Input Restricted Deque** — allows insertion from only one end (either rear or front).
   - **Output Restricted Deque** — allows removal from only one end (either rear or front).
     
 **Typical Underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/StructureCQ.png"/></p>
+<p align="center"><img src="./img/QueueCircular.png"/></p>
 
 **Circular Queue** — variation of deque or linear queue, that connects front with rear ends.  
 **Typical underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/StructurePQ.png"/></p>
+<p align="center"><img src="./img/QueuePriority.png"/></p>
 
 **Priority Queue** — elements are dequeued based on their priority level, rather than their order of insertion.
   - **Ascending Priority Queue** — elements with higher priority levels are dequed first.
@@ -64,25 +70,31 @@ When it comes to classification, there are broadly four types of queues: linear 
 **Typical underlying DS:** max-heaps, min-heaps.  
 
 
+## Operation Details
+- **peek()** — retrieving or updating the value of an existing element at a specific position.
+- **enqueue()** — adding a new element to the queue.
+- **dequeue()** — removing an element from the queue.
+- **empty()** — checks whether the container adaptor is empty.
+- **size()** — returns the number of elements.
+- **clear()** — remove all elements.
+
 
 # &#x1F4BB; Implementation 
 Discussing ADT, it's evident that well-established and widely recognized implementations already exist for linear, double-ended, circular and priority queues. In the context of C++, `std::queue` is a representative of linear queue, `std::deque` stands for double-ended queue, and `std::priority_queue` for priority queue. First two, can be altered to create circular structure via manual pointers manipulation.  It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these queues. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
 
 
-##  Linear Queue
+##  Linear Queue | Design Decisions
 Keeping its educational aim in mind, the `LQ` class developed here closely resembles the behavior of `std::queue`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/LibraryLQ.png"/></p>
+<p align="center"><img src="./img/QueueLinearLib.png"/></p>
 
 One significant design decision is the implementation of a linear queue solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque.
 
 
----
-<p align="center"><img src="./img/DemonstrationLQ.png"/></p>
+##  Linear Queue | Detailed Overview
+<p align="center"><img src="./img/QueueLinearDemonstration.png"/></p>
 
-**Detailed Overview**:
-1. The `LQ` class is declared in `LinearQueue.h` header file and defined in `LinearQueu.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Testing of the class functionalities is conducted within the `main()` function located in the `Main.cpp` file.
-2. Whole class declaration:
+Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue/src/Main.cpp) file. The `LQ` class is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue/inc/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue/src/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
 template<class T>
 class LQ {
@@ -123,155 +135,6 @@ public:
 	void pop();
 };
 ```
-3. Special member functions:
-```cpp
-// Default constructor
-template<class T>
-LQ<T>::LQ() : _size(0), _front(nullptr), _rear(nullptr) {}
-
-// Deep copy constructor
-template<class T>
-LQ<T>::LQ(const LQ& rhs) : _size(rhs._size), _front(nullptr), _rear(nullptr) {
-	// Case: empty queue
-	if (rhs._front == nullptr)
-		return;
-
-	// Create corresponding first node
-	_front = new Node(rhs._front->_data);
-	_rear = _front;
-
-	// Copy other nodes
-	Node* currentRhs = rhs._front->_next;
-	while (currentRhs) {
-		_rear->_next = new Node(currentRhs->_data);
-		_rear = _rear->_next;
-		currentRhs = currentRhs->_next;
-	}
-}
-
-// Deep copy assignment operator
-template<class T>
-LQ<T>& LQ<T>::operator=(const LQ& rhs) {
-	// Self-assignment guard
-	if (this == &rhs)
-		return *this;
-
-	// Ensure that the destination list doesn't retain any of its existing elements
-	while (_front) {
-		Node* temp = _front;
-		_front = _front->_next;
-		delete temp;
-	}
-
-	// Set corresponding size
-	_size = rhs._size;
-
-	// Case: empty queue
-	if (rhs._front == nullptr) {
-		_front = _rear = nullptr;
-	}
-	else {
-		// Create corresponding first node
-		_front = new Node(rhs._front->_data);
-		_rear = _front;
-
-		// Copy other nodes
-		Node* currentRhs = rhs._front->_next;
-		while (currentRhs) {
-			_rear->_next = new Node(currentRhs->_data);
-			_rear = _rear->_next;
-			currentRhs = currentRhs->_next;
-		}
-	}
-
-	return *this;
-}
-
-// Destructor
-template<class T>
-LQ<T>::~LQ() {
-	while (_front) {
-		Node* temp = _front;
-		_front = _front->_next;
-		delete temp;
-	}
-
-	// Update the state
-	_rear = nullptr;
-	_size = 0;
-}
-```
-4. Element access:
-```cpp
-// Accesses the first element in the container, no range check, allows modification
-template<class T>
-T& LQ<T>::front() { return _front->_data; }
-
-// Accesses the first element in the container, no range check, denies modification
-template<class T>
-const T& LQ<T>::front() const { return _front->_data; }
-
-// Accesses the last element in the container, no range check, allows modification
-template<class T>
-T& LQ<T>::rear() { return _rear->_data; }
-
-// Accesses the last element in the container, no range check, denies modification
-template<class T>
-const T& LQ<T>::rear() const { return _rear->_data; }
-```
-5. Capacity methods:
-```cpp
-// Checks if the container has no elements
-template<class T>
-bool LQ<T>::empty() const { return _size == 0; }
-
-// Returns the number of elements in the container
-template<typename T>
-size_t LQ<T>::size() const { return _size; }
-```
-6. Modifiers:
-```cpp
-// Pushes the given element to the end of the queue
-template<class T>
-void LQ<T>::push(const T& newData) {
-	// Create a new node with the given data
-	Node* newNode = new Node(newData);
-
-	// Case: empty queue
-	if (_front == nullptr) {
-		_front = _rear = newNode;
-	}
-	else {
-		_rear->_next = newNode;
-		_rear = newNode;
-	}
-
-	// Update the size
-	++_size;
-}
-
-// Removes an element from the front of the queue
-// Note: with no bounds check, assumes that queue contains at least 1 element
-template<class T>
-void LQ<T>::pop() {
-	// Case: empty queue
-	if (_front == nullptr)
-		return;
-	
-	// Move the head pointer to the next node
-	Node* temp = _front;
-	_front = _front->_next;
-	delete temp;
-
-	// Case: last element
-	if (_front == nullptr)
-		_rear = nullptr;
-
-	// Update the size
-	--_size;
-}
-```
-
 
 
 ##  Double-Ended Queue
@@ -294,26 +157,48 @@ P.s. in order to grasp this topic in a better way, I'm going to update this sect
 
 
 # &#128202; Analysis
+Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
+
+
+## How to Analyze
 The analysis of queues can be quite confusing. Different implementations have their own set of advantages and disadvantages. However, the information available across various resources can sometimes be overwhelming mix of all types, don't really useful or discussing not existing cases at all. The analysis from point of time and space complexities mostly based on underlaying data structure. Overall, the queues provide the "wrapping" behaviour, that is preffarably can be replaced by a better alternative, and only remaining relevant primarily when the **natural sequential behavior** is crucial.
+
+
+## Advantages
+Will be updated in the future...
+
+
+## Disadvantages
+Will be updated in the future...
 
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Some of the Most Well-Known Use Cases
 - **Scheduling** — in scenarios, where it is convenient to represent each element as a node and make decisions based on the order (by priority, arrival time, or other criteria); e.g. task scheduling, traffic management.
 - **Buffering** — in various systems, where incoming data packets are stored temorarily before being processed; e.g. user input, layers of BFS algorithm.
 - **Resource Allocation** — in resource allocation systems, where resource access based on predefined criteria such as priority, fairness, or availability; e.g. how CPU controls the resources, game mechanics with resources.
 
----
-**Common Practical Problems:**
-- Reverse first k elements of queue.
-- BFS for a graph.
-- Check whether a given graph is Bipartite or not.
-- Flood fill algorithm.
-- Maximum cost path from source node to destination.
-- Turn a queue into a priority queue.
-- Design a Sliding Window maximum algorithm.
-- Find Maximum Non-decreasing Array Length.
+
+## Common Practical Problems
+- [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+- [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)
+- [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
+- [Reveal Cards In Increasing Order](https://leetcode.com/problems/reveal-cards-in-increasing-order/)
+- [Continuous Subarrays](https://leetcode.com/problems/continuous-subarrays/)
+- [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
+- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+- [K-th Smallest Prime Fraction](https://leetcode.com/problems/k-th-smallest-prime-fraction/)
+- [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+- [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
+- [Desgin Twitter](https://leetcode.com/problems/design-twitter/)
+- [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
+- [Max Value of Equation](https://leetcode.com/problems/max-value-of-equation/)
+- [The Skyline Problem](https://leetcode.com/problems/the-skyline-problem/)
+- [Strong Password Checker](https://leetcode.com/problems/strong-password-checker/)
 
 
 

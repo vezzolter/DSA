@@ -153,17 +153,32 @@ As my educational journey progresses, I may discover new areas of interest withi
 
 ---
 **Backlog:**
-1. **Search, Sorting:** add more test cases.
-2. **RNG:** find a proper learning resource and continue the work.
-3. **Data Structures:** add iterator classes.
-4. **Data Structures:** explain all operations with images.
-5. **Deque, Circular Queue:** decide how to implement.
-6. **Array, List, Queue:** take out types in separate folders with markdowns, just like BST out of trees.
+1. Separate «particular implementaitons» from «general»: 
+   - Separate arrays from array.
+   - Separate lists from list.
+   - Separate queues from queue.
+   - Fix doc for trees and bst.
+2. Create more test cases for searching and sorting:
+   - Bubble Sort
+   - Selection Sort
+   - Insertion Sort
+   - Merge Sort
+   - Quicksort
+   - Linear Search
+   - Binary Search
+3. Create iterator classes for data structures:
+   - Arrays
+   - Lists
+   - Stack
+   - Queue
+   - BST
+4.  Implement deque.
+5.  Implement circular queue based on deque.
 
 ---
 **Wishlist:**
-- **Tips Subsections:** this subsection could provide some practical solutions that can benefit design decisions.
-- **Additional Sections:** iteration, two pointers, sliding window, analysis.
+1. Decide what to do with operations (e.g. explain all in text/code or merely describe).
+2. Think of creating separate section dedicated to tips/tricks/tools (e.g. what are good test cases for validation, how to analyze code...).
 
 
 
