@@ -158,7 +158,7 @@ As my educational journey progresses, I may discover new areas of interest withi
    - Separate lists from list.
    - Separate queues from queue.
    - Fix doc for trees and bst.
-2. Create more test cases for searching and sorting:
+2. Create more test cases (zero elements, single element, many elements, sorted, reverse order, all duplicates, only some duplicates, search target is not present) for searching and sorting:
    - Bubble Sort
    - Selection Sort
    - Insertion Sort
