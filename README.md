@@ -18,7 +18,6 @@ This list provides a straightforward overview of the repository's contents. For 
 
 ---
 **The Structure:**
-- Maintenance 🎯
 - Algorithms
   - Analysis
     - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md) 🔄
@@ -177,8 +176,8 @@ As my educational journey progresses, I may discover new areas of interest withi
 
 ---
 **Wishlist:**
-1. Decide what to do with operations (e.g. explain all in text/code or merely describe).
-2. Think of creating separate section dedicated to tips/tricks/tools (e.g. what are good test cases for validation, how to analyze code...).
+- Decide what to do with operations (e.g. explain all in text/code or merely describe).
+- Think of creating separate section dedicated to tips/tricks/tools (e.g. what are good test cases for validation, how to analyze code...).
 
 
 
