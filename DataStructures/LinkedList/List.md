@@ -66,7 +66,7 @@ When it comes to classification, there are broadly three types of lists: singly 
 
 ## Operation Details
 - **Traversal** — iterating through the elements of the list.
-- **Acess** — retrieving or updating the value of an existing element.
+- **Access** — retrieving or updating the value of an existing element.
 - **Insertion** — adding a new element to the list.
 - **Deletion** — removing an element from the list.
 - **Search** — locating a specific element within the list.
