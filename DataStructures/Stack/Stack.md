@@ -43,11 +43,14 @@ Stack generally can be broadly classified based on underlaying data structure in
 While these types share some common ideas, each possesses distinctive characteristics related to the "base" of ADT. For example, while frequent insertion/removal on array can lead to a quite resourceful reallocation, those same operations in linked list require dereferencing. Overall the choice between them depends on the specific requirements of the case at hand. But most of the time people use list-based stack.
 
 ## Operation Details
-- **push** — inserts element at the top.
-- **pop** — removes the top element.
-- **peek** — accesses the top element.
-- **empty** — checks whether the container adaptor is empty.
-- **size** — returns the number of elements.
+- **Access/Peek** — retrieving or updating the value of an existing element.
+- **Insertion/Push** — adding a new element to the list.
+- **Deletion/Pop** — removing an element from the list.
+- **Clear** — removing all elements, resetting it to an empty state.
+- **Empty** — checking if the stack contains no elements.
+- **Size** — determining the number of elements.
+
+
 
 # &#x1F4BB; Implementation
 Discussing ADT, it's evident that well-established and widely recognized implementations already exist for stack. In the context of C++, `std::stack` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified version of thhis collection. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
