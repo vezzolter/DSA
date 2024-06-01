@@ -71,12 +71,13 @@ When it comes to classification, there are broadly four types of queues: linear 
 
 
 ## Operation Details
-- **peek()** — retrieving or updating the value of an existing element at a specific position.
-- **enqueue()** — adding a new element to the queue.
-- **dequeue()** — removing an element from the queue.
-- **empty()** — checks whether the container adaptor is empty.
-- **size()** — returns the number of elements.
-- **clear()** — remove all elements.
+- **Access/Peek** — retrieving or updating the value of an existing element at a specific position.
+- **Insertion/Enqueue** — adding a new element to the queue.
+- **Deletion/Dequeue** — removing an element from the queue.
+- **Clear** — removing all elements, resetting it to an empty state.
+- **Empty** — checking if the stack contains no elements.
+- **Size** — determining the number of elements.
+
 
 
 # &#x1F4BB; Implementation 

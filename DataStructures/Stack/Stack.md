@@ -43,9 +43,9 @@ Stack generally can be broadly classified based on underlaying data structure in
 While these types share some common ideas, each possesses distinctive characteristics related to the "base" of ADT. For example, while frequent insertion/removal on array can lead to a quite resourceful reallocation, those same operations in linked list require dereferencing. Overall the choice between them depends on the specific requirements of the case at hand. But most of the time people use list-based stack.
 
 ## Operation Details
-- **Access/Peek** — retrieving or updating the value of an existing element.
-- **Insertion/Push** — adding a new element to the list.
-- **Deletion/Pop** — removing an element from the list.
+- **Access/Peek** — retrieving or updating the value of last element.
+- **Insertion/Push** — adding a new element to the stack.
+- **Deletion/Pop** — removing an element from the stack.
 - **Clear** — removing all elements, resetting it to an empty state.
 - **Empty** — checking if the stack contains no elements.
 - **Size** — determining the number of elements.
