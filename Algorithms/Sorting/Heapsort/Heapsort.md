@@ -13,8 +13,18 @@
 
 
 # &#128161; Overview
-The **Heapsort** stands out as one of the most well-known and efficient sorting technique. The author named algorithm for its use of the heap data structure property, which implies that keys of parent nodes are either greater than or equal to those of their children (in a max heap) or less than or equal to those of their children (in a min heap). This subsection explores idea of heapsort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+The **Heapsort** stands out as one of the most well-known and efficient sorting techniques. The algorithm is named for its use of the heap data structure property, which implies that the keys of parent nodes are either greater than or equal to those of their children (in a max heap) or less than or equal to those of their children (in a min heap). Therefore, it is recommended to first learn about heaps. This subsection explores the idea of heapsort not only to enhance comprehension of its concepts, but also to establish a solid foundation for more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./img/Heapsort.png"/></p>
+
+---
+The **Heapsort** converts the original data into a heap data structure, divides its input into a sorted and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element (the root) from the heap and moving it to the sorted region.
+
+**Algorithm Steps:**
+1. Convert the input data into a max heap, so that the largest value is at the root.
+2. Swap the root with the last element of the unsorted portion, thus moving the root to the sorted part.
+3. Remove the swapped root from the heap.
+4. Perform a heapify operation to ensure that the remaining elements maintain the heap property.
+5. Repeat this process until there are no elements remaining in the unsorted part.
 
 
 
@@ -64,7 +74,7 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127891; **Courses:**
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
-   - Section 20: Sorting Techniques
+   - Section 19: Heap
 
 ---  
 &#127760; **Web-Resources:**  
