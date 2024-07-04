@@ -4,6 +4,7 @@
 
 #pragma once
 
-
-void heapsort();
+void heapify(int arr[], int size, int i);
+void buildMaxHeap(int arr[], int size);
+void heapsort(int arr[], int size);
 

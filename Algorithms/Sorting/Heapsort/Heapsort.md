@@ -29,8 +29,8 @@ The **Heapsort** converts the original data into a heap data structure, divides 
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
-
+The program initializes an array of specified integers, performs ascending order sorting using the heapsort algorithm, and finally displays the result.
+<p align="center"><img src="./img/Demonstration.png"/></p>
 
 
 # &#128202; Analysis

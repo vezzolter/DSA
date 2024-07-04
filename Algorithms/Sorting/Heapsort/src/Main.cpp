@@ -24,13 +24,13 @@ int main()
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 7, 2, 0, 3, 1, 9, 1 };
+	int arr[] = { 1, 7, 3, 2, 9, 0 };
 	const int size = sizeof(arr) / sizeof(arr[0]);
 	printArray(arr, size);
 
-	// Sort Elements
+	// Sort elements
 	std::cout << "\nSorting the elements of it...\n";
-	heapsort();
+	heapsort(arr, size);
 	printArray(arr, size);
 
 	// Exit
