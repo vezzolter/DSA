@@ -32,6 +32,109 @@ The **Heapsort** converts the original data into a heap data structure, divides 
 The program initializes an array of specified integers, performs ascending order sorting using the heapsort algorithm, and finally displays the result.
 <p align="center"><img src="./img/Demonstration.png"/></p>
 
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing an integer array as a collection.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations to the algorithm.
+
+---
+Sorting algorithm implemented within the `heapsort()` function with a few helper ones `swap()`, `buildMaxHeap()` and `heapify`, which are declared `Heapsort.h` header file and defined in `Heapsort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+
+**Complete Implementation:**
+```cpp
+void heapify(int arr[], int size, int i) {
+	int largest = i;      
+	int left = 2 * i + 1;
+	int right = 2 * i + 2;
+
+	// If left child is larger than root
+	if (left < size && arr[left] > arr[largest]) {
+  		largest = left;
+	}   
+
+	// If right child is larger than largest
+	if (right < size && arr[right] > arr[largest]) {
+  		largest = right;
+	}
+        
+	// If largest is not root
+	if (largest != i) {
+	  	swap(arr[i], arr[largest]);
+	  	heapify(arr, size, largest);
+	}
+}
+
+void buildMaxHeap(int arr[], int size) {
+	int startIdx = (size / 2) - 1; // index of the last non-leaf node
+
+	// Heapify via reverse level order traversal
+	for (int i = startIdx; i >= 0; i--) {
+	  	heapify(arr, size, i);
+	}
+}
+
+void heapsort(int arr[], int size) {
+  	buildMaxHeap(arr, size);
+
+  	for (int i = size - 1; i > 0; i--) {
+  	    swap(arr[0], arr[i]);
+  	    heapify(arr, i, 0);
+  	}
+}
+```
+
+---
+**Detailed Walkthrough:**  
+1. Start by building a max heap from the input array. This process takes place in a separate from `heapsort()` function and ensures that the largest element is at the root of the heap.
+```cpp
+	buildMaxHeap(arr, size);
+```
+2. The `buildMaxheap()` function starts by calculating the index of the last non-leaf node in the heap. This is done to begin heapifying from the bottom up.
+```cpp
+	int startIdx = (size / 2) - 1; // index of the last non-leaf node
+```
+3. Perform a reverse level order traversal from the last non-leaf node to the root, calling the `heapify()` function on each node. This ensures that the entire array satisfies the max heap property.
+```cpp
+	// Heapify via reverse level order traversal
+	for (int i = startIdx; i >= 0; i--) {
+	  	heapify(arr, size, i);
+	}
+```
+4. In the `heapify()` function, initialize the largest variable as the current node index. This variable will be used to track the largest value among the node and its children. Also calculate the indices of the left and right children of the current node via respective formulas (i.e. total number of positions occupied by nodes and their children up to $i$ is $2*i$, left child would be the very next position ($+1$), and right next to the left ($+1$ once more))
+```cpp
+	int largest = i;      
+	int left = 2 * i + 1;
+	int right = 2 * i + 2;
+```
+5. Then simply Compare the value of the left child with the value of the current node. If the left child's value is greater, update largest to the index of the left child. Do the same for right child.
+```cpp
+	// If left child is larger than root
+	if (left < size && arr[left] > arr[largest]) {
+		largest = left;
+	}   
+
+	// If right child is larger than largest
+	if (right < size && arr[right] > arr[largest]) {
+		largest = right;
+	}
+```
+6. If the largest value is not the current node, swap the values of the current node and the largest node. Then, recursively call heapify on the affected subtree to ensure it maintains the max heap property.
+```cpp
+	// If largest is not root
+	if (largest != i) {
+		swap(arr[i], arr[largest]);
+		heapify(arr, size, largest);
+	}
+```
+7. Once the max heap is built, proceed to sort the array. This is done by repeatedly extracting the largest element (the root of the heap) and moving it to the end of the array.
+```cpp
+	for (int i = size - 1; i > 0; i--) {
+		swap(arr[0], arr[i]);
+		heapify(arr, i, 0);
+	}
+```
+
+
 
 # &#128202; Analysis
 Currently in Progress...
