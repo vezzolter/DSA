@@ -11,16 +11,16 @@ void swap(int& a, int& b) {
 }
 
 void heapify(int arr[], int size, int i) {
-    int largest = i;       // initialize largest as root
-    int left = 2 * i + 1;  // left child index
-    int right = 2 * i + 2; // right child index
+    int largest = i;      
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
 
     // If left child is larger than root
     if (left < size && arr[left] > arr[largest]) {
         largest = left;
     }   
 
-    // If right child is larger than largest so far
+    // If right child is larger than largest
     if (right < size && arr[right] > arr[largest]) {
         largest = right;
     }
@@ -28,7 +28,7 @@ void heapify(int arr[], int size, int i) {
     // If largest is not root
     if (largest != i) {
         swap(arr[i], arr[largest]);
-        heapify(arr, size, largest); // recursively heapify the affected sub-tree
+        heapify(arr, size, largest);
     }
 }
 
@@ -44,9 +44,8 @@ void buildMaxHeap(int arr[], int size) {
 void heapsort(int arr[], int size) {
     buildMaxHeap(arr, size);
 
-    // One by one extract an element from heap
     for (int i = size - 1; i > 0; i--) {
-        swap(arr[0], arr[i]); // move current root to end
-        heapify(arr, i, 0); // call max heapify on the reduced heap
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
     }
 }
