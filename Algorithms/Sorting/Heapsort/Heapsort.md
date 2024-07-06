@@ -171,7 +171,7 @@ void heapsort(int arr[], int size) {
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Heapsort was invented by British computer scientist **John William Joseph (Bill) Williams** in **1964**. Williams introduced Heapsort in a paper titled «Algorithm 232: Heapsort», published in the Communications of the ACM (Association for Computing Machinery) journal. He developed the algorithm to leverage the binary heap data structure, which he also introduced. The key idea was to efficiently sort data by first constructing a max heap from the input array and then repeatedly extracting the maximum element to achieve a sorted array, much like selection sort. Heapsort remains an important algorithm in computer science education and specific practical contexts, despite being less commonly used than quicksort and mergesort for general-purpose sorting.
 
 
 
