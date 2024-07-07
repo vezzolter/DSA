@@ -1,5 +1,4 @@
 # &#128209; Table of Contents
-- [📑 Table of Contents](#-table-of-contents)
 - [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
@@ -165,7 +164,7 @@ void heapsort(int arr[], int size) {
 
 # &#128221; Application
 **Some of the Most Well-Known Use Cases:**
-- **Memory Constraints** — heapsort is used in scenarios where efficient sorting with minimal memory consumption is required. Unlike mergesort, which requires additional memory, heapsort operates in-place and still provides excellent performance; e.g. embedded systems, operating systems.
+- **Resource-Constrained Environments** — heapsort is used in scenarios where efficient sorting with minimal memory consumption is required. Unlike mergesort, which requires additional memory, heapsort operates in-place and still provides excellent performance; e.g. embedded systems, operating systems.
 - **Guaranteed Performance** — heapsort is used when guaranteed performance is more critical than speed. While generally slower than quicksort, heapsort avoids the risk of excessive recursion depth, which can be problematic for quicksort in certain cases; e.g. introsort.
 
 

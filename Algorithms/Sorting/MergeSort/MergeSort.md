@@ -181,13 +181,13 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
 
 - **Time Complexity:**
-     - Worst Case $O(nlogn)$ — occurs when the data is in reverse sorted order (or almost).
-     - Average Case $O(nlogn)$  — occurs when the data is randomly shuffled. 
-     - Best Case $O(nlogn)$$ — occurs when the data is already sorted (or almost).
+     - **Worst Case** $O(n \log n)$ — occurs when the data is in reverse sorted order (or almost).
+     - **Average Case** $O(n \log n)$  — occurs when the data is randomly shuffled. 
+     - **Best Case** $O(n \log n)$ — occurs when the data is already sorted (or almost).
 
 - **Space Complexity:** 
-  - Array $O(n)$ — algorithm requires additional space $O(n)$ for temporary subarrays and some space $O(logn)$ on call stack to store function calls.
-  - List $O(logn)$ — algorithm only rearranges the pointers to connect the sorted sublists, therefore it requires only some space $O(logn)$ on call stack to store function calls.
+  - **Array Implementation** $O(n)$ — algorithm requires additional space $O(n)$ for temporary subarrays and some space $O(\log n)$ on call stack to store function calls.
+  - **List Implementation** $O(\log n)$ — algorithm only rearranges the pointers to connect the sorted sublists, therefore it requires only some space $O(\log n)$ on call stack to store function calls.
 
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.

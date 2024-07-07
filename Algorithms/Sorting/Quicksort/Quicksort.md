@@ -3,8 +3,8 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
-- [⏳ Origins](#-origins)
-- [🕙 Contributing](#-contributing)
+- [🕙 Origins](#-origins)
+- [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
 - [🙏 Credits](#-credits)
 - [🔏 License](#-license)
@@ -142,12 +142,12 @@ void quicksort(int* arr, int l, int r) {
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
 
 - **Time Complexity:**
-     - Worst Case $O(n^2)$ — occurs when the choice of pivot is poor for the input data, leading to consistently unbalanced partitions during each recursive call.
-     - Average Case $O(nlogn)$ — occurs when the choice of pivot is good enough for the input data, leading to consistently relatively balanced partitions during each recursive call.
-     - Best Case $O(nlogn)$$ — occurs when the choice of pivot is optimal for the input data, leading to consistently nearly equal partitions during each recursive call.
+     - **Worst Case** $O(n^2)$ — occurs when the choice of pivot is poor for the input data, leading to consistently unbalanced partitions during each recursive call.
+     - **Average Case** $O(n \log n)$— occurs when the choice of pivot is good enough for the input data, leading to consistently relatively balanced partitions during each recursive call.
+     - **Best Case** $O(n \log n)$ — occurs when the choice of pivot is optimal for the input data, leading to consistently nearly equal partitions during each recursive call.
 
 - **Space Complexity:** 
-  - Array — algorithm requires some space $O(logn)$ on call stack to store function calls, and only in some of the worst cases it can go up to $O(n)$.
+  - **Array Implementation** — algorithm requires some space $O(\log n)$ on call stack to store function calls, and only in some of the worst cases it can go up to $O(n)$.
 
 - **Stability:** 
   - **Unstable** — algorithm can swap two equal elements, thus altering their relative order. This happens because of depending on the pivot selection and paritioning strategy, equal elements may end up in different relative positions in the sorted output. 
@@ -170,12 +170,12 @@ void quicksort(int* arr, int l, int r) {
 
 
 
-# &#x23F3; Origins
+# &#x1F559; Origins
 QuickSort was conceived by British computer scientist **Tony Hoare** in **1959**. Hoare developed QuickSort while working on his PhD thesis at Moscow State University in the Soviet Union. He was tasked with translating a Russian-English dictionary and sought a more efficient method for sorting words than existing ones. Inspired by the divide-and-conquer paradigm, Hoare devised the QuickSort algorithm, which partitions the array into smaller subarrays just like merge sort, but avoids its excessive use of memory by adding a pivotal logic. Hoare initially presented QuickSort as a paper titled "Algorithm 64: Quicksort" in the Communications of the ACM (Association for Computing Machinery) journal in **1961**. However, it wasn't until later years that QuickSort gained widespread recognition and became one of the most commonly used sorting algorithms in computer science.
 
 
 
-# &#x1F559; Contributing
+# &#129309; Contributing
 Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
 
 

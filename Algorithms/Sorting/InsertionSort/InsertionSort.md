@@ -94,12 +94,12 @@ Sorting algorithm implemented within the function `insertionSort()` is declared 
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
 
 - **Time Complexity:**
-     - Worst Case $O(n^2)$ — occurs when the data is in reverse sorted order (or almost);nested loop used nearly each iteration.
-     - Average Case $O(n^2)$ — occurs when the data is randomly shuffled; nested loop used frequently enough.
-     - Best Case $O(n)$ — occurs when the data is already sorted (or almost); condition for nested loop will be rarely true.
+     - **Worst Case** $O(n^2)$ — occurs when the data is in reverse sorted order (or almost);nested loop used nearly each iteration.
+     - **Average Case** $O(n^2)$ — occurs when the data is randomly shuffled; nested loop used frequently enough.
+     - **Best Case** $O(n)$ — occurs when the data is already sorted (or almost); condition for nested loop will be rarely true.
 
 - **Space Complexity:** 
-  - $O(1)$ — algorithm doesn't require any additional space.
+  - **Array Implementation** $O(1)$ — algorithm doesn't require any additional space.
 
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.

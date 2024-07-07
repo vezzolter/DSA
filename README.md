@@ -18,9 +18,13 @@ This list provides a straightforward overview of the repository's contents. For 
 
 ---
 **The Structure:**
+- General
+    - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/General/Analysis/Analysis.md) 🔄
+    - Validation
+    - Testing
+    - Optimization
+    - Security
 - Algorithms
-  - Analysis
-    - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md) 🔄
   - Sorting
     - [Sorting.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Sorting.md) ✅
     - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
@@ -28,8 +32,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
     - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
     - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
-    - [Heap Sort](https://github.com/vezzolter/DSA/tree/heapsort/Algorithms/Sorting/Heapsort) 🎯
-    - Radix Sort
+    - [Heapsort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Heapsort) ✅
+    - Radix Sort 🎯
     - Counting Sort
     - Bucket Sort
     - Shell Sort
@@ -157,26 +161,13 @@ As my educational journey progresses, I may discover new areas of interest withi
    - Separate lists from list.
    - Separate queues from queue.
    - Fix doc for trees and bst.
-2. Create more test cases (zero elements, single element, many elements, sorted, reverse order, all duplicates, only some duplicates, search target is not present) for searching and sorting:
-   - Bubble Sort
-   - Selection Sort
-   - Insertion Sort
-   - Merge Sort
-   - Quicksort
-   - Linear Search
-   - Binary Search
-3. Create iterator classes for data structures:
+2. Create iterator classes for data structures:
    - Arrays
    - Lists
    - Stack
    - Queue
    - BST
-
-
----
-**Wishlist:**
-- Decide what to do with operations (e.g. explain all in text/code or merely describe).
-- Think of creating separate section dedicated to tips/tricks/tools (e.g. what are good test cases for validation, how to analyze code...).
+3. Decide what to do with operations (e.g. explain all in text/code or merely describe).
 
 
 
