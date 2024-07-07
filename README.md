@@ -28,7 +28,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
     - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
     - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
-    - Heap Sort
+    - [Heap Sort](https://github.com/vezzolter/DSA/tree/heapsort/Algorithms/Sorting/Heapsort) 🎯
     - Radix Sort
     - Counting Sort
     - Bucket Sort
@@ -105,9 +105,9 @@ This list provides a straightforward overview of the repository's contents. For 
   - Queue
     - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
     - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
-    - Double-Ended Queue 🔄
-    - Circular Queue 🔄
-    - Priority Queue 🔄
+    - Double-Ended Queue
+    - Circular Queue
+    - Priority Queue
   - Stack
     - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
     - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
@@ -171,8 +171,7 @@ As my educational journey progresses, I may discover new areas of interest withi
    - Stack
    - Queue
    - BST
-4.  Implement deque.
-5.  Implement circular queue based on deque.
+
 
 ---
 **Wishlist:**
