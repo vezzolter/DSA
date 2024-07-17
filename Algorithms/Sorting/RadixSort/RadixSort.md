@@ -12,7 +12,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Radix Sort** stands out as one of the most well-known non-comparative sorting technique. The name of algorithm describes its method of sorting numbers by processing individual digits according to their position within the base (radix) of the number system. This subsection explores idea of radix sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./img/RadixSort.png"/></p>
 
 
 
