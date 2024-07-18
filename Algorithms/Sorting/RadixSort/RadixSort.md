@@ -15,6 +15,23 @@
 The **Radix Sort** stands out as one of the most well-known non-comparative sorting technique. The name of algorithm describes its method of sorting numbers by processing individual digits according to their position within the base (radix) of the number system. This subsection explores idea of radix sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./img/RadixSort.png"/></p>
 
+---
+The **Radix Sort** processes each digit of the numbers, starting from the least significant (rightmost) to the most significant (leftmost), and sorts the numbers by distributing them into buckets based on each digit, then collecting them back into a sorted sequence after each digit processing step.
+
+**Important Details:**
+1. Can be applied to data that can be sorted lexicographically (e.g. integers, words, punch cards, playing cards).
+2. Requires modification to handle floating-point numbers, negative integers, or strings of variable lengths, which can add overall complexity to the algorithm.
+3. Works best when the numbers have the same number of digits, otherwise they need to be padded.
+
+**Algorithm Steps:**
+1. Determine the maximum number of digits in the largest number.
+2. Initialize 10 buckets for each digit (0-9).
+3. Sort the numbers by their least significant digit.
+4. Collect the numbers from the buckets back into the original list.
+5. Sort the numbers by the next significant digit.
+6. Collect the numbers from the buckets back into the original list.
+7. Repeat the sorting and collecting steps for each digit until the most significant digit has been processed.
+
 
 
 # &#x1F4BB; Implementation
