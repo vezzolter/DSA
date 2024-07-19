@@ -24,13 +24,13 @@ int main()
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 7, 2, 0, 3, 1, 9, 1 };
+	int arr[] = { 328, 203, 703, 911, 200, 3, 7, 11 };
 	const int size = sizeof(arr) / sizeof(arr[0]);
 	printArray(arr, size);
 
 	// Sort Elements
 	std::cout << "\nSorting the elements of it...\n";
-	radixSort();
+	radixSort(arr, size);
 	printArray(arr, size);
 
 	// Exit

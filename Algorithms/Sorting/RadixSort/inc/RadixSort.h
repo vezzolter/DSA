@@ -3,7 +3,11 @@
 // July 15, 2024
 
 
-#pragma once
+#ifndef RADIXSORT_H
+#define RADIXSORT_H
 
 
-void radixSort();
+void radixSort(int arr[], int size);
+
+
+#endif // RADIXSORT_H

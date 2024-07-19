@@ -35,7 +35,8 @@ The **Radix Sort** processes each digit of the numbers, starting from the least 
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array of specified integers, performs ascending order sorting using the radix sort algorithm, and finally displays the result.
+<p align="center"><img src="./img/Demonstration.png"/></p>
 
 
 
