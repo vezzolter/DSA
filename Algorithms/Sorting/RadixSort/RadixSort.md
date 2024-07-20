@@ -8,6 +8,7 @@
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+  - [Algorithm Characteristics](#algorithm-characteristics)
 - [📝 Application](#-application)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
@@ -160,7 +161,27 @@ void radixSort(int arr[], int n) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who has related questions.
+
+
+## Algorithm Characteristics
+- **Comparison Approach:**
+  - **Non-Comparison-Based** — algorithm sorts elements by processing their individual digits or characters, not by comparing entire elements directly.
+
+- **Time Complexity:**
+  - **All Cases** $O(d × (n + k))$ — algorithm applies counting sort, which is $O(n + k)$, a total of $d$ times, where $d$ represents the total number of digits (or chars) in the largest number (or string).
+
+- **Space Complexity:**
+  - **Array Implementation** — algorithm requires additional space for temporary storage (buckets or count array), resulting in $O(n + k)$ space complexity.
+
+- **Stability:**
+  - **Stable** — algorithm preserves the relative order of equal elements, particularly when implemented with a stable intermediate sort like counting sort.
+
+- **Adaptability:**
+  - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e., it processes data through the same path of steps, regardless of their values.
+
+- **Storage:**
+  - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
 
