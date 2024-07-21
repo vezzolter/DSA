@@ -186,7 +186,10 @@ void radixSort(int arr[], int n) {
 
 
 # &#128221; Application
-Currently in Progress...
+
+## Some of the Most Well-Known Use Cases
+- **Large Dataset Sorting** — radix sort is ideal for sorting large datasets of integers or fixed-length strings where the range of values (digits or characters) is limited. Its linear time complexity makes it efficient for such applications; e.g. sorting telephone numbers, zip codes.
+- **Parallel Processing** — radix sort is an efficient decision to implement a sorting utilizing a multiple processors at once. By dividing the input into several buckets based on digit positions, these buckets can be sorted independently in parallel, taking advantage of multiple processors; e.g., distributed computing systems, multi-core processors.
 
 
 
