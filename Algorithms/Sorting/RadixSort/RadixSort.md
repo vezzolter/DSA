@@ -194,7 +194,7 @@ void radixSort(int arr[], int n) {
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Radix Sort was first introduced by **Herman Hollerith** in **1887**. Hollerith was an American statistician who devised the concept while working on a system to process data from the U.S. Census. The initial idea behind Radix Sort was to efficiently process and sort punched cards used in data tabulation. Hollerith's method sorted the cards based on the values of individual columns, effectively organizing large amounts of data without directly comparing entire records. The algorithm saw increased usage in the 1960s and 1970s, particularly in systems where efficient, non-comparative sorting was necessary. Its ability to handle large datasets with predictable performance made it valuable in various applications, including database management and information retrieval.
 
 
 
