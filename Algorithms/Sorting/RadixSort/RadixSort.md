@@ -9,7 +9,10 @@
   - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
   - [Algorithm Characteristics](#algorithm-characteristics)
+  - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Common Practical Problems](#common-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -161,7 +164,7 @@ void radixSort(int arr[], int n) {
 
 
 # &#128202; Analysis
-> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who has related questions.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
 
 ## Algorithm Characteristics
@@ -184,12 +187,24 @@ void radixSort(int arr[], int n) {
   - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
+## Algorithm Comparison
+Currently in Progress...
+
+
 
 # &#128221; Application
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
-## Some of the Most Well-Known Use Cases
+
+## Common Use Cases
 - **Large Dataset Sorting** — radix sort is ideal for sorting large datasets of integers or fixed-length strings where the range of values (digits or characters) is limited. Its linear time complexity makes it efficient for such applications; e.g. sorting telephone numbers, zip codes.
 - **Parallel Processing** — radix sort is an efficient decision to implement a sorting utilizing a multiple processors at once. By dividing the input into several buckets based on digit positions, these buckets can be sorted independently in parallel, taking advantage of multiple processors; e.g., distributed computing systems, multi-core processors.
+
+
+## Common Practical Problems
+- [Maximum Gap](https://leetcode.com/problems/maximum-gap/)
+- [Sort an Array](https://leetcode.com/problems/sort-an-array/)
+- [Query Kth Smallest Trimmed Number](https://leetcode.com/problems/query-kth-smallest-trimmed-number/)
 
 
 
