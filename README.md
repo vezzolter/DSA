@@ -33,8 +33,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
     - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
     - [Heapsort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Heapsort) ✅
-    - [Radix Sort](https://github.com/vezzolter/DSA/tree/radix-sort/Algorithms/Sorting/RadixSort) 🎯
-    - Counting Sort
+    - Counting Sort 🎯
+    - [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
     - Bucket Sort
     - Shell Sort
   - Searching
@@ -52,7 +52,39 @@ This list provides a straightforward overview of the repository's contents. For 
     - PCG (Permuted Congruential Generator)
     - Mersenne Twister
     - Xorshift
-    - Xoshiro128
+    - Xoshiro128 
+  - Recursion
+    - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
+    - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
+    - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
+  - Divide-and-Conquer
+    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
+    - Karatsuba Algorithm
+    - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
+    - [Binary Seacrh](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
+    - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
+  - Two-Pointer
+  - Sliding Window  
+  - Dynamic Programming
+    - DynamicProgramming.md
+    - Knapsack
+    - Coin Change
+    - LCS (Longest Common Subsequence)
+    - LIS (Longest Increasing Subsequence)
+  - Greedy Programming
+    - GreedyProgramming.md
+    - Activity Selection
+    - Fractional Knapsack
+    - Huffman Coding
+  - Bit Manipulation
+  - String Algorithms
+    - StringAlgorithms.md
+    - KMP (Knuth-Morris-Pratt)
+    - Rabin-Karp
+    - Boyer-Moore
+    - Levenshtein Distance
+    - Needleman-Wunsh Algorithm
+    - RLE (Run-Length Encoding) 
   - Tree & Graph Algorithms
     - TreeGraphAlgorithms.md
     - Inorder Traversal
@@ -67,35 +99,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - Floyd-Warshall Algorithm
     - A*
     - LCA (Lowest Common Ancestor)
-  - String Algorithms
-    - StringAlgorithms.md
-    - KMP (Knuth-Morris-Pratt)
-    - Rabin-Karp
-    - Boyer-Moore
-    - Levenshtein Distance
-    - Needleman-Wunsh Algorithm
-    - RLE (Run-Length Encoding)  
-  - Recursion
-    - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
-    - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
-    - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
-  - Divide-and-Conquer
-    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
-    - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
-    - [Binary Seacrh](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
-    - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
-    - Karatsuba Algorithm
-  - Dynamic Programming
-    - DynamicProgramming.md
-    - Knapsack
-    - Coin Change
-    - LCS (Longest Common Subsequence)
-    - LIS (Longest Increasing Subsequence)
-  - Greedy Programming
-    - GreedyProgramming.md
-    - Activity Selection
-    - Fractional Knapsack
-    - Huffman Coding
+
 - Data Structures
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
