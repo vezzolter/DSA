@@ -1,8 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Introduction](#introduction)
+	- [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
+	- [Design Decisions](#design-decisions)
+	- [Complete Implementation](#complete-implementation)
+	- [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+	- [Algorithm Characteristics](#algorithm-characteristics)
+	- [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -15,10 +24,12 @@
 The **Bubble Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for the way the larger elements "bubble" up (move) to the top of the collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
 <p align="center"><img src="./Images/BubbleSort.png"/></p>
 
----
+
+## Introduction
 **Bubble Sort** iterates over a collection, comparing adjacent elements and swapping them if they are in the wrong order. This way, in each pass of the algorithm, the largest unsorted element move to its correct position at the end of the collection, much like bubbles gradually rising in water.
 
-**Algorithm Steps:**
+
+## Algorithm Steps
 1. Start at the beginning of the collection.
 2. Compare the first two elements.
 3. If the order of them is wrong, swap them; otherwise skip this step.
@@ -31,15 +42,17 @@ The **Bubble Sort** stands out as one of the simplest and earliest known sorting
 The program initializes an array of specified integers, performs ascending order sorting using the bubble sort algorithm, and finally displays the result.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
+
+## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.
 - Exclusively implementing sorting in ascending order.
 - Omitting certain optimizations to the algorithm.
 
----
-Sorting algorithm implemented within the function `bubbleSort()`, which is declared in `BubbleSort.h` header file and defined in `BubbleSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**Complete Implementation:**
+## Complete Implementation
+Sorting algorithm implemented within the function `bubbleSort()`, which is declared in `BubbleSort.h` header file and defined in `BubbleSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
 ```cpp
 	void bubbleSort(int arr[], int size) {
 		for (int i = 0; i < size - 1; i++) {
@@ -64,8 +77,8 @@ Sorting algorithm implemented within the function `bubbleSort()`, which is decla
 	}
 ```
 
----
-**Detailed Walkthrough:**  
+
+## Detailed Walkthrough
 1. We manage the overall passes through the **entire collection** using `size - 1` because, after each pass, the largest element is guaranteed to be at its correct position. Therefore, there is no need to iterate over the already sorted elements.
 ```cpp
 	for (int i = 0; i < size - 1; i++) {
@@ -100,36 +113,41 @@ Sorting algorithm implemented within the function `bubbleSort()`, which is decla
 
 
 # &#128202; Analysis
-> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who have related questions.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
----
+
+## Algorithm Characteristics
 - **Comparison Approach:** 
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
-
 - **Time Complexity:**
      - **Worst Case** $O(n^2)$  — occurs when the data is in reverse sorted order (or almost); nested loop's operations are used nearly each iteration.
      - **Average Case** $O(n^2)$  — occurs when the data is randomly shuffled; nested loop's operations are used frequently enough.
      - **Best Case** $O(n)$ — occurs when the data is already sorted (or almost); nested loop's operations are rarely used.
-
 - **Space Complexity:** 
   - **Array Implementation** $O(1)$ — algorithm doesn't require any additional space.
-
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
-
 - **Adaptabillity:** 
   - **Adaptive** — algorithm's adaptive logic lies in check whether the collection is sorted, which allows to terminate early, thus extent to which data is already sorted affects the perfomance.
-
-- **Directness:**
-   - **Direct** — algorithm sorts elements by directly manipulating themselves.
-
 - **Storage:**
    - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
+## Algorithm Comparison
+Will be Updated in the Future...
+
+
 
 # &#128221; Application
-Bubble Sort's utility is limited in modern software development contexts due to its inefficiency. Even for niche applications, there are better alternatives readily available, making Bubble Sort largely obsolete. Its primary relevance lies solely in educational purpose.
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Common Use Cases
+- **Educational Purposes** — bubble sort is primarily valuable for educational purposes, offering a simple way to teach fundamental sorting concepts and algorithmic thinking. In modern software development contexts, its utility is largely considered obsolete due to its inefficiency.
+
+
+## Some Practical Problems
+- None
 
 
 
@@ -163,7 +181,6 @@ For contact details and additional information, please refer to the [root direct
 ---
 &#127760; **Web-Resources:**  
 - [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sortt) (Wikipedia)
-- [Bubble Sort Algorithm](https://www.geeksforgeeks.org/bubble-sort/)
 - [Bubble Sort: An Archaeological Algorithmic Analysis](https://users.cs.duke.edu/~ola/papers/bubble.pdf)
 
 

@@ -1,8 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Introduction](#introduction)
+	- [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
+	- [Design Decisions](#design-decisions)
+	- [Complete Implementation](#complete-implementation)
+	- [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+	- [Algorithm Characteristics](#algorithm-characteristics)
+	- [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -15,10 +24,12 @@
 The **Selection Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for its method of selecting the smallest (or largest) elements from a collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
 <p align="center"><img src="./Images/SelectionSort.png"/></p>
 
----
+
+## Introduction
 **Selection Sort** treats a collection as two parts: sorted and unsorted. The algorithm iterates over the unsorted elements, selecting the lowest (or highest) value and exchanging it with the element at the beginning of the unsorted part, thus forming the sorted portion; much like the intuitive process of arranging books on a shelf from shortest to tallest. 
 
-**Algorithm Steps:**
+
+## Algorithm Steps
 1. Assume that all elements belong to the unsorted part, thus start with the first one in it.
 2. Select the element with the smallest (or highest) value.
 3. Exchange it with the first element of the unsorted part; thus form a sorted part.
@@ -31,15 +42,17 @@ The **Selection Sort** stands out as one of the simplest and earliest known sort
 The program initializes an array of specified integers, performs ascending order sorting using the selection sort algorithm, and finally displays the result.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
+
+## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.
 - Exclusively implementing sorting in ascending order.
 - Omitting certain optimizations to the algorithm.
 
----
-Sorting algorithm implemented within the function `selectionSort()`, which is declared in `SelectionSort.h` header file and defined in `SelectionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**Complete Implementation:**
+## Complete Implementation
+Sorting algorithm implemented within the function `selectionSort()`, which is declared in `SelectionSort.h` header file and defined in `SelectionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
 ```cpp
 void selectionSort(int arr[], int size) {
 	for (int i = 0; i < size - 1; i++) {
@@ -62,8 +75,8 @@ void selectionSort(int arr[], int size) {
 }
 ```
 
----
-**Detailed Walkthrough:**  
+
+## Detailed Walkthrough
 1. Iterate over the unsorted elements, excluding the last one `size - 1`, as it is going to be at correct position, naturally after all the previous iterations.
 ```cpp
 	for (int i = 0; i < size - 1; i++) {
@@ -94,36 +107,41 @@ void selectionSort(int arr[], int size) {
 
 
 # &#128202; Analysis
-> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who have related questions.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
----
+
+## Algorithm Characteristics
 - **Comparison Approach:** 
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
-
 - **Time Complexity:**
      - **Worst Case** $O(n^2)$ — occurs when the data is in reverse sorted order (or almost).
      - **Average Case** $O(n^2)$  — occurs when the data is randomly shuffled. 
      - **Best Case** $O(n^2)$ — occurs when the data is already sorted (or almost).
-
 - **Space Complexity:** 
-  - **Array Implementation** $O(1)$ — algorithm doesn't require any additional space.
-
+  - **Array Implementation** $O(1)$ — algorithm doesn't require any additional space beyond a few temporary variables.
 - **Stability:** 
   - **Unstable** — algorithm considered to be unstable due to the fact that it doesn't consider the original positions of equal elements when performing swaps, thus it doesn't guarantee the preservation of the relative order.
-
 - **Adaptabillity:** 
     - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
-
-- **Directness:**
-   - **Direct** — algorithm sorts elements by directly manipulating themselves.
-
 - **Storage:**
    - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
+## Algorithm Comparison
+Will be Updated in the Future...
+
+
 
 # &#128221; Application
-Selection Sort's utility is limited in modern software development contexts due to its inefficiency. Even for niche applications, there are better alternatives readily available, making Bubble Sort largely obsolete. Its primary relevance lies solely in educational purpose.
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Common Use Cases
+- **Educational Purposes** — bubble sort is primarily valuable for educational purposes, offering a simple way to teach fundamental sorting concepts and algorithmic thinking. In modern software development contexts, its utility is largely considered obsolete due to its inefficiency.
+
+
+## Some Practical Problems
+- None
 
 
 

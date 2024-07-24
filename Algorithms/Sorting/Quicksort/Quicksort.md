@@ -1,8 +1,18 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Introduction](#introduction)
+	- [Important Details](#important-details)
+	- [Algorithm Steps (Hoare Scheme)](#algorithm-steps-hoare-scheme)
 - [💻 Implementation](#-implementation)
+	- [Design Decisions](#design-decisions)
+	- [Complete Implementation](#complete-implementation)
+	- [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+	- [Algorithm Characteristics](#algorithm-characteristics)
+	- [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -15,21 +25,25 @@
 The **Quicksort** stands out as one of the most well-known and efficient sorting technique. The author of this algorithm named it as such because he developed it to be a faster alternative to existing sortings, stating: _«the method compares very favourably with other known methods in speed, in economy of storage, and in ease of programming»_. This subsection explores idea of quicksort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./Images/Quicksort.png"/></p>
 
----
-The **Quicksort** selects the pivot element from the collection, recursively partitions the collection into two sub-collections based on the pivot (refer below) until each of them consist of one or zero elements (i.e. basically sorted), and then algorithm combines them back together to form the final sorted collection. The process of partitioning generally classified into two schemes:
-- **Hoare** — is a classic version, which ensures that the pivot is positioned between the smaller and greater parts, but it may not always be in the correct final position.
-- **Lomuto** — is an alternative version, which ensures that the pivot is placed in the correct position after partitioning.
 
-**Pivot Element** — is the element of collection, which serves as a reference point for determining the position of elements. It can be picked in a several ways, some of them are:
-- **First/Last** — can provide a good partition, if the input is random, but if the input is presorted (or in reverse) order, then all the elements consistently go to only one side throughout the recursive calls, therefore providing a poor partition.
-- **Middle** — can provide a better partition then previous methods, because in this case the middle element is closer to the median.
-- **Random** — provides a generally good partition, unless the random number generator has a flaw and the resource to use it are available.
-- **Median** — the best choice in terms of partitioning, but can considerably slow down the algorithm.
-  - **Median of 3** — although can be obtained from the random elements, the preferable way is to select middle value from the first, middle and last elements.
-  - **Median of Medians** — although can be obtained from the random elements, the preferable way is to divide collection into groups, find the median of each and select median of those as the pivot.
+## Introduction
+The **Quicksort** selects the pivot element from the collection, recursively partitions the collection into two sub-collections based on the pivot (refer below) until each of them consist of one or zero elements (i.e. basically sorted), and then algorithm combines them back together to form the final sorted collection. 
 
----
-**Algorithm Steps (Hoare Scheme):**
+## Important Details
+1. The process of partitioning generally classified into two schemes:
+   - **Hoare** — is a classic version, which ensures that the pivot is positioned between the smaller and greater parts, but it may not always be in the correct final position.
+   - **Lomuto** — is an alternative version, which ensures that the pivot is placed in the correct position after partitioning.
+
+2. **Pivot Element** — is the element of collection, which serves as a reference point for determining the position of elements. It can be picked in a several ways, some of them are:
+   - **First/Last** — can provide a good partition, if the input is random, but if the input is presorted (or in reverse) order, then all the elements consistently go to only one side throughout the recursive calls, therefore providing a poor partition.
+   - **Middle** — can provide a better partition then previous methods, because in this case the middle element is closer to the median.
+   - **Random** — provides a generally good partition, unless the random number generator has a flaw and the resource to use it are available.
+   - **Median** — the best choice in terms of partitioning, but can considerably slow down the algorithm.
+     - **Median of 3** — although can be obtained from the random elements, the preferable way is to select middle value from the first, middle and last elements.
+     - **Median of Medians** — although can be obtained from the random elements, the preferable way is to divide collection into groups, find the median of each and select median of those as the pivot.
+
+
+## Algorithm Steps (Hoare Scheme)
 1. Initialize the base case where conduct the check if there is a need to partition collection further or it already contains $0$ or $1$ elements.
 2. Choose a pivot from the collection using any desirable method for it.
 3. Partition the collection so that all elements smaller than the pivot are moved to its left, and all elements greater - to its right, following next procedure steps:
@@ -48,15 +62,17 @@ The **Quicksort** selects the pivot element from the collection, recursively par
 The program initializes an array of specified integers, performs ascending order sorting using the quicksort algorithm, and finally displays the result.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
+
+## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.
 - Exclusively implementing sorting in ascending order.
 - Omitting certain optimizations to the algorithm.
 
----
-Sorting algorithm implemented within the `quicksort()` and `partition()` functions with a few helper ones `swap()` and `selectPivot()`, which are declared in `Quicksort.h` header file and defined in `Quicksort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**Complete Implementation:**
+## Complete Implementation
+Sorting algorithm implemented within the `quicksort()` and `partition()` functions with a few helper ones `swap()` and `selectPivot()`, which are declared in `Quicksort.h` header file and defined in `Quicksort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
 ```cpp
 int partition(int* arr, int l, int r) {
 	int p = selectPivot(arr, l, r); // median of 3
@@ -87,8 +103,8 @@ void quicksort(int* arr, int l, int r) {
 }
 ```
 
----
-**Detailed Walkthrough:**  
+
+## Detailed Walkthrough
 1. Start with the setting up the check for `quicksort()`, which prevents following recursive division by checking whether the array contains more than one or zero elements.
 ```cpp
 	if (l < r)
@@ -135,38 +151,44 @@ void quicksort(int* arr, int l, int r) {
 
 
 # &#128202; Analysis
-> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who has related questions.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
----
+
+## Algorithm Characteristics
 - **Comparison Approach:** 
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
-
 - **Time Complexity:**
      - **Worst Case** $O(n^2)$ — occurs when the choice of pivot is poor for the input data, leading to consistently unbalanced partitions during each recursive call.
      - **Average Case** $O(n \log n)$— occurs when the choice of pivot is good enough for the input data, leading to consistently relatively balanced partitions during each recursive call.
      - **Best Case** $O(n \log n)$ — occurs when the choice of pivot is optimal for the input data, leading to consistently nearly equal partitions during each recursive call.
-
 - **Space Complexity:** 
   - **Array Implementation** — algorithm requires some space $O(\log n)$ on call stack to store function calls, and only in some of the worst cases it can go up to $O(n)$.
-
 - **Stability:** 
   - **Unstable** — algorithm can swap two equal elements, thus altering their relative order. This happens because of depending on the pivot selection and paritioning strategy, equal elements may end up in different relative positions in the sorted output. 
-
 - **Adaptabillity:** 
    - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
-
-- **Directness:**
-   - **Direct** — algorithm sorts elements by directly manipulating themselves.
-
 - **Storage:**
    - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
+## Algorithm Comparison
+Will be Updated in the Future...
+
+
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Common Use Cases
 - **General Sorting** — quicksort is widely used sorting in general. Its efficient time complexity and a better space complexity compared to merge sort, makes it a preferred choice in many scenarios; e.g. libraries, programming languages, operating systems, networking applications.
 - **Hybrid Sorting** — quicksort is beneficial tool for hybrid sortings. Initially partitioning a collection can provide a great nearly sorted result, which can be finished with more appropriate sorting like heapsort; e.g. introsort. 
+
+
+## Some Practical Problems
+- [Sort an Array](https://leetcode.com/problems/sort-an-array/)
+- [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+- [Query Kth Smallest Trimmed Number](https://leetcode.com/problems/query-kth-smallest-trimmed-number/)
 
 
 

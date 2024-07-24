@@ -62,7 +62,6 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 ## Complete Implementation
 Sorting algorithm implemented within the `radixSort()` function with a few helper ones `getMax()` and `countingSort()`, which are declared `RadixSort.h` header file and defined in `RadixSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
-
 ```cpp
 // Finds and returns the maximum value in an array
 // Allows to determine the maximum number of digits
@@ -170,25 +169,20 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 ## Algorithm Characteristics
 - **Comparison Approach:**
   - **Non-Comparison-Based** — algorithm sorts elements by processing their individual digits or characters, not by comparing entire elements directly.
-
 - **Time Complexity:**
   - **All Cases** $O(d × (n + k))$ — algorithm applies counting sort, which is $O(n + k)$, a total of $d$ times, where $d$ represents the total number of digits (or chars) in the largest number (or string).
-
 - **Space Complexity:**
-  - **Array Implementation** — algorithm requires additional space for temporary storage (buckets or count array), resulting in $O(n + k)$ space complexity.
-
+  - **Array Implementation** $O(n + k)$ — algorithm requires additional space for temporary storage (buckets or count array).
 - **Stability:**
   - **Stable** — algorithm preserves the relative order of equal elements, particularly when implemented with a stable intermediate sort like counting sort.
-
 - **Adaptability:**
   - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e., it processes data through the same path of steps, regardless of their values.
-
 - **Storage:**
   - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
 ## Algorithm Comparison
-Currently in Progress...
+Will be Updated in the Future...
 
 
 
@@ -201,9 +195,9 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 - **Parallel Processing** — radix sort is an efficient decision to implement a sorting utilizing a multiple processors at once. By dividing the input into several buckets based on digit positions, these buckets can be sorted independently in parallel, taking advantage of multiple processors; e.g., distributed computing systems, multi-core processors.
 
 
-## Common Practical Problems
-- [Maximum Gap](https://leetcode.com/problems/maximum-gap/)
+## Some Practical Problems
 - [Sort an Array](https://leetcode.com/problems/sort-an-array/)
+- [Maximum Gap](https://leetcode.com/problems/maximum-gap/)
 - [Query Kth Smallest Trimmed Number](https://leetcode.com/problems/query-kth-smallest-trimmed-number/)
 
 

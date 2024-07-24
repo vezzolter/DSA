@@ -1,8 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+	- [Introduction](#introduction)
+	- [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
+	- [Design Decisions](#design-decisions)
+	- [Complete Implementation](#complete-implementation)
+	- [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+	- [Algorithm Characteristics](#algorithm-characteristics)
+	- [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -15,10 +24,12 @@
 The **Merge Sort** stands out as one of the most well-known and efficient sorting technique. The algorithm is named for the way it utilizes the idea of ability to combine two ordered inputs into one ordered output. This subsection explores idea of merge sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./Images/MergeSort.png"/></p>
 
----
+
+## Introduction
 **Merge Sort** recursively divides the initial collection into halves until there is nothing to divide left, and then it starts the process of merging (combining) those subcollections back together, but only now applying the desired order, basically following the divide-and-conquer paradigm's principles.
 
-**Algorithm Steps:**
+
+## Algorithm Steps
 1. Initialize the base case where conduct the check if there is a need to divide collection or it is already one element.
 2. Calculate the middle index, i.e. split the collection into two subcollections - the first containing elements before the middle index and the second containing elements after the middle index.
 3. Divide first half by utilizing a recursive process of calling the merge sort with updated start and end indices for every iteration until initial check stops it.
@@ -38,15 +49,17 @@ The **Merge Sort** stands out as one of the most well-known and efficient sortin
 The program initializes an array of specified integers, performs ascending order sorting using the merge sort algorithm, and finally displays the result.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
+
+## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.
 - Exclusively implementing sorting in ascending order.
 - Omitting certain optimizations to the algorithm.
 
----
-Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, which are declared in `MergeSort.h` header file and defined in `MergeSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**Complete Implementation:**
+## Complete Implementation
+Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, which are declared in `MergeSort.h` header file and defined in `MergeSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
 ```cpp
 	void merge(int* arr, const int left, const int mid, const int right) {
 		int arrLeftSize = mid - left + 1;
@@ -100,8 +113,8 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 	}
 ```
 
----
-**Detailed Walkthrough:**  
+
+## Detailed Walkthrough 
 1. Start with the setting up the base case for `mergeSort()`, which prevents following recursive division by checking whether the array contains more than one or zero elements.
 ```cpp
 	if (left >= right)
@@ -174,42 +187,50 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 
 
 # &#128202; Analysis
-> Note: Some of the aspects described here are subject to implementation. Many sources may exploit this to their advantage, resulting in varying information for what appears to be the same concept. This can easily lead to confusion, so I highly encourage you to examine your specific case, filter through several sources, and adhere to the one that appears most accurate. I would like to discuss this topic with anyone who have related questions.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
----
+
+## Algorithm Characteristics
 - **Comparison Approach:** 
   - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
-
 - **Time Complexity:**
      - **Worst Case** $O(n \log n)$ — occurs when the data is in reverse sorted order (or almost).
      - **Average Case** $O(n \log n)$  — occurs when the data is randomly shuffled. 
      - **Best Case** $O(n \log n)$ — occurs when the data is already sorted (or almost).
-
 - **Space Complexity:** 
   - **Array Implementation** $O(n)$ — algorithm requires additional space $O(n)$ for temporary subarrays and some space $O(\log n)$ on call stack to store function calls.
   - **List Implementation** $O(\log n)$ — algorithm only rearranges the pointers to connect the sorted sublists, therefore it requires only some space $O(\log n)$ on call stack to store function calls.
-
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
-
 - **Adaptabillity:** 
    - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
-
-- **Directness:**
-   - **Direct** — algorithm sorts elements by directly manipulating themselves.
-
 - **Storage:**
    - **Internal and External** — algorithm can be used in both cases.
 
 
+## Algorithm Comparison
+Will be Updated in the Future...
+
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Common Use Cases
 - **General Sorting** — merge sort is widely used sorting in general. Its time complexity, and especially the lack of difference between the time cases, makes it a preferred choice in many scenarios.
 - **Linked List** — merge sort is the best sorting (or one of the) for linked lists. It doesn't require an additional space for subcollections and random access to operate, which is significant advantage for this data structure. 
 - **External Sorting** — merge sort is a good choice to sort data too large to fit entirely in the RAM. Its division approach allows to handle data in manageable chunks.
 - **Parallel Processing** — merge sort is an efficient decision to implement a sorting utilizing a multiple processors at once. Since the process of one half doesn't really differ from the other, it is a good idea to do them both simultaneously.
+
+
+## Some Practical Problems
+- [Sort an Array](https://leetcode.com/problems/sort-an-array/)
+- [Sort List](https://leetcode.com/problems/sort-list/description/)
+- [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
+- [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
+- [Create Sorted Array through Instructions](https://leetcode.com/problems/create-sorted-array-through-instructions/)
+- [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)
 
 
 
