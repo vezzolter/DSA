@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 **Sorting** is a widely used operation in computer science to arrange items in a particular order. It helps to organize data efficiently in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
-<p align="center"><img src="./img/Sorting.png"/></p>
+<p align="center"><img src="./Images/Sorting.png"/></p>
 
 ---
 **Essential Terminology:**

@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Merge Sort** stands out as one of the most well-known and efficient sorting technique. The algorithm is named for the way it utilizes the idea of ability to combine two ordered inputs into one ordered output. This subsection explores idea of merge sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/MergeSort.png"/></p>
+<p align="center"><img src="./Images/MergeSort.png"/></p>
 
 ---
 **Merge Sort** recursively divides the initial collection into halves until there is nothing to divide left, and then it starts the process of merging (combining) those subcollections back together, but only now applying the desired order, basically following the divide-and-conquer paradigm's principles.
@@ -36,7 +36,7 @@ The **Merge Sort** stands out as one of the most well-known and efficient sortin
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the merge sort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.

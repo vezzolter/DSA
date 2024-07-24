@@ -23,7 +23,7 @@
 
 # &#128161; Overview
 The **Binary Search Tree (BST)** stands out as one of the most common implementation of a binary tree. Its name is derived from one of the main operations performed on it, which is searching for a specific element. This subsection explores BST to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
-<p align="center"><img src="./img/BST.png"/></p>
+<p align="center"><img src="./Images/BST.png"/></p>
 
 ## Essential Terminology
 **Binary Search Tree** — is a binary tree, which organizes elements in a sorted manner by following this **property:** for every node, all values in the left subtree are less than the value of the node, and all values in the right subtree are greater than the value of the node.
@@ -56,7 +56,7 @@ One significant design decision is the implementation of a container without the
 
 
 ## Detailed Overview
-<p align="center"><img src="./img/BSTDemonstration.png"/></p>
+<p align="center"><img src="./Images/BSTDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/BST/src/Main.cpp) file. The `BST` class is declared in [BST.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST/inc) header file and defined in [BST.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/BST/src/BST.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp

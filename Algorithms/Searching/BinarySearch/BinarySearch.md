@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Binary Search** stands out as one of the most fundamental approaches to search for an element in the ordered collection. The algorithm is named for the way it divides the search interval in half. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
-<p align="center"><img src="./img/BinarySearch.png"/></p>
+<p align="center"><img src="./Images/BinarySearch.png"/></p>
 
 ---
 **Binary Search** repeatedly divides the search interval of an ordered collection until a match is found or the interval is empty, pretty much like the intuitive process of looking for a particular page in some type of dictionary without any prior knowledge of its content or index. It consists of the following steps:
@@ -29,8 +29,8 @@ The **Binary Search** stands out as one of the most fundamental approaches to se
 
 # &#x1F4BB; Implementation
 The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the binary search algorithm, and finally displays the result indicating whether the operation was successful or not.
-<p align="center"><img src="./img/DemoSuccess.png"/></p>
-<p align="center"><img src="./img/DemoFailure.png"/></p>
+<p align="center"><img src="./Images/DemoSuccess.png"/></p>
+<p align="center"><img src="./Images/DemoFailure.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing a small integer array as a collection.

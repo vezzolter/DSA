@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 **Random number generation** is a widely used operation in computer science to acquire number(s) that can be count as random. It helps to exhibit desired statistical properties and behaviors in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
-<p align="center"><img src="./img/RNG.png"/></p>
+<p align="center"><img src="./Images/RNG.png"/></p>
 
 ---
 **Essential Terminology:**
@@ -30,10 +30,10 @@
 The list of known RNG is extensive and continues to grow. When it comes to implementation, they can be broadly classified into two types: PRNG and TRNG. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
 
 **PRNG (Pseudorandom Number Generator)** — is a deterministic type of RNG that generates numbers that only appears to be random. It is called that way because given the same starting conditions, it yields the same result.
-<p align="center"><img src="./img/PRNG.png"/></p>
+<p align="center"><img src="./Images/PRNG.png"/></p>
 
 **TRNG (True Random Number Generator)** — is a non-deterministic type of RNG that generates truly random numbers. It involves exploiting inherently unpredictable physical processes related to hardware (e.g. quantum processes, radioactive decay, electronic noise, optical noise, etc).
-<p align="center"><img src="./img/TRNG.png"/></p>
+<p align="center"><img src="./Images/TRNG.png"/></p>
 
 
 

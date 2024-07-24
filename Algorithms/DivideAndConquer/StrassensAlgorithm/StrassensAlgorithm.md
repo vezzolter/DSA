@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Stassen's Algorithm** is undoubtedly a well-known algorithm for matrix multiplication, heavily reliant on the idea of divide and conquer approach. This subsection aims to establish a solid foundation for complex algorithmic designs and strengthen comprehension of problem-solving strategies by exploring this illustrative example.
-<p align="center"><img src="./img/Strassens.png"/></p>
+<p align="center"><img src="./Images/Strassens.png"/></p>
 
 ---
 The core idea behind Strassen's algorithm was to use a divide-and-conquer strategy, which involves recursively dividing the initial matrix into equal-sized submatrices, and employing additional computations and rearrangements of matrix elements to reduce the number of multiplications to $7$, compared to the standard mathematical algorithm with $8$, which is the dominant factor contributing to the overall time complexity. This reduction could lead to computational savings, as it transitions the whole operation's time complexity from $O(n^3)$ to $O(n^{2.81})$, which is particularly valuable for large matrices. However, the overhead that comes with the implementation negatively affects smaller matrices. Determining the optimal range for matrix size is relative and depends on hardware architecture, implementation details, and specific characteristics of the matrices being multiplied. As a general estimation, the optimal range typically falls between $32$ and $128$ for most modern computing environments. Also, it is crucial to mention not the best precision for floating numbers due to the nature of its computation.
@@ -42,7 +42,7 @@ The core idea behind Strassen's algorithm was to use a divide-and-conquer strate
 
 # &#x1F4BB; Implementation
 The program initializes each matrix A and B as a vector of vectors with specified integers, performs their multiplication using the standard algorithm and Strassen's algorithm, and displays the results in order to compare them.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing the library container `std::vector` as a building block for matrices.

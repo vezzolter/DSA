@@ -24,7 +24,7 @@
 
 # &#128161; Overview
 The **Tree** stands out as one of the most fundamental concept in computer science. Trees represents a category of collections that mirror the hierarchical behaviour of trees in nature, making them a particularly well-suited choice for depicting relationships that have a parent-child or ancestor-descendant structure. This subsection explores trees to establish a solid foundation of understanding, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
-<p align="center"><img src="./img/Tree.png"/></p>
+<p align="center"><img src="./Images/Tree.png"/></p>
 
 
 ## Essential Terminology
@@ -63,7 +63,7 @@ When delving into the world of trees, it's essential to begin with binary tree, 
 - **M-ary Tree** — is a generalization of binary trees, where each node can have a maximum of `m` children.
 
 
-<p align="center"><img src="./img/BinaryTreeTypes.png"/></p>
+<p align="center"><img src="./Images/BinaryTreeTypes.png"/></p>
 
 **Binary Trees can be described as:**
 - **Rooted (Default)** — all nodes have a maximum of $2$ children.

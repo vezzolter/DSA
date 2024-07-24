@@ -31,7 +31,7 @@ e.g. $4! = 1×2×3×4 = 24$.
 # &#x1F4BB; Implementation
 **Idea**  
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
-<p align="center"><img src="./img/demonstration.png"/></p>
+<p align="center"><img src="./Images/demonstration.png"/></p>
 
 ## Recursive Paragidm
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
@@ -88,7 +88,7 @@ int getUserInput()
 	return n;
 }
 ```
-<p align="center"><img src="./img/validation.png"/></p>
+<p align="center"><img src="./Images/validation.png"/></p>
 
 4. Then control flow is directed to the `factorial(int n)` function, where until the number is not equal to zero, the recursive function will call itself, continuously progressing towards this condition:
     - **Base case** — adheres to the rule $0! = 1$, establishing a termination point for the recursion.
@@ -109,22 +109,22 @@ int factorial(int n)
 To offer a comprehensive insight into the fundamental mechanics of this recursive approach, here is presented a step-by-step execution of the algorithm along with a detailed description of its interaction with the call stack.
 
 1. Starting the recursion process with the input number 6
-<p align="center"><img src="./img/step_1.png"/></p> 
+<p align="center"><img src="./Images/step_1.png"/></p> 
 
 2. Invoking the recursive case repeatedly until the specified criteria are met (6 times).
-<p align="center"><img src="./img/step_2.png"/></p> 
+<p align="center"><img src="./Images/step_2.png"/></p> 
 
 3. Upon the 7th recursive call, when the value becomes 0, we initiate the base case, therefore existing the recursive process.
-<p align="center"><img src="./img/step_3.png"/></p>
+<p align="center"><img src="./Images/step_3.png"/></p>
 
 4. This marks the phase where the recursion is concluding, and the process of returning the calculated value is underway.
-<p align="center"><img src="./img/step_4.png"/></p> 
+<p align="center"><img src="./Images/step_4.png"/></p> 
 
 5. Continuing this process until we reach the initial (first) function call.
-<p align="center"><img src="./img/step_5.png"/></p>
+<p align="center"><img src="./Images/step_5.png"/></p>
 
 6. Concluding the recursion by returning the final calculated value.    
-<p align="center"><img src="./img/step_6.png"/></p> 
+<p align="center"><img src="./Images/step_6.png"/></p> 
 
 
 

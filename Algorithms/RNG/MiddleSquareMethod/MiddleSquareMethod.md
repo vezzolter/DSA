@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Middle-Square Method** stands out as one of the simplest and earliest known pseudorandom number generators (PRNG). The algorithm is named this way, because of its two primary operations in it, which is squaring the seed value and then extracting the middle digits from the squared result. Knowledge and understanding of it, lays the foundation for tackling more complex random number generation methods and problem-solving strategies.
-<p align="center"><img src="./img/MiddleSquareMethod.png"/></p>
+<p align="center"><img src="./Images/MiddleSquareMethod.png"/></p>
 
 ---
 **Fundamentally, the concept operates through the following steps:**:
@@ -29,7 +29,7 @@ The **Middle-Square Method** stands out as one of the simplest and earliest know
 
 # &#x1F4BB; Implementation
 The program prompts the user to enter the required amount of numbers, digits and specify the seed, then it performs a respective generation using PRNG named Middle-Square Method, and finally displays the result.
-<p align="center"><img src="./img/DemoSuccess.png"/></p>
+<p align="center"><img src="./Images/DemoSuccess.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing only raw generated elements.

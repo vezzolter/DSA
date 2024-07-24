@@ -56,7 +56,7 @@ Making a good guess for the next recurrence relation $T(n) = 3T(\frac{n}{4}) + c
 
 Having in mind, that this is a guess and not a proof case, the assumption, that $n$ can be a power of $4$ can be tolerated due to the possible flexibility. This is done, so the number of subproblems would be an integer and thus building a tree would be easier.
 
-<p align="center"><img src="./img/RecursiveTreeMethod.png"/>   </p>
+<p align="center"><img src="./Images/RecursiveTreeMethod.png"/>   </p>
 
 The $cn^2$ term at the root represents the cost at the top level of recursion. 
 Three subtrees represent the costs (each $c(\frac{n}{4})^2$) incurred by the subproblems of size $\frac{n}{4}$. This process of expending the nodes by breaking them into smaller parts continues until the bottom of a tree.

@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 **Searching** is a widely used operation in computer science to retrieve information. It helps to locate specific items or data within datasets in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
-<p align="center"><img src="./img/searching.png"/></p>
+<p align="center"><img src="./Images/searching.png"/></p>
 
 ---
 **Essential Terminology:**

@@ -12,7 +12,7 @@
 
 # &#128161; Overview
 **Recursion** is a widely used problem-solving approach in computer science to solve complex problems by recalling to the same instance, typically function, multiple times if needed. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
-<p align="center"><img src="./img/Recursion.png"/></p>
+<p align="center"><img src="./Images/Recursion.png"/></p>
 
 ---
 **Essential Terminology:**
@@ -41,7 +41,7 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 
 **Stack Frame** — section of memory, allocated on stack, which stores function related information, such as: return adress, parameters, local variables, saved registers, flags, frame pointer. As the function executes, its frame provides the necessary context. When the function completes, its stack frame is popped off the stack, and control returns to the calling function.
 
-<p align="center"><img src="./img/CallStack.png"/></p>
+<p align="center"><img src="./Images/CallStack.png"/></p>
 
 The detailed interaction of recursion with the Call Stack is actually quite complex topic with lots of intricacies, particularly in the context of C++. This complexity arises from various factors, including: templates, diverse variables/parameters types (static, global, ...), inlining mechanisms, aspects of OOP, exception handling, and more. Attempting to govern all of those moments in a single list can be quite challenging. With that in mind, I aim to offer a general overview of how functions interact with the Call Stack below:
 1. When a function is called, the function's stack frame is added to the top of the call stack.
@@ -50,7 +50,7 @@ The detailed interaction of recursion with the Call Stack is actually quite comp
 4. When the termination condition is reached, the function returns its value to the calling function, and memory is de-allocated, allowing the process to continue
 
 Using stack is convenient, because there is no need to manually keep tracking the pile, but saving all that info can take up a lot of memory. In some programming languages, the maximum size of the call stack is much less than the space available in the heap, and recursive algorithms tend to require more stack space than iterative algorithms. Consequently, these languages sometimes place a limit on the depth of recursion to avoid stack overflows.
-<p align="center"><img src="./img/StackOverflow.png"/></p>
+<p align="center"><img src="./Images/StackOverflow.png"/></p>
 
 **Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, systen instability and other destructive behaviour if it is not handled appropriately.
 
@@ -70,7 +70,7 @@ for (unsigned char i = 0; i < 2 * halfLimit; ++i) {
 
 In computer science, **iteration** and **recursion** stand out as two fundamental **problem-solving strategies**. Both are equally expressive: they involve executing instructions repeatedly until task is finished. Moreover recursion can be replaced by iteration with an explicit call stack, while iteration can be replaced with tail recursion. The preference for one approach depends on the specific problem under consideration and the programming language being used.
 
-<p align="center"><img src="./img/ConvertingRecursion.png"/></p>
+<p align="center"><img src="./Images/ConvertingRecursion.png"/></p>
 
 **Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
 

@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Quicksort** stands out as one of the most well-known and efficient sorting technique. The author of this algorithm named it as such because he developed it to be a faster alternative to existing sortings, stating: _«the method compares very favourably with other known methods in speed, in economy of storage, and in ease of programming»_. This subsection explores idea of quicksort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/Quicksort.png"/></p>
+<p align="center"><img src="./Images/Quicksort.png"/></p>
 
 ---
 The **Quicksort** selects the pivot element from the collection, recursively partitions the collection into two sub-collections based on the pivot (refer below) until each of them consist of one or zero elements (i.e. basically sorted), and then algorithm combines them back together to form the final sorted collection. The process of partitioning generally classified into two schemes:
@@ -46,7 +46,7 @@ The **Quicksort** selects the pivot element from the collection, recursively par
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the quicksort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.

@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Heapsort** stands out as one of the most well-known and efficient sorting techniques. The algorithm is named for its use of the heap data structure property, which implies that the keys of parent nodes are either greater than or equal to those of their children (in a max heap) or less than or equal to those of their children (in a min heap). This subsection explores the idea of heapsort not only to enhance comprehension of its concepts, but also to establish a solid foundation for more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/Heapsort.png"/></p>
+<p align="center"><img src="./Images/Heapsort.png"/></p>
 
 ---
 The **Heapsort** converts the original data into a heap data structure, divides its input into a sorted and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element (the root) from the heap and moving it to the sorted region.
@@ -29,7 +29,7 @@ The **Heapsort** converts the original data into a heap data structure, divides 
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the heapsort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.

@@ -23,7 +23,7 @@
 
 # &#128161; Overview
 The **Radix Sort** stands out as one of the most well-known non-comparative sorting technique. The name of algorithm describes its method of sorting numbers by processing individual digits according to their position within the base (radix) of the number system. This subsection explores idea of radix sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/RadixSort.png"/></p>
+<p align="center"><img src="./Images/RadixSort.png"/></p>
 
 
 ## Introduction
@@ -49,7 +49,7 @@ The **Radix Sort** processes each digit of the numbers, starting from the least 
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the radix sort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions

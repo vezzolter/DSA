@@ -26,7 +26,7 @@
 
 # &#128161; Overview
 The **Array** stands out as one of the most fundamental concept in computer science, that serves as a linear collection of elements. The term «array» encompasses both basic data structure, present in many programming languages by default, and abstract data type (ADT) representation, which defines a set of operations that can be performed on the data type without specifying the implementation details. This subsection explores array ADT to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
-<p align="center"><img src="./img/Array.png"/></p>
+<p align="center"><img src="./Images/Array.png"/></p>
 
 ## Essential Terminology
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
@@ -41,7 +41,7 @@ The **Array** stands out as one of the most fundamental concept in computer scie
 
 ## Important Details
 One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
-<p align="center"><img src="./img/ArrayPointers.png"/></p>
+<p align="center"><img src="./Images/ArrayPointers.png"/></p>
 
 **Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
 ```cpp
@@ -59,12 +59,12 @@ cout << *(array+1); //  equals to this             expression: array  a+1  a+2
 ```
 
 Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
-<p align="center"><img src="./img/ArrayReallocation.png"/></p>
+<p align="center"><img src="./Images/ArrayReallocation.png"/></p>
 
 
 ## Types of Arrays
 When it comes to classification, there are broadly two types of arrays: static and dynamic. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
-<p align="center"><img src="./img/ArrayTypes.png"/></p>
+<p align="center"><img src="./Images/ArrayTypes.png"/></p>
 
 1. **Static Array** — array with a fixed nature, possesses the following properties:
     - memory is allocated on the stack during compile time;
@@ -95,16 +95,16 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 ## Static Array | Design Decisions
 Keeping its educational aim in mind, the `SA` class developed here closely resembles the behavior of `std::array`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/StaticArrayLibItr.png"/></p>
+<p align="center"><img src="./Images/StaticArrayLibItr.png"/></p>
 
 One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./img/StaticArrayLibAt.png"/></p>
+<p align="center"><img src="./Images/StaticArrayLibAt.png"/></p>
 
 Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::array` was skipped.
 
 
 ## Static Array | Detailed Overview
-<p align="center"><img src="./img/StaticArrayDemonstration.png"/></p>
+<p align="center"><img src="./Images/StaticArrayDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/src/Main.cpp) file. The `SA` class is declared in [StaticArray.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/inc/StaticArray.h) header file and defined in [StaticArray.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/src/StaticArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
@@ -146,7 +146,7 @@ At first glance, I thought I will just double the capacity each time it requires
 
 
 ## Dynamic Array | Detailed Overview
-<p align="center"><img src="./img/DynamicArrayDemonstration.png"/></p>
+<p align="center"><img src="./Images/DynamicArrayDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/src/Main.cpp) file. The `DA` class is declared in [DynamicArray.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/inc/DynamicArray.h) header file and defined in [DynamicArray.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/src/DynamicArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp

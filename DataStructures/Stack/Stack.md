@@ -23,7 +23,7 @@
 
 # &#128161; Overview
 The **Stack** stands out as one of the most fundamental abstract data type (ADT) in computer science that serves as a linear collection of elements, which becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a last-in-first-out (LIFO) manner. It is named this way, because of how it resembles the behavior of adding or removing items from the top of a physical stack.  This subsection explores stack to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
-<p align="center"><img src="./img/Stack.png"/></p>
+<p align="center"><img src="./Images/Stack.png"/></p>
 
 ## Essential Terminology
 - **Stack** — is a ADT that serves as a linear collection that operates on the LIFO principle.
@@ -57,12 +57,12 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 ## Design Decisions
 Keeping its educational aim in mind, the `Stack` class developed here closely resembles the behavior of `std::stack`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/StackStd.png"/></p>
+<p align="center"><img src="./Images/StackStd.png"/></p>
 
 One significant design decision is the implementation of a stack solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque (which can "blur" the comprehension of the topic, because of how intricate it is implemented - neither like array or list, rather a mix of those two).
 
 ## Detailed Overview
-<p align="center"><img src="./img/StackDemonstration.png"/></p>
+<p align="center"><img src="./Images/StackDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/src/Main.cpp) file. The `Stack` class is declared in [Stack.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/inc/Stack.h) header file and defined in [Stack.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/src/Stack.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 

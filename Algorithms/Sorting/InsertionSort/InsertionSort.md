@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Insertion Sort** stands out as one of the simplest and earliest known sorting techniques, renowned for its straightforward implementation and effectiveness. The algorithm is named for the way the elements are inserted into their proper portion of the collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
-<p align="center"><img src="./img/InsertionSort.png"/></p>
+<p align="center"><img src="./Images/InsertionSort.png"/></p>
 
 ---
 **Insertion Sort** treats collection as two parts sorted and unsorted. Algorithm iterates over unsorted elements and places them at their suitable place in sorted portion, much like the intuitive process of arranging playing cards in a hand.
@@ -28,7 +28,7 @@ The **Insertion Sort** stands out as one of the simplest and earliest known sort
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the insertion sort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.

@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Bubble Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for the way the larger elements "bubble" up (move) to the top of the collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
-<p align="center"><img src="./img/BubbleSort.png"/></p>
+<p align="center"><img src="./Images/BubbleSort.png"/></p>
 
 ---
 **Bubble Sort** iterates over a collection, comparing adjacent elements and swapping them if they are in the wrong order. This way, in each pass of the algorithm, the largest unsorted element move to its correct position at the end of the collection, much like bubbles gradually rising in water.
@@ -29,7 +29,7 @@ The **Bubble Sort** stands out as one of the simplest and earliest known sorting
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the bubble sort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.

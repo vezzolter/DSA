@@ -16,7 +16,7 @@
 
 # &#128161; Overview
 The Fibonacci sequence is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. Knowledge of the Fibonacci sequence enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
-<p align="center"><img src="./img/intro.png"/></p>
+<p align="center"><img src="./Images/intro.png"/></p>
 
 ---
 **Fibonacci Seqence** — is a series of numbers, where each number is the sum of the two preceding numbers. Traditionally starts with $0$ and $1$ (but can start with different initial values), forming following sequence: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 89, 144, 233, 377$ and so on. The terms of this sequence are known as **Fibonacci numbers** and can be denoted as $F_n$, therefore general formula can be recursively written as $F_n = F_{n-1} + F_{n-2}$.
@@ -42,7 +42,7 @@ While there are numerous fascinating properties of the Fibonacci sequence yet to
 # &#x1F4BB; Implementation
 **Idea**  
 The program prompts the user to specify a number of an element, for which the Fibonacci Number is to be calculated, and then displays the resulting output.
-<p align="center"><img src="./img/demonstration.png"/></p>
+<p align="center"><img src="./Images/demonstration.png"/></p>
 
 
 
@@ -102,7 +102,7 @@ int getUserInput()
 }
 ```
 
-<p align="center"><img src="./img/validation.png"/></p>
+<p align="center"><img src="./Images/validation.png"/></p>
 
 4. Then control flow is directed to the `fibonacci(int n)` function, where until the element is not $0th$ or $1th$, the recursive function will call itself, continuously progressing towards this condition:
     - **Base case** — considers first elements as $F_0=0$ and $F_1 = 1$, establishing a termination point for the recursion.
@@ -122,22 +122,22 @@ int fibonacci(int n)
 To enhance the clarity of the recursion process explanation, I'll illustrate it with a simple example using a relatively small number of elements, specifically $n=5$. This approach aims to avoid navigating to the development environment, where it becomes easier to lose track of the algorithm, especially with higher values.
 
 1. First things first, the program calls `main()` function and its frame is added on top of the call stack.
-<p align="center"><img src="./img/step_0.png"/></p>
+<p align="center"><img src="./Images/step_0.png"/></p>
 
 2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:
-<p align="center"><img src="./img/step_1.png"/></p> 
+<p align="center"><img src="./Images/step_1.png"/></p> 
 
 3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls:
-<p align="center"><img src="./img/step_2.png"/></p> 
+<p align="center"><img src="./Images/step_2.png"/></p> 
 
 4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack.
-<p align="center"><img src="./img/step_3.png"/></p>
+<p align="center"><img src="./Images/step_3.png"/></p>
 
 5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in onther area. Unfortunatelly, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming.
-<p align="center"><img src="./img/step_4.png"/></p> 
+<p align="center"><img src="./Images/step_4.png"/></p> 
 
 6. So the control flow continues this process until we reach the initial (first) function call.
-<p align="center"><img src="./img/step_5.png"/></p>
+<p align="center"><img src="./Images/step_5.png"/></p>
 
 
 

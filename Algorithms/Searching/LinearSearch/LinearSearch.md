@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Linear Search** stands out as the simplest known approach to search for an element in a collection. The algorithm is named for the way it applies linear (or also known as sequential) manner to the search. Knowledge and understanding of it, lays the foundation for tackling more complex searching algorithms and problem-solving strategies.
-<p align="center"><img src="./img/LinearSearch.png"/></p>
+<p align="center"><img src="./Images/LinearSearch.png"/></p>
 
 ---
 **Linear Search** sequentially checks each element of the collection from the beginning until a match is found or the end of the collection is reached, pretty much like the intuitive process of looking for a particular book on a shelf where are only unnamed ones. It consists of the following steps:
@@ -28,8 +28,8 @@ The **Linear Search** stands out as the simplest known approach to search for an
 
 # &#x1F4BB; Implementation
 The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the linear search algorithm, and finally displays the result indicating whether the operation was successful or not.
-<p align="center"><img src="./img/DemoSuccess.png"/></p>
-<p align="center"><img src="./img/DemoFailure.png"/></p>
+<p align="center"><img src="./Images/DemoSuccess.png"/></p>
+<p align="center"><img src="./Images/DemoFailure.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing a small integer array as a collection.

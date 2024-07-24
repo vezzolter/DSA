@@ -28,7 +28,7 @@
 
 # &#128161; Overview
 The **Linked List** stands out as one of the most fundamental concept in computer science, that serves as a linear collection of elements, which becomes particularly valuable when the primary objective involves traversing a collection of items sequentially, one by one. It is named this way, due to the manner in which elements are connected via links to each other. This subsection explores linked list to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
-<p align="center"><img src="./img/List.png"/></p>
+<p align="center"><img src="./Images/List.png"/></p>
 
 
 ## Essential Terminology
@@ -44,24 +44,24 @@ The **Linked List** stands out as one of the most fundamental concept in compute
 
 ## Important Details
 Lists provide **sequential access** meaning that we need to traverse the list's elements one by one in order to access them, which certainly requires time. Furthermore, as as the number of nodes in the list increases, the time required to traverse to a particular location also does. This results in the conclusion, that linked lists are not the preferred option in scenarios where you have to perform lots of operation that dona lot or the data structure size remains constant, although they still can be a natural fit for some cases.
-<p align="center"><img src="./img/ListTraversal.png"/></p>
+<p align="center"><img src="./Images/ListTraversal.png"/></p>
 
 ---
 The true power of linked lists lies in the flexible nature of the size. Dynamic memory allocation of lists allow for flexible resizing, making them suitable for scenarios where the size of the data structure needs to change frequently. All of the "size-manipulating operations" are based on the the principle of "updating" nodes' pointers. Rather than delving into the intricacies of every possible operation, I'll illustrate a fundamental example of deleting an element that encapsulates the essence of the concept.
-<p align="center"><img src="./img/ListDeletion.png"/></p>
+<p align="center"><img src="./Images/ListDeletion.png"/></p>
 
 
 ## Types of Lists
 When it comes to classification, there are broadly three types of lists: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
 
 **Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
-<p align="center"><img src="./img/ListStructureSingly.png"/></p>
+<p align="center"><img src="./Images/ListStructureSingly.png"/></p>
 
 **Doubly Linked List** — is a list, where each node contains an additional pointer to the previous node in the sequence enabling bidirectional traversal: forward from the head to the tail and backward from the tail to the head. The first node's "previous pointer" and the last node's "next pointer" point to nullptr, indicating the start and end of the list, respectively.
-<p align="center"><img src="./img/ListStructureDoubly.png"/></p>
+<p align="center"><img src="./Images/ListStructureDoubly.png"/></p>
 
 **Circular Linked List** — is a list, where the last node points back to the head node. Allow for circular traversal, which can be unidirectional (if nodes are singly linked) or bidirectional (if nodes are doubly linked).
-<p align="center"><img src="./img/ListStructureCircular.png"/></p>
+<p align="center"><img src="./Images/ListStructureCircular.png"/></p>
 
 
 ## Operation Details
@@ -82,13 +82,13 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 ##  Singly Linked List | Design Decisions
 Keeping its educational aim in mind, the `SLL` class developed here closely resembles the behavior of `std::forward_list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/ListSinglyLibItr.png"/></p>
+<p align="center"><img src="./Images/ListSinglyLibItr.png"/></p>
 
 One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::forward_list`, allowing to maintain focus on the key features of the ADT.
 
 
 ##  Singly Linked List | Detailed Overview
-<p align="center"><img src="./img/ListSinglyDemonstration.png"/></p>
+<p align="center"><img src="./Images/ListSinglyDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList/src/Main.cpp) file. The `SLL` class is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList/inc/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList/src/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
@@ -141,13 +141,13 @@ public:
 
 ##  Doubly Linked List | Design Decisions
 Keeping its educational aim in mind, the `DLL` class developed here closely resembles the behavior of `std::list`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/ListDoublyLibItr.png"/></p>
+<p align="center"><img src="./Images/ListDoublyLibItr.png"/></p>
 
 One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::list`, allowing to maintain focus on the key features of the ADT.
 
 
 ##  Doubly Linked List | Detailed Overview
-<p align="center"><img src="./img/ListDoublyDemonstration.png"/></p>
+<p align="center"><img src="./Images/ListDoublyDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList/src/Main.cpp) file. The `DLL` class is declared in [DoublyLinkedList.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList/inc/DoublyLinkedList.h) header file and defined in [DoublyLinkedList.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList/src/DoublyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
@@ -212,7 +212,7 @@ Circular linked lists can be implemented based on either singly or doubly linked
 
 
 ##  Circular Linked List | Detailed Overview
-<p align="center"><img src="./img/ListCircularDemonstration.png"/></p>
+<p align="center"><img src="./Images/ListCircularDemonstration.png"/></p>
 
 The concept behind creating this type of container revolves around ensuring that the tail node's next pointer points to the head and vice versa. This necessitates minor adjustments to the overall structure to avoid circular references. Specifically, it means you can't iterate through the list by checking for nullptr, and it requires assigning proper values to the pointers after making corresponding changes. For the complete implementation, please refer to the [project's directory](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList). Here, I'll provide a simple examples:
 

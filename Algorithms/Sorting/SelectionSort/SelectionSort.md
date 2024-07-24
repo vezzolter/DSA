@@ -13,7 +13,7 @@
 
 # &#128161; Overview
 The **Selection Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for its method of selecting the smallest (or largest) elements from a collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
-<p align="center"><img src="./img/SelectionSort.png"/></p>
+<p align="center"><img src="./Images/SelectionSort.png"/></p>
 
 ---
 **Selection Sort** treats a collection as two parts: sorted and unsorted. The algorithm iterates over the unsorted elements, selecting the lowest (or highest) value and exchanging it with the element at the beginning of the unsorted part, thus forming the sorted portion; much like the intuitive process of arranging books on a shelf from shortest to tallest. 
@@ -29,7 +29,7 @@ The **Selection Sort** stands out as one of the simplest and earliest known sort
 
 # &#x1F4BB; Implementation
 The program initializes an array of specified integers, performs ascending order sorting using the selection sort algorithm, and finally displays the result.
-<p align="center"><img src="./img/Demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing an integer array as a collection.

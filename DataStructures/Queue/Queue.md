@@ -27,7 +27,7 @@
 
 # &#128161; Overview
 The **Queue** as abstract data type (ADT) in computer programming, becomes particularly valuable when you need to manage entities (e.g. data, objects, persons, events, tasks) in a sequential manner, where they are stored and held to be processed later, sort of a buffer. It is named this way, because of how it resembles the behavior of queue (line) in real life. This subsection explores idea of queue not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
-<p align="center"><img src="./img/Queue.png"/></p>
+<p align="center"><img src="./Images/Queue.png"/></p>
 
 
 ## Essential Terminology
@@ -46,22 +46,22 @@ Will be updated in the future...
 
 ## Types of Queues
 When it comes to classification, there are broadly four types of queues: linear queue, circular queue, double-ended queue, and priority queue. While these specifications share some common ideas, each possesses distinctive characteristics, and some of them can be also combined together (e.g. deque with circular functionality). This variety provides the flexibility in data organization approaches, because the overall choice depends on the specific requirements of the case at hand.
-<p align="center"><img src="./img/QueueLinear.png"/></p>  
+<p align="center"><img src="./Images/QueueLinear.png"/></p>  
 
 **Linear Queue** — all insertions are made at one end of and all deletions at the other, operates on the First-In-First-Out principle.  
 **Typical underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/QueueDouble.png"/></p>
+<p align="center"><img src="./Images/QueueDouble.png"/></p>
 
 **Deque (Double-Ended Queue)** — allows insertion and deletion of elements from both ends.
   - **Input Restricted Deque** — allows insertion from only one end (either rear or front).
   - **Output Restricted Deque** — allows removal from only one end (either rear or front).
     
 **Typical Underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/QueueCircular.png"/></p>
+<p align="center"><img src="./Images/QueueCircular.png"/></p>
 
 **Circular Queue** — variation of deque or linear queue, that connects front with rear ends.  
 **Typical underlying DS:** arrays, linked lists.
-<p align="center"><img src="./img/QueuePriority.png"/></p>
+<p align="center"><img src="./Images/QueuePriority.png"/></p>
 
 **Priority Queue** — elements are dequeued based on their priority level, rather than their order of insertion.
   - **Ascending Priority Queue** — elements with higher priority levels are dequed first.
@@ -87,13 +87,13 @@ Discussing ADT, it's evident that well-established and widely recognized impleme
 
 ##  Linear Queue | Design Decisions
 Keeping its educational aim in mind, the `LQ` class developed here closely resembles the behavior of `std::queue`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./img/QueueLinearLib.png"/></p>
+<p align="center"><img src="./Images/QueueLinearLib.png"/></p>
 
 One significant design decision is the implementation of a linear queue solely based on a linked list. While the library container provides the option to choose whichever fits the application's idea more, by default, it is implemented on the basis of a deque.
 
 
 ##  Linear Queue | Detailed Overview
-<p align="center"><img src="./img/QueueLinearDemonstration.png"/></p>
+<p align="center"><img src="./Images/QueueLinearDemonstration.png"/></p>
 
 Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue/src/Main.cpp) file. The `LQ` class is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue/inc/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue/src/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
 ```cpp
