@@ -6,4 +6,4 @@
 .vs/
 
 # Ignore the binary directory and its contents
-bin/
+Binaries/
