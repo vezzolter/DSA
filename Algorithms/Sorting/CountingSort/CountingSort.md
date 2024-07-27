@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Counting Sort** stands out as one of the most well-known non-comparative sorting technique. The name of the algorithm describes its method of sorting by counting the occurrences of each unique value in the input array and then using these counts to determine the correct positions of each value in the sorted output. This subsection explores idea of counting sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./Images/CountingSort.png"/></p>
 
 
 ## Introduction
