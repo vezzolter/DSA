@@ -26,7 +26,7 @@ The **Counting Sort** stands out as one of the most well-known non-comparative s
 
 
 ## Introduction
-Currently in Progress...
+The **Counting Sort** works by counting the occurrences of each unique value in the input array. It then uses these counts to determine the position of each value in the sorted output array. By iterating over the input and placing each value in its correct position based on the cumulative counts, the algorithm produces a sorted sequence without requiring any comparisons between values.
 
 
 ## Algorithm Steps
