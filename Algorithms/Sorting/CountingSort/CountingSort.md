@@ -1,7 +1,8 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
-  - [Algorithm Steps](#algorithm-steps)
+  - [Important Details](#important-details)
+  - [Algorithm Steps (Regular Scheme)](#algorithm-steps-regular-scheme)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
@@ -44,11 +45,15 @@ Basically, there are two ways you can do counting sort:
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array of specified integers, performs ascending order sorting using the counting sort algorithm, and finally displays the result.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing an array of positive integers as a collection.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation

@@ -1,4 +1,4 @@
-// Counting Sort
+// Counting Sort (Regular Scheme)
 // by vezzolter
 // July 25, 2024
 //
@@ -20,17 +20,17 @@ void printArray(const int arr[], const int size) {
 int main()
 {
 	// Greet
-	std::cout << "\tWelcome to the 'Counting Sort' console application!\n";
+	std::cout << "\tWelcome to the 'Counting Sort (Regular Scheme)' console application!\n";
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 328, 203, 703, 911, 200, 3, 7, 11 };
+	int arr[] = { 7, 2, 0, 0, 3, 1, 9, 1 };
 	const int size = sizeof(arr) / sizeof(arr[0]);
 	printArray(arr, size);
 
 	// Sort Elements
 	std::cout << "\nSorting the elements of it...\n";
-	countingSort();
+	countingSort(arr, size);
 	printArray(arr, size);
 
 	// Exit

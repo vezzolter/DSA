@@ -1,4 +1,4 @@
-// Header file for Counting Sort
+// Header file for Counting Sort (Regular Scheme)
 // by vezzolter
 // July 25, 2024
 
@@ -7,7 +7,7 @@
 #define COUNTINGSORT_H
 
 
-void countingSort();
+void countingSort(int arr[], int size);
 
 
 #endif // COUNTINGSORT_H
