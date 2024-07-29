@@ -26,11 +26,20 @@ The **Counting Sort** stands out as one of the most well-known non-comparative s
 
 
 ## Introduction
-The **Counting Sort** works by counting the occurrences of each unique value in the input array. It then uses these counts to determine the position of each value in the sorted output array. By iterating over the input and placing each value in its correct position based on the cumulative counts, the algorithm produces a sorted sequence without requiring any comparisons between values.
+The **Counting Sort** works by counting the occurrences of each unique value in the initial array. Then it uses these counts to determine the position of each value in the sorted output array (refer below), therefore producing a sorted sequence without requiring any comparisons between values.
 
 
-## Algorithm Steps
-Currently in Progress...
+## Important Details
+Basically, there are two ways you can do counting sort:
+1. **Regular Scheme** — counts occurrences of each value and directly places each into the sorted output based on its count. Unstable version.
+2. **Prefix-Sum Scheme** — counts occurrences of each value, transforms the count array into a prefix sum array,and then places each value into the sorted output based on its cumulative counts. Stable version.
+
+
+## Algorithm Steps (Regular Scheme)
+1. Determine the minimum and maximum values in the initial array to establish a count array.
+2. Initialize with zeros a count array of size equal to the previously determined rannge.
+3. Count occurrences by iterating through the initial array and incrementing corresponding index in the count array.
+4. Iterate throught the count array and for each index in it, write the index value to the output array the number of times equal to the value at that index.
 
 
 
