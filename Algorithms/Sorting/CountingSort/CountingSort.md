@@ -57,7 +57,40 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-Currently in Progress...
+Sorting algorithm implemented within the `countingSort()` function with a helper one `getMax()`, which are declared in `CountingSort.h` header file and defined in `CountingSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+int getMax(int arr[], int size) {
+    int maxVal = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > maxVal)
+            maxVal = arr[i];
+    }
+
+    return maxVal;
+}
+
+void countingSort(int arr[], int size) {
+    int maxVal = getMax(arr, size);
+
+    int* count = new int[maxVal + 1];
+    for (int i = 0; i <= maxVal; i++)
+        count[i] = 0;
+
+    for (int i = 0; i < size; i++)
+        count[arr[i]]++;
+
+    int index = 0;
+    for (int i = 0; i <= maxVal; i++) {
+        while (count[i] > 0) {
+            arr[index++] = i;
+            count[i]--;
+        }
+    }
+
+    delete[] count;
+}
+```
 
 
 ## Detailed Walkthrough
