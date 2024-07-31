@@ -94,7 +94,35 @@ void countingSort(int arr[], int size) {
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+1. Start by finding the maximum value in the array. This will determine the size of the counting array. To do so, you can simply iterate over a collection and update the max value, or resort to library implementations.
+```cpp
+  int maxVal = getMax(arr, size);
+```
+2. Using the maximum value obtained, initialize a counting array with $0$ to keep track of the number of occurrences of each value in the original array.
+```cpp
+  int* count = new int[maxVal + 1];
+  for (int i = 0; i <= maxVal; i++)
+      count[i] = 0;
+```
+3. Key step, iterate over the original array and increment the corresponding index in the counting array for each value found.
+```cpp
+  for (int i = 0; i < size; i++)
+      count[arr[i]]++;;
+```
+4. Using the counting array, reconstruct the original array by placing each value the number of times it appears. For each value in the counting array, if the count is greater than zero, the value is placed in the original array, and the count is decremented until it reaches zero
+```cpp
+    int index = 0;
+    for (int i = 0; i <= maxVal; i++) {
+        while (count[i] > 0) {
+            arr[index++] = i;
+            count[i]--;
+        }
+    }
+```
+5. Finally, free the memory allocated for the counting array.
+```cpp
+  delete[] count;
+```
 
 
 
