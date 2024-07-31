@@ -51,9 +51,11 @@ The program initializes an array of specified integers, performs ascending order
 
 ## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Opting to regular scheme, the prefix-sum you can find in [Radix Sort](https://github.com/vezzolter/DSA/tree/counting-sort/Algorithms/Sorting/RadixSort).
 - Utilizing an array of positive integers as a collection.
 - Exclusively implementing sorting in ascending order.
 - Omitting certain optimizations to the algorithm.
+
 
 
 ## Complete Implementation
@@ -127,11 +129,23 @@ void countingSort(int arr[], int size) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
 
 ## Algorithm Characteristics
-Currently in Progress...
+- **Comparison Approach:**
+  - **Non-Comparison-Based** — algorithm sorts elements by counting occurrences of each distinct element in the input array, rather than comparing elements directly.
+- **Time Complexity:**
+  - **All Cases** $O(n + k)$ — algorithm requires single pass to count elements and another pass to place elements into the sorted output, only it depends a little bit  on the range of the input ($k$).
+- **Space Complexity:**
+  - **Array Implementation** $O(n + k)$ — algorithm requires additional space for count array of size $k$ and the output array of size $n$.
+- **Stability:**
+  - **Unstable (Regular Scheme)** — algorithm does not guarantee the preservation of the relative order of equal elements. This happens because elements are placed into the sorted array directly based on their count without considering their original positions.
+  - **Stable (Prefix-Sum Scheme)** — algorithm maintains the relative order of equal elements. This stability is achieved by first calculating the cumulative count, which gives the exact position of each element in the output array. By placing elements into the output array in reverse order of their appearance in the input array, the relative order of elements with the same value is preserved, ensuring that they remain in the same relative positions as they were in the input array.
+- **Adaptability:**
+  - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e., it processes data through the same path of steps, regardless of their values.
+- **Storage:**
+  - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
 ## Algorithm Comparison
