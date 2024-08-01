@@ -154,15 +154,18 @@ Will be Updated in the Future...
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Fixed Range** — algorithm is used for sorting relatively small datasets of integers, where the range of values is not significantly larger than the number of integers. Its linear time complexity makes it efficient for such applications; e.g. age groups, exam scores.
+- **Radix Sort (Prefix-Sum Scheme)** — algorithm is ideal for being a subroutine in another sorting algorithm called radix sort. It is applied to sort numbers digit by digit, starting from the least significant digit to the most significant digit. Counting sort's stability ensures that the relative order of digits is preserved, allowing radix sort to correctly sort multi-digit numbers efficiently.
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Sort an Array](https://leetcode.com/problems/sort-an-array/)
+- [Sort Integers by The Number of 1 Bits](https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/)
+- [Relative Sort Array](https://leetcode.com/problems/relative-sort-array/)
 
 
 
