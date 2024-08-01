@@ -170,7 +170,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Counting Sort was first introduced by **Harold Herbert Seward** in **1954**. Seward, an American computer scientist, developed the algorithm as part of his work at MIT, aiming to create a sorting method that could handle a large number of elements efficiently without relying on comparisons. Although Radix Sort, which also falls under the category of non-comparative sorting algorithms, was already known and utilized for sorting numbers digit by digit, Counting Sort brought forth a new perspective. It introduced a method that works on the principle of counting occurrences, offering a simplified and efficient way to sort data when the range of values is not significantly larger than the number of elements.
 
 
 
