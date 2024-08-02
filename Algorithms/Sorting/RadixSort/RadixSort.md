@@ -137,13 +137,13 @@ void radixSort(int arr[], int n) {
       count[digit]++;
   }
 ```
-5. After counting the appearances, we transform them into cumulative count array, so that we could know the exact position in the sorted array, where each digit shoud go.
+5. After counting the appearances, we transform them into cumulative count array, so that we could know the exact position in the sorted array, where each digit should go.
 ```cpp
   // Calculate cumulative count
   for (int i = 1; i < range; i++)
       count[i] += count[i - 1];
 ```
-6. Knowing all that info, we are able to sort the digits. We iterate over the original array from the last element to the first (this reverse order helps in maintaining the stability of the sort), for each number we extract the digit at the current position, by using cumulative count array we place the number in the output array and update the position for the next occurence of the same digit.
+6. Knowing all that info, we are able to sort the digits. We iterate over the original array from the last element to the first (this reverse order helps in maintaining the stability of the sort), for each number we extract the digit at the current position, by using cumulative count array we place the number in the output array and update the position for the next occurrence of the same digit.
 ```cpp
   // Place the elements in sorted order
   for (int i = n - 1; i >= 0; i--) {

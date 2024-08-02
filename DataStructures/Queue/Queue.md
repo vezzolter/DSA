@@ -32,7 +32,7 @@ The **Queue** as abstract data type (ADT) in computer programming, becomes parti
 
 ## Essential Terminology
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
-  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
+  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a successor, except for the first and last elements.
 - **Queue** — is a term used to encompass a variety of ADTs with similar sequential behavior.
 - **Front/Head** — is the end of the sequence at which elements are added.
 - **Rear/Back/Tail** — is the end of the sequence at which elements are removed.
@@ -162,7 +162,7 @@ Understanding how to analyze the particular implementation of a data structure i
 
 
 ## How to Analyze
-The analysis of queues can be quite confusing. Different implementations have their own set of advantages and disadvantages. However, the information available across various resources can sometimes be overwhelming mix of all types, don't really useful or discussing not existing cases at all. The analysis from point of time and space complexities mostly based on underlaying data structure. Overall, the queues provide the "wrapping" behaviour, that is preffarably can be replaced by a better alternative, and only remaining relevant primarily when the **natural sequential behavior** is crucial.
+The analysis of queues can be quite confusing. Different implementations have their own set of advantages and disadvantages. However, the information available across various resources can sometimes be overwhelming mix of all types, don't really useful or discussing not existing cases at all. The analysis from point of time and space complexities mostly based on underlying data structure. Overall, the queues provide the "wrapping" behavior, that is preferably can be replaced by a better alternative, and only remaining relevant primarily when the **natural sequential behavior** is crucial.
 
 
 ## Advantages
@@ -180,7 +180,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 ## Some of the Most Well-Known Use Cases
 - **Scheduling** — in scenarios, where it is convenient to represent each element as a node and make decisions based on the order (by priority, arrival time, or other criteria); e.g. task scheduling, traffic management.
-- **Buffering** — in various systems, where incoming data packets are stored temorarily before being processed; e.g. user input, layers of BFS algorithm.
+- **Buffering** — in various systems, where incoming data packets are stored temporarily before being processed; e.g. user input, layers of BFS algorithm.
 - **Resource Allocation** — in resource allocation systems, where resource access based on predefined criteria such as priority, fairness, or availability; e.g. how CPU controls the resources, game mechanics with resources.
 
 
@@ -195,7 +195,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 - [K-th Smallest Prime Fraction](https://leetcode.com/problems/k-th-smallest-prime-fraction/)
 - [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 - [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
-- [Desgin Twitter](https://leetcode.com/problems/design-twitter/)
+- [Design Twitter](https://leetcode.com/problems/design-twitter/)
 - [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [Max Value of Equation](https://leetcode.com/problems/max-value-of-equation/)
 - [The Skyline Problem](https://leetcode.com/problems/the-skyline-problem/)

@@ -18,7 +18,7 @@ The **Binary Search** stands out as one of the most fundamental approaches to se
 ---
 **Binary Search** repeatedly divides the search interval of an ordered collection until a match is found or the interval is empty, pretty much like the intuitive process of looking for a particular page in some type of dictionary without any prior knowledge of its content or index. It consists of the following steps:
 1. Make sure the collection is in sorted order.
-2. Calculate the midddle index.
+2. Calculate the middle index.
 3. Compare target element with middle one.
    - if target **matches** with middle, the search is successful, **return** the index.
    - if target is **less** then middle, continue the search on the **left** half of a collection.
@@ -35,7 +35,7 @@ The program initializes an array with specified integers, prompts the user to en
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing a small integer array as a collection.
 - Omitting certain optimizations to the algorithm.
-- Assumming that collections is already sorted.
+- Assuming that collections is already sorted.
 
 ---
 Searching algorithm implemented within the function `binarySearch()`, which is declared in `BinarySearch.h` header file and defined in `BinarySearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
@@ -66,7 +66,7 @@ int binarySearch(int arr[], int left, int right, int target) {
 while (left <= right) {
 ```
 
-2. In order to determine the middle intex of a search interval, we apply this formula because it is more preferable due to the fact that it avoids overflow.
+2. In order to determine the middle index of a search interval, we apply this formula because it is more preferable due to the fact that it avoids overflow.
 ```cpp
 int mid = left + (right - left) / 2;
 ```
@@ -118,8 +118,8 @@ return -1;
 
 # &#128221; Application
 **Some of the Most Well-Known Use Cases:**
-- **Sorted Collections** — most common application of algorithm due to its efficiency in logarithmic time compexity, which makes it a good choice for dictionaries or large datasets.
-- **Finding Upper/Lower Bound** — algorithm can be used when dealing with numberical datasets or when designing algorithms that require matching or approximation, because of how easy it is to find the target element, and calculate closest to it.
+- **Sorted Collections** — most common application of algorithm due to its efficiency in logarithmic time complexity, which makes it a good choice for dictionaries or large datasets.
+- **Finding Upper/Lower Bound** — algorithm can be used when dealing with numerical datasets or when designing algorithms that require matching or approximation, because of how easy it is to find the target element, and calculate closest to it.
 - **Building Data Structures** — binary search principle is crucial for data structures, that rely on maintaining sorted order efficient searching capabilities such as BSTs and Heaps, due to its efficiency.
 
 

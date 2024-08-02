@@ -15,13 +15,13 @@ Certainly, by evaluating multiple candidate algorithms for a given problem, we c
 
 
 # &#128202; Recurrence Relation
-When an algorithm containts a recursive call to itself, it is possible to describe running time as reccurence relation, which can be solved in order to provide different bounds on performance, such as lower ($\Omega$), tight ($\Theta$) or upper bound ($O$) each serving its own purpose.
+When an algorithm contains a recursive call to itself, it is possible to describe running time as recurrence relation, which can be solved in order to provide different bounds on performance, such as lower ($\Omega$), tight ($\Theta$) or upper bound ($O$) each serving its own purpose.
 
 **Recurrence Relation** — is an equation (or inequality), which recursively defines a sequence in which any term is defined by its previous terms. Used to analyze the time complexity of recursive algorithms in terms of input size.
 
 **Methods to Solve Recurrences:**
 1. **Substitution** — guess a bound, than prove with mathematical induction. Beneficial when encounter non-trivial cases or you have a good guess.
-2. **Recursion Tree** — visualize the recurrence as a tree and calculating nodes sum per level together. Primarly used for generating good guesses to substitution method and also provides proof to master method.
+2. **Recursion Tree** — visualize the recurrence as a tree and calculating nodes sum per level together. Primarily used for generating good guesses to substitution method and also provides proof to master method.
 3. **Master Theorem** — provides solution for recurrences of the particular form, which pretty frequently occurs in many commonly encountered algorithms.
 
 Analyzing and solving recurrences is a nuanced process, and the choice of method depends on the characteristics of the recurrence relation. Each method has its strengths, making it well-suited for certain types of recurrences. In simple terms, if recurrence is not solvable by Master Theorem, you can try Substitution and tree can help in both cases. Detailed overview of each of these methods and CLRS examples you can find below.
@@ -35,7 +35,7 @@ Analyzing and solving recurrences is a nuanced process, and the choice of method
 Determine upper bound $O(n)$ for the next recurrence relation $T(n) = 2T(\lfloor \frac{n}{2} \rfloor) + n$
 
 1. Make a guess, that solution is $T(n) = O(n×log{_2}{n})$.
-2. Prove, that $T(n) \leqslant O(n×log{_2}{n})$ for an appropiate choice of `const` $c>0$.
+2. Prove, that $T(n) \leqslant O(n×log{_2}{n})$ for an appropriate choice of `const` $c>0$.
 3. Assume that this bound holds for all positive $m < n$, in particular for $m = \lfloor \frac{n}{2} \rfloor$.  
 
 4. This yields with $T(\lfloor \frac{n}{2} \rfloor) \leqslant c \lfloor \frac{n}{2} \rfloor × log{_2}({\lfloor \frac{n}{2} \rfloor})$, which we simply substitute into a recurrence $T(n) = 2T(\lfloor \frac{n}{2} \rfloor) + n$.

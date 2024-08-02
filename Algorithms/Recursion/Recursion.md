@@ -27,7 +27,7 @@
 --- 
 **Important Details**  
 
-Not all mathematically recursive functions are efficiently (or correctly) implemented by C++’s simulation of recursion. Recursion is used when it makes the solution clearer. In order to make a good use of this approach, it's worth to consider a few deducable guidelines for designing:
+Not all mathematically recursive functions are efficiently (or correctly) implemented by C++’s simulation of recursion. Recursion is used when it makes the solution clearer. In order to make a good use of this approach, it's worth to consider a few deducible guidelines for designing:
 
 1. **Termination conditions** — there must always be some base cases that can be solved without resorting to recursion. Otherwise it may lead to infinite recursion, which cause stack overflow problem (refer to '[Call Stack](#call-stack)' subsection).
 2. **Making progress** —  it's essential that each recursive call contributes to progress towards reaching a base case, making sure that termination conditions are reachable.
@@ -39,7 +39,7 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 
 **Call Stack** — is a region of memory, that stores information about the active function calls in a program by forming a stack (pile) of frames for each caller, i.e. tracks the order of calls. It operates based on the principles of a fundamental abstract data structure known as a [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack), meaning items that entered the last are the first to be removed or simply Last In First Out (LIFO).
 
-**Stack Frame** — section of memory, allocated on stack, which stores function related information, such as: return adress, parameters, local variables, saved registers, flags, frame pointer. As the function executes, its frame provides the necessary context. When the function completes, its stack frame is popped off the stack, and control returns to the calling function.
+**Stack Frame** — section of memory, allocated on stack, which stores function related information, such as: return address, parameters, local variables, saved registers, flags, frame pointer. As the function executes, its frame provides the necessary context. When the function completes, its stack frame is popped off the stack, and control returns to the calling function.
 
 <p align="center"><img src="./Images/CallStack.png"/></p>
 
@@ -52,7 +52,7 @@ The detailed interaction of recursion with the Call Stack is actually quite comp
 Using stack is convenient, because there is no need to manually keep tracking the pile, but saving all that info can take up a lot of memory. In some programming languages, the maximum size of the call stack is much less than the space available in the heap, and recursive algorithms tend to require more stack space than iterative algorithms. Consequently, these languages sometimes place a limit on the depth of recursion to avoid stack overflows.
 <p align="center"><img src="./Images/StackOverflow.png"/></p>
 
-**Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, systen instability and other destructive behaviour if it is not handled appropriately.
+**Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, system instability and other destructive behavior if it is not handled appropriately.
 
 Common causes for exceeding stack limits include uncontrolled recursion, infinite loops, deep base cases, excessive consumption in multithreaded environments, and overuse of exception handling. The key is to identify recursive behavior and handle it appropriately. In large projects, simple but subtle details like the example below can be easily overlooked:
 ```cpp
@@ -74,7 +74,7 @@ In computer science, **iteration** and **recursion** stand out as two fundamenta
 
 **Iteration** finds its strength in performance-oriented scenarios, and in many cases, there is no inherent advantage to using recursion. However, if converting recursion into a straightforward loop structure poses difficulties, it might be an indication that recursion becomes a prominent choice.
 
-**Recursion**, as it was said, is more suitable approach in cases where implementing an algorithm using iteration is challenging, thefore recursion provides clear and natural solutions. However, if feasible, converting recursion into iteration is often preferred for improved performance and resource utilization.
+**Recursion**, as it was said, is more suitable approach in cases where implementing an algorithm using iteration is challenging, therefore recursion provides clear and natural solutions. However, if feasible, converting recursion into iteration is often preferred for improved performance and resource utilization.
 
 To successfully convert recursion into a loop, it's essential for the recursion to be **tail-recursive**. Tail recursion is characterized by having the recursive call as the last statement executed by the function. In other words, the function's calls involve a single invocation of the recursive call followed by an immediate return of the result without additional processing or calculation. When utilizing a compiler or interpreter that treats tail-recursive calls as jumps rather than function calls, the program becomes essentially iterative. Therefore, equivalent to using control structures like the "for" and "while" loops, which saves both space and time.
 
@@ -103,7 +103,7 @@ Therefore, I will present some of the most illustrative examples specifically to
 
 # &#128202; Analysis
 **How to Analyze:**   
-When an algorithm containts a recursive call to itself, it is possible to describe running time as [reccurence relation](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md), which can be solved in order to provide different bounds on performance.
+When an algorithm contains a recursive call to itself, it is possible to describe running time as [recurrence relation](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md), which can be solved in order to provide different bounds on performance.
 
 ---
 **Advantages:**
@@ -112,7 +112,7 @@ When an algorithm containts a recursive call to itself, it is possible to descri
 ---
 **Disadvantages:**
 - **Call Stack Overhead** — recursion involve overhead for maintaining the call stack. Each call consumes additional memory and processing time, which can significantly affect the efficiency.
-- **Stack Overflow** — recursion may lead to stack overflow runtime error. When a program's call stack exceeds its allocated size, its potentially causing destructive behaviour for the program if it is not handled appropriately.
+- **Stack Overflow** — recursion may lead to stack overflow runtime error. When a program's call stack exceeds its allocated size, its potentially causing destructive behavior for the program if it is not handled appropriately.
 - **Complex Debugging** — recursion can have a complex call structure. Keeping track of the call stack and variable states can be quite challenging, especially for high recursion depth or intricate logic.
 
 

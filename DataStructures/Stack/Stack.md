@@ -36,7 +36,7 @@ The **Stack** stands out as one of the most fundamental abstract data type (ADT)
 - **Underflow** — is a condition that occurs when trying to pop an element from an empty stack.
 
 ## Important Details
-Stack generally can be broadly classified based on underlaying data structure into two types: 
+Stack generally can be broadly classified based on underlying data structure into two types: 
 - **Array-Based Stack** — utilizes a fixed-size or dynamic array to store elements.  
 - **List-Based Stack** — utilizes a singly, doubly or circular linked list to store elements.
 
@@ -53,7 +53,7 @@ While these types share some common ideas, each possesses distinctive characteri
 
 
 # &#x1F4BB; Implementation
-Discussing ADT, it's evident that well-established and widely recognized implementations already exist for stack. In the context of C++, `std::stack` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified version of thhis collection. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
+Discussing ADT, it's evident that well-established and widely recognized implementations already exist for stack. In the context of C++, `std::stack` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified version of this collection. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
 
 ## Design Decisions
 Keeping its educational aim in mind, the `Stack` class developed here closely resembles the behavior of `std::stack`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
@@ -111,7 +111,7 @@ public:
 Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
 
 ## How to Analyze  
-Overall, stack provides «wrapping» behaviour, therefore analysis in terms of space and time complexities mostly based on the underlaying data structure coupled with additional intended logic.
+Overall, stack provides «wrapping» behavior, therefore analysis in terms of space and time complexities mostly based on the underlying data structure coupled with additional intended logic.
 
 ## Advantages
 - **LIFO** — stack allows to modify/remove/access only top element, which can find numerous applications.
@@ -127,7 +127,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 ## Some of the Most Well-Known Use Cases
 - **Call Stack** — stack is used in programming languages to keep track of function calls. Whenever function is called its respective information is pushed onto the call stack, and when function returns it is popped off from the stack.
-- **Exception Handling** — stack is invloved in exception handling mechanisms to propagate and handle exceptions. Technique known as stack unwinding implies the process of stack "unwound" or traversal backwards to find the appropriate exception handler.
+- **Exception Handling** — stack is involved in exception handling mechanisms to propagate and handle exceptions. Technique known as stack unwinding implies the process of stack "unwound" or traversal backwards to find the appropriate exception handler.
 - **Backtracking Algorithms** — stack is used in backtracking algorithms to keep track of the current path or state. Whenever those algorithms reach a dead-end, they can backtrack by popping elements off the stack.
 - **Undo Mechanics** — stack is used in different applications to implement undo functionality. Each action performed is recorded as an operation on the stack, allowing to undo certain actions by popping off the stack in reverse order.
 - **Expression Evaluation** — stack is used in reverse Polish notation to evaluate expressions. It helps to track the order of operations allowing to evaluate the result linearly; e.g. the conventional notation expression $3-4+5$ in Polish becomes $34-5+$, adding each entity sequentially to the stack.

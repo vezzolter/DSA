@@ -40,7 +40,7 @@ The **Merge Sort** stands out as one of the most well-known and efficient sortin
    3. Compare the elements from left and right parts via pointers.
    4. Append the required element (depending on the order) to the auxiliary collection.
    5. Moves the pointer of the respective half to the next element in it.
-   6. Repeats the comparison and selection process untill one half is empty, then copies any remaining elements from it to the auxiliary collection.
+   6. Repeats the comparison and selection process until one half is empty, then copies any remaining elements from it to the auxiliary collection.
    7. Finally, merge the temporary collections in original one (or elsewhere).
 
 

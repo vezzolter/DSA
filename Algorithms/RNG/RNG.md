@@ -24,7 +24,7 @@
 - **Seed** — is an initial value used to initialize a PRNG. By setting a specific seed, it is possible to recreate the same sequence of random numbers, which can be useful for debugging or testing.
 - **Period** — is a number of unique values in the sequence before it starts to repeat, while for PRNG it is finite, for TRNG it is effectively infinite.
 - **Entropy** — is a degree of unpredictability of a sequence of data collected from hardware sources; i.e. the greater it is, the less predictable sequence is.
-- **Entropy Source** — is a physical or computational process that provides random or unpredictable data; i.e. basically the source from where the entopy is collected, such as electronic noise.
+- **Entropy Source** — is a physical or computational process that provides random or unpredictable data; i.e. basically the source from where the entropy is collected, such as electronic noise.
 
 ---
 The list of known RNG is extensive and continues to grow. When it comes to implementation, they can be broadly classified into two types: PRNG and TRNG. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.

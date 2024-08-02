@@ -81,7 +81,7 @@ The list of known searching algorithms is extensive and continues to grow. When 
 # &#128202; Analysis
 The analysis of searching algorithms in general relies primarily on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder via list below:
 - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
-- [Binary Seacrh](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
+- [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
 - Jump Search
 - Interpolation Search
 - Exponential Search
@@ -94,7 +94,7 @@ The analysis of searching algorithms in general relies primarily on the assessme
 - **Information Retrieval in Search Engines** —  search algorithms used to retrieve relevant information from vast amounts of data on the web by analyzing the content of web pages, index them based on keywords and relevance, and rank the results.
 - **Pathfinding and Navigation** — type of search algorithms that efficiently find the shortest or most optimal path between two points in a graph or network, considering factors like distance, time, or cost.
 - **Genetic Algorithms in Optimization** — type of search algorithms that mimic the process of natural selection and evolution to iteratively generate and improve solutions to complex optimization problems.
-- **Game Development & Artificial Intelligence** — search algorithms are used to figure out a strategy, by searching through the possilities and picking the best move, also gamedev utilize pathfinding algorithms in building a route for a player.
+- **Game Development & Artificial Intelligence** — search algorithms are used to figure out a strategy, by searching through the possibilities and picking the best move, also gamedev utilize pathfinding algorithms in building a route for a player.
 
 ---
 **Common Practical Problems:**
@@ -111,12 +111,12 @@ The analysis of searching algorithms in general relies primarily on the assessme
 
 
 # &#x1F559; Origins
-The concept of searching emerged unknown-long time ago and primarly attributed to the collective ingenuity of humanity, the development of searching algorithms dates back in the early days of computing. The first search algorithms, such as **Linear Search** and **Binary Search** quickly gained widespread adoption and underwent continuous development by programmers worldwide, becoming a fundamental component in various applications. As people started to utilize tree and graph based data structures more, the relevant search algorithms like following ones appeared: **DFS**, **BFS**, **Dijkstra's Algorithm**, **A\***, **Greedy Best-First Search**, — which are still extremely valuable and efficient to this day. Another breakthrough came with the rising popularity of the internet, which created a need in sophisticated and compex search engines, that could both filtrate the large amounts of different data and decide what is relevant. One notable invention, that revolutioized web search was the **PageRank** developed by **Larry Page** and **Sergey Brin** in **1996**, which first prototype was utilized at **Google** in **1998**. Nowadays the direction of searching tend to utilize the **AI** and **NLP** driven ideas in order to deliver more accurate search results.
+The concept of searching emerged unknown-long time ago and primarily attributed to the collective ingenuity of humanity, the development of searching algorithms dates back in the early days of computing. The first search algorithms, such as **Linear Search** and **Binary Search** quickly gained widespread adoption and underwent continuous development by programmers worldwide, becoming a fundamental component in various applications. As people started to utilize tree and graph based data structures more, the relevant search algorithms like following ones appeared: **DFS**, **BFS**, **Dijkstra's Algorithm**, **A\***, **Greedy Best-First Search**, — which are still extremely valuable and efficient to this day. Another breakthrough came with the rising popularity of the internet, which created a need in sophisticated and complex search engines, that could both filtrate the large amounts of different data and decide what is relevant. One notable invention, that revolutionized web search was the **PageRank** developed by **Larry Page** and **Sergey Brin** in **1996**, which first prototype was utilized at **Google** in **1998**. Nowadays the direction of searching tend to utilize the **AI** and **NLP** driven ideas in order to deliver more accurate search results.
 
 
 
 # &#129309; Contributing
-Unfortunatelly, I couldn't find much information about how to design or to analyze the search algorithms. If anyone reading this can suggest a helpful resource where I can learn about it more, I would be extremely grateful for that! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
+Unfortunately, I couldn't find much information about how to design or to analyze the search algorithms. If anyone reading this can suggest a helpful resource where I can learn about it more, I would be extremely grateful for that! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

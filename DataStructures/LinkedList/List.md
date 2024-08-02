@@ -33,7 +33,7 @@ The **Linked List** stands out as one of the most fundamental concept in compute
 
 ## Essential Terminology
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
-  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a succressor, except for the first and last elements.
+  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a successor, except for the first and last elements.
 - **Linked List** — is a linear collection, consists of elements named as nodes that are linked together using pointers, because they are not necessarily adjacent in memory.
 - **Node** — is an each individual element contained within the list, which consists of two main components:
   - **Data** — is an actual information stored within the element.
@@ -52,7 +52,7 @@ The true power of linked lists lies in the flexible nature of the size. Dynamic 
 
 
 ## Types of Lists
-When it comes to classification, there are broadly three types of lists: singly linked list, doubly linked list and cirular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
+When it comes to classification, there are broadly three types of lists: singly linked list, doubly linked list and circular linked list. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
 
 **Singly Linked List** — is a list, each node contains only one pointer to the next node in the sequence, enabling unidirectional traversal: forward from the head to the tail. The last node's "next pointer" points to nullptr, indicating the end of the list.
 <p align="center"><img src="./Images/ListStructureSingly.png"/></p>
@@ -255,7 +255,7 @@ CLL<T>& CLL<T>::operator=(const CLL& rhs) {
 }
 ```
 
-You have to ensure, that referrences to the tail/head are proper:
+You have to ensure, that references to the tail/head are proper:
 ```cpp
 // Prepends the given element value to the beginning of the container
 template<typename T>
@@ -293,7 +293,7 @@ Will be updated in the future...
 
 
 ## Advantages
-- **Efficient Element Rearraging** — elements is efficient due to simple change of pointers, e.g. insertion and deletion takes $O(1)$ time.
+- **Efficient Element Rearranging** — elements is efficient due to simple change of pointers, e.g. insertion and deletion takes $O(1)$ time.
 - **Diverse Memory Allocation** — in some scenarios, where it is hard to allocate a single-block of memory, linked list can come in handy, due to the distribution of cells throughout the memory.
 - **Minimizing Unused Space** — unused nodes can be removed, preventing them from occupying memory cells intended for other data.
 
@@ -310,7 +310,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 ## Some of the Most Well-Known Use Cases
 - **Algorithms and Data Structures** — graph path traversal algorithms and various data structures like stacks, queues, hash tables, tree and graphs representations often use lists as their underlying structure.
 - **Back/Next Functionality** — linked lists are commonly utilized in implementing back/next navigating functionality, such as in web browsers with nodes as web pages or music players with nodes as songs.
-- **Undo/Redo Functionality** — something similar to previous point, but desribes the cases, where each action performed by the user is stored as a node in separate linked lists, therefore allowing users to revert to previous states of the application or redo previously undone actions by traversing the respective lists.
+- **Undo/Redo Functionality** — something similar to previous point, but describes the cases, where each action performed by the user is stored as a node in separate linked lists, therefore allowing users to revert to previous states of the application or redo previously undone actions by traversing the respective lists.
 - **Scheduling/Ordering** — each task or element is represented as a node in the linked list, and scheduling decisions are made based on the order (by priority, arrival time, or other criteria) of nodes in the list. 
 - **File System Management** — lists used in file system management for maintaining directory structures, file metadata, and file allocation tables, where each directory entry or file descriptor is stored as a node, facilitating efficient traversal and manipulation of file system objects.
 

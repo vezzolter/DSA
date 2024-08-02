@@ -19,7 +19,7 @@ The **Linear Search** stands out as the simplest known approach to search for an
 **Linear Search** sequentially checks each element of the collection from the beginning until a match is found or the end of the collection is reached, pretty much like the intuitive process of looking for a particular book on a shelf where are only unnamed ones. It consists of the following steps:
 1. Begin with the first element of the collection.
 2. Compare the current element with the target element.
-3. If the current elment matches the target one, the search is successful, return an index.
+3. If the current element matches the target one, the search is successful, return an index.
 4. Otherwise, move to the next element in the collection.
 5. Repeat steps 2-4 until either a match is found or the end of the collection is reached.
 6. If the entire collection has been traversed without finding a match, the search is unsuccessful, return a signal.
@@ -74,7 +74,7 @@ return -1;
 - **Time Complexity:**
      - Worst Case: $O(n)$ — occurs when target is either not present or at the end, therefore algorithm requires iterating through all elements.
      - Average Case: $O(n)$ — occurs when target is spread within uniform probability, therefore algorithm checks half of the elements.
-     - Best Case: $O(1)$ — occurs when target is found at the beggining, therefore only one comparison.
+     - Best Case: $O(1)$ — occurs when target is found at the beginning, therefore only one comparison.
 
 - **Auxiliary Space Complexity:** 
   - $O(1)$ — as no additional space is required beyond the input collection and a few variables.

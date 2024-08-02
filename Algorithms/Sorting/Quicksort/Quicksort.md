@@ -164,8 +164,8 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 - **Space Complexity:** 
   - **Array Implementation** — algorithm requires some space $O(\log n)$ on call stack to store function calls, and only in some of the worst cases it can go up to $O(n)$.
 - **Stability:** 
-  - **Unstable** — algorithm can swap two equal elements, thus altering their relative order. This happens because of depending on the pivot selection and paritioning strategy, equal elements may end up in different relative positions in the sorted output. 
-- **Adaptabillity:** 
+  - **Unstable** — algorithm can swap two equal elements, thus altering their relative order. This happens because of depending on the pivot selection and partitioning strategy, equal elements may end up in different relative positions in the sorted output. 
+- **Adaptability:** 
    - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e. it processes data through the same path of steps, regardless of their values.
 - **Storage:**
    - **Internal** — algorithm typically implemented to be an internal sorting.

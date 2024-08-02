@@ -1,7 +1,7 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
-  - [Recursive Paragidm](#recursive-paragidm)
+  - [Recursive Paradigm](#recursive-paradigm)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
@@ -27,7 +27,7 @@ The other related concept to the Fibonacci Sequence is **golden ratio** ($\Phi =
 - Ratio of any two consecutive Fibonacci numbers, gets closer to the golden ratio ($\Phi$) as the numbers get larger,  
 e.g. $\frac{13}{8} = 1.625$; $\frac{233}{144} = 1.61805$
 
-- Having one Fibonacci number, the next/previous neighbour can be approximately calculated by multiplying/dividing it with golden ration,  
+- Having one Fibonacci number, the next/previous neighbor can be approximately calculated by multiplying/dividing it with golden ration,  
 e.g. $5×1.618034=8.09017$ and $21÷1.618034=12.97871$.
 
 - Any Fibonacci number can be precisely calculated by using Binet's formula $F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}}$,  
@@ -46,8 +46,8 @@ The program prompts the user to specify a number of an element, for which the Fi
 
 
 
-## Recursive Paragidm
-Technically speaking, Fibonnaci sequence can be implemented using both iterative and recursive approach. For that particular problem iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations). Talking about last one, it is considered more efficient to use memoization or dynamic programming techniques to store previously computed Fibonacci numbers and avoid redundant calculations. However it is important to note that the chosen implementation deliberately emphasizes the recursive paradigm for clarity and instructional purposes.
+## Recursive Paradigm
+Technically speaking, Fibonacci sequence can be implemented using both iterative and recursive approach. For that particular problem iterative solutions are often preferred over recursive ones (due to space complexity, performance, readability, stack overflow, optimization limitations). Talking about last one, it is considered more efficient to use memoization or dynamic programming techniques to store previously computed Fibonacci numbers and avoid redundant calculations. However it is important to note that the chosen implementation deliberately emphasizes the recursive paradigm for clarity and instructional purposes.
 
 
 
@@ -133,7 +133,7 @@ To enhance the clarity of the recursion process explanation, I'll illustrate it 
 4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack.
 <p align="center"><img src="./Images/step_3.png"/></p>
 
-5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in onther area. Unfortunatelly, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming.
+5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in other area. Unfortunately, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming.
 <p align="center"><img src="./Images/step_4.png"/></p> 
 
 6. So the control flow continues this process until we reach the initial (first) function call.

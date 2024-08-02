@@ -127,8 +127,8 @@ Understanding the characteristics of an algorithm is essential for choosing the 
   - **Array Implementation** $O(1)$ — algorithm doesn't require any additional space.
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
-- **Adaptabillity:** 
-  - **Adaptive** — algorithm's adaptive logic lies in check whether the collection is sorted, which allows to terminate early, thus extent to which data is already sorted affects the perfomance.
+- **Adaptability:** 
+  - **Adaptive** — algorithm's adaptive logic lies in check whether the collection is sorted, which allows to terminate early, thus extent to which data is already sorted affects the performance.
 - **Storage:**
    - **Internal** — algorithm typically implemented to be an internal sorting.
 

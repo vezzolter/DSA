@@ -115,7 +115,7 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 - **Stability:** 
   - **Stable** — algorithm doesn't swap two equal elements, thus preserve their relative order.
 - **Adaptabillity:** 
-  - **Adaptive** — algorithm's adaptive logic lies in the inner loop, where it shifts elements only if they are not in sorted order, thus extent to which data is already sorted affects the perfomance.
+  - **Adaptive** — algorithm's adaptive logic lies in the inner loop, where it shifts elements only if they are not in sorted order, thus extent to which data is already sorted affects the performance.
 - **Storage:**
    - **Internal** — algorithm typically implemented to be an internal sorting.
 

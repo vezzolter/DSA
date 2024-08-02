@@ -1,7 +1,7 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
 - [💻 Implementation](#-implementation)
-  - [Recursive Paragidm](#recursive-paragidm)
+  - [Recursive Paradigm](#recursive-paradigm)
   - [Detailed Overview](#detailed-overview)
   - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
@@ -33,7 +33,7 @@ e.g. $4! = 1×2×3×4 = 24$.
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
 <p align="center"><img src="./Images/demonstration.png"/></p>
 
-## Recursive Paragidm
+## Recursive Paradigm
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
 
 
@@ -144,12 +144,12 @@ For better understanding of the topic, I'll govern the **Fundamental Counting Pr
 Additionally, when selecting from a consistent pool of options (e.g. such as picking from a single shelf of books), it is crucial to note a key principle. With each selection of an element $n$, the available options for the next selection reduce by one $(n−1)$ due to the previous selection. This reflects the diminishing pool of choices as elements are chosen **sequentially**.
 
 ---
-**Well-known combinatoric operations involving factorials:**
+**Well-known combinatorics operations involving factorials:**
 1. **Permutation** — is a distinct arrangement of **all (n)** elements of a finite set $S$  in a **particular order**.  
    For example, if $S = \set{a, b, c}$, then $S$ has $6$ permutations $(3! = 6): abc, acb, bac, bca, cab, cba$.  
    The formula is: $P(n) = n!$  
 
-   e.g. the total number of ways to permutate these (6) books is: $P(n) = 6×5×4×3×2×1 = 6! = 720$.
+   e.g. the total number of ways to permute these (6) books is: $P(n) = 6×5×4×3×2×1 = 6! = 720$.
 
 2. **Arrangement (k-permutation)** — is a distinct arrangement of **particular (k)** elements of a finite set $S$ in a **particular order**.  
    For example, if $S = \set{a, b, c}$, then possible 2-permutations $(k = 2)$ are: $ab, ac, ba, bc, ca, cb$.  

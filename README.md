@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, сompleted projects (although they still can receive updates to improve quality) are marked with ✅, currently paused ones with 🔄 and the main target under development with 🎯. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with ✅, currently paused ones with 🔄 and the main target under development with 🎯. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 ---
 **The Structure:**
@@ -33,9 +33,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
     - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
     - [Heapsort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Heapsort) ✅
-    - [Counting Sort](https://github.com/vezzolter/DSA/tree/counting-sort/Algorithms/Sorting/CountingSort) 🎯
+    - [Counting Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/CountingSort) ✅
     - [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
-    - Bucket Sort
+    - Bucket Sort 🎯
     - Shell Sort
   - Searching
     - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) ✅
@@ -154,13 +154,13 @@ This list provides a straightforward overview of the repository's contents. For 
 
 # &#129309; Contributing
 As my educational journey progresses, I may discover new areas of interest within data structures and algorithms. I welcome and value contributions from the community, as they greatly enrich my competence and knowledge in this domain. Whether it's code improvements, bug reports, suggestions for new projects or you are just interested in discussions on particular topics — feel free to reach out. Your input is highly appreciated indeed!  
-- If you have any suggestions or ideas, please reach out via email, GitHube, LinkedIn or Telegram. 
+- If you have any suggestions or ideas, please reach out via email, GitHub, LinkedIn or Telegram. 
 - If you want to contribute code or other resources, please try to keep the existing style guidelines.
 - Please respect both your and mine time and effort.
 
 ---
 **Backlog:**
-1. Separate «particular implementaitons» from «general»: 
+1. Separate «particular implementations» from «general»: 
    - Separate arrays from array.
    - Separate lists from list.
    - Separate queues from queue.

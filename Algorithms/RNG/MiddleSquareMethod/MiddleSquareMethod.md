@@ -87,7 +87,7 @@ return randomNumber;
 # &#128202; Analysis
 Will be updated in the future...
 
-P.s. in order to grasp this topic in a better way, I'm going to update this section after respective RNG section. Right now, I can only suppose that the analysis of this RNG relies on metrics such as: destribution, period, predictability, patterns, implementation detais.
+P.s. in order to grasp this topic in a better way, I'm going to update this section after respective RNG section. Right now, I can only suppose that the analysis of this RNG relies on metrics such as: distribution, period, predictability, patterns, implementation details.
 
 
 

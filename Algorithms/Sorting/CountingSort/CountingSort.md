@@ -38,9 +38,9 @@ Basically, there are two ways you can do counting sort:
 
 ## Algorithm Steps (Regular Scheme)
 1. Determine the minimum and maximum values in the initial array to establish a count array.
-2. Initialize with zeros a count array of size equal to the previously determined rannge.
+2. Initialize with zeros a count array of size equal to the previously determined range.
 3. Count occurrences by iterating through the initial array and incrementing corresponding index in the count array.
-4. Iterate throught the count array and for each index in it, write the index value to the output array the number of times equal to the value at that index.
+4. Iterate through the count array and for each index in it, write the index value to the output array the number of times equal to the value at that index.
 
 
 

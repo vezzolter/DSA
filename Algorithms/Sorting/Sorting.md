@@ -38,9 +38,9 @@ The list of known sorting algorithms is extensive and continues to grow. When it
    - **Non-Comparison-Based** — algorithm sorts elements without explicitly comparing them, often using specific properties of data.
 
 - **Time Complexity:**
-   - $O(nlogn)$ — effecient performance, divide the input into smaller subproblems and solve them recursively.
+   - $O(nlogn)$ — efficient performance, divide the input into smaller subproblems and solve them recursively.
    - $O(n)$ — proportional to the size of the input data, each element is compared or moved at most once.
-   - $O(n^2)$ — less eficient, typically involve nested loops or multiple comparisons.
+   - $O(n^2)$ — less efficient, typically involve nested loops or multiple comparisons.
    - **Other** — although they are in the minority, it is worth mentioning them.
   
 - **Space Complexity:**
