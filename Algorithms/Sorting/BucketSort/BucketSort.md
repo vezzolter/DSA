@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Bucket Sort** stands out as an efficient and simple sorting technique for uniformly distributed data. The name of the algorithm describes its method of sorting by distributing elements into a number of buckets (temporary holding place), then individually sorting each bucket and combining the results for the final sorted output. This subsection explores idea of bucket sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+<p align="center"><img src="./Images/BucketSort.png"/></p>
 
 
 ## Introduction
@@ -41,12 +42,12 @@ Currently in Progress...
 Currently in Progress...
 
 
-
 ## Complete Implementation
 Currently in Progress...
 
 
 ## Detailed Walkthrough
+Currently in Progress...
 
 
 
@@ -109,7 +110,7 @@ For contact details and additional information, please refer to the [root direct
 
 ---  
 &#127760; **Web-Resources:**  
-- [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort) (Wikipedia)
+- [Bucket sort](https://en.wikipedia.org/wiki/Bucket_sort) (Wikipedia)
 
 
 
