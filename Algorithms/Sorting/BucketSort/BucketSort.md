@@ -26,7 +26,7 @@ The **Bucket Sort** stands out as an efficient and simple sorting technique for 
 
 
 ## Introduction
-Currently in Progress...
+The **Bucket Sort** algorithm sorts an array by distributing the elements into a number of buckets, then individually sorting each bucket and finally concatenating all the sorted buckets back into a single sorted array. 
 
 
 ## Algorithm Steps
