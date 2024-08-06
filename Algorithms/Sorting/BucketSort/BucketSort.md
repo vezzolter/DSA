@@ -21,16 +21,28 @@
 
 
 # &#128161; Overview
-The **Bucket Sort** stands out as an efficient and simple sorting technique for uniformly distributed data. The name of the algorithm describes its method of sorting by distributing elements into a number of buckets (temporary holding place), then individually sorting each bucket and combining the results for the final sorted output. This subsection explores idea of bucket sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
+The **Bucket Sort** (or **Bin Sort**) stands out as an efficient and simple sorting technique for uniformly distributed data. The algorithm is named for its key feature — buckets (bins), which are containers used to temporarily store elements within a specific range of values. This subsection explores idea of bucket sort not only to enhance comprehension of its concepts, but also to establish a solid foundation for a more complex algorithmic designs and problem-solving strategies.
 <p align="center"><img src="./Images/BucketSort.png"/></p>
 
 
 ## Introduction
-The **Bucket Sort** algorithm sorts an array by distributing the elements into a number of buckets, then individually sorting each bucket and finally concatenating all the sorted buckets back into a single sorted array. 
+The **Bucket Sort** algorithm sorts a collection by distributing the elements into a number of buckets, then individually sorting each bucket (via placement or sorting) and finally concatenating all the sorted buckets back into a single sorted array. 
+
+
+## Important Details
+1. The underlying data structures for buckets are usually implemented as linked lists or arrays.
+2. To determine the number of buckets to create, common methods include using the square root of the data size, a fixed number of buckets regardless of the size, the range of input values, or even data-driven approaches.
+3. For sorting elements within buckets, standard library implementations are commonly used. However, insertion sort is suitable for small datasets, quicksort works well for medium-sized buckets, and merge sort is ideal for medium to large-sized buckets.
 
 
 ## Algorithm Steps
-Currently in Progress...
+1. Calculate the number of buckets to use based on the size of the input array.
+2. Identify the minimum and maximum values in the array to determine the range of values.
+3. Compute the range of values that each bucket will hold.
+4. Create and initialize the required number of buckets.
+5. Place elements into corresponding bucket based on its value.
+6. Sort the elements within each bucket.
+7. Concatenate sorted elements from each bucket into the original array in order.
 
 
 
