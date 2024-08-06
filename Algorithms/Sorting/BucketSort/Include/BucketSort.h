@@ -7,7 +7,12 @@
 #define BUCKETSORT_H
 
 
-void bucketSort(int arr[], int size);
+#include <vector>
+
+
+int findMax(const std::vector<int>& arr);
+int findMin(const std::vector<int>& arr);
+void bucketSort(std::vector<int>& arr);
 
 
 #endif // BUCKETSORT_H

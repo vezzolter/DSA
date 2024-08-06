@@ -7,13 +7,15 @@
 
 
 #include <iostream>
+#include <vector>
+
 #include "BucketSort.h"
 
 
-void printArray(const int arr[], const int size) {
+void printArray(const std::vector<int>& arr) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < size; i++)
-		std::cout << arr[i] << " ";
+	for (const int& element : arr)
+		std::cout << element << " ";
 	std::cout << std::endl;
 }
 
@@ -24,14 +26,13 @@ int main()
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 7, 2, 0, 0, 3, 1, 9, 1 };
-	const int size = sizeof(arr) / sizeof(arr[0]);
-	printArray(arr, size);
+	std::vector<int> arr = { 7, 2, 0, 0, 3, 1, 9, 1 };
+	printArray(arr);
 
 	// Sort Elements
 	std::cout << "\nSorting the elements of it...\n";
-	bucketSort(arr, size);
-	printArray(arr, size);
+	bucketSort(arr);
+	printArray(arr);
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";

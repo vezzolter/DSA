@@ -47,15 +47,55 @@ The **Bucket Sort** algorithm sorts a collection by distributing the elements in
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array of specified integers, performs ascending order sorting using the bucket sort algorithm, and finally displays the result.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing a library implementation of dynamic array `vector<int>` both as collection and buckets.
+- Determining the number of buckets via square method, and library `sqrt()` + `ceil` functions.
+- Calculating the range of each bucket is done via `max_element()` and `min_element()` functions.
+- Sorting elements within buckets is done via library implementation `sort()` of sorting function.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+Sorting algorithm implemented within the `bucketSort()` function with a few helper ones `findMax()` and `findMin()`, which are declared `BucketSort.h` header file and defined in `BucketSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+int findMax(const std::vector<int>& arr) {
+    return *std::max_element(arr.begin(), arr.end());
+}
+
+int findMin(const std::vector<int>& arr) {
+    return *std::min_element(arr.begin(), arr.end());
+}
+
+void bucketSort(std::vector<int>& arr) {
+    int n = arr.size();
+    int nBuckets = static_cast<int>(std::ceil(std::sqrt(n)));
+
+    int minVal = findMin(arr);
+    int maxVal = findMax(arr);
+    int rangePerBucket = (maxVal - minVal + 1) / nBuckets + 1;
+
+    std::vector<std::vector<int>> buckets(nBuckets);
+    for (int i = 0; i < n; ++i) {
+        int idBucket = (arr[i] - minVal) / rangePerBucket;
+        buckets[idBucket].push_back(arr[i]);
+    }
+
+    arr.clear();
+    for (int i = 0; i < nBuckets; ++i) {
+        std::sort(buckets[i].begin(), buckets[i].end());
+        for (int j = 0; j < buckets[i].size(); ++j) {
+            arr.push_back(buckets[i][j]);
+        }
+    }
+}
+```
 
 
 ## Detailed Walkthrough
