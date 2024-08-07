@@ -99,7 +99,35 @@ void bucketSort(std::vector<int>& arr) {
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+1. Calculate the number of buckets by taking the square root of the number of elements. This heuristic helps balance the size of each bucket, making sorting within each bucket more efficient.
+```cpp
+  int n = arr.size();
+  int nBuckets = static_cast<int>(std::ceil(std::sqrt(n)));
+```
+2. Identify the minimum and maximum values in the array to determine the range of values. This ensures that each bucket covers an equal portion of the overall range of data. To calculate such value we calculate the total range of values in the array `maxVal - minVal + 1` (adding `+ 1` ensures that the range includes both min and max), and dividing by `nBuckets` splits the range into approximately equal parts, after that we add `+ 1` to ensure that the range is slightly larger, which helps in avoiding cases where the calculated range per bucket is zero.
+```cpp
+  int minVal = findMin(arr);
+  int maxVal = findMax(arr);
+  int rangePerBucket = (maxVal - minVal + 1) / nBuckets + 1;
+```
+3. Initialize a vector of vectors to serve as the buckets and iterate through it placing each element into the appropriate bucket based on its value. To calculate such id of such bucket we shift all the values so that the smallest one in the array becomes zero (this ensures that the values are correctly mapped to bucket indices starting from zero) via `arr[i] - minVal`, and also divide by `rangePerBucket`, which groups the values based on their range. For example, `(7 - 0) / 4 = 1` moves value `7` to the first bucket, `(9 - 0) / 4 = 2` moves value `9` to second bucket.
+```cpp
+  std::vector<std::vector<int>> buckets(nBuckets);
+  for (int i = 0; i < n; ++i) {
+      int idBucket = (arr[i] - minVal) / rangePerBucket;
+      buckets[idBucket].push_back(arr[i]);
+  }
+```
+4. Prepare the array to receive the sorted elements from the buckets by removing all the original elements. Iterate over buckets and apply sorting procedure of your choice (described earlier). Finally, iterate over sorted elements of each bucket, and push them back into initial array, thus forming the sorted one.
+```cpp
+  arr.clear();
+  for (int i = 0; i < nBuckets; ++i) {
+      std::sort(buckets[i].begin(), buckets[i].end());
+      for (int j = 0; j < buckets[i].size(); ++j) {
+          arr.push_back(buckets[i][j]);
+      }
+  }
+```
 
 
 
