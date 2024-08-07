@@ -132,11 +132,24 @@ void bucketSort(std::vector<int>& arr) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
 
 ## Algorithm Characteristics
-Currently in Progress...
+- **Comparison Approach:**
+  - **Comparison-Based (Implementation Dependent)** — while algorithm itself uses non-comparison idea of distributing and concatenating buckets, it uses comparison-based sorting algorithm within each bucket, which makes this algorithm a comparing one.
+- **Time Complexity:**
+  - **Worst Case** from $O(n\log n)$ to $O(n^2)$ — occurs when the distribution is poor (elements have similar values and therefore fall into the same bucket). The time complexity becomes dependent on the worst case of sorting algorithm within the bucket, along with the overhead of distributing elements into buckets and combining them back into the original array.
+  - **Average Case** $O(n + n\log (n / k))$ — occurs when the distribution is reasonably good (elements have distinct values that can be evenly grouped and therefore fall into evenly sized buckets). The time complexity depends on the average case performance of the sorting algorithm within the bucket, along with the overhead of distributing elements into buckets and combining them back into the original array.
+  - **Best Case** $O(n + k)$ — occurs when the elements are uniformly distributed, with each bucket containing at most one element. This eliminates the need for sorting within the buckets, leaving only the overhead of distributing elements into buckets and combining them back into the original array.
+- **Space Complexity:**
+  - **Array Implementation** $O(n + k)$ — algorithm requires additional space for temporary storage (buckets), and depending on sorting algorithm it may require some memory also.
+- **Stability:**
+  - **Stable (Implementation Dependent)** — algorithm preserves the relative order of equal elements, particularly when implemented with a stable sorting within buckets like insertion or merge.
+- **Adaptability:**
+  - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e., it processes data through the same path of steps, regardless of their values.
+- **Storage:**
+  - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
 ## Algorithm Comparison
