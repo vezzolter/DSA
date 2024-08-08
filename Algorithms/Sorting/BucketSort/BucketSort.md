@@ -158,15 +158,21 @@ Will be Updated in the Future...
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Uniformly Distributed Data** — bucket sort is highly efficient for datasets where the input values are uniformly distributed. It works best when the data can be evenly spread across multiple buckets, ensuring that each bucket contains a similar number of elements; e.g. floating-point numbers, geographical data.
+- **Parallel Processing** — bucket sort is an efficient decision to implement a sorting utilizing a multiple processors at once. By dividing the input into several buckets, these buckets can be sorted independently in parallel, taking advantage of multiple processors; e.g. distributed computing systems, multi-core processors.
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Sort an Array](https://leetcode.com/problems/sort-an-array/)
+- [Maximum Gap](https://leetcode.com/problems/maximum-gap/)
+- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+- [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
+- [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+- [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
 
 
 
