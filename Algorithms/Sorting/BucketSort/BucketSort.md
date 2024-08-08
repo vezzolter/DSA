@@ -177,7 +177,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Bucket Sort is the result of cumulative contributions from the computer science community rather than the invention of a single individual. This algorithm began to appear in the 1950s alongside the development of other non-comparison-based sorting algorithms.
 
 
 
