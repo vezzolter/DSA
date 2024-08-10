@@ -21,11 +21,40 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Shellsort** stands out as an early and efficient optimization of insertion sort, known for sorting elements more quickly by comparing and moving items that are far apart before focusing on those that are close together. Shellsort is named after its inventor, Donald  Lewis Shell. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
+<p align="center"><img src="./Images/Shellsort.png"/></p>
 
 
 ## Introduction
-Currently in Progress... 
+**Shellsort** begins by organizing elements that are far apart, gradually reducing the gap between compared elements until the entire collection is sorted. This approach allows larger jumps in the early stages, efficiently moving elements closer to their correct positions before finalizing the sort with smaller, more precise steps.
+
+
+## Important Details
+There are several way to pick a gap sequence for algorithm, here are some of them:
+ - **Shell's Sequence (1959)**  — is original one, simple to implement, but not the most efficient for large datasets.  
+ **General Term:** $\lfloor\frac{n}{2^k}\rfloor-\text{where }k\text{ is iteration},n\text{ is number of elements}$  
+ **Concrete Gap:** $\frac{n}{2}, \frac{n}{4}, \frac{n}{8}, ..., 1$  
+ **Time Complexity:** $O(n^2)$
+   
+ - **Hibbard's Sequence (1963)**  — is designed to avoid large gaps in the data during sorting, helping to position elements closer to their final sorted positions early on, which reduces the number of subsequent operations needed.  
+ **General Term:** $2^k-1$  
+ **Concrete Gap:** $1, 3, 7, 15, 31, 63 ...$  
+ **Time Complexity:** $O(n^{\frac{3}{2}})$
+   
+ - **Pratt's Sequence (1971)** — is theoretically efficient, utilizing a dense set of gap values that systematically cover a wide range of element distances; however, the complexity of its generation makes it less common in practical applications.  
+ **General Term:**  $2^i×3^j-\text{where }i\text{ and }j\text{ are just non-negative integers}$  
+ **Concrete Gap:** $1, 2, 3, 4, 6, 8, 9, 12,  ...$  
+ **Time Complexity:** $O(n\log^2n)$
+   
+ - **Knuth's Sequence (1973)** — is particularly appreciated for its practical balance between simplicity and efficiency, making it a go-to choice for many Shellsort implementations due to its effective gap progression.   
+ **General Term:** $\frac{(3^k-1)}{2}$  
+ **Concrete Gap:** $1, 4, 13, 40, 121, ...$  
+ **Time Complexity:** $O(n^{\frac{3}{2}})$
+   
+ - **Sedgewick's Sequence (1986)**  — is crafted to carefully minimize the total number of comparisons and swaps, by varying the gaps more dynamically, resulting in a more efficient sort, especially for larger datasets.   
+ **General Term:** $\begin{cases}9(2^k-2^{\frac{k}{2}})+1&\text{if }k\text{ is even} \\8×2^k-6×2^{\frac{k+1}{2}}&\text{if }k\text{ is odd}\end{cases}$  
+ **Concrete Gap:** $1, 5, 19, 41, 109, ...$  
+ **Time Complexity:** $O(n^{\frac{4}{3}})$
 
 
 ## Algorithm Steps
