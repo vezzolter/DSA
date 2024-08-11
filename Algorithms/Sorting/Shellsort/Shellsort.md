@@ -58,7 +58,15 @@ There are several way to pick a gap sequence for algorithm, here are some of the
 
 
 ## Algorithm Steps
-Currently in Progress...
+1. Iterate over a gap sequence numbers, starting from a large one and progressively reducing it until it becomes $1$, ensuring that all elements are brought closer to their correct positions in each iteration and eventually sorting the entire collection.
+2. Perform a gapped insertion sort for each element, starting from the element located at the current `gap` index and continuing through the rest of the array:
+   1. Store the current element in a temporary variable to preserve its value for potential insertion later.
+   2. Key part, Shift larger elements forward (by copying larger elements to the current positions and moving the current indices to the previous positions of the larger elements), if two conditions are met:
+      - current element must be within boundaries.
+      - current element must be greater, than element `gap` positions before it.
+   3. Insert the current element into its correct position:
+      - if a larger element was shifted, place the value from the temporary variable into the position now vacated.
+      - if no shifting occurred, the current element remains in its place
 
 
 
