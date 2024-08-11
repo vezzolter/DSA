@@ -71,15 +71,36 @@ There are several way to pick a gap sequence for algorithm, here are some of the
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array of specified integers, performs ascending order sorting using the shellsort algorithm, and finally displays the result.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Using Shell's original version as a gap sequence.
+- Utilizing an integer array as a collection.
+- Exclusively implementing sorting in ascending order.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+Sorting algorithm implemented within the `shellsort()` function, which is declared in `Shellsort.h` header file and defined in `Shellsort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+void shellsort(int arr[], int size) {
+    for (int gap = size / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < size; i++) {
+            int temp = arr[i];
+            
+            int j;
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+                arr[j] = arr[j - gap];
+
+            arr[j] = temp;
+        }
+    }
+}
+```
 
 
 ## Detailed Walkthrough
