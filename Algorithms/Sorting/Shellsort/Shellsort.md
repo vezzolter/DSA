@@ -154,22 +154,22 @@ Understanding the characteristics of an algorithm is essential for choosing the 
   - **Internal** — algorithm typically implemented to be an internal sorting.
 
 
-
 ## Algorithm Comparison
 Will be Updated in the Future...
 
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Performance Tuning for Specific Data Sizes** — shellsort is often used when performance needs to be optimized for medium-sized datasets where simpler algorithms like insertion sort may be too slow, and more complex algorithms like quicksort may be overkill. Shellsort’s flexibility in choosing different gap sequences allows it to be tailored for specific performance requirements.
+
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Sort an Array](https://leetcode.com/problems/sort-an-array/)
 
 
 
