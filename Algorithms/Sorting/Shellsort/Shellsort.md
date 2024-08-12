@@ -134,11 +134,25 @@ void shellsort(int arr[], int size) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
 
 ## Algorithm Characteristics
-Currently in Progress...
+- **Comparison Approach:**
+  - **Comparison-Based** — algorithm operates by comparing elements pairwise to arrange them in order.
+- **Time Complexity:**
+  - **Worst Case** $O(n^2)$ — occurs with inefficient gap sequences, as the algorithm may not effectively reduce the number of comparisons and swaps, regardless of the initial order of the data.
+  - **Average Case** $O(n^{\frac{3}{2}})$ to $O(n\log^2n)$ — occurs with more efficient sequences, where the improved gap sequences significantly reduce the number of comparisons and swaps, regardless of the initial order of the data.
+  - **Best Case** $O(n\log n)$ — occurs with highly efficient gap sequences, where the algorithm effectively reduces the number of comparisons and swaps, regardless of the initial order of the data.
+- **Space Complexity:**
+  - **Array Implementation** $O(1)$ — algorithm doesn't require any additional space beyond a few temporary variables.
+- **Stability:**
+  - **Unstable** — algorithm is generally considered unstable because it can change the relative order of equal elements during the sorting process, particularly when elements are swapped across different gaps. However, stability can be introduced with careful implementations, though this is not typical.
+- **Adaptability:**
+  - **Non-Adaptive** — algorithm does not inherently adapt its strategy to different input distributions, i.e., it processes data through the same path of steps, regardless of their values.
+- **Storage:**
+  - **Internal** — algorithm typically implemented to be an internal sorting.
+
 
 
 ## Algorithm Comparison
