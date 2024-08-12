@@ -1,6 +1,7 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
+  - [Important Details](#important-details)
   - [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
@@ -59,11 +60,11 @@ There are several way to pick a gap sequence for algorithm, here are some of the
 
 ## Algorithm Steps
 1. Iterate over a gap sequence numbers, starting from a large one and progressively reducing it until it becomes $1$, ensuring that all elements are brought closer to their correct positions in each iteration and eventually sorting the entire collection.
-2. Perform a gapped insertion sort for each element, starting from the element located at the current `gap` index and continuing through the rest of the array:
+2. Perform a gapped insertion sort for each element, starting from the element located at the current gap index and continuing through the rest of the array:
    1. Store the current element in a temporary variable to preserve its value for potential insertion later.
-   2. Key part, Shift larger elements forward (by copying larger elements to the current positions and moving the current indices to the previous positions of the larger elements), if two conditions are met:
+   2. Key part, shift larger elements forward (by copying larger elements to the current positions and moving the current indices to the previous positions of the larger elements), if two conditions are met:
       - current element must be within boundaries.
-      - current element must be greater, than element `gap` positions before it.
+      - current element must be greater, than element gap positions before it.
    3. Insert the current element into its correct position:
       - if a larger element was shifted, place the value from the temporary variable into the position now vacated.
       - if no shifting occurred, the current element remains in its place
@@ -104,7 +105,31 @@ void shellsort(int arr[], int size) {
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+1. Start by iterating over Shell's gap sequence numbers. This means creating a loop that progressively reduces the gap size by half on each iteration, ultimately reaching a gap of $1$
+```cpp
+  for (int gap = size / 2; gap > 0; gap /= 2) {
+```
+2. Now apply insertion sort logic within the context of the current gap. To achieve this, iterate over the elements of the array starting from the first element that is gap positions from the beginning
+```cpp
+  for (int i = gap; i < size; i++) {
+```
+3. Just as with insertion sort, store the current element in a temporary variable. This element will be compared to other elements that are gap positions apart and eventually inserted into its correct position.
+```cpp
+  int temp = arr[i];
+```
+4. Declare an iterator variable to track the current position in the array as the algorithm compares and shifts elements before the loop, so that it can be used to represent correct position where the stored element (`temp`) will be placed after the loop ends. In the loop, it starts as the index of the current element being sorted (`j = i`) and then moves gap steps backwards (`j -= gap`) as the algorithm looks for the correct position to insert the current stored element.
+```cpp
+  int j; 
+```
+5. Shift elements that are greater than the current stored element (`temp`) to the right by gap positions. This is done by creating a loop which ensures that it does not go out of bounds when accessing elements gap positions back in the array (`j >= gap`) and checks whether the element gap positions before the current one is greater than current stored (`arr[j - gap] > temp`). If that is the case, it copies the larger element forward by gap positions.
+```cpp
+  for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+    arr[j] = arr[j - gap];
+```
+6. Finally, when the correct position for the current stored element is found, place the value there. Repeat the process, until gap becomes $1$, which will ensure that all elements are in their correct positions relative to each other.
+```cpp
+  arr[j] = temp;
+```
 
 
 
