@@ -22,7 +22,7 @@
 
 
 # &#128161; Overview
-The **Shellsort** stands out as an early and efficient optimization of insertion sort, known for sorting elements more quickly by comparing and moving items that are far apart before focusing on those that are close together. Shellsort is named after its inventor, Donald  Lewis Shell. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
+The **Shellsort** stands out as an early and efficient optimization of insertion sort, known for sorting elements more quickly by comparing and moving items that are far apart before focusing on those that are close together. Shellsort is named after its inventor, Donald Lewis Shell. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
 <p align="center"><img src="./Images/Shellsort.png"/></p>
 
 
@@ -167,14 +167,13 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 - **Performance Tuning for Specific Data Sizes** — shellsort is often used when performance needs to be optimized for medium-sized datasets where simpler algorithms like insertion sort may be too slow, and more complex algorithms like quicksort may be overkill. Shellsort’s flexibility in choosing different gap sequences allows it to be tailored for specific performance requirements.
 
 
-
 ## Some Practical Problems
 - [Sort an Array](https://leetcode.com/problems/sort-an-array/)
 
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Shellsort was invented by American computer scientist **Donald Lewis Shell** in **1959**. Shell introduced the algorithm in his seminal paper "A High-Speed Sorting Procedure," published in the Communications of the ACM journal (reference in credits). Shell's work was driven by the need to enhance the efficiency of Insertion Sort, which, while effective for small datasets, struggled with larger ones. The primary issue was that Insertion Sort only compares adjacent elements, which means elements far from their correct positions take many small steps to reach their destination. To address this inefficiency, Shell introduced the concept of a gap sequence. By initially comparing and sorting elements that are far apart, the algorithm quickly moves elements closer to their final positions, reducing the number of overall comparisons and swaps. Over the years, Shellsort has seen contributions from many researchers who proposed different gap sequences to improve its efficiency. Most notably, **Donald Knuth**, **Robert Sedgewick**, and **Vaughan Pratt** made significant contributions to optimizing these sequences, which have made Shellsort an adaptable and enduring algorithm in the study of sorting methods.
 
 
 
@@ -205,6 +204,8 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Shellsort](https://en.wikipedia.org/wiki/Shellsort) (Wikipedia)
+- [A High-Speed Sorting Procedure](https://doi.org/10.1145/368370.368387)
+- [Best increments for the Average Case of Shellsort](https://web.archive.org/web/20180923235211/http://sun.aei.polsl.pl/~mciura/publikacje/shellsort.pdf)
 
 
 
