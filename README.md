@@ -18,12 +18,6 @@ This list provides a straightforward overview of the repository's contents. For 
 
 ---
 **The Structure:**
-- General
-    - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/General/Analysis/Analysis.md) 🔄
-    - Validation
-    - Testing
-    - Optimization
-    - Security
 - Algorithms
   - Sorting
     - [Sorting.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Sorting.md) ✅
@@ -36,12 +30,12 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Counting Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/CountingSort) ✅
     - [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
     - [Bucket Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BucketSort) ✅
-    - Shell Sort 🎯
+    - [Shell Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Shellsort) ✅
   - Searching
     - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) ✅
     - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
     - [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
-    - Jump Search
+    - Jump Search 🎯
     - Interpolation Search
     - Exponential Search
     - Fibonacci Search
@@ -149,6 +143,12 @@ This list provides a straightforward overview of the repository's contents. For 
     - Hash Set
     - Bloom filter
     - Cuckoo filter
+- General
+    - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/General/Analysis/Analysis.md) 🔄
+    - Validation
+    - Testing
+    - Optimization
+    - Security
 
 
 
