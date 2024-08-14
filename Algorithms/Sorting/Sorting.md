@@ -3,6 +3,8 @@
 - [💻 Implementation](#-implementation)
 - [📊 Analysis](#-analysis)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -67,43 +69,74 @@ The list of known sorting algorithms is extensive and continues to grow. When it
 
 # &#128202; Analysis
 The analysis of sorting algorithms in general relies on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder via list below:
-- [Sorting.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Sorting.md) ✅
-- [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
-- [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
-- [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
-- [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
-- [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
-- Heap Sort
-- Radix Sort
-- Counting Sort
-- Bucket Sort
- - Shell Sort
+  - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
+  - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
+  - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
+  - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
+  - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
+  - [Heapsort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Heapsort) ✅
+  - [Counting Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/CountingSort) ✅
+  - [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
+  - [Bucket Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BucketSort) ✅
+  - [Shell Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Shellsort) ✅
 
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases in Various Fields:**
+Understanding some of the most well-known use cases of a concept is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with practical problems and practicing their solutions ensures that you retain essential details and develop a deep, intuitive understanding of the concept's capabilities and limitations.
+
+
+## Common Use Cases
 - **Search and Retrieval** — sorting facilitates efficient searching and retrieval operations in various data structures like arrays, trees, and hash tables. Sorted data allows for faster lookup times using techniques like binary search.
 - **Ordering and Ranking** — sorting used for arranging data in ascending or descending order based on specific criteria, such as numerical values, alphabetical order, or timestamps. This enables easier analysis, visualization, and decision-making processes.
 - **Data Presentation and Visualization** — comes from previous, sorted data is often presented visually in charts, graphs, and reports to convey trends, patterns, and insights effectively. Visualization tools rely on sorted data to generate meaningful and informative visual representations.
 - **Optimization Problems** — sorting is used in various optimization problems, such as job scheduling, task prioritization, and resource allocation. Sorted data enables the efficient allocation of resources and scheduling of tasks based on predefined criteria or constraints.
 - **Data Deduplication** — sorting helps identify and remove duplicate entries or records from datasets efficiently. By sorting the data, duplicate entries can be easily identified and eliminated, improving data quality and reducing storage overhead.
 
+
+## Some Practical Problems
+**Easy Problems:**
+1. [Sorting the Sentence](https://leetcode.com/problems/sorting-the-sentence)
+2. [Widest Vertical Area Between Two Points Containing No Points](https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points)
+3. [Sort the People](https://leetcode.com/problems/sort-the-people)
+4. [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays)
+5. [Relative Sort Array](https://leetcode.com/problems/relative-sort-array)
+6. [Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order)
+7. [Valid Anagram](https://leetcode.com/problems/valid-anagram)
+8. [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array)
+9. [Sort Even and Odd Indices Independently](https://leetcode.com/problems/sort-even-and-odd-indices-independently)
+10. [Largest Perimeter Triangle](https://leetcode.com/problems/largest-perimeter-triangle)
+
 ---
-**Common Practical Problems:**
-- Sort elements by frequency.
-- Sort an array in wave form.
-- Widest vertical area between two points containing no points.
-- Find missing elements of a range.
-- Majority element.
-- Sort an array/list of 0s, 1s and 2s.
-- Remove all duplicates.
-- Find the point where maximum intervals overlap.
-- Sort a matrix in all way increasing order.
-- Find surpasser count of each element in array.
-- Count distinct occurrences as a subsequence.
-- Minimum absolute difference.
-- Count minimum number of subsets (or subsequences) with consecutive numbers.
+**Medium Problems:** 
+1. [Sort an Array](https://leetcode.com/problems/sort-an-array)  
+2. [Sort List](https://leetcode.com/problems/sort-list)  
+3. [Sort the Matrix Diagonally](https://leetcode.com/problems/sort-the-matrix-diagonally)  
+4. [Group Anagrams](https://leetcode.com/problems/group-anagrams)  
+5. [Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter)  
+6. [Sort Colors](https://leetcode.com/problems/sort-colors)  
+7. [Car Fleet](https://leetcode.com/problems/car-fleet)  
+8. [3Sum](https://leetcode.com/problems/3sum)  
+9.  [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
+10. [Maximum Gap](https://leetcode.com/problems/maximum-gap)
+11. [Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array)
+12. [Merge Intervals](https://leetcode.com/problems/merge-intervals)
+13. [Find if Array Can Be Sorted](https://leetcode.com/problems/find-if-array-can-be-sorted)
+14. [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray)
+15. [Maximize Area of Square Hole in Grid](https://leetcode.com/problems/maximize-area-of-square-hole-in-grid)
+
+---
+**Hard Problems:** 
+1. [Make Array Strictly Increasing](https://leetcode.com/problems/make-array-strictly-increasing)
+2. [Orderly Queue](https://leetcode.com/problems/orderly-queue)
+3. [Minimum Replacements to Sort the Array](https://leetcode.com/problems/minimum-replacements-to-sort-the-array)
+4. [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream)
+5. [Recover the Original Array](https://leetcode.com/problems/recover-the-original-array)
+6. [GCD Sort of an Array](https://leetcode.com/problems/gcd-sort-of-an-array)
+7. [Minimize Manhattan Distances](https://leetcode.com/problems/minimize-manhattan-distances)
+8. [Make Array Empty](https://leetcode.com/problems/make-array-empty)
+9. [Sum of Subsequence Widths](https://leetcode.com/problems/sum-of-subsequence-widths)
+10. [Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance)
 
 
 
@@ -158,7 +191,6 @@ For contact details and additional information, please refer to the [root direct
 - [Comparative Analysis of Comparison and Non Comparison based Sorting Algorithms](https://www.ijcaonline.org/archives/volume175/number28/fenyi-2020-ijca-920813.pdf)
 - [The first sorting algorithm and the founding of IBM](https://www.linkedin.com/pulse/first-sorting-algorithm-founding-ibm-nilesh-d/)
 - [The Evolution of Sorting Algorithms Over the Years](https://dev.to/shhossain/the-evolution-of-sorting-algorithms-over-the-years-bubble-sort-to-ai-driven-sort-31pg#:~:text=The%20birth%20of%20sorting%20algorithms,them%20impractical%20for%20large%20datasets.)
-
 
 
 
