@@ -1,7 +1,14 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
+  - [How to Implement](#how-to-implement)
+  - [Critical Challenges](#critical-challenges)
+  - [Potential Optimizations](#potential-optimizations)
 - [📊 Analysis](#-analysis)
+  - [How to Analyze](#how-to-analyze)
+  - [Advantages](#advantages)
+  - [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -17,8 +24,8 @@
 **Sorting** is a widely used operation in computer science to arrange items in a particular order. It helps to organize data efficiently in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
 <p align="center"><img src="./Images/Sorting.png"/></p>
 
----
-**Essential Terminology:**
+
+## Essential Terminology
 - **Sorting Algorithm** — is set of steps used to obtain a particular order of elements within a collection of data.
   - **Specific Order** — is an arrangement of elements within a collection based on a defined set of criteria. 
   - **Criterion** — is a rule used to make the decisions about the order of elements.
@@ -33,8 +40,27 @@
 
 
 # &#x1F4BB; Implementation
-The list of known sorting algorithms is extensive and continues to grow. When it comes to implementation, some share some common ideas, while others possess distinctive characteristics. The choice between them depends on the specific requirements of the cases at hand. There are plenty of metrics to classify algorithms by (each of which can impose certain specifications on implementation), most used of them are:
+When implementing a concept, it's essential to understand the fundamental techniques that drive its behavior and ensure its correct functionality. Additionally, recognizing the critical challenges and potential optimizations allows you to refine the implementation, making it more efficient and robust for various scenarios.
 
+
+## How to Implement
+Currently in Progress...
+
+
+## Critical Challenges
+Currently in Progress...
+
+
+## Potential Optimizations
+Currently in Progress...
+
+
+
+# &#128202; Analysis
+Understanding how to analyze a concept is crucial for identifying its key characteristics and evaluating its performance across different scenarios. Additionally, recognizing the advantages and disadvantages allows you to make informed decisions, ensuring that the concept is applied effectively in various contexts.
+
+
+## How to Analyze
 - **Comparison Approach:**
    - **Comparison-Based** — algorithm sorts elements by comparing them using pairwise comparisons to determine their relative order.
    - **Non-Comparison-Based** — algorithm sorts elements without explicitly comparing them, often using specific properties of data.
@@ -66,19 +92,12 @@ The list of known sorting algorithms is extensive and continues to grow. When it
    - **External** — algorithm takes place within other devices (e.g. hard disk), typically due to their huge size.
 
 
+## Advantages
+Currently in Progress...
 
-# &#128202; Analysis
-The analysis of sorting algorithms in general relies on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder via list below:
-  - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
-  - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
-  - [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
-  - [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
-  - [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
-  - [Heapsort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Heapsort) ✅
-  - [Counting Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/CountingSort) ✅
-  - [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
-  - [Bucket Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BucketSort) ✅
-  - [Shell Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Shellsort) ✅
+
+## Disadvantages
+Currently in Progress...
 
 
 
