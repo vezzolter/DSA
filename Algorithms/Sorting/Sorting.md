@@ -27,15 +27,22 @@
 
 ## Essential Terminology
 - **Sorting Algorithm** — is set of steps used to obtain a particular order of elements within a collection of data.
-  - **Specific Order** — is an arrangement of elements within a collection based on a defined set of criteria. 
-  - **Criterion** — is a rule used to make the decisions about the order of elements.
+   - **Hybrid Sorting** — is a sorting method that combines two or more algorithms to leverage their individual strengths, resulting in improved overall efficiency.
+- **Criterion** — is a rule used to make the decisions about the order of elements.
+- **Order** — is an arrangement of elements within a collection based on a defined set of criteria.
+  - **Ascending/Increasing/Non-Decreasing** $(x\geqslant y)$ — from smallest to largest, with duplicates; e.g. $1, 2, 2, 2, 3$.
+  - **Descending/Decreasing/Non-Increasing** $(x\leqslant y)$ — from largest to smallest, with duplicates; e.g. $3, 2, 2, 2, 1$.
+  - **Strictly Increasing** $(x>y)$ — from smallest to largest, without duplicates; e.g. $1, 2, 3, 4, 5$.
+  - **Strictly Decreasing** $(x<y)$ — from largest to smallest, without duplicates; e.g. $5, 4, 3, 2, 1$.
+  - **Lexicographical** — elements are ordered based on their dictionary sequence; e.g. $12, 123, 2, 23, 3$.
+  - **Custom** — elements are sorted based on a user-defined criterion; e.g. $2, 3, 5, 4, 6$ (ascending with prime number first).
 - **Collection** — is a data structure, which is used to group multiple elements together.
   - **Table** — is a small collection of all elements.
   - **File** — is a big collection of all elements.
   - **Database** — is a large collection of all elements.
 - **Element/Record/Item** — is an individual entity within a collection.
-  - **Index/Key of Element** — is a position of an element within collection.
-  - **Value/Data of Element** — is an actual information stored within the element.
+  - **Index** — is a position of an element within collection.
+  - **Value/Data** — is an actual information stored within the element.
 
 
 
