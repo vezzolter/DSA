@@ -113,7 +113,9 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 
 ## Alternatives
-Currently in Progress...
+1. **Ordered Data Structures** — these data structures maintain elements in a specific order as they are added or removed, which eliminates the need for full sorting. They are particularly useful in dynamic environments where data changes frequently. Examples include balanced binary search trees (e.g. AVL trees, Red-Black trees), heaps (e.g. min-heaps, max-heaps), and skip lists. These structures ensure that you can always access elements in order without having to perform an explicit sorting operation.
+2. **Specific Techniques** — these approaches focus on dividing or organizing data based on specific criteria without requiring a full sort. For example, partitioning techniques can separate data into meaningful groups (e.g. splitting data into smaller and larger halves) without the overhead of sorting all elements. The two-pointer method is often used to solve problems by traversing the data from both ends, allowing efficient categorization or selection. Quickselect is a specialized algorithm that finds the k-th smallest element in an unsorted list, which is more efficient than sorting the entire dataset.
+3. **Problem-Specific Logic** — in certain cases, sorting can be bypassed by applying tailored solutions that address the problem more directly. This might involve processing elements in a specific order relevant to the task at hand, such as using a graph traversal method to prioritize nodes without needing to sort them. These custom approaches leverage the unique characteristics of the problem, avoiding the time and resource costs of sorting.
 
 
 
