@@ -51,7 +51,48 @@ When implementing a concept, it's essential to understand the fundamental techni
 
 
 ## How to Implement
-Currently in Progress...
+There isn't a universal sorting algorithm, a true "jack of all trades," that fits every situation. The diversity in sorting algorithms arises because different data types, sizes, and constraints require different methods of organization. Each algorithm has its strengths and weaknesses, making some better suited for specific tasks than others. That's why many programming languages and libraries use a combination of sorting algorithms along with heuristics that adaptively select the most appropriate one based on the characteristics of the data, ensuring better performance and efficiency in each specific case.
+
+The foundational sorting techniques, many of which were developed in the early days of computing, generally fall into several key categories. These categories serve as a guide for understanding how sorting can be implemented, with many modern algorithms building on these fundamental ideas or refining them for improved performance. Below, you'll find an overview of common sorting approaches along with examples of algorithms that exemplify each method.
+
+- **Insertion Sorting** — inserts each element into its correct position relative to previously sorted elements, building the sorted array incrementally. This approach is simple and effective for small or nearly sorted datasets.  
+**Examples:** Insertion Sort, Shell Sort.
+
+- **Exchanging Sorting** — compares pairs of elements and swaps them if they are out of order. This process repeats until all elements are in the correct order. These algorithms are straightforward but often inefficient for large datasets.  
+**Examples:** Bubble Sort, Quicksort.
+
+- **Selection Sorting** — repeatedly selects the smallest or largest element from the unsorted portion of the array and moves it to its final position. This method is systematic but can be slow due to the large number of comparisons.  
+**Examples:** Selection Sort, Heapsort.
+
+- **Enumeration Sorting** — compares each element to every other element, counting how many elements it is greater than or equal to, and uses that count to determine its final position in the sorted array. This approach can be inefficient due to the number of comparisons required.  
+**Examples:** Rank Sort, Enumeration Sort.
+
+- **Merging Sorting** — divides the data into smaller segments, sorts each segment, and then merges them back together into a fully sorted list. This divide-and-conquer approach is efficient for large datasets and stable, preserving the relative order of equal elements.  
+**Examples:** Merge Sort, K-Way Merge Sort.
+
+- **Counting Sorting** — counts the occurrences of each element and uses this information to determine the final position of each element. This method is efficient for specific types of data, particularly when the range of values is known and limited.  
+**Examples:** Counting Sort, Radix Sort.
+
+- **Special-Purpose Sorting** — designed for specific use cases, such as sorting small, fixed-size datasets or handling unique constraints. These methods may not be generalizable but can be very efficient in their intended scenarios.  
+**Examples:** Gnome Sort, Pigeonhole Sort.
+
+- **Hybrid Sorting** — combines multiple sorting strategies to optimize performance. Hybrid algorithms adapt to the structure of the data, using different methods as needed to improve efficiency.  
+**Examples:** Timsort, Introsort.
+
+> **Note:** For a truly comprehensive and meticulous overview of sorting approaches, including many advanced versions, I suggest checking out Donald Knuth's «The Art of Computer Programming, Volume 3: Sorting and Searching». Even though many people consider it to be dull and old, it's still the most structured and detailed resource I've found on this topic.
+
+---
+Discussing practical implementations, it's evident that well-established and widely recognized solutions already exist. In the context of C++, `std::sort()` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this section, we'll take a closer look at simplified versions of popular sorting algorithms. This exploration is aimed at gaining a deeper understanding of the fundamental design paradigms that underlie them.
+- [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
+- [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
+- [Insertion Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/InsertionSort) ✅
+- [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
+- [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
+- [Heapsort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Heapsort) ✅
+- [Counting Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/CountingSort) ✅
+- [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
+- [Bucket Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BucketSort) ✅
+- [Shell Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Shellsort) ✅
 
 
 ## Critical Challenges
@@ -197,6 +238,8 @@ For contact details and additional information, please refer to the [root direct
 # &#128591; Credits
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 6: Heapsort
+  - Section 7: Quicksort
   - Section 8: Sorting in Linear Time
   - Section 9: Medians and Order Statistics
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
@@ -210,7 +253,6 @@ For contact details and additional information, please refer to the [root direct
   - Section 7: Sorting
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
   - Section 4: Sorting and Searching
-  - Section 14: Combinatorial Problems
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 5: Sorting
 
