@@ -3,8 +3,8 @@
   - [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
   - [How to Implement](#how-to-implement)
-  - [Critical Challenges](#critical-challenges)
-  - [Potential Optimizations](#potential-optimizations)
+  - [Pitfalls and Optimizations](#pitfalls-and-optimizations)
+  - [Implemented Algorithms](#implemented-algorithms)
 - [📊 Analysis](#-analysis)
   - [How to Analyze](#how-to-analyze)
   - [Trade-Offs](#trade-offs)
@@ -47,7 +47,7 @@
 
 
 # &#x1F4BB; Implementation
-When implementing a concept, it's essential to understand the fundamental techniques that drive its behavior and ensure its correct functionality. Additionally, recognizing the critical challenges and potential optimizations allows you to refine the implementation, making it more efficient and robust for various scenarios.
+When implementing a concept, it's essential to understand the fundamental techniques that drive its behavior and ensure its correct functionality. Additionally, recognizing the critical pitfalls and potential optimizations allows you to refine the implementation, making it more efficient and robust for various scenarios.
 
 
 ## How to Implement
@@ -81,7 +81,25 @@ The foundational sorting techniques, many of which were developed in the early d
 
 > **Note:** For a truly comprehensive and meticulous overview of sorting approaches, including many advanced versions, I suggest checking out Donald Knuth's «The Art of Computer Programming, Volume 3: Sorting and Searching». Even though many people consider it to be dull and old, it's still the most structured and detailed resource I've found on this topic.
 
----
+
+## Pitfalls and Optimizations
+When selecting or using a sorting algorithm, it’s not just about picking the most efficient one; you need to consider how it will perform in various real-world scenarios. While an algorithm might work well in simple cases, unforeseen issues can arise in more complex situations, potentially leading to significant problems later on. To avoid these pitfalls and uncover optimization opportunities, it’s essential to think critically about several factors before deciding on an algorithm. Additionally, each algorithm may have its own distinct things to consider.
+
+
+- **Data Distribution** — what is the most likely distribution of your data? How will the algorithm handle best, average, and worst-case scenarios?
+- **Data Size** — how large is the dataset? Will you need to consider external sorting methods for very large datasets?
+- **Data Type** — is the data type compatible with the algorithm? Will the algorithm handle all data types flawlessly?
+- **Empty Collection** — how does the algorithm behave when sorting an empty collection?
+- **Sorted Order** — what happens if the collection is already sorted? Will the algorithm recognize this and optimize its process?
+- **Single Element** — how does the algorithm handle a single-element collection?
+- **Duplicate Elements** — how does the algorithm manage collections with many duplicate elements? Does it maintain stability?
+- **Parallelization** — can the algorithm be parallelized effectively? Does it need to be?
+- **Input Validation** — how does the algorithm handle invalid inputs? Does it fail gracefully or crash unexpectedly?
+- **Pathological Cases** — how does the algorithm perform in worst-case scenarios, and can you mitigate those risks?
+- **Combining Algorithms** — is it beneficial to combine this algorithm with others, perhaps using a hybrid approach to improve performance or reliability?
+
+
+## Implemented Algorithms
 Discussing practical implementations, it's evident that well-established and widely recognized solutions already exist. In the context of C++, `std::sort()` is a such representative. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this section, we'll take a closer look at simplified versions of popular sorting algorithms. This exploration is aimed at gaining a deeper understanding of the fundamental design paradigms that underlie them.
 - [Bubble Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BubbleSort) ✅
 - [Selection Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/SelectionSort) ✅
@@ -93,14 +111,6 @@ Discussing practical implementations, it's evident that well-established and wid
 - [Radix Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/RadixSort) ✅
 - [Bucket Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/BucketSort) ✅
 - [Shell Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Shellsort) ✅
-
-
-## Critical Challenges
-Currently in Progress...
-
-
-## Potential Optimizations
-Currently in Progress...
 
 
 
