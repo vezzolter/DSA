@@ -1,6 +1,7 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
+  - [Important Details](#important-details)
   - [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
@@ -21,12 +22,16 @@
 
 
 # &#128161; Overview
-The **Binary Search** stands out as one of the most fundamental approaches to search for an element in the ordered collection. The algorithm is named for the way it divides the search interval in half. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **Binary Search** stands out as one of the most fundamental approaches to search for an element in an ordered collection. The algorithm is named for the way it divides the search interval in half with each step. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/BinarySearch.png"/></p>
 
 
 ## Introduction
-**Binary Search** repeatedly divides the search interval of an ordered collection until a match is found or the interval is empty, pretty much like the intuitive process of looking for a particular page in some type of dictionary without any prior knowledge of its content or index. 
+**Binary Search** efficiently narrows down the search interval within an ordered collection by repeatedly dividing it in half until the target element is found or the interval becomes empty.
+
+
+## Important Details
+- The algorithm is only applicable to sorted collections; otherwise, it may search the wrong half of the data and return no result, even if the element is present.
 
 
 ## Algorithm Steps
@@ -36,12 +41,12 @@ The **Binary Search** stands out as one of the most fundamental approaches to se
    - if target **matches** with middle, the search is successful, **return** the index.
    - if target is **less** then middle, continue the search on the **left** half of a collection.
    - if target is **greater** then middle, continue the search on the **right** half of a collection.
-4. Repeat previous steps until either target element is found or the search interval is empty.
+4. Repeat the previous steps until the target element is found or the search interval is empty.
 
 
 
 # &#x1F4BB; Implementation
-The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the binary search algorithm, and finally displays the result indicating whether the operation was successful or not.
+The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the binary search algorithm. It then displays the result, indicating whether the search was successful (element found) or not (element not found).
 <p align="center"><img src="./Images/DemoSuccess.png"/></p>
 <p align="center"><img src="./Images/DemoFailure.png"/></p>
 
@@ -54,7 +59,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-Searching algorithm implemented within the function `binarySearch()`, which is declared in `BinarySearch.h` header file and defined in `BinarySearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+Searching algorithm implemented within the function `binarySearch()`, which is declared in `BinarySearch.h` header file and defined in `BinarySearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
 int binarySearch(int arr[], int left, int right, int target) {
@@ -142,12 +147,19 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Binary Search](https://leetcode.com/problems/binary-search)
+- [First Bad Version](https://leetcode.com/problems/first-bad-version)
+- [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)
+- [Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array)
+- [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix)
+- [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)
+- [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+- [Minimum Cost to Make Array Equal](https://leetcode.com/problems/minimum-cost-to-make-array-equal)
 
 
 
 # &#x1F559; Origins
-The idea of Binary Search has evolved over time and there is no single individual behind them, especially because historical origins are not always well-recorded. In terms of computer science, it was one of the earliest searching algorithms to be implemented in early computer programs. Since then, many others have contributed to its understanding, analysis, and optimization.
+The idea of binary search has evolved over time and there is no single individual behind them, especially because historical origins are not always well-recorded. In terms of computer science, it was one of the earliest searching algorithms to be implemented in early computer programs. Since then, many others have contributed to its understanding, analysis, and optimization.
 
 
 
@@ -182,9 +194,7 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) (Wikipedia)
-- [Binary Search](https://www.geeksforgeeks.org/binary-search/)
 - [Why start + (end – start)/2 is preferable method for calculating middle of an array over (start + end)/2 ?](https://www.geeksforgeeks.org/start-end-start2-preferrable-method-calculating-middle-array-start-end2/)
-- [Binary Search Algorithm: Function, Benefits, Time & Space Complexity](https://www.upgrad.com/blog/binary-search-algorithm/)
 
 
 
