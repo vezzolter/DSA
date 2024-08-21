@@ -1,8 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Introduction](#introduction)
+  - [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
+  - [Design Decisions](#design-decisions)
+  - [Complete Implementation](#complete-implementation)
+  - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+  - [Algorithm Characteristics](#algorithm-characteristics)
+  - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -15,8 +24,12 @@
 The **Binary Search** stands out as one of the most fundamental approaches to search for an element in the ordered collection. The algorithm is named for the way it divides the search interval in half. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/BinarySearch.png"/></p>
 
----
-**Binary Search** repeatedly divides the search interval of an ordered collection until a match is found or the interval is empty, pretty much like the intuitive process of looking for a particular page in some type of dictionary without any prior knowledge of its content or index. It consists of the following steps:
+
+## Introduction
+**Binary Search** repeatedly divides the search interval of an ordered collection until a match is found or the interval is empty, pretty much like the intuitive process of looking for a particular page in some type of dictionary without any prior knowledge of its content or index. 
+
+
+## Algorithm Steps
 1. Make sure the collection is in sorted order.
 2. Calculate the middle index.
 3. Compare target element with middle one.
@@ -32,15 +45,17 @@ The program initializes an array with specified integers, prompts the user to en
 <p align="center"><img src="./Images/DemoSuccess.png"/></p>
 <p align="center"><img src="./Images/DemoFailure.png"/></p>
 
+
+## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing a small integer array as a collection.
 - Omitting certain optimizations to the algorithm.
 - Assuming that collections is already sorted.
 
----
+
+## Complete Implementation
 Searching algorithm implemented within the function `binarySearch()`, which is declared in `BinarySearch.h` header file and defined in `BinarySearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
 
-**The Complete Implementation of a Search:**
 ```cpp
 int binarySearch(int arr[], int left, int right, int target) {
 	while (left <= right) {
@@ -59,24 +74,21 @@ int binarySearch(int arr[], int left, int right, int target) {
 }
 ```
 
----
-**The Detailed Algorithm Overview:**
+
+## Detailed Walkthrough
 1. We start by passing the sorted array, target element and left side index and right side index of search interval, which basically are start (`0`) and end (`size-1`) of a collection. This way we can iterate over search intervals of a collection anywhere by comparing them:
 ```cpp
 while (left <= right) {
 ```
-
 2. In order to determine the middle index of a search interval, we apply this formula because it is more preferable due to the fact that it avoids overflow.
 ```cpp
 int mid = left + (right - left) / 2;
 ```
-
 3. Then we can start searching process by comparing target with middle. First we check if we have found the element, if so return the index of it; otherwise we have to divide the search interval.
 ```cpp
 if (arr[mid] == target)
 	return mid;
 ```
-
 4. The idea behind division is pretty simple and straightforward: we "throw away" half of elements by moving the left index to the right of middle by one if target element appears to be greater then all of the elements in the left half and vice versa for right index.
 ```cpp
 if (arr[mid] < target)
@@ -84,43 +96,53 @@ if (arr[mid] < target)
 else
 	right = mid - 1;
 ```
-
 5. And if target element didn't match with any of present in collection, return an error code, indicating that the search is unsuccessful.
 ```cpp
 return -1;
 ```
 
+
+
 # &#128202; Analysis
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
+
+
+## Algorithm Characteristics
 - **Search Strategy:** 
   - **Binary Approach** — operate on sorted datasets and repeatedly divide the search space in half until the target element is found.
-
 - **Time Complexity:**
-     - Worst Case: $O(logn)$ — occurs when target is either not present, therefore algorithm requires traverse through all elements.
-     - Average Case: $O(logn)$ — occurs when target is spread within uniform probability, therefore algorithm doesn't require to perform all the steps to the end.
-     - Best Case: $O(1)$ — occurs when target is found at the middle, therefore only one comparison.
-
+     - **Worst Case** $O(\log n)$ — occurs when target is either not present, therefore algorithm requires traverse through all elements.
+     - **Average Case** $O(\log n)$ — occurs when target is spread within uniform probability, therefore algorithm doesn't require to perform all the steps to the end.
+     - **Best Case** $O(1)$ — occurs when target is found at the middle, therefore only one comparison.
 - **Auxiliary Space Complexity:** 
   - $O(1)$ — as no additional space is required beyond the input collection and a few variables.
-
 - **Element's Mutability:**
    - **Suitable for Static** — as algorithm operates on sorted collections, maintaining sorted order of frequent changes could become costly in terms of resources, especially if it involves reallocation of memory, thus making it not the best option for a dynamic collection.
-
 - **Key Representation:**
    - **Suitable for Actual Keys** — algorithm is primarily concerned with comparing keys directly in their original form, especially because of better alternatives out there.
-
 - **Adaptability:**
    - **Non-Adaptive** — data processed through the same path of steps, regardless of their values, however algorithm requires the collection to be in sorted order.
-
 - **Storage:**
    - **Suitable for Internal** — binary search is not suitable for external searching due to its reliance on random access patterns, which are inefficient for disk-based storage systems, thus for this type of searching there are more optimized alternatives.
 
 
+## Algorithm Comparison
+Will be Updated in the Future...
+
+
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Common Use Cases
 - **Sorted Collections** — most common application of algorithm due to its efficiency in logarithmic time complexity, which makes it a good choice for dictionaries or large datasets.
 - **Finding Upper/Lower Bound** — algorithm can be used when dealing with numerical datasets or when designing algorithms that require matching or approximation, because of how easy it is to find the target element, and calculate closest to it.
 - **Building Data Structures** — binary search principle is crucial for data structures, that rely on maintaining sorted order efficient searching capabilities such as BSTs and Heaps, due to its efficiency.
+
+
+## Some Practical Problems
+Currently in Progress...
 
 
 

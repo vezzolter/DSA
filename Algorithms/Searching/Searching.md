@@ -1,8 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
+  - [How to Implement](#how-to-implement)
+  - [Pitfalls and Optimizations](#pitfalls-and-optimizations)
+  - [Implemented Algorithms](#implemented-algorithms)
 - [📊 Analysis](#-analysis)
+  - [How to Analyze](#how-to-analyze)
+  - [Trade-Offs](#trade-offs)
+  - [Alternatives](#alternatives)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -13,10 +22,10 @@
 
 # &#128161; Overview
 **Searching** is a widely used operation in computer science to retrieve information. It helps to locate specific items or data within datasets in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
-<p align="center"><img src="./Images/searching.png"/></p>
+<p align="center"><img src="./Images/Searching.png"/></p>
 
----
-**Essential Terminology:**
+
+## Essential Terminology
 - **Searching Algorithm** — is a set of steps used to retrieve a particular element within a collection of data.
   - **Successful Search** — is an outcome in which algorithm found the element(-s) containing argument. 
   - **Unsuccessful Search** — is an outcome in which algorithm didn't the element(-s) containing argument.
@@ -34,8 +43,33 @@
 
 
 # &#x1F4BB; Implementation
-The list of known searching algorithms is extensive and continues to grow. When it comes to implementation, some share some common ideas, while others possess distinctive characteristics. The choice between them depends on the specific requirements of the cases at hand. There are plenty of metrics to classify algorithms by (each of which can impose certain specifications on implementation), most used of them are:
+When implementing a concept, it's essential to understand the fundamental techniques that drive its behavior and ensure its correct functionality. Additionally, recognizing the critical pitfalls and potential optimizations allows you to refine the implementation, making it more efficient and robust for various scenarios.
 
+
+## How to Implement
+Currently in Progress...
+
+
+## Pitfalls and Optimizations
+Currently in Progress...
+
+
+## Implemented Algorithms
+Discussing practical implementations, it's evident that well-established and widely recognized solutions already exist. In the context of C++, `std::find()` and `std::binary_search()` are such representatives. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this section, we'll take a closer look at simplified versions of popular searching algorithms. This exploration is aimed at gaining a deeper understanding of the fundamental design paradigms that underlie them.
+- [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
+- [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
+- Jump Search
+- Interpolation Search
+- Exponential Search
+- Fibonacci Search
+
+
+
+# &#128202; Analysis
+Understanding how to analyze a concept is crucial for identifying its key characteristics and evaluating its performance across different scenarios. Additionally, examining the trade-offs allows you to understand what you gain and what you give up when applying the concept. Finally, considering alternatives helps you determine when the concept is the best choice and when other approaches might be more appropriate.
+
+
+## How to Analyze
 - **Search Strategies:**
    - **Linear Algorithms** — sequentially examine each element in the collection until the target is found or the end of the dataset is reached.
    - **Binary Algorithms** — operate on sorted datasets and repeatedly divide the search space in half until the target element is found
@@ -77,27 +111,27 @@ The list of known searching algorithms is extensive and continues to grow. When 
    - **External** — algorithm takes place within other storage devices (e.g. hard disk).
 
 
+## Trade-Offs
+Currently in Progress...
 
-# &#128202; Analysis
-The analysis of searching algorithms in general relies primarily on the assessment of previously mentioned metrics individually for each case. For a more in-depth examination of any specific algorithm, simply navigate to its corresponding folder via list below:
-- [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
-- [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
-- Jump Search
-- Interpolation Search
-- Exponential Search
-- Fibonacci Search
+
+## Alternatives
+Currently in Progress...
 
 
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases in Various Fields:**
+Understanding some of the most well-known use cases of a concept is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with practical problems and practicing their solutions ensures that you retain essential details and develop a deep, intuitive understanding of the concept's capabilities and limitations.
+
+
+## Common Use Cases
 - **Information Retrieval in Search Engines** —  search algorithms used to retrieve relevant information from vast amounts of data on the web by analyzing the content of web pages, index them based on keywords and relevance, and rank the results.
 - **Pathfinding and Navigation** — type of search algorithms that efficiently find the shortest or most optimal path between two points in a graph or network, considering factors like distance, time, or cost.
 - **Genetic Algorithms in Optimization** — type of search algorithms that mimic the process of natural selection and evolution to iteratively generate and improve solutions to complex optimization problems.
 - **Game Development & Artificial Intelligence** — search algorithms are used to figure out a strategy, by searching through the possibilities and picking the best move, also gamedev utilize pathfinding algorithms in building a route for a player.
 
----
-**Common Practical Problems:**
+
+## Some Practical Problems
 - Find the largest three elements in an array.
 - Find the closest pair.
 - Find the missing and repeating number.
