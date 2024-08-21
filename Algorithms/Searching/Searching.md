@@ -183,9 +183,6 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) (Wikipedia)
-- [Searching algorithms compared](https://adacomputerscience.org/concepts/search_searching_compared)
-- [Search algorithms and their implementations](https://codecoda.com/en/blog/entry/search-algorithms-and-their-implementations)
-- [Searching Algorithms](https://www.geeksforgeeks.org/searching-algorithms/)
 
 
 

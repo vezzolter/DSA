@@ -21,26 +21,26 @@
 
 
 # &#128161; Overview
-The **Linear Search** stands out as the simplest known approach to search for an element in a collection. The algorithm is named for the way it applies linear (or also known as sequential) manner to the search. Knowledge and understanding of it, lays the foundation for tackling more complex searching algorithms and problem-solving strategies.
+The **Linear Search** stands out as the simplest known approach to search for an element in a collection. The algorithm is named for its linear (or sequential) traversal of the dataset, making it straightforward intuitive approach. Knowledge and understanding of it, lays the foundation for tackling more complex searching algorithms and problem-solving strategies.
 <p align="center"><img src="./Images/LinearSearch.png"/></p>
 
 
 ## Introduction
-**Linear Search** sequentially checks each element of the collection from the beginning until a match is found or the end of the collection is reached, pretty much like the intuitive process of looking for a particular book on a shelf where are only unnamed ones. 
+**Linear Search** sequentially checks each element in the collection, starting from the first element and moving one by one until the target element is found or the end of the collection is reached. 
 
 
 ## Algorithm Steps
-1. Begin with the first element of the collection.
+1. Start at the first element of the collection.
 2. Compare the current element with the target element.
-3. If the current element matches the target one, the search is successful, return an index.
+3. If they match, the search is successful, return the current index.
 4. Otherwise, move to the next element in the collection.
-5. Repeat steps 2-4 until either a match is found or the end of the collection is reached.
-6. If the entire collection has been traversed without finding a match, the search is unsuccessful, return a signal.
+5. Repeat steps 2-4 until the target element is found or the collection ends.
+6. If the end of the collection is reached without finding a match, the search is unsuccessful, return a signal.
 
 
 
 # &#x1F4BB; Implementation
-The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the linear search algorithm, and finally displays the result indicating whether the operation was successful or not.
+The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the linear search algorithm. It then displays the result, indicating whether the search was successful (element found) or not (element not found).
 <p align="center"><img src="./Images/DemoSuccess.png"/></p>
 <p align="center"><img src="./Images/DemoFailure.png"/></p>
 
@@ -52,9 +52,8 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-Searching algorithm implemented within the function `linearSearch()`, which is declared in `LinearSearch.h` header file and defined in `LinearSearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file.
+Searching algorithm implemented within the function `linearSearch()`, which is declared in `LinearSearch.h` header file and defined in `LinearSearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
-**The Complete Implementation of a Search:**
 ```cpp
 int linearSearch(int arr[], int size, int target) {
 	for (int i = 0; i < size; i++)
@@ -113,14 +112,20 @@ Will be Updated in the Future...
 # &#128221; Application
 Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
+
 ## Common Use Cases
-- **Trivial Small Collections** — generally it is used where the overhead of more complex algorithms is just unnecessary.
-- **Unsorted Collections** — since algorithm doesn't require the data to be in any particular order.
-- **Debugging** — may be used to quickly identify and fix issues in code, due to simplicity in implementation and validation.
+- **Trivial Small Collections** — linear search is often used in trivial small collections, when the overhead of more complex algorithms is unnecessary.
+- **Unsorted Collections** — linear search is used in unsorted collections, when the data doesn't need to be in any particular order, making it pretty versatile.
+
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Word Search](https://leetcode.com/problems/word-search)
+- [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix)
+- [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
+- [Spiral Matrix](https://leetcode.com/problems/spiral-matrix)
+
+> **Note:** While many problems involve searching through linear collections, it's crucial to be comfortable with iterating over common data structures. I recommend practicing problems where the search is slightly modified rather than purely linear. This approach will deepen your understanding and boost your confidence in tackling various search-related challenges.
 
 
 
@@ -154,7 +159,6 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Linear Search](https://en.wikipedia.org/wiki/Linear_search) (Wikipedia)
-- [Linear Search Algorithm](https://www.geeksforgeeks.org/linear-search/)
 
 
 
