@@ -35,10 +35,10 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) 🔄
     - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
     - [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
-    - Jump Search 🎯
-    - Interpolation Search
-    - Exponential Search
+    - [Interpolation Search](https://github.com/vezzolter/DSA/tree/interpolation-search/Algorithms/Searching/InterpolationSearch) 🎯
     - Fibonacci Search
+    - Exponential Search
+    - Jump Search
   - RNG
     - [RNG.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/RNG.md) 🔄
     - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/PRNG/MiddleSquareMethod) ✅
