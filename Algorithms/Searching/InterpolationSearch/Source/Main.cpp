@@ -29,7 +29,7 @@ int main() {
 
 	// Create initial array
 	std::cout << "\nCreating the initial array...\n";
-	int arr[] = { 0, 2, 2, 3, 4, 6, 7, 9, 10, 12, 13, 14, 15, 19, 19 };
+	int arr[] = { 1, 1, 4, 7, 9, 11, 14, 17, 19, 19, 22, 25, 27, 30 };
 	int size = sizeof(arr) / sizeof(arr[1]);
 	printArray(arr, size);
 

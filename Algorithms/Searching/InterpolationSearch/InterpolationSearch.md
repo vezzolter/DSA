@@ -22,19 +22,31 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Interpolation Search** is a search algorithm known for efficiently finding elements in a uniformly distributed ordered collection by estimating the position of the target value. The algorithm's name comes from the interpolation formula it uses to predict where the desired element is likely to be within the current search interval. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/InterpolationSearch.png"/></p>
 
 
 ## Introduction
-Currently in Progress...
+**Interpolation Search** optimizes the search process in an ordered collection by estimating the likely position of the target element using the values at the boundaries and applying linear interpolation.
 
 
 ## Important Details
-Currently in Progress...
+- The algorithm is only applicable to sorted collections; otherwise, it may search the wrong parts of the data and return no result, even if the element is present.
+- The algorithm requires specific data characteristics — data should be uniformly distributed, as the interpolation formula assumes a linear relationship between values. If the data is clustered, has irregular gaps, or includes many duplicates, the performance may degrade, making other approaches more reliable.
 
 
 ## Algorithm Steps
-Currently in Progress....
+1. Make sure the collection is in sorted order.
+2. Initialize the search interval with the lowest (`low`) and highest (`high`) indices of the collection.
+3. While the `low` index is less than or equal to the `high` index and the target is within search interval:
+   - Calculate the estimated position using the interpolation formula:  
+     $\text{pos} = \text{low} + \frac{\text{target} - \text{arr[low]}}{\text{arr[high]} - \text{arr[low]}} \times (\text{high} - \text{low})$
+   - Compare the target element with the element at the estimated position (`arr[pos]`).
+     - If the target **matches**, the search is successful; **return** the index `pos`.
+     - If the target is **less**, adjust the search interval to the **left** by setting `high = pos - 1`.
+     - If the target is **greater**, adjust the search interval to the **right** by setting `low = pos + 1`.
+4. Repeat the previous steps until the target element is found or the search interval is empty.
+5. If the target element is not found, return an indication of failure.
 
 
 
