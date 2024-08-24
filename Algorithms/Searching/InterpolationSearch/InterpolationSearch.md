@@ -51,19 +51,77 @@
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the interpolation search algorithm. It then displays the result, indicating whether the search was successful (element found) or not (element not found).
+<p align="center"><img src="./Images/DemoSuccess.png"/></p>
+<p align="center"><img src="./Images/DemoFailure.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing a small integer array as a collection.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+Searching algorithm implemented within the function `interpolationSearch()`, which is declared in `InterpolationSearch.h` header file and defined in `InterpolationSearch.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+int interpolationSearch(int arr[], int size, int target) {
+    int low = 0;
+    int high = size - 1;
+
+    while (low <= high && target >= arr[low] && target <= arr[high]) {
+        // Edge case: one element
+        if (arr[low] == arr[high]) {
+            if (arr[low] == target) { return low; } // target present
+            else { return -1; }                     // target absent
+        }
+
+        int pos = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low]);
+
+        if (arr[pos] == target) { return pos; }   // match, return
+        if (arr[pos] < target) { low = pos + 1; } // greater, move low
+        else { high = pos - 1; }                  // less, move high
+            
+    }
+
+    return -1; // target absent
+}
+```
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+1. Initialize lowest and highest indices borders of the collection.
+```cpp
+  int low = 0;
+  int high = size - 1;
+```
+2. Start the while loop to continue searching as long as the range is valid and the target is within bounds.
+```cpp
+  while (low <= high && target >= arr[low] && target <= arr[high]) {
+```
+3. Handle edge case, where only one element is present in the search interval. Return if its the target, and return an indication of failure if its not.
+```cpp
+  // Edge case: one element
+  if (arr[low] == arr[high]) {
+      if (arr[low] == target) { return low; } // target present
+      else { return -1; }                     // target absent
+  }
+```
+4. Calculate the estimated position using the interpolation formula.
+```cpp
+  int pos = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low]);
+```
+5. Now check if estimation position is correct, return if true, adjust the search interval if not.
+```cpp
+  if (arr[pos] == target) { return pos; }   // match, return
+  if (arr[pos] < target) { low = pos + 1; } // greater, move low
+  else { high = pos - 1; }                  // less, move high
+```
+6. Finally, if target element didn't match with any of present in collection, return an error code, indicating that the search is unsuccessful.
+```cpp
+  return -1; // target absent
+```
 
 
 

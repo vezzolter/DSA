@@ -7,7 +7,7 @@
 #define INTERPOLATIONSEARCH_H
 
 
-int interpolationSearch(int arr[], int target);
+int interpolationSearch(int arr[], int size, int target);
 
 
 #endif // INTERPOLATIONSEARCH_H

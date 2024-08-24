@@ -40,11 +40,11 @@ int main() {
 
 	// Search the value
 	std::cout << "\nSearching the index of an element '" << target << "'..." << std::endl;
-	int index = interpolationSearch(arr, target);
+	int index = interpolationSearch(arr, size, target);
 	if (index != -1)
-		std::cout << "Element '" << target << "' found at index '" << index << "'.\n";
+		std::cout << "Element '" << target << "' is found at index '" << index << "'.\n";
 	else
-		std::cout << "Element '" << target << "' not found.\n";
+		std::cout << "Element '" << target << "' is not found.\n";
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
