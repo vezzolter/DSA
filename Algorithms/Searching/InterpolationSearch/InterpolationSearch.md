@@ -126,11 +126,27 @@ int interpolationSearch(int arr[], int size, int target) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
 
 ## Algorithm Characteristics
-Currently in Progress...
+- **Search Strategy:** 
+  - **Interpolative Approach** — estimates the likely position of the target within the collection by using the values at the boundaries and assumes uniform distribution of elements.
+- **Time Complexity:**
+   - **Worst Case** $O(n)$ — occurs when elements are not uniformly distributed, or the interpolation formula repeatedly misestimates, leading to a linear search-like behavior.
+   - **Average Case** $O(\log \log n)$ — occurs in uniformly distributed datasets, where the interpolation formula effectively narrows down the search range quickly.
+   - **Best Case** $O(1)$ — occurs when the target is found immediately at the estimated position after the first interpolation.
+- **Auxiliary Space Complexity:** 
+  - $O(1)$ — as no additional space is required beyond the input collection and a few variables.
+- **Element's Mutability:**
+   - **Suitable for Static** — the algorithm relies on the uniform distribution of elements, making it less efficient with dynamic or frequently updated collections.
+- **Key Representation:**
+   - **Suitable for Numeric Keys** — the interpolation formula works best with numeric keys that can be linearly interpolated, and less so with non-numeric or transformed keys.
+- **Adaptability:**
+   - **Non-Adaptive** — follows the same path of steps, regardless of the distribution of data, but is sensitive to the distribution of values.
+- **Storage:**
+   - **Suitable for Internal** — as the algorithm is generally used on collections that can fit entirely in RAM.
+
 
 
 ## Algorithm Comparison
