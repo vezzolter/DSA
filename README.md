@@ -35,14 +35,14 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Searching.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/Searching.md) 🔄
     - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
     - [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
-    - [Interpolation Search](https://github.com/vezzolter/DSA/tree/interpolation-search/Algorithms/Searching/InterpolationSearch) 🎯
-    - Fibonacci Search
-    - Exponential Search
-    - Jump Search
+    - [Interpolation Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/InterpolationSearch) ✅
+    - Fibonacci Search (?)
+    - Exponential Search (?)
+    - Jump Search (?)
   - RNG
     - [RNG.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/RNG.md) 🔄
     - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/PRNG/MiddleSquareMethod) ✅
-    - LCG (Linear Conguential Generator)
+    - LCG (Linear Conguential Generator) 🎯
     - PCG (Permuted Congruential Generator)
     - Mersenne Twister
     - Xorshift
@@ -56,7 +56,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - Karatsuba Algorithm
     - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
   - Two-Pointer
-  - Sliding Window  
+  - Sliding Window
+  - Bit Manipulation
   - Dynamic Programming
     - DynamicProgramming.md
     - Knapsack
@@ -68,7 +69,6 @@ This list provides a straightforward overview of the repository's contents. For 
     - Activity Selection
     - Fractional Knapsack
     - Huffman Coding
-  - Bit Manipulation
   - String Algorithms
     - StringAlgorithms.md
     - KMP (Knuth-Morris-Pratt)

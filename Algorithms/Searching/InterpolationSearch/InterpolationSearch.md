@@ -170,7 +170,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Interpolation Search was first described by American computer scientist **William Wesley Peterson** in **1957**. At the time, the goal was to create a method that could outperform traditional search algorithms like binary search when data followed a predictable pattern. The idea stemmed from interpolation techniques used in numerical analysis, where the value of a point is estimated based on nearby known values. Peterson’s work led to the creation of an algorithm that could intelligently predict the position of a target element, reducing the number of comparisons needed in certain types of datasets.
 
 
 
