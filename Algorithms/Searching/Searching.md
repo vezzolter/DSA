@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-**Searching** is a widely used operation in computer science to retrieve information. It helps to locate specific items or data within datasets in various algorithms and for all manner of applications, therefore it is important to truly understand the concept.
+**Searching** is a fundamental operation in both the real world and computer science, used to locate specific items or data within a dataset. Mastering this concept is essential — not only for its standalone applications, such as finding a contact in a phone book, but also for its role in facilitating and optimizing other algorithms by efficiently retrieving relevant information.
 <p align="center"><img src="./Images/Searching.png"/></p>
 
 
@@ -29,16 +29,17 @@
 - **Searching Algorithm** — is a set of steps used to retrieve a particular element within a collection of data.
   - **Successful Search** — is an outcome in which algorithm found the element(-s) containing argument. 
   - **Unsuccessful Search** — is an outcome in which algorithm didn't the element(-s) containing argument.
+- **Criterion** — is a rule used to determine whether an element meets the requirements of the search.
 - **Collection** — is a data structure, which is used to group multiple elements together.
   - **Table** — is a small collection of all elements.
   - **File** — is a big collection of all elements.
   - **Database** — is a large collection of all elements.
+  - **Search Interval/Space**  — is subset of a collection, that is being searched and it may change dynamically depending on the algorithm.
 - **Element/Record/Item** — is an individual entity within a collection.
-  - **Index/Key of Element** — is a position of an element within collection.
-  - **Value/Data of Element** — is an actual information stored within the element.
-- **Target/Key Element** — is a one that search algorithm seeks to find within a collection, serves as a reference for comparison.
-- **Argument** — is a parameter passed to an algorithm, which provides the criteria, which will be used to find the desired element.
-- **Criterion** — is a rule used to determine whether an element meets the requirements of the search.
+  - **Index** — is a position of an element within collection.
+  - **Value/Data** — is an actual information stored within the element.
+  - **Key** — is a unique identifier or attribute associated with an element in a collection, can be used as the primary criterion for different operations.
+  - **Target Element** — is a one that search algorithm seeks to find within a collection, serves as a reference for comparison.
 
 
 
@@ -47,7 +48,15 @@ When implementing a concept, it's essential to understand the fundamental techni
 
 
 ## How to Implement
-Currently in Progress...
+There isn't a universal search algorithm that works optimally in every scenario. This is because the nature of the data, its storage, and the specific requirements of the problem, which can vary widely — all of those factors, influence the choice. Fortunately, there aren't too many searching algorithms to cover, so I suggest categorizing them into two main approaches:  
+  
+- **Sequential Search (Only 1)** — elements are examined one by one until the target is found or the search reaches the end of the collection.  
+**Examples:** Linear Search.
+
+- **Interval Searches** — work by dividing the search space into intervals and focusing on the relevant section.  
+**Examples:** Binary Search, Interpolation Search.
+
+> **Note:** Unfortunately, I couldn't find any resource that would extensively cover this concept, which likely indicates that mastering it in great depth isn't as crucial/required. Therefore,  I recommend focusing primarily on the different ways linear and binary search algorithms, as these will cover the vast majority of search-related problems you'll encounter in day-to-day tasks.
 
 
 ## Pitfalls and Optimizations
@@ -58,10 +67,10 @@ Currently in Progress...
 Discussing practical implementations, it's evident that well-established and widely recognized solutions already exist. In the context of C++, `std::find()` and `std::binary_search()` are such representatives. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this section, we'll take a closer look at simplified versions of popular searching algorithms. This exploration is aimed at gaining a deeper understanding of the fundamental design paradigms that underlie them.
 - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
 - [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
-- Jump Search
-- Interpolation Search
-- Exponential Search
-- Fibonacci Search
+- [Interpolation Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/InterpolationSearch) ✅
+- Fibonacci Search (?)
+- Exponential Search (?)
+- Jump Search (?)
 
 
 
@@ -171,7 +180,6 @@ For contact details and additional information, please refer to the [root direct
   - Section 16: External Searching
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
   - Section 4: Sorting and Searching
-  - Section 14: Combinatorial Problems
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 6: Searching
 
@@ -183,7 +191,7 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Search algorithm](https://en.wikipedia.org/wiki/Search_algorithm) (Wikipedia)
-
+- [Search Algorithms: Sequential Search vs Interval Search](https://www.programming9.com/tutorials/competitive-programming/433-search-algorithms-sequential-search-vs-interval-search)
 
 
 # &#128271; License
