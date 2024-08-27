@@ -157,10 +157,9 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 ---
 **What Sorting Takes:**
-- **Time Investment** — sorting requires computational resources, and for large datasets, this time investment can be significant. Sorting is often a prerequisite rather than the final goal, making this time cost an important consideration in time-sensitive applications.
-- **Memory Usage** — some sorting algorithms, particularly those that are not in-place, require additional memory. In memory-constrained environments, this trade-off can be critical. Even in-place algorithms like quicksort can have hidden memory costs, such as stack space for recursive calls.
-- **Complexity in Implementation** — efficient sorting algorithms can be complex to implement and optimize, requiring careful consideration of edge cases and algorithmic design. This complexity might introduce bugs or make the code harder to maintain.
-- **Energy and Power Consumption** — in resource-constrained environments, such as embedded systems, the energy cost of sorting operations can be a significant trade-off, impacting battery life and system performance.
+- **Time Consumption** — sorting requires computational resources, and for large datasets, this time investment can be significant. Sorting is often a prerequisite rather than the final goal, making this time cost an important consideration in time-sensitive applications.
+- **Space Consumption** — some sorting algorithms, particularly those that are not in-place, require additional memory. In memory-constrained environments, this trade-off can be critical. This extra memory usage can impact performance, especially in environments with limited resources.
+- **Implementation Intricacies** — efficient sorting algorithms can be complex to implement and optimize, requiring careful consideration of edge cases and algorithmic design. This complexity might introduce bugs or make the code harder to maintain.
 
 
 ## Alternatives

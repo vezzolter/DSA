@@ -79,17 +79,7 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 
 ## How to Analyze
-- **Search Strategies:**
-   - **Linear Algorithms** — sequentially examine each element in the collection until the target is found or the end of the dataset is reached.
-   - **Binary Algorithms** — operate on sorted datasets and repeatedly divide the search space in half until the target element is found
-   - **Tree-Based Algorithms** — utilize tree data structures, such as binary search trees (BSTs), balanced binary search trees (AVL trees, Red-Black trees), or B-trees.
-   - **Hashing Algorithms** — use hash functions to map keys to indices in an array (hash table).
-   - **Graph-Based Algorithms** — explore graphs to find paths or relationships between nodes
-   - **String Algorithms** — focus on finding occurrences of patterns within text or string data.
-   - **Heuristic Algorithms** — use domain-specific knowledge or heuristic information to guide the search process towards more promising areas of the search space.
-   - **Other** — although they are in the minority, it is worth mentioning them.
-  
-- **Time Complexities:**
+- **Time Complexity:**
   - $O(1)$ — occurs when the search operation takes the same amount of time regardless of the size of the dataset, usually via known key and straightforward access.
    - $O(log(n))$ — occurs when the search operation divides the search space in half with each step.
   - $O(n × log(n))$ — occurs when the time of search increases linearly with the size of collection and also influenced by logarithmic factor due to divide-and-conquer strategies.
@@ -98,10 +88,9 @@ Understanding how to analyze a concept is crucial for identifying its key charac
    - $O(2^n)$ — typically associated with brute-force search algorithms that explore all possible combinations of elements.
    - **Other** — although they are in the minority, it is worth mentioning them.
   
-- **Auxiliary Space Complexity:**
-   - **In-Place** $\big(O(1)\big)$  — algorithm does not require additional memory.
+- **Space Complexity:**
+   - **In-Place** $\big(O(1)\big)$  — algorithm does not require any additional memory.
    - **Out-of-Space** $\big(O(n)/O(n×logn)/...\big)$ — algorithm does require some additional memory.  
-   P.s. those terms used mostly only for sorting, even though they mean the same for both algorithms' classes.
 
 - **Element's Mutability:**
    - **Static** — contents of the collection either rarely change or don't change at all.
@@ -109,7 +98,7 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 - **Key Representation:**
    - **Actual Keys** — refers to the original keys or values used for identification and retrieval within the search algorithm.
-   - **Transofrmed Keys** — refers to the keys, that have undergone some form of transformation (e.g. encryption, different format, preprocessing, etc) to optimize the search process.
+   - **Transformed Keys** — refers to the keys, that have undergone some form of transformation (e.g. encryption, different format, preprocessing, etc) to optimize the search process.
 
 - **Adaptability:**
    - **Adaptive** — algorithm adjusts its overall behavior (sequence of operations) based on the initial order of elements to improve performance.
@@ -117,11 +106,20 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 - **Storage:**
    - **Internal** — algorithm takes place entirely within the main memory (RAM) of computer.
-   - **External** — algorithm takes place within other storage devices (e.g. hard disk).
+   - **External** — algorithm takes place within other storage devices (e.g. hard disk), typically due to their huge size.
 
 
 ## Trade-Offs
-Currently in Progress...
+**What Searching Gives:**
+- **Quick Data Retrieval** — searching algorithms allow for the efficient retrieval of specific elements from datasets, reducing the time and effort needed to find information. This efficiency is crucial in applications where data access speed is critical, such as databases or real-time systems.
+- **Improved Algorithm Performance** — searching is a fundamental operation that supports and enhances many other algorithms and systems. By having robust searching capabilities, more complex and efficient applications can be developed.
+
+---
+**What Searching Takes:**
+- **Time Consumption** — searching can require significant time, especially in large, unsorted datasets. This time cost becomes a critical factor in applications where speed is essential, as inefficient searches can lead to performance bottlenecks.
+- **Space Consumption** — some search algorithms, particularly recursive ones, may need additional memory. This extra memory usage can impact performance, especially in environments with limited resources.
+- **Data Requirements** — certain search algorithms depend on the data being sorted, which introduces a preprocessing step. This requirement can complicate implementation and affect overall performance, especially in dynamic datasets where data changes frequently.
+- **Implementation Intricacies** — implementing search algorithms can involve handling edge cases, such as duplicates or missing elements, adding complexity to the code. This complexity might introduce bugs or make the code harder to maintain.
 
 
 ## Alternatives
