@@ -60,7 +60,26 @@ There isn't a universal search algorithm that works optimally in every scenario.
 
 
 ## Pitfalls and Optimizations
-Currently in Progress...
+When choosing or implementing a search algorithm, it’s important to go beyond just finding the fastest one. The context in which the algorithm will be used, the nature of the data, and potential edge cases must all be carefully considered. While an algorithm might perform well in controlled conditions, real-world complexities can introduce challenges that lead to inefficiencies or errors. To avoid these pitfalls and optimize your search algorithms, consider the following factors:
+
+
+## Pitfalls and Optimizations
+When choosing or implementing a search algorithm, it’s important to go beyond just finding the fastest one. The context in which the algorithm will be used, the nature of the data, and potential edge cases must all be carefully considered. While an algorithm might perform well in controlled conditions, real-world complexities can introduce challenges that lead to inefficiencies or errors. To avoid these pitfalls and optimize your search algorithms, consider the following factors:
+
+- **Data Distribution** — how is your data distributed? Some search algorithms perform best on uniformly distributed data, while others may struggle. Consider whether your algorithm can handle skewed or uneven data distributions effectively.
+- **Data Size** — how large is the dataset? For smaller datasets, simpler algorithms like linear search might suffice, but as the data grows, more efficient algorithms like binary search or hash-based methods become necessary. Consider whether your algorithm scales well with the data size.
+- **Data Ordering** — is your data sorted or unsorted? If your data isn't sorted, consider the trade-offs of sorting it first or using a different search approach.
+- **Duplicate Elements** — how does the algorithm handle duplicates? If your dataset contains many duplicate elements, ensure your search algorithm can manage them correctly, especially when searching for all instances of a target element.
+- **Search Space Size** — how large is the search space? In some cases, the search space might be too large for exhaustive search methods, making it necessary to use heuristic or probabilistic approaches to reduce the search effort.
+- **Empty Collection** — how does the search algorithm behave when searching in an empty collection? Handling edge cases like empty collections gracefully is crucial to prevent unexpected errors or crashes in your application. Ensuring that the algorithm returns a sensible result, such as indicating that the item isn’t found, is important for reliability.
+- **Single Element** — how does the search algorithm handle a collection with only one element? Although this might seem straightforward, ensuring that the algorithm efficiently manages single-element collections without unnecessary overhead is key to maintaining performance, especially in edge cases.
+- **Worst-Case Scenarios** — how does the algorithm perform in worst-case situations? Consider the worst-case time complexity of your algorithm and how often it might occur in your application. Mitigating these cases can improve overall performance.
+- **Indexing and Preprocessing** — can the search be optimized with indexing or preprocessing? Building an index or preprocessing the data can significantly speed up search operations but comes with trade-offs in terms of memory usage and preprocessing time.
+- **Parallelization** — can the search process be parallelized to improve performance? In large datasets or real-time applications, parallel searching can reduce search time, but it requires careful handling of data consistency and synchronization.
+- **Input Validation** — how does the algorithm handle invalid inputs or edge cases like empty collections or non-existent elements? Ensuring robust input validation can prevent unexpected crashes and improve reliability.
+- **Memory Usage** — what are the memory implications of the search algorithm? Some algorithms, like those involving recursion or auxiliary data structures, may require more memory, which can be a constraint in certain environments.
+- **Adaptive Strategies** — can the search algorithm adapt based on the data or usage patterns? Algorithms that adjust their behavior based on the characteristics of the data or previous searches can provide better performance in dynamic or varied environments.
+
 
 
 ## Implemented Algorithms
@@ -123,7 +142,8 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 
 ## Alternatives
-Currently in Progress...
+- **Indexed Data Structures** — rather than performing a search operation, indexed data structures like hash tables or dictionaries provide direct access to elements using keys. These structures eliminate the need for searching by mapping keys directly to values, allowing for constant-time lookups. This approach is particularly efficient in cases where elements need to be frequently accessed based on a specific key, as indexed structures can outperform traditional searching algorithms.
+- **Caching Techniques** — instead of searching through a dataset every time an element is needed, caching techniques store frequently accessed elements in fast-access memory. By maintaining a cache of recent or common queries, systems can avoid repetitive searches and retrieve data more quickly. This method is especially useful in scenarios where certain elements are accessed repeatedly, such as in web applications or database queries.
 
 
 
@@ -132,22 +152,39 @@ Understanding some of the most well-known use cases of a concept is crucial for 
 
 
 ## Common Use Cases
-- **Information Retrieval in Search Engines** —  search algorithms used to retrieve relevant information from vast amounts of data on the web by analyzing the content of web pages, index them based on keywords and relevance, and rank the results.
-- **Pathfinding and Navigation** — type of search algorithms that efficiently find the shortest or most optimal path between two points in a graph or network, considering factors like distance, time, or cost.
-- **Genetic Algorithms in Optimization** — type of search algorithms that mimic the process of natural selection and evolution to iteratively generate and improve solutions to complex optimization problems.
-- **Game Development & Artificial Intelligence** — search algorithms are used to figure out a strategy, by searching through the possibilities and picking the best move, also gamedev utilize pathfinding algorithms in building a route for a player.
+- **Efficient Retrieval** — search algorithms are crucial for indexing data structures and enabling fast access to specific items in systems like databases and real-time applications. This quick retrieval of critical data ensures smooth operations, supports timely decision-making, and allows systems to handle large datasets while delivering up-to-date information without delay.
+- **Data Filtering** — search algorithms help filter out specific elements from a dataset based on given criteria, such as finding all elements that match a particular condition. This process is essential in data processing tasks, where targeted information extraction is needed for analysis.
+- **Pattern Matching in Strings** — searching algorithms locate specific patterns or substrings within larger text data. This use case is vital in text processing, search engines, and data validation, where identifying specific sequences of characters quickly is necessary.
 
 
 ## Some Practical Problems
-- Find the largest three elements in an array.
-- Find the closest pair.
-- Find the missing and repeating number.
-- Find a pair with the given difference.
-- k largest(or smallest) elements in an array.
-- Find all duplicates.
-- Find a peak element.
-- Search in an almost sorted array.
-- Find the majority element.
+**Easy Problems:**
+1. [First Bad Version](https://leetcode.com/problems/first-bad-version)
+2. [Binary Search](https://leetcode.com/problems/binary-search)
+3. [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
+4. [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii)
+5. [Search Insert Position](https://leetcode.com/problems/search-insert-position)
+
+---
+**Medium Problems:** 
+1. [Word Search](https://leetcode.com/problems/word-search)
+2. [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)
+3. [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number)
+4. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix)
+5. [Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array)
+6. [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix)
+7. [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array)
+8. [Spiral Matrix](https://leetcode.com/problems/spiral-matrix)
+9. [Find Peak Element](https://leetcode.com/problems/find-peak-element)
+10. [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/description/)
+
+---
+**Hard Problems:** 
+1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+2. [Minimum Cost to Make Array Equal](https://leetcode.com/problems/minimum-cost-to-make-array-equal)
+3. [Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)
+4. [Closest Room](https://leetcode.com/problems/closest-room/description/)
+5. [Random Pick with Blacklist](https://leetcode.com/problems/random-pick-with-blacklist/description/)
 
 
 
@@ -157,7 +194,7 @@ The concept of searching emerged unknown-long time ago and primarily attributed 
 
 
 # &#129309; Contributing
-Unfortunately, I couldn't find much information about how to design or to analyze the search algorithms. If anyone reading this can suggest a helpful resource where I can learn about it more, I would be extremely grateful for that! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
+Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

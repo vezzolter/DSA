@@ -85,18 +85,17 @@ The foundational sorting techniques, many of which were developed in the early d
 ## Pitfalls and Optimizations
 When selecting or using a sorting algorithm, it’s not just about picking the most efficient one; you need to consider how it will perform in various real-world scenarios. While an algorithm might work well in simple cases, unforeseen issues can arise in more complex situations, potentially leading to significant problems later on. To avoid these pitfalls and uncover optimization opportunities, it’s essential to think critically about several factors before deciding on an algorithm. Additionally, each algorithm may have its own distinct things to consider.
 
-
-- **Data Distribution** — what is the most likely distribution of your data? How will the algorithm handle best, average, and worst-case scenarios?
-- **Data Size** — how large is the dataset? Will you need to consider external sorting methods for very large datasets?
-- **Data Type** — is the data type compatible with the algorithm? Will the algorithm handle all data types flawlessly?
-- **Empty Collection** — how does the algorithm behave when sorting an empty collection?
-- **Sorted Order** — what happens if the collection is already sorted? Will the algorithm recognize this and optimize its process?
-- **Single Element** — how does the algorithm handle a single-element collection?
-- **Duplicate Elements** — how does the algorithm manage collections with many duplicate elements? Does it maintain stability?
-- **Parallelization** — can the algorithm be parallelized effectively? Does it need to be?
-- **Input Validation** — how does the algorithm handle invalid inputs? Does it fail gracefully or crash unexpectedly?
-- **Pathological Cases** — how does the algorithm perform in worst-case scenarios, and can you mitigate those risks?
-- **Combining Algorithms** — is it beneficial to combine this algorithm with others, perhaps using a hybrid approach to improve performance or reliability?
+- **Data Distribution** — how is your data distributed? Some sorting algorithms perform well with uniform distributions but may struggle with skewed or irregular distributions. Understanding your data's distribution can help you choose an algorithm that handles both the best and worst-case scenarios effectively.
+- **Data Size** — how large is the dataset? Smaller datasets might benefit from simpler algorithms, while larger datasets may require more efficient methods or even external sorting techniques. Consider the trade-offs between time complexity and memory usage as the data size grows.
+- **Data Type** — is the sorting algorithm compatible with your data type? Some algorithms may not handle all data types equally well, and certain data structures might impose additional constraints. Ensure that your chosen algorithm can sort your data accurately and efficiently.
+- **Empty Collection** — how does the algorithm behave when sorting an empty collection? Handling edge cases like empty collections gracefully is important to prevent unexpected errors or crashes in your application.
+- **Sorted Order** — what happens if the collection is already sorted? Some sorting algorithms can optimize their process when the data is already in order, reducing unnecessary operations. Choosing an algorithm that can detect and take advantage of sorted data can improve performance.
+- **Single Element** — how does the algorithm handle a collection with only one element? While this might seem trivial, ensuring that your sorting algorithm efficiently handles single-element collections without unnecessary overhead is crucial for maintaining performance.
+- **Duplicate Elements** — how does the algorithm manage collections with many duplicate elements? Stability and efficiency are key when dealing with duplicates, so consider whether your algorithm preserves the relative order of equal elements and handles duplicates without degrading performance.
+- **Parallelization** — can the algorithm be parallelized to improve performance on large datasets? Some sorting algorithms lend themselves well to parallelization, which can significantly reduce sorting time in multi-core or distributed environments.
+- **Input Validation** — how robust is the algorithm in handling invalid inputs? Ensuring that your sorting algorithm fails gracefully rather than crashing unexpectedly is important for reliability, especially in production environments.
+- **Pathological Cases** — how does the algorithm perform in worst-case scenarios? Analyzing the worst-case time complexity and mitigating those risks through hybrid approaches or optimizations can prevent performance bottlenecks.
+- **Combining Algorithms** — is there value in combining this algorithm with others? In some cases, using a hybrid approach can optimize performance by leveraging the strengths of multiple sorting algorithms, depending on the data and context.
 
 
 ## Implemented Algorithms
