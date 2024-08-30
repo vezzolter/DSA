@@ -50,7 +50,10 @@ Algorithm is highly depended on choosing correct parameters in order to elicit a
 
 
 ## Algorithm Steps
-Currently in Progress...
+1. Define parameters according to the chosen criteria.
+2. Use the formula to generate the pseudo-random number.
+3. Update the seed for the next iteration ($X_n\text{ to }X_{n+1}$).
+4. Repeat this process to generate required amount of numbers.
 
 
 
