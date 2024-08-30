@@ -58,19 +58,56 @@ Algorithm is highly depended on choosing correct parameters in order to elicit a
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program initializes an array with specified integers, prompts the user to enter the value of a target element, performs a search using the interpolation search algorithm. It then displays the result, indicating whether the search was successful (element found) or not (element not found).
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Using fixed seed value to ensure reproducible results.
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
+- Choosing range values that are easily interpretable by humans ($0-100$).
+- Limiting the number of elements to relatively small ($10$).
 
 
 ## Complete Implementation
-Currently in Progress...
+PRNG is implemented within the function `lcg()` (and parameters as global variables), which is declared in `LCG.h` header file and defined in `LCG.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+const unsigned long long a = 1664525;          // Multiplier
+const unsigned long long c = 1013904223;       // Increment
+const unsigned long long m = 4294967296;       // Modulus (2^32)
+unsigned long long seed = 12345;               // Initial seed
+
+unsigned long long lcg() {
+    seed = (a * seed + c) % m;
+    return seed;
+}
+```
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+1. Begin by setting up the necessary parameters for the LCG.
+```cpp
+  const unsigned long long a = 1664525;          // Multiplier
+  const unsigned long long c = 1013904223;       // Increment
+  const unsigned long long m = 4294967296;       // Modulus (2^32)
+  unsigned long long seed = 12345;               // Initial seed
+```
+2. Use the LCG formula to transform the seed into a pseudo-random number. This step not only produces the next number in the sequence but also updates the seed, ensuring it’s ready for generating the subsequent value in the next iteration.
+```cpp
+  seed = (a * seed + c) % m;
+```
+3. The resulting value from the LCG formula is returned. While this value alone might not be directly useful, it serves as the foundation for further modifications or range adjustments. The core algorithm effectively ends here.
+```cpp
+  return seed;
+```
+4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the LCG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
+```cpp
+	for (int i = 0; i < numbers; i++)
+		std::cout << " " << i + 1 << ":\t" << (minVal + (lcg() % (maxVal - minVal + 1))) << std::endl;
+```
 
 
 

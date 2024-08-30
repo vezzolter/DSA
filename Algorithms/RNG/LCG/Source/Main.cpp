@@ -18,19 +18,18 @@ int main() {
 	std::cout << "Specify the amount of numbers to generate: ";
 	int numbers = 0;
 	std::cin >> numbers;
-	std::cout << "Specify the amount of digits in numbers: ";
-	int digits = 0;
-	std::cin >> digits;
-	std::cout << "Specify the seed for generation: ";
-	int seed = 0;
-	std::cin >> seed;
+	std::cout << "Specify the minimum value: ";
+	int minVal = 0;
+	std::cin >> minVal;
+	std::cout << "Specify the maximum value: ";
+	int maxVal = 0;
+	std::cin >> maxVal;
 
-	// Generate random numbers
-	std::cout << "\nGenerating " << numbers << " random " << digits << "-digit numbers...\n";
-	for (int i = 0; i < numbers; ++i) {
-		int randomNumber = lcg();
-		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
-		seed = randomNumber; // Step 4: Use extracted digits as the new seed value.
+	// Generate random numbers within the user-defined range
+	std::cout << "\nGenerating " << numbers << " random numbers between " << minVal << " and " << maxVal << "...\n";
+	for (int i = 0; i < numbers; i++) {
+		//int randomValue = minVal + (lcg() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" << minVal + (lcg() % (maxVal - minVal + 1)) << std::endl;
 	}
 	std::cout << std::endl;
 

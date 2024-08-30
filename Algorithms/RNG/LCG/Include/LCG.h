@@ -7,7 +7,7 @@
 #define LCG_H
 
 
-int lcg();
+unsigned long long lcg();
 
 
 #endif // LCG_H
