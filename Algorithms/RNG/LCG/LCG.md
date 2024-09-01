@@ -138,7 +138,11 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The development of electronic computing spurred innovations like **Derrick Henry Lehmer's** **1949** Lehmer generator, a precursor to the LCG, which utilized modular arithmetic to create reproducible random sequences. In **1958**, **W. E. Thomson** and **A. Rotenberg** formalized the LCG, providing a simple yet effective tool that could be easily implemented on early computers. This advancement was crucial at a time when computational resources were limited, and there was a growing need for efficient, repeatable random number generation in areas like statistical simulations, cryptography, and algorithm testing. While modern advancements have introduced more sophisticated algorithms, the LCG remains significant for its simplicity and historical importance, serving as a key step in the evolution of random number generation in computing.
+
+
+
+
 
 
 
@@ -153,6 +157,11 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
+&#128218; **Books:**
+- **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Section 3.2.1: Linear Congruential Method
+
+---
 &#127760; **Web-Resources:**  
 - [Linear congruential generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)
 
