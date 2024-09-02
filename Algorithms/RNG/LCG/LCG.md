@@ -12,7 +12,6 @@
   - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
-  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -38,7 +37,7 @@ Where:
 
 
 ## Important Details
-Algorithm is highly depended on choosing correct parameters in order to elicit a great sequence in terms of randomness:
+1. Algorithm is highly depended on choosing correct parameters in order to elicit a great sequence in terms of randomness:
    - $m$ typically should be a power of $2$, because it allows for efficient computation using bitwise operations and covers the entire possible value set for typical data type like 32-bit or 64-bit integers.  
    E.g. $m = 2^{32} = 4294967296$; $m = 2^{64} = 18446744073709551616$.
 
@@ -47,6 +46,10 @@ Algorithm is highly depended on choosing correct parameters in order to elicit a
 
    - $c$ should be relatively prime to $m$, because if $c$ and $m$ share a common factor greater than $1$, the sequence could become trapped in a small subset of possible values, repeating more frequently and failing to achieve a full period.   
    E.g. $c = 1013904223$, $c = 1442695040888963407$.
+2. The term _«multiplicative»_ congruential method is often used to refer to sequences where $c = 0$, while the term _«mixed»_ congruential method applies where $c \neq 0$.
+
+
+> **Note:** For detailed guidance on picking the right values for the parameters, I recommend referring to «The Art of Computer Programming, Volume 2: Seminumerical Algorithms» by D. E. Knuth.
 
 
 ## Algorithm Steps
@@ -112,37 +115,29 @@ unsigned long long lcg() {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Will be updated in future...
 
 
 ## Algorithm Characteristics
-Currently in Progress...
+Will be updated in future...
 
 
 ## Algorithm Comparison
-Currently in Progress...
+Will be updated in future...
 
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. 
 
 
 ## Common Use Cases
-Currently in Progress...
-
-
-## Some Practical Problems
-Currently in Progress...
+- **Basic Randomness Generation** — algorithm is primarily used in situations where just enough randomness is needed for non-critical parts of an application. Its simple implementation and sufficient efficiency make it ideal for simulating random behavior or generating varied outputs without the overhead of more complex algorithms.
 
 
 
 # &#x1F559; Origins
 The development of electronic computing spurred innovations like **Derrick Henry Lehmer's** **1949** Lehmer generator, a precursor to the LCG, which utilized modular arithmetic to create reproducible random sequences. In **1958**, **W. E. Thomson** and **A. Rotenberg** formalized the LCG, providing a simple yet effective tool that could be easily implemented on early computers. This advancement was crucial at a time when computational resources were limited, and there was a growing need for efficient, repeatable random number generation in areas like statistical simulations, cryptography, and algorithm testing. While modern advancements have introduced more sophisticated algorithms, the LCG remains significant for its simplicity and historical importance, serving as a key step in the evolution of random number generation in computing.
-
-
-
-
 
 
 
@@ -160,6 +155,11 @@ For contact details and additional information, please refer to the [root direct
 &#128218; **Books:**
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 3.2.1: Linear Congruential Method
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 10.4.1: Random-Number Generators
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 13.7: Random Number Generation
+
 
 ---
 &#127760; **Web-Resources:**  
