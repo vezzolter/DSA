@@ -1,4 +1,5 @@
 # &#128209; Table of Contents
+- [� Table of Contents](#-table-of-contents)
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
@@ -8,10 +9,9 @@
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
-  - [Algorithm Characteristics](#algorithm-characteristics)
-  - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -117,22 +117,23 @@ unsigned long long lcg() {
 # &#128202; Analysis
 Will be updated in future...
 
-
-## Algorithm Characteristics
-Will be updated in future...
-
-
-## Algorithm Comparison
-Will be updated in future...
+> **Note:** I'm currently considering how to best structure this section, as it involves several characteristics that I find intriguing to explore, such as period, distribution, predictability, and correlation.
 
 
 
 # &#128221; Application
-Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. 
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. While there aren’t specific problems designed to practice this exact approach, the concept of randomness it implements is essential for solving many foundational challenges that test the core idea of randomness itself, applicable across various algorithms. 
 
 
 ## Common Use Cases
 - **Basic Randomness Generation** — algorithm is primarily used in situations where just enough randomness is needed for non-critical parts of an application. Its simple implementation and sufficient efficiency make it ideal for simulating random behavior or generating varied outputs without the overhead of more complex algorithms.
+
+
+## Some Practical Problems
+- Constrained and Unconstrained Optimization
+- Generating Permutations
+- Generating Subsets
+- Generating Partitions
 
 
 

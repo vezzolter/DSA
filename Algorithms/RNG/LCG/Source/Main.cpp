@@ -27,10 +27,8 @@ int main() {
 
 	// Generate random numbers within the user-defined range
 	std::cout << "\nGenerating " << numbers << " random numbers between " << minVal << " and " << maxVal << "...\n";
-	for (int i = 0; i < numbers; i++) {
-		//int randomValue = minVal + (lcg() % (maxVal - minVal + 1));
-		std::cout << " " << i + 1 << ":\t" << minVal + (lcg() % (maxVal - minVal + 1)) << std::endl;
-	}
+	for (int i = 0; i < numbers; i++)
+		std::cout << " " << i + 1 << ":\t" << (minVal + (lcg() % (maxVal - minVal + 1))) << std::endl;
 	std::cout << std::endl;
 
 	// Exit
