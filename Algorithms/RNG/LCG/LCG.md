@@ -1,5 +1,4 @@
 # &#128209; Table of Contents
-- [� Table of Contents](#-table-of-contents)
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
@@ -21,7 +20,7 @@
 
 
 # &#128161; Overview
-The **Linear Congruential Generator (LCG)** is a simple, pretty deterministic and widely used algorithm for generating pseudo-random numbers. The name of it  derives from its core operation, which involves a linear congruence equation to produce the next number in the sequence. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **Linear Congruential Generator (LCG)** is a simple, pretty deterministic and widely used algorithm for generating pseudo-random numbers. The name of it derives from its core operation, which involves a linear congruence equation to produce the next number in the sequence. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/LCG.png"/></p>
 
 
@@ -160,7 +159,6 @@ For contact details and additional information, please refer to the [root direct
   - Section 10.4.1: Random-Number Generators
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
   - Section 13.7: Random Number Generation
-
 
 ---
 &#127760; **Web-Resources:**  

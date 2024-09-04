@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with ✅, currently paused ones with 🔄 and the main target under development with 🎯. The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «$?$». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 ---
 **The Structure:**
@@ -41,20 +41,20 @@ This list provides a straightforward overview of the repository's contents. For 
     - Jump Search (?)
   - RNG
     - [RNG.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/RNG.md) 🎯
-    - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/RNG/MiddleSquareMethod) ✅
-    - [LCG (Linear Conguential Generator)](https://github.com/vezzolter/DSA/tree/main/RNG/LCG)  ✅
-    - PCG (Permuted Congruential Generator)
+    - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MiddleSquareMethod) ✅
+    - [LCG (Linear Conguential Generator)](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/LCG)  ✅
     - Mersenne Twister
     - Xorshift
-    - Xoshiro128 
+    - PCG (Permuted Congruential Generator) (?)
+    - Xoshiro128 (?)
   - Recursion
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
   - Divide-and-Conquer
     - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
-    - Karatsuba Algorithm
     - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
+    - Karatsuba Algorithm
   - Two-Pointer
   - Sliding Window
   - Bit Manipulation
@@ -158,18 +158,10 @@ As my educational journey progresses, I may discover new areas of interest withi
 
 ---
 **Backlog:**
-1. Separate «particular implementations» from «general»: 
-   - Separate arrays from array.
-   - Separate lists from list.
-   - Separate queues from queue.
-   - Fix doc for trees and bst.
-2. Create iterator classes for data structures:
-   - Arrays
-   - Lists
-   - Stack
-   - Queue
-   - BST
-3. Decide what to do with operations (e.g. explain all in text/code or merely describe).
+1. Data structures: Separate «particular implementations» from «general», i.e. there could be one file, even though the data structures can be multiple, like one markdown file for array, but none for dynamic or static.
+2. Data structures: Create iterator classes even though it can add complexity overall the usage would be practical.
+3. Data structures: Decide what to do with operations, i.e. explain all operations explicitly or merely describe.
+4. Algorithms: Decide how to structure analysis section of the RNG - it has interesting characteristics to test out: period, distribution, predictability, etc.
 
 
 
