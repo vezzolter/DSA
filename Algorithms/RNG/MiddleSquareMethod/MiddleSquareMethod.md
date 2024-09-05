@@ -35,9 +35,9 @@ E.g. $seed = 3792$; $seed = 8256$.
 
 
 ## Algorithm Steps
-1. Choose an initial seed value, which is typically a number with multiple digits.
+1. Choose an initial seed value.
 2. Square the seed value to get a larger number.
-3. Extract a middle portion of digits from the result, typically with the same amount of digits as seed has.
+3. Extract a middle portion of digits from the result (typically with the same amount of digits as seed has).
 4. Use extracted digits as the new seed value.
 5. Repeat this process to generate required amount of numbers.
 
@@ -51,55 +51,48 @@ The program prompts the user to enter the required amount of numbers, digits and
 ## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Using fixed seed value to ensure reproducible results.
-- Assuming valid input values from the user.
-- Utilizing only raw generated elements.
-- Omitting certain optimizations to the algorithm.
+- Choosing range values that are easily interpretable by humans ($0-100$).
 - Limiting the number of elements to relatively small ($10$).
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
 PRNG algorithm implemented within the function `middleSquareMethod()`, which is declared in `MiddleSquareMethod.h` header file and defined in `MiddleSquareMethod.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
-int middleSquareMethod(int seed, int digits) {
-    long long squared = static_cast<long long>(seed) * seed;
-
-    // Extract the middle digits
-    int power = 1;
-    for (int i = 0; i < digits; ++i)
-        power *= 10;
-    int shift = (digits % 2 == 0) ? digits / 2 : (digits + 1) / 2;
-    int randomNumber = (squared / static_cast<long long>(pow(10, shift - 1))) % power;
-
-    return randomNumber;
-}
-
-// Generate random numbers
-std::cout << "\nGenerating " << numbers << " random " << digits << "-digit numbers...\n";
-for (int i = 0; i < numbers; ++i) {
-	int randomNumber = middleSquareMethod(seed, digits);
-	std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
-	seed = randomNumber; // Step 4: Use extracted digits as the new seed value.
+unsigned long long middleSquareMethod() {
+  unsigned long long squared = seed * seed;
+  int power = static_cast<int>(pow(10, digits));
+  int shift = digits / 2;
+  unsigned long long randomNumber = (squared / static_cast<unsigned long long>(pow(10, shift))) % power;
+  seed = randomNumber;
+  return randomNumber;
 }
 ```
 
 ## Detailed Walkthrough
-1. Calculate teh square of the seed value. Since the result of multiplying two int values could overflow, the seed is cast to a long long before multiplication to ensure that the result fits in the data type.
+1. The first step is to square the current seed. Since squaring can result in large numbers that may overflow, the seed is cast to unsigned long long before multiplication to ensure the result fits in the data type.
 ```cpp
-  long long squared = static_cast<long long>(seed) * seed;
+  unsigned long long squared = seed * seed;
 ```
-2. The most tricky part is extracting middle digits. Because of the conditional logic, that the number of digits to extract depends on whether the total number of digits is even or odd, it can be implemented differently for different needs, or excessively complicated to be a good "one-size-fits-all". Nevertheless, current implementation merely do the basics and have lots of troubles if you try to find them.
+2. The key challenge of the middle-square method is extracting the middle digits. The number of digits extracted depends on the total number of digits in the squared value, with adjustments based on whether the digit count is even or odd. The current implementation uses basic logic, and while it serves most basic use cases, it could be adapted or optimized for specific requirements. The digit extraction is straightforward, but edge cases may introduce issues if not handled carefully.
 ```cpp
-  int power = 1;
-  for (int i = 0; i < digits; ++i)
-      power *= 10;
-  int shift = (digits % 2 == 0) ? digits / 2 : (digits + 1) / 2;
-  int randomNumber = (squared / static_cast<long long>(pow(10, shift - 1))) % power;
+  int power = static_cast<int>(pow(10, digits));
+  int shift = digits / 2;
+  unsigned long long randomNumber = (squared / static_cast<unsigned long long>(pow(10, shift))) % power;
 ```
-3. In the end, the new seed is returned, which can be used later in code to recreate a Middle-Square Method.
+3. After extracting the middle digits, the new value becomes the updated seed, which is stored for future iterations. This new seed is returned for further use in the next iteration.
 ```cpp
+  seed = randomNumber;
   return randomNumber;
 ```
+4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the PRNG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
+```cpp
+	for (int i = 0; i < numbers; i++)
+		std::cout << " " << i + 1 << ":\t" << (minVal + (middleSquareMethod() % (maxVal - minVal + 1))) << std::endl;
+```
+
 
 
 # &#128202; Analysis

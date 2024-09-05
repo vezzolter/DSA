@@ -1,8 +1,13 @@
-// Header file for middle-square method algorithm.
+// Header file for middle-square method
 // by vezzolter
 // March 21, 2024
 
-#pragma once
+
+#ifndef MSM_H
+#define MSM_H
 
 
-int middleSquareMethod(int seed, int digits);
+unsigned long long middleSquareMethod();
+
+
+#endif //MSM_H

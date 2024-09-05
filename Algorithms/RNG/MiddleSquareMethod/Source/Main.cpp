@@ -1,9 +1,10 @@
-// Middle-Square Method Simplified Implementation
+// Middle-Square Method
 // by vezzolter
 // March 21, 2024
 //
 // This C++ project demonstrates the simplified implementation of a 
-// random number generation using the PRNG named Middle-Square Method.
+// random number generation using the PRNG named Middle-Square Method
+
 
 #include <iostream>
 #include "MiddleSquareMethod.h"
@@ -13,29 +14,21 @@ int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Middle-Square Method' console application!\n\n";
 
-	//// Preliminaries for testing
-	//int numbers = 100;
-	//int digits = 5;
-	//int seed = 12345;
-
 	// Prompt user for input
 	std::cout << "Specify the amount of numbers to generate: ";
 	int numbers = 0;
 	std::cin >> numbers;
-	std::cout << "Specify the amount of digits in numbers: ";
-	int digits = 0;
-	std::cin >> digits;
-	std::cout << "Specify the seed for generation: ";
-	int seed = 0;
-	std::cin >> seed;
+	std::cout << "Specify the minimum value: ";
+	int minVal = 0;
+	std::cin >> minVal;
+	std::cout << "Specify the maximum value: ";
+	int maxVal = 0;
+	std::cin >> maxVal;
 
-	// Generate random numbers
-	std::cout << "\nGenerating " << numbers << " random " << digits << "-digit numbers...\n";
-	for (int i = 0; i < numbers; ++i) {
-		int randomNumber = middleSquareMethod(seed, digits);
-		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
-		seed = randomNumber; // Step 4: Use extracted digits as the new seed value.
-	}
+	// Generate random numbers within the user-defined range
+	std::cout << "\nGenerating " << numbers << " random numbers between " << minVal << " and " << maxVal << "...\n";
+	for (int i = 0; i < numbers; i++)
+		std::cout << " " << i + 1 << ":\t" << (minVal + (middleSquareMethod() % (maxVal - minVal + 1))) << std::endl;
 	std::cout << std::endl;
 
 	// Exit
