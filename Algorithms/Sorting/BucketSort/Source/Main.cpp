@@ -1,6 +1,6 @@
 // Bucket Sort
 // by vezzolter
-// August 03, 2024
+// August 3, 2024
 //
 // This C++ project demonstrates the simplified implementation of a Bucket Sort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.

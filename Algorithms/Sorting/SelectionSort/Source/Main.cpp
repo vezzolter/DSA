@@ -1,8 +1,10 @@
-// Selection Sort Implementation
+// Selection Sort
 // by vezzolter
 // February 28, 2024
 //
-// This C++ project demonstrates the implementation of selection sort algorithm.
+// This C++ project demonstrates the simplified implementation of a Selection Sort algorithm.
+// It illustrates the concept via utilizing a small array of integers as the collection.
+
 
 #include <iostream>
 #include "SelectionSort.h"

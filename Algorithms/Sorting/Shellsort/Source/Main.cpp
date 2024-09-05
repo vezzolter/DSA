@@ -1,6 +1,6 @@
 // Shellsort
 // by vezzolter
-// August 09, 2024
+// August 9, 2024
 //
 // This C++ project demonstrates the simplified implementation of a Shellsort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.

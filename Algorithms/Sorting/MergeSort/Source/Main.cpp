@@ -2,7 +2,7 @@
 // by vezzolter
 // March 31, 2024
 //
-// This C++ project demonstrates the simplified implementation of a merge sort algorithm. 
+// This C++ project demonstrates the simplified implementation of a Merge Sort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.
 
 

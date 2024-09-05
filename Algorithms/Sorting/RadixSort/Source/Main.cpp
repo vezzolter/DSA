@@ -2,7 +2,7 @@
 // by vezzolter
 // July 15, 2024
 //
-// This C++ project demonstrates the simplified implementation of a radix sort algorithm. 
+// This C++ project demonstrates the simplified implementation of a Radix Sort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.
 
 

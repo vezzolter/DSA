@@ -1,6 +1,6 @@
 // Header file for Bucket Sort
 // by vezzolter
-// August 03, 2024
+// August 3, 2024
 
 
 #ifndef BUCKETSORT_H

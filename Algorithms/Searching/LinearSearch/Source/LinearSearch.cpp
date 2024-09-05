@@ -1,6 +1,7 @@
-// Source file for selection sort algorithm.
+// Source file for Linear Search
 // by vezzolter
 // March 9, 2024
+
 
 #include "LinearSearch.h"
 

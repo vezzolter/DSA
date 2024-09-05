@@ -1,6 +1,6 @@
 // Source file for Shellsort
 // by vezzolter
-// August 09, 2024
+// August 9, 2024
 
 
 #include "Shellsort.h"

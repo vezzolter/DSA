@@ -1,7 +1,13 @@
-// Header file for selection sort algorithm.
+// Header file for Selection Sort
 // by vezzolter
 // February 28, 2024
 
-#pragma once
+
+#ifndef SELECTIONSORT_H
+#define SELECTIONSORT_H
+
 
 void selectionSort(int arr[], int size);
+
+
+#endif // SELECTIONSORT_H

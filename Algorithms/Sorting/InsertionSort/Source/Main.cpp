@@ -1,8 +1,10 @@
-// Insertion Sort Implementation
+// Insertion Sort
 // by vezzolter
 // February 18, 2024
 //
-// This C++ project demonstrates the implementation of insertion sort algorithm.
+// This C++ project demonstrates the simplified implementation of Insertion Sort algorithm.
+// It illustrates the concept via utilizing a small array of integers as the collection.
+
 
 #include <iostream>
 #include "InsertionSort.h"

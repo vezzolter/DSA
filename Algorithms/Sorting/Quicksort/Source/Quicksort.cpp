@@ -1,6 +1,7 @@
-// Source file for Quicksort (Hoare Scheme).
+// Source file for Quicksort (Hoare Scheme)
 // by vezzolter
 // April 6, 2024
+
 
 #include "Quicksort.h"
 

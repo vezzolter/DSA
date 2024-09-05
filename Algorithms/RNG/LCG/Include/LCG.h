@@ -1,6 +1,6 @@
 // Header file for LCG
 // by vezzolter
-// August 22, 2024
+// August 28, 2024
 
 
 #ifndef LCG_H

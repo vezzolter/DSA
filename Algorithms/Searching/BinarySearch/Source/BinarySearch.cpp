@@ -1,6 +1,7 @@
-// Source file for binary search algorithm.
+// Source file for Binary Search
 // by vezzolter
 // March 17, 2024
+
 
 #include "BinarySearch.h"
 

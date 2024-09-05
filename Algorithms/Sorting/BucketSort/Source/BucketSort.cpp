@@ -1,12 +1,11 @@
 // Source file for Bucket Sort
 // by vezzolter
-// August 03, 2024
+// August 3, 2024
 
 
 #include <vector>
 #include <algorithm> // sort();
 #include <cmath>     // sqrt(); ceil();
-
 #include "BucketSort.h"
 
 

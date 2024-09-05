@@ -2,7 +2,7 @@
 // by vezzolter
 // June 1, 2024
 //
-// This C++ project demonstrates the simplified implementation of a heapsort algorithm. 
+// This C++ project demonstrates the simplified implementation of a Heapsort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.
 
 

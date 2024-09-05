@@ -61,6 +61,9 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 PRNG algorithm implemented within the function `middleSquareMethod()`, which is declared in `MiddleSquareMethod.h` header file and defined in `MiddleSquareMethod.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
+unsigned long long seed = 12345;
+const int digits = 4;
+
 unsigned long long middleSquareMethod() {
   unsigned long long squared = seed * seed;
   int power = static_cast<int>(pow(10, digits));
@@ -111,7 +114,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-- There is no need to practice it
+- None
 
 
 

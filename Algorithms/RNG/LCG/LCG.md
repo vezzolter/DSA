@@ -67,10 +67,10 @@ The program initializes an array with specified integers, prompts the user to en
 ## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Using fixed seed value to ensure reproducible results.
-- Assuming valid input values from the user.
-- Omitting certain optimizations to the algorithm.
 - Choosing range values that are easily interpretable by humans ($0-100$).
 - Limiting the number of elements to relatively small ($10$).
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation

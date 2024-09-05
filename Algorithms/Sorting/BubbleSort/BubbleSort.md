@@ -59,20 +59,15 @@ Sorting algorithm implemented within the function `bubbleSort()`, which is decla
 			bool swapped = false; 
 
 			for (int j = 0; j < size - i - 1; j++) {
-				// For descending order: arr[j] < arr[j + 1]
 				if (arr[j] > arr[j + 1]) {
-					// Can be optimized via swap
 					int temp = arr[j];
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
-
 					swapped = true;
 				}
 			}
 
-			if (!swapped) {
-				break;
-			}
+			if (!swapped) { break; }
 		}
 	}
 ```
@@ -93,21 +88,16 @@ Sorting algorithm implemented within the function `bubbleSort()`, which is decla
 ```
 4. Next, we compare the current element with the next one. If their order is incorrect, we swap the elements and update the indicator state; if their order is correct, we skip these actions. This process can be optimized by swapping elements, not copying.
 ```cpp
-	// For descending order: arr[j] < arr[j + 1]
 	if (arr[j] > arr[j + 1]) {
-		// Can be optimized via swap
 		int temp = arr[j];
 		arr[j] = arr[j + 1];
 		arr[j + 1] = temp;
-
 		swapped = true;
 	}
 ```
 5. Finally, after completing a pass through the collection, we check if any swaps were made. If no swaps were made, it indicates that the elements are already sorted, and we can exit the loop.
 ```cpp
-	if (!swapped) {
-		break;
-	}
+	if (!swapped) { break; }
 ```
 
 

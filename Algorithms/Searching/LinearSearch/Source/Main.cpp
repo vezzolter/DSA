@@ -1,9 +1,10 @@
-// Linear Search Simplified Implementation
+// Linear Search
 // by vezzolter
 // March 9, 2024
 //
-// This C++ project demonstrates the simplified implementation of a linear search algorithm
-// illustrated with an example using a small static array of integers as the collection.
+// This C++ project demonstrates the simplified implementation of a Linear Search algorithm.
+// It is illustrated with an example using a small static array of integers as the collection.
+
 
 #include <iostream>
 #include "LinearSearch.h"

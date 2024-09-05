@@ -1,9 +1,9 @@
 // LCG (Linear Congruential Generator)
 // by vezzolter
-// March 21, 2024
+// August 28, 2024
 //
 // This C++ project demonstrates the simplified implementation of a 
-// random number generation using the PRNG named Linear Congruential Generator.
+// random number generation using the PRNG named Linear Congruential Generator
 
 
 #include <iostream>

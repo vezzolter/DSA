@@ -1,4 +1,4 @@
-// Header file for Radix sort
+// Header file for Radix Sort
 // by vezzolter
 // July 15, 2024
 

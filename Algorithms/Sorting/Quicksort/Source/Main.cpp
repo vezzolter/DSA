@@ -1,8 +1,8 @@
 // Quicksort (Hoare Scheme)
 // by vezzolter
-// April 5, 2024
+// April 6, 2024
 //
-// This C++ project demonstrates the simplified implementation of a quicksort algorithm. 
+// This C++ project demonstrates the simplified implementation of a Quicksort algorithm. 
 // It illustrates the concept via utilizing a small array of integers as the collection.
 
 

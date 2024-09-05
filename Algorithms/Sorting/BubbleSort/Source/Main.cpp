@@ -1,8 +1,10 @@
-// Bubble Sort Implementation
+// Bubble Sort
 // by vezzolter
 // February 25, 2024
 //
 // This C++ project demonstrates the implementation of bubble sort algorithm.
+// It illustrates the concept via utilizing a small array of integers as the collection.
+
 
 #include <iostream>
 #include "BubbleSort.h"

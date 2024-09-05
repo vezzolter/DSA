@@ -1,4 +1,4 @@
-// Source file for Radix sort
+// Source file for Radix Sort
 // by vezzolter
 // July 15, 2024
 

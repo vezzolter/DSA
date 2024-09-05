@@ -1,4 +1,4 @@
-// Source file for Merge Sort.
+// Source file for Merge Sort
 // by vezzolter
 // March 31, 2024
 

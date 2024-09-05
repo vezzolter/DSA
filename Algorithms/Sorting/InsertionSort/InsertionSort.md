@@ -57,10 +57,9 @@ Sorting algorithm implemented within the function `insertionSort()` is declared 
 		for (int unsorted = 1; unsorted < size; unsorted++) {
 			int current = arr[unsorted];
 
-			int sorted = unsorted - 1; // start from the end of sorted part
-      // For descending order: arr[sorted] < current
+			int sorted = unsorted - 1;
 			while (sorted >= 0 && arr[sorted] > current) {
-				arr[sorted + 1] = arr[sorted]; // can be optimized via swap
+				arr[sorted + 1] = arr[sorted];
 				sorted = sorted - 1;
 			}
 			arr[sorted + 1] = current;
@@ -80,16 +79,15 @@ Sorting algorithm implemented within the function `insertionSort()` is declared 
 ```
 3. Initialize the iterator of the sorted part to the last element of it.
 ```cpp
-	int sorted = unsorted - 1; // start from the end of sorted part
+	int sorted = unsorted - 1;
 ```
 4. Iterate over sorted part from the end of it and compare selected element with sorted elements.  Continue this process until either beginning is reached or the selected element becomes lower than comparing one.
 ```cpp
-	// For descending order: arr[sorted] < current
 	while (sorted >= 0 && arr[sorted] > current) {
 ```
 5. If the selected element is lower than the compared element, shift the compared element to the right and move iterator to the next. This process can be optimized by swapping elements, not copying.
 ```cpp
-	arr[sorted + 1] = arr[sorted]; // can be optimized via swap
+	arr[sorted + 1] = arr[sorted];
 	sorted = sorted - 1;
 ```
 6. Assign the selected element to its correct position. If selected element was higher than all the sorted, it is placed to right of the highest sorted, otherwise `sorted` iterator should be pointing to the next comparing element (thats why + 1).

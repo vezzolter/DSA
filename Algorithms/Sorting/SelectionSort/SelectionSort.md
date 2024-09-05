@@ -59,13 +59,11 @@ void selectionSort(int arr[], int size) {
 
 		int min = i;
 		for (int j = i + 1; j < size; j++) {
-			// Descending: arr[j] > arr[min]
 			if (arr[j] < arr[min]) {
 				min = j;
 			}
 		}
 
-		// Can be optimized via swap
 		if (min != i) {
 			int temp = arr[i];
 			arr[i] = arr[min];
@@ -88,7 +86,6 @@ void selectionSort(int arr[], int size) {
 3. Iterate over the remaining unsorted elements to determine if there is a lower value, by comparing value of current minimum element with the rest of remaining unsorted elements. By starting at `j = i + 1`, we ensure that we don't compare the already previously selected element with itself.
 ```cpp
 	for (int j = i + 1; j < size; j++) {
-		// Descending: arr[j] > arr[min]
 		if (arr[j] < arr[min]) {
 			min = j;
 		}
@@ -96,7 +93,6 @@ void selectionSort(int arr[], int size) {
 ```
 4. Swap the selected minimum element with the first element from the unsorted part if they are different. While this check provides more 'adaptive' behavior, the overall adaptability of the algorithm doesn't change, because the number of comparisons, which mostly contribute to the time complexity, stays the same.
 ```cpp
-	// Can be optimized via swap
 	if (min != i) {
 		int temp = arr[i];
 		arr[i] = arr[min];
