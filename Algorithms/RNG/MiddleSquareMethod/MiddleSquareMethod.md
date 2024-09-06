@@ -114,7 +114,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-- None
+- Refer to RNG's practical problems
 
 
 

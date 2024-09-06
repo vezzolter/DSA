@@ -129,10 +129,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-- Constrained and Unconstrained Optimization
-- Generating Permutations
-- Generating Subsets
-- Generating Partitions
+- Refer to RNG's practical problems
 
 
 

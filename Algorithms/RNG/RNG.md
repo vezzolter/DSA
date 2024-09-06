@@ -25,7 +25,6 @@
 <p align="center"><img src="./Images/RNG.png"/></p>
 
 
-
 ## Essential Terminology
 - **Randomness** — typically refers to the quality of unpredictability or lack of tracing pattern.
    - **Random Numbers** — is a sequence of numbers, where each number was obtained by chance, having nothing to do with other number of the sequence.
@@ -91,20 +90,28 @@ Currently in Progress...
 Understanding some of the most well-known use cases of a concept is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with practical problems and practicing their solutions ensures that you retain essential details and develop a deep, intuitive understanding of the concept's capabilities and limitations.
 
 
+
 ## Common Use Cases
-- Simulation
-- Sampling
-- Numerical Analysis
-- Computer Programming
-- Decision Making
-- Aesthetics
-- Recreation
-- Cryptography
-- Gaming
+- **Simulations and Modeling** — RNG is used in simulating real-world systems where randomness is a key factor, such as weather forecasting, population studies, or financial modeling. RNG provides the necessary variability to replicate unpredictable behaviors in these complex systems.
+- **Cryptography and Security** — RNG is used for generating cryptographic keys, tokens, and other security mechanisms to ensure unpredictability in protecting sensitive data and communications. Secure random numbers are crucial for making cryptographic processes resistant to attacks.
+- **Gaming and Procedural Generation** — RNG is used for creating dynamic, unpredictable game elements such as random levels, enemy behavior, or loot drops. RNG adds variability and replayability, ensuring that no two game experiences are the same.
+- **Load Testing and Performance Benchmarking** — RNG is used to generate random inputs or requests for load testing systems to assess stability, reliability, and scalability under varied conditions. The randomness helps simulate real-world user patterns, ensuring comprehensive stress tests.
+- **Sampling and Statistical Analysis** — RNG is used to select random samples from larger datasets, ensuring that the results are representative and unbiased in statistical analysis and data science. This randomness ensures the integrity and fairness of data sampling for accurate results.
+
 
 
 ## Some Practical Problems
-Currently in Progress...
+- Simulate a dice roll
+- Generate a random 6-digit OTP
+- Randomly shuffle an array
+- Generate random boolean values
+- Estimate Pi using a Monte Carlo simulation by generating random points inside a square
+- Apply randomized QuickSort by randomly selecting the pivot
+- Simulate a 2D random walk on a grid
+- Use simulated annealing to find an optimal solution
+- Implement Prim’s algorithm with random node selection for the Minimum Spanning Tree
+- Create a cryptographically secure random number generator using an AES-based approach
+- Implement the randomized Min-Cut algorithm by randomly merging edges to find the minimum cut
 
 
 
