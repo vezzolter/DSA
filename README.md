@@ -43,7 +43,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [RNG.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/RNG.md) 🎯
     - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MiddleSquareMethod) ✅
     - [LCG (Linear Conguential Generator)](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/LCG)  ✅
-    - Mersenne Twister
+    - [Mersenne Twister](https://github.com/vezzolter/DSA/tree/prng-mersenne-twister/Algorithms/RNG/MersenneTwister) 🎯
     - Xorshift
     - PCG (Permuted Congruential Generator) (?)
     - Xoshiro128 (?)
