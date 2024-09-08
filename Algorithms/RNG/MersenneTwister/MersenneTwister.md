@@ -20,7 +20,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Mersenne Twister** is a highly efficient pseudorandom number generator (PRNG) known for its long period and excellent statistical properties. Its name comes from the fact that its period length is a Mersenne prime, while «Twister» refers to the internal transformation step where the state vector is «twisted» through a series of bitwise operations to generate high-quality random numbers. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/MersenneTwister.png"/></p>
 
 
 ## Introduction
@@ -88,7 +89,8 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#127760; **Web-Resources:**  
+- [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister)
 
 
 
