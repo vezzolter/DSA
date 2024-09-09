@@ -38,15 +38,49 @@ Currently in Progress...
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program prompts the user to specify the number of random values to generate and define the range. It then uses the implemented PRNG to generate the specified amount of numbers and displays them as a numbered list.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing a library implementation of dynamic array `vector<>` to represent state array.
+- Using fixed seed value to ensure reproducible results.
+- Choosing range values that are easily interpretable by humans ($0-100$).
+- Limiting the number of elements to a relatively small ($10$).
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+PRNG is implemented within the class `MersenneTwister`, which is declared in `MersenneTwister.h` header file and defined in `MersenneTwister.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find declaration of the class.
+
+```cpp
+class MersenneTwister {
+private:
+    static const int n = 624;                 // Length of the state array (number of 32-bit values in the internal state)
+    static const int m = 397;                 // Middle word; offset for mixing the state in the "twist" step
+    static const int r = 31;                  // Number of bits used to separate the lower and upper parts of the state
+    static const uint32_t a = 0x9908B0DF;     // Constant used in the twisting transformation
+    static const int u = 11;                  // Shift used during the tempering process (right shift)
+    static const int s = 7;                   // Shift used during the tempering process (left shift)
+    static const int t = 15;                  // Another shift used in tempering (left shift)
+    static const int l = 18;                  // Final right shift in the tempering process
+    static const uint32_t b = 0x9D2C5680;     // Mask used in the tempering process for bitwise AND
+    static const uint32_t c = 0xEFC60000;     // Another mask used in the tempering process
+    static const uint32_t f = 1812433253u;    // Multiplier used during the initialization of the state array
+
+    std::vector<uint32_t> stateArr;
+    int index = n + 1;
+
+    void initialize(uint32_t seed);
+    void twist();
+
+public:
+    MersenneTwister(uint32_t seed = 5489u);  
+    uint32_t generate();
+};
+```
 
 
 ## Detailed Walkthrough

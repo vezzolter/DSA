@@ -26,9 +26,12 @@ int main() {
 	std::cin >> maxVal;
 
 	// Generate random numbers within the user-defined range
+	MersenneTwister mt(1234);
 	std::cout << "\nGenerating " << numbers << " random numbers between " << minVal << " and " << maxVal << "...\n";
-	for (int i = 0; i < numbers; i++)
-		std::cout << " " << i + 1 << ":\t" << (minVal + (mersenneTwister() % (maxVal - minVal + 1))) << std::endl;
+	for (int i = 0; i < numbers; i++) {
+		uint32_t randomNumber = minVal + (mt.generate() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
+	}
 	std::cout << std::endl;
 
 	// Exit
