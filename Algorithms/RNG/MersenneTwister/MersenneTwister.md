@@ -20,16 +20,28 @@
 
 
 # &#128161; Overview
-The **Mersenne Twister** is a highly efficient pseudorandom number generator (PRNG) known for its long period and excellent statistical properties. Its name comes from the fact that its period length is a Mersenne prime, while «Twister» refers to the internal transformation step where the state vector is «twisted» through a series of bitwise operations to generate high-quality random numbers. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **Mersenne Twister** is a complex and highly efficient pseudorandom number generator (PRNG) known for its long period and excellent statistical properties. Its name comes from the fact that its period length is a Mersenne prime number, while «Twister» refers to the internal transformation step where bits of numbers are «twisted» through a series of bitwise operations to generate high-quality random numbers. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/MersenneTwister.png"/></p>
 
 
 ## Introduction
-Currently in Progress...
+The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining an internal state array. This array holds intermediate values used to produce random numbers. The algorithm periodically updates the state array through a process called "twisting," which mixes bits from consecutive elements. The final numbers are produced through "tempering," which applies bit shifts and masks to ensure the numbers are well-distributed. Both twisting and tempering involve specific constants, carefully chosen from mathematical research, to control how the bits are manipulated and ensure the algorithm's long period and high-quality randomness.
 
 
 ## Important Details
-Currently in Progress...
+1. **State Array Size** — fixed at $624$ integers because multiplying it by $32$-bit unsigned integers gives $19968$ bits, which is slightly more than the $19937$ bits required for the algorithm’s period. This ensures that the internal state can maintain enough bits to support the long period without introducing unnecessary overhead.
+2. **Initialization Multiplier** — constant `f = 1812433253u` is used to spread the seed value effectively across all $624$ integers in the state array. The choice of `f` comes from research that optimizes how the seed influences the state, ensuring that the entire array is well-mixed from the start.
+3. **Twisting Constants:**
+   - `m = 397` — this value is chosen because it offsets the state array elements far enough during twisting to introduce a significant level of mixing while still maintaining a manageable computational cost.
+   - `r = 31` — specifies how the state elements are split between upper and lower bits during mixing. By splitting at $31$ bits, the algorithm separates the more influential upper bits from the less significant lower bits, ensuring efficient manipulation while preserving enough randomness.
+   - `a = 0x9908B0DF` — this value is chosen to XOR specific bits during twisting. It’s designed to invert certain bits in the state, based on tests that showed it produced better-distributed randomness. The specific pattern of this constant ensures optimal bit flipping without creating unwanted patterns.
+4. **Tempering Constants:**
+   - `u = 11` — this right shift removes the lower $11$ bits of the number, which tend to carry less useful randomness, improving the quality of the remaining bits.
+   - `s = 7` — this left shift introduces high-order bits that help maintain variability in the higher bit positions.
+   - `t = 15` and `l = 18` — these additional shifts were chosen based on statistical tests to further refine the bit structure after twisting, ensuring that even subtle bit-level variations are spread across the final output.
+5. **Tempering Masks:**
+   - `b = 0x9D2C5680` — this mask is applied to selectively retain or alter certain bits in the tempered output. The specific hexadecimal value was derived from research showing it helps create a more uniform distribution of random numbers, particularly by controlling how high-order bits are modified.
+   - `c = 0xEFC60000` — this mask is applied to further tweak bits after the first mask, particularly targeting the mid-range bits. Its value is specifically chosen to balance out any potential bias introduced by the previous operations, ensuring the numbers remain well-distributed.
 
 
 ## Algorithm Steps
