@@ -49,7 +49,7 @@ The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining
    $$MT[i] = f \times (MT[i-1] \oplus (MT[i-1] \gg 30)) + i$$     
    where `f = 1812433253u`.
 
-2. Perform the "twist" by combining bits from consecutive elements of the state array using the formula:
+2. Perform the «twist» by combining bits from consecutive elements of the state array using the formula:
    $$x = (MT[i] \& upMask) + (MT[(i+1) \% n] \& lowMask)$$   
    Then, apply the XOR operation using constant `a`:
    $$xA = (x \gg 1) \oplus (a \text{ if } x \% 2 \neq 0)$$
@@ -113,7 +113,73 @@ public:
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+1. Start the process by calling the constructor with a seed. This seed is then passed to the `initialize()` function to set up the state array. This was done due to single responsibility principle and reusability, whenever need for reinitializing without creating new object occurs, like when the seed is changed.
+```cpp
+  MersenneTwister::MersenneTwister(uint32_t seed) { initialize(seed); }
+```
+2. Within this `initialize()` function do following actions: resize the state array to number of elements, initialize it by setting the first element to the provided seed, and fill the rest using a recurrence relation.
+```cpp
+  void MersenneTwister::initialize(uint32_t seed) {
+      stateArr.resize(n);
+      stateArr[0] = seed;
+      for (int i = 1; i < n; i++)
+          stateArr[i] = f * (stateArr[i - 1] ^ (stateArr[i - 1] >> 30)) + i;
+  }
+```
+3. When PRNG is set up, the user can call function `generate()` to X. In this function, the first thing to check is whether the index has exceeded the size of the state array (n = 624). If this condition is met, the state array has been fully used, and we need to call the `twist()` function to generate new values. Twisting allows us to refill the state array with fresh random numbers. For now, let’s assume everything is fine, and we don't need to twist. Later, I’ll explain exactly how twisting works. After checking this condition, the function proceeds to extract the next random number from the state array.
+```cpp
+  uint32_t MersenneTwister::generate() {
+      if (index >= n) { twist(); }
+```
+4. Now that we know that state array contains fresh random numbers, the next step is to retrieve the current value from the state array at the position index. The index++ ensures that the next time `generate()` is called, we will move to the next element in the array. This gives us the raw number y to work with.
+```cpp
+  uint32_t y = stateArr[index++];
+```
+5. Once the raw number `y` is extracted from the state array, a tempering process is applied to modify the bits in a specific way that ensures better distribution. The initial right shift by $11$ bits brings high-order bits into the lower positions, redistributing variability and reducing the influence of predictable lower bits. The left shift by $7$ bits, combined with a mask, adjusts the high-order bits, adding complexity to the most significant part of the number. The second left shift by $15$ bits targets the middle bits, with another mask ensuring that this critical range is randomized as well. Finally, the right shift by $18$ bits tweaks the higher bits once more, ensuring that they are fully influenced by the entire process.
+```cpp
+  y ^= (y >> u);
+  y ^= (y << s) & b;
+  y ^= (y << t) & c;
+  y ^= (y >> l);
+```
+6. After twisting and tempering the final step is to return the processed number `y` ready for use.
+```cpp
+  return y;
+```
+7. Although the numbers in the state array might eventually run out, which is why we need to return to twisting. Start `twist()` operation by setting masks. Define `lowMask` to extract the lower `r` bits from the state array elements and `upMask` to extract the upper `w-r` bits. The purpose of these masks is to split each element in the state array into two parts: the upper part (controlled by `upMask`) and the lower part (controlled by `lowMask`). This separation allows the algorithm to combine upper bits from one element with the lower bits of the next element, creating a more randomized result for the twist operation.
+```cpp
+  void MersenneTwister::twist() {
+      const uint32_t lowMask = (1u << r) - 1;  // Lowest r bits
+      const uint32_t upMask = ~lowMask;        // Upper w-r bits
+```
+8. Iterate over all elements in the state array where the main part of twist operation happens. Use the masks to combine the upper bits of the current element `stateArr[i]` with the lower bits of the next element `stateArr[(i + 1) % n]`. This operation ensures that no single element's bits are kept in isolation, increasing the randomness of the process.
+```cpp
+  for (int i = 0; i < n; i++) {
+      uint32_t x = (stateArr[i] & upMask) + (stateArr[(i + 1) % n] & lowMask);
+```
+9. Perform a right shift on the combined value x, discarding the least significant bit (LSB). This reduces the impact of lower bits that might carry less useful randomness.
+```cpp
+  uint32_t xA = x >> 1;
+```
+10.  If the original value of `x` has its lowest bit set (i.e., `x` is odd), XOR the shifted value `xA` with the constant `a = 0x9908B0DF`. This further randomizes the state by selectively flipping certain bits based on the lowest bit of `x`.
+```cpp
+  if (x % 2 != 0) { xA ^= a; } // If the lowest bit is 1
+```
+11.  Update the current element `stateArr[i]` by XORing the result `xA` with the element m = 397 positions ahead in the state array. This ensures that each element in the state array is influenced not only by its neighbors but also by elements further down the array, enhancing randomness.
+```cpp
+  stateArr[i] = stateArr[(i + m) % n] ^ xA;
+```
+12.  Finally, once all elements in the state array have been processed, reset the `index` to `0` so that the next number generation can start from the beginning of the state array.
+```cpp
+  index = 0;
+```
+13. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the PRNG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
+```cpp
+	for (int i = 0; i < numbers; i++) {
+		uint32_t randomNumber = minVal + (mt.generate() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
+	}
+```
 
 
 
