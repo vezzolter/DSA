@@ -45,8 +45,25 @@ The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining
 
 
 ## Algorithm Steps
-Currently in Progress...
+1. Start by setting the first element of the state array to the initial seed value. Fill the remaining elements of the state array using the recurrence relation:
+   $$MT[i] = f \times (MT[i-1] \oplus (MT[i-1] \gg 30)) + i$$     
+   where `f = 1812433253u`.
 
+2. Perform the "twist" by combining bits from consecutive elements of the state array using the formula:
+   $$x = (MT[i] \& upMask) + (MT[(i+1) \% n] \& lowMask)$$   
+   Then, apply the XOR operation using constant `a`:
+   $$xA = (x \gg 1) \oplus (a \text{ if } x \% 2 \neq 0)$$
+   Repeat this for all elements in the state array.
+
+3. Apply tempering to the twisted values. Take the current value `y = MT[i]`, and:
+   - Right shift by `u = 11` bits.
+   - Left shift by `s = 7` bits and apply the mask `b = 0x9D2C5680`.
+   - Left shift by `t = 15` bits and apply the mask `c = 0xEFC60000`.
+   - Right shift by `l = 18` bits.
+
+4. Use the next element in the state array and apply the tempering process. If the state array has been fully used (i.e., the index runs out), perform another twist to generate a new batch of random numbers.
+
+> **Note:** The implementation can be quite complex. If you'd like to explore it in more detail, I recommend reviewing the research paper by Makoto Matsumoto and Takuji Nishimura, titled «Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator»
 
 
 # &#x1F4BB; Implementation
@@ -137,6 +154,7 @@ For contact details and additional information, please refer to the [root direct
 # &#128591; Credits
 &#127760; **Web-Resources:**  
 - [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister)
+- [Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator](https://dl.acm.org/doi/pdf/10.1145/272991.272995) (Research)
 
 
 
