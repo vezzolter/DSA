@@ -191,15 +191,16 @@ Will be updated in future...
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. While there aren’t specific problems designed to practice this exact approach, the concept of randomness it implements is essential for solving many foundational challenges that test the core idea of randomness itself, applicable across various algorithms. 
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Advanced Randomness Generation** — algorithm is used in scenarios requiring high-quality random numbers, particularly when statistical uniformity and a long period are critical. Its long period and excellent statistical uniformity ensure that sequences of random numbers do not repeat prematurely, making it reliable for applications that need precise and consistent randomness over many iterations.  
 
 
 ## Some Practical Problems
-Currently in Progress...
+- Refer to RNG's practical problems
+
 
 
 # &#x1F559; Origins
