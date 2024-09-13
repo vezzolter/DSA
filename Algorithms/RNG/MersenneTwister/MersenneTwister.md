@@ -45,23 +45,18 @@ The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining
 
 
 ## Algorithm Steps
-1. Start by setting the first element of the state array to the initial seed value. Fill the remaining elements of the state array using the recurrence relation:
-   $$MT[i] = f \times (MT[i-1] \oplus (MT[i-1] \gg 30)) + i$$     
-   where `f = 1812433253u`.
-
-2. Perform the «twist» by combining bits from consecutive elements of the state array using the formula:
-   $$x = (MT[i] \& upMask) + (MT[(i+1) \% n] \& lowMask)$$   
-   Then, apply the XOR operation using constant `a`:
-   $$xA = (x \gg 1) \oplus (a \text{ if } x \% 2 \neq 0)$$
-   Repeat this for all elements in the state array.
-
-3. Apply tempering to the twisted values. Take the current value `y = MT[i]`, and:
+1. Start by setting the first element of the state array to the initial seed value. Fill the remaining elements of the state array using the recurrence relation with `f = 1812433253u`:
+   $$MT[i] = f \times (MT[i-1] \oplus (MT[i-1] \gg \text{nBits} - 1)) + i$$     
+2. Perform the «twist» by combining bits from consecutive elements of the state array using the formula:  
+$$x = (MT[i] \& \text{upMask}) + (MT[(i+1) \% n] \& \text{lowMask})$$
+3. Then, apply the XOR operation using constant `a`:  
+$$xA = (x \gg 1) \oplus (a \text{ if } x \% 2 \neq 0)$$
+4. Apply tempering to the twisted values. Take the current value `y = MT[i]`, and:
    - Right shift by `u = 11` bits.
    - Left shift by `s = 7` bits and apply the mask `b = 0x9D2C5680`.
    - Left shift by `t = 15` bits and apply the mask `c = 0xEFC60000`.
    - Right shift by `l = 18` bits.
-
-4. Use the next element in the state array and apply the tempering process. If the state array has been fully used (i.e., the index runs out), perform another twist to generate a new batch of random numbers.
+5. Use the next element in the state array and apply the tempering process. If the state array has been fully used (i.e., the index runs out), perform another twist to generate a new batch of random numbers.
 
 > **Note:** The implementation can be quite complex. If you'd like to explore it in more detail, I recommend reviewing the research paper by Makoto Matsumoto and Takuji Nishimura, titled «Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator»
 
@@ -204,7 +199,11 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The Mersenne Twister was introduced in **1997** by Japanese mathematicians **Makoto Matsumoto (松本 眞)** and **Takuji Nishimura (西村 拓士)** as a solution to the limitations of existing PRNGs. At the time, many of them either suffered from short periods, poor statistical properties, or slow performance, making them unsuitable for simulations and other applications that required large amounts of high-quality random numbers.
+
+Their breakthrough came with the idea of improving the Generalized Feedback Shift Register (GFSR) by "twisting" the recurrence relation in a way that better preserved randomness. They incorporated a matrix linear recurrence over a finite binary field, which led to the creation of a twisted GFSR (TGFSR). This method involved manipulating the sequence of numbers using a recurrence relation and introducing a tempering matrix to improve the uniformity of the generated numbers, ensuring better distribution and randomness.
+
+Mersenne Twister quickly became the standard in many fields, offering an ideal balance of speed, long period, and strong statistical properties. Its widespread adoption in software platforms like Python, R, and C++, as well as tools like SPSS, highlights its reliability and versatility in generating high-quality random numbers across diverse applications.
 
 
 
