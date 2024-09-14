@@ -59,9 +59,6 @@ There isn't a universal search algorithm that works optimally in every scenario.
 > **Note:** Unfortunately, I couldn't find any resource that would extensively cover this concept, which likely indicates that mastering it in great depth isn't as crucial/required. Therefore,  I recommend focusing primarily on the different ways linear and binary search algorithms, as these will cover the vast majority of search-related problems you'll encounter in day-to-day tasks.
 
 
-## Pitfalls and Optimizations
-When choosing or implementing a search algorithm, it’s important to go beyond just finding the fastest one. The context in which the algorithm will be used, the nature of the data, and potential edge cases must all be carefully considered. While an algorithm might perform well in controlled conditions, real-world complexities can introduce challenges that lead to inefficiencies or errors. To avoid these pitfalls and optimize your search algorithms, consider the following factors:
-
 
 ## Pitfalls and Optimizations
 When choosing or implementing a search algorithm, it’s important to go beyond just finding the fastest one. The context in which the algorithm will be used, the nature of the data, and potential edge cases must all be carefully considered. While an algorithm might perform well in controlled conditions, real-world complexities can introduce challenges that lead to inefficiencies or errors. To avoid these pitfalls and optimize your search algorithms, consider the following factors:

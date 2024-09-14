@@ -1,8 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
+  - [How to Implement](#how-to-implement)
+  - [Pitfalls and Optimizations](#pitfalls-and-optimizations)
+  - [Implemented Algorithms](#implemented-algorithms)
 - [📊 Analysis](#-analysis)
+  - [How to Analyze](#how-to-analyze)
+  - [Trade-Offs](#trade-offs)
+  - [Alternatives](#alternatives)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -12,11 +21,11 @@
 
 
 # &#128161; Overview
-**Divide-and-Conquer** is a widely used problem-solving approach in computer science to solve complex problems by breaking them down into simpler ones. It helps to design elegant and efficient algorithms for all manner of applications, making it important to truly understand the concept.
+**Divide-and-Conquer** is a widely-used problem-solving approach in computer science to solve complex problems by breaking them down into simpler, manageable sub-problems, solving each sub-problem independently, and combining their solutions. It helps to design efficient algorithms and optimize performance across various applications, which makes understanding the concept quite beneficial.
 <p align="center"><img src="./Images/DivideAndConquer.png"/></p>
 
----
-**Essential Terminology:**
+
+## Essential Terminology
 - **Problem** — is a task or challenge that requires a solution, typically defined by a set of inputs, constraints, and desired outputs. It can vary in complexity and scope, ranging from simple arithmetic calculations to complex optimization tasks.
   - **Sub Problem** — is a smaller, more manageable instance of the original problem.
 - **Problem-Solving Strategy** — is a method of approaching a problem to find a solution.
@@ -29,48 +38,64 @@
 
 
 # &#x1F4BB; Implementation
+When implementing a concept, it's essential to understand the fundamental techniques that drive its behavior and ensure its correct functionality. Additionally, recognizing the critical pitfalls and potential optimizations allows you to refine the implementation, making it more efficient and robust for various scenarios.
+
+
+## How to Implement
 When it comes to implementation, the number of times people have resorted to using divide-and-conquer can't be counted. In fact, the majority of those scenarios share some common ideas, which are built through practice. Generally, there are two ways to achieve this behavior:
 - **Recursion** — solves each sub-problem either by recursively dividing again or if small enough solves directly; e.g. merge sort.
 - **Iteration** — divides the problem in each iteration of the loop until original problem is solved; e.g. binary search.
 
-> Personal note: Since you can observe the ideas of divide-and-conquer in many other approaches (probably due to its extremely general steps), it could be quite confusing to determine which specific implementation is being considered. In most cases I have encountered, divide-and-conquer is associated with recursion. Therefore, I recommend associating it as the default approach, but not limiting your design thinking only to it.
+> **Note:** Since you can observe the ideas of divide-and-conquer in many other approaches (probably due to its extremely general steps), it could be quite confusing to determine which specific implementation is being considered. In most cases I have encountered, divide-and-conquer is associated with recursion. Therefore, I recommend associating it as the default approach, but not limiting your design thinking only to it.
 
----
-Therefore, I will present some of the most illustrative examples specifically to enlighten the details of the divide-and conquer-approach:  
-- [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm)
-- [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch)
-- [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort)
-- Karatsuba Algorithm (Will be updated in the future...)
+
+## Pitfalls and Optimizations
+Currently in Progress...
+
+
+## Implemented Algorithms
+Currently in Progress...
 
 
 
 # &#128202; Analysis
-**How to Analyze:**   
+Understanding how to analyze a concept is crucial for identifying its key characteristics and evaluating its performance across different scenarios. Additionally, examining the trade-offs allows you to understand what you gain and what you give up when applying the concept. Finally, considering alternatives helps you determine when the concept is the best choice and when other approaches might be more appropriate.
+
+
+## How to Analyze   
 When an divide-and-conquer algorithm contains a recursive call to itself, it is possible to describe running time as [recurrence relation](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md), which can be solved in order to provide different bounds on performance. However, for algorithms like binary search, which are typically implemented iteratively, the same steps cannot be applied to estimate their complexity.
 
----
-**Advantages:**
+
+## Trade-Offs
+**What Divide-and-Conquer Gives:**
 - **Improved Asymptotic Performance** — divide-and-conquer allows to reduce time complexity compared to naive approaches, which in a long run can greatly benefit efficiency of the algorithm.
 - **Parallelism** — divide-and-conquer enables solving subproblems independently, making it an ideal approach to leverage multi-core processors.
 
 ---
-**Disadvantages:**
+**What Divide-and-Conquer Takes:**
 - **Recursion Overhead** — divide-and-conquer's recursive calls impose additional complexity, which can outweigh the benefits.
 - **Memory Consumption** — divide-and-conquer requires extra space to perform some of its steps, which can be prohibitive in some environments with limited memory.
 - **Non-Trivial Implementation** — divide-and-conquer is not a straightforward approach, division and merging processes may introduce additional complexities that make the algorithm harder to implement correctly.
 
 
+## Alternatives
+Currently in Progress...
+
+
 
 # &#128221; Application
-**Some of the Most Well-Known Use Cases:**
+Understanding some of the most well-known use cases of a concept is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with practical problems and practicing their solutions ensures that you retain essential details and develop a deep, intuitive understanding of the concept's capabilities and limitations.
+
+
+## Common Use Cases
 - **Sorting** — divide-and-conquer strategies are used in sorting algorithms to optimize the process of arranging data in a specific order. They achieve this by efficiently partitioning the data into smaller subsets, sorting each subset independently, and merging them back together to achieve the final sorted result; e.g. Merge sort, Quicksort, Heap sort.
 - **Searching** — divide-and-conquer approach enhances searching algorithms by efficiently locating specific elements within a dataset. These algorithms partition the search space into smaller segments, recursively searching each segment, and converging on the target element or determining its absence, thereby facilitating efficient search operations; e.g. Binary search, maximum and minimum element search.
 - **Matrix Operations** — divide-and-conquer techniques are applied to matrix operations. These techniques break down the matrices into smaller sub-matrices, perform computations recursively, and combine the results, enabling efficient matrix manipulations; e.g. Strassen's algorithm, recursive algorithms for matrix exponentiation
 - **Computational Geometry** — divide-and-conquer algorithms are used in computational geometry to solve geometry problems. These algorithms partition the geometric space, solve sub-problems independently, and combine the results to achieve geometric solutions efficiently; e.g. Graham Scan, QuickHull, Voronoi diagrams.
 - **Numerical Methods** — divide-and-conquer methods are used in numerical methods to solve mathematical problems using numerical approximations and algorithms. These methods break down the problem into smaller sub-problems, perform recursive computations, and combine the results to achieve efficient solutions; e.g. Simpson's Rule, Newton-Raphson method, Bisection method.
 
----
-**Popular Related Problems:**
+
+## Some Practical Problems
 - Merge Sort
 - Quick Sort
 - Binary Search
