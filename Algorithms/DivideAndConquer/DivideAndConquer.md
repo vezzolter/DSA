@@ -42,7 +42,7 @@ When implementing a concept, it's essential to understand the fundamental techni
 
 
 ## How to Implement
-When it comes to implementation, the number of times people have resorted to using divide-and-conquer can't be counted. In fact, the majority of those scenarios share some common ideas, which are built through practice. Generally, there are two ways to achieve this behavior:
+Depending on the situation, the implementation of the concept may vary, though the core principle, refined through practice, remains the same: solving overlapping sub-problems and storing their solutions to avoid redundancy. Classifying something is always a tricky task, but to provide a structured overview, I'll suggest that there are generally two main ways to achieve the desired behavior
 - **Recursion** — solves each sub-problem either by recursively dividing again or if small enough solves directly; e.g. merge sort.
 - **Iteration** — divides the problem in each iteration of the loop until original problem is solved; e.g. binary search.
 
@@ -54,7 +54,11 @@ Currently in Progress...
 
 
 ## Implemented Algorithms
-Currently in Progress...
+When working with concepts that lack standalone functionality, there aren’t pre-built standard implementations like those available for search or sort in libraries. Instead, these concepts act as frameworks or strategies used to develop efficient algorithms for solving various problems.
+
+The focus here is on understanding how these concepts are applied in specific algorithmic solutions. Below are implementations of popular algorithms that showcase how divide-and-conquer can be used in practice:
+- [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
+- [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/karatsuba/Algorithms/DivideAndConquer/KaratsubaAlgorithm) 🎯
 
 
 
@@ -63,7 +67,7 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 
 ## How to Analyze   
-When an divide-and-conquer algorithm contains a recursive call to itself, it is possible to describe running time as [recurrence relation](https://github.com/vezzolter/DSA/tree/main/Algorithms/Analysis/Analysis.md), which can be solved in order to provide different bounds on performance. However, for algorithms like binary search, which are typically implemented iteratively, the same steps cannot be applied to estimate their complexity.
+When divide-and-conquer algorithm contains a recursive call to itself, it is possible to describe running time as [recurrence relation](https://github.com/vezzolter/DSA/blob/main/General/Analysis/Analysis.md), which can be solved in order to provide different bounds on performance. However, for algorithms like binary search, which are typically implemented iteratively, the same steps cannot be applied to estimate their complexity.
 
 
 ## Trade-Offs
