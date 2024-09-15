@@ -100,21 +100,25 @@ Understanding some of the most well-known use cases of a concept is crucial for 
 
 
 ## Some Practical Problems
-- Merge Sort
-- Quick Sort
-- Binary Search
-- Closest Pair of Points
-- Strassen's Algorithm for Matrix Multiplication
-- Finding Maximum Subarray
-- Computing Convex Hull
-- Karatsuba Algorithm for Multiplication
-- Closest Pair Problem
-- Fast Fourier Transform (FFT)
-- Finding the k-th Smallest/Largest Element in an Array
-- Finding the Median of Two Sorted Arrays
-- Counting Inversions in an Array
-- Finding Majority Element
-- Finding Peak Element in an Array
+**Easy Problems:**
+1. [Majority Element](https://leetcode.com/problems/majority-element/?envType=problem-list-v2&envId=divide-and-conquer)
+2. [Reverse Bits](https://leetcode.com/problems/reverse-bits)
+3. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
+
+---
+**Medium Problems:** 
+1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray)
+2. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
+3. [Super Pow](https://leetcode.com/problems/super-pow)
+4. [Sort an Array](https://leetcode.com/problems/sort-an-array)
+5. [Sort List](https://leetcode.com/problems/sort-list)
+6. [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array)
+
+---
+**Hard Problems:** 
+1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+2. [Reverse Pairs](https://leetcode.com/problems/reverse-pairs)
+3. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)
 
 
 
