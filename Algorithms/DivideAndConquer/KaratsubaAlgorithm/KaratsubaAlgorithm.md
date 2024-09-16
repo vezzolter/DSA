@@ -20,7 +20,9 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Karatsuba Algorithm** is a multiplication algorithm, known for reducing the time complexity of this operation. It is named after its inventor, Anatoly Alexeyevich Karatsuba. Knowledge and understanding of it teaches the core principles of the divide-and-conquer paradigm, while also enhancing ability to approach algorithmic design with broader and more effective strategies.
+<p align="center"><img src="./Images/KaratsubaAlgorithm.png"/></p>
+
 
 
 ## Introduction
@@ -87,7 +89,9 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#127760; **Web-Resources:**  
+- [Karatsuba Algorithm](https://en.wikipedia.org/wiki/Karatsuba_algorithm) (Wikipedia)
+- [Karatsuba Algorithm](https://youtu.be/m9yO12Zlb1g?si=K4SSGMbXjzwv2ilF) (Video-Lecture)
 
 
 # &#128271; License
