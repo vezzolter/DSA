@@ -26,7 +26,7 @@ The **Karatsuba Algorithm** is a multiplication algorithm, known for reducing th
 
 
 ## Introduction
-Currently in Progress...
+**Karatsuba Algorithm** recursively splits the numbers into higher-order and lower-order halves. Normally, this would require 4 multiplications, but by cleverly substituting one of the multiplications with a combination of additions and subtractions, the algorithm reduces the number of multiplications to 3. This reduction leads to a faster overall time complexity, as multiplication dominates the computation cost.
 
 
 ## Important Details
@@ -89,9 +89,15 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
+&#128218; **Books:**
+- **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Section 4.3.3: How Fast Can We Multiply?
+
+---
 &#127760; **Web-Resources:**  
 - [Karatsuba Algorithm](https://en.wikipedia.org/wiki/Karatsuba_algorithm) (Wikipedia)
 - [Karatsuba Algorithm](https://youtu.be/m9yO12Zlb1g?si=K4SSGMbXjzwv2ilF) (Video-Lecture)
+
 
 
 # &#128271; License
