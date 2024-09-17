@@ -51,24 +51,19 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
+    - GCD (Greatest Common Divisor)
+    - Taylor Series (?)
   - Divide-and-Conquer
     - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) 🎯
     - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
     - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/karatsuba/Algorithms/DivideAndConquer/KaratsubaAlgorithm) 🎯
+    - FFT (Fast Fourier Transform) (?)
+    - Newton's Method (?)
   - Two-Pointer
   - Sliding Window
   - Bit Manipulation
   - Dynamic Programming
-    - DynamicProgramming.md
-    - Knapsack
-    - Coin Change
-    - LCS (Longest Common Subsequence)
-    - LIS (Longest Increasing Subsequence)
   - Greedy Programming
-    - GreedyProgramming.md
-    - Activity Selection
-    - Fractional Knapsack
-    - Huffman Coding
   - String Algorithms
     - StringAlgorithms.md
     - KMP (Knuth-Morris-Pratt)
@@ -82,6 +77,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - Inorder Traversal
     - Preorder Traversal
     - Postoreder Traversal
+    - LCA (Lowest Common Ancestor)
     - DFS (Depth-First Search)
     - BFS (Breadth-First Search)
     - Dijkstra's Algorithm
@@ -90,8 +86,6 @@ This list provides a straightforward overview of the repository's contents. For 
     - Kruskal's Algorithm
     - Floyd-Warshall Algorithm
     - A*
-    - LCA (Lowest Common Ancestor)
-
 - Data Structures
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
@@ -120,27 +114,10 @@ This list provides a straightforward overview of the repository's contents. For 
     - AVL Tree  
     - Red-Black Tree 
     - B-Tree
+    - Trie
   - Graph
-    - Graph.md
-    - Undirected Graph
-    - Directed Graph
-    - Weighted Graph
-    - Sparse Graph
-    - Dense Graph
   - Heap
-    - Heap.md
-    - Binary Heap
-    - Min Heap 
-    - Max Heap
-    - Fibonacci Heap
-    - Binomial Heap
   - Hash
-    - Hash.md
-    - Hash Table
-    - Hash Map
-    - Hash Set
-    - Bloom filter
-    - Cuckoo filter
 - General
     - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/General/Analysis/Analysis.md) 🔄
     - Validation
