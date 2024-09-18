@@ -30,11 +30,20 @@ The **Karatsuba Algorithm** is a multiplication algorithm, known for reducing th
 
 
 ## Important Details
-Currently in Progress...
+1. While Karatsuba is efficient for large numbers, for very large numbers (beyond the capacity of built-in data types), arbitrary precision arithmetic is required to handle numbers with thousands of digits by dynamically managing memory. Alternatively, more advanced algorithms like Schönhage–Strassen may be used for even greater efficiency.
 
 
 ## Algorithm Steps
-Currently in Progress...
+1. If either number (`a` or `b`) is less than 10, return the result of their direct multiplication ($a×b$).
+2. Calculate the number of digits in the larger number and divide it by $2$ to determine where to split the numbers.
+3. Divide both initial numbers (`a` or `b`) into higher-order and lower-order halves via previously computed half.
+   - higher-order halves (`aHighHalf` and `bHighHalf`) are calculated via division by $10^{\text{half}}$
+   - lower-order halves (`aLowHalf` and `bLowHalf`) are calculated as remainder from division by $10^{\text{half}}$ 
+4. Recursively multiply:
+   - lower-order halves $z_0 = \text{aLowHalf} \cdot \text{bLowHalf}$
+   - cross terms $z_1 = (\text{aLowHalf} + \text{aHighHalf}) \cdot (\text{bLowHalf} + \text{bHighHalf})$
+   - higher-order halves $z_2 = \text{aHighHalf} \cdot \text{bHighHalf}$
+5. Combine the results via formula: $z_2 \cdot 10^{2 \cdot \text{half}} + (z_1 - z_2 - z_0) \cdot 10^{\text{half}} + z_0$
 
 
 
