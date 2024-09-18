@@ -15,8 +15,16 @@ int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Karatsuba Algorithm' console application!\n\n";
 
+	// Specify numbers
+	std::cout << "Number #1 to multiply: ";
+	unsigned long long a = 0;
+	std::cin >> a;
+	std::cout << "Number #2 to multiply: ";
+	unsigned long long b = 0;
+	std::cin >> b;
+
 	// Demonstrate
-	karatsuba();
+	std::cout << "Result of multiplication: " << karatsuba(a, b) << std::endl << std::endl;
 
 	// Exit
 	std::cout << "Thanks for using this program! Have a great day!\n";

@@ -39,15 +39,40 @@ Currently in Progress...
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program prompts the user to enter two numbers, multiplies them using the Karatsuba Algorithm, and displays the result.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Using the highest possible built-in data type, `unsigned long long`.
+- Limiting the operation only to positive numbers.
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+The Karatsuba algorithm is implemented within the `karatsuba()` function and its helper one,  `countDigits()`, both declared in `KaratsubaAlgorithm.h` header file and defined in `KaratsubaAlgorithm.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The multiplication operation is examined within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+unsigned long long karatsuba(unsigned long long a, unsigned long long b) {
+	if (a < 10 || b < 10) { return a * b; }
+
+	int digitsInLarger = (countDigits(a) > countDigits(b)) ? countDigits(a) : countDigits(b);
+	int half = digitsInLarger / 2;
+
+	unsigned long long aHighHalf = a / (unsigned long long)pow(10, half); // 123456 / 10^3 = 123
+	unsigned long long aLowHalf = a % (unsigned long long)pow(10, half); // 123456 % 10^3 = 456
+	unsigned long long bHighHalf = b / (unsigned long long)pow(10, half);
+	unsigned long long bLowHalf = b % (unsigned long long)pow(10, half);
+
+	unsigned long long lowPart = karatsuba(aLowHalf, bLowHalf);
+	unsigned long long crossPart = karatsuba((aLowHalf + aHighHalf), (bLowHalf + bHighHalf));
+	unsigned long long highPart = karatsuba(aHighHalf, bHighHalf);
+
+	return highPart * pow(10, 2 * half) + (crossPart - highPart - lowPart) * pow(10, half) + lowPart;
+}
+```
 
 
 ## Detailed Walkthrough 
@@ -90,6 +115,8 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 10.2.4: Theoretical Improvements for Arithmetic Problems
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 4.3.3: How Fast Can We Multiply?
 

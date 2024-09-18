@@ -7,7 +7,8 @@
 #define KARATSUBA_H
 
 
-void karatsuba();
+int countDigits(unsigned long long num);
+unsigned long long karatsuba(unsigned long long a, unsigned long long b);
 
 
 #endif // KARATSUBA_H
