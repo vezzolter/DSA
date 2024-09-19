@@ -8,6 +8,8 @@
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+  - [Advantages](#advantages)
+  - [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -90,7 +92,17 @@ Currently in Progress...
 
 
 # &#128202; Analysis
-Currently in Progress...
+Analyzing the gives and takes of the algorithm reveals how the divide-and-conquer concept influences design choices, efficiency, and overall complexity. Mastering this approach not only improves performance in large-scale problems but also provides foundational insights applicable to various algorithmic strategies.
+
+
+## Advantages
+- **Asymptotic Improvement** — algorithm reduces the number of multiplications, resulting in a better time complexity of $O(n^{1.585})$ compared to the standard one $O(n^{2})$.
+
+
+## Disadvantages
+- **Overhead** — algorithm requires extra additions, subtractions, splitting, recursion, and combining, which can outweigh its benefits quite often in practice.
+- **Size Requirements** — algorithm typically works best with medium-sized numbers, as the traditional approach is better for smaller inputs, and for extremely large numbers, the algorithm suffers from additional handling.
+- **Implementation Complexity** — the algorithm contains lots of implementation intricacies, making it not as convenient as the standard one.
 
 
 
