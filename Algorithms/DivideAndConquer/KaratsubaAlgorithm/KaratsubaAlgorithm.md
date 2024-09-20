@@ -2,7 +2,7 @@
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
-  - [Algorithm Steps](#algorithm-steps)
+  - [Algorithm Steps (Base 10)](#algorithm-steps-base-10)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
@@ -33,9 +33,10 @@ The **Karatsuba Algorithm** is a multiplication algorithm, known for reducing th
 
 ## Important Details
 1. While Karatsuba is efficient for large numbers, for very large numbers (beyond the capacity of built-in data types), arbitrary precision arithmetic is required to handle numbers with thousands of digits by dynamically managing memory. Alternatively, more advanced algorithms like Schönhage–Strassen may be used for even greater efficiency.
+2. The Karatsuba algorithm can be implemented using different bases, such as binary or decimal, depending on the representation of the numbers. The choice of base primarily affects how the numbers are shifted, although core idea remains. Naturally computers do better those operations via binary, but to illustrate the concept decimal is preferred.
 
 
-## Algorithm Steps
+## Algorithm Steps (Base 10)
 1. If either number (`a` or `b`) is less than 10, return the result of their direct multiplication ($a×b$).
 2. Calculate the number of digits in the larger number and divide it by $2$ to determine where to split the numbers.
 3. Divide both initial numbers (`a` or `b`) into higher-order and lower-order halves via previously computed half.
@@ -50,12 +51,13 @@ The **Karatsuba Algorithm** is a multiplication algorithm, known for reducing th
 
 
 # &#x1F4BB; Implementation
-The program prompts the user to enter two numbers, multiplies them using the Karatsuba Algorithm, and displays the result.
+The program prompts the user to enter two numbers in base $10$, multiplies them using the Karatsuba Algorithm, and displays the result.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Opting for a base $10$ representation of numbers
 - Using the highest possible built-in data type, `unsigned long long`.
 - Limiting the operation only to positive numbers.
 - Assuming valid input values from the user.
@@ -87,7 +89,32 @@ unsigned long long karatsuba(unsigned long long a, unsigned long long b) {
 
 
 ## Detailed Walkthrough 
-Currently in Progress...
+1. The process begins by calling the `karatsuba()` function with two large numbers `a` and `b`. If either number is less than $10$, the algorithm performs the multiplication directly and returns the result. This is the base case of the recursion, which ensures that the numbers are small enough to be multiplied directly.
+```cpp
+  if (a < 10 || b < 10) { return a * b; }
+```
+2. To split the numbers, the algorithm first calculates the number of digits in the larger number, then divides this by 2 to determine the halfway point. This ensures the numbers are split evenly into high-order and low-order halves, allowing the algorithm to handle different-sized inputs uniformly during the recursive breakdown.
+```cpp
+	int digitsInLarger = (countDigits(a) > countDigits(b)) ? countDigits(a) : countDigits(b);
+	int half = digitsInLarger / 2;
+```
+3. Then, both numbers `a` and `b` are now split into their high-order and low-order halves. The high-order half is obtained by dividing the number by $base^{half}$ (base in our case is $10$), which shifts the decimal point left, leaving only the more significant digits. The low-order half is found using the modulo operation, which gives the remainder when dividing by $base^{half}$, effectively isolating the less significant digits.
+```cpp
+	unsigned long long aHighHalf = a / (unsigned long long)pow(10, half); // 123456 / 10^3 = 123
+	unsigned long long aLowHalf = a % (unsigned long long)pow(10, half); // 123456 % 10^3 = 456
+	unsigned long long bHighHalf = b / (unsigned long long)pow(10, half);
+	unsigned long long bLowHalf = b % (unsigned long long)pow(10, half);
+```
+4. The algorithm recursively calculates three key products: `lowPart` and `highPart`, which are the products of the respective halves, and `crossPart`, which is the core of this algorithm. When we expand the brackets, one multiplication produces two required pairs and two redundant ones, which are subtracted to make the equation correct. This approach helps avoid performing four multiplications. In the code implementation, instead of directly multiplying these parts as in traditional multiplication, the algorithm recursively calls itself for each smaller part. This recursive breakdown continues until the numbers are small enough to be multiplied directly (typically, single digits), at which point the actual multiplications are performed. This recursive process is what enables the Karatsuba algorithm to maintain its divide-and-conquer efficiency.
+```cpp
+	unsigned long long lowPart = karatsuba(aLowHalf, bLowHalf);
+	unsigned long long crossPart = karatsuba((aLowHalf + aHighHalf), (bLowHalf + bHighHalf));
+	unsigned long long highPart = karatsuba(aHighHalf, bHighHalf);
+```
+5. After recursively calculating the three parts, the final result is assembled using Karatsuba’s formula. The `highPart` is shifted to the left, placing it in the most significant digits of the final product, by analogue the `crossPart` is shifted into the middle, and `lowPart` is added as-is, as it already represent the least significant digits. As mentioned in the previous step, after expanding the parentheses, we subtract the redundant products from `crossPart` to ensure the equation is correct.
+```cpp
+	return highPart * pow(10, 2 * half) + (crossPart - highPart - lowPart) * pow(10, half) + lowPart;
+```
 
 
 

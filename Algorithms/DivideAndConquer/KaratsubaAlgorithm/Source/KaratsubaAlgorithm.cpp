@@ -1,4 +1,4 @@
-// Source file for Karatsuba algorithm
+// Source file for Karatsuba algorithm (Base 10)
 // by vezzolter
 // September 16, 2024
 

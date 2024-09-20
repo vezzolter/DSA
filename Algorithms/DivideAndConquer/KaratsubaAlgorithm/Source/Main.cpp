@@ -1,4 +1,4 @@
-// Karatsuba Algorithm
+// Karatsuba Algorithm (Base 10)
 // by vezzolter
 // September 16, 2024
 //
@@ -13,7 +13,7 @@
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Karatsuba Algorithm' console application!\n\n";
+	std::cout << "\tWelcome to the 'Karatsuba Algorithm (Base 10)' console application!\n\n";
 
 	// Specify numbers
 	std::cout << "Number #1 to multiply: ";

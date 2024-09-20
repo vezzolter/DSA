@@ -1,4 +1,4 @@
-// Header file for Karatsuba algorithm
+// Header file for Karatsuba algorithm (Base 10)
 // by vezzolter
 // September 16, 2024
 
