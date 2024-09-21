@@ -134,15 +134,19 @@ Analyzing the gives and takes of the algorithm reveals how the divide-and-conque
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. While there aren’t specific problems designed to practice this exact algorithm, the concept of divide-and-conquer it implements is essential for solving many foundational challenges that rely on breaking problems down into smaller and manageable parts, applicable across various algorithms.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Cryptography** — algorithm is used in cryptographic algorithms that require fast multiplication of large numbers, such as RSA, for its ability to efficiently handle large integers and speed up encryption and decryption.
+- **Arbitrary-precision arithmetic libraries** — algorithm is used in libraries like GMP (GNU Multiple Precision Arithmetic Library) to handle numbers beyond standard data types, for its ability to reduce the complexity of large-number multiplication and ensure faster computations.
+- **Signal processing** — algorithm is used in digital signal processing where large-number multiplications are required in Fast Fourier Transform and other related computations, for its ability to accelerate these operations, which is crucial for real-time processing.
+- **Scientific computing** — algorithm is used in large-scale simulations in fields like physics and weather modeling, for its ability to improve the efficiency of large-number multiplications, speeding up complex, high-precision high-precision simulations.
+
 
 
 ## Some Practical Problems
-Currently in Progress...
+1. [Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
 
 
