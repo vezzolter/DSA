@@ -151,7 +151,11 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The Karatsuba algorithm was devised in **1960** by the Russian mathematician **Anatoly Alexeyevich Karatsuba**. At the time, he was a student at Moscow State University and attended a seminar on mathematical problems in cybernetics led by the renowned professor Andrey Kolmogorov. During the seminar, Kolmogorov proposed that the lower bound for multiplication was quadratic, meaning any multiplication algorithm would require $O(n^2)$ operations.
+
+Within a week, inspired by the rising popularity of the divide-and-conquer strategy, Karatsuba discovered a method that could multiply two $n$-digit numbers in ​$O(n^{\log_2 3}) \approx O(n^{1.585})$, a significant improvement over the existing approach. This breakthrough disproved Kolmogorov’s hypothesis. Kolmogorov, captivated by the discovery, took it upon himself to present Karatsuba's algorithm to the world through lectures and publications, ensuring its recognition and without his influence, the algorithm might have remained unnoticed.
+
+Since then, many mathematicians have developed further optimizations and new algorithms inspired by Karatsuba’s original idea. Notable examples include the Schönhage-Strassen algorithm, which improves upon Karatsuba’s work for even larger inputs. Despite these advancements, Karatsuba’s algorithm remains a valuable tool, especially in cases where its simplicity and efficiency for moderately sized numbers make it the best choice.
 
 
 
