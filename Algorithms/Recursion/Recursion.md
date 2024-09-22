@@ -95,9 +95,11 @@ int recursiveArraySum(int arr[], int size) {
 
 ---
 Therefore, I will present some of the most illustrative examples specifically to enlighten the details of the recursive approach:  
-- [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial)
-- [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci)
-- Power (Will be updated in the future...)
+- [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
+- [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
+- [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
+- GCD (Greatest Common Divisor)
+- Taylor Series (?)
 
 
 

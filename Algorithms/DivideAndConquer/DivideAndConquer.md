@@ -59,7 +59,13 @@ When working with concepts that lack standalone functionality, there aren’t pr
 The focus here is on understanding how these concepts are applied in specific algorithmic solutions. Below are implementations of popular algorithms that showcase how divide-and-conquer can be used in practice:
 - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
 - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/karatsuba/Algorithms/DivideAndConquer/KaratsubaAlgorithm) 🎯
+- FFT (Fast Fourier Transform) (?)
+- Newton's Method (?)
 
+And here are some of the most well-known examples, available in other sections of the repository:
+- [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
+- [Merge Sort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/MergeSort) ✅
+- [Quicksort](https://github.com/vezzolter/DSA/tree/main/Algorithms/Sorting/Quicksort) ✅
 
 
 # &#128202; Analysis
