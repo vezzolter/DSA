@@ -54,9 +54,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - GCD (Greatest Common Divisor)
     - Taylor Series (?)
   - Divide-and-Conquer
-    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) 🎯
+    - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
     - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
-    - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/karatsuba/Algorithms/DivideAndConquer/KaratsubaAlgorithm) 🎯
+    - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/KaratsubaAlgorithm) ✅
     - FFT (Fast Fourier Transform) (?)
     - Newton's Method (?)
   - Two-Pointer
