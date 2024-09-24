@@ -21,17 +21,17 @@
 
 
 # &#128161; Overview
-**Divide-and-Conquer** is a widely-used problem-solving approach in computer science to solve complex problems by breaking them down into simpler, manageable subproblems, solving each sub-problem independently, and combining their solutions. It helps to design efficient algorithms and optimize performance across various applications, which makes understanding the concept quite beneficial.
+**Divide-and-Conquer** is a widely-used problem-solving approach in computer science to solve complex problems by breaking them down into more simpler an manageable subproblems, solving each independently, and combining their solutions. It helps to design efficient algorithms and optimize performance across various applications, which makes understanding the concept quite beneficial.
 <p align="center"><img src="./Images/DivideAndConquer.png"/></p>
 
 
 ## Essential Terminology
 - **Problem** — is a task or challenge that requires a solution, typically defined by a set of inputs, constraints, and desired outputs. It can vary in complexity and scope, ranging from simple arithmetic calculations to complex optimization tasks.
-  - **Sub Problem** — is a smaller, more manageable instance of the original problem.
+  - **Subproblem** — is a smaller, more manageable instance of the original problem.
 - **Problem-Solving Strategy** — is a method of approaching a problem to find a solution.
 - **Divide-and-Conquer** — is a strategy that consists of 3 steps: 
   1. **Divide** — brake down original problem into smaller, more manageable subproblems.
-  2. **Conquer** — solve each sub-problem independently.
+  2. **Conquer** — solve each subproblem independently.
   3. **Combine** — combine those solutions to form solution to the original problem.
 - **Decrease and Conquer** — is a variation, which leaves only required subproblem and discards other, that are not considered further in the solution process because they don't contain the solution to the original problem, therefore this approach just simply reduces the size of the original problem; e.g. binary search divides problem in halves, but search occurs only in one.
 
@@ -42,8 +42,8 @@ When implementing a concept, it's essential to understand the fundamental techni
 
 
 ## How to Implement
-Depending on the situation, the implementation of the concept may vary, though the core principle, refined through practice, remains the same: solving overlapping subproblems and storing their solutions to avoid redundancy. Classifying something is always a tricky task, but to provide a structured overview, I'll suggest that there are generally two main ways to achieve the desired behavior
-- **Recursion** — solves each sub-problem either by recursively dividing again or if small enough solves directly; e.g. merge sort.
+Depending on the situation, the implementation of the concept may vary, though the core principle, refined through practice, remains the same: dividing the main problem into independent subproblems, solving each one in the same way, and combining their solutions to solve the initial problem. Classifying something is always a tricky task, but to provide a structured overview, I'll suggest that there are generally two main ways to achieve the desired behavior:
+- **Recursion** — solves each subproblem either by recursively dividing again or if small enough solves directly; e.g. merge sort.
 - **Iteration** — divides the problem in each iteration of the loop until original problem is solved; e.g. binary search.
 
 > **Note:** Since you can observe the ideas of divide-and-conquer in many other approaches (probably due to its extremely general steps), it could be quite confusing to determine which specific implementation is being considered. In most cases I have encountered, divide-and-conquer is associated with recursion. Therefore, I recommend associating it as the default approach, but not limiting your design thinking only to it.
@@ -127,7 +127,7 @@ Understanding some of the most well-known use cases of a concept is crucial for 
 ## Common Use Cases
 - **Sorting** — divide-and-conquer strategies are used in sorting algorithms to optimize the process of arranging data in a specific order. They achieve this by efficiently partitioning the data into smaller subsets, sorting each subset independently, and merging them back together to achieve the final sorted result; e.g. Merge sort, Quicksort, Heap sort.
 - **Searching** — divide-and-conquer approach enhances searching algorithms by efficiently locating specific elements within a dataset. These algorithms partition the search space into smaller segments, recursively searching each segment, and converging on the target element or determining its absence, thereby facilitating efficient search operations; e.g. Binary search, maximum and minimum element search.
-- **Matrix Operations** — divide-and-conquer techniques are applied to matrix operations. These techniques break down the matrices into smaller sub-matrices, perform computations recursively, and combine the results, enabling efficient matrix manipulations; e.g. Strassen's algorithm, recursive algorithms for matrix exponentiation
+- **Matrix Operations** — divide-and-conquer techniques are applied to matrix operations. These techniques break down the matrices into smaller submatrices, perform computations recursively, and combine the results, enabling efficient matrix manipulations; e.g. Strassen's algorithm, recursive algorithms for matrix exponentiation
 - **Computational Geometry** — divide-and-conquer algorithms are used in computational geometry to solve geometry problems. These algorithms partition the geometric space, solve subproblems independently, and combine the results to achieve geometric solutions efficiently; e.g. Graham Scan, QuickHull, Voronoi diagrams.
 - **Numerical Methods** — divide-and-conquer methods are used in numerical methods to solve mathematical problems using numerical approximations and algorithms. These methods break down the problem into smaller subproblems, perform recursive computations, and combine the results to achieve efficient solutions; e.g. Simpson's Rule, Newton-Raphson method, Bisection method.
 
