@@ -1,18 +1,18 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-  - [Introduction](#introduction)
-  - [Important Details](#important-details)
-  - [Algorithm Steps (Base 10)](#algorithm-steps-base-10)
+	- [Introduction](#introduction)
+	- [Important Details](#important-details)
+	- [Algorithm Steps (Base 10)](#algorithm-steps-base-10)
 - [💻 Implementation](#-implementation)
-  - [Design Decisions](#design-decisions)
-  - [Complete Implementation](#complete-implementation)
-  - [Detailed Walkthrough](#detailed-walkthrough)
+	- [Design Decisions](#design-decisions)
+	- [Complete Implementation](#complete-implementation)
+	- [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+	- [Advantages](#advantages)
+	- [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
-  - [Common Use Cases](#common-use-cases)
-  - [Some Practical Problems](#some-practical-problems)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -129,7 +129,7 @@ Analyzing the gives and takes of the algorithm reveals how the divide-and-conque
 ## Disadvantages
 - **Overhead** — algorithm requires extra additions, subtractions, splitting, recursion, and combining, which can outweigh its benefits quite often in practice.
 - **Size Requirements** — algorithm typically works best with medium-sized numbers, as the traditional approach is better for smaller inputs, and for extremely large numbers, the algorithm suffers from additional handling.
-- **Implementation Complexity** — the algorithm contains lots of implementation intricacies, making it not as convenient as the standard one.
+- **Implementation Complexity** — algorithm contains lots of implementation intricacies, making it not as convenient as the standard one.
 
 
 

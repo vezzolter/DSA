@@ -182,6 +182,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 4.10: Divide-and-Conquer
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 4.3: Multiple Precision Arithmetic
+  - Section 4.6: Polynomial Arithmetic
 
 ---  
 &#127760; **Web-Resources:**  

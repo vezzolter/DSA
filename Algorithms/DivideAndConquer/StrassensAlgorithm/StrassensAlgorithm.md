@@ -1,8 +1,18 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Introduction](#introduction)
+  - [Important Details](#important-details)
+  - [Algorithm Steps (for matrices of size $2^n$)](#algorithm-steps-for-matrices-of-size-2n)
 - [💻 Implementation](#-implementation)
+  - [Design Decisions](#design-decisions)
+  - [Complete Implementation](#complete-implementation)
+  - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
+  - [Advantages](#advantages)
+  - [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -12,16 +22,22 @@
 
 
 # &#128161; Overview
-The **Stassen's Algorithm** is undoubtedly a well-known algorithm for matrix multiplication, heavily reliant on the idea of divide and conquer approach. This subsection aims to establish a solid foundation for complex algorithmic designs and strengthen comprehension of problem-solving strategies by exploring this illustrative example.
+The **Stassen's Algorithm** is undoubtedly a well-known algorithm for matrix multiplication, heavily reliant on the idea of divide-and-conquer approach. This subsection aims to establish a solid foundation for complex algorithmic designs and strengthen comprehension of problem-solving strategies by exploring this illustrative example.
 <p align="center"><img src="./Images/Strassens.png"/></p>
 
----
-The core idea behind Strassen's algorithm was to use a divide-and-conquer strategy, which involves recursively dividing the initial matrix into equal-sized submatrices, and employing additional computations and rearrangements of matrix elements to reduce the number of multiplications to $7$, compared to the standard mathematical algorithm with $8$, which is the dominant factor contributing to the overall time complexity. This reduction could lead to computational savings, as it transitions the whole operation's time complexity from $O(n^3)$ to $O(n^{2.81})$, which is particularly valuable for large matrices. However, the overhead that comes with the implementation negatively affects smaller matrices. Determining the optimal range for matrix size is relative and depends on hardware architecture, implementation details, and specific characteristics of the matrices being multiplied. As a general estimation, the optimal range typically falls between $32$ and $128$ for most modern computing environments. Also, it is crucial to mention not the best precision for floating numbers due to the nature of its computation.
 
-> Note: To ensure the division proceeds correctly, this algorithm conceptually requires that all of the matrices have sizes that are powers of two. Even though it is possible to fill "missing" rows and columns with zeros to achieve required matrices, for educational purposes it would only obscure the concept with excessive operations (and practically I haven't seen people do that at all).
+## Introduction
+The core idea behind Strassen's algorithm was to use a divide-and-conquer strategy, which involves recursively dividing the initial matrix into equal-sized submatrices, and employing additional computations and rearrangements of matrix elements to reduce the number of multiplications to $7$, compared to the standard mathematical algorithm with $8$, which is the dominant factor contributing to the overall time complexity. This reduction could lead to computational savings, as it transitions the whole operation's time complexity from $O(n^3)$ to $O(n^{2.81})$, which is particularly valuable for large matrices.
 
----
-**Algorithm Steps (for matrices with sizes of powers of two):**
+
+## Important Details
+1. To ensure proper division, this algorithm requires that all matrices be of sizes that are powers of two. Although it is possible to pad «missing» rows and columns with zeros to meet this requirement, doing so adds significant complexity to the algorithm. As a result, this method is rarely implemented and is usually only mentioned in discussions.
+2. The algorithm struggles with precision for floating-point numbers due to the nature of its computations, which can lead to numerical instability.
+3. The algorithm's benefits are most evident within a specific range of matrix sizes. Its performance is relative and depends on factors such as hardware architecture, implementation details, and the characteristics of the matrices being multiplied. Generally, the optimal size range falls between $32$ and $128$ for most modern computing environments.
+
+
+
+## Algorithm Steps (for matrices of size $2^n$)
 1. Divide two matrices $A$ and $B$ of size $n×n$ into four submatrices of sizes $n/2$.
 2. Compute the intermediate submatrix products:
    - $P_{1} = (A_{11} + A_{22})(B_{11} + B_{22})$
@@ -44,16 +60,17 @@ The core idea behind Strassen's algorithm was to use a divide-and-conquer strate
 The program initializes each matrix A and B as a vector of vectors with specified integers, performs their multiplication using the standard algorithm and Strassen's algorithm, and displays the results in order to compare them.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
+
+## Design Decisions
 To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
 - Utilizing the library container `std::vector` as a building block for matrices.
 - Assuming that each matrix will be a size that is a power of two.
 - Performing multiplication exclusively on integer numbers.
 - Omitting certain optimizations to the algorithm.
 
----
+## Complete Implementation
 Strassen's algorithm implemented within the `strassensAlgorithm()` with additional functions `addMatrices()` and `subtractMatrices()`, which are declared in `StrassensAlgorithm.h` header file and defined in `StrassensAlgorithm.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of the multiplication is conducted within the `main()` function located in the `Main.cpp` file.
 
-**Complete Implementation:**
 ```cpp
 using Matrix = std::vector<std::vector<int>>;
 
@@ -139,8 +156,7 @@ Matrix strassensAlgorithm(const Matrix& A, const Matrix& B) {
 }
 ```
 
----
-**Detailed Walkthrough:**  
+## Detailed Walkthrough 
 1. The Strassen's algorithm starts with setting up the base case for recursion, which checks if the size equals to $1$, if so, it performs a simple multiplication of the single elements and returns the result.
 ```cpp
   int n = A.size();
@@ -210,20 +226,31 @@ Matrix strassensAlgorithm(const Matrix& A, const Matrix& B) {
 
 
 # &#128202; Analysis
-**Advantages:**
+Analyzing the gives and takes of the algorithm reveals how the divide-and-conquer concept influences design choices, efficiency, and overall complexity. Mastering this approach not only improves performance in large-scale problems but also provides foundational insights applicable to various algorithmic strategies.
+
+
+## Advantages
 - **Asymptotic Improvement** — algorithm reduces the number of multiplications, resulting in a better time complexity of $O(n^{2.81})$ compared to the standard one  $O(n^{3})$.
 
----
-**Disadvantages:**
+
+## Disadvantages
 - **Overhead** — algorithm requires extra additions and subtractions, as well as recursively partitioning the matrices and respective memory operations, which can outweigh its benefits quite often in practice.
 - **Accuracy Issues** — algorithm involves more floating-point operations compared to the traditional version, which can introduce numerical instability and rounding errors, especially in the long run.
 - **Size Requirements** — algorithm typically requires matrices to be of size of a power of two for efficient recursion, which is not often the case in day-to-day scenarios, and fixing it could add extra overhead to an already existing one.
-- **Implementation Complexity** — The algorithm contains lots of implementation intricacies, making it not as convenient as the standard one.
+- **Implementation Complexity** — algorithm contains lots of implementation intricacies, making it not as convenient as the standard one.
 
 
 
 # &#128221; Application
-Considering the previously mentioned advantages and disadvantages of Strassen's algorithm, it is fair to say that this algorithm can elicit the benefit of its asymptotic notation only in certain scenarios, which makes its applicability mostly limited. Nonetheless, it serves as a valuable tool for educational purposes, as it explicitly illustrates the concept of divide and conquer. Moreover, it provides a platform to explore and weigh the pros and cons of various implementation decisions in algorithm design.
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. While there aren’t specific problems designed to practice this exact algorithm, the concept of divide-and-conquer it implements is essential for solving many foundational challenges that rely on breaking problems down into smaller and manageable parts, applicable across various algorithms.
+
+
+## Common Use Cases
+- **Educational Context** — algorithm is used as a learning tool in many educational resources. While the main benefit of improved asymptotic notation can be overshadowed by the overhead associated with the algorithm, the visualization it provides effectively illustrates how to apply the divide-and-conquer strategy.
+
+
+## Some Practical Problems
+1. None
 
 
 
@@ -250,11 +277,13 @@ For contact details and additional information, please refer to the [root direct
   - Section 10.2: Divide and Conquer
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven Skiena
   - Section 4.10: Divide-and-Conquer
+- **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Section 4.6.4: Evaluation of Polynomials
 
 ---  
 &#127760; **Web-Resources:**  
 - [Strassen algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm) (Wikipedia)
-- [Strassen's Algorithm](https://www.youtube.com/watch?v=D1GRgMfeRNk&ab_channel=%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%91%D0%98%D0%A1) (Lecture)
+- [Strassen's Algorithm](https://www.youtube.com/watch?v=D1GRgMfeRNk&ab_channel=%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%91%D0%98%D0%A1) (Video-Lecture)
 
 
 # &#128271; License
