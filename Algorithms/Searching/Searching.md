@@ -139,8 +139,8 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 
 ## Alternatives
-- **Indexed Data Structures** — rather than performing a search operation, indexed data structures like hash tables or dictionaries provide direct access to elements using keys. These structures eliminate the need for searching by mapping keys directly to values, allowing for constant-time lookups. This approach is particularly efficient in cases where elements need to be frequently accessed based on a specific key, as indexed structures can outperform traditional searching algorithms.
-- **Caching Techniques** — instead of searching through a dataset every time an element is needed, caching techniques store frequently accessed elements in fast-access memory. By maintaining a cache of recent or common queries, systems can avoid repetitive searches and retrieve data more quickly. This method is especially useful in scenarios where certain elements are accessed repeatedly, such as in web applications or database queries.
+1. **Indexed Data Structures** — rather than performing a search operation, indexed data structures like hash tables or dictionaries provide direct access to elements using keys. These structures eliminate the need for searching by mapping keys directly to values, allowing for constant-time lookups. This approach is particularly efficient in cases where elements need to be frequently accessed based on a specific key, as indexed structures can outperform traditional searching algorithms.
+2. **Caching Techniques** — instead of searching through a dataset every time an element is needed, caching techniques store frequently accessed elements in fast-access memory. By maintaining a cache of recent or common queries, systems can avoid repetitive searches and retrieve data more quickly. This method is especially useful in scenarios where certain elements are accessed repeatedly, such as in web applications or database queries.
 
 
 

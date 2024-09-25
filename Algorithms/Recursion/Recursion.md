@@ -30,8 +30,9 @@
   - **Direct Recursion** — whole recursive process proceeds within a single entity.
   - **Indirect Recursion** — whole recursive process distributed across at least two entities.
 - **Recursive Function** — is one that calls itself and has both base and recursive cases.
-- **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
-- **Recursive Case** — represents a situation, where the solution to the bigger problem is expressed in terms the same problem, but with modified values.
+   - **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
+   - **Recursive Case** — represents a situation, where the solution to the bigger problem is expressed in terms the same problem, but with modified values.
+   - **Recursion Depth** — number of recursive calls made before reaching the base case.
 
 
 
@@ -42,10 +43,8 @@ When implementing a concept, it's essential to understand the fundamental techni
 ## How to Implement
 Depending on the situation, the implementation of the concept may vary, though the core principle, refined through practice, remains the same: try to solve a problem, and if not, break it into a smaller instance and repeat until a solution is reached. Classifying something is always a tricky task, but to provide a structured overview, I'll suggest that there are generally three aspects to consider in order to achieve the desired behavior:
 
-1. **Recursion Structure** — is composed of two key parts that work together to solve problems:
-   - **Base Case** — represents a situation, where the solution is directly known (already provided) without requiring further recursion.
-   - **Recursive Case** — represents a situation, where the solution to the bigger problem is expressed in terms the same problem, but with modified values.
-   ```cpp
+1. **Recursion Workflow** — consists of two key components that work together to solve problems: the base case and the recursive case. The algorithm's control flow must progressively move through recursive calls to eventually reach the base case, where the recursion stops and results are returned.
+  ```cpp
    // Recursive function to calculate sum of elements in array
    int recursiveArraySum(int arr[], int size) {
      // Base case: when the array is empty, the sum is directly known (0)
@@ -63,9 +62,8 @@ Depending on the situation, the implementation of the concept may vary, though t
      4. When the termination condition is reached, the function returns its value to the calling function, and memory is de-allocated, allowing the process to continue
    <p align="center"><img src="./Images/CallStack.png"/></p>  
 
-3. Using stack is convenient, because there is no need to manually keep tracking the pile, but saving all that info can take up a lot of memory. In some programming languages, the maximum size of the call stack is much less than the space available in the heap, and recursive algorithms tend to require more stack space than iterative algorithms. Consequently, these languages sometimes place a limit on the depth of recursion to avoid stack overflows.  
-   - **Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, system instability and other destructive behavior if it is not handled appropriately.
-
+3. **Stack Overflow** — is a runtime error, that occurs when a program's call stack exceeds its allocated size, potentially causing program termination, data loss, resource cleanup issues, system instability and other destructive behavior if it is not handled appropriately
+   
    Common causes for exceeding stack limits include uncontrolled recursion, infinite loops, deep base cases, excessive consumption in multithreaded environments, and overuse of exception handling. The key is to identify recursive behavior and handle it appropriately. In large projects, simple but subtle details like the example below can be easily overlooked:  
    ```cpp
     // Since 'i' is an unsigned character, it will be converted to an 8-bit value,
@@ -81,11 +79,10 @@ Depending on the situation, the implementation of the concept may vary, though t
 ## Pitfalls and Optimizations
 Not all mathematically recursive functions are efficiently (or correctly) implemented by C++’s simulation of recursion. Recursion is used when it makes the solution clearer. In order to make a good use of this approach, it's worth to consider some common pitfalls and potential optimizations when addressing this concept.
 
-- **Termination conditions** — there must always be some base cases that can be solved without resorting to recursion. Otherwise it may lead to infinite recursion, which cause stack overflow problem.
-- **Making progress** —  it's essential that each recursive call contributes to progress towards reaching a base case, making sure that termination conditions are reachable.
-- **Trust the encapsulation** — assume the functionality of all recursive calls is correct. This attempt to trace the sequence of calls, may spend unnecessary time, which actually, can be an indication of a good use of recursion, since the computer is being allowed to work out the complicated details.
-- **No duplicating** — recursion should avoid duplicating work by solving the same instance of a problem in distinct recursive calls, because it could lead to inefficiencies and unnecessary computations.
-- **Tail-Recursion** — recursion can be easily converted into loops, as the recursive call is the last action performed, followed by an immediate return. This allows the compiler or interpreter to treat the recursive call like a loop, saving both time and space. Converting recursion to iteration is often preferred for better performance and resource use. However, if recursion can't be simplified into a loop, it may indicate that recursion is the better choice for clarity or structure.
+- **Termination Conditions** — are the base cases well-defined? Recursion must have clear base cases that can be solved without further recursion. Failing to provide appropriate termination conditions can lead to infinite recursion and eventual stack overflow issues.
+- **Tail Recursion Optimization** — is the recursive function tail-recursive (i.e. recursive call is the last action performed)? Tail-recursive functions can be optimized by compilers into iteration-like loops, saving both time and space. Converting recursion into iteration is often preferred for better performance and resource utilization, though sometimes recursion offers better clarity.
+- **Debugging Recursion** — are recursive calls being unnecessarily traced? Trust the encapsulation of recursion. Manually tracing the recursive calls can waste time and create confusion. Instead, rely on the recursive structure to manage its own complexity.
+
 
 
 ## Implemented Algorithms
@@ -113,7 +110,7 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 ## Trade-Offs
 **What Recursion Gives:**
-- **Natural Choice** — recursion allows to represent problems in natural way, making them easy to understand and thus implement; e.g. sortings, tree traversals, mathematical functions.
+- **Simplification** — recursion allows to represent problems in natural way, making them easy to understand and thus implement.
 
 ---
 **What Recursion Takes:**
@@ -123,7 +120,11 @@ Understanding how to analyze a concept is crucial for identifying its key charac
 
 
 ## Alternatives
-Currently in Progress...
+1. **Iteration** — instead of using recursion to solve a problem, iteration can be used to achieve the same result. By manually managing the call stack (or bypassing it entirely), iteration reduces the overhead associated with recursion, such as memory consumption from deep call stacks. Iterative solutions are often more efficient in terms of space and are commonly used for tasks like traversing arrays or lists, where recursion may introduce unnecessary complexity.
+2. **Dynamic Programming** — for problems with overlapping subproblems, dynamic programming is an efficient alternative to recursion. By storing intermediate results (memoization) and reusing them instead of recalculating subproblems, dynamic programming reduces the time complexity associated with redundant recursive calls. This approach is particularly useful for optimization problems like the knapsack problem or longest common subsequence.
+3. **Divide and Conquer** — while recursion is central to the divide-and-conquer approach, certain problems benefit from explicit subproblem division and recombination without the need for deep recursive calls. In cases where subproblems can be solved independently and merged efficiently, divide-and-conquer may offer a more structured alternative to pure recursion.
+4. **Mathematical Solutions** — instead of recursively calculating results, direct mathematical formulas can be used to find solutions in constant time. For instance, instead of recursively summing numbers or calculating factorial values, mathematical approaches provide an exact result using formulas like the sum of an arithmetic series or factorials calculated iteratively.
+5. **State Machines** — instead of relying on recursive function calls to manage state transitions in complex systems, state machines offer a structured and iterative way to handle stateful processes. This is particularly useful in real-time systems, parsers, and simulations, where recursion may lead to performance bottlenecks or stack overflows.
 
 
 
