@@ -134,7 +134,7 @@ Understanding some of the most well-known use cases of a concept is crucial for 
 
 ## Some Practical Problems
 **Easy Problems:**
-1. [Majority Element](https://leetcode.com/problems/majority-element/?envType=problem-list-v2&envId=divide-and-conquer)
+1. [Majority Element](https://leetcode.com/problems/majority-element)
 2. [Reverse Bits](https://leetcode.com/problems/reverse-bits)
 3. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
 

@@ -92,7 +92,6 @@ Not all mathematically recursive functions are efficiently (or correctly) implem
 When working with concepts that lack standalone functionality, there aren’t pre-built standard implementations like those available for search or sort in libraries. Instead, these concepts act as frameworks or strategies used to develop efficient algorithms for solving various problems.
 
 The focus here is on understanding how these concepts are applied in specific algorithmic solutions. Below are implementations of popular algorithms that showcase how recursion can be used in practice:
-- [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
 - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
 - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
 - GCD (Greatest Common Divisor)
@@ -133,34 +132,33 @@ Understanding some of the most well-known use cases of a concept is crucial for 
 
 
 ## Common Use Cases
-- **Sorting** — recursive algorithms leverage recursion to partition the data into smaller subarrays or sublists, subsequently sorting and merging them to achieve the final ordered result.
-- **Divide-and-Conquer** — numerous algorithms employing a divide-and-conquer strategy, like the binary search, utilize recursion to decompose the problem into more manageable subproblems.
-- **Memoization (Dynamic Programming)** — as long as this technique entails storing the outcomes of resource-intensive function calls and retrieving the cached result when encountering identical inputs in subsequent calls, recursive functions are often employed for those problems.
-- **Backtracking** — backtracking algorithms are used to solve problems that involve making a sequence of decisions, where each decision depends on the previous ones. These algorithms can be implemented using recursion to explore all possible paths and backtrack when a solution is not found.
-- **Trees and Graphs** — recursion finds common application in traversing and searching data structures like trees and graphs. Recursive algorithms prove effective in systematically exploring all nodes or vertices within a tree or graph.
-- **Permutations and Combinations** — recursive algorithms are often used to generate permutations and combinations of a set of elements.
+- **Divide-and-Conquer** — recursion is used to implement the divide-and-conquer strategy. Recursion's capacity to break complex problems into smaller independent subproblems makes it ideal for efficiently solving problems like searching, matrix multiplication, or other computational tasks that benefit from parallelism and reduced problem size.
+- **Memoization (Dynamic Programming)** — recursion is used in memoization for solving problems with overlapping subproblems, like the Fibonacci sequence or knapsack problem. By caching intermediate results and recalling them as needed, recursion avoids redundant computations, leading to significant performance improvements in both time and space complexity for large problem instances.
+- **Backtracking** — recursion is used in backtracking algorithms to explore all possible solutions in problems such as puzzle-solving, constraint satisfaction, and combinatorial optimization. By reverting to previous states when a solution path doesn’t work, recursion efficiently navigates complex decision trees, making it suitable for solving problems that require exhaustive search, but in a smarter way.
+- **Data Structures** — recursion is used in traversing and manipulating hierarchical data structures such as trees, graphs, and linked lists. Recursive algorithms are ideal for operations like searching, traversing, and modifying nodes in these structures because they mirror the self-referential nature of such data structures, simplifying implementation and enhancing readability.
+- **Permutations and Combinations** — recursion is used in generating permutations and combinations of a set of elements. The recursive approach allows for exploring every possible configuration in an organized, step-by-step manner, making it a natural fit for combinatorial problems in areas like cryptography, game development, and bioinformatics.
 
 
 ## Some Practical Problems
-- Factorial Calculation
-- Fibonacci Sequence
-- Tower of Hanoi Puzzle
-- Depth-First Search (DFS)
-- Breadth-First Search (BFS)
-- Binary Search
-- Merge Sort
-- Quick Sort
-- Maze Solving
-- N-Queens Problem
-- Palindrome Check
-- Subset Generation
-- Permutations
-- Combinations
-- Ackermann Function
-- Pascal's Triangle
-- Parentheses Matching
-- Expression Evaluation
-- Inversion Count
+**Easy Problems:**
+1. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
+2. [Power of Two](https://leetcode.com/problems/power-of-two)
+3. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list)
+
+---
+**Medium Problems:** 
+1. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers)
+2. [Reorder List](https://leetcode.com/problems/reorder-list)
+3. [Different Ways to Add Parentheses](https://leetcode.com/problems/different-ways-to-add-parentheses)
+4. [Decode String](https://leetcode.com/problems/decode-string)
+5. [Count Collisions of Monkeys on a Polygon](https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon)
+6. [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree)
+
+---
+**Hard Problems:** 
+1. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching)
+2. [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group)
+3. [Permutation Sequence](https://leetcode.com/problems/permutation-sequence)
 
 
 
@@ -212,6 +210,7 @@ For contact details and additional information, please refer to the [root direct
 - [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
 - [The Advent of Recursion in Programming, 1950s-1960s](https://eprints.illc.uva.nl/id/document/935#:~:text=The%20notion%20of%20recursion%20dates,the%20foundations%20of%20mathematics%20cf.)
 - [Computability and Recursion](http://www.people.cs.uchicago.edu/~soare/History/compute.pdf)
+
 
 
 # &#128271; License
