@@ -1,11 +1,19 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Introduction](#introduction)
+  - [Important Details](#important-details)
+  - [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
-  - [Recursive Paradigm](#recursive-paradigm)
-  - [Detailed Overview](#detailed-overview)
+  - [Design Decisions](#design-decisions)
+  - [Complete Implementation](#complete-implementation)
+  - [Detailed Walkthrough](#detailed-walkthrough)
   - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
+  - [Algorithm Characteristics](#algorithm-characteristics)
+  - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -17,34 +25,42 @@
 # &#128161; Overview
 The factorial stands among the fundamental mathematical patterns with widespread applications in permutation and combinatorial algorithms. It serves as an excellent example for understanding recursive principles in mathematics and computer science. A thorough understanding of the factorial enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
 
----
+
+## Introduction
 **Factorial of a Number (n!)** — is a math operation, which represents product of all positive integers from number 1 to the given(n),   
 e.g. $4! = 1×2×3×4 = 24$.
 
-**Main Rules:**
+
+## Important Details
 - number must be a non-negative integer
 - $0! = 1$ *(there is only one way to arrange 0 as element)*
 - $n! = (n-1)!×n$  
 
 
+## Algorithm Steps
+Currently in Progress...
+
+
 
 # &#x1F4BB; Implementation
-**Idea**  
 The program prompts the user to input a number for which the factorial is to be calculated and then displays the resulting output.
-<p align="center"><img src="./Images/demonstration.png"/></p>
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
-## Recursive Paradigm
+
+## Design Decisions
 Technically speaking, factorial can be implemented using both iterative and recursive approach. Even though, iterative solutions are often preferred over recursive ones (due to space complexity, performance, readabillity, stack overflow, optimization limitations), the last approach was chosen within the context of this repository's section.
 
 
+## Complete Implementation
+Currently in Progress...
 
-## Detailed Overview
+
+
+## Detailed Walkthrough
 1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type. 
-
 2. For the same reasons, the algorithm is implemented within the function named `factorial(int n)`, and this function is separated into distinct files `factorial.h` and `factorial.cpp` away from `main.cpp`:
 ```cpp
-int main()
-{
+int main() {
    // Greetings
    std::cout << "Welcome to the 'Factorial' console application!\n\n";
 
@@ -64,11 +80,9 @@ int main()
    return 0;
 }
 ```
-
 3. The program starts by asking user to enter a non-negative number within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;12]$, because the factorial of $13 (6,227,020,800)$ exceeds the capacity of `int` variable $(2,147,483,647)$.
 ```cpp
-int getUserInput()
-{
+int getUserInput() {
    int n = 0;
    
    while (true)
@@ -100,7 +114,6 @@ int factorial(int n)
 	else { return (n * factorial(n - 1)); }; // Recursive case
 }
 ```
-
 5. After completing its intended tasks, the program expresses gratitude and awaits closure.
 
 
@@ -129,14 +142,23 @@ To offer a comprehensive insight into the fundamental mechanics of this recursiv
 
 
 # &#128202; Analysis
-The current implementation demonstrates inefficient utilization of recursion ([as mentioned earlier, during the discussion of the paradigm approach](#recursive-paragidm)). Simply by converting it into a loop, the running time can be significantly diminished, and there won't be any additional memory allocation involved at all (common designing principle discussed in [recursion](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) file).
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
+
+## Algorithm Characteristics
 **Time Complexity:** $O(n)$ — number of recursive calls made by this algorithm is directly proportional to the input.  
 **Auxiliary Space Complexity:** $O(n)$ — some memory gets allocated in the stack, which depends on the amount of calls.
 
 
+## Algorithm Comparison
+Will be Updated in the Future...
+
 
 # &#128221; Application
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+
+
+## Common Use Cases
 Practically speaking, factorial is a **number of different permutations** you can have with items. Consequently, is it widely used in the field of computer science, especially in combinatorics and probability theory. Here I'll provide only the fundamental overview of what you can think of, whenever you refer to the factorial, without overwhelming with redundant intricacies.
 
 For better understanding of the topic, I'll govern the **Fundamental Counting Principle**, which states that if there are $m$ ways to do one thing and $n$ ways to do another, then there are $m×n$ ways to do both. For example creating a meal, if you have $3$ different main courses, $4$ different side dishes and $2$ drinks, this means that you can create a meal in $3×4×2=24$ ways.  
@@ -163,6 +185,10 @@ Additionally, when selecting from a consistent pool of options (e.g. such as pic
 
    e.g. the total number of ways to pack these (3) books apart from second shelf (4) is:  $C_n^k = \frac{4!}{(4-3)!3!} = \frac{4!}{1!3!} = \frac{4×3!}{1×3!} = \frac{4×1}{1×1} = 4$
    
+
+## Some Practical Problems
+Currently in Progress...
+
 
 # &#x1F559; Origins
 Throughout human history, we have proven to be inherently drawn to stories, as understanding and retaining information is more effective through narrative and association. Realizing the potential, this historical section is included, offering a versatile approach to additional comprehension.
@@ -200,11 +226,6 @@ For contact details and additional information, please refer to the [root direct
 ---
 &#127760; **Web-Resources:**
 - [Factorial](https://en.wikipedia.org/wiki/Factorial) (Wikipedia)
-- [What is a Factorial? How to Calculate Factorials with Examples](https://www.freecodecamp.org/news/what-is-a-factorial/#:~:text=A%20factorial%20is%20a%20mathematical,1%20(which%20%3D%206).)
-- [What is a Factorial in Maths](https://www.geeksforgeeks.org/factorial/) 
-- [Permutations and Factorials](https://www.youtube.com/watch?v=e28WnaMQ0ts) (Video)
-- [Fundamental Counting Principle](https://brilliant.org/wiki/fundamental-counting-principle/#:~:text=The%20fundamental%20counting%20principle%20is,perform%20both%20of%20these%20actions.)
-- [The Factorial Notation | Christian Kramp | 1808](https://www.mysciencehistory.com/blog/2021/2/22/the-factorial-notation-christian-kramp)
 
 
 
