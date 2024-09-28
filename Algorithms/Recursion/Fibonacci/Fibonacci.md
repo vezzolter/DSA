@@ -1,11 +1,19 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
+  - [Introduction](#introduction)
+  - [Important Details](#important-details)
+  - [Algorithm Steps (Recursive)](#algorithm-steps-recursive)
 - [💻 Implementation](#-implementation)
-  - [Recursive Paradigm](#recursive-paradigm)
-  - [Detailed Overview](#detailed-overview)
+  - [Design Decisions](#design-decisions)
+  - [Complete Implementation](#complete-implementation)
+  - [Detailed Walkthrough](#detailed-walkthrough)
   - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
+  - [Algorithm Characteristics](#algorithm-characteristics)
+  - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -18,11 +26,12 @@
 The Fibonacci sequence is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. Knowledge of the Fibonacci sequence enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
 <p align="center"><img src="./Images/intro.png"/></p>
 
----
+## Introduction
 **Fibonacci Seqence** — is a series of numbers, where each number is the sum of the two preceding numbers. Traditionally starts with $0$ and $1$ (but can start with different initial values), forming following sequence: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 89, 144, 233, 377$ and so on. The terms of this sequence are known as **Fibonacci numbers** and can be denoted as $F_n$, therefore general formula can be recursively written as $F_n = F_{n-1} + F_{n-2}$.
 
 The other related concept to the Fibonacci Sequence is **golden ratio** ($\Phi = \frac{1+\sqrt{5}}{2} ≈ 1.61803398875$) — is an irrational number, which appears between ratio of bigger and smaller value, holding property: $\frac{bigger+smaller}{bigger} = \frac{bigger}{smaller} = \phi$
 
+## Important Details
 **Relation Between Golden Ratio and Fibonacci Sequence:**
 - Ratio of any two consecutive Fibonacci numbers, gets closer to the golden ratio ($\Phi$) as the numbers get larger,  
 e.g. $\frac{13}{8} = 1.625$; $\frac{233}{144} = 1.61805$
@@ -34,24 +43,27 @@ e.g. $5×1.618034=8.09017$ and $21÷1.618034=12.97871$.
 e.g. $F_8 = \frac{\phi^8-(1-\phi)^8}{\sqrt{5}} = \frac{\big(\frac{1+\sqrt{5}}{2}\big)^8-\big(1-\frac{1+\sqrt{5}}{2}\big)^8}{\sqrt{5}}=\frac{\frac{(1+\sqrt{5})^8}{2^8}-\frac{(1-\sqrt{5})^8}{2^8}}{\sqrt{5}}=\frac{(1+\sqrt{5})^8-(1-\sqrt{5})^8}{2^8\sqrt{5}}=\frac{\big((1+\sqrt{5})^8-(1-\sqrt{5})^8\big)\sqrt{5}}{1280}=$  
 $=\frac{\big(6016+2688\sqrt{5}-6016+2688\sqrt{5} \big)\sqrt{5}}{1280}=\frac{(5376\sqrt{5})\sqrt{5}}{1280}=\frac{26880}{1280}=21$
 
----
 While there are numerous fascinating properties of the Fibonacci sequence yet to be explored (such as terms below zero, alternation of even and odd numbers, 1/89, etc), for the scope of this subsection in the repository, the knowledge of the above would be sufficient to implement and comprehend the key ideas.
 
 
+## Algorithm Steps (Recursive)
+Currently in Progress...
+
 
 # &#x1F4BB; Implementation
-**Idea**  
 The program prompts the user to specify a number of an element, for which the Fibonacci Number is to be calculated, and then displays the resulting output.
 <p align="center"><img src="./Images/demonstration.png"/></p>
 
 
-
-## Recursive Paradigm
+## Design Decisions
 Technically speaking, Fibonacci sequence can be implemented using both iterative and recursive approach. For that particular problem iterative solutions are often preferred over recursive ones (due to space complexity, performance, readability, stack overflow, optimization limitations). Talking about last one, it is considered more efficient to use memoization or dynamic programming techniques to store previously computed Fibonacci numbers and avoid redundant calculations. However it is important to note that the chosen implementation deliberately emphasizes the recursive paradigm for clarity and instructional purposes.
 
 
+## Complete Implementation
+Currently in Progress...
 
-## Detailed Overview
+
+## Detailed Walkthrough
 1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type.
 
 2. For the same reasons, the algorithm is implemented within the function named `fibonacci(int n)`, and this function is separated into distinct files `fibonacci.h` and `fibonacci.cpp` away from `main.cpp`: 
@@ -115,50 +127,46 @@ int fibonacci(int n)
 }
 ```
 
-5. After completing its intended tasks, the program expresses gratitude and awaits closure.
-
 
 ## Call Stack Interaction
-To enhance the clarity of the recursion process explanation, I'll illustrate it with a simple example using a relatively small number of elements, specifically $n=5$. This approach aims to avoid navigating to the development environment, where it becomes easier to lose track of the algorithm, especially with higher values.
-
-1. First things first, the program calls `main()` function and its frame is added on top of the call stack.
-<p align="center"><img src="./Images/step_0.png"/></p>
-
-2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:
-<p align="center"><img src="./Images/step_1.png"/></p> 
-
-3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls:
-<p align="center"><img src="./Images/step_2.png"/></p> 
-
-4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack.
-<p align="center"><img src="./Images/step_3.png"/></p>
-
-5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in other area. Unfortunately, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming.
-<p align="center"><img src="./Images/step_4.png"/></p> 
-
-6. So the control flow continues this process until we reach the initial (first) function call.
-<p align="center"><img src="./Images/step_5.png"/></p>
+1. First things first, the program calls `main()` function and its frame is added on top of the call stack.  <p align="center"><img src="./Images/step_0.png"/></p>
+2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:  <p align="center"><img src="./Images/step_1.png"/></p> 
+3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls: <p align="center"><img src="./Images/step_2.png"/></p> 
+4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack. <p align="center"><img src="./Images/step_3.png"/></p>
+5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in other area. Unfortunately, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming. <p align="center"><img src="./Images/step_4.png"/></p> 
+6. So the control flow continues this process until we reach the initial (first) function call. <p align="center"><img src="./Images/step_5.png"/></p>
 
 
 
 # &#128202; Analysis
-The current implementation demonstrates inefficient utilization of recursion ([as mentioned earlier, during the discussion of the paradigm approach](#recursive-paragidm)). Running the program for elements around 40, it becomes notably slow due to a substantial amount of redundant work being executed (common designing principle discussed in [recursion](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) file).
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
 
-**Time Complexity:** $O(n!)$ — every function calls two other functions.  
-**Auxiliary Space Complexity:** $O(n)$ — maximum depth of the recursion tree is $n$.
+
+## Algorithm Characteristics
+- **Time Complexity:**
+    - $O(n!)$ — every function calls two other functions.
+- **Auxiliary Space Complexity:** 
+   - $O(n)$ — maximum depth of the recursion tree is $n$.
+
+
+## Algorithm Comparison
+Will be Updated in the Future...
 
 
 
 # &#128221; Application
-The Fibonacci sequence, with its unique mathematical property also known as divine or golden proportion, extends beyond the realm of abstract numbers and finds practical applications in **various fields** (math, nature, art, architecture, etc.). Its most known influence can be observed in intricate designs, where the sequence dictates proportions and arrangements. Artists, designers and architects leverage the Fibonacci sequence to create visually stunning compositions. Some of them intentionally use its aesthetic benefits, while others may trace it coincidentally in their work. An excellent illustration is Leonardo da Vinci's Vitruvian Man, where he translated his fascination with the golden ratio into artistic expression.
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
-In **computer science**, beside laying foundation for tackling more complex mathematical and computational concepts, is used in dynamic programming and memoization techniques to enhance the efficiency of algorithms, reducing redundant calculations and improving overall computational performance. 
 
----
-**Some of the Most Well-Known Use Cases:**
+## Common Use Cases
 - **Fibonacci Heaps** — a type of priority queue data structure, utilize the Fibonacci sequence to optimize the amortized time complexity of certain operations, such as decrease key and merge operations.
 - **Fibonacci Search** — uses the Fibonacci sequence to determine positions to probe within a sorted array, therefore achieving a balance between efficiency and simplicity.
 - **Lagged Fibonacci Generator (LFG)** — employs the Fibonacci sequence in a lagged recurrence relation to generate pseudo-random numbers. The algorithm combines two or more previous values, resembling the Fibonacci sequence, and introduces a lagged aspect for variations, impacting the statistical properties and period length of the generated sequence.
+
+
+## Some Practical Problems
+Currently in Progress...
+
 
 
 # &#x1F559; Origins
@@ -199,14 +207,12 @@ For contact details and additional information, please refer to the [root direct
 ---
 &#127760; **Web-Resources:**
 - [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) (Wikipedia)
-- [Fibonacci Sequence](https://www.cuemath.com/numbers/fibonacci-sequence/)
-- [What is the Fibonacci sequence?](https://www.livescience.com/37470-fibonacci-sequence.html)
 - [Golden ratio](https://en.wikipedia.org/wiki/Golden_ratio) (Wikipedia)
 - [Golden ratio: A beginner's guide](https://www.adobe.com/creativecloud/design/discover/golden-ratio.html)
 - [Binet's Formula](https://artofproblemsolving.com/wiki/index.php/Binet%27s_Formula)
-- [The Fibonacci Sequence. Its history, Significance, and Manifestations in Nature](https://core.ac.uk/download/pdf/58824887.pdf)
+- [The Fibonacci Sequence. Its history, Significance, and Manifestations in Nature](https://core.ac.uk/download/pdf/58824887.pdf) (Thesis)
 - [The so-called fibonacci numbers in ancient and medieval India](https://www.sciencedirect.com/science/article/pii/0315086085900217?via%3Dihub) (Research)
-- [Indian origins of the Fibonacci sequence](https://trueindologytwitter.wordpress.com/2020/03/31/indian-origins-of-the-fibonacci-sequence/)
+
 
 
 # &#128271; License
