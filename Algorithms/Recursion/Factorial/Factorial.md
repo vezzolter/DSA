@@ -43,7 +43,7 @@ The **factorial** is one of the most fundamental mathematical operations, widely
 
 
 # &#x1F4BB; Implementation
-The program prompts the user to input a number between 0 and 12, computes its factorial using a recursive algorithm, and displays the result.
+The program prompts the user to input a number between $0$ and $12$, computes its factorial using a recursive algorithm, and displays the result.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
 

@@ -1,4 +1,4 @@
-// Factorial
+// Factorial (Recursive)
 // by vezzolter
 // November 13, 2023
 //

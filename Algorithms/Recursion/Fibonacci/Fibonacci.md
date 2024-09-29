@@ -23,109 +23,64 @@
 
 
 # &#128161; Overview
-The Fibonacci sequence is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. Knowledge of the Fibonacci sequence enhances problem-solving skills and lays the foundation for tackling more complex mathematical and computational challenges.
-<p align="center"><img src="./Images/intro.png"/></p>
+The **Fibonacci sequence** is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. It is named after Leonardo of Pisa, who introduces it to Western mathematics. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/Fibonacci.png"/></p>
+
 
 ## Introduction
-**Fibonacci Seqence** — is a series of numbers, where each number is the sum of the two preceding numbers. Traditionally starts with $0$ and $1$ (but can start with different initial values), forming following sequence: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 89, 144, 233, 377$ and so on. The terms of this sequence are known as **Fibonacci numbers** and can be denoted as $F_n$, therefore general formula can be recursively written as $F_n = F_{n-1} + F_{n-2}$.
+**Fibonacci Sequence** is a series of numbers, where each number is the sum of the two preceding numbers. Traditionally starts with $0$ and $1$ (but can start with different initial values), forming following sequence: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 89, 144, 233, 377$ and so on. The terms of this sequence are known as **Fibonacci numbers** and can be denoted as $F_n$, therefore general formula can be recursively written as $F_n = F_{n-1} + F_{n-2}$.
 
-The other related concept to the Fibonacci Sequence is **golden ratio** ($\Phi = \frac{1+\sqrt{5}}{2} ≈ 1.61803398875$) — is an irrational number, which appears between ratio of bigger and smaller value, holding property: $\frac{bigger+smaller}{bigger} = \frac{bigger}{smaller} = \phi$
 
 ## Important Details
-**Relation Between Golden Ratio and Fibonacci Sequence:**
+- The other related concept to the Fibonacci Sequence is **golden ratio** ($\Phi = \frac{1+\sqrt{5}}{2} ≈ 1.61803398875$) — is an irrational number, which appears between ratio of bigger and smaller value, holding property: $\frac{bigger+smaller}{bigger} = \frac{bigger}{smaller} = \phi$
 - Ratio of any two consecutive Fibonacci numbers, gets closer to the golden ratio ($\Phi$) as the numbers get larger,  
 e.g. $\frac{13}{8} = 1.625$; $\frac{233}{144} = 1.61805$
-
 - Having one Fibonacci number, the next/previous neighbor can be approximately calculated by multiplying/dividing it with golden ration,  
 e.g. $5×1.618034=8.09017$ and $21÷1.618034=12.97871$.
-
 - Any Fibonacci number can be precisely calculated by using Binet's formula $F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}}$,  
 e.g. $F_8 = \frac{\phi^8-(1-\phi)^8}{\sqrt{5}} = \frac{\big(\frac{1+\sqrt{5}}{2}\big)^8-\big(1-\frac{1+\sqrt{5}}{2}\big)^8}{\sqrt{5}}=\frac{\frac{(1+\sqrt{5})^8}{2^8}-\frac{(1-\sqrt{5})^8}{2^8}}{\sqrt{5}}=\frac{(1+\sqrt{5})^8-(1-\sqrt{5})^8}{2^8\sqrt{5}}=\frac{\big((1+\sqrt{5})^8-(1-\sqrt{5})^8\big)\sqrt{5}}{1280}=$  
 $=\frac{\big(6016+2688\sqrt{5}-6016+2688\sqrt{5} \big)\sqrt{5}}{1280}=\frac{(5376\sqrt{5})\sqrt{5}}{1280}=\frac{26880}{1280}=21$
-
-While there are numerous fascinating properties of the Fibonacci sequence yet to be explored (such as terms below zero, alternation of even and odd numbers, 1/89, etc), for the scope of this subsection in the repository, the knowledge of the above would be sufficient to implement and comprehend the key ideas.
+- There are numerous fascinating properties of the Fibonacci sequence yet to be explored (such as terms below zero, alternation of even and odd numbers, 1/89, etc).
 
 
 ## Algorithm Steps (Recursive)
-Currently in Progress...
+1. Define the base case, based on the rule «$F(0) = 0$» and «$F(1) = 1$».
+2. Define the recursive case, based on the rule «$F(n) = F(n-1) + F(n-2)$».
 
 
 # &#x1F4BB; Implementation
-The program prompts the user to specify a number of an element, for which the Fibonacci Number is to be calculated, and then displays the resulting output.
-<p align="center"><img src="./Images/demonstration.png"/></p>
+The program prompts the user to input a number representing the position of a Fibonacci number, calculates the corresponding Fibonacci value using a recursive algorithm, and then displays the result.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Technically speaking, Fibonacci sequence can be implemented using both iterative and recursive approach. For that particular problem iterative solutions are often preferred over recursive ones (due to space complexity, performance, readability, stack overflow, optimization limitations). Talking about last one, it is considered more efficient to use memoization or dynamic programming techniques to store previously computed Fibonacci numbers and avoid redundant calculations. However it is important to note that the chosen implementation deliberately emphasizes the recursive paradigm for clarity and instructional purposes.
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Limiting the range of possible value for elements to $[0, 45]$, since computation of $46$ element exceeds the capacity of `int` variable $(2,147,483,647)$
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+Algorithm implemented within the function `fibonacci()`, which is declared in `Fibonacci.h` header file and defined in `Fibonacci.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of fibonacci sequence computation is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+
+```cpp
+  int fibonacci(int n) {
+	  if (n <= 1) { return n; } // Base case
+	  return fibonacci(n - 1) + fibonacci(n - 2); // Recursive case
+  }
+```
 
 
 ## Detailed Walkthrough
-1. In order to prioritize simplicity and highlight algorithm itself, `int` is picked as data type.
-
-2. For the same reasons, the algorithm is implemented within the function named `fibonacci(int n)`, and this function is separated into distinct files `fibonacci.h` and `fibonacci.cpp` away from `main.cpp`: 
+1. Start by setting up the base case, where if the input number is less than or equal to `1`, the function immediately returns the input value itself. This is because the Fibonacci sequence defines `F(0) = 0` and `F(1) = 1`.
 ```cpp
-int main()
-{
-  // Greetings
-  std::cout << "Welcome to the 'Fibonacci Sequence' console application!\n\n";
-
-  // Input
-  int n = 0;
-  n = getUserInput();
-
-  // Output
-  std::cout << "The Fibonacci Number for element '" << n << "' is " << fibonacci(n) << ".\n";
-
-  // Exiting
-  std::cout << "\nThanks for using this program! Have a great day!\n";
-  std::cout << "Press <Enter> to exit...";
-  std::cin.clear(); // ensure that stream is in a good state
-  std::cin.ignore(32767, '\n'); // clear from any remaining chars
-  std::cin.get();
-  return 0;
-}
+  if (n <= 1) { return n; } // Base case
+```
+2. If the number is greater than `1`, the function recursively calls itself twice: once for `fibonacci(n - 1)` and once for `fibonacci(n - 2)`. The results of these two recursive calls are added together to produce the Fibonacci number for the input `n`. This continues until the base case is reached for each recursive branch.
+```cpp
+	return fibonacci(n - 1) + fibonacci(n - 2); // Recursive case
 ```
 
-3. The program starts by asking user enter the number of an element within specified range and validates the input all via function `getUserInput()` in the `main.cpp` file. The range limit is dictated by the size of data type in order to prevent overflow. Therefore, the range for the number is $[0;45]$, because even though the Fibonacci Number of $46th$ element $(1,836,311,903)$ doesn't exceed the capacity of `int` variable $(2,147,483,647)$, the issue is with redundant calculations that occur during the recursive process.  
-```cpp
-int getUserInput()
-{
-   int n = 0;
-
-   while (true)
-   {
-      std::cout << "Specify the number of an element (0 to 45): ";
-      std::cin >> n;
-
-      if (std::cin.fail() || n < 0 || n > 45)
-      {
-         std::cin.clear(); // ensure that stream is in a good state
-         std::cin.ignore(32767, '\n'); // clear from any remaining chars
-         std::cout << "Error: invalid input. Please try again.\n\n"; // inform
-      }
-      else { break; }
-   }
-
-   return n;
-}
-```
-
-<p align="center"><img src="./Images/validation.png"/></p>
-
-4. Then control flow is directed to the `fibonacci(int n)` function, where until the element is not $0th$ or $1th$, the recursive function will call itself, continuously progressing towards this condition:
-    - **Base case** — considers first elements as $F_0=0$ and $F_1 = 1$, establishing a termination point for the recursion.
-    - **Recursive case** — adheres to the formula of general term $F_n = F_{n-1} + F_{n-2}$, breaking down the calculation, until base case is met.   
-```cpp
-int fibonacci(int n)
-{
-   if (n <= 1) { return n; } // Base case
-   else { return fibonacci(n - 1) + fibonacci(n - 2); } // Recursive case
-}
-```
 
 
 ## Call Stack Interaction
@@ -159,13 +114,18 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Common Use Cases
-- **Fibonacci Heaps** — a type of priority queue data structure, utilize the Fibonacci sequence to optimize the amortized time complexity of certain operations, such as decrease key and merge operations.
-- **Fibonacci Search** — uses the Fibonacci sequence to determine positions to probe within a sorted array, therefore achieving a balance between efficiency and simplicity.
-- **Lagged Fibonacci Generator (LFG)** — employs the Fibonacci sequence in a lagged recurrence relation to generate pseudo-random numbers. The algorithm combines two or more previous values, resembling the Fibonacci sequence, and introduces a lagged aspect for variations, impacting the statistical properties and period length of the generated sequence.
+- **Fibonacci Heaps** — sequence is used in priority queue data structures to manage heap-ordered trees. When two trees of the same rank are merged, the number of trees is reduced based on Fibonacci numbers, ensuring that the structure remains balanced and  contributing to the overall amortized time of operations.
+- **Fibonacci Search** — sequence is used in algorithm to search within sorted arrays. The sequence’s predictable growth pattern helps determine optimal probing positions, minimizing the number of comparisons during the search process.
+- **Lagged Fibonacci Generator (LFG)** — sequence is used in pseudo-random number generator. The recursive relationship of the sequence combines previous values with a lag, improving the statistical properties and period length of the generated sequence.
+
 
 
 ## Some Practical Problems
-Currently in Progress...
+1. [Fibonacci Number](https://leetcode.com/problems/fibonacci-number)
+2. [Climbing Stairs](https://leetcode.com/problems/climbing-stairs)
+3. [Split Array into Fibonacci Sequence](https://leetcode.com/problems/split-array-into-fibonacci-sequence)
+4. [Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence)
+5. [Find the Minimum Number of Fibonacci Numbers Whose Sum Is K](https://leetcode.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k)
 
 
 
