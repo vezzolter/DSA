@@ -88,9 +88,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - A*
 - Data Structures
   - Array
-    - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
-    - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray) ✅
-    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray) ✅
+    - [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md) 🎯
+    - [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) 🎯
+    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) 🎯
   - Linked List 
     - [List.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) ✅
     - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList)✅
@@ -135,10 +135,7 @@ As my educational journey progresses, I may discover new areas of interest withi
 
 ---
 **Backlog:**
-1. Data structures: Separate «particular implementations» from «general», i.e. there could be one file, even though the data structures can be multiple, like one markdown file for array, but none for dynamic or static.
-2. Data structures: Create iterator classes even though it can add complexity overall the usage would be practical.
-3. Data structures: Decide what to do with operations, i.e. explain all operations explicitly or merely describe.
-4. Algorithms: Decide how to structure analysis section of the RNG - it has interesting characteristics to test out: period, distribution, predictability, etc.
+1. Algorithms: Decide how to structure analysis section of the RNG - it has interesting characteristics to test out: period, distribution, predictability, etc.
 
 
 
