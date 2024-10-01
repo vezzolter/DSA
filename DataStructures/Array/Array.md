@@ -25,8 +25,9 @@
 
 
 # &#128161; Overview
-The **Array** stands out as one of the most fundamental concept in computer science, that serves as a linear collection of elements. The term «array» encompasses both basic data structure, present in many programming languages by default, and abstract data type (ADT) representation, which defines a set of operations that can be performed on the data type without specifying the implementation details. This subsection explores array ADT to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
+**Array** is a data structure/container, that stores a collection of elements of same memory size in contiguous memory locations, allowing for efficient and direct access to them through indexing. The name comes from the concept of an «array» as a systematic arrangement of similar objects in rows and columns. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/Array.png"/></p>
+
 
 ## Essential Terminology
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
@@ -79,7 +80,7 @@ When it comes to classification, there are broadly two types of arrays: static a
 
 ## Operation Details
 - **Traversal** — iterating through the elements of the array.
-- **Acess** — retrieving or updating the value of an existing element.
+- **Access** — retrieving or updating the value of an existing element.
 - **Insertion** — adding a new element to the array.
 - **Deletion** — removing an element from the array.
 - **Search** — locating a specific element within the array.

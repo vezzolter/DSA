@@ -24,7 +24,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Dynamic array** is a dynamic size implementation of an array, used when the number of elements is not known ahead of time, and flexibility is prioritized over memory efficiency. The name comes from its ability to resize during runtime, allowing the array to grow or shrink as needed while maintaining a contiguous memory structure. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/DynamicArray.png"/></p>
 
 
 ## Introduction
@@ -91,6 +92,7 @@ Currently in Progress...
 
 # &#x1F559; Origins
 Currently in Progress...
+
 
 
 # &#129309; Contributing

@@ -24,7 +24,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Static array** is a fixed-size implementation of an array, used when the number of elements is known ahead of time, and memory efficiency is important. The name comes from its fixed size, meaning the size is determined at the time of creation and cannot be changed during runtime. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/StaticArray.png"/></p>
 
 
 ## Introduction
