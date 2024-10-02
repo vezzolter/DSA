@@ -33,11 +33,10 @@
 - **Collection** — is a data structure (or container), which is used to group multiple elements together.
   - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a successor, except for the first and last elements.
 - **Array** — is a linear collection that stores elements of the same data type in contiguous and adjacent memory locations.
-  - **Length/Size** — is a number of elements contained in the array.
-  - **Capacity** — is the maximum number of possible elements for which there is currently allocated memory within array. This term is primarily associated with dynamic arrays because they aim to minimize frequent resize operations by reserving additional space for potential future elements. 
-- **Element/Record/Item** — is an individual entity within a collection.
-  - **Index/Key of Element** — is an integer value which specifies position of an element within collection. Since elements of an array don't have their unique names, the only way to access them is through their respective indices.
-  - **Value/Data of Element** — is an actual information stored within the element. It can be anything from primitive types such as integers to more complex types like instances of classes.
+  - **Size** — is a number of elements contained in the array. 
+- **Element** — is an individual entity within a collection.
+  - **Index** — is an integer value which specifies position of an element within collection. Since elements of an array don't have their unique names, the only way to access them is through their respective indices.
+  - **Value** — is an actual information stored within the element. It can be anything from primitive types such as integers to more complex types like instances of classes.
 
 
 ## Important Details
@@ -61,21 +60,6 @@ cout << *(array+1); //  equals to this             expression: array  a+1  a+2
 
 Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
 <p align="center"><img src="./Images/ArrayReallocation.png"/></p>
-
-
-## Types of Arrays
-When it comes to classification, there are broadly two types of arrays: static and dynamic. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
-<p align="center"><img src="./Images/ArrayTypes.png"/></p>
-
-1. **Static Array** — array with a fixed nature, possesses the following properties:
-    - memory is allocated on the stack during compile time;
-    - automatic memory management;
-    - length can not be changed during runtime.
-
-2. **Dynamic Array** — array with a flexible nature, possesses the following properties:
-    - memory is allocated on the heap during runtime;
-    - manual memory management (potential issues like dangling pointers and memory leaks);
-    - length cannot be changed during runtime, but there is a resourceful alternative: creating a new one, copying values, and performing respective memory operations.
 
 
 ## Operation Details

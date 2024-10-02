@@ -24,16 +24,16 @@
 
 
 # &#128161; Overview
-**Dynamic array** is a dynamic size implementation of an array, used when the number of elements is not known ahead of time, and flexibility is prioritized over memory efficiency. The name comes from its ability to resize during runtime, allowing the array to grow or shrink as needed while maintaining a contiguous memory structure. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+**Dynamic array** is an implementation of an array where the size is dynamic, meaning it can be changed during runtime. Its name comes from this characteristic. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/DynamicArray.png"/></p>
 
 
-## Introduction
-Currently in Progress...
-
-
 ## Important Details
-Currently in Progress...
+1. **Size (Dynamic)** — dynamic array can't change its size in a direct way, instead it creates a new array of the required size, copies the values, and adjusts memory allocation. Since this process involves multiple operations, dynamic arrays leverage the concept of capacity to minimize the need for frequent resizing.
+2. **Capacity** — dynamic array includes a feature called capacity, which refers to the maximum number of possible elements for which memory is currently allocated within array.
+3. **Time for Allocation (Runtime)** — dynamic array doesn't require knowing size at its creation, meaning its size can be based on values that are not known during compilation.
+4. **Place for Allocation (Heap)** — dynamic array is allocated in the heap memory section, meaning size can be extremely large compared to the stack and provided there is enough available memory.
+5. **Memory Management (Manual)** — dynamic array requires manual memory management, meaning you must handle allocation and deallocation yourself, which introduces risks such as dangling pointers or memory leaks, if not properly managed.
 
 
 ## Operations
