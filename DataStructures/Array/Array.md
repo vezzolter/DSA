@@ -1,21 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-  - [Essential Terminology](#essential-terminology)
-  - [Important Details](#important-details)
-  - [Types of Arrays](#types-of-arrays)
-  - [Operation Details](#operation-details)
+	- [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
-  - [Static Array | Design Decisions](#static-array--design-decisions)
-  - [Static Array | Detailed Overview](#static-array--detailed-overview)
-  - [Dynamic Array | Design Decisions](#dynamic-array--design-decisions)
-  - [Dynamic Array | Detailed Overview](#dynamic-array--detailed-overview)
+	- [Core Mechanics](#core-mechanics)
+	- [Existing Solutions](#existing-solutions)
+	- [Implemented Arrays](#implemented-arrays)
 - [📊 Analysis](#-analysis)
-  - [How to Analyze](#how-to-analyze)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+	- [How to Analyze](#how-to-analyze)
+	- [Advantages](#advantages)
+	- [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
-  - [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
-  - [Common Practical Problems](#common-practical-problems)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -39,7 +35,12 @@
   - **Value** — is an actual information stored within the element. It can be anything from primitive types such as integers to more complex types like instances of classes.
 
 
-## Important Details
+
+# &#x1F4BB; Implementation 
+Currently in Progress...
+
+
+## Core Mechanics
 One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
 <p align="center"><img src="./Images/ArrayPointers.png"/></p>
 
@@ -62,114 +63,12 @@ Because arrays use single-block memory allocation, any operation that alters the
 <p align="center"><img src="./Images/ArrayReallocation.png"/></p>
 
 
-## Operation Details
-- **Traversal** — iterating through the elements of the array.
-- **Access** — retrieving or updating the value of an existing element.
-- **Insertion** — adding a new element to the array.
-- **Deletion** — removing an element from the array.
-- **Search** — locating a specific element within the array.
-- **Sorting** — arranging the elements of the array in a specific order.
-- **Merging** — combining two arrays into one.
-- **Splitting** — dividing the array into two or more parts.
-- **Filtering** — selecting specific elements based on certain criteria.
+## Existing Solutions
+Currently in Progress..
 
 
-# &#x1F4BB; Implementation 
-Discussing ADT, it's evident that well-established and widely recognized implementations already exist for both static and dynamic arrays. In the context of C++, `std::array` is a representative of static arrays, and `std::vector` stands as the counterpart for dynamic arrays. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these arrays. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
-
-
-## Static Array | Design Decisions
-Keeping its educational aim in mind, the `SA` class developed here closely resembles the behavior of `std::array`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./Images/StaticArrayLibItr.png"/></p>
-
-One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./Images/StaticArrayLibAt.png"/></p>
-
-Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::array` was skipped.
-
-
-## Static Array | Detailed Overview
-<p align="center"><img src="./Images/StaticArrayDemonstration.png"/></p>
-
-Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/src/Main.cpp) file. The `SA` class is declared in [StaticArray.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/inc/StaticArray.h) header file and defined in [StaticArray.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/src/StaticArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
-```cpp
-template<class T, int MAX_SIZE>
-class SA {
-private:
-	int _size;
-	T _data[MAX_SIZE];
-
-public:
-	// Special Member Functions
-	SA();
-	SA(int size);
-	SA(const SA& rhs);
-	SA& operator=(const SA& rhs);
-	~SA() = default;
-
-	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
-
-	// Capacity
-	bool empty() const;
-	int size() const;
-};
-```
-
-
-## Dynamic Array | Design Decisions
-Key difference between static and dynamic ADT lies in the implementation of the memory management. The well-known `std::vector` operates on the principle of capacity, meaning:
-
-> The storage of the vector is handled automatically, being expanded as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted — cppreference
-
-At first glance, I thought I will just double the capacity each time it requires more for explanatory purposes, but I guess it may lead to misinformation, so I just chosen to implement solely based on the length. Even though it contradicts the main principle, it doesn't prevent to grasp the idea behind other memory management. This resulted in some type of misleading nature of some methods, thus I've placed notes, where it does so. Overall, this implementation has the same minor adjustments as previous type.
-
-
-## Dynamic Array | Detailed Overview
-<p align="center"><img src="./Images/DynamicArrayDemonstration.png"/></p>
-
-Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/src/Main.cpp) file. The `DA` class is declared in [DynamicArray.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/inc/DynamicArray.h) header file and defined in [DynamicArray.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/src/DynamicArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
-```cpp
-template<class T>
-class DA {
-private:
-	int _size;
-	T* _data;
-
-public:
-	// Special Member Functions
-	DA();
-	DA(int newSize, T newData = T());
-	DA(const DA& rhs);
-	DA& operator=(const DA& rhs);
-	~DA();
-
-	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
-
-	// Capacity
-	bool empty() const;
-	int size() const;
-	
-	// Modifiers
-	void pushBack(const T& newData);
-	void insert(int index, const T& newData);
-	void remove(int index);
-	void resize(int newSize);
-	void clear();
-};
-```
-
+## Implemented Arrays
+Currently in Progress..
 
 
 # &#128202; Analysis
@@ -198,7 +97,7 @@ Will be updated in the future...
 Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
-## Some of the Most Well-Known Use Cases
+## Common Use Cases
 - **Data Storage** — arrays are fundamental for storing collections of data, such as lists of numbers, strings, or objects. They provide a structured and efficient way to organize and access this information.
 - **Algorithms and Data Structures** — many algorithms and data structures rely on arrays. Sorting algorithms, searching algorithms, and various data structures like stacks, queues, and hash tables often use arrays as their underlying structure.
 - **Image and Signal Processing** — arrays are commonly used to represent images or signals in applications like computer vision and audio processing. The pixel values of an image or the samples of a signal can be stored in arrays.
@@ -209,7 +108,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 - **Embedded Systems** — in embedded systems programming, arrays are often used to manage sensor data, control outputs, or store configuration information due to their simplicity and efficiency.
 
 
-## Common Practical Problems
+## Some Practical Problems
 - [Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation/)
 - [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values/)
 - [Count Pairs Whose Sum is Less than Target](https://leetcode.com/problems/count-pairs-whose-sum-is-less-than-target/)
