@@ -37,30 +37,28 @@
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+Understanding the underlying mechanics of a data structure is essential to grasp how it operates and manages data. Since one data structure can have different implementations, it's crucial to recognize these distinctions, especially by learning from existing solutions, which often offer efficient, well-tested approaches to handling data and optimizing performance.
 
 
 ## Core Mechanics
-One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
-<p align="center"><img src="./Images/ArrayPointers.png"/></p>
-
-**Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
+The core concept of an array revolves around **contiguous memory allocation** and **direct (random) access** to elements based on an index. All elements of an array are stored one after the other in a continuous block of memory, starting from the base address of the first element, with each subsequent element stored at the next memory address, each occupying the same amount of memory based on its data type. This allows arrays to provide constant-time access $O(1)$ to any element, because instead of using traversal methods, the memory address of any element can be calculated directly by leveraging address arithmetic with its index.
+<p align="center"><img src="./Images/AddressArithmetic.png"/></p>
+ 
+**Address Arithmetic** — is the concept of manipulating memory addresses using arithmetic operations, allowing to access previous or successive elements in memory with minimal overhead.
 ```cpp
-int value = 5;
-int *ptr = &value; // points onto variable of type 'int'             002CF9A4
-cout << ptr + 1;   // point onto next value of int (+4 bytes)        002CF9A8
-cout << ptr - 1;   // point onto prev value of int (-4 bytes)        002CF9A0
+  int val = 5;
+  int *ptr = &val;     // points to variable of type 'int'              002CF9A4
+  int *prev = ptr - 1; // points to prev value of int (-4 bytes)        002CF9A0
+  int *next = ptr + 1; // points to next value of int (+4 bytes)        002CF9A8
 ```
 
-**Array Indexing** — process of accessing elements within an array, typically achieved internally through address arithmetic.
+**Array Indexing** — is the process of accessing elements within an array. Internally, this is achieved through address arithmetic. The name of an array itself acts as a pointer to the first element, and since the address of the first element is known, we can add element's index to it, thereby computing element's position in memory. This is also the reason why indexing starts from zero: `array[0]` means that the first element is $0$ element away from itself.
 ```cpp
-int arr[5] = {7, 8, 2}; // simple static array          value:    7     8    2
-cout << array[1];   //  this                            index:    0     1    2
-cout << *(array+1); //  equals to this             expression: array  a+1  a+2
+  int array[5] = {7, 8, 2}; 
+  cout << array[1];   // this accesses the value at index 1 (8)
+  cout << *(array+1); // equivalent to array[1]
 ```
-
-Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
-<p align="center"><img src="./Images/ArrayReallocation.png"/></p>
+However, accessing an element outside the defined bounds of the array (either due to an invalid index or overflow) can lead to **undefined behavior**, often resulting in memory errors or data corruption. Arrays do not inherently track their own boundaries at runtime, leaving it up to the programmer (or the container implementation) to ensure valid access within the array’s limits.
 
 
 ## Existing Solutions
