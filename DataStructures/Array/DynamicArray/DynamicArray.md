@@ -91,7 +91,7 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...
+Since dynamic arrays share the foundational principles of the general concept of arrays, their historical development is best described in the [arrays origins section](../#-origins).
 
 
 

@@ -129,7 +129,15 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 
 # &#x1F559; Origins
-While early assembly and machine languages offered basic memory management constructs, they lacked the sophisticated abstraction and versatility inherent in arrays found in modern programming languages. Consequently, individuals worldwide independently devised solutions to address this limitation. As a result, the concept of organizing data into ordered sequences has undergone continuous evolution, with no single individual credited for the development of arrays.
+The idea of the array, due to its simplicity and efficiency, can be observed in many real-world systems and structures. In computer science, arrays became one of the earliest data structures to be implemented in programming languages. While their origin can't be attributed to a single person or moment, there are still important dates worth noting:
+
+- In **1945**, the Von Neumann architecture, introduced by John von Neumann, laid the groundwork for modern computing by proposing a **sequential memory model**. This concept of storing both data and instructions in linear memory influenced the development of data structures like arrays, enabling efficient, contiguous memory allocation.
+
+- In **1957**, FORTRAN, one of the first high-level programming languages, introduced **static arrays**. These arrays had a fixed size, determined at compile time, and became essential for scientific and engineering computations due to their simplicity and efficiency in memory use.
+
+- In the **late 1950s**, ALGOL 58 and ALGOL 60 advanced the concept of arrays by introducing early forms of **dynamic arrays**. These arrays allowed memory to be allocated during runtime, offering more flexibility than static arrays and influencing future programming languages by showing how arrays could be more dynamic in nature.
+
+- In **1972**, the C programming language, developed by Dennis Ritchie, introduced **address arithmetic** as a method for interacting with arrays at a low level. This innovation allowed programmers to manipulate memory directly, making arrays more efficient for system-level programming and solidifying their role in performance-critical applications.
 
 
 
