@@ -82,7 +82,7 @@ Currently in Progress...
 
 
 ## Common Use Cases
-Currently in Progress...
+Since static arrays share the foundational principles of the general concept of arrays, their common use cases is best described in the [arrays respective section](../../Array.md#-application).
 
 
 ## Some Practical Problems
@@ -90,17 +90,17 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Since static arrays share the foundational principles of the general concept of arrays, their historical development is best described in the [arrays origins section](../#-origins).
+Since static arrays share the foundational principles of the general concept of arrays, their historical development is best described in the [arrays origins section](../../Array.md#-origins).
 
 
 
 # &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
+Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 
 # &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
+For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
 
 
 
