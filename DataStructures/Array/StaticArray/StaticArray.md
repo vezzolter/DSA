@@ -78,19 +78,20 @@ Currently in Progress...
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Since static arrays share the foundational principles of the general concept of arrays, their common use cases is best described in the [arrays respective section](../../Array.md#-application).
+Since static arrays share the foundational principles of the general concept of arrays, their common use cases is best described in the [arrays respective section](../Array.md#-application).
 
 
 ## Some Practical Problems
-Currently in Progress...
+Since static arrays share the foundational principles of the general concept of arrays, their common problems is best described in the [arrays respective section](../Array.md#-application).
+
 
 
 # &#x1F559; Origins
-Since static arrays share the foundational principles of the general concept of arrays, their historical development is best described in the [arrays origins section](../../Array.md#-origins).
+Since static arrays share the foundational principles of the general concept of arrays, their historical development is best described in the [arrays origins section](../Array.md#-origins).
 
 
 

@@ -114,24 +114,48 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 
 ## Some Practical Problems
-- [Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation/)
-- [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values/)
-- [Count Pairs Whose Sum is Less than Target](https://leetcode.com/problems/count-pairs-whose-sum-is-less-than-target/)
-- [Majority Element](https://leetcode.com/problems/majority-element/)
-- [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
-- [Remove Element](https://leetcode.com/problems/remove-element/)
-- [Rotate Image](https://leetcode.com/problems/rotate-image/)
-- [Difference of Number of Distinct Values on Diagonals](https://leetcode.com/problems/difference-of-number-of-distinct-values-on-diagonals/)
-- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
-- [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
-- [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
-- [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
-- [Two Sum](https://leetcode.com/problems/two-sum/)
-- [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
-- [Make Array Empty](https://leetcode.com/problems/make-array-empty/)
-- [Find the Minimum Cost Array Permutation](https://leetcode.com/problems/find-the-minimum-cost-array-permutation/)
-- [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
-- [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/)
+**Easy Problems:**
+1. [Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation)
+2. [Remove Element](https://leetcode.com/problems/remove-element)
+3. [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values)
+4. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate)
+5. [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-arra)
+6. [Majority Element](https://leetcode.com/problems/majority-element)
+7. [Two Sum](https://leetcode.com/problems/two-sum)
+8. [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays)
+9. [Image Smoother](https://leetcode.com/problems/image-smoother)
+10. [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)
+
+---
+**Medium Problems:** 
+1. [Rotate Array](https://leetcode.com/problems/rotate-array)
+2. [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)
+3. [Maximum Gap](https://leetcode.com/problems/maximum-gap)
+4. [Insert Interval](https://leetcode.com/problems/insert-interval)
+5. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
+6. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray)
+7. [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence)
+8. [Valid Sudoku](https://leetcode.com/problems/valid-sudoku)
+9. [Difference of Number of Distinct Values on Diagonals](https://leetcode.com/problems/difference-of-number-of-distinct-values-on-diagonals)
+10. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self)
+11. [Jump Game](https://leetcode.com/problems/jump-game)
+12. [Rotate Image](https://leetcode.com/problems/rotate-image/)
+13. [Peeking Iterator](https://leetcode.com/problems/peeking-iterator)
+14. [Reduce Array Size to The Half](https://leetcode.com/problems/reduce-array-size-to-the-half)
+15. [Product of the Last K Numbers](https://leetcode.com/problems/product-of-the-last-k-numbers)
+
+---
+**Hard Problems:** 
+1. [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
+2. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum)
+3. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)
+4. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+5. [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum)
+6. [Reverse Pairs](https://leetcode.com/problems/reverse-pairs)
+7. [Make Array Empty](https://leetcode.com/problems/make-array-empty)
+8. [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix)
+9. [Candy](https://leetcode.com/problems/candy)
+10. [Remove Boxes](https://leetcode.com/problems/remove-boxes)
 
 
 
