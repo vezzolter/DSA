@@ -1,17 +1,17 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-	- [Essential Terminology](#essential-terminology)
+  - [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
-	- [Core Mechanics](#core-mechanics)
-	- [Existing Solutions](#existing-solutions)
-	- [Implemented Arrays](#implemented-arrays)
+  - [Core Mechanics](#core-mechanics)
+  - [Existing Solutions](#existing-solutions)
+  - [Repository Containers](#repository-containers)
 - [📊 Analysis](#-analysis)
-	- [How to Analyze](#how-to-analyze)
-	- [Advantages](#advantages)
-	- [Disadvantages](#disadvantages)
+  - [How to Analyze](#how-to-analyze)
+  - [Advantages](#advantages)
+  - [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
-	- [Common Use Cases](#common-use-cases)
-	- [Some Practical Problems](#some-practical-problems)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -62,11 +62,23 @@ However, accessing an element outside the defined bounds of the array (either du
 
 
 ## Existing Solutions
-Currently in Progress..
+Quite often in computer science, there is ambiguity between definitions, as the term data structure typically refers to the abstract organization of data, focusing on logical operations such as insertion, deletion, and traversal. However, in practical applications, these data structures are implemented as containers, which not only provide these operations but also manage underlying performance and memory constraints.
+
+When it comes to arrays, there are two primary types, each tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their respective sections of this repository, here’s a brief description to give you a foundational understanding:
+- **Static Array** — is a type of array where the main property is that the size is fixed, meaning it can't be changed during runtime.
+- **Dynamic Array** — is a type of array where the main property is that the size is dynamic, meaning it can be changed during runtime.
+
+---
+It's generally recommended to rely on well-established, widely recognized implementations that already exist, rather than reinventing the wheel. Proven implementations provide optimized, reliable solutions while saving time and effort. In the context of C++, the Standard Template Library (STL) offers trusted containers for both types of arrays:
+- **std::array** — is a container that encapsulates fixed size arrays.
+- **std::vector** — is a container that encapsulates dynamic size arrays.
 
 
-## Implemented Arrays
-Currently in Progress..
+## Repository Containers
+Understanding the design principles and core mechanics of array data structures is essential for deeper insight into their efficiency and performance. The following implementations provide simplified versions of both static and dynamic arrays, showcasing key aspects of their design and operation.
+- [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) 🎯
+- [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) 🎯
+
 
 
 # &#128202; Analysis
@@ -211,6 +223,7 @@ For contact details and additional information, please refer to the [root direct
 --- 
 &#127760; **Web-Resources:**
 - [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)) (Wikipedia)
+- [Dynamic array](https://en.wikipedia.org/wiki/Dynamic_array) (Wikipedia)
 - [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)
 - [std::array](https://en.cppreference.com/w/cpp/container/array)
 - [std::vector](https://en.cppreference.com/w/cpp/container/vector)
