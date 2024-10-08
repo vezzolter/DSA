@@ -36,8 +36,53 @@
 5. **Memory Management (Manual)** — dynamic array requires manual memory management, meaning you must handle allocation and deallocation yourself, which introduces risks such as dangling pointers or memory leaks, if not properly managed.
 
 
-## Operations
-Currently in Progress...
+## Container Methods
+When working with dynamic array, it's important to note that there is no universal standard defining a strict list of operations or guidelines for how they should be implemented. The design and functionality of a container can vary depending on several factors, such as the programming language, the purpose of the library, performance considerations, etc. Despite these variations, there are still common operations found across most implementations, typically derived from the fundamental needs of data manipulation, like accessing, modifying, or iterating over elements. Since this repository is dedicated to C++, the operations provided will closely resemble those found in `std::vector`.
+
+---
+**Compiler Generated:**
+- **Default Constructor** — creates a new array: for primitive data types allocates space without initializing, for complex data types calls their corresponding constructors.
+- **Copy Constructor** — creates a new array by copying elements from another array.
+- **Move Constructor** — creates a new array by moving elements from another array, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- **Copy Assignment Operator** — overwrites every element of already existing array with the corresponding element of another array by copying them.
+- **Move Assignment Operator** — overwrites every element of already existing array with the corresponding element of another array by moving them, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- **Destructor** — performs end-actions on array: for primitive data types does nothing because they don't hold resources that need to be explicitly cleaned up, for complex data types calls the corresponding destructors.
+
+---
+<p align="center"><img src="../Images/OperationsIterator.png"/></p>
+
+**Iterators:**
+- `begin`, `cbegin` — returns an iterator (or constant iterator) to the first element.
+- `end`, `cend` — returns an iterator (or constant iterator) to the position one past the last element, making range $[begin, end)$ easy for traversal.
+- `rbegin`, `crbegin` — returns an iterator (or constant one) to the last element.
+- `rend`, `crend` — returns an iterator (or constant one) to the position one before the first element, making range $[rend, rbegin)$ easy for traversal.
+
+---
+**Element Access:**
+- `at()` — returns specified element with bounds checking; if element is not within the range of the container, throws an exception.
+- `operator[]` — returns specified element without bounds checking; accessing a nonexistent element through this operator is undefined behavior.
+- `front()` — returns the first element in the container; calling on an empty container causes undefined behavior.
+- `back()` — returns the last element in the container; calling on an empty container causes undefined behavior.
+
+---
+**Capacity:**
+- `empty()` — returns `true` if container is empty, otherwise `false`.
+- `size()` — returns the number of elements in the container; basically distance from begin to end.
+- `maxSize()` — returns the maximum number of elements the container is able to hold.
+- `capacity()` — returns the number of elements that can be held in currently allocated storage.
+- `reserve()` — increases the capacity of the array to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
+- `shrinkToFit()` — reduces the capacity to the size of an array
+
+---
+**Modifiers:**
+- `assign()` — assigns the given value to the elements.
+- `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
+- `clear()` — erases all elements from the container; invalidates any references, pointers, and iterators referring to contained elements; doesn't change capacity.
+- `insert()` — inserts elements at the specified location in the container; if after the operations size is greater than capacity a reallocations takes place.
+- `erase()` — erases the specified elements from the container. 
+- `pushBack()` — appends the given element to the end of the container; if after the operations size is greater than capacity a reallocations takes place.
+- `popBack()` — removes the last element of the container; calling on an empty container causes undefined behavior.
+- `resize()` — resizes the container to contain given amount of elements; if given amount equals to size, does nothing; if given amount is less than size, the container is reduced to its first given elements; if given amount is greater, additional default (or specified) elements are appended.
 
 
 
