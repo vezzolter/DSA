@@ -1,8 +1,7 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-	- [Introduction](#introduction)
 	- [Important Details](#important-details)
-	- [Operations](#operations)
+	- [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
 	- [Iterator Implementation](#iterator-implementation)
@@ -48,7 +47,7 @@ When working with static array, it's important to note that there is no universa
 - **Destructor** — performs end-actions on array: for primitive data types does nothing because they don't hold resources that need to be explicitly cleaned up, for complex data types calls the corresponding destructors.
 
 ---
-<p align="center"><img src="../Images/OperationsIterator.png"/></p>
+<p align="center"><img src="./Images/OperationsIterators.png"/></p>
 
 **Iterators:**
 - `begin`, `cbegin` — returns an iterator (or constant iterator) to the first element.
@@ -57,6 +56,8 @@ When working with static array, it's important to note that there is no universa
 - `rend`, `crend` — returns an iterator (or constant one) to the position one before the first element, making range $[rend, rbegin)$ easy for traversal.
 
 ---
+<p align="center"><img src="./Images/Try-2.png"/></p>
+
 **Element Access:**
 - `at()` — returns specified element with bounds checking; if element is not within the range of the container, throws an exception.
 - `operator[]` — returns specified element without bounds checking; accessing a nonexistent element through this operator is undefined behavior.
