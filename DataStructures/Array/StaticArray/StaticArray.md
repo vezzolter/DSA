@@ -56,7 +56,7 @@ When working with static array, it's important to note that there is no universa
 - `rend`, `crend` — returns an iterator (or constant one) to the position one before the first element, making range $[rend, rbegin)$ easy for traversal.
 
 ---
-<p align="center"><img src="./Images/Try-2.png"/></p>
+<p align="center"><img src="./Images/OperationsAccess.png"/></p>
 
 **Element Access:**
 - `at()` — returns specified element with bounds checking; if element is not within the range of the container, throws an exception.
@@ -77,11 +77,18 @@ When working with static array, it's important to note that there is no universa
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the basic functionality of the static array, allowing users to perform various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Resembling the behavior of `std::array` to provide familiarity for users.
+- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Not considering cases where the container is created on the heap.
+- Omitting certain optimizations to the container.
+- Assuming valid input values from the user.
+- Avoiding any exception handling.
 
 
 ## Iterator Implementation

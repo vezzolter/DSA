@@ -90,11 +90,19 @@ When working with dynamic array, it's important to note that there is no univers
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the functionality of the dynamic array, allowing users to perform various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Resembling the behavior of `std::vector` to provide familiarity for users.
+- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Omitting cases where the container is created on the heap.
+- Doubling the capacity whenever reallocation occurs.
+- Omitting certain optimizations to the container.
+- Assuming valid input values from the user.
+- Avoiding any exception handling.
 
 
 ## Iterator Implementation
