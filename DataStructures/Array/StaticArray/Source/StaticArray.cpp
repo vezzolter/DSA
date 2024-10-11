@@ -1,41 +1,39 @@
-// Source file for simplified ADT: Static Array
+// Source file for Static Array
 // by vezzolter
 // January 29, 2024
+
 
 #ifndef SA_CPP
 #define SA_CPP
 
+
 #include "StaticArray.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// --------------------------
+//  Special Member Functions 
+// --------------------------
 
-// Default constructor
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>::SA() : _size(0) {
-    for (int i = 0; i < MAX_SIZE; ++i)
+// Default Constructor
+SA::SA() : _size(0) {
+    for (int i = 0; i < 100; ++i)
         _data[i] = 0;
 }
 
-// Parameterized constructor, no range check
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>::SA(int size) : _size(size) {
-    for (int i = 0; i < MAX_SIZE; ++i)
+// Parameterized Constructor
+SA::SA(int size) : _size(size) {
+    for (int i = 0; i < size; ++i)
         _data[i] = 0;
 }
 
-// Shallow copy constructor
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>::SA(const SA& rhs) : _size(rhs._size) {
+// Shallow Copy Constructor
+SA::SA(const SA& rhs) : _size(rhs._size) {
     for (int i = 0; i < _size; ++i)
         _data[i] = rhs._data[i];
 }
 
-// Shallow copy assignment operator
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
+// Shallow Copy Assignment Operator
+SA& SA::operator=(const SA& rhs) {
     // Self-assignment guard
     if (this == &rhs)
         return *this;
@@ -48,46 +46,38 @@ SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
 }
 
 
-// --------------
-// Element Access
-// --------------
+// ----------------
+//  Element Access
+// ----------------
 
 // Accesses the element at the specified index, no range check, allows modification
-template<class T, int MAX_SIZE>
-T& SA<T, MAX_SIZE>::operator[](const int index) { return _data[index]; }
+int& SA::operator[](const int index) { return _data[index]; }
 
 // Accesses the element at the specified index, no range check, denies modification
-template<class T, int MAX_SIZE>
-const T& SA<T, MAX_SIZE>::operator[](const int index) const { return _data[index]; }
+const int& SA::operator[](const int index) const { return _data[index]; }
 
 // Accesses the first element in the container, no range check, allows modification
-template<class T, int MAX_SIZE>
-T& SA<T, MAX_SIZE>::front() { return _data[0]; }
+int& SA::front() { return _data[0]; }
 
 // Accesses the first element in the container, no range check, denies modification
-template<class T, int MAX_SIZE>
-const T& SA<T, MAX_SIZE>::front() const { return 0; }
+const int& SA::front() const { return _data[0]; }
 
 // Accesses the last element in the container, no range check, allows modification
-template<class T, int MAX_SIZE>
-T& SA<T, MAX_SIZE>::back() { return _data[_size - 1]; }
+int& SA::back() { return _data[_size - 1]; }
 
 // Accesses the last element in the container, no range check, denies modification
-template<class T, int MAX_SIZE>
-const T& SA<T, MAX_SIZE>::back() const { return 0; }
+const int& SA::back() const { return _data[_size - 1]; }
 
 
-// --------
-// Capacity
-// --------
+// ----------
+//  Capacity
+// ----------
 
 // Check if the container is empty
-template<class T, int MAX_SIZE>
-bool SA<T, MAX_SIZE>::empty() const { return (_size == 0); }
+bool SA::empty() const { return (_size == 0); }
 
 // Get the size of the container
-template<class T, int MAX_SIZE>
-int SA<T, MAX_SIZE>::size() const { return _size; }
+int  SA::size() const { return _size; }
 
 
 #endif

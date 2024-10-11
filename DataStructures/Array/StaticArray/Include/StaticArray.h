@@ -1,39 +1,43 @@
-// Header file for simplified ADT: Static Array
+// Header file Static Array
 // by vezzolter
 // January 29, 2024
+
 
 #ifndef SA_H
 #define SA_H
 
 
-template<class T, int MAX_SIZE>
 class SA {
 private:
 	int _size;
-	T _data[MAX_SIZE];
+	int _data[100];
 
 public:
 	// Special Member Functions
 	SA();
 	SA(int size);
 	SA(const SA& rhs);
+	SA(SA&&) = delete;
 	SA& operator=(const SA& rhs);
+	SA& operator=(SA&&) = delete;
 	~SA() = default;
 
 	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
+	int& operator[](const int index);
+	const int& operator[](const int index) const;
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
+
+	// Operations
+	// assign()
+	// swap()
 };
 
 
-#include "StaticArray.cpp"
-
-#endif
+#endif // SA_H

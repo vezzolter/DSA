@@ -1,15 +1,16 @@
-// Simplified ADT: Static Array
+// Static Array
 // by vezzolter
 // January 29, 2024
 //
-// This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called static array.
+// This C++ project demonstrates the simplified implementation of a static array container. 
+// It aims to illustrate basic array operations and memory handling in a fixed-size context.
+
 
 #include <iostream>
 #include "StaticArray.h"
 
 
-void printArray(const SA<int, 100>& arr) {
+void printArray(const SA& arr) {
 	std::cout << "Elements:\t";
 	for (int i = 0; i < arr.size(); i++)
 		std::cout << arr[i] << " ";
@@ -22,7 +23,7 @@ int main() {
 
 	// Create initial array #1
 	std::cout << "\nCreating & filling initial array #1...\n";
-	SA<int, 100> arr1(9);
+	SA arr1(9);
 	for (int i = 0; i < 9; i++)
 		arr1[i] = i + 1;
 	
@@ -42,8 +43,8 @@ int main() {
 
 	// Copy functionality
 	std::cout << "\nCreate an array copies and compare...\n";
-	SA<int, 100> arr2(arr1);
-	SA<int, 100> arr3 = arr1;
+	SA arr2(arr1);
+	SA arr3 = arr1;
 	printArray(arr1);
 	printArray(arr2);
 	printArray(arr3);
