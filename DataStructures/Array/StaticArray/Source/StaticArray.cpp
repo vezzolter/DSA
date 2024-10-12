@@ -80,4 +80,15 @@ bool SA::empty() const { return (_size == 0); }
 int  SA::size() const { return _size; }
 
 
+// ------------
+//  Operations
+// ------------
+
+// Exchanges the contents of this array with another array
+//void SA::assign() { }
+
+// Get the size of the container
+//void SA::swap() { }
+
+
 #endif

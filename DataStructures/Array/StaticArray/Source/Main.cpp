@@ -21,39 +21,30 @@ int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Static Array' console application!\n";
 
-	// Create initial array #1
-	std::cout << "\nCreating & filling initial array #1...\n";
+	// Constructors
 	SA arr1(9);
-	for (int i = 0; i < 9; i++)
-		arr1[i] = i + 1;
-	
-	// Show array #1
-	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
-	printArray(arr1);
+	for (int i = 0; i < 9; i++) { arr1[i] = i + 1; }
 
-	// Access elements
-	std::cout << " - first:\t" << arr1.front() << std::endl;
-	std::cout << " - middle:\t" << arr1[arr1.size() / 2] << std::endl;
-	std::cout << " - last:\t" << arr1.back() << std::endl;
+	// Element Access
+	std::cout << "Element Access:\n";
+	//std::cout << "at():\t" << arr1.at() << std::endl;
+	std::cout << " - operator[3]:\t" << arr1[3] << std::endl;
+	std::cout << " - front():\t" << arr1.front() << std::endl;
+	std::cout << " - back():\t" << arr1.back() << std::endl;
 
-	// Modify array #1
-	std::cout << "\nChange first ('1') and last ('9') element to '0'...\n";
-	arr1[0] = arr1[arr1.size() - 1] = 0;
-	printArray(arr1);
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " - empty():\t" << arr1.empty() << std::endl;
+	std::cout << " - size():\t" << arr1.size() << std::endl;
 
-	// Copy functionality
-	std::cout << "\nCreate an array copies and compare...\n";
-	SA arr2(arr1);
-	SA arr3 = arr1;
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
+	// Operations
+	//std::cout << "Operations:\n";
+	//std::cout << " - assign():\t" << arr1.assign() << std::endl;
+	//std::cout << " - swap():\t" << arr1.swap() << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

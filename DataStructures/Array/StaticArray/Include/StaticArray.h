@@ -23,6 +23,8 @@ public:
 	~SA() = default;
 
 	// Element Access
+	//int& at(const int index);
+	//const int& at(const int index) const;
 	int& operator[](const int index);
 	const int& operator[](const int index) const;
 	int& front();
@@ -35,8 +37,8 @@ public:
 	int size() const;
 
 	// Operations
-	// assign()
-	// swap()
+	//void assign();
+	//void swap();
 };
 
 
