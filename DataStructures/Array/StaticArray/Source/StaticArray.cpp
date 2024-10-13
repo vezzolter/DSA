@@ -3,16 +3,12 @@
 // January 29, 2024
 
 
-#ifndef SA_CPP
-#define SA_CPP
-
-
 #include "StaticArray.h"
 
 
-// --------------------------
-//  Special Member Functions 
-// --------------------------
+// --------------------
+//  Compiler Generated 
+// --------------------
 
 // Default Constructor
 SA::SA() : _size(0) {
@@ -43,6 +39,31 @@ SA& SA::operator=(const SA& rhs) {
         _data[i] = rhs._data[i];
 
     return *this;
+}
+
+
+// -----------
+//  Iterators 
+// -----------
+
+// Returns an iterator to the first element of the container
+SAIterator SA::begin() {
+
+}
+
+// Returns a constant iterator to the first element of the container
+const SAIterator SA::cbegin() const{
+
+}
+
+// Returns an iterator to one past the last element of the container
+SAIterator SA::end() {
+
+}
+
+// Returns a constant iterator to one past the last element of the container
+const SAIterator SA::cend() const {
+
 }
 
 
@@ -89,6 +110,3 @@ int  SA::size() const { return _size; }
 
 // Get the size of the container
 //void SA::swap() { }
-
-
-#endif
