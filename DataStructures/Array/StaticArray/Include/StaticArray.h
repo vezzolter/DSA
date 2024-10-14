@@ -20,8 +20,7 @@ public:
 	SA();
 	SA(int size);
 	SA(const SA& rhs);
-	SA& operator=(const SA& rhs);
-	
+	SA& operator=(const SA& rhs);	
 	SA(SA&&) = delete;
 	SA& operator=(SA&&) = delete;
 	~SA() = default;

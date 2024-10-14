@@ -13,10 +13,9 @@ private:
 
 public:
 	// Compiler Generated
-	SAIterator();
+	SAIterator() = default;
 	SAIterator(int* ptr);
-
-	SAIterator(const SAIterator& rhs) = default;
+	SAIterator(const SAIterator& rhs);
 	SAIterator& operator=(const SAIterator& rhs) = default;
 	SAIterator(SAIterator&& rhs) = delete;
 	SAIterator& operator=(SAIterator&& rhs) = delete;
@@ -24,11 +23,14 @@ public:
 
 
 	// Overloaded Operators
-	int& operator*() const;
+	int& operator*();
+	const int& operator*() const;
 	SAIterator& operator++();
-	SAIterator operator++(int);
-	bool operator==(const SAIterator& other) const;
-	bool operator!=(const SAIterator& other) const;
+	//SAIterator operator++(int); // could require disabling the RVO or using move cstr
+	SAIterator& operator--();
+	//SAIterator operator--(int); // could require disabling the RVO or using move cstr
+	friend bool operator==(const SAIterator& lhs, const SAIterator& rhs);
+	friend bool operator!=(const SAIterator& lhs, const SAIterator& rhs);
 };
 
 
