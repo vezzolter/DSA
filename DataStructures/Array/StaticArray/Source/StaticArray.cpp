@@ -11,33 +11,18 @@
 // --------------------
 
 // Default Constructor
-SA::SA() : _size(0) {
-    for (int i = 0; i < 100; ++i)
-        _data[i] = 0;
-}
+SA::SA() { for (int i = 0; i < _SIZE; ++i) { _data[i] = 0; } }
 
-// Parameterized Constructor
-SA::SA(int size) : _size(size) {
-    for (int i = 0; i < size; ++i)
-        _data[i] = 0;
-}
+//// Parameterized Constructor
+//SA::SA(std::initializer_list<int> values) { }
 
 // Shallow Copy Constructor
-SA::SA(const SA& rhs) : _size(rhs._size) {
-    for (int i = 0; i < _size; ++i)
-        _data[i] = rhs._data[i];
-}
+SA::SA(const SA& rhs) { for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; } }
 
 // Shallow Copy Assignment Operator
 SA& SA::operator=(const SA& rhs) {
-    // Self-assignment guard
-    if (this == &rhs)
-        return *this;
-
-    _size = rhs._size;
-    for (int i = 0; i < _size; ++i)
-        _data[i] = rhs._data[i];
-
+    if (this == &rhs) { return *this; } // Self-assignment guard
+    for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; }
     return *this;
 }
 
@@ -47,24 +32,10 @@ SA& SA::operator=(const SA& rhs) {
 // -----------
 
 // Returns an iterator to the first element of the container
-SAIterator SA::begin() {
-
-}
-
-// Returns a constant iterator to the first element of the container
-const SAIterator SA::cbegin() const{
-
-}
+SAIterator SA::begin() { return SAIterator(_data); }
 
 // Returns an iterator to one past the last element of the container
-SAIterator SA::end() {
-
-}
-
-// Returns a constant iterator to one past the last element of the container
-const SAIterator SA::cend() const {
-
-}
+SAIterator SA::end() { return SAIterator(_data + _SIZE); } 
 
 
 // ----------------
@@ -84,10 +55,10 @@ int& SA::front() { return _data[0]; }
 const int& SA::front() const { return _data[0]; }
 
 // Accesses the last element in the container, no range check, allows modification
-int& SA::back() { return _data[_size - 1]; }
+int& SA::back() { return _data[_SIZE - 1]; }
 
 // Accesses the last element in the container, no range check, denies modification
-const int& SA::back() const { return _data[_size - 1]; }
+const int& SA::back() const { return _data[_SIZE - 1]; }
 
 
 // ----------
@@ -95,10 +66,10 @@ const int& SA::back() const { return _data[_size - 1]; }
 // ----------
 
 // Check if the container is empty
-bool SA::empty() const { return (_size == 0); }
+bool SA::empty() const { return (_SIZE == 0); }
 
 // Get the size of the container
-int  SA::size() const { return _size; }
+int  SA::size() const { return _SIZE; }
 
 
 // ------------

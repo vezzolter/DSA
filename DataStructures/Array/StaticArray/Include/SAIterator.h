@@ -15,20 +15,20 @@ public:
 	// Compiler Generated
 	SAIterator() = default;
 	SAIterator(int* ptr);
-	SAIterator(const SAIterator& rhs);
+	SAIterator(const SAIterator& rhs) = default;
 	SAIterator& operator=(const SAIterator& rhs) = default;
-	SAIterator(SAIterator&& rhs) = delete;
-	SAIterator& operator=(SAIterator&& rhs) = delete;
+	SAIterator(SAIterator&& rhs) = default;
+	SAIterator& operator=(SAIterator&& rhs) = default;
 	~SAIterator() = default;
 
 
 	// Overloaded Operators
 	int& operator*();
-	const int& operator*() const;
+	// const int& operator*() const; // instead of const regular itr, people use dedicated const itr
 	SAIterator& operator++();
-	//SAIterator operator++(int); // could require disabling the RVO or using move cstr
+	SAIterator operator++(int);
 	SAIterator& operator--();
-	//SAIterator operator--(int); // could require disabling the RVO or using move cstr
+	SAIterator operator--(int);
 	friend bool operator==(const SAIterator& lhs, const SAIterator& rhs);
 	friend bool operator!=(const SAIterator& lhs, const SAIterator& rhs);
 };

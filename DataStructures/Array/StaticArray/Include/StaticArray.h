@@ -7,40 +7,34 @@
 #define SA_H
 
 
+//#include <initializer_list>
 #include "SAIterator.h"
 
 
 class SA {
 private:
-	int _size;
-	int _data[100];
+	static const int _SIZE = 9;
+	int _data[_SIZE];
 
 public:
 	// Compiler Generated 
 	SA();
-	SA(int size);
+	//SA(std::initializer_list<int> values);
 	SA(const SA& rhs);
 	SA& operator=(const SA& rhs);	
-	SA(SA&&) = delete;
-	SA& operator=(SA&&) = delete;
+	SA(SA&& rhs) = delete;
+	SA& operator=(SA&& rhs) = delete;
 	~SA() = default;
 
 
 	// Iterators
 	using iterator = SAIterator;
-	using constIterator = const SAIterator;
-	//reverse...
-
 	iterator begin();
-	constIterator cbegin() const;
 	iterator end();
-	constIterator cend() const;
-	//reverse...
 
 
 	// Element Access
-	//int& at(const int index);
-	//const int& at(const int index) const;
+	// no at(), since it throws exceptions
 	int& operator[](const int index);
 	const int& operator[](const int index) const;
 	int& front();
