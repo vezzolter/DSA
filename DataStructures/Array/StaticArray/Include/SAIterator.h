@@ -21,10 +21,9 @@ public:
 	SAIterator& operator=(SAIterator&& rhs) = default;
 	~SAIterator() = default;
 
-
 	// Overloaded Operators
 	int& operator*();
-	// const int& operator*() const; // instead of const regular itr, people use dedicated const itr
+	//const int& operator*() const; // instead use dedicated const itr
 	SAIterator& operator++();
 	SAIterator operator++(int);
 	SAIterator& operator--();

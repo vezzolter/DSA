@@ -84,19 +84,93 @@ The implemented console application demonstrates the basic functionality of the 
 ## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::array` to provide familiarity for users.
+- Replacing certain library implementations with custom solutions to minimize external dependencies.
 - Restricting the implementation to the `int` data type to avoid the use of templates.
-- Not considering cases where the container is created on the heap.
+- Not considering cases where the container is allocated on the heap.
+- Opting to use constant as a size, since no heap and no templates.
+- Implementing only regular iterator (no reverse, no const).
+- Avoiding any exception handling, thus range checks.
 - Omitting certain optimizations to the container.
-- Assuming valid input values from the user.
-- Avoiding any exception handling.
 
 
 ## Iterator Implementation
-Currently in Progress...
+Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::array`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this implementation uses a single, regular iterator class. This iterator covers the basic $[begin, end)$ range and demonstrates how typical iterator operations are handled, as well as how the iterator class is integrated into the static array container.
+<p align="center"><img src="./Images/LibraryIterators.png"/></p>
+
+---
+The iterator is implemented within the `SAIterator` class, which is declared in `SAIterator.h` header file and defined in `SAIterator.cpp` source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the `Main.cpp` file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
+
+```cpp
+class SAIterator {
+private:
+	int* _ptr = nullptr;
+
+public:
+	// Compiler Generated
+	SAIterator() = default;
+	SAIterator(int* ptr);
+	SAIterator(const SAIterator& rhs) = default;
+	SAIterator& operator=(const SAIterator& rhs) = default;
+	SAIterator(SAIterator&& rhs) = default;
+	SAIterator& operator=(SAIterator&& rhs) = default;
+	~SAIterator() = default;
+
+	// Overloaded Operators
+	int& operator*();
+	//const int& operator*() const; // instead use dedicated const itr
+	SAIterator& operator++();
+	SAIterator operator++(int);
+	SAIterator& operator--();
+	SAIterator operator--(int);
+	friend bool operator==(const SAIterator& lhs, const SAIterator& rhs);
+	friend bool operator!=(const SAIterator& lhs, const SAIterator& rhs);
+};
+```
 
 
 ## Complete Implementation
-Currently in Progress...
+The container is implemented within the `SA` class, which is declared in `StaticArray.h` header file and defined in `StaticArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the `Main.cpp` file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+
+```cpp
+class SA {
+private:
+	static const int _SIZE = 9; // since no heap/template
+	int _data[_SIZE];
+
+public:
+	// Compiler Generated 
+	SA();
+	//SA(std::initializer_list<int> values); // external dependencies
+	SA(const SA& rhs);
+	SA& operator=(const SA& rhs);	
+	SA(SA&& rhs) = delete;
+	SA& operator=(SA&& rhs) = delete;
+	~SA() = default;
+
+	// Iterators
+	using iterator = SAIterator;
+	iterator begin();
+	iterator end();
+
+	// Element Access
+	//int& at(const int index); // throws exceptions
+	//const int& at(const int index) const; // throws exceptions
+	int& operator[](const int index);
+	const int& operator[](const int index) const;
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
+
+	// Capacity
+	bool empty() const;
+	int size() const;
+
+	// Operations
+	void assign(int val);
+	void swap(SA& other);
+};
+```
 
 
 ## Detailed Walkthrough

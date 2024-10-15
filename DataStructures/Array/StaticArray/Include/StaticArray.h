@@ -13,28 +13,27 @@
 
 class SA {
 private:
-	static const int _SIZE = 9;
+	static const int _SIZE = 9; // since no heap/template
 	int _data[_SIZE];
 
 public:
 	// Compiler Generated 
 	SA();
-	//SA(std::initializer_list<int> values);
+	//SA(std::initializer_list<int> values); // external dependencies
 	SA(const SA& rhs);
 	SA& operator=(const SA& rhs);	
 	SA(SA&& rhs) = delete;
 	SA& operator=(SA&& rhs) = delete;
 	~SA() = default;
 
-
 	// Iterators
 	using iterator = SAIterator;
 	iterator begin();
 	iterator end();
 
-
 	// Element Access
-	// no at(), since it throws exceptions
+	//int& at(const int index); // throws exceptions
+	//const int& at(const int index) const; // throws exceptions
 	int& operator[](const int index);
 	const int& operator[](const int index) const;
 	int& front();
