@@ -76,8 +76,14 @@ int  SA::size() const { return _SIZE; }
 //  Operations
 // ------------
 
-// Exchanges the contents of this array with another array
-//void SA::assign() { }
+// Assigns the specified value to all elements in the array
+void SA::assign(int val) { for (int i = 0; i < _SIZE; ++i) { _data[i] = val; } }
 
-// Get the size of the container
-//void SA::swap() { }
+// Swaps the contents with another static array
+void SA::swap(SA& other) {
+    for (int i = 0; i < _SIZE; ++i) {
+        int temp = _data[i];
+        _data[i] = other._data[i];
+        other._data[i] = temp;
+    }
+}

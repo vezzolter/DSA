@@ -49,8 +49,8 @@ public:
 	
 
 	// Operations
-	//void assign();
-	//void swap();
+	void assign(int val);
+	void swap(SA& other);
 };
 
 
