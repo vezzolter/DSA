@@ -6,9 +6,9 @@
   - [Existing Solutions](#existing-solutions)
   - [Repository Containers](#repository-containers)
 - [📊 Analysis](#-analysis)
-  - [How to Analyze](#how-to-analyze)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+  - [Performance Analysis](#performance-analysis)
+  - [Trade-Offs](#trade-offs)
+  - [Comparing Alternatives](#comparing-alternatives)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -82,25 +82,39 @@ Understanding the design principles and core mechanics of array data structures 
 
 
 # &#128202; Analysis
-Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
+Understanding how to analyze the particular implementation of a data structure is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
 
 
-## How to Analyze
-Will be updated in the future...
+## Performance Analysis
+In practice, when analyzing a data structure, it's really about analyzing the containers that are based on that structure, because data structures themselves are theoretical concepts, whereas containers are the actual implementations you can use.
+
+It’s important to note that containers may not only perform the same operations differently, leading to distinct behaviors and performance characteristics, but they may also offer entirely different operations.
+
+Additionally, when working with implemented solutions, each developer may implement the container in a unique way, resulting in variations in behavior. Therefore, it's always recommended to first consult the documentation to understand how the specific container operates and what guarantees it provides to the user.
+
+---
+Typically, to analyze any container's (including arrays) overall behavior, you need to focus on the following characteristics:
+- **Time Complexity** — refers to the speed of operations (e.g. insertion, deletion, etc) at different edge cases (e.g. at the end, in an empty container, etc).
+- **Space Complexity** — refers to how much memory the container requires, both in terms of the data stored and any additional overhead (e.g. pointers, resizing buffers, etc). 
+- **Special Metrics** — refers to features that define the container's uniqueness in comparison to others (e.g. balancing for trees, specific element order for queues, etc).
 
 
-## Advantages
+## Trade-Offs
+**What Arrays Give:**
 - **Efficient Random Access** — arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity of $(O(1))$.
 - **Efficiency Memory Utilization** — as arrays store data in contiguous memory locations, preventing additional memory wastage. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
 - **Convenient Multi-Dimensional Representations** — arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matrices.
 
-
-## Disadvantages
+---
+**What Arrays Take:**
 - **Allocated Memory is Static** — in scenarios where the size needs adjustments or insertion leads to the shift of other elements, then resourceful operation of creating a new array and copying data arises, e.g. insertion and deletion takes $O(n)$ time.
 - **Enormous Single Block** — allocating a large array can be problematic, especially in systems with limited memory, which potentially can cause a crash.
 - **Wasted Space** — if an array is not fully populated, there may be wasted space in the allocated memory. This can be a concern in memory-constrained environments.
 - **Out-of-Bound Access** — if an index outside the valid range is used, it can lead to unpredictable behavior or even program crashes.
 
+
+## Comparing Alternatives
+Currently in Progress...
 
 
 # &#128221; Application
