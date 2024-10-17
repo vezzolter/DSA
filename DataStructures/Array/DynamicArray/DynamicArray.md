@@ -5,8 +5,7 @@
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
 	- [Iterator Implementation](#iterator-implementation)
-	- [Complete Implementation](#complete-implementation)
-	- [Detailed Walkthrough](#detailed-walkthrough)
+	- [Container Implementation](#container-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Advantages](#advantages)
@@ -33,6 +32,7 @@
 3. **Time for Allocation (Runtime)** — dynamic array doesn't require knowing size at its creation, meaning its size can be based on values that are not known during compilation.
 4. **Place for Allocation (Heap)** — dynamic array is allocated in the heap memory section, meaning size can be extremely large compared to the stack and provided there is enough available memory.
 5. **Memory Management (Manual)** — dynamic array requires manual memory management, meaning you must handle allocation and deallocation yourself, which introduces risks such as dangling pointers or memory leaks, if not properly managed.
+6. **Speed of Allocation (Slow)** — dynamic array's allocation on heap is generally slower than allocating on the stack, because it requires more operations and resources to manage memory.
 
 
 ## Container Methods
@@ -109,17 +109,13 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 Currently in Progress...
 
 
-## Complete Implementation
-Currently in Progress...
-
-
-## Detailed Walkthrough
+## Container Implementation
 Currently in Progress...
 
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
 ## Characteristics

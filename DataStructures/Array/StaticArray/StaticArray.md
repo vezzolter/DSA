@@ -5,8 +5,7 @@
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
 	- [Iterator Implementation](#iterator-implementation)
-	- [Complete Implementation](#complete-implementation)
-	- [Detailed Walkthrough](#detailed-walkthrough)
+	- [Container Implementation](#container-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Advantages](#advantages)
@@ -32,6 +31,7 @@
 2. **Time for Allocation (Compile)** — static array requires knowing size at a compile time, meaning its size can only be based on values known during the compilation phase.
 3. **Place for Allocation (Stack)** — static array usually allocated in the stack memory section, limiting its size to relatively small amounts (since stack memory is limited). However, static arrays can also be allocated in the global/static/heap memory section, though this is less common.
 4. **Memory Management (Automatic)** — static array allocated on stack doesn't require manual memory management, meaning the system automatically handles allocation and deallocation, avoiding risks such as dangling pointers or memory leaks.
+5. **Speed of Allocation (Fast)** — static array's allocation on the stack is faster than on the heap, because it doesn't require additional operations or resources to manage memory.
 
 
 ## Container Methods
@@ -98,7 +98,7 @@ Since there are various types of iterators that can be implemented (e.g. the ima
 <p align="center"><img src="./Images/LibraryIterators.png"/></p>
 
 ---
-The iterator is implemented within the `SAIterator` class, which is declared in `SAIterator.h` header file and defined in `SAIterator.cpp` source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the `Main.cpp` file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
+The iterator is implemented within the `SAIterator` class, which is declared in [SAIterator.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Include/SAIterator.h) header file and defined in [SAIterator.cpp ](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/SAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
 
 ```cpp
 class SAIterator {
@@ -128,8 +128,8 @@ public:
 ```
 
 
-## Complete Implementation
-The container is implemented within the `SA` class, which is declared in `StaticArray.h` header file and defined in `StaticArray.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the `Main.cpp` file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+## Container Implementation
+The container is implemented within the `SA` class, which is declared in [StaticArray.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Include/StaticArray.h) header file and defined in [StaticArray.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/StaticArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class SA {
@@ -173,13 +173,9 @@ public:
 ```
 
 
-## Detailed Walkthrough
-Currently in Progress...
-
-
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
 ## Characteristics
