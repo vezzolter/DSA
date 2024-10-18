@@ -8,8 +8,7 @@
 	- [Container Implementation](#container-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
-	- [Advantages](#advantages)
-	- [Disadvantages](#disadvantages)
+	- [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
@@ -22,7 +21,7 @@
 
 
 # &#128161; Overview
-**Static array** is an implementation of an array where the size is fixed, meaning it can't be changed during runtime. Its name comes from this characteristic. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+**Static array** is an implementation of an array where the size is fixed, meaning it can't be changed during runtime. Its name comes from this fact. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/StaticArray.png"/></p>
 
 
@@ -179,15 +178,30 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 ## Characteristics
-Currently in Progress...
+🚀 **Time Complexities:**
+ - **Access** $O(1)$ — because the address can be computed directly for any position, without needing to traverse the collection.
+ - **Insertion** $O(-)$ — because the size of a static array cannot be changed, so deletion is not possible.
+ - **Deletion** $O(-)$ — because the size of a static array cannot be changed, so deletion is not possible.
+ - **Other** — while more operations exist, they are generally not considered core functionalities to pick a container for.
+
+---
+🧠 **Space Expenses:**
+- **No overhead** — both operations are conducted and elements are stored without any additional memory (e.g., pointers, extra structures, etc.) required beyond the data itself.
 
 
-## Advantages
-Currently in Progress...
+## Trade-Offs
+➕ **Advantages:**
+- **Efficient Random Access** — static arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.
+- **Efficient Memory Utilization** — static arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
 
 
-## Disadvantages
-Currently in Progress...
+---
+➖ **Disadvantages:**
+- **Not Flexible** — static arrays don't allow to change size, thus insert or delete elements.
+- **Enormous Single Block** — static arrays with large size can be problematic to allocate due to contiguous memory locations, which potentially can cause a crash.
+- **Wasted Space** — static arrays that are not not fully populated, may leave lots of memory unused.
+- **Out-of-Bound Access** — static arrays make it easy to miscalculate an index, leading to access outside the valid range and causing undefined behavior.
+
 
 
 # &#128221; Application

@@ -8,8 +8,7 @@
 	- [Container Implementation](#container-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
-	- [Advantages](#advantages)
-	- [Disadvantages](#disadvantages)
+	- [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
@@ -22,13 +21,13 @@
 
 
 # &#128161; Overview
-**Dynamic array** is an implementation of an array where the size is dynamic, meaning it can be changed during runtime. Its name comes from this characteristic. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+**Dynamic array** is an implementation of an array where the size is dynamic, meaning it can be changed during runtime. Its name comes from this fact. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/DynamicArray.png"/></p>
 
 
 ## Important Details
 1. **Size (Dynamic)** — dynamic array can't change its size in a direct way, instead it creates a new array of the required size, copies the values, and adjusts memory allocation. Since this process involves multiple operations, dynamic arrays leverage the concept of capacity to minimize the need for frequent resizing.
-2. **Capacity** — dynamic array includes a feature called capacity, which refers to the maximum number of possible elements for which memory is currently allocated within array.
+2. **Capacity** — dynamic arrays include a feature called capacity, which refers to the maximum number of elements for which memory is currently allocated, as opposed to the size, which is the actual number of elements in the array. Dynamic arrays allocate additional memory beyond the current size to accommodate future growth without needing to resize frequently, and if a resize occurs, typically it doubles the capacity..
 3. **Time for Allocation (Runtime)** — dynamic array doesn't require knowing size at its creation, meaning its size can be based on values that are not known during compilation.
 4. **Place for Allocation (Heap)** — dynamic array is allocated in the heap memory section, meaning size can be extremely large compared to the stack and provided there is enough available memory.
 5. **Memory Management (Manual)** — dynamic array requires manual memory management, meaning you must handle allocation and deallocation yourself, which introduces risks such as dangling pointers or memory leaks, if not properly managed.
@@ -119,15 +118,37 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 ## Characteristics
-Currently in Progress...
+🚀 **Time Complexities:** 
+ - **Access** $O(1)$ — because the address can be computed directly for any position, without needing to traverse the collection.
+ - **Insertion:**
+   - **Beginning** $O(n)$ — because to insert a new element, all existing elements must be shifted one position to the right to make space.
+   - **Middle** $O(n)$ — because inserting a new element requires shifting all elements from the insertion point onwards one position to the right.
+   - **End** $O(1) / O(n)$ — because if there is available capacity, adding an element is a simple operation of assigning a value. However, if the array is full, a new array must be allocated, and all existing elements need to be copied.
+ - **Deletion:**
+   - **Beginning** $O(n)$ — because removing the first element requires shifting all remaining elements one position to the left to fill the gap.
+   - **Middle** $O(n)$ — because removing an element from the middle requires shifting all elements after the deletion point one position to the left.
+   - **End** $O(1)$ — because deleting the last element is a simple operation that doesn't require any shifting, making it a constant-time operation.
+ - **Other** — while more operations exist, they are generally not considered core functionalities to pick a container for.
+
+---
+🧠 **Space Expenses:**
+- **Extra Memory for Capacity** — dynamic arrays allocate additional memory beyond the current number of elements to accommodate future growth, resulting in unused capacity.
+- **Duplication During Resizing** — when resizing is required, a new array is allocated, and all elements are copied over, causing temporary duplication of memory while both the old and new arrays coexist.
 
 
-## Advantages
-Currently in Progress...
+## Trade-Offs
+➕ **Advantages:**
+- **Efficient Random Access** — dynamic arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.
+- **Efficient Memory Utilization** — dynamic arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
 
 
-## Disadvantages
-Currently in Progress...
+---
+➖ **Disadvantages:**
+- **Not Really Flexible** — dynamic arrays provide efficient access to elements, allowing constant time complexity for accessing any element, regardless of the array’s length.
+- **Enormous Single Block** — dynamic arrays with large size can be problematic to allocate due to contiguous memory locations, which potentially can cause a crash.
+- **Wasted Space** — dynamic arrays that are not not fully populated, may leave lots of memory unused.
+- **Out-of-Bound Access** — dynamic arrays make it easy to miscalculate an index, leading to access outside the valid range and causing undefined behavior.
+
 
 
 # &#128221; Application
