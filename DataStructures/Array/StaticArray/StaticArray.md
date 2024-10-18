@@ -191,13 +191,14 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 ## Trade-Offs
 ➕ **Advantages:**
+- **Compile-Time Storage** — static arrays allow the storage of values at compile time, which removes the need for runtime memory allocation. This leads to better memory management and increased stability in situations where data size and content are known ahead and fixed during program execution.
 - **Efficient Random Access** — static arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.
 - **Efficient Memory Utilization** — static arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
-
+- **Multi-Dimensional Representations** — dynamic arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matrices.
 
 ---
 ➖ **Disadvantages:**
-- **Not Flexible** — static arrays don't allow to change size, thus insert or delete elements.
+- **Compile-Time Storage** — static arrays don't allow to change size, thus insert and delete elements. Additionally, it requires the size to be known ahead, which is not always possible.
 - **Enormous Single Block** — static arrays with large size can be problematic to allocate due to contiguous memory locations, which potentially can cause a crash.
 - **Wasted Space** — static arrays that are not not fully populated, may leave lots of memory unused.
 - **Out-of-Bound Access** — static arrays make it easy to miscalculate an index, leading to access outside the valid range and causing undefined behavior.
@@ -205,11 +206,11 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 # &#128221; Application
-Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+Understanding some of the most well-known use cases of a container is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Since static arrays share the foundational principles of the general concept of arrays, their common use cases is best described in the [arrays respective section](../Array.md#-application).
+As mentioned in the [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since static arrays share the foundational principles of the general concept of arrays, their common usage is best described in the [arrays respective section](../Array.md#-application).
 
 
 ## Some Practical Problems
@@ -234,7 +235,6 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 Since static arrays share the foundational principles of the general concept of arrays, the resources that contributed to their understanding are best described in the [arrays credits section](../Array.md#-credits).
-
 
 
 

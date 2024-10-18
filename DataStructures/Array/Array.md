@@ -75,7 +75,7 @@ It's generally recommended to rely on well-established, widely recognized implem
 
 ## Repository Containers
 Understanding the design principles and core mechanics of array data structures is essential for deeper insight into their efficiency and performance. The following implementations provide simplified versions of both static and dynamic arrays, showcasing key aspects of their design and operation.
-- [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) 🎯
+- [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) ✅
 - [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) 🎯
 
 
@@ -97,7 +97,7 @@ For detailed evaluations of specific container characteristics, please refer to 
 
  
 # &#128221; Application
-Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage (and disadvantage) of static arrays is that their size must be known ahead of time, at compile time. Therefore, the corresponding use case (and anti use case) would be a situation where the size of the data structure known ahead and remains constant throughout the entire runtime. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases

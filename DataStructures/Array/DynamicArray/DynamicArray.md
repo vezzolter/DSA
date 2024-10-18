@@ -140,6 +140,8 @@ Understanding how to analyze the particular container is crucial for optimizing 
 ➕ **Advantages:**
 - **Efficient Random Access** — dynamic arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.
 - **Efficient Memory Utilization** — dynamic arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
+- **Scalable Size** — dynamic arrays can grow or shrink as needed, making them more flexible for situations where the amount of data is not known ahead of time. This ensures efficient memory use without preallocating excess space.
+- **Multi-Dimensional Representations** — static arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matrices.
 
 
 ---
@@ -152,11 +154,11 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 # &#128221; Application
-Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+Understanding some of the most well-known use cases of a container is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Since dynamic arrays share the foundational principles of the general concept of arrays, their common use cases is best described in the [arrays respective section](../Array.md#-application).
+As mentioned in the [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since dynamic arrays share the foundational principles of the general concept of arrays, their common usage is best described in the [arrays respective section](../Array.md#-application).
 
 
 ## Some Practical Problems

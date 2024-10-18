@@ -88,8 +88,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - A*
 - Data Structures
   - Array
-    - [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md) 🎯
-    - [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) 🎯
+    - [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md) ✅
+    - [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) ✅
     - [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) 🎯
   - Linked List 
     - [List.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) ✅
