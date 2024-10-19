@@ -1,4 +1,4 @@
-// Source file Static Array Iterator
+// Source file for Static Array Iterator
 // by vezzolter
 // October 13, 2024
 

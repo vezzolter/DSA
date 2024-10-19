@@ -41,11 +41,9 @@ public:
 	int& back();
 	const int& back() const;
 
-
 	// Capacity
 	bool empty() const;
 	int size() const;
-	
 
 	// Operations
 	void assign(int val);

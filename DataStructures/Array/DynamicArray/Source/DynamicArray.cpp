@@ -71,6 +71,17 @@ DA& DA::operator=(const DA& rhs) {
 DA::~DA() { delete[] _data; }
 
 
+// -----------
+//  Iterators 
+// -----------
+
+//// Returns an iterator to the first element of the container
+//DAIterator DA::begin() { return DAIterator(_data); }
+//
+//// Returns an iterator to one past the last element of the container
+//DAIterator DA::end() { return DAIterator(_data + _size); }
+
+
 // ----------------
 //  Element Access 
 // ----------------

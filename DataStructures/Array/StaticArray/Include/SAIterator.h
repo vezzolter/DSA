@@ -1,4 +1,4 @@
-// Header file Static Array Iterator
+// Header file for Static Array Iterator
 // by vezzolter
 // October 13, 2024
 

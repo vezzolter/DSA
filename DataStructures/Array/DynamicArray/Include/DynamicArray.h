@@ -7,6 +7,9 @@
 #define DA_H
 
 
+#include "DAIterator.h"
+
+
 class DA {
 private:
 	int _size;
@@ -21,6 +24,8 @@ public:
 	DA(const DA&& rhs) = delete;
 	DA& operator=(const DA&& rhs) = delete;
 	~DA();
+
+	// Iterators
 
 	// Element Access
 	//int& at(const int index); // throws exceptions
