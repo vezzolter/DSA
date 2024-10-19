@@ -89,7 +89,7 @@ When working with dynamic array, it's important to note that there is no univers
 
 
 # &#x1F4BB; Implementation 
-The implemented console application demonstrates the functionality of the dynamic array, allowing users to perform various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its behavior and characteristics.
+The implemented console application demonstrates the basic functionality of the dynamic array by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
@@ -97,11 +97,11 @@ The implemented console application demonstrates the functionality of the dynami
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::vector` to provide familiarity for users.
 - Restricting the implementation to the `int` data type to avoid the use of templates.
-- Omitting cases where the container is created on the heap.
+- Omitting cases where the container (object itself) is created on the heap.
+- Implementing only regular iterator (no reverse, no const).
 - Doubling the capacity whenever reallocation occurs.
+- Avoiding any exception handling, thus range checks.
 - Omitting certain optimizations to the container.
-- Assuming valid input values from the user.
-- Avoiding any exception handling.
 
 
 ## Iterator Implementation

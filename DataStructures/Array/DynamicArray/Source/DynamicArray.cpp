@@ -1,40 +1,35 @@
-// Source file for simplified ADT: Dynamic Array
+// Source file for Dynamic Array
 // by vezzolter
 // January 31, 2024
 
-#ifndef DA_CPP
-#define DA_CPP
 
 #include "DynamicArray.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// --------------------
+//  Compiler Generated
+// --------------------
 
 // Default constructor
-template<class T>
-DA<T>::DA() : _size(0), _data(nullptr) {}
+DA::DA() : _size(0), _data(nullptr) {}
 
 // Parameterized constructor, no range check
-template<class T>
-DA<T>::DA(int newSize, T newData) : _size(size) {
+DA::DA(int newSize, int newData) : _size(newSize) {
     // Allocate memory for new array
-    _data = new T[size];
+    _data = new int[newSize];
 
     // Fill with elements
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < newSize; ++i) {
         _data[i] = newData;
     }
         
 }
 
 // Deep copy constructor
-template<class T>
-DA<T>::DA(const DA& rhs) : _size(rhs._size) {
+DA::DA(const DA& rhs) : _size(rhs._size) {
     if (rhs._data) {
         // Allocate memory for new array
-        _data = new T[_size];
+        _data = new int[_size];
 
         // Copy the elements
         for (int i = 0; i < _size; ++i)
@@ -47,8 +42,7 @@ DA<T>::DA(const DA& rhs) : _size(rhs._size) {
 }
 
 // Deep copy assignment operator
-template<class T>
-DA<T>& DA<T>::operator=(const DA& rhs) {
+DA& DA::operator=(const DA& rhs) {
     // Self-assignment guard
     if (this == &rhs)
         return *this;
@@ -60,7 +54,7 @@ DA<T>& DA<T>::operator=(const DA& rhs) {
 
     if (rhs._data) {
         // Allocate memory for new array
-        _data = new T[_size];
+        _data = new int[_size];
 
         // Copy the elements
         for (int i = 0; i < _size; ++i)
@@ -74,62 +68,52 @@ DA<T>& DA<T>::operator=(const DA& rhs) {
 }
 
 // Destructor
-template<class T>
-DA<T>::~DA() { delete[] _data; }
+DA::~DA() { delete[] _data; }
 
 
-// --------------
-// Element Access
-// --------------
+// ----------------
+//  Element Access 
+// ----------------
 
 // Accesses the element at the specified index, no range check, allows modification
-template<class T>
-T& DA<T>::operator[](const int index) { return _data[index]; }
+int& DA::operator[](const int index) { return _data[index]; }
 
 // Accesses the element at the specified index, no range check, denies modification
-template<class T>
-const T& DA<T>::operator[](const int index) const { return _data[index]; }
+const int& DA::operator[](const int index) const { return _data[index]; }
 
 // Accesses the first element in the container, no range check, allows modification
-template<class T>
-T& DA<T>::front() { return _data[0]; }
+int& DA::front() { return _data[0]; }
 
 // Accesses the first element in the container, no range check, denies modification
-template<class T>
-const T& DA<T>::front() const { return _data[0]; }
+const int& DA::front() const { return _data[0]; }
 
 // Accesses the last element in the container, no range check, allows modification
-template<class T>
-T& DA<T>::back() { return _data[_size - 1]; }
+int& DA::back() { return _data[_size - 1]; }
 
 // Accesses the last element in the container, no range check, denies modification
-template<class T>
-const T& DA<T>::back() const { return _data[_size - 1]; }
+const int& DA::back() const { return _data[_size - 1]; }
 
 
-// --------
-// Capacity
-// --------
+// ----------
+//  Capacity
+// ----------
 
 // Checks if the container has no elements
-template<class T>
-bool DA<T>::empty() const { return (_size == 0); }
+bool DA::empty() const { return (_size == 0); }
 
 // Returns the number of elements in the container
-template<class T>
-int DA<T>::size() const { return _size; }
+int DA::size() const { return _size; }
 
 
-// ---------
-// Modifiers
-// ---------
+// ------------
+//  Operations
+// ------------
 
 // Appends the given element to the end of the container
 // Note: without potential memory-reserving adjustments and bounds checking
-template<class T>
-void DA<T>::pushBack(const T& newData) {
+void DA::pushBack(const int& newData) {
     // Allocate memory for new array, one element more
-    T* newArray = new T[_size + 1];
+    int* newArray = new int[_size + 1];
 
     // Copy elements
     for (int i = 0; i < _size; ++i)
@@ -147,14 +131,13 @@ void DA<T>::pushBack(const T& newData) {
 
 // Inserts elements at the specified position, shifting other elements as needed.
 // Note: without potential memory-reserving adjustments and bounds checking
-template<class T>
-void DA<T>::insert(int index, const T& newData) {
+void DA::insert(int index, const int& newData) {
     if (index == _size - 1) {
       pushBack(newData);
     }
     else {
         // Allocate memory for new array, one element more
-        T* newArray = new T[_size + 1];
+        int* newArray = new int[_size + 1];
 
         // Copy elements before the position
         for (int before = 0; before < index; ++before)
@@ -176,8 +159,7 @@ void DA<T>::insert(int index, const T& newData) {
 
 // Removes an element at the specified position
 // Note: without potential memory-reserving adjustments and bounds checking
-template<class T>
-void DA<T>::remove(int index) {
+void DA::remove(int index) {
     // Case: one element
     if (_size == 1) {
         clear();
@@ -185,7 +167,7 @@ void DA<T>::remove(int index) {
     }
 
     // Allocate memory for new array, one element less
-    T* newArray = new T[_size - 1];
+    int* newArray = new int[_size - 1];
 
     // Copy before position
     for (int before = 0; before < index; ++before)
@@ -203,8 +185,7 @@ void DA<T>::remove(int index) {
 
 // Changes the size of an array exactly to the given
 // Note: without potential memory-reserving adjustments
-template<class T>
-void DA<T>::resize(int newSize) {
+void DA::resize(int newSize) {
     // Case: already required size
     if (newSize <= _size) {
         return;
@@ -212,7 +193,7 @@ void DA<T>::resize(int newSize) {
 
     if (newSize > _size) {
         // Allocate memory for new array
-        T* newArray = new T[newSize];
+        int* newArray = new int[newSize];
 
         // Copy the elements
         for (int i = 0; i < _size; ++i)
@@ -227,12 +208,8 @@ void DA<T>::resize(int newSize) {
 
 // Clears the entire content of the dynamic array, freeing memory.
 // Note: without potential memory-reserving adjustments
-template<class T>
-void DA<T>::clear() {
+void DA::clear() {
     delete[] _data; // dealloc
     _data = nullptr; // avoid dangling pointer
     _size = 0; // reflect change on the size
 }
-
-
-#endif

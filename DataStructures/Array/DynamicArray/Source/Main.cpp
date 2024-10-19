@@ -1,16 +1,16 @@
-// Simplified ADT: Dynamic Array
+// Dynamic Array
 // by vezzolter
 // January 31, 2024
 //
-// This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called dynamic array.
+// This C++ project demonstrates the simplified implementation of a dynamic array container. 
+// It aims to illustrate basic array operations and memory handling in a runtime context
+
 
 #include <iostream>
 #include "DynamicArray.h"
 
 
-void printArray(const DA<int>& arr) {
-	std::cout << "Elements:\t";
+void printArray(const DA& arr) {
 	for (int i = 0; i < arr.size(); i++)
 		std::cout << arr[i] << " ";
 	std::cout << std::endl;
@@ -18,59 +18,41 @@ void printArray(const DA<int>& arr) {
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Dynamic Array' console application!\n";
+	std::cout << "\tWelcome to the 'Dynamic Array' console application!\n\n";
 
-	// Create initial array #1
-	std::cout << "\nCreating & filling initial array #1...\n";
-	DA<int> arr1;
-	for (int i = 0; i < 10; i++)
-		arr1.pushBack(i);
-
-	// Show array #1
-	std::cout << "Is it empty:\t" << arr1.empty() << std::endl;
+	// Constructors
+	std::cout << "Constructors:\n";
+	std::cout << " -> default constructor (arr1):\t";
+	DA arr1;
+	for (int i = 1; i < 10; ++i) { arr1.pushBack(i); }
 	printArray(arr1);
-
-	// Modify array #1
-	std::cout << "\nChange first ('1') and last ('10') element to '0'...\n";
-	arr1[0] = arr1[arr1.size() - 1] = 0;
-	printArray(arr1);
-
-	// Deep copy functionality
-	std::cout << "\nCreate an array copies and compare...\n";
-	DA<int> arr2(arr1);
-	DA<int> arr3 = arr1;
-	printArray(arr1);
+	std::cout << " -> copy constructor (arr2):\t";
+	DA arr2(arr1);
 	printArray(arr2);
+	std::cout << " -> copy operator= (arr3):\t";
+	DA arr3 = arr1;
 	printArray(arr3);
-
-	// Remove functionality
-	std::cout << "\nShorten an array #2 to 7 elements, and #3 to 3 elements...\n";
-	for (int i = arr2.size() - 1; i >= 7; --i)
-		arr2.remove(i);
-	for (int i = arr3.size() - 1; i >= 3; --i)
-		arr3.remove(i);
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
-
-	// Clear
-	std::cout << "\nClear array #2 and #3...\n";
-	arr2.clear();
-	arr3.clear();
-	printArray(arr1);
-	printArray(arr2);
-	printArray(arr3);
-	std::cout << "Are they empty: ";
-	std::cout << arr1.empty();
-	std::cout << arr2.empty();
-	std::cout << arr3.empty();
 	std::cout << std::endl;
+
+	// Element Access
+	std::cout << "Element Access:\n";
+	std::cout << " -> arr1.operator[3]:\t" << arr1[3] << std::endl;
+	std::cout << " -> arr1.front():\t" << arr1.front() << std::endl;
+	std::cout << " -> arr1.back(): \t" << arr1.back() << std::endl;
+	std::cout << std::endl;
+
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " -> arr1.empty():\t" << arr1.empty() << std::endl;
+	std::cout << " -> arr1.size(): \t" << arr1.size() << std::endl;
+	std::cout << std::endl;
+
+	// Operations
+	std::cout << "Operations:\n";
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

@@ -1,4 +1,4 @@
-// Header file Static Array
+// Header file for Static Array
 // by vezzolter
 // January 29, 2024
 

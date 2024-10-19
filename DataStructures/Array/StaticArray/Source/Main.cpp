@@ -7,7 +7,6 @@
 
 
 #include <iostream>
-#include <array>
 #include "StaticArray.h"
 
 

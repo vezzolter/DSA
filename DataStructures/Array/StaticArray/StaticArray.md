@@ -76,7 +76,7 @@ When working with static array, it's important to note that there is no universa
 
 
 # &#x1F4BB; Implementation 
-The implemented console application demonstrates the basic functionality of the static array, allowing users to perform various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+The implemented console application demonstrates the basic functionality of the static array by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
 

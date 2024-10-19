@@ -1,45 +1,48 @@
-// Header file for simplified ADT: Dynamic Array
+// Header file for Dynamic Array
 // by vezzolter
 // January 31, 2024
+
 
 #ifndef DA_H
 #define DA_H
 
-template<class T>
+
 class DA {
 private:
 	int _size;
-	T* _data;
+	int* _data;
 
 public:
-	// Special Member Functions
+	// Compiler Generated
 	DA();
-	DA(int newSize, T newData = T());
+	DA(int newSize, int newData);
 	DA(const DA& rhs);
 	DA& operator=(const DA& rhs);
+	DA(const DA&& rhs) = delete;
+	DA& operator=(const DA&& rhs) = delete;
 	~DA();
 
 	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
+	//int& at(const int index); // throws exceptions
+	//const int& at(const int index) const; // throws exceptions
+	int& operator[](const int index);
+	const int& operator[](const int index) const;
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
 	
-	// Modifiers
-	void pushBack(const T& newData);
-	void insert(int index, const T& newData);
+	// Operations
+	void pushBack(const int& newData);
+	void insert(int index, const int& newData);
 	void remove(int index);
 	void resize(int newSize);
 	void clear();
 };
 
 
-#include "DynamicArray.cpp"
-
-#endif
+#endif // DA_H
