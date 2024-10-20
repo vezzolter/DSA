@@ -21,8 +21,7 @@ DA::DA(int newSize, int newData) : _size(newSize) {
     // Fill with elements
     for (int i = 0; i < newSize; ++i) {
         _data[i] = newData;
-    }
-        
+    }  
 }
 
 // Deep copy constructor
@@ -115,36 +114,41 @@ bool DA::empty() const { return (_size == 0); }
 // Returns the number of elements in the container
 int DA::size() const { return _size; }
 
+// Description
+int DA::capacity() const {
+    // to be implemented
+}
+
+// Description
+void DA::reserve() {
+    // to be implemented
+}
+
+// Description
+void DA::shrinkToFit() {
+    // to be implemented
+}
+
 
 // ------------
 //  Operations
 // ------------
 
-// Appends the given element to the end of the container
-// Note: without potential memory-reserving adjustments and bounds checking
-void DA::pushBack(const int& newData) {
-    // Allocate memory for new array, one element more
-    int* newArray = new int[_size + 1];
+// Description
+void DA::assign(int val) {
+    // to be implemented
+}
 
-    // Copy elements
-    for (int i = 0; i < _size; ++i)
-        newArray[i] = _data[i];
-
-    // Insert the new value at the end
-    newArray[_size] = newData;
-
-    // Manage memory and pointers
-    delete[] _data; // dealloc
-    _data = newArray; // point to new
-    ++_size; // reflect change on the size
-
+// Description
+void DA::swap(DA& other) {
+    // to be implemented
 }
 
 // Inserts elements at the specified position, shifting other elements as needed.
 // Note: without potential memory-reserving adjustments and bounds checking
 void DA::insert(int index, const int& newData) {
     if (index == _size - 1) {
-      pushBack(newData);
+        pushBack(newData);
     }
     else {
         // Allocate memory for new array, one element more
@@ -168,9 +172,34 @@ void DA::insert(int index, const int& newData) {
     }
 }
 
+// Appends the given element to the end of the container
+// Note: without potential memory-reserving adjustments and bounds checking
+void DA::pushBack(const int& newData) {
+    // Allocate memory for new array, one element more
+    int* newArray = new int[_size + 1];
+
+    // Copy elements
+    for (int i = 0; i < _size; ++i)
+        newArray[i] = _data[i];
+
+    // Insert the new value at the end
+    newArray[_size] = newData;
+
+    // Manage memory and pointers
+    delete[] _data; // dealloc
+    _data = newArray; // point to new
+    ++_size; // reflect change on the size
+
+}
+
+// Description
+void DA::popBack() {
+    // to be implemented
+}
+
 // Removes an element at the specified position
 // Note: without potential memory-reserving adjustments and bounds checking
-void DA::remove(int index) {
+void DA::erase(int index) {
     // Case: one element
     if (_size == 1) {
         clear();
@@ -194,6 +223,14 @@ void DA::remove(int index) {
     --_size; // reflect change on the size
 }
 
+// Clears the entire content of the dynamic array, freeing memory.
+// Note: without potential memory-reserving adjustments
+void DA::clear() {
+    delete[] _data; // dealloc
+    _data = nullptr; // avoid dangling pointer
+    _size = 0; // reflect change on the size
+}
+
 // Changes the size of an array exactly to the given
 // Note: without potential memory-reserving adjustments
 void DA::resize(int newSize) {
@@ -215,12 +252,4 @@ void DA::resize(int newSize) {
         _data = newArray; // point to new
         _size = newSize; // reflect change on the size
     }
-}
-
-// Clears the entire content of the dynamic array, freeing memory.
-// Note: without potential memory-reserving adjustments
-void DA::clear() {
-    delete[] _data; // dealloc
-    _data = nullptr; // avoid dangling pointer
-    _size = 0; // reflect change on the size
 }

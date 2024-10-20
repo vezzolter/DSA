@@ -40,13 +40,19 @@ public:
 	// Capacity
 	bool empty() const;
 	int size() const;
+	int capacity() const;
+	void reserve();
+	void shrinkToFit();
 	
 	// Operations
-	void pushBack(const int& newData);
+	void assign(int val);
+	void swap(DA& other);
 	void insert(int index, const int& newData);
-	void remove(int index);
+	void pushBack(const int& newData);
+	void popBack();
 	void resize(int newSize);
 	void clear();
+	void erase(int index);
 };
 
 
