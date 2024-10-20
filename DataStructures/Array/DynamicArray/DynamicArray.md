@@ -105,11 +105,22 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Iterator Implementation
-Currently in Progress...
+Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::vector`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this implementation uses a single, regular iterator class. This iterator covers the basic $[begin, end)$ range and demonstrates how typical iterator operations are handled, as well as how the iterator class is integrated into the dynamic array container.
+<p align="center"><img src="./Images/LibraryIterators.png"/></p>
 
+---
+The iterator is implemented within the `DAIterator` class, which is declared in [DAIterator.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Include/DAIterator.h) header file and defined in [DAIterator.cpp ](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/DAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
+
+```cpp
+// Will be updated soon
+```
 
 ## Container Implementation
-Currently in Progress...
+The container is implemented within the `DA` class, which is declared in [DynamicArray.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Include/DynamicArray.h) header file and defined in [DynamicArray.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/DynamicArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+
+```cpp
+// Will be updated soon
+```
 
 
 
