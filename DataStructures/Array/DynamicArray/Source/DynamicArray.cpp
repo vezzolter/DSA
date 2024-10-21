@@ -11,55 +11,39 @@
 // --------------------
 
 // Default constructor
-DA::DA() : _size(0), _data(nullptr) {}
+DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
-// Parameterized constructor, no range check
-DA::DA(int newSize, int newData) : _size(newSize) {
-    // Allocate memory for new array
-    _data = new int[newSize];
-
-    // Fill with elements
-    for (int i = 0; i < newSize; ++i) {
-        _data[i] = newData;
-    }  
+// Parameterized constructor
+DA::DA(int size, int val) :
+    _size(size), _capacity(size), _data(new int[_capacity]) {
+    // Fill the array with the given value
+    for (int i = 0; i < _size; ++i) { _data[i] = val; }  
 }
 
 // Deep copy constructor
-DA::DA(const DA& rhs) : _size(rhs._size) {
+DA::DA(const DA& rhs) : _size(rhs._size), _capacity(rhs._capacity) {
+    // Copy the data (if any), the size and capacity are in init list
     if (rhs._data) {
-        // Allocate memory for new array
-        _data = new int[_size];
-
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            _data[i] = rhs._data[i];
-    }
-    else {
+        _data = new int[_capacity];
+        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }      
+    } else {
         _data = nullptr;
-    }
-        
+    }  
 }
 
 // Deep copy assignment operator
-DA& DA::operator=(const DA& rhs) {
-    // Self-assignment guard
-    if (this == &rhs)
-        return *this;
-        
-    // Prevent memory leak
-    delete[] _data;
-    // Set corresponding size
+DA& DA::operator=(const DA& rhs) {  
+    // Prepare: check for self-assignment and deallocate any old memory
+    if (this == &rhs) { return *this; } 
+    delete[] _data; 
+
+    // Copy the size, capacity, data (if any)
     _size = rhs._size;
-
+    _capacity = rhs._capacity;
     if (rhs._data) {
-        // Allocate memory for new array
-        _data = new int[_size];
-
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            _data[i] = rhs._data[i];
-    }
-    else {
+        _data = new int[_capacity];
+        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }   
+    } else {
         _data = nullptr;
     }
         
@@ -85,22 +69,22 @@ DA::~DA() { delete[] _data; }
 //  Element Access 
 // ----------------
 
-// Accesses the element at the specified index, no range check, allows modification
+// Accesses the element at the specified index, allows modification
 int& DA::operator[](const int index) { return _data[index]; }
 
-// Accesses the element at the specified index, no range check, denies modification
+// Accesses the element at the specified index, denies modification
 const int& DA::operator[](const int index) const { return _data[index]; }
 
-// Accesses the first element in the container, no range check, allows modification
+// Accesses the first element in the container, allows modification
 int& DA::front() { return _data[0]; }
 
-// Accesses the first element in the container, no range check, denies modification
+// Accesses the first element in the container, denies modification
 const int& DA::front() const { return _data[0]; }
 
-// Accesses the last element in the container, no range check, allows modification
+// Accesses the last element in the container, allows modification
 int& DA::back() { return _data[_size - 1]; }
 
-// Accesses the last element in the container, no range check, denies modification
+// Accesses the last element in the container, denies modification
 const int& DA::back() const { return _data[_size - 1]; }
 
 
@@ -108,16 +92,14 @@ const int& DA::back() const { return _data[_size - 1]; }
 //  Capacity
 // ----------
 
-// Checks if the container has no elements
+// Returns true if the container has no elements
 bool DA::empty() const { return (_size == 0); }
 
-// Returns the number of elements in the container
+// Returns the number of stored elements in the container
 int DA::size() const { return _size; }
 
-// Description
-int DA::capacity() const {
-    // to be implemented
-}
+// Returns the number of possible elements in the container
+int DA::capacity() const { return _capacity; }
 
 // Description
 void DA::reserve() {
@@ -143,62 +125,66 @@ void DA::assign(int val) {
 void DA::swap(DA& other) {
     // to be implemented
 }
+// ----------------------------------------------------------------------------
+// Inserts element at given position, shifting other elements as needed
+void DA::insert(int pos, const int& val) {
+    // If memory isn't enough - reallocate, otherwise shift within from the end
+    if (_size == _capacity) {
+        // Allocate new memory (double if needed, or assign 1 if no at all)
+        _capacity = _capacity == 0 ? 1 : _capacity * 2;
+        int* newArray = new int[_capacity];
 
-// Inserts elements at the specified position, shifting other elements as needed.
-// Note: without potential memory-reserving adjustments and bounds checking
-void DA::insert(int index, const int& newData) {
-    if (index == _size - 1) {
-        pushBack(newData);
+        // Copy elements before the position, insert, copy elements after
+        for (int i = 0; i < pos; ++i) { newArray[i] = _data[i]; }
+        newArray[pos] = val;
+        for (int i = pos; i < _size; ++i) { newArray[i + 1] = _data[i]; }
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = newArray;
+    } else {
+        // Shifting from the beginning result in premature overwrite
+        for (int i = _size; i > pos; --i) {
+            _data[i] = _data[i - 1];
+        }
+        _data[pos] = val;
     }
-    else {
-        // Allocate memory for new array, one element more
-        int* newArray = new int[_size + 1];
 
-        // Copy elements before the position
-        for (int before = 0; before < index; ++before)
-            newArray[before] = _data[before];
-
-        // Insert the new value at the specified position
-        newArray[index] = newData;
-
-        // Copy elements after the position
-        for (int after = index; after < _size; ++after)
-            newArray[after + 1] = _data[after];
-
-        // Manage memory and pointers
-        delete[] _data; // dealloc
-        _data = newArray; // point to new
-        ++_size; // reflect change on the size
-    }
+    // Reflect new element on size
+    ++_size; 
 }
 
+// ----------------------------------------------------------------------------
 // Appends the given element to the end of the container
-// Note: without potential memory-reserving adjustments and bounds checking
 void DA::pushBack(const int& newData) {
-    // Allocate memory for new array, one element more
-    int* newArray = new int[_size + 1];
+    if (_size == _capacity) {
+        // Allocate new memory (double if needed, or assign 1 if no at all)
+        _capacity = _capacity == 0 ? 1 : _capacity * 2;
+        int* newArray = new int[_capacity];
 
-    // Copy elements
-    for (int i = 0; i < _size; ++i)
-        newArray[i] = _data[i];
+        // Copy elements from the old array to the new one
+        for (int i = 0; i < _size; ++i) { newArray[i] = _data[i];}
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = newArray;
+    }
 
     // Insert the new value at the end
-    newArray[_size] = newData;
+    _data[_size] = newData;
 
-    // Manage memory and pointers
-    delete[] _data; // dealloc
-    _data = newArray; // point to new
-    ++_size; // reflect change on the size
-
+    // Reflect new element on size
+    ++_size; 
 }
+
 
 // Description
 void DA::popBack() {
     // to be implemented
 }
 
+// ----------------------------------------------------------------------------
 // Removes an element at the specified position
-// Note: without potential memory-reserving adjustments and bounds checking
 void DA::erase(int index) {
     // Case: one element
     if (_size == 1) {

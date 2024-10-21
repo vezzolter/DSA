@@ -13,6 +13,7 @@
 class DA {
 private:
 	int _size;
+	int _capacity;
 	int* _data;
 
 public:
