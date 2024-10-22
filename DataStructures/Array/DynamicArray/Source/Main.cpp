@@ -45,10 +45,22 @@ int main() {
 	std::cout << "Capacity:\n";
 	std::cout << " -> arr1.empty():\t" << arr1.empty() << std::endl;
 	std::cout << " -> arr1.size(): \t" << arr1.size() << std::endl;
+	std::cout << " -> arr1.capacity(): \t" << arr1.capacity() << std::endl;
+	//std::cout << " -> arr1.reserve(): \t" << arr1.reserve() << std::endl;
+	//std::cout << " -> arr1.shrinkToFit(): \t" << arr1.shrinkToFit() << std::endl;
 	std::cout << std::endl;
 
 	// Operations
 	std::cout << "Operations:\n";
+	//std::cout << " -> arr1.insert(): \t" << arr1.insert() << std::endl;
+	//std::cout << " -> arr1.pushBack(): \t" << arr1.pushBack() << std::endl;
+	//std::cout << " -> arr1.popBack(): \t" << arr1.popBack() << std::endl;
+	//std::cout << " -> arr1.erase(): \t" << arr1.erase() << std::endl;
+	//std::cout << " -> arr1.clear(): \t" << arr1.clear() << std::endl;
+	//std::cout << " -> arr1.assign():\t" << arr1.assign() << std::endl;
+	//std::cout << " -> arr1.swap(): \t" << arr1.swap() << std::endl;
+	//std::cout << " -> arr1.resize(): \t" << arr1.resize() << std::endl;
+	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";

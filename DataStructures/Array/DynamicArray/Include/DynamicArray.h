@@ -46,14 +46,14 @@ public:
 	void shrinkToFit();
 	
 	// Operations
-	void assign(int val);
-	void swap(DA& other);
 	void insert(int index, const int& newData);
 	void pushBack(const int& newData);
 	void popBack();
-	void resize(int newSize);
-	void clear();
 	void erase(int index);
+	void clear();
+	void assign(int val);
+	void swap(DA& other);
+	void resize(int newSize);
 };
 
 

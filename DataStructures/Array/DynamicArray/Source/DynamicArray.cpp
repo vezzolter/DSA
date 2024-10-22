@@ -116,16 +116,6 @@ void DA::shrinkToFit() {
 //  Operations
 // ------------
 
-// Description
-void DA::assign(int val) {
-    // to be implemented
-}
-
-// Description
-void DA::swap(DA& other) {
-    // to be implemented
-}
-// ----------------------------------------------------------------------------
 // Inserts element at given position, shifting other elements as needed
 void DA::insert(int pos, const int& val) {
     // If memory isn't enough - reallocate, otherwise shift within from the end
@@ -154,7 +144,6 @@ void DA::insert(int pos, const int& val) {
     ++_size; 
 }
 
-// ----------------------------------------------------------------------------
 // Appends the given element to the end of the container
 void DA::pushBack(const int& newData) {
     if (_size == _capacity) {
@@ -177,65 +166,88 @@ void DA::pushBack(const int& newData) {
     ++_size; 
 }
 
-
 // Description
 void DA::popBack() {
     // to be implemented
 }
 
-// ----------------------------------------------------------------------------
 // Removes an element at the specified position
-void DA::erase(int index) {
-    // Case: one element
+void DA::erase(int pos) {
+    // Edge case: one element
     if (_size == 1) {
         clear();
         return;
     }
 
-    // Allocate memory for new array, one element less
-    int* newArray = new int[_size - 1];
+    // Shift elements to the left to fill the gap
+    for (int i = pos; i < _size - 1; ++i) {
+        _data[i] = _data[i + 1];
+    }
 
-    // Copy before position
-    for (int before = 0; before < index; ++before)
-        newArray[before] = _data[before];
-
-    // Copy after position
-    for (int after = index + 1; after < _size; ++after)
-        newArray[after - 1] = _data[after];
-
-    // Manage memory and pointers
-    delete[] _data; // dealloc
-    _data = newArray; // point to new
-    --_size; // reflect change on the size
+    // Reflect removed element on size
+    --_size;
 }
 
-// Clears the entire content of the dynamic array, freeing memory.
-// Note: without potential memory-reserving adjustments
+// Removes all the elements, doesn't touch the capacity (thus memory)
 void DA::clear() {
-    delete[] _data; // dealloc
-    _data = nullptr; // avoid dangling pointer
-    _size = 0; // reflect change on the size
+    if (_size == 0) { return; }
+    // TODO: Invalidate iterators pointing to elements
+    // TODO: Call the destructor for each element
+    _size = 0;
+}
+
+// Description
+void DA::assign(int val) {
+    // to be implemented
+}
+
+// Description
+void DA::swap(DA& other) {
+    // to be implemented
 }
 
 // Changes the size of an array exactly to the given
-// Note: without potential memory-reserving adjustments
 void DA::resize(int newSize) {
-    // Case: already required size
-    if (newSize <= _size) {
+    // Case 1: new size is the same as current one
+    if (newSize == _size) { return; }
+
+    // Case 2: new size is smaller than current one 
+    if (newSize < _size) {
+        _size = newSize;
         return;
     }
+    
+    // Case 3: new size is larger than current one, but exceeds capacity
+    if (newSize > _capacity) {         
+        // Allocate new memory (assign given or double it)
+        _capacity = newSize > _capacity * 2 ? newSize : _capacity * 2;
+        int* newArray = new int[_capacity];
 
-    if (newSize > _size) {
-        // Allocate memory for new array
-        int* newArray = new int[newSize];
-
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
+        // Copy existing elements
+        for (int i = 0; i < _size; ++i) {
             newArray[i] = _data[i];
+        }
 
-        // Manage memory and pointers
-        delete[] _data; // dealloc
-        _data = newArray; // point to new
-        _size = newSize; // reflect change on the size
+        // Default initialize new elements to 0
+        for (int i = _size; i < newSize; ++i) {
+            newArray[i] = 0;
+        }
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = newArray;
+
+        // Update size to the new size
+        _size = newSize;
+    } 
+    // Case 4: new size is larger than current one, but within capacity
+    else {
+        // Capacity is sufficient, just default initialize new elements
+        for (int i = _size; i < newSize; ++i) {
+            _data[i] = 0;
+        }
+
+        // Update size to the new size
+        _size = newSize;
     }
 }
