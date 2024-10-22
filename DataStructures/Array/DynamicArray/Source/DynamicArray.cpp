@@ -14,10 +14,10 @@
 DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
 // Parameterized constructor
-DA::DA(int size, int val) :
+DA::DA(int size, int data) :
     _size(size), _capacity(size), _data(new int[_capacity]) {
     // Fill the array with the given value
-    for (int i = 0; i < _size; ++i) { _data[i] = val; }  
+    for (int i = 0; i < _size; ++i) { _data[i] = data; }  
 }
 
 // Deep copy constructor
@@ -69,11 +69,11 @@ DA::~DA() { delete[] _data; }
 //  Element Access 
 // ----------------
 
-// Accesses the element at the specified index, allows modification
-int& DA::operator[](const int index) { return _data[index]; }
+// Accesses the element at the specified position, allows modification
+int& DA::operator[](const int pos) { return _data[pos]; }
 
-// Accesses the element at the specified index, denies modification
-const int& DA::operator[](const int index) const { return _data[index]; }
+// Accesses the element at the specified pos, denies modification
+const int& DA::operator[](const int pos) const { return _data[pos]; }
 
 // Accesses the first element in the container, allows modification
 int& DA::front() { return _data[0]; }
@@ -101,15 +101,45 @@ int DA::size() const { return _size; }
 // Returns the number of possible elements in the container
 int DA::capacity() const { return _capacity; }
 
-// Description
-void DA::reserve() {
-    // to be implemented
+// Reserves memory for elements at least of given capacity
+void DA::reserve(int cap) {
+    // Case: capacity is enough (for decreasing - shrinkToFit())
+    if (cap <= _capacity) { return; }
+
+    // Allocate new memory with the requested capacity
+    int* data = new int[cap];
+
+    // Copy existing elements to the new array
+    for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
+
+    // Deallocate old memory and point to new one
+    delete[] _data;
+    _data = data;
+
+    // Update the capacity to the requested capacity
+    _capacity = cap;
 }
 
-// Description
+
+// Requests the removal of unused capacity
 void DA::shrinkToFit() {
-    // to be implemented
+    // Case: capacity is equal (for increasing - reserve())
+    if (_capacity == _size) { return; }
+
+    // Allocate new memory with the size equal to the current size
+    int* data = new int[_size];
+
+    // Copy existing elements to the new array
+    for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
+
+    // Deallocate old memory and point to new one
+    delete[] _data;
+    _data = data;
+
+    // Update capacity to match the current size
+    _capacity = _size;
 }
+
 
 
 // ------------
@@ -118,25 +148,23 @@ void DA::shrinkToFit() {
 
 // Inserts element at given position, shifting other elements as needed
 void DA::insert(int pos, const int& val) {
-    // If memory isn't enough - reallocate, otherwise shift within from the end
+    // If memory isn't enough - reallocate; Otherwise shift within from the end
     if (_size == _capacity) {
         // Allocate new memory (double if needed, or assign 1 if no at all)
         _capacity = _capacity == 0 ? 1 : _capacity * 2;
-        int* newArray = new int[_capacity];
+        int* data = new int[_capacity];
 
         // Copy elements before the position, insert, copy elements after
-        for (int i = 0; i < pos; ++i) { newArray[i] = _data[i]; }
-        newArray[pos] = val;
-        for (int i = pos; i < _size; ++i) { newArray[i + 1] = _data[i]; }
+        for (int i = 0; i < pos; ++i) { data[i] = _data[i]; }
+        data[pos] = val;
+        for (int i = pos; i < _size; ++i) { data[i + 1] = _data[i]; }
 
         // Deallocate old memory and point to new one
         delete[] _data;
-        _data = newArray;
+        _data = data;
     } else {
         // Shifting from the beginning result in premature overwrite
-        for (int i = _size; i > pos; --i) {
-            _data[i] = _data[i - 1];
-        }
+        for (int i = _size; i > pos; --i) { _data[i] = _data[i - 1]; }
         _data[pos] = val;
     }
 
@@ -145,22 +173,22 @@ void DA::insert(int pos, const int& val) {
 }
 
 // Appends the given element to the end of the container
-void DA::pushBack(const int& newData) {
+void DA::pushBack(const int& data) {
     if (_size == _capacity) {
         // Allocate new memory (double if needed, or assign 1 if no at all)
         _capacity = _capacity == 0 ? 1 : _capacity * 2;
-        int* newArray = new int[_capacity];
+        int* data = new int[_capacity];
 
         // Copy elements from the old array to the new one
-        for (int i = 0; i < _size; ++i) { newArray[i] = _data[i];}
+        for (int i = 0; i < _size; ++i) { data[i] = _data[i];}
 
         // Deallocate old memory and point to new one
         delete[] _data;
-        _data = newArray;
+        _data = data;
     }
 
     // Insert the new value at the end
-    _data[_size] = newData;
+    _data[_size] = data;
 
     // Reflect new element on size
     ++_size; 
@@ -173,16 +201,14 @@ void DA::popBack() {
 
 // Removes an element at the specified position
 void DA::erase(int pos) {
-    // Edge case: one element
+    // Case: one element
     if (_size == 1) {
         clear();
         return;
     }
 
     // Shift elements to the left to fill the gap
-    for (int i = pos; i < _size - 1; ++i) {
-        _data[i] = _data[i + 1];
-    }
+    for (int i = pos; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
 
     // Reflect removed element on size
     --_size;
@@ -207,47 +233,39 @@ void DA::swap(DA& other) {
 }
 
 // Changes the size of an array exactly to the given
-void DA::resize(int newSize) {
+void DA::resize(int size) {
     // Case 1: new size is the same as current one
-    if (newSize == _size) { return; }
+    if (size == _size) { return; }
 
     // Case 2: new size is smaller than current one 
-    if (newSize < _size) {
-        _size = newSize;
+    if (size < _size) {
+        _size = size;
         return;
     }
-    
-    // Case 3: new size is larger than current one, but exceeds capacity
-    if (newSize > _capacity) {         
+
+    // Case 3: new size is larger and exceeds capacity; Otherwise its within
+    if (size > _capacity) {
         // Allocate new memory (assign given or double it)
-        _capacity = newSize > _capacity * 2 ? newSize : _capacity * 2;
-        int* newArray = new int[_capacity];
+        _capacity = size > _capacity * 2 ? size : _capacity * 2;
+        int* data = new int[_capacity];
 
         // Copy existing elements
-        for (int i = 0; i < _size; ++i) {
-            newArray[i] = _data[i];
-        }
+        for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
 
         // Default initialize new elements to 0
-        for (int i = _size; i < newSize; ++i) {
-            newArray[i] = 0;
-        }
+        for (int i = _size; i < size; ++i) { data[i] = 0; }
 
         // Deallocate old memory and point to new one
         delete[] _data;
-        _data = newArray;
+        _data = data;
 
         // Update size to the new size
-        _size = newSize;
-    } 
-    // Case 4: new size is larger than current one, but within capacity
-    else {
+        _size = size;
+    } else {
         // Capacity is sufficient, just default initialize new elements
-        for (int i = _size; i < newSize; ++i) {
-            _data[i] = 0;
-        }
+        for (int i = _size; i < size; ++i) { _data[i] = 0; }
 
         // Update size to the new size
-        _size = newSize;
+        _size = size;
     }
 }

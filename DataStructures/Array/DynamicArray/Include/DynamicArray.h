@@ -19,7 +19,7 @@ private:
 public:
 	// Compiler Generated
 	DA();
-	DA(int newSize, int newData);
+	DA(int size, int data);
 	DA(const DA& rhs);
 	DA& operator=(const DA& rhs);
 	DA(const DA&& rhs) = delete;
@@ -29,10 +29,10 @@ public:
 	// Iterators
 
 	// Element Access
-	//int& at(const int index); // throws exceptions
-	//const int& at(const int index) const; // throws exceptions
-	int& operator[](const int index);
-	const int& operator[](const int index) const;
+	//int& at(const int pos); // throws exceptions
+	//const int& at(const int pos) const; // throws exceptions
+	int& operator[](const int pos);
+	const int& operator[](const int pos) const;
 	int& front();
 	const int& front() const;
 	int& back();
@@ -42,18 +42,18 @@ public:
 	bool empty() const;
 	int size() const;
 	int capacity() const;
-	void reserve();
+	void reserve(int cap);
 	void shrinkToFit();
 	
 	// Operations
-	void insert(int index, const int& newData);
-	void pushBack(const int& newData);
+	void insert(int pos, const int& data);
+	void pushBack(const int& data);
 	void popBack();
-	void erase(int index);
+	void erase(int pos);
 	void clear();
 	void assign(int val);
 	void swap(DA& other);
-	void resize(int newSize);
+	void resize(int size);
 };
 
 

@@ -11,8 +11,7 @@
 
 
 void printArray(const DA& arr) {
-	for (int i = 0; i < arr.size(); i++)
-		std::cout << arr[i] << " ";
+	for (int i = 0; i < arr.size(); i++) { std::cout << arr[i] << " "; }
 	std::cout << std::endl;
 }
 
@@ -24,14 +23,14 @@ int main() {
 	std::cout << "Constructors:\n";
 	std::cout << " -> default constructor (arr1):\t";
 	DA arr1;
-	for (int i = 1; i < 10; ++i) { arr1.pushBack(i); }
+	for (int i = 0; i < 10; ++i) { arr1.pushBack(i+1); }
 	printArray(arr1);
-	std::cout << " -> copy constructor (arr2):\t";
-	DA arr2(arr1);
-	printArray(arr2);
-	std::cout << " -> copy operator= (arr3):\t";
-	DA arr3 = arr1;
-	printArray(arr3);
+	//std::cout << " -> copy constructor (arr2):\t";
+	//DA arr2(arr1);
+	//printArray(arr2);
+	//std::cout << " -> copy operator= (arr3):\t";
+	//DA arr3 = arr1;
+	//printArray(arr3);
 	std::cout << std::endl;
 
 	// Element Access
@@ -46,8 +45,12 @@ int main() {
 	std::cout << " -> arr1.empty():\t" << arr1.empty() << std::endl;
 	std::cout << " -> arr1.size(): \t" << arr1.size() << std::endl;
 	std::cout << " -> arr1.capacity(): \t" << arr1.capacity() << std::endl;
-	//std::cout << " -> arr1.reserve(): \t" << arr1.reserve() << std::endl;
-	//std::cout << " -> arr1.shrinkToFit(): \t" << arr1.shrinkToFit() << std::endl;
+	std::cout << " -> arr1.reserve(20): \t" << std::endl;
+	arr1.reserve(20);
+	std::cout << "   - arr1.capacity(): \t" << arr1.capacity() << std::endl;
+	std::cout << " -> arr1.shrinkToFit() \t" << std::endl;
+	arr1.shrinkToFit();
+	std::cout << "   - arr1.capacity(): \t" << arr1.capacity() << std::endl;
 	std::cout << std::endl;
 
 	// Operations
