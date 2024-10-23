@@ -30,6 +30,9 @@ public:
 	~DA();
 
 	// Iterators
+	using iterator = DAIterator;
+	iterator begin();
+	iterator end();
 
 	// Element Access
 	//int& at(const int pos); // throws exceptions

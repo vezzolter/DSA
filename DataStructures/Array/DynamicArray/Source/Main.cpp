@@ -10,8 +10,8 @@
 #include "DynamicArray.h"
 
 
-void printArray(const DA& arr) {
-	for (int i = 0; i < arr.size(); i++) { std::cout << arr[i] << " "; }
+void printArray(DA& arr) {
+	for (auto it = arr.begin(); it != arr.end(); ++it) { std::cout << *it << " "; }
 	std::cout << std::endl;
 }
 

@@ -75,8 +75,8 @@ It's generally recommended to rely on well-established, widely recognized implem
 
 ## Repository Containers
 Understanding the design principles and core mechanics of array data structures is essential for deeper insight into their efficiency and performance. The following implementations provide simplified versions of both static and dynamic arrays, showcasing key aspects of their design and operation.
-- [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) ✅
-- [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) 🎯
+- [Static Array](https://github.com/vezzolter/DSA/tree/main//DataStructures/Array/StaticArray) ✅
+- [Dynamic Array](https://github.com/vezzolter/DSA/tree/main//DataStructures/Array/DynamicArray) ✅
 
 
 

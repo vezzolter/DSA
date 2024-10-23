@@ -109,17 +109,89 @@ Since there are various types of iterators that can be implemented (e.g. the ima
 <p align="center"><img src="./Images/LibraryIterators.png"/></p>
 
 ---
-The iterator is implemented within the `DAIterator` class, which is declared in [DAIterator.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Include/DAIterator.h) header file and defined in [DAIterator.cpp ](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/DAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
+The iterator is implemented within the `DAIterator` class, which is declared in [DAIterator.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/Include/DAIterator.h) header file and defined in [DAIterator.cpp ](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/Source/DAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
 
 ```cpp
-// Will be updated soon
+class DAIterator {
+private:
+	int* _ptr = nullptr;
+
+public:
+    // Compiler Generated
+    DAIterator() = default;
+    DAIterator(int* ptr);
+    DAIterator(const DAIterator& rhs) = default;
+    DAIterator& operator=(const DAIterator& rhs) = default;
+    DAIterator(DAIterator&& rhs) = default;
+    DAIterator& operator=(DAIterator&& rhs) = default;
+    ~DAIterator() = default;
+
+    // Overloaded Operators
+    int& operator*();
+	//const int& operator*() const; // instead use dedicated const itr
+    DAIterator& operator++();
+    DAIterator operator++(int);
+    DAIterator& operator--();
+    DAIterator operator--(int);
+    friend bool operator==(const DAIterator& lhs, const DAIterator& rhs);
+    friend bool operator!=(const DAIterator& lhs, const DAIterator& rhs);
+};
 ```
 
 ## Container Implementation
-The container is implemented within the `DA` class, which is declared in [DynamicArray.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Include/DynamicArray.h) header file and defined in [DynamicArray.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/DynamicArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/DynamicArray/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `DA` class, which is declared in [DynamicArray.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/Include/DynamicArray.h) header file and defined in [DynamicArray.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/Source/DynamicArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
-// Will be updated soon
+class DA {
+private:
+	int _size;
+	int _capacity;
+	int* _data;
+
+public:
+	// Compiler Generated
+	DA();
+	DA(int size);
+	DA(int size, int data);
+	//SA(std::initializer_list<int> values); // external dependencies
+	DA(const DA& rhs);
+	DA& operator=(const DA& rhs);
+	DA(const DA&& rhs) = delete;
+	DA& operator=(const DA&& rhs) = delete;
+	~DA();
+
+	// Iterators
+	using iterator = DAIterator;
+	iterator begin();
+	iterator end();
+
+	// Element Access
+	//int& at(const int pos); // throws exceptions
+	//const int& at(const int pos) const; // throws exceptions
+	int& operator[](const int pos);
+	const int& operator[](const int pos) const;
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
+
+	// Capacity
+	bool empty() const;
+	int size() const;
+	int capacity() const;
+	void reserve(int cap);
+	void shrinkToFit();
+	
+	// Operations
+	void insert(int pos, const int& data);
+	void pushBack(const int& data);
+	void popBack();
+	void erase(int pos);
+	void assign(int val);
+	void clear();
+	void resize(int size);
+	void swap(DA& other);
+};
 ```
 
 
@@ -169,7 +241,7 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 ## Common Use Cases
-As mentioned in the [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since dynamic arrays share the foundational principles of the general concept of arrays, their common usage is best described in the [arrays respective section](../Array.md#-application).
+As mentioned in the [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since dynamic arrays share the foundational principles of the general concept of arrays, their common usage is best described in the [arrays respective section](../Array.md#-application).
 
 
 ## Some Practical Problems

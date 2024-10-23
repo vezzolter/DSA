@@ -73,28 +73,17 @@ DA::~DA() { delete[] _data; }
 //  Iterators 
 // -----------
 
-//// Returns an iterator to the first element of the container
-//DAIterator DA::begin() { return DAIterator(_data); }
-//
-//// Returns an iterator to one past the last element of the container
-//DAIterator DA::end() { return DAIterator(_data + _size); }
+// Returns an iterator to the first element of the container
+DAIterator DA::begin() { return DAIterator(_data);  }
+
+// Returns an iterator to one past the last element of the container
+DAIterator DA::end() { return DAIterator(_data + _size); }
+
 
 
 // ----------------
 //  Element Access 
 // ----------------
-
-//// Accesses the element at the specified position, allows modification
-//int& DA::at()(const int pos) {
-//    //TODO: Range check
-//    return _data[pos];
-//}
-//
-//// Accesses the element at the specified pos, denies modification
-//const int& DA::at()(const int pos) const {
-//    //TODO: Range check
-//    return _data[pos];
-//}
 
 // Accesses the element at the specified position, allows modification
 int& DA::operator[](const int pos) { return _data[pos]; }

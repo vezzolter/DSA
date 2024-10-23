@@ -97,7 +97,7 @@ Since there are various types of iterators that can be implemented (e.g. the ima
 <p align="center"><img src="./Images/LibraryIterators.png"/></p>
 
 ---
-The iterator is implemented within the `SAIterator` class, which is declared in [SAIterator.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Include/SAIterator.h) header file and defined in [SAIterator.cpp ](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/SAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
+The iterator is implemented within the `SAIterator` class, which is declared in [SAIterator.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Include/SAIterator.h) header file and defined in [SAIterator.cpp ](https://github.com/vezzolter/DSA/blob/main//DataStructures/Array/StaticArray/Source/SAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
 
 ```cpp
 class SAIterator {
@@ -128,7 +128,7 @@ public:
 
 
 ## Container Implementation
-The container is implemented within the `SA` class, which is declared in [StaticArray.h](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Include/StaticArray.h) header file and defined in [StaticArray.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/StaticArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/StaticArray/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `SA` class, which is declared in [StaticArray.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Include/StaticArray.h) header file and defined in [StaticArray.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Source/StaticArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class SA {
@@ -210,7 +210,7 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 ## Common Use Cases
-As mentioned in the [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since static arrays share the foundational principles of the general concept of arrays, their common usage is best described in the [arrays respective section](../Array.md#-application).
+As mentioned in the [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since static arrays share the foundational principles of the general concept of arrays, their common usage is best described in the [arrays respective section](../Array.md#-application).
 
 
 ## Some Practical Problems
