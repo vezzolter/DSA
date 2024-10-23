@@ -7,6 +7,7 @@
 #define DA_H
 
 
+//#include <initializer_list>
 #include "DAIterator.h"
 
 
@@ -19,7 +20,9 @@ private:
 public:
 	// Compiler Generated
 	DA();
+	DA(int size);
 	DA(int size, int data);
+	//SA(std::initializer_list<int> values); // external dependencies
 	DA(const DA& rhs);
 	DA& operator=(const DA& rhs);
 	DA(const DA&& rhs) = delete;
@@ -50,10 +53,10 @@ public:
 	void pushBack(const int& data);
 	void popBack();
 	void erase(int pos);
-	void clear();
 	void assign(int val);
-	void swap(DA& other);
+	void clear();
 	void resize(int size);
+	void swap(DA& other);
 };
 
 

@@ -13,12 +13,27 @@
 // Default constructor
 DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
-// Parameterized constructor
-DA::DA(int size, int data) :
-    _size(size), _capacity(size), _data(new int[_capacity]) {
-    // Fill the array with the given value
-    for (int i = 0; i < _size; ++i) { _data[i] = data; }  
+
+// Parameterized constructor to fill the array with the default values
+DA::DA(int size)
+    : _size(size), _capacity(size), _data(new int[_capacity]) {
+    for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
+
+// Parameterized constructor to fill the array with the given value
+DA::DA(int size, int data)
+    : _size(size), _capacity(size), _data(new int[_capacity]) {
+    for (int i = 0; i < _size; ++i) { _data[i] = data; }
+}
+
+//// Parameterized constructor to fill the array with the given list
+//DA::DA(std::initializer_list<int> list)
+//    : _size(list.size()), _capacity(list.size()), _data(new int[_capacity]) {
+//    int i = 0;
+//    for (const int& val : list) {
+//        _data[i++] = val;
+//    }
+//}
 
 // Deep copy constructor
 DA::DA(const DA& rhs) : _size(rhs._size), _capacity(rhs._capacity) {
@@ -68,6 +83,18 @@ DA::~DA() { delete[] _data; }
 // ----------------
 //  Element Access 
 // ----------------
+
+//// Accesses the element at the specified position, allows modification
+//int& DA::at()(const int pos) {
+//    //TODO: Range check
+//    return _data[pos];
+//}
+//
+//// Accesses the element at the specified pos, denies modification
+//const int& DA::at()(const int pos) const {
+//    //TODO: Range check
+//    return _data[pos];
+//}
 
 // Accesses the element at the specified position, allows modification
 int& DA::operator[](const int pos) { return _data[pos]; }
@@ -119,7 +146,6 @@ void DA::reserve(int cap) {
     // Update the capacity to the requested capacity
     _capacity = cap;
 }
-
 
 // Requests the removal of unused capacity
 void DA::shrinkToFit() {
@@ -194,9 +220,19 @@ void DA::pushBack(const int& data) {
     ++_size; 
 }
 
-// Description
+// Removes the last element from the array
 void DA::popBack() {
-    // to be implemented
+    // Case: empty container
+    if (_size == 0) { return; }
+
+    // TODO: Invalidate iterators pointing to element
+    // TODO: Call the destructor for each element
+    
+    // Avoid stale data
+    _data[_size] = 0;
+
+    // Reflect removed element on size
+    --_size;
 }
 
 // Removes an element at the specified position
@@ -214,22 +250,21 @@ void DA::erase(int pos) {
     --_size;
 }
 
+// Assigns the specified value to all elements in the array
+void DA::assign(int val) {
+    for (int i = 0; i < _size; ++i) { _data[i] = val; }
+}
+
 // Removes all the elements, doesn't touch the capacity (thus memory)
 void DA::clear() {
+    // Case: empty container
     if (_size == 0) { return; }
+
     // TODO: Invalidate iterators pointing to elements
     // TODO: Call the destructor for each element
+
+    // Reflect removed elements on size
     _size = 0;
-}
-
-// Description
-void DA::assign(int val) {
-    // to be implemented
-}
-
-// Description
-void DA::swap(DA& other) {
-    // to be implemented
 }
 
 // Changes the size of an array exactly to the given
@@ -261,11 +296,30 @@ void DA::resize(int size) {
 
         // Update size to the new size
         _size = size;
-    } else {
+    }
+    else {
         // Capacity is sufficient, just default initialize new elements
         for (int i = _size; i < size; ++i) { _data[i] = 0; }
 
         // Update size to the new size
         _size = size;
     }
+}
+
+// Swaps the data, size, capacity of this array with another array
+void DA::swap(DA& other) {
+    // Case: the same container
+    if (this == &other) { return; }
+
+    int* tempData = _data;
+    _data = other._data;
+    other._data = tempData;
+
+    int tempSize = _size;
+    _size = other._size;
+    other._size = tempSize;
+
+    int tempCapacity = _capacity;
+    _capacity = other._capacity;
+    other._capacity = tempCapacity;
 }
