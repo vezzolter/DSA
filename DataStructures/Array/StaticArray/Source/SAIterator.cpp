@@ -1,6 +1,7 @@
-// Source file for Static Array Iterator
-// by vezzolter
-// October 13, 2024
+// Title:   Source file for Static Array Iterator
+// Authors: by vezzolter
+// Date:    October 13, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "SAIterator.h"
@@ -10,7 +11,7 @@
 //  Compiler Generated 
 // --------------------
 
-// Parameterized Constructor
+// Initializes the iterator with specified memory address
 SAIterator::SAIterator(int* ptr) : _ptr(ptr) { }
 
 
@@ -18,41 +19,41 @@ SAIterator::SAIterator(int* ptr) : _ptr(ptr) { }
 //  Overloaded Operators
 // ----------------------
 
-// Dereference operator for accessing and modifying the element the iterator points to
+// Returns a reference to the element pointed to by the iterator
 int& SAIterator::operator*() { return *_ptr; }
 
-// Pre-increment operator to move the iterator to the next element
+// Advances the iterator to the next element and returns a reference to it
 SAIterator& SAIterator::operator++() {
 	++_ptr;
 	return *this;
 }
 
-// Post-increment operator to move the iterator to the next element, returning the previous state
+// Returns a copy of the iterator and then advances to the next element
 SAIterator SAIterator::operator++(int) {
     SAIterator temp(*this); 
     ++_ptr;
     return temp; // could require disabling the RVO or using move cstr
 }
 
-// Pre-decrement operator to move the iterator to the previous element
+// Moves the iterator to the previous element and returns a reference to it
 SAIterator& SAIterator::operator--() {
 	--_ptr;
 	return *this;
 }
 
-// Post-decrement operator to move the iterator to the previous element, returning the previous state
+// Returns a copy of the iterator and then moves to the previous element
 SAIterator SAIterator::operator--(int) {
 	SAIterator temp(*this);
 	--_ptr;
 	return temp; // could require disabling the RVO or using move cstr
 }
 
-// Equality operator to check if two iterators point to the same element
+// Returns true if two iterators point to the same element
 bool operator==(const SAIterator& lhs, const SAIterator& rhs) {
 	return lhs._ptr == rhs._ptr;
 }
 
-// Inequality operator to check if two iterators point to different elements
+// Returns true if two iterators point to different elements
 bool operator!=(const SAIterator& lhs, const SAIterator& rhs) {
 	return lhs._ptr != rhs._ptr;
 }

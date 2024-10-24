@@ -1,6 +1,7 @@
-// Header file for Dynamic Array
-// by vezzolter
-// January 31, 2024
+// Title:   Header file for Dynamic Array
+// Authors: by vezzolter
+// Date:    January 31, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef DA_H

@@ -1,6 +1,7 @@
-// Header file for Static Array Iterator
-// by vezzolter
-// October 13, 2024
+// Title:   Header file for Static Array Iterator
+// Authors: by vezzolter
+// Date:    October 13, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef SAITERATOR_H

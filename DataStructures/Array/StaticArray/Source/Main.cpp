@@ -1,18 +1,18 @@
-// Static Array
-// by vezzolter
-// January 29, 2024
-//
-// This C++ project demonstrates the simplified implementation of a static array container. 
-// It aims to illustrate basic array operations and memory handling in a fixed-size context.
+// Title:   Static Array Container
+// Authors: by vezzolter
+// Date:    January 29, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
 #include "StaticArray.h"
 
 
-// Not a const version
+// Utilizes non-const array, since there is no const iterator
 void printArray(SA& arr) {
-	for (auto it = arr.begin(); it != arr.end(); ++it) { std::cout << *it << " "; }
+	for (auto it = arr.begin(); it != arr.end(); ++it) { 
+		std::cout << *it << " "; 
+	}
 	std::cout << std::endl;
 }
 
@@ -22,16 +22,14 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
-	std::cout << " -> default constructor (arr1):\t";
+	std::cout << " -> SA arr1:\t\t";
 	SA arr1;
+	for (int i = 0; i < 10; ++i) { arr1[i] = i; }
 	printArray(arr1);
-	std::cout << "   - manually updated (arr1):\t";
-	for (int i = 0; i < 9; ++i) { arr1[i] = i + 1; }
-	printArray(arr1);
-	std::cout << " -> copy constructor (arr2):\t";
+	std::cout << " -> SA arr2(arr1):\t";
 	SA arr2(arr1);
 	printArray(arr2);
-	std::cout << " -> copy operator= (arr3):\t";
+	std::cout << " -> SA arr3 = arr1:\t";
 	SA arr3 = arr1;
 	printArray(arr3);
 	std::cout << std::endl;
@@ -51,17 +49,15 @@ int main() {
 
 	// Operations
 	std::cout << "Operations:\n";
-	std::cout << " -> arr2.assign(5), arr2:\t";
-	arr2.assign(5);
+	std::cout << " -> arr1.assign(5):\t";
+	arr1.assign(5);
+	printArray(arr1);
+	std::cout << " -> arr1.swap(arr2):\t";
+	arr1.swap(arr2);
+	printArray(arr1);
+	std::cout << "   - arr2:\t\t";
 	printArray(arr2);
-	std::cout << " -> arr3.assign(7), arr3:\t";
-	arr3.assign(7);
-	printArray(arr3);
-	std::cout << " -> arr2.swap(arr3):\n";
-	arr2.swap(arr3);
-	std::cout << "   - arr2 after swap:   \t";
-	printArray(arr2);
-	std::cout << "   - arr3 after swap:   \t";
+	std::cout << "   - arr3:\t\t";
 	printArray(arr3);
 	std::cout << std::endl;
 

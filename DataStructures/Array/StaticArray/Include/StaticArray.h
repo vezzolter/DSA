@@ -1,6 +1,7 @@
-// Header file for Static Array
-// by vezzolter
-// January 29, 2024
+// Title:   Header file for Static Array
+// Authors: by vezzolter
+// Date:    January 29, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef SA_H
@@ -13,7 +14,7 @@
 
 class SA {
 private:
-	static const int _SIZE = 9; // since no heap/template
+	static const int _SIZE = 10; // since no heap/template
 	int _data[_SIZE];
 
 public:
@@ -32,10 +33,10 @@ public:
 	iterator end();
 
 	// Element Access
-	//int& at(const int index); // throws exceptions
-	//const int& at(const int index) const; // throws exceptions
-	int& operator[](const int index);
-	const int& operator[](const int index) const;
+	//int& at(const int pos); // throws exceptions
+	//const int& at(const int pos) const; // throws exceptions
+	int& operator[](const int pos);
+	const int& operator[](const int pos) const;
 	int& front();
 	const int& front() const;
 	int& back();

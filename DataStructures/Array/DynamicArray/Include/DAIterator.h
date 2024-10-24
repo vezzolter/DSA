@@ -1,6 +1,7 @@
-// Header file for Dynamic Array Iterator
-// by vezzolter
-// October 19, 2024
+// Title:   Header file for Dynamic Array Iterator
+// Authors: by vezzolter
+// Date:    October 19, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef DAITERATOR_H

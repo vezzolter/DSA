@@ -1,6 +1,7 @@
-// Source file for Dynamic Array
-// by vezzolter
-// January 31, 2024
+// Title:   Source file for Dynamic Array
+// Authors: by vezzolter
+// Date:    January 31, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "DynamicArray.h"
@@ -10,33 +11,24 @@
 //  Compiler Generated
 // --------------------
 
-// Default constructor
+// Initializes an empty array
 DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
-
-// Parameterized constructor to fill the array with the default values
+// Initializes an array with given size and all elements with zeros
 DA::DA(int size)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
     for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
 
-// Parameterized constructor to fill the array with the given value
+// Initializes an array with given size and all elements with one value
 DA::DA(int size, int data)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
     for (int i = 0; i < _size; ++i) { _data[i] = data; }
 }
 
-//// Parameterized constructor to fill the array with the given list
-//DA::DA(std::initializer_list<int> list)
-//    : _size(list.size()), _capacity(list.size()), _data(new int[_capacity]) {
-//    int i = 0;
-//    for (const int& val : list) {
-//        _data[i++] = val;
-//    }
-//}
-
-// Deep copy constructor
-DA::DA(const DA& rhs) : _size(rhs._size), _capacity(rhs._capacity) {
+// Initializes an array with data by deep copying it from another one
+DA::DA(const DA& rhs)
+    : _size(rhs._size), _capacity(rhs._capacity) {
     // Copy the data (if any), the size and capacity are in init list
     if (rhs._data) {
         _data = new int[_capacity];
@@ -46,7 +38,7 @@ DA::DA(const DA& rhs) : _size(rhs._size), _capacity(rhs._capacity) {
     }  
 }
 
-// Deep copy assignment operator
+// Assigns an array with data by shallow copying it from another one
 DA& DA::operator=(const DA& rhs) {  
     // Prepare: check for self-assignment and deallocate any old memory
     if (this == &rhs) { return *this; } 
@@ -73,34 +65,33 @@ DA::~DA() { delete[] _data; }
 //  Iterators 
 // -----------
 
-// Returns an iterator to the first element of the container
+// Returns an iterator to the first element of the array
 DAIterator DA::begin() { return DAIterator(_data);  }
 
-// Returns an iterator to one past the last element of the container
+// Returns an iterator to one past the last element of the array
 DAIterator DA::end() { return DAIterator(_data + _size); }
-
 
 
 // ----------------
 //  Element Access 
 // ----------------
 
-// Accesses the element at the specified position, allows modification
+// Returns a modifiable reference to the element at the given position
 int& DA::operator[](const int pos) { return _data[pos]; }
 
-// Accesses the element at the specified pos, denies modification
+// Returns a non-modifiable reference to the element at the given position
 const int& DA::operator[](const int pos) const { return _data[pos]; }
 
-// Accesses the first element in the container, allows modification
+// Returns a modifiable reference to the first element
 int& DA::front() { return _data[0]; }
 
-// Accesses the first element in the container, denies modification
+// Returns a non-modifiable reference to the first element
 const int& DA::front() const { return _data[0]; }
 
-// Accesses the last element in the container, allows modification
+// Returns a modifiable reference to the last element
 int& DA::back() { return _data[_size - 1]; }
 
-// Accesses the last element in the container, denies modification
+// Returns a non-modifiable reference to the last element
 const int& DA::back() const { return _data[_size - 1]; }
 
 
@@ -108,13 +99,13 @@ const int& DA::back() const { return _data[_size - 1]; }
 //  Capacity
 // ----------
 
-// Returns true if the container has no elements
+// Returns true if the array has no elements
 bool DA::empty() const { return (_size == 0); }
 
-// Returns the number of stored elements in the container
+// Returns the number of stored elements
 int DA::size() const { return _size; }
 
-// Returns the number of possible elements in the container
+// Returns the number of possible elements
 int DA::capacity() const { return _capacity; }
 
 // Reserves memory for elements at least of given capacity
@@ -161,7 +152,7 @@ void DA::shrinkToFit() {
 //  Operations
 // ------------
 
-// Inserts element at given position, shifting other elements as needed
+// Inserts an element at the specified position, shifting other elements
 void DA::insert(int pos, const int& val) {
     // If memory isn't enough - reallocate; Otherwise shift within from the end
     if (_size == _capacity) {
@@ -187,7 +178,7 @@ void DA::insert(int pos, const int& val) {
     ++_size; 
 }
 
-// Appends the given element to the end of the container
+// Appends the given element to the end of the array
 void DA::pushBack(const int& data) {
     if (_size == _capacity) {
         // Allocate new memory (double if needed, or assign 1 if no at all)
@@ -224,7 +215,7 @@ void DA::popBack() {
     --_size;
 }
 
-// Removes an element at the specified position
+// Removes an element at the specified position, shifting others left
 void DA::erase(int pos) {
     // Case: one element
     if (_size == 1) {
@@ -239,12 +230,12 @@ void DA::erase(int pos) {
     --_size;
 }
 
-// Assigns the specified value to all elements in the array
+// Assigns the specified value to all elements
 void DA::assign(int val) {
     for (int i = 0; i < _size; ++i) { _data[i] = val; }
 }
 
-// Removes all the elements, doesn't touch the capacity (thus memory)
+// Removes all elements, keeps the capacity unchanged
 void DA::clear() {
     // Case: empty container
     if (_size == 0) { return; }
@@ -256,7 +247,7 @@ void DA::clear() {
     _size = 0;
 }
 
-// Changes the size of an array exactly to the given
+// Resizes the array to the specified size, reallocating if necessary
 void DA::resize(int size) {
     // Case 1: new size is the same as current one
     if (size == _size) { return; }
@@ -295,7 +286,7 @@ void DA::resize(int size) {
     }
 }
 
-// Swaps the data, size, capacity of this array with another array
+// Swaps the data with another array
 void DA::swap(DA& other) {
     // Case: the same container
     if (this == &other) { return; }

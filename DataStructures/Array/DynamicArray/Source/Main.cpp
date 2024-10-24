@@ -1,17 +1,18 @@
-// Dynamic Array
-// by vezzolter
-// January 31, 2024
-//
-// This C++ project demonstrates the simplified implementation of a dynamic array container. 
-// It aims to illustrate basic array operations and memory handling in a runtime context
+// Title:   Dynamic Array Container
+// Authors: by vezzolter
+// Date:    January 31, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
 #include "DynamicArray.h"
 
 
+// Utilizes non-const array, since there is no const iterator
 void printArray(DA& arr) {
-	for (auto it = arr.begin(); it != arr.end(); ++it) { std::cout << *it << " "; }
+	for (auto it = arr.begin(); it != arr.end(); ++it) { 
+		std::cout << *it << " "; 
+	}
 	std::cout << std::endl;
 }
 
@@ -35,7 +36,6 @@ int main() {
 
 	// Element Access
 	std::cout << "Element Access:\n";
-	//std::cout << " -> arr1.at[11]:\t" << arr1[11] << std::endl;
 	std::cout << " -> arr1.operator[3]:\t" << arr1[3] << std::endl;
 	std::cout << " -> arr1.front():\t" << arr1.front() << std::endl;
 	std::cout << " -> arr1.back(): \t" << arr1.back() << std::endl;
