@@ -1,93 +1,97 @@
-// Source file for simplified ADT: Static Array
-// by vezzolter
-// January 29, 2024
+// Title:   Source file for Static Array
+// Authors: by vezzolter
+// Date:    January 29, 2024
+// ----------------------------------------------------------------------------
 
-#ifndef SA_CPP
-#define SA_CPP
 
 #include "StaticArray.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// --------------------
+//  Compiler Generated 
+// --------------------
 
-// Default constructor
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>::SA() : _size(0) {
-    for (int i = 0; i < MAX_SIZE; ++i)
-        _data[i] = 0;
+// Initializes an empty array
+SA::SA() { 
+    for (int i = 0; i < _SIZE; ++i) { _data[i] = 0; }
 }
 
-// Parameterized constructor, no range check
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>::SA(int size) : _size(size) {
-    for (int i = 0; i < MAX_SIZE; ++i)
-        _data[i] = 0;
+// Initializes an array with data by shallow copying it from another one
+SA::SA(const SA& rhs) { 
+    for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; }
 }
 
-// Shallow copy constructor
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>::SA(const SA& rhs) : _size(rhs._size) {
-    for (int i = 0; i < _size; ++i)
-        _data[i] = rhs._data[i];
-}
-
-// Shallow copy assignment operator
-template<class T, int MAX_SIZE>
-SA<T, MAX_SIZE>& SA<T, MAX_SIZE>::operator=(const SA& rhs) {
-    // Self-assignment guard
-    if (this == &rhs)
-        return *this;
-
-    _size = rhs._size;
-    for (int i = 0; i < _size; ++i)
-        _data[i] = rhs._data[i];
+// Assigns an array with data by shallow copying it from another one
+SA& SA::operator=(const SA& rhs) {
+    if (this == &rhs) { return *this; } // self-assignment guard
+    for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; }
 
     return *this;
 }
 
 
-// --------------
-// Element Access
-// --------------
+// -----------
+//  Iterators 
+// -----------
 
-// Accesses the element at the specified index, no range check, allows modification
-template<class T, int MAX_SIZE>
-T& SA<T, MAX_SIZE>::operator[](const int index) { return _data[index]; }
+// Returns an iterator to the first element of the array
+SAIterator SA::begin() { return SAIterator(_data); }
 
-// Accesses the element at the specified index, no range check, denies modification
-template<class T, int MAX_SIZE>
-const T& SA<T, MAX_SIZE>::operator[](const int index) const { return _data[index]; }
-
-// Accesses the first element in the container, no range check, allows modification
-template<class T, int MAX_SIZE>
-T& SA<T, MAX_SIZE>::front() { return _data[0]; }
-
-// Accesses the first element in the container, no range check, denies modification
-template<class T, int MAX_SIZE>
-const T& SA<T, MAX_SIZE>::front() const { return 0; }
-
-// Accesses the last element in the container, no range check, allows modification
-template<class T, int MAX_SIZE>
-T& SA<T, MAX_SIZE>::back() { return _data[_size - 1]; }
-
-// Accesses the last element in the container, no range check, denies modification
-template<class T, int MAX_SIZE>
-const T& SA<T, MAX_SIZE>::back() const { return 0; }
+// Returns an iterator to one past the last element of the array
+SAIterator SA::end() { return SAIterator(_data + _SIZE); } 
 
 
-// --------
-// Capacity
-// --------
+// ----------------
+//  Element Access
+// ----------------
 
-// Check if the container is empty
-template<class T, int MAX_SIZE>
-bool SA<T, MAX_SIZE>::empty() const { return (_size == 0); }
+// Returns a modifiable reference to the element at the given position
+int& SA::operator[](const int pos) { return _data[pos]; }
 
-// Get the size of the container
-template<class T, int MAX_SIZE>
-int SA<T, MAX_SIZE>::size() const { return _size; }
+// Returns a non-modifiable reference to the element at the given position
+const int& SA::operator[](const int pos) const { return _data[pos]; }
+
+// Returns a modifiable reference to the first element
+int& SA::front() { return _data[0]; }
+
+// Returns a non-modifiable reference to the first element
+const int& SA::front() const { return _data[0]; }
+
+// Returns a modifiable reference to the last element
+int& SA::back() { return _data[_SIZE - 1]; }
+
+// Returns a non-modifiable reference to the last element
+const int& SA::back() const { return _data[_SIZE - 1]; }
 
 
-#endif
+// ----------
+//  Capacity
+// ----------
+
+// Returns true if the array has no elements
+bool SA::empty() const { return (_SIZE == 0); }
+
+// Returns the number of stored elements
+int  SA::size() const { return _SIZE; }
+
+
+// ------------
+//  Operations
+// ------------
+
+// Assigns the specified value to all elements
+void SA::assign(int val) {
+    for (int i = 0; i < _SIZE; ++i) { _data[i] = val; }
+}
+
+// Swaps the data with another array
+void SA::swap(SA& other) {
+    // Case: the same container
+    if (this == &other) { return; }
+
+    for (int i = 0; i < _SIZE; ++i) {
+        int temp = _data[i];
+        _data[i] = other._data[i];
+        other._data[i] = temp;
+    }
+}

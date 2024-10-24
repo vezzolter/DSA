@@ -1,21 +1,16 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
   - [Essential Terminology](#essential-terminology)
-  - [Important Details](#important-details)
-  - [Types of Arrays](#types-of-arrays)
-  - [Operation Details](#operation-details)
 - [💻 Implementation](#-implementation)
-  - [Static Array | Design Decisions](#static-array--design-decisions)
-  - [Static Array | Detailed Overview](#static-array--detailed-overview)
-  - [Dynamic Array | Design Decisions](#dynamic-array--design-decisions)
-  - [Dynamic Array | Detailed Overview](#dynamic-array--detailed-overview)
+  - [Core Mechanics](#core-mechanics)
+  - [Existing Solutions](#existing-solutions)
+  - [Repository Containers](#repository-containers)
 - [📊 Analysis](#-analysis)
-  - [How to Analyze](#how-to-analyze)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+  - [Evaluating Characteristics](#evaluating-characteristics)
+  - [Comparing Containers](#comparing-containers)
 - [📝 Application](#-application)
-  - [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
-  - [Common Practical Problems](#common-practical-problems)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
 - [🤝 Contributing](#-contributing)
 - [📧 Contacts](#-contacts)
@@ -25,229 +20,160 @@
 
 
 # &#128161; Overview
-The **Array** stands out as one of the most fundamental concept in computer science, that serves as a linear collection of elements. The term «array» encompasses both basic data structure, present in many programming languages by default, and abstract data type (ADT) representation, which defines a set of operations that can be performed on the data type without specifying the implementation details. This subsection explores array ADT to establish a solid knowledge of the ideas behind it, as it helps to create elegant and efficient algorithmic designs for all manner of applications.
+**Array** is a data structure that stores elements of same memory size in contiguous memory locations, allowing for efficient and direct access to them through indexing. The name comes from the concept of an «array» as a systematic arrangement of similar objects in rows and columns. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/Array.png"/></p>
 
+
 ## Essential Terminology
-- **Collection** — is a data structure (or container), which is used to group multiple elements together.
-  - **Linear Collection** — is a type of collection, where elements are arranged in linear sequence, i.e. each element has a predecessor and a successor, except for the first and last elements.
-- **Array** — is a linear collection that stores elements of the same data type in contiguous and adjacent memory locations.
-  - **Length/Size** — is a number of elements contained in the array.
-  - **Capacity** — is the maximum number of possible elements for which there is currently allocated memory within array. This term is primarily associated with dynamic arrays because they aim to minimize frequent resize operations by reserving additional space for potential future elements. 
-- **Element/Record/Item** — is an individual entity within a collection.
-  - **Index/Key of Element** — is an integer value which specifies position of an element within collection. Since elements of an array don't have their unique names, the only way to access them is through their respective indices.
-  - **Value/Data of Element** — is an actual information stored within the element. It can be anything from primitive types such as integers to more complex types like instances of classes.
+- **Data Structure** — is a theoretical model of data organization, used to design containers in an efficient or specific ways.
+  - **Container** — is a concrete implementation of data structure, used to manage actual data via specific operations. Since, in practice, containers are primarily used for the operations they provide and the guarantees they offer. As long as those guarantees are met, the underlying data structure can be changed or adapted.
+- **Array** — is a data structure that stores elements of the same memory size (thus same data type) in contiguous memory locations, meaning a single block of memory with no gaps between elements.
+  - **Size** — is a number of elements contained in the array. 
+- **Element** — is an individual entity within a collection.
+  - **Index** — is a positive integer value which specifies position of an element within array. Since elements of an array don't have their unique names, the only way to access them is through their respective indices.
+  - **Value** — is an actual information stored within the element. It can be anything from primitive types such as integers to more complex types like instances of classes.
 
-
-## Important Details
-One of the most prominent feature of the arrays is that they provide efficient **random (direct) access**. It is mainly possible, because of the fact, that name of an array generates a pointer to the first element of the array (index 0), which results in synergy for address arithmetic and array indexing.
-<p align="center"><img src="./Images/ArrayPointers.png"/></p>
-
-**Address (Pointer) Arithmetic** — is a concept of manipulating memory addresses using arithmetic operations, which allows for efficient navigation through data structure.
-```cpp
-int value = 5;
-int *ptr = &value; // points onto variable of type 'int'             002CF9A4
-cout << ptr + 1;   // point onto next value of int (+4 bytes)        002CF9A8
-cout << ptr - 1;   // point onto prev value of int (-4 bytes)        002CF9A0
-```
-
-**Array Indexing** — process of accessing elements within an array, typically achieved internally through address arithmetic.
-```cpp
-int arr[5] = {7, 8, 2}; // simple static array          value:    7     8    2
-cout << array[1];   //  this                            index:    0     1    2
-cout << *(array+1); //  equals to this             expression: array  a+1  a+2
-```
-
-Because arrays use single-block memory allocation, any operation that alters their size requires the resource-intensive process of allocating a new array, copying values, and deallocating the previous one. While dynamic arrays address this inefficiency to some extent with their capacity feature, the need to 'move' arrays still exists, albeit less frequently.
-<p align="center"><img src="./Images/ArrayReallocation.png"/></p>
-
-
-## Types of Arrays
-When it comes to classification, there are broadly two types of arrays: static and dynamic. While these types share some common ideas, each possesses distinctive characteristics. The choice between them depends on the specific requirements of the case at hand.
-<p align="center"><img src="./Images/ArrayTypes.png"/></p>
-
-1. **Static Array** — array with a fixed nature, possesses the following properties:
-    - memory is allocated on the stack during compile time;
-    - automatic memory management;
-    - length can not be changed during runtime.
-
-2. **Dynamic Array** — array with a flexible nature, possesses the following properties:
-    - memory is allocated on the heap during runtime;
-    - manual memory management (potential issues like dangling pointers and memory leaks);
-    - length cannot be changed during runtime, but there is a resourceful alternative: creating a new one, copying values, and performing respective memory operations.
-
-
-## Operation Details
-- **Traversal** — iterating through the elements of the array.
-- **Acess** — retrieving or updating the value of an existing element.
-- **Insertion** — adding a new element to the array.
-- **Deletion** — removing an element from the array.
-- **Search** — locating a specific element within the array.
-- **Sorting** — arranging the elements of the array in a specific order.
-- **Merging** — combining two arrays into one.
-- **Splitting** — dividing the array into two or more parts.
-- **Filtering** — selecting specific elements based on certain criteria.
 
 
 # &#x1F4BB; Implementation 
-Discussing ADT, it's evident that well-established and widely recognized implementations already exist for both static and dynamic arrays. In the context of C++, `std::array` is a representative of static arrays, and `std::vector` stands as the counterpart for dynamic arrays. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this subsection, we'll take a closer look at simplified versions of these arrays. This exploration is aimed at gaining a deeper understanding of the fundamental concepts that underlie them.
+Understanding the underlying mechanics of a data structure is essential to grasp how it operates and manages data. Since one data structure can have different implementations, it's crucial to recognize these distinctions, especially by learning from existing solutions, which often offer efficient, well-tested approaches to handling data and optimizing performance.
 
 
-## Static Array | Design Decisions
-Keeping its educational aim in mind, the `SA` class developed here closely resembles the behavior of `std::array`, with minor adjustments aimed at emphasizing simplicity and focusing on the core aspects of the data structure.
-<p align="center"><img src="./Images/StaticArrayLibItr.png"/></p>
-
-One significant simplification is the omission of the iterator classes as a member variables. This decision was made to avoid the complexities associated with navigating the intricate hierarchy of iterator classes and templates found in `std::vector`, allowing to maintain focus on the key features of the ADT.
-<p align="center"><img src="./Images/StaticArrayLibAt.png"/></p>
-
-Additionally, various types of bounds checking were omitted due to the situational nature of error resolution. As an instance of this omission, one of the ways of element access, known as method `at()` in `std::array` was skipped.
-
-
-## Static Array | Detailed Overview
-<p align="center"><img src="./Images/StaticArrayDemonstration.png"/></p>
-
-Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/src/Main.cpp) file. The `SA` class is declared in [StaticArray.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/inc/StaticArray.h) header file and defined in [StaticArray.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray/src/StaticArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
+## Core Mechanics
+The core concept of an array revolves around **contiguous memory allocation** and **direct (random) access** to elements based on an index. All elements of an array are stored one after the other in a continuous block of memory, starting from the base address of the first element, with each subsequent element stored at the next memory address, each occupying the same amount of memory based on its data type. This allows arrays to provide constant-time access $O(1)$ to any element, because instead of using traversal methods, the memory address of any element can be calculated directly by leveraging address arithmetic with its index.
+<p align="center"><img src="./Images/AddressArithmetic.png"/></p>
+ 
+**Address Arithmetic** — is the concept of manipulating memory addresses using arithmetic operations, allowing to access previous or successive elements in memory with minimal overhead.
 ```cpp
-template<class T, int MAX_SIZE>
-class SA {
-private:
-	int _size;
-	T _data[MAX_SIZE];
-
-public:
-	// Special Member Functions
-	SA();
-	SA(int size);
-	SA(const SA& rhs);
-	SA& operator=(const SA& rhs);
-	~SA() = default;
-
-	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
-
-	// Capacity
-	bool empty() const;
-	int size() const;
-};
+  int val = 5;
+  int *ptr = &val;     // points to variable of type 'int'              002CF9A4
+  int *prev = ptr - 1; // points to prev value of int (-4 bytes)        002CF9A0
+  int *next = ptr + 1; // points to next value of int (+4 bytes)        002CF9A8
 ```
 
-
-## Dynamic Array | Design Decisions
-Key difference between static and dynamic ADT lies in the implementation of the memory management. The well-known `std::vector` operates on the principle of capacity, meaning:
-
-> The storage of the vector is handled automatically, being expanded as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted — cppreference
-
-At first glance, I thought I will just double the capacity each time it requires more for explanatory purposes, but I guess it may lead to misinformation, so I just chosen to implement solely based on the length. Even though it contradicts the main principle, it doesn't prevent to grasp the idea behind other memory management. This resulted in some type of misleading nature of some methods, thus I've placed notes, where it does so. Overall, this implementation has the same minor adjustments as previous type.
-
-
-## Dynamic Array | Detailed Overview
-<p align="center"><img src="./Images/DynamicArrayDemonstration.png"/></p>
-
-Application's control flow and testing of the class is conducted within the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/src/Main.cpp) file. The `DA` class is declared in [DynamicArray.h](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/inc/DynamicArray.h) header file and defined in [DynamicArray.cpp](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray/src/DynamicArray.cpp) source file. This approach is adopted to ensure encapsulation, modularity, and compilation efficiency, but for your convenience here is the declaration of the class:
+**Array Indexing** — is the process of accessing elements within an array. Internally, this is achieved through address arithmetic. The name of an array itself acts as a pointer to the first element, and since the address of the first element is known, we can add element's index to it, thereby computing element's position in memory. This is also the reason why indexing starts from zero: `array[0]` means that the first element is $0$ element away from itself.
 ```cpp
-template<class T>
-class DA {
-private:
-	int _size;
-	T* _data;
-
-public:
-	// Special Member Functions
-	DA();
-	DA(int newSize, T newData = T());
-	DA(const DA& rhs);
-	DA& operator=(const DA& rhs);
-	~DA();
-
-	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
-
-	// Capacity
-	bool empty() const;
-	int size() const;
-	
-	// Modifiers
-	void pushBack(const T& newData);
-	void insert(int index, const T& newData);
-	void remove(int index);
-	void resize(int newSize);
-	void clear();
-};
+  int array[5] = {7, 8, 2}; 
+  cout << array[1];   // this accesses the value at index 1 (8)
+  cout << *(array+1); // equivalent to array[1]
 ```
+However, accessing an element outside the defined bounds of the array (either due to an invalid index or overflow) can lead to **undefined behavior**, often resulting in memory errors or data corruption. Arrays do not inherently track their own boundaries at runtime, leaving it up to the programmer (or the container implementation) to ensure valid access within the array’s limits.
+
+
+## Existing Solutions
+Quite often in computer science, there is ambiguity between definitions, as the term data structure typically refers to the abstract organization of data, focusing on logical operations such as insertion, deletion, and traversal. However, in practical applications, these data structures are implemented as containers, which not only provide these operations but also manage underlying performance and memory constraints.
+
+When it comes to arrays, there are two primary types, each tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their respective sections of this repository, here’s a brief description to give you a foundational understanding:
+- **Static Array** — is a type of array where the main property is that the size is fixed, meaning it can't be changed during runtime.
+- **Dynamic Array** — is a type of array where the main property is that the size is dynamic, meaning it can be changed during runtime.
+
+---
+It's generally recommended to rely on well-established, widely recognized implementations that already exist, rather than reinventing the wheel. Proven implementations provide optimized, reliable solutions while saving time and effort. In the context of C++, the Standard Template Library (STL) offers trusted containers for both types of arrays:
+- **std::array** — is a container that encapsulates fixed size arrays.
+- **std::vector** — is a container that encapsulates dynamic size arrays.
+
+
+## Repository Containers
+Understanding the design principles and core mechanics of array data structures is essential for deeper insight into their efficiency and performance. The following implementations provide simplified versions of both static and dynamic arrays, showcasing key aspects of their design and operation.
+- [Static Array](https://github.com/vezzolter/DSA/tree/main//DataStructures/Array/StaticArray) ✅
+- [Dynamic Array](https://github.com/vezzolter/DSA/tree/main//DataStructures/Array/DynamicArray) ✅
 
 
 
 # &#128202; Analysis
-Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
+In practice, when analyzing a data structure, it's really about analyzing the containers that are based on that structure, because data structures themselves are theoretical concepts, whereas containers are the actual implementations you can use. Containers may not only perform the same operations differently, leading to distinct behaviors and performance characteristics, but they may also offer entirely different operations. Moreover, when working with existing solutions, each developer may implement the container in a unique way, resulting in additional variations. Therefore, it's always recommended to first consult the documentation to understand how the specific container operates and what guarantees it provides to the user.
 
 
-## How to Analyze
-Will be updated in the future...
+## Evaluating Characteristics
+- **Time Complexities** — refers to the speed of operations (e.g. insertion, deletion, etc) at different edge cases (e.g. at the end, in an empty container, etc).
+- **Space Expenses** — refers to how much memory the container requires, both in terms of the data stored and any additional overhead (e.g. pointers, resizing buffers, etc). 
+- **Special Metrics** — refers to features that define the container's uniqueness in comparison to others (e.g. balancing for trees, specific element order for queues, etc).
 
 
-## Advantages
-- **Efficient Random Access** — arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity of $(O(1))$.
-- **Efficiency Memory Utilization** — as arrays store data in contiguous memory locations, preventing additional memory wastage. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
-- **Convenient Multi-Dimensional Representations** — arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matrices.
+## Comparing Containers
+For detailed evaluations of specific container characteristics, please refer to the corresponding container directories. Here, I will provide a comparison table that serves as a quick reference for the time complexities of core-defining operations, allowing for easy look-up and comparison across containers for this data structure.
+<p align="center"><img src="./Images/ContainerComparison.png"/></p>
 
 
-## Disadvantages
-- **Allocated Memory is Static** — in scenarios where the size needs adjustments or insertion leads to the shift of other elements, then resourceful operation of creating a new array and copying data arises, e.g. insertion and deletion takes $O(n)$ time.
-- **Enormous Single Block** — allocating a large array can be problematic, especially in systems with limited memory, which potentially can cause a crash.
-- **Wasted Space** — if an array is not fully populated, there may be wasted space in the allocated memory. This can be a concern in memory-constrained environments.
-- **Out-of-Bound Access** — if an index outside the valid range is used, it can lead to unpredictable behavior or even program crashes.
-
-
-
+ 
 # &#128221; Application
-Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage (and disadvantage) of static arrays is that their size must be known ahead of time, at compile time. Therefore, the corresponding use case (and anti use case) would be a situation where the size of the data structure known ahead and remains constant throughout the entire runtime. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
-## Some of the Most Well-Known Use Cases
-- **Data Storage** — arrays are fundamental for storing collections of data, such as lists of numbers, strings, or objects. They provide a structured and efficient way to organize and access this information.
-- **Algorithms and Data Structures** — many algorithms and data structures rely on arrays. Sorting algorithms, searching algorithms, and various data structures like stacks, queues, and hash tables often use arrays as their underlying structure.
-- **Image and Signal Processing** — arrays are commonly used to represent images or signals in applications like computer vision and audio processing. The pixel values of an image or the samples of a signal can be stored in arrays.
-- **Text Processing** — arrays are extensively used in handling strings and characters. Text processing tasks, like searching, parsing, or manipulating strings, often involve the use of arrays.
-- **Matrices and Linear Algebra** — matrices, a specialized form of 2D arrays, are fundamental in linear algebra. They are extensively used in scientific computing, graphics, physics simulations, and machine learning.
-- **Database Management** — arrays play a role in managing and processing data within databases. Tabular data, such as rows and columns in a database table, can be represented using arrays.
-- **Game Development** — arrays are crucial in game development for managing various game elements, such as characters, items, or terrain data. They provide a structured way to organize and manipulate in-game entities.
-- **Embedded Systems** — in embedded systems programming, arrays are often used to manage sensor data, control outputs, or store configuration information due to their simplicity and efficiency.
+## Common Use Cases
+- **Data Storage** — arrays are fundamental for storing collections of data, such as lists of numbers, strings, or objects. They provide a structured way to organize data and allow efficient access through indexing, making them ideal for handling large amounts of information.
+
+- **Algorithms and Data Structures** — arrays serve as a foundation for many algorithms and data structures. Arrays enable quick access to elements, making them ideal for sorting, searching, and forming the basis for other structures like stacks, queues, and hash tables.
+
+- **Image and Signal Processing** — arrays are commonly used to represent images or signals in computer vision and audio processing. Each pixel in an image or each sample in a signal can be efficiently stored and manipulated in arrays, allowing for fast access and transformation of data.
+
+- **Text Processing** — arrays are heavily utilized in handling strings and characters for tasks like searching, parsing, and modifying text. The sequential structure of arrays makes them perfect for working with ordered sequences of characters.
+
+- **Matrices and Linear Algebra** — arrays, particularly 2D arrays, are essential in representing matrices in linear algebra. They are widely used in scientific computing, physics simulations, and machine learning for performing matrix operations.
+
+- **Database Management** — arrays help in managing and processing data within databases, especially for tabular structures like rows and columns. They provide a fast, organized way to handle large sets of structured data efficiently.
+
+- **Game Development** — arrays manage various game elements such as characters, items, or terrain data. Their fast access and manipulation capabilities are crucial for handling real-time data and interactions in games.
+
+- **Embedded Systems** — arrays are widely used in embedded systems for managing sensor data, controlling outputs, or storing configuration settings. Their simplicity and memory efficiency make them an ideal choice for low-resource environments.
 
 
-## Common Practical Problems
-- [Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation/)
-- [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values/)
-- [Count Pairs Whose Sum is Less than Target](https://leetcode.com/problems/count-pairs-whose-sum-is-less-than-target/)
-- [Majority Element](https://leetcode.com/problems/majority-element/)
-- [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
-- [Remove Element](https://leetcode.com/problems/remove-element/)
-- [Rotate Image](https://leetcode.com/problems/rotate-image/)
-- [Difference of Number of Distinct Values on Diagonals](https://leetcode.com/problems/difference-of-number-of-distinct-values-on-diagonals/)
-- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
-- [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
-- [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
-- [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
-- [Two Sum](https://leetcode.com/problems/two-sum/)
-- [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
-- [Make Array Empty](https://leetcode.com/problems/make-array-empty/)
-- [Find the Minimum Cost Array Permutation](https://leetcode.com/problems/find-the-minimum-cost-array-permutation/)
-- [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
-- [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/)
+## Some Practical Problems
+**Easy Problems:**
+1. [Build Array from Permutation](https://leetcode.com/problems/build-array-from-permutation)
+2. [Remove Element](https://leetcode.com/problems/remove-element)
+3. [Find Missing and Repeated Values](https://leetcode.com/problems/find-missing-and-repeated-values)
+4. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate)
+5. [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-arra)
+6. [Majority Element](https://leetcode.com/problems/majority-element)
+7. [Two Sum](https://leetcode.com/problems/two-sum)
+8. [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays)
+9. [Image Smoother](https://leetcode.com/problems/image-smoother)
+10. [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)
+
+---
+**Medium Problems:** 
+1. [Rotate Array](https://leetcode.com/problems/rotate-array)
+2. [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array)
+3. [Maximum Gap](https://leetcode.com/problems/maximum-gap)
+4. [Insert Interval](https://leetcode.com/problems/insert-interval)
+5. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
+6. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray)
+7. [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence)
+8. [Valid Sudoku](https://leetcode.com/problems/valid-sudoku)
+9. [Difference of Number of Distinct Values on Diagonals](https://leetcode.com/problems/difference-of-number-of-distinct-values-on-diagonals)
+10. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self)
+11. [Jump Game](https://leetcode.com/problems/jump-game)
+12. [Rotate Image](https://leetcode.com/problems/rotate-image/)
+13. [Peeking Iterator](https://leetcode.com/problems/peeking-iterator)
+14. [Reduce Array Size to The Half](https://leetcode.com/problems/reduce-array-size-to-the-half)
+15. [Product of the Last K Numbers](https://leetcode.com/problems/product-of-the-last-k-numbers)
+
+---
+**Hard Problems:** 
+1. [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
+2. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum)
+3. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)
+4. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+5. [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum)
+6. [Reverse Pairs](https://leetcode.com/problems/reverse-pairs)
+7. [Make Array Empty](https://leetcode.com/problems/make-array-empty)
+8. [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix)
+9. [Candy](https://leetcode.com/problems/candy)
+10. [Remove Boxes](https://leetcode.com/problems/remove-boxes)
 
 
 
 # &#x1F559; Origins
-While early assembly and machine languages offered basic memory management constructs, they lacked the sophisticated abstraction and versatility inherent in arrays found in modern programming languages. Consequently, individuals worldwide independently devised solutions to address this limitation. As a result, the concept of organizing data into ordered sequences has undergone continuous evolution, with no single individual credited for the development of arrays.
+The idea of the array, due to its simplicity and efficiency, can be observed in many real-world systems and structures. In computer science, arrays became one of the earliest data structures to be implemented in programming languages. While their origin can't be attributed to a single person or moment, there are still important dates worth noting:
+
+- In **1945**, the Von Neumann architecture, introduced by John von Neumann, laid the groundwork for modern computing by proposing a **sequential memory model**. This concept of storing both data and instructions in linear memory influenced the development of data structures like arrays, enabling efficient, contiguous memory allocation.
+
+- In **1957**, FORTRAN, one of the first high-level programming languages, introduced **static arrays**. These arrays had a fixed size, determined at compile time, and became essential for scientific and engineering computations due to their simplicity and efficiency in memory use.
+
+- In the **late 1950s**, ALGOL 58 and ALGOL 60 advanced the concept of arrays by introducing early forms of **dynamic arrays**. These arrays allowed memory to be allocated during runtime, offering more flexibility than static arrays and influencing future programming languages by showing how arrays could be more dynamic in nature.
+
+- In **1972**, the C programming language, developed by Dennis Ritchie, introduced **address arithmetic** as a method for interacting with arrays at a low level. This innovation allowed programmers to manipulate memory directly, making arrays more efficient for system-level programming and solidifying their role in performance-critical applications.
 
 
 
@@ -289,16 +215,13 @@ For contact details and additional information, please refer to the [root direct
 
 --- 
 &#127760; **Web-Resources:**
-- [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)#:~:text=In%20computer%20science%2C%20an%20array,one%20array%20index%20or%20key.) (Wikipedia)
+- [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)) (Wikipedia)
+- [Dynamic array](https://en.wikipedia.org/wiki/Dynamic_array) (Wikipedia)
 - [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)
-- [Array (ADT)](https://brilliant.org/wiki/arrays-adt/#:~:text=The%20array%20is%20a%20basic,types%20like%20instances%20of%20classes.)
-- [Difference between Static Arrays and Dynamic Arrays](https://www.geeksforgeeks.org/difference-between-static-arrays-and-dynamic-arrays/)
 - [std::array](https://en.cppreference.com/w/cpp/container/array)
 - [std::vector](https://en.cppreference.com/w/cpp/container/vector)
-- [Applications, Advantages and Disadvantages of Array](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
-- [What are the Advantages and Disadvantages of Arrays?](https://www.prepbytes.com/blog/arrays/advantages-and-disadvantages-of-arrays/)
-- [List of 50+ Array Coding Interview Problems](https://iq.opengenus.org/list-of-array-problems/)
-- [Top 50 Array Coding Problems for Interviews](https://www.geeksforgeeks.org/top-50-array-coding-problems-for-interviews/)
+- [Iterator library](https://en.cppreference.com/w/cpp/iterator)
+- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 
 
 

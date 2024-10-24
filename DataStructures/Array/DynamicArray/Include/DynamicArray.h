@@ -1,45 +1,67 @@
-// Header file for simplified ADT: Dynamic Array
-// by vezzolter
-// January 31, 2024
+// Title:   Header file for Dynamic Array
+// Authors: by vezzolter
+// Date:    January 31, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef DA_H
 #define DA_H
 
-template<class T>
+
+//#include <initializer_list>
+#include "DAIterator.h"
+
+
 class DA {
 private:
 	int _size;
-	T* _data;
+	int _capacity;
+	int* _data;
 
 public:
-	// Special Member Functions
+	// Compiler Generated
 	DA();
-	DA(int newSize, T newData = T());
+	DA(int size);
+	DA(int size, int data);
+	//SA(std::initializer_list<int> values); // external dependencies
 	DA(const DA& rhs);
 	DA& operator=(const DA& rhs);
+	DA(const DA&& rhs) = delete;
+	DA& operator=(const DA&& rhs) = delete;
 	~DA();
 
+	// Iterators
+	using iterator = DAIterator;
+	iterator begin();
+	iterator end();
+
 	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
+	//int& at(const int pos); // throws exceptions
+	//const int& at(const int pos) const; // throws exceptions
+	int& operator[](const int pos);
+	const int& operator[](const int pos) const;
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
+	int capacity() const;
+	void reserve(int cap);
+	void shrinkToFit();
 	
-	// Modifiers
-	void pushBack(const T& newData);
-	void insert(int index, const T& newData);
-	void remove(int index);
-	void resize(int newSize);
+	// Operations
+	void insert(int pos, const int& data);
+	void pushBack(const int& data);
+	void popBack();
+	void erase(int pos);
+	void assign(int val);
 	void clear();
+	void resize(int size);
+	void swap(DA& other);
 };
 
 
-#include "DynamicArray.cpp"
-
-#endif
+#endif // DA_H

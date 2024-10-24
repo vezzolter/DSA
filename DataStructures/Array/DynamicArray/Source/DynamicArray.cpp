@@ -1,72 +1,56 @@
-// Source file for simplified ADT: Dynamic Array
-// by vezzolter
-// January 31, 2024
+// Title:   Source file for Dynamic Array
+// Authors: by vezzolter
+// Date:    January 31, 2024
+// ----------------------------------------------------------------------------
 
-#ifndef DA_CPP
-#define DA_CPP
 
 #include "DynamicArray.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// --------------------
+//  Compiler Generated
+// --------------------
 
-// Default constructor
-template<class T>
-DA<T>::DA() : _size(0), _data(nullptr) {}
+// Initializes an empty array
+DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
-// Parameterized constructor, no range check
-template<class T>
-DA<T>::DA(int newSize, T newData) : _size(size) {
-    // Allocate memory for new array
-    _data = new T[size];
-
-    // Fill with elements
-    for (int i = 0; i < size; ++i) {
-        _data[i] = newData;
-    }
-        
+// Initializes an array with given size and all elements with zeros
+DA::DA(int size)
+    : _size(size), _capacity(size), _data(new int[_capacity]) {
+    for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
 
-// Deep copy constructor
-template<class T>
-DA<T>::DA(const DA& rhs) : _size(rhs._size) {
-    if (rhs._data) {
-        // Allocate memory for new array
-        _data = new T[_size];
+// Initializes an array with given size and all elements with one value
+DA::DA(int size, int data)
+    : _size(size), _capacity(size), _data(new int[_capacity]) {
+    for (int i = 0; i < _size; ++i) { _data[i] = data; }
+}
 
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            _data[i] = rhs._data[i];
-    }
-    else {
+// Initializes an array with data by deep copying it from another one
+DA::DA(const DA& rhs)
+    : _size(rhs._size), _capacity(rhs._capacity) {
+    // Copy the data (if any), the size and capacity are in init list
+    if (rhs._data) {
+        _data = new int[_capacity];
+        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }      
+    } else {
         _data = nullptr;
-    }
-        
+    }  
 }
 
-// Deep copy assignment operator
-template<class T>
-DA<T>& DA<T>::operator=(const DA& rhs) {
-    // Self-assignment guard
-    if (this == &rhs)
-        return *this;
-        
-    // Prevent memory leak
-    delete[] _data;
-    // Set corresponding size
+// Assigns an array with data by shallow copying it from another one
+DA& DA::operator=(const DA& rhs) {  
+    // Prepare: check for self-assignment and deallocate any old memory
+    if (this == &rhs) { return *this; } 
+    delete[] _data; 
+
+    // Copy the size, capacity, data (if any)
     _size = rhs._size;
-
+    _capacity = rhs._capacity;
     if (rhs._data) {
-        // Allocate memory for new array
-        _data = new T[_size];
-
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            _data[i] = rhs._data[i];
-    }
-    else {
+        _data = new int[_capacity];
+        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }   
+    } else {
         _data = nullptr;
     }
         
@@ -74,165 +58,248 @@ DA<T>& DA<T>::operator=(const DA& rhs) {
 }
 
 // Destructor
-template<class T>
-DA<T>::~DA() { delete[] _data; }
+DA::~DA() { delete[] _data; }
 
 
-// --------------
-// Element Access
-// --------------
+// -----------
+//  Iterators 
+// -----------
 
-// Accesses the element at the specified index, no range check, allows modification
-template<class T>
-T& DA<T>::operator[](const int index) { return _data[index]; }
+// Returns an iterator to the first element of the array
+DAIterator DA::begin() { return DAIterator(_data);  }
 
-// Accesses the element at the specified index, no range check, denies modification
-template<class T>
-const T& DA<T>::operator[](const int index) const { return _data[index]; }
-
-// Accesses the first element in the container, no range check, allows modification
-template<class T>
-T& DA<T>::front() { return _data[0]; }
-
-// Accesses the first element in the container, no range check, denies modification
-template<class T>
-const T& DA<T>::front() const { return _data[0]; }
-
-// Accesses the last element in the container, no range check, allows modification
-template<class T>
-T& DA<T>::back() { return _data[_size - 1]; }
-
-// Accesses the last element in the container, no range check, denies modification
-template<class T>
-const T& DA<T>::back() const { return _data[_size - 1]; }
+// Returns an iterator to one past the last element of the array
+DAIterator DA::end() { return DAIterator(_data + _size); }
 
 
-// --------
-// Capacity
-// --------
+// ----------------
+//  Element Access 
+// ----------------
 
-// Checks if the container has no elements
-template<class T>
-bool DA<T>::empty() const { return (_size == 0); }
+// Returns a modifiable reference to the element at the given position
+int& DA::operator[](const int pos) { return _data[pos]; }
 
-// Returns the number of elements in the container
-template<class T>
-int DA<T>::size() const { return _size; }
+// Returns a non-modifiable reference to the element at the given position
+const int& DA::operator[](const int pos) const { return _data[pos]; }
+
+// Returns a modifiable reference to the first element
+int& DA::front() { return _data[0]; }
+
+// Returns a non-modifiable reference to the first element
+const int& DA::front() const { return _data[0]; }
+
+// Returns a modifiable reference to the last element
+int& DA::back() { return _data[_size - 1]; }
+
+// Returns a non-modifiable reference to the last element
+const int& DA::back() const { return _data[_size - 1]; }
 
 
-// ---------
-// Modifiers
-// ---------
+// ----------
+//  Capacity
+// ----------
 
-// Appends the given element to the end of the container
-// Note: without potential memory-reserving adjustments and bounds checking
-template<class T>
-void DA<T>::pushBack(const T& newData) {
-    // Allocate memory for new array, one element more
-    T* newArray = new T[_size + 1];
+// Returns true if the array has no elements
+bool DA::empty() const { return (_size == 0); }
 
-    // Copy elements
-    for (int i = 0; i < _size; ++i)
-        newArray[i] = _data[i];
+// Returns the number of stored elements
+int DA::size() const { return _size; }
+
+// Returns the number of possible elements
+int DA::capacity() const { return _capacity; }
+
+// Reserves memory for elements at least of given capacity
+void DA::reserve(int cap) {
+    // Case: capacity is enough (for decreasing - shrinkToFit())
+    if (cap <= _capacity) { return; }
+
+    // Allocate new memory with the requested capacity
+    int* data = new int[cap];
+
+    // Copy existing elements to the new array
+    for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
+
+    // Deallocate old memory and point to new one
+    delete[] _data;
+    _data = data;
+
+    // Update the capacity to the requested capacity
+    _capacity = cap;
+}
+
+// Requests the removal of unused capacity
+void DA::shrinkToFit() {
+    // Case: capacity is equal (for increasing - reserve())
+    if (_capacity == _size) { return; }
+
+    // Allocate new memory with the size equal to the current size
+    int* data = new int[_size];
+
+    // Copy existing elements to the new array
+    for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
+
+    // Deallocate old memory and point to new one
+    delete[] _data;
+    _data = data;
+
+    // Update capacity to match the current size
+    _capacity = _size;
+}
+
+
+
+// ------------
+//  Operations
+// ------------
+
+// Inserts an element at the specified position, shifting other elements
+void DA::insert(int pos, const int& val) {
+    // If memory isn't enough - reallocate; Otherwise shift within from the end
+    if (_size == _capacity) {
+        // Allocate new memory (double if needed, or assign 1 if no at all)
+        _capacity = _capacity == 0 ? 1 : _capacity * 2;
+        int* data = new int[_capacity];
+
+        // Copy elements before the position, insert, copy elements after
+        for (int i = 0; i < pos; ++i) { data[i] = _data[i]; }
+        data[pos] = val;
+        for (int i = pos; i < _size; ++i) { data[i + 1] = _data[i]; }
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = data;
+    } else {
+        // Shifting from the beginning result in premature overwrite
+        for (int i = _size; i > pos; --i) { _data[i] = _data[i - 1]; }
+        _data[pos] = val;
+    }
+
+    // Reflect new element on size
+    ++_size; 
+}
+
+// Appends the given element to the end of the array
+void DA::pushBack(const int& data) {
+    if (_size == _capacity) {
+        // Allocate new memory (double if needed, or assign 1 if no at all)
+        _capacity = _capacity == 0 ? 1 : _capacity * 2;
+        int* data = new int[_capacity];
+
+        // Copy elements from the old array to the new one
+        for (int i = 0; i < _size; ++i) { data[i] = _data[i];}
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = data;
+    }
 
     // Insert the new value at the end
-    newArray[_size] = newData;
+    _data[_size] = data;
 
-    // Manage memory and pointers
-    delete[] _data; // dealloc
-    _data = newArray; // point to new
-    ++_size; // reflect change on the size
-
+    // Reflect new element on size
+    ++_size; 
 }
 
-// Inserts elements at the specified position, shifting other elements as needed.
-// Note: without potential memory-reserving adjustments and bounds checking
-template<class T>
-void DA<T>::insert(int index, const T& newData) {
-    if (index == _size - 1) {
-      pushBack(newData);
-    }
-    else {
-        // Allocate memory for new array, one element more
-        T* newArray = new T[_size + 1];
+// Removes the last element from the array
+void DA::popBack() {
+    // Case: empty container
+    if (_size == 0) { return; }
 
-        // Copy elements before the position
-        for (int before = 0; before < index; ++before)
-            newArray[before] = _data[before];
+    // TODO: Invalidate iterators pointing to element
+    // TODO: Call the destructor for each element
+    
+    // Avoid stale data
+    _data[_size] = 0;
 
-        // Insert the new value at the specified position
-        newArray[index] = newData;
-
-        // Copy elements after the position
-        for (int after = index; after < _size; ++after)
-            newArray[after + 1] = _data[after];
-
-        // Manage memory and pointers
-        delete[] _data; // dealloc
-        _data = newArray; // point to new
-        ++_size; // reflect change on the size
-    }
+    // Reflect removed element on size
+    --_size;
 }
 
-// Removes an element at the specified position
-// Note: without potential memory-reserving adjustments and bounds checking
-template<class T>
-void DA<T>::remove(int index) {
+// Removes an element at the specified position, shifting others left
+void DA::erase(int pos) {
     // Case: one element
     if (_size == 1) {
         clear();
         return;
     }
 
-    // Allocate memory for new array, one element less
-    T* newArray = new T[_size - 1];
+    // Shift elements to the left to fill the gap
+    for (int i = pos; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
 
-    // Copy before position
-    for (int before = 0; before < index; ++before)
-        newArray[before] = _data[before];
-
-    // Copy after position
-    for (int after = index + 1; after < _size; ++after)
-        newArray[after - 1] = _data[after];
-
-    // Manage memory and pointers
-    delete[] _data; // dealloc
-    _data = newArray; // point to new
-    --_size; // reflect change on the size
+    // Reflect removed element on size
+    --_size;
 }
 
-// Changes the size of an array exactly to the given
-// Note: without potential memory-reserving adjustments
-template<class T>
-void DA<T>::resize(int newSize) {
-    // Case: already required size
-    if (newSize <= _size) {
+// Assigns the specified value to all elements
+void DA::assign(int val) {
+    for (int i = 0; i < _size; ++i) { _data[i] = val; }
+}
+
+// Removes all elements, keeps the capacity unchanged
+void DA::clear() {
+    // Case: empty container
+    if (_size == 0) { return; }
+
+    // TODO: Invalidate iterators pointing to elements
+    // TODO: Call the destructor for each element
+
+    // Reflect removed elements on size
+    _size = 0;
+}
+
+// Resizes the array to the specified size, reallocating if necessary
+void DA::resize(int size) {
+    // Case 1: new size is the same as current one
+    if (size == _size) { return; }
+
+    // Case 2: new size is smaller than current one 
+    if (size < _size) {
+        _size = size;
         return;
     }
 
-    if (newSize > _size) {
-        // Allocate memory for new array
-        T* newArray = new T[newSize];
+    // Case 3: new size is larger and exceeds capacity; Otherwise its within
+    if (size > _capacity) {
+        // Allocate new memory (assign given or double it)
+        _capacity = size > _capacity * 2 ? size : _capacity * 2;
+        int* data = new int[_capacity];
 
-        // Copy the elements
-        for (int i = 0; i < _size; ++i)
-            newArray[i] = _data[i];
+        // Copy existing elements
+        for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
 
-        // Manage memory and pointers
-        delete[] _data; // dealloc
-        _data = newArray; // point to new
-        _size = newSize; // reflect change on the size
+        // Default initialize new elements to 0
+        for (int i = _size; i < size; ++i) { data[i] = 0; }
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = data;
+
+        // Update size to the new size
+        _size = size;
+    }
+    else {
+        // Capacity is sufficient, just default initialize new elements
+        for (int i = _size; i < size; ++i) { _data[i] = 0; }
+
+        // Update size to the new size
+        _size = size;
     }
 }
 
-// Clears the entire content of the dynamic array, freeing memory.
-// Note: without potential memory-reserving adjustments
-template<class T>
-void DA<T>::clear() {
-    delete[] _data; // dealloc
-    _data = nullptr; // avoid dangling pointer
-    _size = 0; // reflect change on the size
+// Swaps the data with another array
+void DA::swap(DA& other) {
+    // Case: the same container
+    if (this == &other) { return; }
+
+    int* tempData = _data;
+    _data = other._data;
+    other._data = tempData;
+
+    int tempSize = _size;
+    _size = other._size;
+    other._size = tempSize;
+
+    int tempCapacity = _capacity;
+    _capacity = other._capacity;
+    other._capacity = tempCapacity;
 }
-
-
-#endif

@@ -1,39 +1,55 @@
-// Header file for simplified ADT: Static Array
-// by vezzolter
-// January 29, 2024
+// Title:   Header file for Static Array
+// Authors: by vezzolter
+// Date:    January 29, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef SA_H
 #define SA_H
 
 
-template<class T, int MAX_SIZE>
+//#include <initializer_list>
+#include "SAIterator.h"
+
+
 class SA {
 private:
-	int _size;
-	T _data[MAX_SIZE];
+	static const int _SIZE = 10; // since no heap/template
+	int _data[_SIZE];
 
 public:
-	// Special Member Functions
+	// Compiler Generated 
 	SA();
-	SA(int size);
+	//SA(std::initializer_list<int> values); // external dependencies
 	SA(const SA& rhs);
-	SA& operator=(const SA& rhs);
+	SA& operator=(const SA& rhs);	
+	SA(SA&& rhs) = delete;
+	SA& operator=(SA&& rhs) = delete;
 	~SA() = default;
 
+	// Iterators
+	using iterator = SAIterator;
+	iterator begin();
+	iterator end();
+
 	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
+	//int& at(const int pos); // throws exceptions
+	//const int& at(const int pos) const; // throws exceptions
+	int& operator[](const int pos);
+	const int& operator[](const int pos) const;
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
 
 	// Capacity
 	bool empty() const;
 	int size() const;
+
+	// Operations
+	void assign(int val);
+	void swap(SA& other);
 };
 
 
-#include "StaticArray.cpp"
-
-#endif
+#endif // SA_H
