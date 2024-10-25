@@ -1,6 +1,7 @@
-// Header file for Linear Search
-// by vezzolter
-// March 9, 2024
+// Title:   Header file for Linear Search
+// Authors: by vezzolter
+// Date:    March 9, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef LINEARSEARCH_H

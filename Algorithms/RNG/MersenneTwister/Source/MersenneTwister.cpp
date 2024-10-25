@@ -1,6 +1,7 @@
-// Source file for Mersenne Twister
-// by vezzolter
-// September 7, 2024
+// Title:   Source file for Mersenne Twister
+// Authors: by vezzolter
+// Date:    September 7, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "MersenneTwister.h"
@@ -11,8 +12,9 @@ MersenneTwister::MersenneTwister(uint32_t seed) { initialize(seed); }
 void MersenneTwister::initialize(uint32_t seed) {
     stateArr.resize(n);
     stateArr[0] = seed;
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i < n; i++) {
         stateArr[i] = f * (stateArr[i - 1] ^ (stateArr[i - 1] >> 30)) + i;
+    }   
 }
 
 // Generates the next n numbers in the series

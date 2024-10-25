@@ -1,10 +1,7 @@
-// Karatsuba Algorithm (Base 10)
-// by vezzolter
-// September 16, 2024
-//
-// This C++ project illustrates the concept of Divide-and-Conquer 
-// through a simplified implementation of the Karatsuba algorithm.
-
+// Title:   Karatsuba Algorithm (Base of 10)
+// Authors: by vezzolter
+// Date:    September 16, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
@@ -13,7 +10,7 @@
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Karatsuba Algorithm (Base 10)' console application!\n\n";
+	std::cout << "\tWelcome to the 'Karatsuba Algorithm' console application!\n\n";
 
 	// Specify numbers
 	std::cout << "Number #1 to multiply: ";
@@ -24,13 +21,11 @@ int main() {
 	std::cin >> b;
 
 	// Demonstrate
-	std::cout << "Result of multiplication: " << karatsuba(a, b) << std::endl << std::endl;
+	std::cout << "Result: " << karatsuba(a, b) << std::endl << std::endl;
 
 	// Exit
 	std::cout << "Thanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

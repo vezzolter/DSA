@@ -56,9 +56,10 @@ Searching algorithm implemented within the function `linearSearch()`, which is d
 
 ```cpp
 int linearSearch(int arr[], int size, int target) {
-	for (int i = 0; i < size; i++)
-		if (arr[i] == target)
-			return i;
+	for (int i = 0; i < size; i++) {
+		if (arr[i] == target) { return i; }
+	}
+			
 	return -1;
 }
 ```
@@ -67,16 +68,15 @@ int linearSearch(int arr[], int size, int target) {
 ## Detailed Walkthrough
 1. Iterate over a collection.
 ```cpp
-for (int i = 0; i < size; i++)
+  for (int i = 0; i < size; i++)
 ```
 2. Compare the current element of iteration with the target one. If it matches, then return it; otherwise keep traversing.
 ```cpp
-if (arr[i] == target)
-	return i;
+  if (arr[i] == target) { return i; }
 ```
 3. If target element didn't match with any of present in collection and reached the end of it, return an error code, indicating that the search is unsuccessful.
 ```cpp
-return -1;
+  return -1;
 ```
 
 

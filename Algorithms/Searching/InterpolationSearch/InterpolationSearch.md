@@ -71,21 +71,26 @@ int interpolationSearch(int arr[], int size, int target) {
     int high = size - 1;
 
     while (low <= high && target >= arr[low] && target <= arr[high]) {
-        // Edge case: one element
         if (arr[low] == arr[high]) {
-            if (arr[low] == target) { return low; } // target present
-            else { return -1; }                     // target absent
+            if (arr[low] == target) { 
+                return low;
+            } else { 
+                return -1;
+            }                     
         }
 
         int pos = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low]);
 
-        if (arr[pos] == target) { return pos; }   // match, return
-        if (arr[pos] < target) { low = pos + 1; } // greater, move low
-        else { high = pos - 1; }                  // less, move high
-            
+        if (arr[pos] == target) { return pos; } 
+
+        if (arr[pos] < target) { 
+            low = pos + 1; 
+        } else { 
+            high = pos - 1; 
+        }                           
     }
 
-    return -1; // target absent
+    return -1;
 }
 ```
 
@@ -102,10 +107,12 @@ int interpolationSearch(int arr[], int size, int target) {
 ```
 3. Handle edge case, where only one element is present in the search interval. Return if its the target, and return an indication of failure if its not.
 ```cpp
-  // Edge case: one element
   if (arr[low] == arr[high]) {
-      if (arr[low] == target) { return low; } // target present
-      else { return -1; }                     // target absent
+    if (arr[low] == target) { 
+      return low;
+    } else { 
+       return -1;
+    }                     
   }
 ```
 4. Calculate the estimated position using the interpolation formula.
@@ -114,9 +121,12 @@ int interpolationSearch(int arr[], int size, int target) {
 ```
 5. Now check if estimation position is correct, return if true, adjust the search interval if not.
 ```cpp
-  if (arr[pos] == target) { return pos; }   // match, return
-  if (arr[pos] < target) { low = pos + 1; } // greater, move low
-  else { high = pos - 1; }                  // less, move high
+  if (arr[pos] == target) { return pos; } 
+  if (arr[pos] < target) { 
+    low = pos + 1; 
+  } else { 
+    high = pos - 1; 
+  }  
 ```
 6. Finally, if target element didn't match with any of present in collection, return an error code, indicating that the search is unsuccessful.
 ```cpp

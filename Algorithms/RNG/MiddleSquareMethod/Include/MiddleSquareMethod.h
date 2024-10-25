@@ -1,6 +1,7 @@
-// Header file for middle-square method
-// by vezzolter
-// March 21, 2024
+// Title:   Header file for Middle-Square Method
+// Authors: by vezzolter
+// Date:    March 21, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef MSM_H

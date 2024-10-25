@@ -1,6 +1,7 @@
-// Header file for Karatsuba algorithm (Base 10)
-// by vezzolter
-// September 16, 2024
+// Title:   Header file for Karatsuba Algorithm (Base of 10)
+// Authors: by vezzolter
+// Date:    September 16, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef KARATSUBA_H

@@ -1,9 +1,7 @@
-// Bubble Sort
-// by vezzolter
-// February 25, 2024
-//
-// This C++ project demonstrates the implementation of bubble sort algorithm.
-// It illustrates the concept via utilizing a small array of integers as the collection.
+// Title:   Bubble Sort Algorithm
+// Authors: by vezzolter
+// Date:    February 25, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
@@ -12,13 +10,11 @@
 
 void printArray(int arr[], int size) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < size; i++)
-		std::cout << arr[i] << " ";
+	for (int i = 0; i < size; i++) { std::cout << arr[i] << " "; }
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Bubble Sort' console application!\n";
 
@@ -28,7 +24,7 @@ int main()
 	int size = sizeof(arr) / sizeof(arr[1]);
 	printArray(arr, size);
 
-	// Sort Elements
+	// Sort elements
 	std::cout << "\nSorting the elements of it...\n";
 	bubbleSort(arr, size);
 	printArray(arr, size);
@@ -36,8 +32,6 @@ int main()
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

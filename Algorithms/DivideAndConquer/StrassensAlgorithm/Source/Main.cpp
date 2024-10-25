@@ -1,9 +1,7 @@
-// Strassen's Algorithm
-// by vezzolter
-// April 13, 2024
-//
-// This C++ project demonstrates the simplified implementation of a "Strassen's algorithm" 
-// for matrix multiplication using the "Divide and Conquer" problem-solving strategy.
+// Title:   Strassen's Algorithm
+// Authors: by vezzolter
+// Date:    April 13, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
@@ -42,8 +40,19 @@ int main() {
 	std::cout << "\tWelcome to the 'Strassen's Algorithm' console application!\n\n";
 
 	// Create initial matrices 
-	Matrix A = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}; // 4x4
-	Matrix B = {{17, 18, 19, 20}, {21, 22, 23, 24}, {25, 26, 27, 28}, {29, 30, 31, 32}}; // 4x4
+	Matrix A = {
+		{1, 2, 3, 4}, 
+		{5, 6, 7, 8}, 
+		{9, 10, 11, 12}, 
+		{13, 14, 15, 16}
+	};
+	
+	Matrix B = {
+		{17, 18, 19, 20}, 
+		{21, 22, 23, 24}, 
+		{25, 26, 27, 28}, 
+		{29, 30, 31, 32}
+	};
 	//Matrix A = {{1, 2}, {3, 4}}; // 2x2
 	//Matrix B = {{5, 6}, {7, 8} }; // 2x2
 	std::cout << "Creating initial matrix A:" << std::endl;
@@ -64,8 +73,6 @@ int main() {
 	// Exit
 	std::cout << "Thanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

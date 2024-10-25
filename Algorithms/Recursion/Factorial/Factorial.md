@@ -59,8 +59,8 @@ Algorithm implemented within the function `factorial()`, which is declared in `F
 
 ```cpp
   int factorial(int n) {
-	  if (n == 0 || n == 1) { return 1; } // Base case
-	  return n * factorial(n - 1); // Recursive case
+	  if (n == 0 || n == 1) { return 1; }
+	  return n * factorial(n - 1);
   }
 ```
 
@@ -68,11 +68,11 @@ Algorithm implemented within the function `factorial()`, which is declared in `F
 ## Detailed Walkthrough
 1. We start by setting up the base case, where if the number is $0$ or $1$, the function immediately returns $1$ since the factorial of both is defined as $1$.
 ```cpp
-  if (n == 0 || n == 1) { return 1; } // Base case
+  if (n == 0 || n == 1) { return 1; }
 ```
 2. If the number is greater than $1$, the function recursively calls itself, multiplying the current number $n$ by the factorial of $n-1$, progressively reducing the problem until the base case is reached.    
 ```cpp
-  return n * factorial(n - 1); // Recursive case
+  return n * factorial(n - 1);
 ```
 
 

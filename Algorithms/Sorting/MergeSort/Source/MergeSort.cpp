@@ -1,6 +1,8 @@
-// Source file for Merge Sort
-// by vezzolter
-// March 31, 2024
+// Title:   Source file for Merge Sort
+// Authors: by vezzolter
+// Date:    March 31, 2024
+// ----------------------------------------------------------------------------
+
 
 #include "MergeSort.h"
 
@@ -10,10 +12,10 @@ void merge(int* arr, const int left, const int mid, const int right) {
 	int arrRightSize = right - mid;
 	int* arrLeft = new int[arrLeftSize];
 	int* arrRight = new int[arrRightSize];
-	for (int i = 0; i < arrLeftSize; i++)
-		arrLeft[i] = arr[left + i]; // arr[begin...mid]
-	for (int i = 0; i < arrRightSize; i++)
-		arrRight[i] = arr[mid + 1 + i]; // arr[mid+1...end]
+	// arr[begin...mid]
+	for (int i = 0; i < arrLeftSize; i++) { arrLeft[i] = arr[left + i]; }
+	// arr[mid+1...end]
+	for (int i = 0; i < arrRightSize; i++) { arrRight[i] = arr[mid + 1 + i]; } 
 
 	int arrLeftIndex = 0;
 	int arrRightIndex = 0;
@@ -22,8 +24,7 @@ void merge(int* arr, const int left, const int mid, const int right) {
 		if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
 			arr[arrIndex] = arrLeft[arrLeftIndex];
 			arrLeftIndex++;
-		}
-		else {
+		} else {
 			arr[arrIndex] = arrRight[arrRightIndex];
 			arrRightIndex++;
 		}
@@ -47,8 +48,7 @@ void merge(int* arr, const int left, const int mid, const int right) {
 }
 
 void mergeSort(int* arr, const int left, const int right) {
-	if (left >= right)
-		return;
+	if (left >= right) { return; }
 
 	int mid = left + (right - left) / 2; 
 	mergeSort(arr, left, mid); // arr[begin...mid]

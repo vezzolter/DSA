@@ -1,6 +1,7 @@
-// Source file for Selection Sort
-// by vezzolter
-// February 28, 2024
+// Title:   Source file for Selection Sort
+// Authors: by vezzolter
+// Date:    February 28, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "SelectionSort.h"
@@ -11,9 +12,7 @@ void selectionSort(int arr[], int size) {
 
 		int min = i;
 		for (int j = i + 1; j < size; j++) {
-			if (arr[j] < arr[min]) {
-				min = j;
-			}
+			if (arr[j] < arr[min]) { min = j; }
 		}
 
 		if (min != i) {

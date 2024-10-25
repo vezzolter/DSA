@@ -1,6 +1,7 @@
-// Header file for Mersenne Twister
-// by vezzolter
-// September 7, 2024
+// Title:   Header file for Mersenne Twister
+// Authors: by vezzolter
+// Date:    September 7, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef MERSENNETWISTER_H

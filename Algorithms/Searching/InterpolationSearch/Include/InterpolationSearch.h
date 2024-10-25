@@ -1,6 +1,7 @@
-// Header file for Interpolation Search
-// by vezzolter
-// August 22, 2024
+// Title:   Header file for Interpolation Search
+// Authors: by vezzolter
+// Date:    August 22, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef INTERPOLATIONSEARCH_H

@@ -83,8 +83,7 @@ int partition(int* arr, int l, int r) {
 	for (; l < r; ) {
 		for (; l <= r && arr[l] < arr[p]; l++);
 		for (; r >= l && arr[r] >= arr[p]; r--);
-		if (l >= r)
-			break;
+		if (l >= r) { break; }
 		swap(arr[l], arr[r]);
 	}
 
@@ -128,15 +127,13 @@ void quicksort(int* arr, int l, int r) {
 ```
 6. Eventually they will stop. This can be achieved either if they have crossed or if they encounter elements that require swapping. Therefore you either leave or swap.
 ```cpp
-	if (l >= r)
-    break;
-  swap(arr[l], arr[r]);
+	if (l >= r) { break; }
+    swap(arr[l], arr[r]);
 ```
 7. After all the arrangements have been done (or skipped), swap the pivot element with the last (and update the index) to ensure that all elements to the left are less or equal to the pivot and all to the right are greater or equal to the pivot.
 ```cpp
-	if (l >= r)
-			break;
-  swap(arr[l], arr[r]);
+	swap(arr[l], arr[p]);
+	p = l;
 ```
 8. Handle subsequent recursive calls by returning the index of the pivot element.
 ```cpp

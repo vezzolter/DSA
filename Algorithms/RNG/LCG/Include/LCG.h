@@ -1,6 +1,7 @@
-// Header file for LCG
-// by vezzolter
-// August 28, 2024
+// Title:   Header file for LCG
+// Authors: by vezzolter
+// Date:    August 28, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef LCG_H

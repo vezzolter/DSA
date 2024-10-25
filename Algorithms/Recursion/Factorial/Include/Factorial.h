@@ -1,6 +1,7 @@
-// Header file for Factorial
-// by vezzolter
-// November 13, 2023
+// Title:   Header file for Factorial (Recursive)
+// Authors: by vezzolter
+// Date:    November 13, 2023
+// ----------------------------------------------------------------------------
 
 
 #ifndef FACTORIAL_H

@@ -61,64 +61,61 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, which are declared in `MergeSort.h` header file and defined in `MergeSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
-	void merge(int* arr, const int left, const int mid, const int right) {
-		int arrLeftSize = mid - left + 1;
-		int arrRightSize = right - mid;
-		int* arrLeft = new int[arrLeftSize];
-		int* arrRight = new int[arrRightSize];
-		for (int i = 0; i < arrLeftSize; i++)
-			arrLeft[i] = arr[left + i]; // arr[begin...mid]
-		for (int i = 0; i < arrRightSize; i++)
-			arrRight[i] = arr[mid + 1 + i]; // arr[mid+1...end]
+void merge(int* arr, const int left, const int mid, const int right) {
+	int arrLeftSize = mid - left + 1;
+	int arrRightSize = right - mid;
+	int* arrLeft = new int[arrLeftSize];
+	int* arrRight = new int[arrRightSize];
+	// arr[begin...mid]
+	for (int i = 0; i < arrLeftSize; i++) { arrLeft[i] = arr[left + i]; }
+	// arr[mid+1...end]
+	for (int i = 0; i < arrRightSize; i++) { arrRight[i] = arr[mid + 1 + i]; } 
 
-		int arrLeftIndex = 0;
-		int arrRightIndex = 0;
-		int arrIndex = left;
-		for (; arrLeftIndex < arrLeftSize && arrRightIndex < arrRightSize; ) {
-			if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
-				arr[arrIndex] = arrLeft[arrLeftIndex];
-				arrLeftIndex++;
-			}
-			else {
-				arr[arrIndex] = arrRight[arrRightIndex];
-				arrRightIndex++;
-			}
-			arrIndex++;
-		}
-
-		for (; arrLeftIndex < arrLeftSize;) {
+	int arrLeftIndex = 0;
+	int arrRightIndex = 0;
+	int arrIndex = left;
+	for (; arrLeftIndex < arrLeftSize && arrRightIndex < arrRightSize; ) {
+		if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
 			arr[arrIndex] = arrLeft[arrLeftIndex];
 			arrLeftIndex++;
-			arrIndex++;
-		}	
-
-		for (; arrRightIndex < arrRightSize;) {
+		} else {
 			arr[arrIndex] = arrRight[arrRightIndex];
 			arrRightIndex++;
-			arrIndex++;
-		}	
-
-		delete[] arrLeft;
-		delete[] arrRight;
+		}
+		arrIndex++;
 	}
 
-	void mergeSort(int* arr, const int left, const int right) {
-		if (left >= right)
-			return;
-
-		int mid = left + (right - left) / 2; 
-		mergeSort(arr, left, mid); // arr[begin...mid]
-		mergeSort(arr, mid + 1, right); // arr[mid+1...end]
-		merge(arr, left, mid, right);
+	for (; arrLeftIndex < arrLeftSize;) {
+		arr[arrIndex] = arrLeft[arrLeftIndex];
+		arrLeftIndex++;
+		arrIndex++;
 	}
+
+	for (; arrRightIndex < arrRightSize;) {
+		arr[arrIndex] = arrRight[arrRightIndex];
+		arrRightIndex++;
+		arrIndex++;
+	}
+
+	delete[] arrLeft;
+	delete[] arrRight;
+}
+
+void mergeSort(int* arr, const int left, const int right) {
+	if (left >= right) { return; }
+
+	int mid = left + (right - left) / 2; 
+	mergeSort(arr, left, mid); // arr[begin...mid]
+	mergeSort(arr, mid + 1, right); // arr[mid+1...end]
+	merge(arr, left, mid, right);
+}
 ```
 
 
 ## Detailed Walkthrough 
 1. Start with the setting up the base case for `mergeSort()`, which prevents following recursive division by checking whether the array contains more than one or zero elements.
 ```cpp
-	if (left >= right)
-		return;
+	if (left >= right) { return; }
 ```
 2. Calculate the middle index of an array. This formula is used due to avoidance of overflow.
 ```cpp
@@ -139,10 +136,10 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 	int arrRightSize = right - mid;
 	int* arrLeft = new int[arrLeftSize];
 	int* arrRight = new int[arrRightSize];
-	for (int i = 0; i < arrLeftSize; i++)
-		arrLeft[i] = arr[left + i]; // arr[begin...mid]
-	for (int i = 0; i < arrRightSize; i++)
-		arrRight[i] = arr[mid + 1 + i]; // arr[mid+1...end]
+	// arr[begin...mid]
+	for (int i = 0; i < arrLeftSize; i++) { arrLeft[i] = arr[left + i]; }
+	// arr[mid+1...end]
+	for (int i = 0; i < arrRightSize; i++) { arrRight[i] = arr[mid + 1 + i]; } 
 ```
 6. Initialize the indices for each to keep track of the current positions. Assigning `left` to the passed array instead of `0` allows to preserve the relative positioning.
 ```cpp
@@ -156,8 +153,7 @@ Sorting algorithm implemented within the `mergeSort()` and `merge()` functions, 
 		if (arrLeft[arrLeftIndex] <= arrRight[arrRightIndex]) {
 			arr[arrIndex] = arrLeft[arrLeftIndex];
 			arrLeftIndex++;
-		}
-		else {
+		} else {
 			arr[arrIndex] = arrRight[arrRightIndex];
 			arrRightIndex++;
 		}

@@ -1,6 +1,7 @@
-// Header file for Heapsort
-// by vezzolter
-// June 1, 2024
+// Title:   Header file for Heapsort
+// Authors: by vezzolter
+// Date:    June 1, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef HEAPSORT_H

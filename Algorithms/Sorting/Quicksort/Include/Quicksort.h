@@ -1,6 +1,7 @@
-// Header file for Quicksort (Hoare Scheme)
-// by vezzolter
-// April 6, 2024
+// Title:   Header file for Quicksort (Hoare Scheme)
+// Authors: by vezzolter
+// Date:    April 6, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef QUICKSORT_H

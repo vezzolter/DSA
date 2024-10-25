@@ -1,6 +1,7 @@
-// Header file for Bucket Sort
-// by vezzolter
-// August 3, 2024
+// Title:   Header file for Bucket Sort
+// Authors: by vezzolter
+// Date:    August 3, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef BUCKETSORT_H

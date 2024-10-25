@@ -1,9 +1,7 @@
-// Binary Search
-// by vezzolter
-// March 17, 2024
-//
-// This C++ project demonstrates the simplified implementation of a Binary Search algorithm.
-// It is illustrated with an example using a small static array of integers as the collection.
+// Title:   Binary Search Algorithm
+// Authors: by vezzolter
+// Date:    March 17, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
@@ -13,13 +11,15 @@
 
 void printArray(int arr[], int size) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++) {
 		std::cout << std::setw(3) << arr[i] << " ";
+	}
 	std::cout << std::endl;
 
 	std::cout << "Indices:\t";
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++) {
 		std::cout << std::setw(3) << i << " ";
+	}
 	std::cout << std::endl;
 }
 
@@ -35,22 +35,21 @@ int main() {
 
 	// Specify the target 
 	std::cout << "\nSpecify the target: ";
-	int target = 0;
-	std::cin >> target;
+	int t = 0;
+	std::cin >> t;
 
-	// Search the value
-	std::cout << "\nSearching the index of an element '" << target << "'..." << std::endl;
-	int index = binarySearch(arr, 0, size - 1, target);
-	if (index != -1)
-		std::cout << "Element '" << target << "' found at index '" << index << "'.\n";
-	else
-		std::cout << "Element '" << target << "' not found.\n";
+	// Search for the value
+	std::cout << "\nSearching the element '" << t << "'..." << std::endl;
+	int i = binarySearch(arr, 0, size - 1, t);
+	if (i != -1) {
+		std::cout << "Element '" << t << "' found at index '" << i << "'.\n";
+	} else {
+		std::cout << "Element '" << t << "' not found.\n";
+	}
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

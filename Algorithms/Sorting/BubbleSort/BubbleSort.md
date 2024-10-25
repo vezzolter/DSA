@@ -54,22 +54,22 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 Sorting algorithm implemented within the function `bubbleSort()`, which is declared in `BubbleSort.h` header file and defined in `BubbleSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
-	void bubbleSort(int arr[], int size) {
-		for (int i = 0; i < size - 1; i++) {
-			bool swapped = false; 
+void bubbleSort(int arr[], int size) {
+	for (int i = 0; i < size - 1; i++) {
+		bool swapped = false; 
 
-			for (int j = 0; j < size - i - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-					swapped = true;
-				}
+		for (int j = 0; j < size - i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+				swapped = true;
 			}
-
-			if (!swapped) { break; }
 		}
+
+		if (!swapped) { break; }
 	}
+}
 ```
 
 

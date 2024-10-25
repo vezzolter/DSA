@@ -63,51 +63,43 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 Sorting algorithm implemented within the `radixSort()` function with a few helper ones `getMax()` and `countingSort()`, which are declared `RadixSort.h` header file and defined in `RadixSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
-// Finds and returns the maximum value in an array
-// Allows to determine the maximum number of digits
 int getMax(int arr[], int n) {
     int max = arr[0];
     for (int i = 1; i < n; i++) {
-        if (arr[i] > max)
-            max = arr[i];
+        if (arr[i] > max) { max = arr[i]; } 
     }
+
     return max;
 }
 
 void countingSort(int arr[], int n, int digitPos) {
-    const int range = 10; // for digits 0-9
+    const int range = 10; // since digits are 0-9
     int* output = new int[n];
     int count[range] = { 0 };
 
-    // Calculate count of occurrences of each digit
     for (int i = 0; i < n; i++) {
         int digit = (arr[i] / digitPos) % 10;
         count[digit]++;
     }
 
-    // Calculate cumulative count
-    for (int i = 1; i < range; i++)
-        count[i] += count[i - 1];
+    for (int i = 1; i < range; i++) { count[i] += count[i - 1]; }  
 
-    // Place the elements in sorted order
     for (int i = n - 1; i >= 0; i--) {
         int digit = (arr[i] / digitPos) % 10;
         output[count[digit] - 1] = arr[i];
         count[digit]--;
     }
 
-    // Copy the sorted elements into the original array and clear it
-    for (int i = 0; i < n; i++)
-        arr[i] = output[i];
+    for (int i = 0; i < n; i++) { arr[i] = output[i]; }
     delete[] output;
 }
 
 void radixSort(int arr[], int n) {
     int max = getMax(arr, n);
 
-    // Sorts the aray based on the current digit place, until all digits of max number
-    for (int digitPos = 1; max / digitPos > 0; digitPos *= 10)
+    for (int digitPos = 1; max / digitPos > 0; digitPos *= 10) {
         countingSort(arr, n, digitPos);
+    }
 }
 ```
 
@@ -131,7 +123,6 @@ void radixSort(int arr[], int n) {
 ```
 4. Then the interesting part comes, where all the actual sorting occurs. First we need to know how many time each digit appears at the current digit position across all numbers, this helps us to understand the distribution of digits and prepares us for placing the numbers in the correct order in the next steps; e.g. if we are looking at the units position, then: for $328$ its $8$, for $3$ its $3$, for $203$ its $3$, and then count $8$ appears once, $3$ appears twice.
 ```cpp
-  // Calculate count of occurrences of each digit
   for (int i = 0; i < n; i++) {
       int digit = (arr[i] / digitPos) % 10;
       count[digit]++;
@@ -139,13 +130,10 @@ void radixSort(int arr[], int n) {
 ```
 5. After counting the appearances, we transform them into cumulative count array, so that we could know the exact position in the sorted array, where each digit should go.
 ```cpp
-  // Calculate cumulative count
-  for (int i = 1; i < range; i++)
-      count[i] += count[i - 1];
+  for (int i = 1; i < range; i++) { count[i] += count[i - 1]; }
 ```
 6. Knowing all that info, we are able to sort the digits. We iterate over the original array from the last element to the first (this reverse order helps in maintaining the stability of the sort), for each number we extract the digit at the current position, by using cumulative count array we place the number in the output array and update the position for the next occurrence of the same digit.
 ```cpp
-  // Place the elements in sorted order
   for (int i = n - 1; i >= 0; i--) {
       int digit = (arr[i] / digitPos) % 10;
       output[count[digit] - 1] = arr[i];
@@ -154,9 +142,7 @@ void radixSort(int arr[], int n) {
 ```
 7. Finally, simply copy output array to initial one and clear the memory.
 ```cpp
-  // Copy the sorted elements into the original array and clear it
-  for (int i = 0; i < n; i++)
-      arr[i] = output[i];
+  for (int i = 0; i < n; i++) { arr[i] = output[i]; }
   delete[] output;
 ```
 

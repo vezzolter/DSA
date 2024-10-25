@@ -1,6 +1,7 @@
-// Header file for Binary Search
-// by vezzolter
-// March 17, 2024
+// Title:   Header file for Binary Search
+// Authors: by vezzolter
+// Date:    March 17, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef BINARYSEARCH_H

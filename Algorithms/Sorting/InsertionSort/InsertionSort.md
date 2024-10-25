@@ -53,18 +53,18 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 Sorting algorithm implemented within the function `insertionSort()` is declared in `InsertionSort.h` header file and defined in `InsertionSort.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of sorting technique is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
 
 ```cpp
-	void insertionSort(int arr[], int size) {
-		for (int unsorted = 1; unsorted < size; unsorted++) {
-			int current = arr[unsorted];
+void insertionSort(int arr[], int size) {
+	for (int unsorted = 1; unsorted < size; unsorted++) {
+		int current = arr[unsorted];
 
-			int sorted = unsorted - 1;
-			while (sorted >= 0 && arr[sorted] > current) {
-				arr[sorted + 1] = arr[sorted];
-				sorted = sorted - 1;
-			}
-			arr[sorted + 1] = current;
+		int sorted = unsorted - 1;
+		while (sorted >= 0 && arr[sorted] > current) {
+			arr[sorted + 1] = arr[sorted];
+			sorted = sorted - 1;
 		}
+		arr[sorted + 1] = current;
 	}
+}
 ```
 
 

@@ -1,9 +1,7 @@
-// Heapsort
-// by vezzolter
-// June 1, 2024
-//
-// This C++ project demonstrates the simplified implementation of a Heapsort algorithm. 
-// It illustrates the concept via utilizing a small array of integers as the collection.
+// Title:   Heapsort Algorithm
+// Authors: by vezzolter
+// Date:    June 1, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
@@ -12,13 +10,11 @@
 
 void printArray(const int* arr, const int size) {
 	std::cout << "Elements:\t";
-	for (int i = 0; i < size; i++)
-		std::cout << arr[i] << " ";
+	for (int i = 0; i < size; i++) { std::cout << arr[i] << " "; }
 	std::cout << std::endl;
 }
 
-int main()
-{
+int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'Heapsort' console application!\n";
 
@@ -36,8 +32,6 @@ int main()
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

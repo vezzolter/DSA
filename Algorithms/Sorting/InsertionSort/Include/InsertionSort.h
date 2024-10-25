@@ -1,6 +1,7 @@
-// Header file for Insertion Sort
-// by vezzolter
-// February 18, 2024
+// Title:   Header file for Insertion Sort
+// Authors: by vezzolter
+// Date:    February 18, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef INSERTIONSORT_H

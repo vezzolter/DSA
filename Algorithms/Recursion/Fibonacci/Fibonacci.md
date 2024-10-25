@@ -65,8 +65,8 @@ Algorithm implemented within the function `fibonacci()`, which is declared in `F
 
 ```cpp
   int fibonacci(int n) {
-	  if (n <= 1) { return n; } // Base case
-	  return fibonacci(n - 1) + fibonacci(n - 2); // Recursive case
+	  if (n <= 1) { return n; }
+	  return fibonacci(n - 1) + fibonacci(n - 2);
   }
 ```
 
@@ -74,11 +74,11 @@ Algorithm implemented within the function `fibonacci()`, which is declared in `F
 ## Detailed Walkthrough
 1. Start by setting up the base case, where if the input number is less than or equal to `1`, the function immediately returns the input value itself. This is because the Fibonacci sequence defines `F(0) = 0` and `F(1) = 1`.
 ```cpp
-  if (n <= 1) { return n; } // Base case
+  if (n <= 1) { return n; }
 ```
 2. If the number is greater than `1`, the function recursively calls itself twice: once for `fibonacci(n - 1)` and once for `fibonacci(n - 2)`. The results of these two recursive calls are added together to produce the Fibonacci number for the input `n`. This continues until the base case is reached for each recursive branch.
 ```cpp
-	return fibonacci(n - 1) + fibonacci(n - 2); // Recursive case
+	return fibonacci(n - 1) + fibonacci(n - 2);
 ```
 
 

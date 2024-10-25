@@ -94,9 +94,10 @@ void shellsort(int arr[], int size) {
             int temp = arr[i];
             
             int j;
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
-                arr[j] = arr[j - gap];
-
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+              arr[j] = arr[j - gap];
+            }
+                
             arr[j] = temp;
         }
     }
@@ -123,8 +124,9 @@ void shellsort(int arr[], int size) {
 ```
 5. Shift elements that are greater than the current stored element (`temp`) to the right by gap positions. This is done by creating a loop which ensures that it does not go out of bounds when accessing elements gap positions back in the array (`j >= gap`) and checks whether the element gap positions before the current one is greater than current stored (`arr[j - gap] > temp`). If that is the case, it copies the larger element forward by gap positions.
 ```cpp
-  for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+  for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
     arr[j] = arr[j - gap];
+  }
 ```
 6. Finally, when the correct position for the current stored element is found, place the value there. Repeat the process, until gap becomes $1$, which will ensure that all elements are in their correct positions relative to each other.
 ```cpp

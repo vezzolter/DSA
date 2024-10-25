@@ -1,6 +1,7 @@
-// Source file for Bucket Sort
-// by vezzolter
-// August 3, 2024
+// Title:   Source file for Bucket Sort
+// Authors: by vezzolter
+// Date:    August 3, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <vector>

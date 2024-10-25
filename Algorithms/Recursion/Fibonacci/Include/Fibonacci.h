@@ -1,6 +1,7 @@
-// Header file for Fibonacci
-// by vezzolter
-// January 24, 2024
+// Title:   Header file for Fibonacci (Recursive)
+// Authors: by vezzolter
+// Date:    January 24, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef FIBONACCI_H

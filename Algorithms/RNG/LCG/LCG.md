@@ -107,8 +107,10 @@ unsigned long long lcg() {
 ```
 4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the LCG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
 ```cpp
-	for (int i = 0; i < numbers; i++)
-		std::cout << " " << i + 1 << ":\t" << (minVal + (lcg() % (maxVal - minVal + 1))) << std::endl;
+	for (int i = 0; i < numbers; i++) {
+		int randomNumber = minVal + (lcg() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
+	}	
 ```
 
 

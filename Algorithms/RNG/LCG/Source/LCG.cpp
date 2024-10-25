@@ -1,6 +1,7 @@
-// Source file for LCG
-// by vezzolter
-// August 28, 2024
+// Title:   Source file for LCG
+// Authors: by vezzolter
+// Date:    August 28, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "LCG.h"

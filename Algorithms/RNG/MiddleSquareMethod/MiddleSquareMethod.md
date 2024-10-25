@@ -68,7 +68,8 @@ unsigned long long middleSquareMethod() {
   unsigned long long squared = seed * seed;
   int power = static_cast<int>(pow(10, digits));
   int shift = digits / 2;
-  unsigned long long randomNumber = (squared / static_cast<unsigned long long>(pow(10, shift))) % power;
+  unsigned long long randomNumber = (squared 
+    / static_cast<unsigned long long>(pow(10, shift))) % power;
   seed = randomNumber;
   return randomNumber;
 }
@@ -83,7 +84,8 @@ unsigned long long middleSquareMethod() {
 ```cpp
   int power = static_cast<int>(pow(10, digits));
   int shift = digits / 2;
-  unsigned long long randomNumber = (squared / static_cast<unsigned long long>(pow(10, shift))) % power;
+  unsigned long long randomNumber = (squared 
+    / static_cast<unsigned long long>(pow(10, shift))) % power;
 ```
 3. After extracting the middle digits, the new value becomes the updated seed, which is stored for future iterations. This new seed is returned for further use in the next iteration.
 ```cpp
@@ -92,8 +94,10 @@ unsigned long long middleSquareMethod() {
 ```
 4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the PRNG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
 ```cpp
-	for (int i = 0; i < numbers; i++)
-		std::cout << " " << i + 1 << ":\t" << (minVal + (middleSquareMethod() % (maxVal - minVal + 1))) << std::endl;
+	for (int i = 0; i < numbers; i++) {
+    int randomNumber = minVal + (middleSquareMethod() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" randomNumber << () << std::endl;
+  }
 ```
 
 

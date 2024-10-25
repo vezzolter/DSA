@@ -1,9 +1,7 @@
-// LCG (Linear Congruential Generator)
-// by vezzolter
-// August 28, 2024
-//
-// This C++ project demonstrates the simplified implementation of a 
-// random number generation using the PRNG named Linear Congruential Generator
+// Title:   LCG Algorithm (Linear Congruential Generator)
+// Authors: by vezzolter
+// Date:    August 28, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <iostream>
@@ -26,16 +24,17 @@ int main() {
 	std::cin >> maxVal;
 
 	// Generate random numbers within the user-defined range
-	std::cout << "\nGenerating " << numbers << " random numbers between " << minVal << " and " << maxVal << "...\n";
-	for (int i = 0; i < numbers; i++)
-		std::cout << " " << i + 1 << ":\t" << (minVal + (lcg() % (maxVal - minVal + 1))) << std::endl;
+	std::cout << "\nGenerating " << numbers << " random numbers between "
+		<< minVal << " and " << maxVal << "...\n";
+	for (int i = 0; i < numbers; i++) {
+		int randomNumber = minVal + (lcg() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
+	}	
 	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

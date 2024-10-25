@@ -1,6 +1,7 @@
-// Source file for Bubble Sort
-// by vezzolter
-// February 25, 2024
+// Title:   Source file for Bubble Sort
+// Authors: by vezzolter
+// Date:    February 25, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "BubbleSort.h"

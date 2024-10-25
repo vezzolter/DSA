@@ -117,8 +117,10 @@ public:
   void MersenneTwister::initialize(uint32_t seed) {
       stateArr.resize(n);
       stateArr[0] = seed;
-      for (int i = 1; i < n; i++)
-          stateArr[i] = f * (stateArr[i - 1] ^ (stateArr[i - 1] >> 30)) + i;
+      for (int i = 1; i < n; i++) {
+        stateArr[i] = f * (stateArr[i - 1] ^ (stateArr[i - 1] >> 30)) + i;
+      }
+          
   }
 ```
 3. When PRNG is set up, the user can call function `generate()` to X. In this function, the first thing to check is whether the index has exceeded the size of the state array (n = 624). If this condition is met, the state array has been fully used, and we need to call the `twist()` function to generate new values. Twisting allows us to refill the state array with fresh random numbers. For now, let’s assume everything is fine, and we don't need to twist. Later, I’ll explain exactly how twisting works. After checking this condition, the function proceeds to extract the next random number from the state array.

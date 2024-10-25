@@ -1,6 +1,7 @@
-// Header file for Counting Sort (Regular Scheme)
-// by vezzolter
-// July 25, 2024
+// Title:   Header file for Counting Sort (Regular Scheme)
+// Authors: by vezzolter
+// Date:    July 25, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef COUNTINGSORT_H

@@ -1,6 +1,7 @@
-// Source file for Shellsort
-// by vezzolter
-// August 9, 2024
+// Title:   Source file for Shellsort
+// Authors: by vezzolter
+// Date:    August 9, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "Shellsort.h"
@@ -12,8 +13,9 @@ void shellsort(int arr[], int size) {
             int temp = arr[i];
             
             int j;
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                 arr[j] = arr[j - gap];
+            }
 
             arr[j] = temp;
         }

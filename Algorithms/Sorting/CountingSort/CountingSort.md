@@ -65,22 +65,20 @@ Sorting algorithm implemented within the `countingSort()` function with a helper
 int getMax(int arr[], int size) {
     int maxVal = arr[0];
     for (int i = 0; i < size; i++) {
-        if (arr[i] > maxVal)
-            maxVal = arr[i];
+        if (arr[i] > maxVal) { maxVal = arr[i]; }
     }
 
     return maxVal;
 }
 
+
 void countingSort(int arr[], int size) {
     int maxVal = getMax(arr, size);
 
     int* count = new int[maxVal + 1];
-    for (int i = 0; i <= maxVal; i++)
-        count[i] = 0;
-
-    for (int i = 0; i < size; i++)
-        count[arr[i]]++;
+    for (int i = 0; i <= maxVal; i++) { count[i] = 0; }
+        
+    for (int i = 0; i < size; i++) { count[arr[i]]++; }
 
     int index = 0;
     for (int i = 0; i <= maxVal; i++) {
@@ -103,13 +101,11 @@ void countingSort(int arr[], int size) {
 2. Using the maximum value obtained, initialize a counting array with $0$ to keep track of the number of occurrences of each value in the original array.
 ```cpp
   int* count = new int[maxVal + 1];
-  for (int i = 0; i <= maxVal; i++)
-      count[i] = 0;
+  for (int i = 0; i <= maxVal; i++) { count[i] = 0; }
 ```
 3. Key step, iterate over the original array and increment the corresponding index in the counting array for each value found.
 ```cpp
-  for (int i = 0; i < size; i++)
-      count[arr[i]]++;;
+  for (int i = 0; i < size; i++) { count[arr[i]]++; } 
 ```
 4. Using the counting array, reconstruct the original array by placing each value the number of times it appears. For each value in the counting array, if the count is greater than zero, the value is placed in the original array, and the count is decremented until it reaches zero
 ```cpp

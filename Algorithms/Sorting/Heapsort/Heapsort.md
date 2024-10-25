@@ -55,43 +55,30 @@ Sorting algorithm implemented within the `heapsort()` function with a few helper
 
 ```cpp
 void heapify(int arr[], int size, int i) {
-	int largest = i;      
-	int left = 2 * i + 1;
-	int right = 2 * i + 2;
+    int largest = i;      
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
 
-	// If left child is larger than root
-	if (left < size && arr[left] > arr[largest]) {
-  		largest = left;
-	}   
-
-	// If right child is larger than largest
-	if (right < size && arr[right] > arr[largest]) {
-  		largest = right;
-	}
-        
-	// If largest is not root
-	if (largest != i) {
-	  	swap(arr[i], arr[largest]);
-	  	heapify(arr, size, largest);
-	}
+    if (left < size && arr[left] > arr[largest]) { largest = left; }   
+    if (right < size && arr[right] > arr[largest]) { largest = right; }  
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, size, largest);
+    }
 }
 
 void buildMaxHeap(int arr[], int size) {
-	int startIdx = (size / 2) - 1; // index of the last non-leaf node
-
-	// Heapify via reverse level order traversal
-	for (int i = startIdx; i >= 0; i--) {
-	  	heapify(arr, size, i);
-	}
+    int startIdx = (size / 2) - 1; 
+    for (int i = startIdx; i >= 0; i--) { heapify(arr, size, i); }
 }
 
 void heapsort(int arr[], int size) {
-  	buildMaxHeap(arr, size);
+    buildMaxHeap(arr, size);
 
-  	for (int i = size - 1; i > 0; i--) {
-  	    swap(arr[0], arr[i]);
-  	    heapify(arr, i, 0);
-  	}
+    for (int i = size - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
 }
 ```
 
@@ -103,14 +90,11 @@ void heapsort(int arr[], int size) {
 ```
 2. The `buildMaxheap()` function starts by calculating the index of the last non-leaf node in the heap. This is done to begin heapifying from the bottom up.
 ```cpp
-	int startIdx = (size / 2) - 1; // index of the last non-leaf node
+	int startIdx = (size / 2) - 1;
 ```
 3. Perform a reverse level order traversal from the last non-leaf node to the root, calling the `heapify()` function on each node. This ensures that the entire array satisfies the max heap property.
 ```cpp
-	// Heapify via reverse level order traversal
-	for (int i = startIdx; i >= 0; i--) {
-	  	heapify(arr, size, i);
-	}
+	for (int i = startIdx; i >= 0; i--) { heapify(arr, size, i); }
 ```
 4. In the `heapify()` function, initialize the largest variable as the current node index. This variable will be used to track the largest value among the node and its children. Also calculate the indices of the left and right children of the current node via respective formulas (i.e. total number of positions occupied by nodes and their children up to $i$ is $2*i$, left child would be the very next position ($+1$), and right next to the left ($+1$ once more))
 ```cpp
@@ -120,15 +104,8 @@ void heapsort(int arr[], int size) {
 ```
 5. Then simply Compare the value of the left child with the value of the current node. If the left child's value is greater, update largest to the index of the left child. Do the same for right child.
 ```cpp
-	// If left child is larger than root
-	if (left < size && arr[left] > arr[largest]) {
-		largest = left;
-	}   
-
-	// If right child is larger than largest
-	if (right < size && arr[right] > arr[largest]) {
-		largest = right;
-	}
+  if (left < size && arr[left] > arr[largest]) { largest = left; }   
+  if (right < size && arr[right] > arr[largest]) { largest = right; }  
 ```
 6. If the largest value is not the current node, swap the values of the current node and the largest node. Then, recursively call heapify on the affected subtree to ensure it maintains the max heap property.
 ```cpp

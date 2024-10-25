@@ -1,6 +1,7 @@
-// Header file for Radix Sort
-// by vezzolter
-// July 15, 2024
+// Title:   Header file for Radix Sort
+// Authors: by vezzolter
+// Date:    July 15, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef RADIXSORT_H

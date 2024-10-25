@@ -1,6 +1,7 @@
-// Source file for Quicksort (Hoare Scheme)
-// by vezzolter
-// April 6, 2024
+// Title:   Source file for Quicksort (Hoare Scheme)
+// Authors: by vezzolter
+// Date:    April 6, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "Quicksort.h"
@@ -17,12 +18,15 @@ void swap(int& a, int& b) {
 int selectPivot(int* arr, int l, int r) {
 	int m = l + (r - l) / 2;
 
-	if ((arr[l] <= arr[m] && arr[m] <= arr[r]) || (arr[r] <= arr[m] && arr[m] <= arr[l]))
+	if ((arr[l] <= arr[m] && arr[m] <= arr[r]) ||
+		(arr[r] <= arr[m] && arr[m] <= arr[l])) {
 		return m;
-	else if ((arr[m] <= arr[l] && arr[l] <= arr[r]) || (arr[r] <= arr[l] && arr[l] <= arr[m]))
+	} else if ((arr[m] <= arr[l] && arr[l] <= arr[r]) ||
+		(arr[r] <= arr[l] && arr[l] <= arr[m])) {
 		return l;
-	else
+	} else {
 		return r;
+	}
 }
 
 int partition(int* arr, int l, int r) {
@@ -34,8 +38,7 @@ int partition(int* arr, int l, int r) {
 	for (; l < r; ) {
 		for (; l <= r && arr[l] < arr[p]; l++);
 		for (; r >= l && arr[r] >= arr[p]; r--);
-		if (l >= r)
-			break;
+		if (l >= r) { break; }
 		swap(arr[l], arr[r]);
 	}
 

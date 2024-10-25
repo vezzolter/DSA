@@ -1,9 +1,10 @@
-// Source file for Karatsuba algorithm (Base 10)
-// by vezzolter
-// September 16, 2024
+// Title:   Source file for Karatsuba Algorithm (Base of 10)
+// Authors: by vezzolter
+// Date:    September 16, 2024
+// ----------------------------------------------------------------------------
 
 
-#include<cmath>
+#include <cmath>
 #include "KaratsubaAlgorithm.h"
 
 

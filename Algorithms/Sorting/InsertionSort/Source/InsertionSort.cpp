@@ -1,6 +1,7 @@
-// Source file for Insertion Sort
-// by vezzolter
-// February 18, 2024
+// Title:   Source file for Insertion Sort
+// Authors: by vezzolter
+// Date:    February 18, 2024
+// ----------------------------------------------------------------------------
 
 
 #include "InsertionSort.h"

@@ -1,6 +1,7 @@
-// Header file for Merge Sort
-// by vezzolter
-// March 31, 2024
+// Title:   Header file for Merge Sort
+// Authors: by vezzolter
+// Date:    March 31, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef MERGESORT_H

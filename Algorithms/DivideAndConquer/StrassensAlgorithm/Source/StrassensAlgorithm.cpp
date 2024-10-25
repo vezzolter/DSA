@@ -1,6 +1,7 @@
-// Source file for Strassen's Algorithm
-// by vezzolter
-// April 13, 2024
+// Title:   Source file for Strassen's Algorithm
+// Authors: by vezzolter
+// Date:    April 13, 2024
+// ----------------------------------------------------------------------------
 
 
 #include <vector>
@@ -17,6 +18,7 @@ Matrix addMatrices(const Matrix& A, const Matrix& B) {
             C[i][j] = A[i][j] + B[i][j];
         }
     }
+
     return C;
 }
 
@@ -28,6 +30,7 @@ Matrix subtractMatrices(const Matrix& A, const Matrix& B) {
             C[i][j] = A[i][j] - B[i][j];
         }
     }
+
     return C;
 }
 
@@ -37,8 +40,7 @@ Matrix strassensAlgorithm(const Matrix& A, const Matrix& B) {
         Matrix C(1, std::vector<int>(1));
         C[0][0] = A[0][0] * B[0][0];
         return C;
-    }
-    else {
+    } else {
         int half = n / 2;
 
         Matrix A11(half, std::vector<int>(half));
@@ -85,6 +87,7 @@ Matrix strassensAlgorithm(const Matrix& A, const Matrix& B) {
                 C[i + half][j + half] = C22[i][j];
             }
         }
+
         return C;
     }
 }

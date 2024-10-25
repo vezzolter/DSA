@@ -1,6 +1,7 @@
-// Header file for Selection Sort
-// by vezzolter
-// February 28, 2024
+// Title:   Header file for Selection Sort
+// Authors: by vezzolter
+// Date:    February 28, 2024
+// ----------------------------------------------------------------------------
 
 
 #ifndef SELECTIONSORT_H

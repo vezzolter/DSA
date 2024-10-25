@@ -66,13 +66,14 @@ int binarySearch(int arr[], int left, int right, int target) {
 	while (left <= right) {
 		int mid = left + (right - left) / 2;
 
-		if (arr[mid] == target)
-			return mid;
+		if (arr[mid] == target) { return mid; }
+			
 
-		if (arr[mid] < target)
+		if (arr[mid] < target) {
 			left = mid + 1;
-		else
-			right = mid - 1;
+		} else { 
+			right = mid - 1; 
+		}
 	}
 
 	return -1;
@@ -83,27 +84,28 @@ int binarySearch(int arr[], int left, int right, int target) {
 ## Detailed Walkthrough
 1. We start by passing the sorted array, target element and left side index and right side index of search interval, which basically are start (`0`) and end (`size-1`) of a collection. This way we can iterate over search intervals of a collection anywhere by comparing them:
 ```cpp
-while (left <= right) {
+  while (left <= right) {
 ```
 2. In order to determine the middle index of a search interval, we apply this formula because it is more preferable due to the fact that it avoids overflow.
 ```cpp
-int mid = left + (right - left) / 2;
+  int mid = left + (right - left) / 2;
 ```
 3. Then we can start searching process by comparing target with middle. First we check if we have found the element, if so return the index of it; otherwise we have to divide the search interval.
 ```cpp
-if (arr[mid] == target)
-	return mid;
+  if (arr[mid] == target) { return mid; }
 ```
 4. The idea behind division is pretty simple and straightforward: we "throw away" half of elements by moving the left index to the right of middle by one if target element appears to be greater then all of the elements in the left half and vice versa for right index.
 ```cpp
-if (arr[mid] < target)
-	left = mid + 1;
-else
-	right = mid - 1;
+  if (arr[mid] < target) {
+    left = mid + 1;
+  } else {
+    right = mid - 1;
+  }
+	
 ```
 5. And if target element didn't match with any of present in collection, return an error code, indicating that the search is unsuccessful.
 ```cpp
-return -1;
+  return -1;
 ```
 
 
