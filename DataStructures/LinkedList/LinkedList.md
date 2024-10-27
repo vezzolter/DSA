@@ -20,7 +20,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Linked List** is a data structure that stores elements as nodes, which are pointing to each other to keep track of them, allowing them to be not necessarily adjacent in memory. The name comes from its primary feature of elements being linked together. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/LinkedList.png"/></p>
 
 
 ## Essential Terminology

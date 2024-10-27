@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Doubly Linked List** is an implementation of a linked list where each node, except the first and the last one, points both to the next and to the previous node in the sequence, allowing bidirectional traversal from the first to the last node and back. The name comes from the fact that each node has doubled the number of links, compared to a singly linked list. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/DoublyLinkedList.png"/></p>
 
 
 ## Important Details

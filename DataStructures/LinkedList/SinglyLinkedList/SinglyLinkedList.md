@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Singly Linked List** is an implementation of a linked list where each node, except the last one, points only to the next node in the sequence, allowing unidirectional forward traversal from the first to the last node. The name comes from the fact that each node has only a single link. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/SinglyLinkedList.png"/></p>
 
 
 ## Important Details
