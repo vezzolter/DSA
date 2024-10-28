@@ -42,11 +42,16 @@
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+Understanding the underlying mechanics of a data structure is essential to grasp how it operates and manages data. Since one data structure can have different implementations, it's crucial to recognize these distinctions, especially by learning from existing solutions, which often offer efficient, well-tested approaches to handling data and optimizing performance.
 
 
 ## Core Mechanics
-Currently in Progress...
+The fundamental characteristic of linked lists is that elements are not stored in contiguous memory locations. This design inherently provides **sequential access**, meaning each node can only be reached by traversing nodes one by one, resulting in a linear time complexity of $O(n)$ for accessing any particular node. Consequently, as the number of nodes grows, the time required to reach any specific node also increases.
+<p align="center"><img src="./Images/SequentialAccess.png"/></p>
+
+---
+The true power of linked lists lies in their **dynamic structure**, which allows them to expand or contract as nodes are added or removed, without the limitations of fixed memory allocation. Operations such as insertion and deletion are achieved by updating pointers and performing corresponding memory actions only for involved nodes, without modifying the entire linked list. This approach enables efficient insertion and deletion at any known and accessible position in constant time $O(1)$. However, reaching an arbitrary position, as mentioned earlier, requires linear time $O(n)$.
+<p align="center"><img src="./Images/DynamicStructure.png"/></p>
 
 
 ## Existing Solutions
