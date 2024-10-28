@@ -26,7 +26,7 @@
 
 ## Essential Terminology
 - **Data Structure** — is a theoretical model of data organization, used to design containers in an efficient or specific ways.
-  - **Container** — is a concrete implementation of data structure, used to manage actual data via specific operations. Since, in practice, containers are primarily used for the operations they provide and the guarantees they offer. As long as those guarantees are met, the underlying data structure can be changed or adapted.
+  - **Container** — is a concrete implementation of data structure, used to manage actual data through specific operations. Since, in practice, containers are primarily used for the operations they provide and the guarantees they offer. As long as those guarantees are met, the underlying data structure can be changed or adapted.
 - **Array** — is a data structure that stores elements of the same memory size (thus same data type) in contiguous memory locations, meaning a single block of memory with no gaps between elements.
   - **Size** — is a number of elements contained in the array. 
 - **Element** — is an individual entity within a collection.

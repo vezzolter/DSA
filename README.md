@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «$?$». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «(?)». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 ---
 **The Structure:**
@@ -88,9 +88,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - A*
 - Data Structures
   - Array
-    - [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md) ✅
-    - [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) ✅
-    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) ✅
+    - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
+    - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray) ✅
+    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray) ✅
   - Linked List 
     - [LinkedList.md](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/LinkedList.md) 🎯
     - [Singly Linked List](https://github.com/vezzolter/DSA/tree/split-list/DataStructures/LinkedList/SinglyLinkedList) 🎯

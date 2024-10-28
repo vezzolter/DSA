@@ -20,12 +20,24 @@
 
 
 # &#128161; Overview
-**Linked List** is a data structure that stores elements as nodes, which are pointing to each other to keep track of them, allowing them to be not necessarily adjacent in memory. The name comes from its primary feature of elements being linked together. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+**Linked List** is a data structure that stores elements as nodes, which are pointing to each other to maintain a sequence, allowing them to be not necessarily adjacent in memory. The name comes from its primary feature of elements being linked together. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/LinkedList.png"/></p>
 
 
 ## Essential Terminology
-Currently in Progress...
+- **Data Structure** — a theoretical model of data organization, used to design containers in an efficient or specific ways.
+  - **Container** — a concrete implementation of data structure, used to manage actual data through specific operations. Since, in practice, containers are primarily used for the operations they provide and the guarantees they offer. As long as those guarantees are met, the underlying data structure can be changed or adapted.
+- **Linked List** — a data structure that stores elements as nodes, which are pointing to each other to maintain a sequence, allowing them to be not necessarily adjacent in memory.
+  - **Size** — the number of elements contained in the linked list. 
+- **Node** — an individual entity within a collection, typically composed of several components that together form a structure (or class).
+  - **Value** — a component of a node, representing the actual information stored within it. It can be anything from primitive types such as integers to more complex types like instances of classes.
+  - **Pointer** — a component of a node, stores the memory address of the next node in the chosen sequence, depending on the type of linked list.
+- **Head** — an ambiguous term often used to describe either of the following:
+  - **Head Pointer** — a pointer to the first node in the linked list (not an actual node itself).
+  - **Head Node** — the first node in the linked list.
+- **Tail** — an ambiguous term often used to describe either of the following:
+  - **Tail Pointer** — a pointer to the last node in the linked list (not an actual node itself).
+  - **Tail Node** — the last node in the linked list.
 
 
 
