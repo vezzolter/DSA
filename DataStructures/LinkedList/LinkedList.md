@@ -95,15 +95,50 @@ For detailed evaluations of specific container characteristics, please refer to 
 
 
 # &#128221; Application
-Currently in Progress...
+The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage of a doubly linked list is its efficient insertion and deletion that don’t require restructuring the entire list. Therefore, a suitable use case would be a scenario with frequent modifications, while an anti-use case would involve situations where the structure remains largely static with few modifications. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Dynamic Data Storage** — linked lists are ideal for handling collections of data that require frequent updates or dynamic resizing, such as in real-time applications. They allocate memory only as needed and allow for efficient insertion and deletion without shifting elements.
+
+- **Implementing Stacks and Queues** — linked lists are often used as the underlying structure for stacks and queues. They allow for efficient insertion and deletion at the beginning or end, which is essential for these data structures.
+
+- **Graph and Tree Representations** — linked lists are often used to represent adjacency lists in graph structures or as nodes in tree structures. They provide efficient ways to store connections between nodes and manage hierarchical data.
+
+- **Circular Buffers** — circular linked lists are commonly used to implement circular buffers, which are essential in situations requiring continuous data processing, such as audio processing or network packet handling. They enable efficient, continuous traversal from the end of the list back to the beginning.
+
+- **Navigation Functionality** — linked lists used in application that can track states, such as browser history or text editors. Each change can be stored as a node, allowing easy traversal through previous and next states.
 
 
 ## Some Practical Problems
-Currently in Progress...
+**Easy Problems:**
+1. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list)
+2. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
+3. [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list)
+4. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle)
+5. [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists)
+6. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list)
+
+---
+**Medium Problems:** 
+1. [Reorder List](https://leetcode.com/problems/reorder-list)
+2. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list)
+3. [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer)
+4. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers)
+5. [LRU Cache](https://leetcode.com/problems/lru-cache)
+6. [Partition List](https://leetcode.com/problems/partition-list)
+7.  [Split Linked List in Parts](https://leetcode.com/problems/split-linked-list-in-parts)
+8.  [Design Browser History](https://leetcode.com/problems/design-browser-history)
+9.  [Design Twitter](https://leetcode.com/problems/design-twitter)
+
+---
+**Hard Problems:** 
+1. [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group)
+2. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists)
+3. [LFU Cache](https://leetcode.com/problems/lfu-cache)
+4. [Design Skiplist](https://leetcode.com/problems/design-skiplist)
+5. [All O`one Data Structure](https://leetcode.com/problems/all-oone-data-structure)
+6. [Design a Text Editor](https://leetcode.com/problems/design-a-text-editor)
 
 
 
