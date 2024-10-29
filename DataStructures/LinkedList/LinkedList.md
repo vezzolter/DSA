@@ -55,7 +55,20 @@ The true power of linked lists lies in their **dynamic structure**, which allows
 
 
 ## Existing Solutions
-Currently in Progress...
+Quite often in computer science, there is ambiguity between definitions, as the term data structure typically refers to the abstract organization of data, focusing on logical operations such as insertion, deletion, and traversal. However, in practical applications, these data structures are implemented as containers, which not only provide these operations but also manage underlying performance and memory constraints.
+
+---
+When it comes to linked lists, there are two primary types (each with modification) tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their corresponding sections of this repository, here’s a brief description to give you a foundational understanding:
+- **Singly Linked List** — a linked list implementation where each node, except the last one, points only to the next node in the sequence, allowing unidirectional forward traversal from the first to the last node.
+- **Doubly Linked List** — a linked list implementation where each node, except the first and the last one, points both to the next and to the previous node in the sequence, allowing bidirectional traversal from the first to the last node and back.
+- **Circular Linked Lists** — a modification to previous implementations, where where the last node in sequence points back to the first node, allowing for continuous traversal from any node.
+
+---
+It's generally recommended to rely on well-established, widely recognized implementations that already exist, rather than reinventing the wheel. Proven implementations provide optimized, reliable solutions while saving time and effort. In the context of C++, the Standard Template Library (STL) offers trusted containers for two types of linked list:
+- **std::forward_list** — a container that encapsulates singly-linked list.
+- **std::list** — a container that encapsulates doubly-linked list.
+
+You may notice, however, that the STL does not provide built-in support for circular linked lists, either singly or doubly linked. This is because circular linked lists are less commonly used in general programming practice and are often specialized for particular applications, such as implementing circular buffers or round-robin schedulers. Their specific use cases can vary widely, making a general-purpose implementation less practical or beneficial in the standard library.
 
 
 ## Repository Containers

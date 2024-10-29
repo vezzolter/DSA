@@ -63,7 +63,8 @@ However, accessing an element outside the defined bounds of the array (either du
 ## Existing Solutions
 Quite often in computer science, there is ambiguity between definitions, as the term data structure typically refers to the abstract organization of data, focusing on logical operations such as insertion, deletion, and traversal. However, in practical applications, these data structures are implemented as containers, which not only provide these operations but also manage underlying performance and memory constraints.
 
-When it comes to arrays, there are two primary types, each tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their respective sections of this repository, here’s a brief description to give you a foundational understanding:
+---
+When it comes to arrays, there are two primary types, each tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their corresponding sections of this repository, here’s a brief description to give you a foundational understanding:
 - **Static Array** — is a type of array where the main property is that the size is fixed, meaning it can't be changed during runtime.
 - **Dynamic Array** — is a type of array where the main property is that the size is dynamic, meaning it can be changed during runtime.
 

@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-**Circular Linked Lists** are implementations of a linked list where the last node points back to the first node, allowing for continuous traversal from any node. The name comes from the fact that each node eventually links back to itself, creating a circular sequence. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+**Circular Linked Lists** are implementations of a linked list where the last node in sequence points back to the first node, allowing for continuous traversal from any node. The name comes from the fact that each node eventually links back to itself, creating a circular sequence. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/CircularLinkedList.png"/></p>
 
 
