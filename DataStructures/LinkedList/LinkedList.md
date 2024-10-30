@@ -143,7 +143,17 @@ The concrete situations where a data structure is best (and worst) used stem dir
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The concept of the linked list doesn’t have a single inventor, but it has evolved over time as a solution to dynamic data storage needs in programming. Here are some significant milestones and developments that have shaped the linked list into the fundamental data structure it is today:
+
+- In the **early 1950s**, **RAND Corporation** implemented one of the earliest forms of linked lists for the **ERMA (Electronic Recording Machine, Accounting)** project to handle banking records. This early use case demonstrated the value of linked structures for managing dynamically growing datasets.
+
+- In **1955**, **Allen Newell**, **Cliff Shaw**, and **Herbert Simon** developed a linked list implementation for the **Logic Theory Machine**, one of the first artificial intelligence programs. They used a linked structure to represent mathematical logic proofs, highlighting the flexibility of linked lists for dynamically changing data.
+
+- **1960** saw the introduction of **LISP**, a programming language created by **John McCarthy** that relied heavily on linked lists to represent symbolic expressions. Linked lists became a core structure in LISP, demonstrating their usefulness in languages centered on symbolic computation and recursive data structures.
+
+- In **1972**, the **C programming language** further advanced the use of linked lists by providing low-level memory management capabilities. This allowed programmers to create and manipulate linked lists efficiently by directly controlling pointers, solidifying linked lists as a core structure in system-level programming.
+
+- In the **1980s and 1990s**, with the growth of object-oriented programming, linked lists found renewed importance as languages like **C++** and **Java** provided built-in support for linked lists in their standard libraries. This development made linked lists more accessible to programmers, reinforcing their status as an essential data structure.
 
 
 
@@ -159,6 +169,7 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 Currently in Progress...
+
 
 
 # &#128271; License
