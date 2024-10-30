@@ -168,7 +168,44 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#128218; **Books:**
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 10.2: Linked Lists
+  - Section 10.3: Implementing Pointers and Objects
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 3.1: Building Blocks
+  - Section 3.3: Linked Lists
+  - Section 3.4: Elementary List Processing
+  - Section 3.5: Memory Allocation for Lists
+  - Section 4: Abstract Data Types
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 3.1: Abstract Data Types
+  - Section 3.2: The List ADT
+  - Section 3.3: `vector` and `list` in the STL
+  - Section 3.5: Implementation of `list`
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 3.1: Contiguous vs. Linked Data Structures
+- **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth 
+  - Section 2.2: Linear Lists
+  - Section 2.4: Multilinked Structures
+  - Section 2.5: Dynamic Storage Allocation
+  - Section 2.6: History and Bibliography
+
+---
+&#127891; **Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Section 11: Linked List
+   - Section 12: Sparse Matrix and Polynomial using Linked List
+- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
+   - Course 2.1: Linear Structures
+
+---  
+&#127760; **Web-Resources:**  
+- [Linked List](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
+- [std::forward_list](https://en.cppreference.com/w/cpp/container/forward_list)
+- [std::list](https://en.cppreference.com/w/cpp/container/list)
+- [Iterator library](https://en.cppreference.com/w/cpp/iterator)
+- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 
 
 
