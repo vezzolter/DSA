@@ -26,7 +26,11 @@
 
 
 ## Important Details
-Currently in Progress...
+1. **Node Composition** — each node in a singly linked list holds a data element and a pointer to the next node, creating a chain of elements connected sequentially. This structure is straightforward in design and requires minimal additional memory.
+
+2. **Single-Directional Traversal** — nodes in a singly linked list can only be accessed in one direction, from the head towards the tail. This one-way traversal restricts operations to forward movement, without the ability to traverse backward through the list.
+
+3. **End of List** — the last node in a singly linked list points to `nullptr`, which signifies the end of the list. This marker allows traversal functions to recognize where the list terminates.
 
 
 ## Container Methods

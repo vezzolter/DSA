@@ -27,9 +27,13 @@
 
 ## Important Details
 1. **Size (Fixed)** — static array has a fixed size, meaning the size can't be changed during runtime.
+
 2. **Time for Allocation (Compile)** — static array requires knowing size at a compile time, meaning its size can only be based on values known during the compilation phase.
+
 3. **Place for Allocation (Stack)** — static array usually allocated in the stack memory section, limiting its size to relatively small amounts (since stack memory is limited). However, static arrays can also be allocated in the global/static/heap memory section, though this is less common.
+
 4. **Memory Management (Automatic)** — static array allocated on stack doesn't require manual memory management, meaning the system automatically handles allocation and deallocation, avoiding risks such as dangling pointers or memory leaks.
+
 5. **Speed of Allocation (Fast)** — static array's allocation on the stack is faster than on the heap, because it doesn't require additional operations or resources to manage memory.
 
 

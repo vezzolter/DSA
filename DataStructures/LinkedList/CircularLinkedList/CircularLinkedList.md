@@ -26,7 +26,11 @@
 
 
 ## Important Details
-Currently in Progress...
+1. **Node Composition** — each node in a circular linked list contains a data element and pointers to other nodes just like regular linked lists. In a circular singly linked list, each node has a pointer to the next node, while in a circular doubly linked list, each node has pointers to both the next and previous nodes. 
+
+2. **Continuous Traversal** — circular linked lists allow continuous traversal, as the last node loops back to the head. Starting from any node, traversing will eventually lead back to the same node, making these lists particularly useful for applications that require round-robin access or repeated cycles.
+
+3. **End of List** — since circular linked lists have no `nullptr` to mark the end, identifying the beginning or completing a traversal requires special handling. Typically, this is done by keeping track of the starting node and stopping once we loop back to it.
 
 
 ## Container Methods

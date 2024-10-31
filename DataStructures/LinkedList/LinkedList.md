@@ -53,6 +53,10 @@ The fundamental characteristic of linked lists is that elements are not stored i
 The true power of linked lists lies in their **dynamic structure**, which allows them to expand or contract as nodes are added or removed, without the limitations of fixed memory allocation. Operations such as insertion and deletion are achieved by updating pointers and performing corresponding memory actions only for involved nodes, without modifying the entire linked list. This approach enables efficient insertion and deletion at any known and accessible position in constant time $O(1)$. However, reaching an arbitrary position, as mentioned earlier, requires linear time $O(n)$.
 <p align="center"><img src="./Images/DynamicStructure.png"/></p>
 
+---
+Since linked lists are designed with these sequential access and dynamic structure features, they are allocated on the heap to request memory as needed at runtime, enabling dynamic changes. Therefore, it’s important to remember that heap memory allocation is slower than stack allocation due to the overhead of managing individual memory requests, which can impact performance.
+
+
 
 ## Existing Solutions
 Quite often in computer science, there is ambiguity between definitions, as the term data structure typically refers to the abstract organization of data, focusing on logical operations such as insertion, deletion, and traversal. However, in practical applications, these data structures are implemented as containers, which not only provide these operations but also manage underlying performance and memory constraints.
