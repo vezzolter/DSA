@@ -71,10 +71,11 @@ When working with static array, it's important to note that there is no universa
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
 - `size()` — returns the number of elements in the container; basically distance from begin to end.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
 
 ---
-**Operations:**
-- `assign()` — assigns the given value to the elements.
+**Modifiers:**
+- `assign()` — assigns the given value to the elements; any previous values will be replaced; invalidates any references, pointers, and iterators referring to contained elements.
 - `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
 
 

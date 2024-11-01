@@ -34,8 +34,9 @@
 
 
 ## Container Methods
-Currently in Progress...
+When working with a circular linked list, it’s important to note that there is no universal standard defining its operations or implementation guidelines. The design and functionality of a circular linked list container can vary based on factors like programming language, library goals, and performance needs. Although circular linked lists are not natively available in the C++ Standard Library, they can be adapted from `std::forward_list` or `std::list`. Additionally, Boost provides an existing circular data structure, `boost::circular_buffer`, which may meet similar needs.
 
+Circular linked list operations are mostly similar to those of [singly](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md#-overview) or [doubly](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md#-overview) linked lists, but with one key difference: the last node links back to the first, forming a continuous loop with no `nullptr` at the end. This circular structure removes the need for a `nullptr` check at the list's end, meaning traversal or modification operations that typically stop at the last node will continue looping to the head. To avoid infinite loops, implementations often track the starting node or count traversed elements, stopping once all nodes have been visited. In cases requiring multiple iterations over the list, careful control of the iteration process is essential to prevent unintended cycling.
 
 
 # &#x1F4BB; Implementation 
