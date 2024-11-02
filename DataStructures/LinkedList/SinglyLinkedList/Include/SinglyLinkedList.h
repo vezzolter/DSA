@@ -1,24 +1,27 @@
-// Header file for simplified ADT: Singly Linked List
-// by vezzolter
-// February 3, 2024
+// Title:   Header file for Singly Linked List
+// Authors: by vezzolter
+// Date:    February 3, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef SLL_H
 #define SLL_H
 
 
-template<class T>
+#include "SLLIterator.h"
+
+
 class SLL {
 private:
 	struct Node {
 	public:
-		T _data;
+		int _data;
 		Node* _next;
 
-		// Special Member Functions
-		Node(const T& newData, Node* nextNode = nullptr)
-			: _data(newData), _next(nextNode) {}
-		Node()                           = default;
-		Node(const Node& rhs)            = delete;
+		Node(const int& data, Node* node = nullptr)
+			: _data(data), _next(node) {}
+		Node() = default;
+		Node(const Node& rhs) = delete;
 		Node& operator=(const Node& rhs) = delete;
 	};
 
@@ -26,32 +29,37 @@ private:
 	Node* _head;
 
 public:
-	// Special Member Functions
+	// Compiler Generated
 	SLL();
-	// SLL(const std::initializer_list<T>& initList); remove due to init list
+	// SLL(const std::initializer_list<T>& list); // external dependencies
 	SLL(const SLL& rhs);
+	SLL(const SLL&& rhs) = delete;
 	SLL& operator=(const SLL& rhs);
+	SLL& operator=(const SLL&& rhs) = delete;
 	~SLL();
 
+	// Iterators
+	//using iterator = SLLIterator;
+
 	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
+	int& front();
+	const int& front() const;
 
 	// Capacity 
 	bool empty() const;
 	int size() const;
+	//long long maxSize() const;
 
 	// Modifiers
-	void clear();
-	void insertAfter(const int index, const T& newData);
-	void eraseAfter(const int index);
-	void pushFront(const T& newData);
+	void insertAfter(const int pos, const int& data);
+	void eraseAfter(const int pos);
+	void pushFront(const int& data);
 	void popFront();
+	void assign();
+	void clear();
+	void resize();
+	void swap();
 };
 
 
-#include "SinglyLinkedList.cpp"
-
-#endif
+#endif // SLL_H

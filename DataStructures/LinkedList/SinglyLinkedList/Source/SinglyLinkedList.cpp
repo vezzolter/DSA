@@ -1,28 +1,21 @@
-// Source file for simplified ADT: Singly Linked List
-// by vezzolter
-// February 3, 2024
+// Title:   Source file for Singly Linked List
+// Authors: by vezzolter
+// Date:    February 3, 2024
+// ----------------------------------------------------------------------------
 
-#ifndef SLL_CPP
-#define SLL_CPP
 
 #include "SinglyLinkedList.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// --------------------
+//  Compiler Generated
+// --------------------
 
 // Default Constructor
-template<typename T>
-SLL<T>::SLL() : _size(0), _head(nullptr) {}
-
-//// Parametrized constructor
-//template<class T>
-//SLL<T>::SLL(const std::initializer_list<T>& initList) { }
+SLL::SLL() : _size(0), _head(nullptr) {}
 
 // Deep copy constructor 
-template<class T>
-SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
+SLL::SLL(const SLL& rhs) : _size(rhs._size) {
 	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
@@ -45,8 +38,7 @@ SLL<T>::SLL(const SLL& rhs) : _size(rhs._size) {
 }
 
 // Deep copy assignment operator
-template<class T>
-SLL<T>& SLL<T>::operator=(const SLL& rhs) {
+SLL& SLL::operator=(const SLL& rhs) {
 	// Self-assignment guard
 	if (this == &rhs)
 		return *this;
@@ -63,7 +55,7 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 	}
 
 	// Create corresponding first node
-	_head = new Node<T>(rhs._head->_data);
+	_head = new Node(rhs._head->_data);
 
 	// Initialize traversal pointers
 	Node* currentRhs = rhs._head->_next;
@@ -71,7 +63,7 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 
 	// Copy other nodes
 	while (currentRhs) {
-		current->_next = new Node<T>(currentRhs->_data);
+		current->_next = new Node(currentRhs->_data);
 		current = current->_next;
 		currentRhs = currentRhs->_next;
 	}
@@ -83,114 +75,58 @@ SLL<T>& SLL<T>::operator=(const SLL& rhs) {
 }
 
 // Destructor
-template<typename T>
-SLL<T>::~SLL() { clear(); }
+SLL::~SLL() { clear(); }
 
 
+// -----------
+//  Iterators
+// -----------
 
-// --------------
-// Element Access
-// --------------
+// Description
+// SLLIterator begin() {
+// 
+// }
 
-// Accesses the element at the specified index, no range check, allows modification
-template<class T>
-T& SLL<T>::operator[](const int index) {
-	// Initialize traversal variables
-	int counter = 0;
-	Node* current = _head;
 
-	while (current != nullptr) {
-		// Return value of matched node
-		if (counter == index) {
-			return current->_data;
-		}
-		// Otherwise keep traversing
-		current = current->_next;
-		counter++;
-	}
-}
-
-// Accesses the element at the specified index, no range check, denies modification
-template<class T>
-const T& SLL<T>::operator[](const int index) const {
-	// TODO: range check
-
-	// Initialize traversal variables
-	int counter = 0;
-	Node* current = _head;
-
-	while (current != nullptr) {
-		// Return value of matched node
-		if (counter == index) {
-			return current->_data;
-		}
-		// Otherwise keep traversing
-		current = current->_next;
-		counter++;
-	}
-}
+// ----------------
+//  Element Access
+// ----------------
 
 // Accesses the first element in the container, no range check, allows modification
-template<class T>
-T& SLL<T>::front() { return _head->_data; }
+int& SLL::front() { return _head->_data; }
 
 // Accesses the first element in the container, no range check, denies modification
-template<class T>
-const T& SLL<T>::front() const { return _head->_data; }
+const int& SLL::front() const { return _head->_data; }
 
 
-
-// --------
-// Capacity
-// --------
+// ----------
+//  Capacity
+// ----------
 
 // Checks if the container has no elements
-template<class T>
-bool SLL<T>::empty() const { return _size == 0; }
+bool SLL::empty() const { return _size == 0; }
 
 // Returns the number of elements in the container
-template<typename T>
-int SLL<T>::size() const { return _size; }
+int SLL::size() const { return _size; }
 
 
-
-// ---------
-// Modifiers
-// ---------
-
-// Erases all elements from the container
-template<typename T>
-void SLL<T>::clear() {
-	// Case: empty list
-	if (!_head)
-		return;
-
-	// Traverse the list and deallocate memory for each node
-	while (_head) {
-		Node* current = _head;
-		_head = _head->_next;
-		delete current;
-	}
-
-	// Update the state of list
-	_size = 0;
-	_head = nullptr;
-}
+// -----------
+//  Modifiers
+// -----------
 
 // Inserts elements after the specified position in the container
 // Note: with no bounds check, assumes that index is correct
-template<class T>
-void SLL<T>::insertAfter(const int index, const T& newData) {
-	if (index == 0) {
-		pushFront(newData);
+void SLL::insertAfter(const int pos, const int& data) {
+	if (pos == 0) {
+		pushFront(data);
 	}
 	else {
 		// Create a new node with the given data
-		Node* newNode = new Node(newData);
+		Node* newNode = new Node(data);
 
 		// Find the node at the specified index
 		Node* current = _head;
-		for (int i = 0; i < index - 1; i++) {
+		for (int i = 0; i < pos - 1; i++) {
 			current = current->_next;
 		}
 
@@ -205,15 +141,14 @@ void SLL<T>::insertAfter(const int index, const T& newData) {
 
 // Removes an element at the specified position
 // Note: with no bounds check, assumes that index is correct
-template<class T>
-void SLL<T>::eraseAfter(const int index) {
-	if (index == 0) {
+void SLL::eraseAfter(const int pos) {
+	if (pos == 0) {
 		popFront();
 	}
 	else {
 		// Traverse to the node before the node to be erased
 		Node* current = _head;
-		for (int i = 0; i < index; ++i) {
+		for (int i = 0; i < pos; ++i) {
 			current = current->_next;
 		}
 
@@ -228,10 +163,9 @@ void SLL<T>::eraseAfter(const int index) {
 }
 
 // Prepends the given element value to the beginning of the container
-template<typename T>
-void SLL<T>::pushFront(const T& newData) {
+void SLL::pushFront(const int& data) {
 	// Create a new node with the given data
-	Node* newNode = new Node(newData);
+	Node* newNode = new Node(data);
 
 	// Case: empty list
 	if (_size == 0) {
@@ -249,8 +183,7 @@ void SLL<T>::pushFront(const T& newData) {
 
 // Removes the first element of the container
 // Note: with no bounds check, assumes that list contains at least 1 element
-template<class T>
-void SLL<T>::popFront() {
+void SLL::popFront() {
 	// TODO: range check
 
 	// Case: one element
@@ -268,5 +201,35 @@ void SLL<T>::popFront() {
 	--_size;
 }
 
+// Description
+void assign() {
 
-#endif
+}
+
+// Erases all elements from the container
+void SLL::clear() {
+	// Case: empty list
+	if (!_head)
+		return;
+
+	// Traverse the list and deallocate memory for each node
+	while (_head) {
+		Node* current = _head;
+		_head = _head->_next;
+		delete current;
+	}
+
+	// Update the state of list
+	_size = 0;
+	_head = nullptr;
+}
+
+// Description
+void resize() {
+
+}
+
+// Description
+void swap() {
+
+}
