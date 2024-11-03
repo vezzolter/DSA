@@ -31,6 +31,7 @@ private:
 public:
 	// Compiler Generated
 	SLL();
+	SLL(int size, int val);
 	// SLL(const std::initializer_list<T>& list); // external dependencies
 	SLL(const SLL& rhs);
 	SLL(const SLL&& rhs) = delete;

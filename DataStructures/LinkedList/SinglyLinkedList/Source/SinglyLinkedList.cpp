@@ -11,11 +11,18 @@
 //  Compiler Generated
 // --------------------
 
-// Default Constructor
+// Initializes an empty list
 SLL::SLL() : _size(0), _head(nullptr) {}
 
-// Deep copy constructor 
-SLL::SLL(const SLL& rhs) : _size(rhs._size) {
+// Description
+SLL::SLL(int size, int val)
+	: _size(size) {
+	// Implementation
+}
+
+// Initializes list with data by deep copying it from another one
+SLL::SLL(const SLL& rhs) 
+	: _size(rhs._size) {
 	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
@@ -37,18 +44,16 @@ SLL::SLL(const SLL& rhs) : _size(rhs._size) {
 	}
 }
 
-// Deep copy assignment operator
+// Assigns list with data by deep copying it from another one
 SLL& SLL::operator=(const SLL& rhs) {
-	// Self-assignment guard
-	if (this == &rhs)
-		return *this;
-
-	// Ensure that the destination list doesn't retain any of its existing elements
+	// Prepare: check for self-assignment and deallocate any old memory
+	if (this == &rhs) { return *this; }
 	clear();
+	
 	// Set corresponding size
 	_size = rhs._size;
 
-	// Case: empty list
+	// Case: empty container
 	if (rhs._head == nullptr) {
 		_head = nullptr;
 		return *this;
@@ -92,10 +97,10 @@ SLL::~SLL() { clear(); }
 //  Element Access
 // ----------------
 
-// Accesses the first element in the container, no range check, allows modification
+// Returns a modifiable reference to the first element
 int& SLL::front() { return _head->_data; }
 
-// Accesses the first element in the container, no range check, denies modification
+// Returns a non-modifiable reference to the first element
 const int& SLL::front() const { return _head->_data; }
 
 
@@ -103,10 +108,10 @@ const int& SLL::front() const { return _head->_data; }
 //  Capacity
 // ----------
 
-// Checks if the container has no elements
+// Returns true if list has no elements
 bool SLL::empty() const { return _size == 0; }
 
-// Returns the number of elements in the container
+// Returns the number of stored elements (nodes)
 int SLL::size() const { return _size; }
 
 
@@ -114,13 +119,11 @@ int SLL::size() const { return _size; }
 //  Modifiers
 // -----------
 
-// Inserts elements after the specified position in the container
-// Note: with no bounds check, assumes that index is correct
+// Description
 void SLL::insertAfter(const int pos, const int& data) {
 	if (pos == 0) {
 		pushFront(data);
-	}
-	else {
+	} else {
 		// Create a new node with the given data
 		Node* newNode = new Node(data);
 
@@ -139,13 +142,11 @@ void SLL::insertAfter(const int pos, const int& data) {
 	}
 }
 
-// Removes an element at the specified position
-// Note: with no bounds check, assumes that index is correct
+// Description
 void SLL::eraseAfter(const int pos) {
 	if (pos == 0) {
 		popFront();
-	}
-	else {
+	} else {
 		// Traverse to the node before the node to be erased
 		Node* current = _head;
 		for (int i = 0; i < pos; ++i) {
@@ -162,16 +163,15 @@ void SLL::eraseAfter(const int pos) {
 	}
 }
 
-// Prepends the given element value to the beginning of the container
+// Description
 void SLL::pushFront(const int& data) {
 	// Create a new node with the given data
 	Node* newNode = new Node(data);
 
-	// Case: empty list
+	// Case: empty container
 	if (_size == 0) {
 		_head = newNode;
-	}
-	else {
+	} else {
 		// Push front
 		newNode->_next = _head;
 		_head = newNode;
@@ -181,11 +181,8 @@ void SLL::pushFront(const int& data) {
 	++_size;
 }
 
-// Removes the first element of the container
-// Note: with no bounds check, assumes that list contains at least 1 element
+// Description
 void SLL::popFront() {
-	// TODO: range check
-
 	// Case: one element
 	if (_size == 1) {
 		clear();
@@ -206,11 +203,10 @@ void assign() {
 
 }
 
-// Erases all elements from the container
+// Description
 void SLL::clear() {
-	// Case: empty list
-	if (!_head)
-		return;
+	// Case: empty container
+	if (!_head) { return; }
 
 	// Traverse the list and deallocate memory for each node
 	while (_head) {
