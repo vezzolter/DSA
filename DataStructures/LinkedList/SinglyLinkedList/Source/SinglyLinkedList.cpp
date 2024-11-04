@@ -14,33 +14,45 @@
 // Initializes an empty list
 SLL::SLL() : _size(0), _head(nullptr) {}
 
-// Description
-SLL::SLL(int size, int val)
-	: _size(size) {
-	// Implementation
+// Initializes lsit with given size and all elements with one value
+SLL::SLL(int size, int data)
+	: _size(size), _head(nullptr) {
+	// Case: wrong size
+	if (size <= 0) {
+		_size = 0;
+		return;
+	}
+
+	// Create head node
+	_head = new Node(data);
+
+	// Create rest of nodes
+	Node* curr = _head;
+	for (int i = 1; i < size; ++i) {
+		curr->_next = new Node(data);
+		curr = curr->_next;
+	}
 }
 
 // Initializes list with data by deep copying it from another one
-SLL::SLL(const SLL& rhs) 
-	: _size(rhs._size) {
-	// Case: empty list
-	if (rhs._head == nullptr) {
+SLL::SLL(const SLL& src) 
+	: _size(src._size) {
+	// Case: empty container
+	if (src._head == nullptr) {
 		_head = nullptr;
 		return;
 	}
 
-	// Create corresponding first node
-	_head = new Node(rhs._head->_data);
+	// Copy head node
+	_head = new Node(src._head->_data);
 
-	// Initialize traversal pointers
-	Node* currentRhs = rhs._head->_next;
+	// Copy rest of nodes
+	Node* currSrc = src._head->_next;
 	Node* current = _head;
-
-	// Copy other nodes
-	while (currentRhs) {
-		current->_next = new Node(currentRhs->_data);
+	for ( ; currSrc; ) {
+		current->_next = new Node(currSrc->_data);
 		current = current->_next;
-		currentRhs = currentRhs->_next;
+		currSrc = currSrc->_next;
 	}
 }
 
@@ -59,22 +71,17 @@ SLL& SLL::operator=(const SLL& rhs) {
 		return *this;
 	}
 
-	// Create corresponding first node
+	// Copy head node
 	_head = new Node(rhs._head->_data);
 
-	// Initialize traversal pointers
+	// Copy rest of nodes
 	Node* currentRhs = rhs._head->_next;
 	Node* current = _head;
-
-	// Copy other nodes
 	while (currentRhs) {
 		current->_next = new Node(currentRhs->_data);
 		current = current->_next;
 		currentRhs = currentRhs->_next;
 	}
-
-	// Maintain the proper reference to the head
-	_head = current;
 
 	return *this;
 }
@@ -119,48 +126,39 @@ int SLL::size() const { return _size; }
 //  Modifiers
 // -----------
 
-// Description
+// Inserts a new node with given data after the specified position
 void SLL::insertAfter(const int pos, const int& data) {
-	if (pos == 0) {
-		pushFront(data);
-	} else {
-		// Create a new node with the given data
-		Node* newNode = new Node(data);
+	// Create a new node with the given data
+	Node* newNode = new Node(data);
 
-		// Find the node at the specified index
-		Node* current = _head;
-		for (int i = 0; i < pos - 1; i++) {
-			current = current->_next;
-		}
+	// Find the node at the specified index
+	Node* curr = _head;
+	for (int i = 0; i < pos; ++i) { curr = curr->_next; }
 
-		// Insert the new node after the current one
-		newNode->_next = current->_next;
-		current->_next = newNode;
+	// Insert the new node after the current one
+	newNode->_next = curr->_next;
+	curr->_next = newNode;
 
-		// Update the size
-		++_size;
-	}
+	// Reflect new element on size
+	++_size;
 }
 
-// Description
+// ----------------------------------------------------------------------------
+// Removes the node after the specified position
 void SLL::eraseAfter(const int pos) {
-	if (pos == 0) {
-		popFront();
-	} else {
-		// Traverse to the node before the node to be erased
-		Node* current = _head;
-		for (int i = 0; i < pos; ++i) {
-			current = current->_next;
-		}
+	// Traverse to the node before the node to be erased
+	Node* curr = _head;
+	for (int i = 0; i < pos; ++i) { curr = curr->_next; }
 
-		// Remove
-		Node* nodeToDelete = current->_next;
-		current->_next = nodeToDelete->_next;
+	// Remove node (if there is such)
+	if (curr != nullptr && curr->_next != nullptr) {
+		Node* nodeToDelete = curr->_next;
+		curr->_next = nodeToDelete->_next;
 		delete nodeToDelete;
-
-		// Update the size
-		--_size;
 	}
+
+	// Reflect removed element on size
+	--_size;
 }
 
 // Description
@@ -177,7 +175,7 @@ void SLL::pushFront(const int& data) {
 		_head = newNode;
 	}
 
-	// Update the size
+	// Reflect new element on size
 	++_size;
 }
 

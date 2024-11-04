@@ -33,8 +33,8 @@ public:
 	SLL();
 	SLL(int size, int val);
 	// SLL(const std::initializer_list<T>& list); // external dependencies
-	SLL(const SLL& rhs);
-	SLL(const SLL&& rhs) = delete;
+	SLL(const SLL& src);
+	SLL(const SLL&& src) = delete;
 	SLL& operator=(const SLL& rhs);
 	SLL& operator=(const SLL&& rhs) = delete;
 	~SLL();
@@ -49,7 +49,6 @@ public:
 	// Capacity 
 	bool empty() const;
 	int size() const;
-	//long long maxSize() const;
 
 	// Modifiers
 	void insertAfter(const int pos, const int& data);
