@@ -143,7 +143,6 @@ void SLL::insertAfter(const int pos, const int& data) {
 	++_size;
 }
 
-// ----------------------------------------------------------------------------
 // Removes the node after the specified position
 void SLL::eraseAfter(const int pos) {
 	// Traverse to the node before the node to be erased
@@ -161,29 +160,26 @@ void SLL::eraseAfter(const int pos) {
 	--_size;
 }
 
-// Description
+// Adds a new node with the given data at the front of the list
 void SLL::pushFront(const int& data) {
 	// Create a new node with the given data
 	Node* newNode = new Node(data);
 
-	// Case: empty container
-	if (_size == 0) {
-		_head = newNode;
-	} else {
-		// Push front
-		newNode->_next = _head;
-		_head = newNode;
-	}
+	// Push front
+	newNode->_next = _head;
+	_head = newNode;
 
 	// Reflect new element on size
 	++_size;
 }
 
-// Description
+// Removes the first node in the list
 void SLL::popFront() {
 	// Case: one element
 	if (_size == 1) {
-		clear();
+		delete _head;
+		_head = nullptr;
+		_size = 0;
 		return;
 	}
 
@@ -192,38 +188,96 @@ void SLL::popFront() {
 	_head = _head->_next;
 	delete temp;
 
-	// Update the size
+	// Reflect removed element on size
 	--_size;
 }
 
-// Description
-void assign() {
+// Assigns the specified data to all elements
+void SLL::assign(int size, const int& data) {
+	// Clear the existing list
+	clear();
 
+	// Add 'size' nodes with 'data'
+	for (int i = 0; i < size; ++i) {
+		pushFront(data);
+	}
 }
 
-// Description
+// Clears the list by deallocating all nodes
 void SLL::clear() {
-	// Case: empty container
-	if (!_head) { return; }
-
 	// Traverse the list and deallocate memory for each node
-	while (_head) {
-		Node* current = _head;
+	for (; _head; ) {
+		Node* curr = _head;
 		_head = _head->_next;
-		delete current;
+		delete curr;
 	}
 
-	// Update the state of list
+	// Reset the container to an empty state
 	_size = 0;
 	_head = nullptr;
 }
 
-// Description
-void resize() {
+// Resizes the list to the specified size, reallocating if necessary
+void SLL::resize(int size, const int& data = 0) {
+	// Case 1: new size is the same 
+	if (size == _size) { return; }
 
+	// Case 2: new size is smaller
+	if (size < _size) {
+
+		// Traverse to the new last node
+		Node* curr = _head;
+		for (int i = 1; i < size; ++i) { curr = curr->_next; }
+
+		// Delete excessive nodes
+		Node* toDelete = curr->_next;
+		curr->_next = nullptr; // detach the rest of the list
+
+		// Delete remaining nodes
+		for (; toDelete; ) {  
+			Node* temp = toDelete;
+			toDelete = toDelete->_next;
+			delete temp;
+		}
+	} else if (size > _size) {
+		// Case 3: new size is greater
+		
+		// Traverse to the last node (if list is not empty)
+		Node* curr = _head;
+		if (curr) {
+			for (; curr->_next; ) {
+				curr = curr->_next;
+			}
+		}
+
+		// Add new nodes until reaching new size
+		for (int i = _size; i < size; ++i) {
+			Node* newNode = new Node(data);
+			if (curr) {
+				curr->_next = newNode;
+			} else {
+				_head = newNode;  // for an initially empty list
+			}
+			curr = newNode;
+		}
+	}
+
+	// Update size to the new size
+	_size = size;
 }
 
-// Description
-void swap() {
+// Swaps the contents with another list
+void SLL::swap(SLL& src) {
+	// Case: the same container
+	if (this == &src) { return; }
 
+	// Swap the head pointers
+	Node* tempHead = _head;
+	_head = src._head;
+	src._head = tempHead;
+
+	// Swap the sizes
+	int tempSize = _size;
+	_size = src._size;
+	src._size = tempSize;
 }

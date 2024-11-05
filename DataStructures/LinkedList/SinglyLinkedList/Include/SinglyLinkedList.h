@@ -55,10 +55,10 @@ public:
 	void eraseAfter(const int pos);
 	void pushFront(const int& data);
 	void popFront();
-	void assign();
+	void assign(int size, const int& data);
 	void clear();
-	void resize();
-	void swap();
+	void resize(int size, const int& data = 0);
+	void swap(SLL& other);
 };
 
 
