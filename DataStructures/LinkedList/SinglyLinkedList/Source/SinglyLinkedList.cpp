@@ -94,10 +94,11 @@ SLL::~SLL() { clear(); }
 //  Iterators
 // -----------
 
-// Description
-// SLLIterator begin() {
-// 
-// }
+// Returns an iterator to the first element of the list
+ SLL::Iterator SLL::begin() { return iterator(_head); }
+
+ // Returns an iterator to one past the last element of the list
+ SLL::Iterator SLL::end() { return iterator(nullptr); }
 
 
 // ----------------
@@ -224,7 +225,6 @@ void SLL::resize(int size, const int& data = 0) {
 
 	// Case 2: new size is smaller
 	if (size < _size) {
-
 		// Traverse to the new last node
 		Node* curr = _head;
 		for (int i = 1; i < size; ++i) { curr = curr->_next; }
@@ -239,6 +239,7 @@ void SLL::resize(int size, const int& data = 0) {
 			toDelete = toDelete->_next;
 			delete temp;
 		}
+
 	} else if (size > _size) {
 		// Case 3: new size is greater
 		
