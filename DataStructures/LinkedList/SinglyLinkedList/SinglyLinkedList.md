@@ -4,8 +4,9 @@
 	- [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
-	- [Iterator Implementation](#iterator-implementation)
 	- [Container Implementation](#container-implementation)
+	- [Node Implementation](#node-implementation)
+	- [Iterator Implementation](#iterator-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -83,19 +84,109 @@ When working with singly linked list, it's important to note that there is no un
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the basic functionality of the singly linked list by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ##  Design Decisions
 Currently in Progress...
 
 
-##  Iterator Implementation
-Currently in Progress...
-
-
 ##  Container Implementation
-Currently in Progress...
+The container is implemented within the `SLL` class, which is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Include/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Source/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+
+```cpp
+class SLL {
+private:
+	struct Node;
+	int _size;
+	Node* _head;
+
+public:
+	// Compiler Generated
+	SLL();
+	SLL(int size, int val);
+	SLL(const SLL& src);
+	SLL(const SLL&& src) = delete;
+	SLL& operator=(const SLL& rhs);
+	SLL& operator=(const SLL&& rhs) = delete;
+	~SLL();
+
+	// Iterators
+	class Iterator;
+	using iterator = Iterator;
+	iterator begin();
+	iterator end();
+
+	// Element Access
+	int& front();
+	const int& front() const;
+
+	// Capacity 
+	bool empty() const;
+	int size() const;
+
+	// Modifiers
+	void insertAfter(const int pos, const int& data);
+	void eraseAfter(const int pos);
+	void pushFront(const int& data);
+	void popFront();
+	void assign(int size, const int& data);
+	void clear();
+	void resize(int size, const int& data = 0);
+	void swap(SLL& src);
+};
+```
+
+
+##  Node Implementation
+The `Node` structure is defined as a private nested structure within the `SLL` container. This design keeps `Node` as an internal component, accessible only within the container, and enhances encapsulation. Given the simplicity of the `Node` structure, its functions are defined inline within the container's header file.
+
+```cpp
+struct SLL::Node {
+public:
+	int _data;
+	Node* _next;
+
+	// Compiler Generated
+	Node()                            = default;
+	Node(const int& data, Node* next = nullptr) : _data(data), _next(next) {}
+	Node(const Node& src)             = delete;
+	Node& operator=(const Node& rhs)  = delete;
+	Node(const Node&& src)            = delete;
+	Node& operator=(const Node&& rhs) = delete;
+	~Node()                           = default;
+};
+```
+
+
+##  Iterator Implementation
+The `Iterator` class is defined as a public nested class within the `SLL` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
+
+```cpp
+class SLL::Iterator {
+private:
+	Node* _ptr = nullptr;
+
+public:
+	// Compiler Generated
+	Iterator()                               = default;
+	explicit Iterator(Node* ptr) : _ptr(ptr) {}
+	Iterator(const Iterator& src)            = default;
+	Iterator& operator=(const Iterator& rhs) = default;
+	Iterator(Iterator&& src)                 = default;
+	Iterator& operator=(Iterator&& rhs)      = default;
+	~Iterator()                              = default;
+
+	// Overloaded Operators
+	int& operator*();
+	Node* operator->();
+	Iterator& operator++();
+	Iterator operator++(int);
+	friend bool operator==(const Iterator& lhs, const Iterator& rhs);
+	friend bool operator!=(const Iterator& lhs, const Iterator& rhs);
+};
+```
 
 
 
