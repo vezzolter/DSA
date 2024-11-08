@@ -219,7 +219,7 @@ void SLL::clear() {
 }
 
 // Resizes the list to the specified size, reallocating if necessary
-void SLL::resize(int size, const int& data = 0) {
+void SLL::resize(int size, const int& data) {
 	// Case 1: new size is the same 
 	if (size == _size) { return; }
 
