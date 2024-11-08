@@ -39,20 +39,12 @@ When working with singly linked list, it's important to note that there is no un
 
 ---
 **Compiler Generated:**
-- **Default Constructor** — creates a new singly linked list with no nodes.
-- **Copy Constructor** — creates a new singly linked list by copying elements from another list.
-- **Move Constructor** — creates a new singly linked list by moving elements from another list, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Copy Assignment Operator** — overwrites every element of already existing singly linked list with the corresponding element of another list by copying them.
-- **Move Assignment Operator** — overwrites every element of already existing singly linked list with the corresponding element of another list by moving them, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Destructor** — performs end-actions on singly linked list: deallocates all nodes in the list, calling destructors for complex data types to ensure resources are cleaned up.
-
----
-- **Default Constructor** — creates a new singly linked list with no nodes.
-- **Copy Constructor** — creates a new singly linked list by copying elements from another list.
-- **Move Constructor** — creates a new singly linked list by moving elements from another list, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Copy Assignment Operator** — overwrites every element of already existing singly linked list with the corresponding element of another list by copying them.
-- **Move Assignment Operator** — overwrites every element of already existing singly linked list with the corresponding element of another list by moving them, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Destructor** — performs end-actions on singly linked list: deallocates all nodes in the list, calling destructors for complex data types to ensure resources are cleaned up.
+- `Default Constructor` — creates a new singly linked list with no nodes.
+- `Copy Constructor` — creates a new singly linked list by copying elements from another list.
+- `Move Constructor` — creates a new singly linked list by moving elements from another list, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- `Copy Assignment Operator` — overwrites every element of already existing singly linked list with the corresponding element of another list by copying them.
+- `Move Assignment Operator` — overwrites every element of already existing singly linked list with the corresponding element of another list by moving them, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- `Destructor` — performs end-actions on singly linked list: deallocates all nodes in the list, calling destructors for complex data types to ensure resources are cleaned up.
 
 ---
 **Iterators:**
@@ -89,7 +81,15 @@ The implemented console application demonstrates the basic functionality of the 
 
 
 ##  Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Resembling the behavior of `std::forward_list` to provide familiarity for users.
+- Restricting the implementation to the int data type to avoid the use of templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Relying on manual memory management without using smart pointers.
+- Implementing only regular iterator (no const).
+- Avoiding any exception handling, thus range checks.
+- Omitting certain optimizations to the container.
+- (still deciding on which functions to use: with regular int, with iterators, ot both)
 
 
 ##  Container Implementation
@@ -103,7 +103,9 @@ private:
 	Node* _head;
 
 public:
-	// Compiler Generated
+    // --------------------
+	//  Compiler Generated
+	// --------------------
 	SLL();
 	SLL(int size, int val);
 	SLL(const SLL& src);
@@ -112,21 +114,29 @@ public:
 	SLL& operator=(const SLL&& rhs) = delete;
 	~SLL();
 
-	// Iterators
+    // -----------
+	//  Iterators
+	// -----------
 	class Iterator;
 	using iterator = Iterator;
 	iterator begin();
 	iterator end();
 
-	// Element Access
+	// ----------------
+	//  Element Access
+	// ----------------
 	int& front();
 	const int& front() const;
 
-	// Capacity 
+	// ----------
+	//  Capacity
+	// ----------
 	bool empty() const;
 	int size() const;
 
-	// Modifiers
+	// -----------
+	//  Modifiers
+	// -----------
 	void insertAfter(const int pos, const int& data);
 	void eraseAfter(const int pos);
 	void pushFront(const int& data);
@@ -148,7 +158,9 @@ public:
 	int _data;
 	Node* _next;
 
-	// Compiler Generated
+    // --------------------
+	//  Compiler Generated
+	// --------------------
 	Node()                            = default;
 	Node(const int& data, Node* next = nullptr) : _data(data), _next(next) {}
 	Node(const Node& src)             = delete;
@@ -169,7 +181,9 @@ private:
 	Node* _ptr = nullptr;
 
 public:
-	// Compiler Generated
+    // --------------------
+	//  Compiler Generated
+	// --------------------
 	Iterator()                               = default;
 	explicit Iterator(Node* ptr) : _ptr(ptr) {}
 	Iterator(const Iterator& src)            = default;
@@ -178,13 +192,38 @@ public:
 	Iterator& operator=(Iterator&& rhs)      = default;
 	~Iterator()                              = default;
 
-	// Overloaded Operators
-	int& operator*();
-	Node* operator->();
-	Iterator& operator++();
-	Iterator operator++(int);
-	friend bool operator==(const Iterator& lhs, const Iterator& rhs);
-	friend bool operator!=(const Iterator& lhs, const Iterator& rhs);
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+	
+	// Returns a reference to the data of a node
+	int& operator*() { return _ptr->_data; }
+
+	// Returns a pointer to the entire node, allowing access to its members
+	Node* operator->() { return _ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	Iterator& operator++() {
+		_ptr = _ptr->_next;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	Iterator operator++(int) {
+		Iterator temp = *this;
+		_ptr = _ptr->_next;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const SLL::Iterator& lhs, const SLL::Iterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const SLL::Iterator& lhs, const SLL::Iterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
 };
 ```
 
