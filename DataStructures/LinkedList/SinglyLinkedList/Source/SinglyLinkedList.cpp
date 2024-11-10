@@ -100,6 +100,13 @@ SLL::~SLL() { clear(); }
  // Returns an iterator to one past the last element of the list
  SLL::Iterator SLL::end() { return iterator(nullptr); }
 
+ // Returns a const iterator to the first element of the list
+ SLL::ConstIterator SLL::cbegin() const { return const_iterator(_head); }
+
+ // Returns a const iterator to one past the last element of the list
+ SLL::ConstIterator SLL::cend() const { return const_iterator(nullptr); }
+
+
 
 // ----------------
 //  Element Access

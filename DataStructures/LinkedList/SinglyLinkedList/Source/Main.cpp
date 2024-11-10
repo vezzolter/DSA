@@ -8,8 +8,8 @@
 #include "SinglyLinkedList.h"
 
 
-void printList(SLL& list) {
-	for (auto it = list.begin(); it != list.end(); ++it) {
+void printList(const SLL& list) {
+	for (auto it = list.cbegin(); it != list.cend(); ++it) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;

@@ -21,7 +21,7 @@ public:
 	SLL();
 	SLL(int size, int val);
 	SLL(const SLL& src);
-	SLL(const SLL&& src) = delete;
+	SLL(const SLL&& src)            = delete;
 	SLL& operator=(const SLL& rhs);
 	SLL& operator=(const SLL&& rhs) = delete;
 	~SLL();
@@ -33,6 +33,10 @@ public:
 	using iterator = Iterator;
 	iterator begin();
 	iterator end();
+	class ConstIterator;
+	using const_iterator = ConstIterator;
+	const_iterator cbegin() const;
+	const_iterator cend() const;
 
 	// ----------------
 	//  Element Access
@@ -127,6 +131,58 @@ public:
 		return lhs._ptr != rhs._ptr;
 	}
 };
+
+
+class SLL::ConstIterator {
+private:
+	const Node* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	ConstIterator()                                    = default;
+	explicit ConstIterator(const Node* ptr) : _ptr(ptr) {}
+	ConstIterator(const ConstIterator& src)            = default;
+	ConstIterator& operator=(const ConstIterator& rhs) = default;
+	ConstIterator(ConstIterator&& src)                 = default;
+	ConstIterator& operator=(ConstIterator&& rhs)      = default;
+	~ConstIterator()                                   = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a const reference to the data of a node
+	const int& operator*() const { return _ptr->_data; }
+
+	// Returns a const pointer to the entire node, allowing access to its members
+	const Node* operator->() const { return _ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	ConstIterator& operator++() {
+		_ptr = _ptr->_next;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	ConstIterator operator++(int) {
+		ConstIterator temp = *this;
+		_ptr = _ptr->_next;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const SLL::ConstIterator& lhs, const SLL::ConstIterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const SLL::ConstIterator& lhs, const SLL::ConstIterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
+
 
 
 #endif // SLL_H
