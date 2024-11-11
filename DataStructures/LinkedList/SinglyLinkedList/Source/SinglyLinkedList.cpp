@@ -35,7 +35,7 @@ SLL::SLL(int size, int data)
 }
 
 // Initializes list with data by deep copying it from another one
-SLL::SLL(const SLL& src) 
+SLL::SLL(const SLL& src)
 	: _size(src._size) {
 	// Case: empty container
 	if (src._head == nullptr) {
@@ -49,7 +49,7 @@ SLL::SLL(const SLL& src)
 	// Copy rest of nodes
 	Node* currSrc = src._head->_next;
 	Node* current = _head;
-	for ( ; currSrc; ) {
+	for (; currSrc; ) {
 		current->_next = new Node(currSrc->_data);
 		current = current->_next;
 		currSrc = currSrc->_next;
@@ -61,7 +61,7 @@ SLL& SLL::operator=(const SLL& rhs) {
 	// Prepare: check for self-assignment and deallocate any old memory
 	if (this == &rhs) { return *this; }
 	clear();
-	
+
 	// Set corresponding size
 	_size = rhs._size;
 
@@ -95,16 +95,16 @@ SLL::~SLL() { clear(); }
 // -----------
 
 // Returns an iterator to the first element of the list
- SLL::Iterator SLL::begin() { return iterator(_head); }
+SLL::Iterator SLL::begin() { return iterator(_head); }
 
- // Returns an iterator to one past the last element of the list
- SLL::Iterator SLL::end() { return iterator(nullptr); }
+// Returns an iterator to one past the last element of the list
+SLL::Iterator SLL::end() { return iterator(nullptr); }
 
- // Returns a const iterator to the first element of the list
- SLL::ConstIterator SLL::cbegin() const { return const_iterator(_head); }
+// Returns a const iterator to the first element of the list
+SLL::ConstIterator SLL::cbegin() const { return const_iterator(_head); }
 
- // Returns a const iterator to one past the last element of the list
- SLL::ConstIterator SLL::cend() const { return const_iterator(nullptr); }
+// Returns a const iterator to one past the last element of the list
+SLL::ConstIterator SLL::cend() const { return const_iterator(nullptr); }
 
 
 
@@ -135,13 +135,15 @@ int SLL::size() const { return _size; }
 // -----------
 
 // Inserts a new node with given data after the specified position
-void SLL::insertAfter(const int pos, const int& data) {
+void SLL::insertAfter(iterator pos, const int& data) {
+	// Case: wrong iterator
+	if (pos == this->end()) { return; }
+
 	// Create a new node with the given data
 	Node* newNode = new Node(data);
 
-	// Find the node at the specified index
-	Node* curr = _head;
-	for (int i = 0; i < pos; ++i) { curr = curr->_next; }
+	// Get the given node
+	Node* curr = pos.operator->();
 
 	// Insert the new node after the current one
 	newNode->_next = curr->_next;
@@ -152,13 +154,15 @@ void SLL::insertAfter(const int pos, const int& data) {
 }
 
 // Removes the node after the specified position
-void SLL::eraseAfter(const int pos) {
-	// Traverse to the node before the node to be erased
-	Node* curr = _head;
-	for (int i = 0; i < pos; ++i) { curr = curr->_next; }
+void SLL::eraseAfter(iterator pos) {
+	// Case: wrong iterator
+	if (pos == this->end()) { return; }
 
-	// Remove node (if there is such)
-	if (curr != nullptr && curr->_next != nullptr) {
+	// Get the given node
+	Node* curr = pos.operator->();
+
+	// Remove node (if there is one after the current)
+	if (curr && curr->_next) {
 		Node* nodeToDelete = curr->_next;
 		curr->_next = nodeToDelete->_next;
 		delete nodeToDelete;
@@ -167,6 +171,7 @@ void SLL::eraseAfter(const int pos) {
 	// Reflect removed element on size
 	--_size;
 }
+
 
 // Adds a new node with the given data at the front of the list
 void SLL::pushFront(const int& data) {
@@ -200,15 +205,54 @@ void SLL::popFront() {
 	--_size;
 }
 
+// Reverses the order of the elements in the container
+void SLL::reverse() {
+	// Preliminaries
+	Node* prev = nullptr;
+	Node* curr = _head;
+	Node* next = nullptr;
+
+	for (; curr; ) {
+		// Store the next node
+		next = curr->_next;
+
+		// Reverse the current node's pointer
+		curr->_next = prev;
+
+		// Move pointers one position ahead
+		prev = curr;
+		curr = next;
+	}
+
+	// Update the head to point to the new front of the list
+	_head = prev;
+}
+
 // Assigns the specified data to all elements
 void SLL::assign(int size, const int& data) {
-	// Clear the existing list
+	// Clear the existing contents
 	clear();
 
 	// Add 'size' nodes with 'data'
 	for (int i = 0; i < size; ++i) {
 		pushFront(data);
 	}
+
+	// no need for reverse(), since data is the same
+}
+
+// Assigns elements in the range 
+void SLL::assign(const_iterator first, const_iterator last) {
+	// Clear existing contents
+	clear();
+
+	// Add each element from the iterator range
+	for (auto it = first; it != last; ++it) {
+		pushFront(*it);
+	}
+
+	// Reverse the list to preserve the order
+	reverse();
 }
 
 // Clears the list by deallocating all nodes
@@ -241,7 +285,7 @@ void SLL::resize(int size, const int& data) {
 		curr->_next = nullptr; // detach the rest of the list
 
 		// Delete remaining nodes
-		for (; toDelete; ) {  
+		for (; toDelete; ) {
 			Node* temp = toDelete;
 			toDelete = toDelete->_next;
 			delete temp;
@@ -249,7 +293,7 @@ void SLL::resize(int size, const int& data) {
 
 	} else if (size > _size) {
 		// Case 3: new size is greater
-		
+
 		// Traverse to the last node (if list is not empty)
 		Node* curr = _head;
 		if (curr) {
@@ -263,7 +307,8 @@ void SLL::resize(int size, const int& data) {
 			Node* newNode = new Node(data);
 			if (curr) {
 				curr->_next = newNode;
-			} else {
+			}
+			else {
 				_head = newNode;  // for an initially empty list
 			}
 			curr = newNode;

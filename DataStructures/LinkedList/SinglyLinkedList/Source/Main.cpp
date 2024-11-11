@@ -5,6 +5,7 @@
 
 
 #include <iostream>
+#include <forward_list>
 #include "SinglyLinkedList.h"
 
 
@@ -21,59 +22,70 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
-	std::cout << " -> SLL list1:\t\t";
-	SLL list1;
-	for (int i = 9; i >= 0; --i) { list1.pushFront(i); }
-	printList(list1);
-	std::cout << " -> SLL list2(list1):\t";
-	SLL list2(list1);
-	printList(list2);
-	std::cout << " -> SLL list3 = list1:\t";
-	SLL list3 = list1;
-	printList(list3);
+	std::cout << " -> SLL l1:\t\t\t\t";
+	SLL l1;
+	for (int i = 9; i >= 0; --i) { l1.pushFront(i); }
+	printList(l1);
+	std::cout << " -> SLL l2(l1):\t\t\t\t";
+	SLL l2(l1);
+	printList(l2);
+	std::cout << " -> SLL l3 = l1:\t\t\t";
+	SLL l3 = l1;
+	printList(l3);
 	std::cout << std::endl;
+
+	// Helper Iterators
+	SLL::iterator it = l1.begin();
+	SLL::iterator last = it;
+	for (; it != l1.end(); ++it) { last = it; }
 
 	// Element Access
 	std::cout << "Element Access:\n";
-	std::cout << " -> list1.front():\t" << list1.front() << std::endl;
+	std::cout << " -> l1.front():\t\t\t\t" << l1.front() << std::endl;
 	std::cout << std::endl;
 
 	// Capacity
 	std::cout << "Capacity:\n";
-	std::cout << " -> list1.empty():\t" << list1.empty() << std::endl;
-	std::cout << " -> list1.size(): \t" << list1.size() << std::endl;
+	std::cout << " -> l1.empty():\t\t\t\t" << l1.empty() << std::endl;
+	std::cout << " -> l1.size(): \t\t\t\t" << l1.size() << std::endl;
 	std::cout << std::endl;
 
 	// Modifiers
 	std::cout << "Modifiers:\n";
-	std::cout << " -> list1.insertAfter(9, 3): \t";
-	list1.insertAfter(9, 3);
-	printList(list1);
-	std::cout << " -> list1.eraseAfter(9): \t";
-	list1.eraseAfter(9);
-	printList(list1);
-	std::cout << " -> list1.pushFront(3): \t";
-	list1.pushFront(3);
-	printList(list1);
-	std::cout << " -> list1.popFront(): \t\t";
-	list1.popFront();
-	printList(list1);
-	std::cout << " -> list1.assign(9, 3): \t";
-	list1.assign(9, 3);
-	printList(list1);
-	std::cout << " -> list1.clear(): \t\t";
-	list1.clear();
-	printList(list1);
-	std::cout << " -> list1.resize(9, 5): \t";
-	list1.resize(9, 5);
-	printList(list1);
-	std::cout << " -> list1.swap(arr2): \t\t";
-	list1.swap(list2);
-	printList(list1);
-	std::cout << "   - list2:\t\t\t";
-	printList(list2);
-	std::cout << "   - list3:\t\t\t";
-	printList(list3);
+	std::cout << " -> l1.insertAfter(itrTo9, 3):  \t";
+	l1.insertAfter(last, 3);
+	printList(l1);
+	std::cout << " -> l1.eraseAfter(itrTo9): \t\t";
+	l1.eraseAfter(last);
+	printList(l1);
+	std::cout << " -> l1.pushFront(3): \t\t\t";
+	l1.pushFront(3);
+	printList(l1);
+	std::cout << " -> l1.popFront(): \t\t\t";
+	l1.popFront();
+	printList(l1);
+	std::cout << " -> l1.reverse(): \t\t\t";
+	l1.reverse();
+	printList(l1);
+	std::cout << " -> l1.assign(5, 3): \t\t\t";
+	l1.assign(5, 3);
+	printList(l1);
+	std::cout << " -> l1.assign(l2.cbegin(), l2.cend()):  ";
+	l1.assign(l2.cbegin(), l3.cend());
+	printList(l1);
+	std::cout << " -> l1.clear(): \t\t\t";
+	l1.clear();
+	printList(l1);
+	std::cout << " -> l1.resize(10, 5): \t\t\t";
+	l1.resize(10, 5);
+	printList(l1);
+	std::cout << " -> l1.swap(l2): \t\t\t";
+	l1.swap(l2);
+	printList(l1);
+	std::cout << "   - l2:\t\t\t\t";
+	printList(l2);
+	std::cout << "   - l3:\t\t\t\t";
+	printList(l3);
 	std::cout << std::endl;
 
 	// Exit

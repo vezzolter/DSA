@@ -53,11 +53,13 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insertAfter(const int pos, const int& data);
-	void eraseAfter(const int pos);
+	void insertAfter(iterator pos, const int& data);
+	void eraseAfter(iterator pos);
 	void pushFront(const int& data);
 	void popFront();
+	void reverse();
 	void assign(int size, const int& data);
+	void assign(const_iterator first, const_iterator last);
 	void clear();
 	void resize(int size, const int& data);
 	void swap(SLL& src);
