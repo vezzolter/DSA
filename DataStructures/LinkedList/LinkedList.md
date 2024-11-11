@@ -77,7 +77,7 @@ You may notice, however, that the STL does not provide built-in support for circ
 
 ## Repository Containers
 Understanding the design principles and core mechanics of linked list data structure is essential for deeper insight into their efficiency and performance. The following implementations provide simplified versions of singly, doubly, and circular linked lists showcasing key aspects of their design and operation.
-- [Singly Linked List](https://github.com/vezzolter/DSA/tree/split-list//DataStructures/LinkedList/SinglyLinkedList) 🎯
+- [Singly Linked List](https://github.com/vezzolter/DSA/tree/split-list//DataStructures/LinkedList/SinglyLinkedList) ✅
 - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/split-list/DataStructures/LinkedList/DoublyLinkedList) 🎯
 - [Circular Linked List](https://github.com/vezzolter/DSA/tree/split-list/DataStructures/LinkedList/CircularLinkedList) 🎯
 

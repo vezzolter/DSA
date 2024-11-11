@@ -83,13 +83,12 @@ The implemented console application demonstrates the basic functionality of the 
 ##  Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::forward_list` to provide familiarity for users.
-- Restricting the implementation to the int data type to avoid the use of templates.
+- Restricting the implementation to the `int` data type to avoid the use of templates.
 - Omitting cases where the container (object itself) is created on the heap.
 - Relying on manual memory management without using smart pointers.
-- Implementing only regular iterator (no const).
-- Avoiding any exception handling, thus range checks.
+- Implementing both regular and const iterators.
+- Avoiding any exception handling, thus certain range validations.
 - Omitting certain optimizations to the container.
-- (still deciding on which functions to use: with regular int, with iterators, ot both)
 
 
 ##  Container Implementation
@@ -103,24 +102,28 @@ private:
 	Node* _head;
 
 public:
-    // --------------------
+	// --------------------
 	//  Compiler Generated
 	// --------------------
 	SLL();
 	SLL(int size, int val);
 	SLL(const SLL& src);
-	SLL(const SLL&& src) = delete;
+	SLL(const SLL&& src)            = delete;
 	SLL& operator=(const SLL& rhs);
 	SLL& operator=(const SLL&& rhs) = delete;
 	~SLL();
 
-    // -----------
+	// -----------
 	//  Iterators
 	// -----------
 	class Iterator;
 	using iterator = Iterator;
 	iterator begin();
 	iterator end();
+	class ConstIterator;
+	using const_iterator = ConstIterator;
+	const_iterator cbegin() const;
+	const_iterator cend() const;
 
 	// ----------------
 	//  Element Access
@@ -137,13 +140,15 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insertAfter(const int pos, const int& data);
-	void eraseAfter(const int pos);
+	void insertAfter(iterator pos, const int& data);
+	void eraseAfter(iterator pos);
 	void pushFront(const int& data);
 	void popFront();
+	void reverse();
 	void assign(int size, const int& data);
+	void assign(const_iterator first, const_iterator last);
 	void clear();
-	void resize(int size, const int& data = 0);
+	void resize(int size, const int& data);
 	void swap(SLL& src);
 };
 ```
@@ -172,7 +177,7 @@ public:
 ```
 
 
-##  Iterator Implementation
+##  Iterators Implementation
 The `Iterator` class is defined as a public nested class within the `SLL` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
@@ -222,6 +227,59 @@ public:
 
 	// Returns true if two iterators point to different elements
 	friend bool operator!=(const SLL::Iterator& lhs, const SLL::Iterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
+```
+---
+The `ConstIterator` class is defined as a public nested class within the `SLL` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+```cpp
+class SLL::ConstIterator {
+private:
+	const Node* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	ConstIterator()                                    = default;
+	explicit ConstIterator(const Node* ptr) : _ptr(ptr) {}
+	ConstIterator(const ConstIterator& src)            = default;
+	ConstIterator& operator=(const ConstIterator& rhs) = default;
+	ConstIterator(ConstIterator&& src)                 = default;
+	ConstIterator& operator=(ConstIterator&& rhs)      = default;
+	~ConstIterator()                                   = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a const reference to the data of a node
+	const int& operator*() const { return _ptr->_data; }
+
+	// Returns a const pointer to the entire node, allowing access to its members
+	const Node* operator->() const { return _ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	ConstIterator& operator++() {
+		_ptr = _ptr->_next;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	ConstIterator operator++(int) {
+		ConstIterator temp = *this;
+		_ptr = _ptr->_next;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const SLL::ConstIterator& lhs, const SLL::ConstIterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const SLL::ConstIterator& lhs, const SLL::ConstIterator& rhs) {
 		return lhs._ptr != rhs._ptr;
 	}
 };
