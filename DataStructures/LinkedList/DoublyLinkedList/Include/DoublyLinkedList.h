@@ -1,66 +1,85 @@
-// Header file for simplified ADT: Doubly Linked List
-// by vezzolter
-// February 13, 2024
+// Title:   Header file for Doubly Linked List
+// Authors: by vezzolter
+// Date:    February 13, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef DLL_H
 #define DLL_H
 
 
-template<class T>
 class DLL {
 private:
-	struct Node {
-	public:
-		T _data;
-		Node* _next;
-		Node* _prev;
-
-		// Special Member Functions
-		Node(const T& newData, Node* nextNode = nullptr, Node* prevNode = nullptr)
-			: _data(newData), _next(nextNode), _prev(prevNode) {}
-		Node()                           = default;
-		Node(const Node& rhs)            = delete;
-		Node& operator=(const Node& rhs) = delete;
-	};
-
+	struct Node;
 	int _size;
 	Node* _head;
 	Node* _tail;
 
-	// Facilitator method
-	Node* getStartingNode(int index) const;
+	// Facilitator methods
+	Node* getStartingNode(int pos) const;
 
 public:
-	// Special Member Functions
+	// --------------------
+	//  Compiler Generated
+	// --------------------
 	DLL();
-	// DLL(const std::initializer_list<T>& initList); remove due to init list
-	DLL(const DLL& rhs);
+	//DLL(int size, int val);
+	DLL(const DLL& other);
+	DLL(const DLL&& other)          = delete;
 	DLL& operator=(const DLL& rhs);
+	DLL& operator=(const DLL&& rhs) = delete;
 	~DLL();
 
-	// Element Access
-	T& operator[](const int index);
-	const T& operator[](const int index) const;
-	T& front();
-	const T& front() const;
-	T& back();
-	const T& back() const;
+	// ----------------
+	//  Element Access
+	// ----------------
+	int& front();
+	const int& front() const;
+	int& back();
+	const int& back() const;
 
-	// Capacity 
+	// ----------
+	//  Capacity
+	// ----------
 	bool empty() const;
 	int size() const;
 
-	// Modifiers
-	void clear();
-	void insert(const int index, const T& newData);
-	void erase(const int index);
-	void pushFront(const T& newData);
+	// -----------
+	//  Modifiers
+	// -----------
+	void insert(const int pos, const int& data);
+	void erase(const int pos);
+	void pushFront(const int& data);
 	void popFront();
-	void pushBack(const T& newData);
+	void pushBack(const int& data);
 	void popBack();
+	//void reverse();
+	//void assign(int size, const int& data);
+	//void assign(const_iterator first, const_iterator last);
+	void clear();
+	//void resize(int size, const int& data);
+	//void swap(DLL& other);
 };
 
 
-#include "DoublyLinkedList.cpp"
+struct DLL::Node {
+public:
+	int _data;
+	Node* _next;
+	Node* _prev;
 
-#endif
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Node()                              = default;
+	Node(const int& data, Node* next = nullptr, Node* prev = nullptr)
+		: _data(data), _next(next), _prev(prev) {}
+	Node(const Node& other)             = delete;
+	Node(const Node&& other)            = delete;
+	Node& operator=(const Node& rhs)    = delete;
+	Node& operator=(const Node&& rhs)   = delete;
+	~Node()                             = default;
+};
+
+
+#endif // DLL_H
