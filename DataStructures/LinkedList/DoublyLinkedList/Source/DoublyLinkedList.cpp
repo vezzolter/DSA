@@ -7,32 +7,6 @@
 #include "DoublyLinkedList.h"
 
 
-// ------------------
-// Facilitator Method
-// ------------------
-
-// Determines whether to start traversal from the head or tail
-DLL::Node* DLL::getStartingNode(int pos) const {
-	Node* startingNode;
-	int distanceFromHead = pos;
-	int distanceFromTail = _size - pos - 1;
-
-	if (distanceFromHead <= distanceFromTail) {
-		startingNode = _head;
-		for (int i = 0; i < pos; ++i) {
-			startingNode = startingNode->_next;
-		}
-	} else {
-		startingNode = _tail;
-		for (int i = _size - 1; i > pos; --i) {
-			startingNode = startingNode->_prev;
-		}
-	}
-
-	return startingNode;
-}
-
-
 // --------------------
 //  Compiler Generated
 // --------------------
@@ -130,6 +104,23 @@ DLL& DLL::operator=(const DLL& rhs) {
 DLL::~DLL() { clear(); }
 
 
+// -----------
+//  Iterators
+// -----------
+
+// Returns an iterator to the first element of the list
+DLL::Iterator DLL::begin() { return iterator(_head); }
+
+// Returns an iterator to one past the last element of the list
+DLL::Iterator DLL::end() { return iterator(nullptr); }
+
+// Returns a const iterator to the first element of the list
+DLL::ConstIterator DLL::cbegin() const { return const_iterator(_head); }
+
+// Returns a const iterator to one past the last element of the list
+DLL::ConstIterator DLL::cend() const { return const_iterator(nullptr); }
+
+
 // ----------------
 //  Element Access
 // ----------------
@@ -163,41 +154,38 @@ int DLL::size() const { return _size; }
 // -----------
 
 // Inserts a copy of 'data' before 'pos'
-void DLL::insert(const int pos, const int& data) {
-	if (pos == 0) {
-		pushFront(data);
-	} else if (pos == _size - 1) {
-		pushBack(data);
-	} else {
-		// Insert new node at specified position
-		Node* prevNode = getStartingNode(pos - 1);
-		Node* newNode = new Node(data);
-		newNode->_next = prevNode->_next;
-		newNode->_prev = prevNode;
-		prevNode->_next = newNode;
+void DLL::insert(iterator pos, const int& data) {
+	Node* nextNode = pos.operator->();
+	Node* prevNode = nextNode->_prev;
 
-		// Reflect new element on size
-		++_size;
-	}
+	// Create the new node
+	Node* newNode = new Node(data);
+	newNode->_next = nextNode;
+	newNode->_prev = prevNode;
+
+	// Update pointers
+	if (prevNode) { prevNode->_next = newNode; }
+	if (nextNode) { nextNode->_prev = newNode; }
+
+	// Reflect new element on size
+	++_size;
 }
 
 // Removes the element at 'pos'
-void DLL::erase(const int pos) {
-	if (pos == 0) {
-		popFront();
-	} else if (pos == _size - 1) {
-		popBack();
-	} else {
-		// Remove specified node
-		Node* prevNode = getStartingNode(pos - 1);
-		Node* nodeToErase = prevNode->_next;
-		prevNode->_next = nodeToErase->_next;
-		nodeToErase->_next->_prev = prevNode;
-		delete nodeToErase;
+void DLL::erase(iterator pos) {
+	Node* nodeToErase = pos.operator->();  // Node to remove
+	Node* prevNode = nodeToErase->_prev;   // Node before pos
+	Node* nextNode = nodeToErase->_next;   // Node after pos
 
-		// Reflect removed element on size
-		--_size;
-	}
+	// Update pointers to bypass nodeToErase
+	if (prevNode) { prevNode->_next = nextNode; }
+	if (nextNode) { nextNode->_prev = prevNode; }
+
+	// Delete the specified node
+	delete nodeToErase;
+
+	// Reflect removed element on size
+	--_size;
 }
 
 // Prepends the given 'data' to the beginning of the list
@@ -309,7 +297,15 @@ void DLL::assign(int size, const int& data) {
 }
 
 // Replaces the contents with copies of those in the range [first, last)
-//void DLLL::assign(const_iterator first, const_iterator last);
+void DLL::assign(const_iterator first, const_iterator last) {
+	// Clear existing contents
+	clear();
+
+	// Add each element from the iterator range
+	for (auto it = first; it != last; ++it) {
+		pushBack(*it);
+	}
+}
 
 // Erases all elements from the list
 void DLL::clear() {
@@ -359,6 +355,7 @@ void DLL::resize(int size, const int& data) {
 			_head = new Node(data);
 			curr = _head;
 			_tail = _head;
+			--size; // adjust to account first node
 		}
 
 		// Add new nodes until reaching new size

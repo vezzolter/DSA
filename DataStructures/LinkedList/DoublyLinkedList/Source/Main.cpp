@@ -9,6 +9,9 @@
 
 
 void printList(const DLL& list) {
+	for (auto it = list.cbegin(); it != list.cend(); ++it) {
+		std::cout << *it << " ";
+	}
 	std::cout << std::endl;
 }
 
@@ -31,9 +34,9 @@ int main() {
 	std::cout << std::endl;
 
 	// Helper Iterators
-	//DLL::iterator it = l1.begin();
-	//DLL::iterator last = it;
-	//for (; it != l1.end(); ++it) { last = it; }
+	DLL::iterator it = l1.begin();
+	DLL::iterator last = it;
+	for (; it != l1.end(); ++it) { last = it; }
 
 	// Element Access
 	std::cout << "Element Access:\n";
@@ -49,12 +52,12 @@ int main() {
 
 	// Modifiers
 	std::cout << "Modifiers:\n";
-	//std::cout << " -> l1.insert(itrTo9, 3):  \t";
-	//l1.insert(last, 3);
-	//printList(l1);
-	//std::cout << " -> l1.erase(itrTo9): \t\t";
-	//l1.erase(last);
-	//printList(l1);
+	std::cout << " -> l1.insert(itrTo9, 3):  \t\t";
+	l1.insert(last, 3);
+	printList(l1);
+	std::cout << " -> l1.erase(--itrTo9): \t\t";
+	l1.erase(--last);
+	printList(l1);
 	std::cout << " -> l1.pushFront(3): \t\t\t";
 	l1.pushFront(3);
 	printList(l1);
@@ -73,9 +76,9 @@ int main() {
 	std::cout << " -> l1.assign(5, 3): \t\t\t";
 	l1.assign(5, 3);
 	printList(l1);
-	//std::cout << " -> l1.assign(l2.cbegin(), l2.cend()):  ";
-	//l1.assign(l2.cbegin(), l3.cend());
-	//printList(l1);
+	std::cout << " -> l1.assign(l2.cbegin(), l2.cend()):  ";
+	l1.assign(l2.cbegin(), l3.cend());
+	printList(l1);
 	std::cout << " -> l1.clear(): \t\t\t";
 	l1.clear();
 	printList(l1);
