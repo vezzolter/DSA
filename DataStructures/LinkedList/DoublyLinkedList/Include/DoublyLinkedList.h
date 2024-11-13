@@ -23,7 +23,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	DLL();
-	//DLL(int size, int val);
+	DLL(int size, int data);
 	DLL(const DLL& other);
 	DLL(const DLL&& other)          = delete;
 	DLL& operator=(const DLL& rhs);
@@ -53,12 +53,12 @@ public:
 	void popFront();
 	void pushBack(const int& data);
 	void popBack();
-	//void reverse();
-	//void assign(int size, const int& data);
+	void reverse();
+	void assign(int size, const int& data);
 	//void assign(const_iterator first, const_iterator last);
 	void clear();
-	//void resize(int size, const int& data);
-	//void swap(DLL& other);
+	void resize(int size, const int& data);
+	void swap(DLL& other);
 };
 
 

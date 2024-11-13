@@ -40,14 +40,31 @@ DLL::Node* DLL::getStartingNode(int pos) const {
 // Constructs an empty list
 DLL::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 
-// Constructs a list with 'size' copies of elements with 'data'
-//DLL::DLL(int size, int val);
+// Constructs a list with 'size' copies of elements with 'data' value
+DLL::DLL(int size, int data) :
+	_size(size), _head(nullptr), _tail(nullptr) {
+	// Create the head node
+	_head = new Node(data);
+
+	// Create rest of the nodes
+	Node* curr = _head;
+	for (int i = 1; i < size; ++i) {
+		Node* newNode = new Node(data);
+		curr->_next = newNode;
+		newNode->_prev = curr;
+		curr = newNode;
+	}
+
+	// Set tail to the last created node
+	_tail = curr;
+
+}
 
 // Constructs a list with the contents of 'other'
 DLL::DLL(const DLL& other) 
 	: _size(other._size) {
 	// Case: empty list
-	if (other._head == nullptr) {
+	if (!other._head) {
 		_head = _tail = nullptr;
 		return;
 	}
@@ -159,7 +176,7 @@ void DLL::insert(const int pos, const int& data) {
 		newNode->_prev = prevNode;
 		prevNode->_next = newNode;
 
-		// Update the size
+		// Reflect new element on size
 		++_size;
 	}
 }
@@ -178,7 +195,7 @@ void DLL::erase(const int pos) {
 		nodeToErase->_next->_prev = prevNode;
 		delete nodeToErase;
 
-		// Update the size
+		// Reflect removed element on size
 		--_size;
 	}
 }
@@ -198,7 +215,7 @@ void DLL::pushFront(const int& data) {
 		_head = newNode;
 	}
 
-	// Update the size
+	// Reflect new element on size
 	++_size;
 }
 
@@ -216,7 +233,7 @@ void DLL::popFront() {
 	_head->_prev = nullptr;
 	delete temp;
 
-	// Update the size
+	// Reflect removed element on size
 	--_size;
 }
 
@@ -236,7 +253,7 @@ void DLL::pushBack(const int& data) {
 		_tail = newNode;
 	}
 
-	// Update the size
+	// Reflect new element on size
 	++_size;
 }
 
@@ -253,38 +270,130 @@ void DLL::popBack() {
 	delete _tail->_next;
 	_tail->_next = nullptr;
 
-	// Update the size
+	// Reflect removed element on size
 	--_size;
 }
 
 // Reverses the order of the elements in the list
-//void DLL::reverse();
+void DLL::reverse() {
+	// Case: empty list, single element
+	if (!_head || !_head->_next) { return; }
+	
+	// Preliminaries
+	Node* curr = _head;
+	Node* temp = nullptr;
+
+	for (; curr; ) {
+		// Swap prev and next via temp
+		temp = curr->_prev;
+		curr->_prev = curr->_next;
+		curr->_next = temp;
+
+		// Move iterating node ahead
+		curr = curr->_prev;
+	}
+
+	// Swap the head and tail pointers
+	temp = _head;
+	_head = _tail;
+	_tail = temp;
+}
 
 // Replaces the contents with 'size' copies of 'data'
-//void DLL::assign(int size, const int& data);
+void DLL::assign(int size, const int& data) {
+	// Clear the existing contents
+	clear();
+
+	// Add 'size' nodes with 'data'
+	for (int i = 0; i < size; ++i) { pushBack(data); }
+}
 
 // Replaces the contents with copies of those in the range [first, last)
 //void DLLL::assign(const_iterator first, const_iterator last);
 
 // Erases all elements from the list
 void DLL::clear() {
-	// Case: empty list
-	if (!_head) { return; }
-
 	// Traverse the list and deallocate memory for each node
-	while (_head) {
-		Node* current = _head;
+	for ( ; _head; ) {
+		Node* curr = _head;
 		_head = _head->_next;
-		delete current;
+		delete curr;
 	}
 
-	// Update the state
+	// Reset the list to an empty state
 	_size = 0;
 	_tail = _head = nullptr;
 }
 
 // Resizes the list to contain 'size' elements
-//void DLL::resize(int size, const int& data);
+void DLL::resize(int size, const int& data) {
+	// Case 1: new size is the same 
+	if (size == _size) { return; }
+
+	// Case 2: new size is smaller
+	if (size < _size) {
+		// Get the end
+		Node* curr = _head;
+		for (int i = 1; i < size; ++i) { curr = curr->_next; }
+
+		// Delete excessive nodes and upd ptr
+		Node* toDelete = curr->_next;
+		curr->_next = nullptr; // detach the rest of the list
+		_tail = curr; // upd end
+
+		// Delete remaining nodes
+		for (; toDelete; ) {
+			Node* temp = toDelete;
+			toDelete = toDelete->_next;
+			delete temp;
+		}
+
+	} else if (size > _size) {
+		// Case 3: new size is greater
+
+		// Get the end
+		Node* curr = _tail;
+
+		// Case: empty list
+		if (!curr) {
+			_head = new Node(data);
+			curr = _head;
+			_tail = _head;
+		}
+
+		// Add new nodes until reaching new size
+		for (int i = _size; i < size; ++i) {
+			Node* newNode = new Node(data);
+			curr->_next = newNode;
+			newNode->_prev = curr;
+			curr = newNode;
+		}
+
+		// Update the tail to the last added node
+		_tail = curr;
+	}
+
+	// Update size to the new size
+	_size = size;
+}
 
 // Exchanges the contents of the list with those of 'other'
-//void DLL::swap(DLL& other);
+void DLL::swap(DLL& other) {
+	// Case: the same list
+	if (this == &other) { return; }
+
+	// Swap the head pointers
+	Node* tempHead = _head;
+	_head = other._head;
+	other._head = tempHead;
+
+	// Swap the tail pointers
+	Node* tempTail = _tail;
+	_tail = other._tail;
+	other._tail = tempTail;
+
+	// Swap the sizes
+	int tempSize = _size;
+	_size = other._size;
+	other._size = tempSize;
+}

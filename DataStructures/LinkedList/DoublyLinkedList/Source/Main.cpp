@@ -9,7 +9,7 @@
 
 
 void printList(const DLL& list) {
-	// requires iterators implemented first
+	std::cout << std::endl;
 }
 
 int main() {
@@ -67,24 +67,24 @@ int main() {
 	std::cout << " -> l1.popBack(): \t\t\t";
 	l1.popBack();
 	printList(l1);
-	//std::cout << " -> l1.reverse(): \t\t\t";
-	//l1.reverse();
-	//printList(l1);
-	//std::cout << " -> l1.assign(5, 3): \t\t\t";
-	//l1.assign(5, 3);
-	//printList(l1);
+	std::cout << " -> l1.reverse(): \t\t\t";
+	l1.reverse();
+	printList(l1);
+	std::cout << " -> l1.assign(5, 3): \t\t\t";
+	l1.assign(5, 3);
+	printList(l1);
 	//std::cout << " -> l1.assign(l2.cbegin(), l2.cend()):  ";
 	//l1.assign(l2.cbegin(), l3.cend());
 	//printList(l1);
 	std::cout << " -> l1.clear(): \t\t\t";
 	l1.clear();
 	printList(l1);
-	//std::cout << " -> l1.resize(10, 5): \t\t\t";
-	//l1.resize(10, 5);
-	//printList(l1);
-	//std::cout << " -> l1.swap(l2): \t\t\t";
-	//l1.swap(l2);
-	//printList(l1);
+	std::cout << " -> l1.resize(10, 5): \t\t\t";
+	l1.resize(10, 5);
+	printList(l1);
+	std::cout << " -> l1.swap(l2): \t\t\t";
+	l1.swap(l2);
+	printList(l1);
 	std::cout << "   - l2:\t\t\t\t";
 	printList(l2);
 	std::cout << "   - l3:\t\t\t\t";
