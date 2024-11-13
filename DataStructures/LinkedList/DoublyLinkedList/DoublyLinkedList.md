@@ -4,8 +4,9 @@
 	- [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
-	- [Iterator Implementation](#iterator-implementation)
 	- [Container Implementation](#container-implementation)
+	- [Node Implementation](#node-implementation)
+	- [Iterators Implementation](#iterators-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -38,12 +39,12 @@ When working with doubly linked list, it's important to note that there is no un
 
 ---
 **Compiler Generated:**
-- **Default Constructor** — creates a new doubly linked list with no nodes.
-- **Copy Constructor** — creates a new doubly linked list by copying elements from another list.
-- **Move Constructor** — creates a new doubly linked list by moving elements from another list, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Copy Assignment Operator** — overwrites every element of already existing doubly linked list with the corresponding element of another list by copying them.
-- **Move Assignment Operator** — overwrites every element of already existing doubly linked list with the corresponding element of another list by moving them, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Destructor** — performs end-actions on doubly linked list: deallocates all nodes in the list, calling destructors for complex data types to ensure resources are cleaned up.
+- `Default Constructor` — creates a new doubly linked list with no nodes.
+- `Copy Constructor` — creates a new doubly linked list by copying elements from another list.
+- `Move Constructor` — creates a new doubly linked list by moving elements from another list, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- `Copy Assignment Operator` — overwrites every element of already existing doubly linked list with the corresponding element of another list by copying them.
+- `Move Assignment Operator` — overwrites every element of already existing doubly linked list with the corresponding element of another list by moving them, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- `Destructor` — performs end-actions on doubly linked list: deallocates all nodes in the list, calling destructors for complex data types to ensure resources are cleaned up.
 
 ---
 **Iterators:**
@@ -77,20 +78,238 @@ When working with doubly linked list, it's important to note that there is no un
 - `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
 
 
+
 # &#x1F4BB; Implementation 
+The implemented console application demonstrates the basic functionality of the doubly linked list by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
+
+
+## Design Decisions
 Currently in Progress...
 
 
-##  Design Decisions
-Currently in Progress...
+## Container Implementation
+The container is implemented within the `DLL` class, which is declared in [DoublyLinkedList.h](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/Include/DoublyLinkedList.h) header file and defined in [DoublyLinkedList.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/Source/DoublyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+
+```cpp
+class SLL {
+private:
+	struct Node;
+	int _size;
+	Node* _head;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	SLL();
+	SLL(int size, int val);
+	SLL(const SLL& src);
+	SLL(const SLL&& src)            = delete;
+	SLL& operator=(const SLL& rhs);
+	SLL& operator=(const SLL&& rhs) = delete;
+	~SLL();
+
+	// -----------
+	//  Iterators
+	// -----------
+	class Iterator;
+	using iterator = Iterator;
+	iterator begin();
+	iterator end();
+	class ConstIterator;
+	using const_iterator = ConstIterator;
+	const_iterator cbegin() const;
+	const_iterator cend() const;
+
+	// ----------------
+	//  Element Access
+	// ----------------
+	int& front();
+	const int& front() const;
+
+	// ----------
+	//  Capacity
+	// ----------
+	bool empty() const;
+	int size() const;
+
+	// -----------
+	//  Modifiers
+	// -----------
+	void insertAfter(iterator pos, const int& data);
+	void eraseAfter(iterator pos);
+	void pushFront(const int& data);
+	void popFront();
+	void reverse();
+	void assign(int size, const int& data);
+	void assign(const_iterator first, const_iterator last);
+	void clear();
+	void resize(int size, const int& data);
+	void swap(SLL& src);
+};
+```
+
+## Node Implementation
+The `Node` structure is defined as a private nested structure within the `DLL` container. This design keeps `Node` as an internal component, accessible only within the container, and enhances encapsulation. Given the simplicity of the `Node` structure, its functions are defined inline within the container's header file.
+
+```cpp
+struct DLL::Node {
+public:
+	int _data;
+	Node* _next;
+	Node* _prev;
+
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Node()                              = default;
+	Node(const int& data, Node* next = nullptr, Node* prev = nullptr)
+		: _data(data), _next(next), _prev(prev) {}
+	Node(const Node& other)             = delete;
+	Node(const Node&& other)            = delete;
+	Node& operator=(const Node& rhs)    = delete;
+	Node& operator=(const Node&& rhs)   = delete;
+	~Node()                             = default;
+};
+```
 
 
-##  Iterator Implementation
-Currently in Progress...
+## Iterators Implementation
+The `Iterator` class is defined as a public nested class within the `DLL` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
+```cpp
+class DLL::Iterator {
+private:
+	Node* _ptr = nullptr;
 
-##  Container Implementation
-Currently in Progress...
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Iterator()                                = default;
+	explicit Iterator(Node* ptr) : _ptr(ptr) {}
+	Iterator(const Iterator& other)           = default;
+	Iterator(Iterator&& other)                = default;
+	Iterator& operator=(const Iterator& rhs)  = default;
+	Iterator& operator=(Iterator&& rhs)       = default;
+	~Iterator()                               = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a reference to the data of a node
+	int& operator*() { return _ptr->_data; }
+
+	// Returns a pointer to the entire node, allowing access to its members
+	Node* operator->() { return _ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	Iterator& operator++() {
+		_ptr = _ptr->_next;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	Iterator operator++(int) {
+		Iterator temp = *this;
+		_ptr = _ptr->_next;
+		return temp;
+	}
+
+	// Moves the iterator to the previous element (pre-decrement)
+	Iterator& operator--() {
+		_ptr = _ptr->_prev;
+		return *this;
+	}
+
+	// Moves the iterator to the previous element, returning the previous state
+	Iterator operator--(int) {
+		Iterator temp = *this;
+		_ptr = _ptr->_prev;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const DLL::Iterator& lhs, const DLL::Iterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const DLL::Iterator& lhs, const DLL::Iterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
+```
+
+---
+The `ConstIterator` class is defined as a public nested class within the `DLL` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+
+```cpp
+class DLL::ConstIterator {
+private:
+	const Node* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	ConstIterator()                                     = default;
+	explicit ConstIterator(const Node* ptr) : _ptr(ptr) {}
+	ConstIterator(const ConstIterator& other)           = default;
+	ConstIterator(ConstIterator&& other)                = default;
+	ConstIterator& operator=(const ConstIterator& rhs)  = default;
+	ConstIterator& operator=(ConstIterator&& rhs)       = default;
+	~ConstIterator()                                    = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a const reference to the data of a node
+	const int& operator*() const { return _ptr->_data; }
+
+	// Returns a const pointer to the entire node, allowing access to its members
+	const Node* operator->() const { return _ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	ConstIterator& operator++() {
+		_ptr = _ptr->_next;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	ConstIterator operator++(int) {
+		ConstIterator temp = *this;
+		_ptr = _ptr->_next;
+		return temp;
+	}
+
+	// Moves the iterator to the previous element (pre-decrement)
+	ConstIterator& operator--() {
+		_ptr = _ptr->_prev;
+		return *this;
+	}
+
+	// Moves the iterator to the previous element, returning the previous state
+	ConstIterator operator--(int) {
+		ConstIterator temp = *this;
+		_ptr = _ptr->_prev;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const DLL::ConstIterator& lhs, const DLL::ConstIterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const DLL::ConstIterator& lhs, const DLL::ConstIterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
+```
 
 
 
