@@ -326,15 +326,43 @@ public:
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
 ## Characteristics
-Currently in Progress...
+🚀 **Time Complexities:**  
+- **Access:**
+   - **Beginning** $O(1)$ — because operation only requires accessing the head node.
+   - **Middle** $O(n)$ — because there is no direct access to elements, therefore operation requires traversal from the head or tail, whichever is closer.
+   - **End** $O(1)$ — because operation only requires accessing the tail node.
+- **Insertion:**
+   - **Beginning** $O(1)$ — because operation requires only updating the head pointer and setting the previous pointer of the new node.
+   - **Middle** $O(n)$ — because operation requires traversing to the desired position before updating pointers.
+   - **End** $O(1)$ — because operation requires only updating the tail pointer and setting the previous pointer of the new node.
+- **Deletion:**
+   - **Beginning** $O(1)$ — because operation requires updating only the head pointer and the previous pointer of the next node.
+   - **Middle** $O(n)$ — because operation requires traversing to that position, though pointer adjustments are constant time.
+   - **End** $O(1)$ — direct access to the last node using the tail pointer simplifies deletion.
+- **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
+
+---
+🧠 **Space Expenses:**
+- **Pointer Overhead** — each node contains two pointers to the previous and to the next element.
+- **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, potentially causing fragmentation and reducing cache efficiency.
 
 
 ## Trade-Offs
-Currently in Progress...
+➕ **Advantages:**
+- **Efficient Operations at Both Ends** — doubly linked lists support efficient insertions and deletions at the head and tail. This is because these operations require only updating a few pointers without shifting elements or traversing the entire list.
+- **Flexible Size** — doubly linked lists can dynamically grow or shrink as needed without reallocating the entire structure, which also efficient in scenarios where the data size is unknown beforehand.
+- **No Wasted Capacity** — doubly linked lists do not preallocate extra memory beyond what is needed for their elements, preventing unused space.
+
+---
+➖ **Disadvantages:**
+- **Slow Access** — doubly linked lists require sequential traversal to access elements that are not on the ends. This negatively impacts performance, because each access involves moving through nodes step-by-step instead of allowing direct access.
+- **Extra Memory for Pointers** — each node stores two pointers, doubling memory usage for pointers compared to singly linked lists.
+- **Poor Cache Performance** — doubly linked lists are less cache-friendly, as each node may be stored at a different memory location. This non-localized storage disrupts cache line utilization, leading to more frequent cache misses and reduced performance, especially for large lists.
+- **More Complex Operations** — doubly linked lists are more complex due to the need to maintain both previous and next pointers for each node. This increases the chance for errors in pointer updates, making certain operations more error-prone and potentially harder to debug.
 
 
 
