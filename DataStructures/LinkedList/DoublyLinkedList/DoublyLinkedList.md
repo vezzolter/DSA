@@ -85,30 +85,38 @@ The implemented console application demonstrates the basic functionality of the 
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Resembling the behavior of `std::list` to provide familiarity for users.
+- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Relying on manual memory management without using smart pointers.
+- Implementing both regular and const iterators.
+- Avoiding any exception handling, thus certain range validations.
+- Omitting certain optimizations to the container.
 
 
 ## Container Implementation
 The container is implemented within the `DLL` class, which is declared in [DoublyLinkedList.h](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/Include/DoublyLinkedList.h) header file and defined in [DoublyLinkedList.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/Source/DoublyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
-class SLL {
+class DLL {
 private:
 	struct Node;
 	int _size;
 	Node* _head;
+	Node* _tail;
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-	SLL();
-	SLL(int size, int val);
-	SLL(const SLL& src);
-	SLL(const SLL&& src)            = delete;
-	SLL& operator=(const SLL& rhs);
-	SLL& operator=(const SLL&& rhs) = delete;
-	~SLL();
+	DLL();
+	DLL(int size, int data);
+	DLL(const DLL& other);
+	DLL(DLL&& other)          = delete;
+	DLL& operator=(const DLL& rhs);
+	DLL& operator=(DLL&& rhs) = delete;
+	~DLL();
 
 	// -----------
 	//  Iterators
@@ -127,6 +135,8 @@ public:
 	// ----------------
 	int& front();
 	const int& front() const;
+	int& back();
+	const int& back() const;
 
 	// ----------
 	//  Capacity
@@ -137,16 +147,18 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insertAfter(iterator pos, const int& data);
-	void eraseAfter(iterator pos);
+	void insert(iterator pos, const int& data);
+	void erase(iterator pos);
 	void pushFront(const int& data);
 	void popFront();
+	void pushBack(const int& data);
+	void popBack();
 	void reverse();
 	void assign(int size, const int& data);
 	void assign(const_iterator first, const_iterator last);
 	void clear();
 	void resize(int size, const int& data);
-	void swap(SLL& src);
+	void swap(DLL& other);
 };
 ```
 
@@ -163,14 +175,14 @@ public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-	Node()                              = default;
+	Node() : _data(0), _next(nullptr), _prev(nullptr) {}
 	Node(const int& data, Node* next = nullptr, Node* prev = nullptr)
 		: _data(data), _next(next), _prev(prev) {}
-	Node(const Node& other)             = delete;
-	Node(const Node&& other)            = delete;
-	Node& operator=(const Node& rhs)    = delete;
-	Node& operator=(const Node&& rhs)   = delete;
-	~Node()                             = default;
+	Node(const Node& other)             = delete;  // no copying/moving to
+	Node(Node&& other)                  = delete;  // ensure uniqueness of 
+	Node& operator=(const Node& rhs)    = delete;  // the node within the list
+	Node& operator=(Node&& rhs)         = delete;  // and prevent accidental 
+	~Node()                             = default; // duplicates or dangling nodes
 };
 ```
 

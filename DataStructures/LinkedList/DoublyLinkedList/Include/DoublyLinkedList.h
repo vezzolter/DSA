@@ -22,9 +22,9 @@ public:
 	DLL();
 	DLL(int size, int data);
 	DLL(const DLL& other);
-	DLL(const DLL&& other)          = delete;
+	DLL(DLL&& other)          = delete;
 	DLL& operator=(const DLL& rhs);
-	DLL& operator=(const DLL&& rhs) = delete;
+	DLL& operator=(DLL&& rhs) = delete;
 	~DLL();
 
 	// -----------
@@ -80,14 +80,14 @@ public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-	Node()                              = default;
+	Node() : _data(0), _next(nullptr), _prev(nullptr) {}
 	Node(const int& data, Node* next = nullptr, Node* prev = nullptr)
 		: _data(data), _next(next), _prev(prev) {}
-	Node(const Node& other)             = delete;
-	Node(const Node&& other)            = delete;
-	Node& operator=(const Node& rhs)    = delete;
-	Node& operator=(const Node&& rhs)   = delete;
-	~Node()                             = default;
+	Node(const Node& other)             = delete;  // no copying/moving to
+	Node(Node&& other)                  = delete;  // ensure uniqueness of 
+	Node& operator=(const Node& rhs)    = delete;  // the node within the list
+	Node& operator=(Node&& rhs)         = delete;  // and prevent accidental 
+	~Node()                             = default; // duplicates or dangling nodes
 };
 
 class DLL::Iterator {
