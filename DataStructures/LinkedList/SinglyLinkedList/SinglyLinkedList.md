@@ -6,7 +6,7 @@
 	- [Design Decisions](#design-decisions)
 	- [Container Implementation](#container-implementation)
 	- [Node Implementation](#node-implementation)
-	- [Iterator Implementation](#iterator-implementation)
+	- [Iterators Implementation](#iterators-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -80,18 +80,20 @@ The implemented console application demonstrates the basic functionality of the 
 <p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
-##  Design Decisions
+## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::forward_list` to provide familiarity for users.
 - Restricting the implementation to the `int` data type to avoid the use of templates.
 - Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
 - Relying on manual memory management without using smart pointers.
 - Implementing both regular and const iterators.
 - Avoiding any exception handling, thus certain range validations.
 - Omitting certain optimizations to the container.
 
 
-##  Container Implementation
+
+## Container Implementation
 The container is implemented within the `SLL` class, which is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Include/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Source/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
@@ -106,11 +108,11 @@ public:
 	//  Compiler Generated
 	// --------------------
 	SLL();
-	SLL(int size, int val);
-	SLL(const SLL& src);
-	SLL(const SLL&& src)            = delete;
+	SLL(int size, int data);
+	SLL(const SLL& other);
+	SLL(SLL&& other)          = delete;
 	SLL& operator=(const SLL& rhs);
-	SLL& operator=(const SLL&& rhs) = delete;
+	SLL& operator=(SLL&& rhs) = delete;
 	~SLL();
 
 	// -----------
@@ -149,12 +151,12 @@ public:
 	void assign(const_iterator first, const_iterator last);
 	void clear();
 	void resize(int size, const int& data);
-	void swap(SLL& src);
+	void swap(SLL& other);
 };
 ```
 
 
-##  Node Implementation
+## Node Implementation
 The `Node` structure is defined as a private nested structure within the `SLL` container. This design keeps `Node` as an internal component, accessible only within the container, and enhances encapsulation. Given the simplicity of the `Node` structure, its functions are defined inline within the container's header file.
 
 ```cpp
@@ -163,21 +165,21 @@ public:
 	int _data;
 	Node* _next;
 
-    // --------------------
+	// --------------------
 	//  Compiler Generated
 	// --------------------
-	Node()                            = default;
+	Node() : _data(0), _next(nullptr) {}
 	Node(const int& data, Node* next = nullptr) : _data(data), _next(next) {}
-	Node(const Node& src)             = delete;
-	Node& operator=(const Node& rhs)  = delete;
-	Node(const Node&& src)            = delete;
-	Node& operator=(const Node&& rhs) = delete;
-	~Node()                           = default;
+	Node(const Node& other)          = delete; // no copying/moving to
+	Node(Node&& other)               = delete; // ensure uniqueness of 
+	Node& operator=(const Node& rhs) = delete; // the node within the list
+	Node& operator=(Node&& rhs)      = delete; // and prevent accidental 
+	~Node()                          = default; // duplicates or dangling nodes
 };
 ```
 
 
-##  Iterators Implementation
+## Iterators Implementation
 The `Iterator` class is defined as a public nested class within the `SLL` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
@@ -186,14 +188,14 @@ private:
 	Node* _ptr = nullptr;
 
 public:
-    // --------------------
+	// --------------------
 	//  Compiler Generated
 	// --------------------
 	Iterator()                               = default;
 	explicit Iterator(Node* ptr) : _ptr(ptr) {}
-	Iterator(const Iterator& src)            = default;
+	Iterator(const Iterator& other)          = default;
+	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
-	Iterator(Iterator&& src)                 = default;
 	Iterator& operator=(Iterator&& rhs)      = default;
 	~Iterator()                              = default;
 
@@ -244,10 +246,10 @@ public:
 	// --------------------
 	ConstIterator()                                    = default;
 	explicit ConstIterator(const Node* ptr) : _ptr(ptr) {}
-	ConstIterator(const ConstIterator& src)            = default;
+	ConstIterator(const ConstIterator& other)          = default;
+	ConstIterator(ConstIterator&& other)               = default;
 	ConstIterator& operator=(const ConstIterator& rhs) = default;
-	ConstIterator(ConstIterator&& src)                 = default;
-	ConstIterator& operator=(ConstIterator&& rhs)      = default;
+	ConstIterator& operator=(ConstIterator&& rhs)      = default; 
 	~ConstIterator()                                   = default;
 
 	// ----------------------
@@ -295,21 +297,21 @@ Understanding how to analyze the particular container is crucial for optimizing 
 🚀 **Time Complexities:** 
  - **Access:** 
     - **Beginning** $O(1)$ — because operation only requires accessing head node.
-    - **Middle** $O(n)$ — because there is no direct access to elements, therefore operation requires traversal from the head node.
+    - **Middle** $O(n)$ — because there is no direct access to elements, therefore operation requires traversal from the head node, though pointer adjustments are constant time.
    - **End** $O(n)$ — because there is no direct access to elements and no tail pointer, therefore operation requires traversal from the head node.
  - **Insertion:**
    - **Beginning** $O(1)$ — because operation requires just updating the head pointer to the new node.
-   - **Middle** $O(n)$ — because operation requires traversing to the desired position before updating pointers.
+   - **Middle** $O(n)$ — because operation requires traversing to the desired position before updating pointers, though pointer adjustments are constant time.
    - **End** $O(n)$ — because operation requires traversing to the desired position before updating pointers.
  - **Deletion:**
    - **Beginning** $O(1)$ — because operation only requires updating the head pointer.
-   - **Middle** $O(n)$ — because operation requires traversing to that position.
+   - **Middle** $O(n)$ — because operation requires traversing to that position, though pointer adjustments are constant time.
    - **End** $O(n)$ — because operation requires traversing to that position.
  - **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
 
 ---
 🧠 **Space Expenses:**
-- **Pointer Overhead** — each node stores an additional pointer to the next node, which consumes extra memory compared to contiguous data structures.
+- **Pointer Overhead** — each node stores an additional pointer to the next node.
 - **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, potentially causing fragmentation and reducing cache efficiency.
 
 

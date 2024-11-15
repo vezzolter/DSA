@@ -19,11 +19,11 @@ public:
 	//  Compiler Generated
 	// --------------------
 	SLL();
-	SLL(int size, int val);
-	SLL(const SLL& src);
-	SLL(const SLL&& src)            = delete;
+	SLL(int size, int data);
+	SLL(const SLL& other);
+	SLL(SLL&& other)          = delete;
 	SLL& operator=(const SLL& rhs);
-	SLL& operator=(const SLL&& rhs) = delete;
+	SLL& operator=(SLL&& rhs) = delete;
 	~SLL();
 
 	// -----------
@@ -62,7 +62,7 @@ public:
 	void assign(const_iterator first, const_iterator last);
 	void clear();
 	void resize(int size, const int& data);
-	void swap(SLL& src);
+	void swap(SLL& other);
 };
 
 
@@ -74,13 +74,13 @@ public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-	Node()                            = default;
+	Node() : _data(0), _next(nullptr) {}
 	Node(const int& data, Node* next = nullptr) : _data(data), _next(next) {}
-	Node(const Node& src)             = delete;
-	Node& operator=(const Node& rhs)  = delete;
-	Node(const Node&& src)            = delete;
-	Node& operator=(const Node&& rhs) = delete;
-	~Node()                           = default;
+	Node(const Node& other)          = delete; // no copying/moving to
+	Node(Node&& other)               = delete; // ensure uniqueness of 
+	Node& operator=(const Node& rhs) = delete; // the node within the list
+	Node& operator=(Node&& rhs)      = delete; // and prevent accidental 
+	~Node()                          = default; // duplicates or dangling nodes
 };
 
 
@@ -94,9 +94,9 @@ public:
 	// --------------------
 	Iterator()                               = default;
 	explicit Iterator(Node* ptr) : _ptr(ptr) {}
-	Iterator(const Iterator& src)            = default;
+	Iterator(const Iterator& other)          = default;
+	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
-	Iterator(Iterator&& src)                 = default;
 	Iterator& operator=(Iterator&& rhs)      = default;
 	~Iterator()                              = default;
 
@@ -145,11 +145,11 @@ public:
 	// --------------------
 	ConstIterator()                                    = default;
 	explicit ConstIterator(const Node* ptr) : _ptr(ptr) {}
-	ConstIterator(const ConstIterator& src)            = default;
+	ConstIterator(const ConstIterator& other)          = default;
+	ConstIterator(ConstIterator&& other)               = default;
 	ConstIterator& operator=(const ConstIterator& rhs) = default;
-	ConstIterator(ConstIterator&& src)                 = default;
 	ConstIterator& operator=(ConstIterator&& rhs)      = default;
-	~ConstIterator()                                   = default;
+	~ConstIterator()                                   = default; 
 
 	// ----------------------
 	//  Overloaded Operators
@@ -184,7 +184,6 @@ public:
 		return lhs._ptr != rhs._ptr;
 	}
 };
-
 
 
 #endif // SLL_H

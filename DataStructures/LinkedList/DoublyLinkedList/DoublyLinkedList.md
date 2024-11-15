@@ -89,6 +89,7 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 - Resembling the behavior of `std::list` to provide familiarity for users.
 - Restricting the implementation to the `int` data type to avoid the use of templates.
 - Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
 - Relying on manual memory management without using smart pointers.
 - Implementing both regular and const iterators.
 - Avoiding any exception handling, thus certain range validations.

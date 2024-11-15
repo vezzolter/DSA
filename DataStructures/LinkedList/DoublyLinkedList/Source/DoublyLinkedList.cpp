@@ -31,7 +31,6 @@ DLL::DLL(int size, int data) :
 
 	// Set tail to the last created node
 	_tail = curr;
-
 }
 
 // Constructs a list with the contents of 'other'
@@ -46,11 +45,9 @@ DLL::DLL(const DLL& other)
 	// Create corresponding first node
 	_head = new Node(other._head->_data);
 
-	// Initialize traversal pointers
+	// Copy rest of nodes
 	Node* currSrc = other._head->_next;
 	Node* curr = _head;
-
-	// Copy other nodes
 	while (currSrc) {
 		curr->_next = new Node(currSrc->_data);
 		curr->_next->_prev = curr;
@@ -64,10 +61,8 @@ DLL::DLL(const DLL& other)
 
 // Replaces the contents with a copy of the contents of 'rhs'
 DLL& DLL::operator=(const DLL& rhs) {
-	// Self-assignment guard
+	// // Prepare: check for self-assignment and deallocate any old memory
 	if (this == &rhs) { return *this; }
-
-	// Ensure that the destination list doesn't retain any of its existing elements
 	clear();
 
 	// Set corresponding size
@@ -79,29 +74,36 @@ DLL& DLL::operator=(const DLL& rhs) {
 		return *this;
 	}
 
-	// Create corresponding first node
+	// Copy head node
 	_head = new Node(rhs._head->_data);
 
-	// Initialize traversal pointers
+	// Copy rest of nodes
 	Node* currentRhs = rhs._head->_next;
-	Node* current = _head;
-
-	// Copy other nodes
+	Node* curr = _head;
 	for (; currentRhs; ) {
-		current->_next = new Node(currentRhs->_data);
-		current->_next->_prev = current;
-		current = current->_next;
+		curr->_next = new Node(currentRhs->_data);
+		curr->_next->_prev = curr;
+		curr = curr->_next;
 		currentRhs = currentRhs->_next;
 	}
 
 	// Maintain proper reference to the end
-	_tail = current;
+	_tail = curr;
 
 	return *this;
 }
 
 // Destructs the list
-DLL::~DLL() { clear(); }
+DLL::~DLL() {
+	Node* curr = _head;
+	for(; curr; ) {
+		Node* next = curr->_next;
+		delete curr;
+		curr = next;
+	}
+	_head = _tail = nullptr;
+	_size = 0;
+}
 
 
 // -----------
@@ -173,9 +175,12 @@ void DLL::insert(iterator pos, const int& data) {
 
 // Removes the element at 'pos'
 void DLL::erase(iterator pos) {
-	Node* nodeToErase = pos.operator->();  // Node to remove
-	Node* prevNode = nodeToErase->_prev;   // Node before pos
-	Node* nextNode = nodeToErase->_next;   // Node after pos
+	// Case: wrong iterator
+	if (pos == this->end()) { return; }
+
+	Node* nodeToErase = pos.operator->();
+	Node* prevNode = nodeToErase->_prev;
+	Node* nextNode = nodeToErase->_next;
 
 	// Update pointers to bypass nodeToErase
 	if (prevNode) { prevNode->_next = nextNode; }
@@ -209,9 +214,14 @@ void DLL::pushFront(const int& data) {
 
 // Removes the first element of the list
 void DLL::popFront() {
+	// Case: empty list
+	if (!_head) { return; }
+
 	// Case: one element
 	if (_size == 1) {
-		clear();
+		delete _head;
+		_head = _tail = nullptr; 
+		_size = 0;
 		return;
 	}
 
@@ -247,6 +257,9 @@ void DLL::pushBack(const int& data) {
 
 // Removes the last element of the list
 void DLL::popBack() {
+	// Case: empty list
+	if (!_head) { return; }
+
 	// Case: one element
 	if (_size == 1) {
 		clear();
@@ -298,17 +311,18 @@ void DLL::assign(int size, const int& data) {
 
 // Replaces the contents with copies of those in the range [first, last)
 void DLL::assign(const_iterator first, const_iterator last) {
-	// Clear existing contents
+	// Clear the existing contents
 	clear();
 
 	// Add each element from the iterator range
-	for (auto it = first; it != last; ++it) {
-		pushBack(*it);
-	}
+	for (auto it = first; it != last; ++it) { pushBack(*it); }
 }
 
 // Erases all elements from the list
 void DLL::clear() {
+	// Case: empty list
+	if (!_head) { return; }
+
 	// Traverse the list and deallocate memory for each node
 	for ( ; _head; ) {
 		Node* curr = _head;
