@@ -61,7 +61,7 @@ public:
 	void assign(int size, const int& data);
 	void assign(const_iterator first, const_iterator last);
 	void clear();
-	void resize(int size, const int& data);
+	void resize(int size, const int& data = 0);
 	void swap(SLL& other);
 };
 

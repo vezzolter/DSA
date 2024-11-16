@@ -75,9 +75,11 @@ int main() {
 	std::cout << " -> l1.clear(): \t\t\t";
 	l1.clear();
 	printList(l1);
-	std::cout << " -> l1.resize(10, 5): \t\t\t";
-	l1.resize(10, 5);
+	std::cout << " -> l1.resize(5): \t\t\t";
+	l1.resize(5);
 	printList(l1);
+	std::cout << " -> l1.resize(10, 3): \t\t\t";
+	l1.resize(10, 3);
 	std::cout << " -> l1.swap(l2): \t\t\t";
 	l1.swap(l2);
 	printList(l1);

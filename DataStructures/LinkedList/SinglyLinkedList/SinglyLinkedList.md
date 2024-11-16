@@ -92,7 +92,6 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 - Omitting certain optimizations to the container.
 
 
-
 ## Container Implementation
 The container is implemented within the `SLL` class, which is declared in [SinglyLinkedList.h](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Include/SinglyLinkedList.h) header file and defined in [SinglyLinkedList.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Source/SinglyLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
@@ -150,7 +149,7 @@ public:
 	void assign(int size, const int& data);
 	void assign(const_iterator first, const_iterator last);
 	void clear();
-	void resize(int size, const int& data);
+	void resize(int size, const int& data = 0);
 	void swap(SLL& other);
 };
 ```
