@@ -80,6 +80,7 @@ int main() {
 	printList(l1);
 	std::cout << " -> l1.resize(10, 3): \t\t\t";
 	l1.resize(10, 3);
+	printList(l1);
 	std::cout << " -> l1.swap(l2): \t\t\t";
 	l1.swap(l2);
 	printList(l1);

@@ -87,13 +87,14 @@ public:
 class CLL::Iterator {
 private:
 	Node* _ptr = nullptr;
+	Node* _head = nullptr; // to prevent infinite loops
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
 	Iterator()                               = default;
-	explicit Iterator(Node* ptr) : _ptr(ptr) {}
+	explicit Iterator(Node* ptr, Node* head) : _ptr(ptr), _head(head) {}
 	Iterator(const Iterator& other)          = default;
 	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
@@ -112,14 +113,18 @@ public:
 
 	// Advances the iterator to the next element (pre-increment)
 	Iterator& operator++() {
-		_ptr = _ptr->_next;
+		if (_ptr && _ptr->_next == _head) {
+			_ptr = nullptr; // end of traversal
+		} else {
+			_ptr = _ptr->_next; // move to the next node
+		}
 		return *this;
 	}
 
 	// Advances the iterator to the next element, returning the previous state
 	Iterator operator++(int) {
 		Iterator temp = *this;
-		_ptr = _ptr->_next;
+		++(*this); // end handling logic in pre-increment
 		return temp;
 	}
 
@@ -138,13 +143,14 @@ public:
 class CLL::ConstIterator {
 private:
 	const Node* _ptr = nullptr;
+	const Node* _head = nullptr; // to prevent infinite loops
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
 	ConstIterator()                                    = default;
-	explicit ConstIterator(const Node* ptr) : _ptr(ptr) {}
+	explicit ConstIterator(const Node* ptr, const Node* head) : _ptr(ptr), _head(head) {}
 	ConstIterator(const ConstIterator& other)          = default;
 	ConstIterator(ConstIterator&& other)               = default;
 	ConstIterator& operator=(const ConstIterator& rhs) = default;
@@ -163,14 +169,18 @@ public:
 
 	// Advances the iterator to the next element (pre-increment)
 	ConstIterator& operator++() {
-		_ptr = _ptr->_next;
+		if (_ptr && _ptr->_next == _head) {
+			_ptr = nullptr; // end of traversal
+		} else {
+			_ptr = _ptr->_next; // move to the next node
+		}
 		return *this;
 	}
 
 	// Advances the iterator to the next element, returning the previous state
 	ConstIterator operator++(int) {
 		ConstIterator temp = *this;
-		_ptr = _ptr->_next;
+		++(*this); // end handling logic in pre-increment
 		return temp;
 	}
 

@@ -15,67 +15,64 @@
 CLL::CLL() : _size(0), _head(nullptr) {}
 
 // Constructs a list with 'size' copies of elements with 'data' value
-CLL::CLL(int size, int data)
-	: _size(size), _head(nullptr) {
-	// Create the head node
+CLL::CLL(int size, int data) : _size(size), _head(nullptr) {
 	_head = new Node(data);
 
-	// Create rest of the nodes
 	Node* curr = _head;
 	for (int i = 1; i < size; ++i) {
 		curr->_next = new Node(data);
 		curr = curr->_next;
 	}
+
+	// Last node should point to the first one
+	curr->_next = _head;
 }
 
 // Constructs a list with the contents of 'other'
-CLL::CLL(const CLL& other)
-	: _size(other._size) {
-	// Case: empty list
+CLL::CLL(const CLL& other) : _size(other._size) {
 	if (!other._head) {
 		_head = nullptr;
 		return;
 	}
 
-	// Copy head node
 	_head = new Node(other._head->_data);
 
-	// Copy rest of nodes
-	Node* currSrc = other._head->_next;
+	// Iteration should be circular, i.e. until head again
+	Node* currOther = other._head->_next;
 	Node* curr = _head;
-	for (; currSrc; ) {
-		curr->_next = new Node(currSrc->_data);
+	for (; currOther != other._head; ) {
+		curr->_next = new Node(currOther->_data);
 		curr = curr->_next;
-		currSrc = currSrc->_next;
+		currOther = currOther->_next;
 	}
+
+	// Last node should point to the first one
+	curr->_next = _head;
 }
 
 // Replaces the contents with a copy of the contents of 'rhs'
 CLL& CLL::operator=(const CLL& rhs) {
-	// Prepare: check for self-assignment and deallocate any old memory
 	if (this == &rhs) { return *this; }
 	clear();
-
-	// Set corresponding size
 	_size = rhs._size;
-
-	// Case: empty list
 	if (rhs._head == nullptr) {
 		_head = nullptr;
 		return *this;
 	}
 
-	// Copy head node
 	_head = new Node(rhs._head->_data);
 
-	// Copy rest of nodes
+	// Iteration should be circular, i.e. until head again
 	Node* currRhs = rhs._head->_next;
 	Node* curr = _head;
-	for (; currRhs; ) {
+	for (; currRhs != rhs._head; ) { 
 		curr->_next = new Node(currRhs->_data);
 		curr = curr->_next;
 		currRhs = currRhs->_next;
 	}
+
+	// Last node should point to the first one
+	curr->_next = _head;
 
 	return *this;
 }
@@ -83,11 +80,13 @@ CLL& CLL::operator=(const CLL& rhs) {
 // Destructs the list
 CLL::~CLL() {
 	Node* curr = _head;
-	for (; curr; ) {
-		Node* next = curr->_next;
+	for (Node* next = nullptr; ; ) {
+		next = curr->_next;
 		delete curr;
+		if (next == _head) { break; } // stop when loop back to the head
 		curr = next;
 	}
+
 	_head = nullptr;
 	_size = 0;
 }
@@ -98,16 +97,16 @@ CLL::~CLL() {
 // -----------
 
 // Returns an iterator to the first element of the list
-CLL::Iterator CLL::begin() { return iterator(_head); }
+CLL::Iterator CLL::begin() { return iterator(_head, _head); }
 
 // Returns an iterator to one past the last element of the list
-CLL::Iterator CLL::end() { return iterator(nullptr); }
+CLL::Iterator CLL::end() { return iterator(nullptr, _head); }
 
 // Returns a const iterator to the first element of the list
-CLL::ConstIterator CLL::cbegin() const { return const_iterator(_head); }
+CLL::ConstIterator CLL::cbegin() const { return const_iterator(_head, _head); }
 
 // Returns a const iterator to one past the last element of the list
-CLL::ConstIterator CLL::cend() const { return const_iterator(nullptr); }
+CLL::ConstIterator CLL::cend() const { return const_iterator(nullptr, _head); }
 
 
 // ----------------
@@ -138,20 +137,22 @@ int CLL::size() const { return _size; }
 
 // Inserts a copy of 'data' after 'pos'
 void CLL::insertAfter(iterator pos, const int& data) {
-	// Case: wrong iterator
-	if (pos == this->end()) { return; }
+	// Case: invalid or end iterator
+	if (pos == this->end() || _head == nullptr) { return; }
 
-	// Create a new node with the given data
+	Node* curr = pos.operator->();
 	Node* newNode = new Node(data);
 
-	// Get the given node
-	Node* curr = pos.operator->();
+	// Handle circularity: check if inserting after the last node
+	if (curr->_next == _head) {
+		newNode->_next = _head;
+		curr->_next = newNode;
 
-	// Insert the new node after the current one
-	newNode->_next = curr->_next;
-	curr->_next = newNode;
+	} else {
+		newNode->_next = curr->_next;
+		curr->_next = newNode;
+	}
 
-	// Reflect new element on size
 	++_size;
 }
 
@@ -160,33 +161,50 @@ void CLL::eraseAfter(iterator pos) {
 	// Case: wrong iterator
 	if (pos == this->end()) { return; }
 
-	// Get the given node
 	Node* curr = pos.operator->();
 
 	// Remove node (if there is one after the current)
-	if (curr && curr->_next) {
+	if (curr->_next) {
 		Node* nodeToDelete = curr->_next;
-		curr->_next = nodeToDelete->_next;
-		delete nodeToDelete;
+
+		// Handle circularity: check if deleting the last node
+		if (nodeToDelete == _head) {
+			curr->_next = _head->_next;
+			delete _head;
+			_head = curr->_next;
+
+		} else {
+			curr->_next = nodeToDelete->_next;
+			delete nodeToDelete;
+		}
 	}
 
-	// Reflect removed element on size
 	--_size;
 }
 
 
 // Prepends the given 'data' to the beginning of the list
 void CLL::pushFront(const int& data) {
-	// Create a new node with the given data
 	Node* newNode = new Node(data);
 
-	// Push front
-	newNode->_next = _head;
-	_head = newNode;
+	if (!_head) {
+		// Case: empty list
+		newNode->_next = newNode; // point to itself to maintain circularity
+		_head = newNode;         
 
-	// Reflect new element on size
+	} else {
+		// Maintain circularity via tail pointer,
+        // whose _next will allow to link back
+		Node* tail = _head;
+		for (; tail->_next != _head; ) { tail = tail->_next; }
+		newNode->_next = _head;
+		tail->_next = newNode;
+		_head = newNode;  
+	}
+
 	++_size;
 }
+
 
 // Removes the first element of the list
 void CLL::popFront() {
@@ -201,60 +219,77 @@ void CLL::popFront() {
 		return;
 	}
 
-	// Move the head pointer to the next node
+	// Maintain circularity via tail pointer,
+	// whose _next will allow to link back
 	Node* temp = _head;
+	Node* tail = _head;
+	for (; tail->_next != _head; ) { tail = tail->_next; }
 	_head = _head->_next;
+	tail->_next = _head;
 	delete temp;
 
-	// Reflect removed element on size
 	--_size;
 }
 
 // Reverses the order of the elements in the list
 void CLL::reverse() {
-	// Case: empty list, single element
-	if (!_head || !_head->_next) { return; }
+	// Case: empty list or single-element list
+	if (!_head || _head->_next == _head) { return; }
 
-	// Preliminaries
 	Node* prev = nullptr;
 	Node* curr = _head;
 	Node* next = nullptr;
 
-	for (; curr; ) {
-		// Reverse the next pointer via temp prev
-		next = curr->_next;
-		curr->_next = prev;
-		prev = curr;
+	do {
+		next = curr->_next; 
+		curr->_next = prev; 
+		prev = curr;       
+		curr = next;        
+	} while (curr != _head); // stop when loop back to the head
 
-		// Move iterating node ahead
-		curr = next;
-	}
-
-	// Update the head to point to the new front of the list
-	_head = prev;
+	// Last node should point to the first one
+	_head->_next = prev; 
+	_head = prev;        
 }
 
 // Replaces the contents with 'size' copies of 'data'
 void CLL::assign(int size, const int& data) {
-	// Clear the existing contents
 	clear();
 
-	// Add 'size' nodes with 'data'
-	for (int i = 0; i < size; ++i) { pushFront(data); }
+	// Create the first node
+	_head = new Node(data);
+	Node* curr = _head;
 
-	// No reverse(), since data is the same
+	// Advance the iterator and construct the rest of the list
+	for (int i = 1; i < size; ++i) {
+		curr->_next = new Node(data);
+		curr = curr->_next;
+	}
+
+	// Last node should point to the first one
+	curr->_next = _head;
+
+	_size = size;
 }
 
 // Replaces the contents with copies of those in the range [first, last)
 void CLL::assign(const_iterator first, const_iterator last) {
-	// Clear the existing contents
 	clear();
 
-	// Add each element from the iterator range
-	for (auto it = first; it != last; ++it) { pushFront(*it); }
+	// Create the first node
+	_head = new Node(*first);
+	Node* curr = _head;
+	_size = 1; // Initialize size since we've added the first node
 
-	// Reverse the list to preserve the order
-	reverse();
+	// Advance the iterator and construct the rest of the list
+	for (auto it = ++first; it != last; ++it) {
+		curr->_next = new Node(*it);
+		curr = curr->_next;
+		++_size;
+	}
+
+	// Last node should point to the first one
+	curr->_next = _head;
 }
 
 // Erases all elements from the list
@@ -262,17 +297,21 @@ void CLL::clear() {
 	// Case: empty list
 	if (!_head) { return; }
 
-	// Traverse the list and deallocate memory for each node
+	// Break the circular connection first
+	Node* tail = _head;
+	for (; tail->_next != _head; ) { tail = tail->_next; }
+	tail->_next = nullptr;
+
 	for (; _head; ) {
 		Node* curr = _head;
 		_head = _head->_next;
 		delete curr;
 	}
 
-	// Reset the list to an empty state
 	_size = 0;
 	_head = nullptr;
 }
+
 
 // Resizes the list to contain 'size' elements
 void CLL::resize(int size, const int& data) {
@@ -281,15 +320,11 @@ void CLL::resize(int size, const int& data) {
 
 	// Case 2: new size is smaller
 	if (size < _size) {
-		// Traverse to the new last node
 		Node* curr = _head;
 		for (int i = 1; i < size; ++i) { curr = curr->_next; }
 
-		// Delete excessive nodes
 		Node* toDelete = curr->_next;
-		curr->_next = nullptr; // detach the rest of the list
-
-		// Delete remaining nodes
+		curr->_next = _head; // Maintain circularity
 		for (; toDelete; ) {
 			Node* temp = toDelete;
 			toDelete = toDelete->_next;
@@ -299,27 +334,33 @@ void CLL::resize(int size, const int& data) {
 	} else if (size > _size) {
 		// Case 3: new size is greater
 
-		// Get the previous end
-		Node* curr = _head;
-		if (curr) {
-			for (; curr->_next; ) {
+		if (!_head) {
+			_head = new Node(data);
+			_head->_next = _head; // Maintain circularity
+			Node* curr = _head;
+
+			for (int i = 1; i < size; ++i) {
+				Node* newNode = new Node(data);
+				curr->_next = newNode;
+				newNode->_next = _head; // Maintain circularity
+				curr = newNode;
+			}
+		} else {
+			// Get the tail of the current list
+			Node* curr = _head;
+			for (; curr->_next != _head;) {
 				curr = curr->_next;
 			}
-		}
 
-		// Add new nodes until reaching new size
-		for (int i = _size; i < size; ++i) {
-			Node* newNode = new Node(data);
-			if (curr) {
+			for (int i = _size; i < size; ++i) {
+				Node* newNode = new Node(data);
 				curr->_next = newNode;
-			} else {
-				_head = newNode;  // for an initially empty list
+				newNode->_next = _head; // Maintain circularity
+				curr = newNode;
 			}
-			curr = newNode;
 		}
 	}
 
-	// Update size to the new size
 	_size = size;
 }
 
