@@ -295,17 +295,17 @@ Understanding how to analyze the particular container is crucial for optimizing 
 ## Characteristics
 🚀 **Time Complexities:** 
  - **Access:** 
-    - **Beginning** $O(1)$ — because operation only requires accessing head node.
-    - **Middle** $O(n)$ — because there is no direct access to elements, therefore operation requires traversal from the head node, though pointer adjustments are constant time.
-   - **End** $O(n)$ — because there is no direct access to elements and no tail pointer, therefore operation requires traversal from the head node.
+    - **Beginning** $O(1)$ — because operation only requires dereferencing a known pointer, which is a constant time.
+    - **Middle** $O(n)$ — since there is no direct access to elements, operation requires prior traversal from the head node, though pointer dereferencing is constant time.
+   - **End** $O(n)$ — since there is no direct access to elements and no tail pointer, therefore operation requires prior traversal from the head node, though pointer dereferencing is constant time.
  - **Insertion:**
-   - **Beginning** $O(1)$ — because operation requires just updating the head pointer to the new node.
-   - **Middle** $O(n)$ — because operation requires traversing to the desired position before updating pointers, though pointer adjustments are constant time.
-   - **End** $O(n)$ — because operation requires traversing to the desired position before updating pointers.
+   - **Beginning** $O(1)$ — because operation only requires pointer adjustments and allocation, which are constant time.
+   - **Middle** $O(n)$ — because operation requires prior traversal to the desired position before updating pointers, though pointer adjustments and allocation are constant time.
+   - **End** $O(n)$ — because operation requires prior traversal to the desired position before updating pointers, though pointer adjustments and allocation are constant time.
  - **Deletion:**
-   - **Beginning** $O(1)$ — because operation only requires updating the head pointer.
-   - **Middle** $O(n)$ — because operation requires traversing to that position, though pointer adjustments are constant time.
-   - **End** $O(n)$ — because operation requires traversing to that position.
+   - **Beginning** $O(1)$ — because operation only requires pointer adjustments and clean up, which are constant time.
+   - **Middle** $O(n)$ — because operation requires prior traversal to that position, though pointer adjustments and clean up are constant time.
+   - **End** $O(n)$ — because operation requires prior traversal to that position, though pointer adjustments and clean up are constant time.
  - **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
 
 ---

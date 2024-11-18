@@ -254,15 +254,43 @@ public:
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
 ## Characteristics
-Currently in Progress...
+🚀 **Time Complexities:**  
+- **Access:**
+   - **Beginning** $O(1)$ — because operation only requires dereferencing a known pointer, which is a constant time.
+   - **Middle** $O(n)$ — since there is no direct access to elements, operation requires prior traversal from the head node, though pointer dereferencing is constant time.
+   - **End** $O(n)$ — since there is no direct access to elements and no tail pointer, therefore operation requires prior traversal from the head node, though pointer dereferencing is constant time.
+- **Insertion:**
+   - **Beginning** $O(n)$ — while pointer adjustments and allocation are constant, in order to keep the circular structure the operation requires prior traversal to the last node to update its next pointer before inserting at the head.
+   - **Middle** $O(n)$ — involves prior traversal to the desired position, but pointer updates are constant time.
+   - **End** $O(n)$ — traversal to the last node is required to insert and update the `_next` pointer to maintain circularity.
+- **Deletion:**
+   - **Beginning** $O(n)$ — while pointer adjustments and clean up are constant, in order to keep the circular structure the operation requires prior traversal to the last node to update its next pointer after removing the head node.
+   - **Middle** $O(n)$ — because operation requires prior traversal to that position, though pointer adjustments and clean up are constant time.
+   - **End** $O(n)$ — because operation requires prior traversal to that position, though pointer adjustments and clean up are constant time.
+- **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
+
+---
+🧠 **Space Expenses:**
+- **Pointer Overhead** — each node stores one pointer to the next node.
+- **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, potentially causing fragmentation and reducing cache efficiency.
 
 
 ## Trade-Offs
-Currently in Progress...
+➕ **Advantages:**
+- **Circular Logic** — circular linked lists allow traversal that seamlessly loops back to the beginning without additional logic, making them suitable for cyclic or repetitive processes.
+- **Flexible Size** — circular linked lists can dynamically grow or shrink as needed without reallocating the entire structure, which also efficient in scenarios where the data size is unknown beforehand.
+- **No Wasted Capacity** — circular linked lists do not preallocate extra memory beyond what is needed for their elements, preventing unused space.
+
+---
+➖ **Disadvantages:**
+- **Slow Access** — circular linked lists require sequential traversal to access elements, resulting in linear time complexity, which is inefficient compared to random-access data structures.
+- **Extra Memory for Pointers** — circular linked lists require each node to store a pointer to the next node, adding memory overhead that scales with the list size.
+- **Poor Cache Performance** — circular linked lists are less cache-friendly, as each node may be stored at a different memory location. This non-localized storage disrupts cache line utilization, leading to more frequent cache misses and reduced performance.
+- **Complex Circular Structure** — circular linked list operations must carefully maintain the circular structure, increasing the chance for implementation errors or inefficiencies.
 
 
 

@@ -333,17 +333,17 @@ Understanding how to analyze the particular container is crucial for optimizing 
 ## Characteristics
 🚀 **Time Complexities:**  
 - **Access:**
-   - **Beginning** $O(1)$ — because operation only requires accessing the head node.
-   - **Middle** $O(n)$ — because there is no direct access to elements, therefore operation requires traversal from the head or tail, whichever is closer.
-   - **End** $O(1)$ — because operation only requires accessing the tail node.
+   - **Beginning** $O(1)$ — because operation only requires dereferencing a known pointer, which is a constant time.
+   - **Middle** $O(n)$ — since there is no direct access to elements, operation requires prior traversal from the head node, though pointer dereferencing is constant time.
+   - **End** $O(1)$ — because operation only requires dereferencing a known pointer, which is a constant time.
 - **Insertion:**
-   - **Beginning** $O(1)$ — because operation requires only updating the head pointer and setting the previous pointer of the new node.
-   - **Middle** $O(n)$ — because operation requires traversing to the desired position before updating pointers.
-   - **End** $O(1)$ — because operation requires only updating the tail pointer and setting the previous pointer of the new node.
+   - **Beginning** $O(1)$ — because operation only requires pointer adjustments and allocation, which are constant time.
+   - **Middle** $O(n)$ — because operation requires prior traversal to the desired position before updating pointers, though pointer adjustments and allocation are constant time.
+   - **End** $O(1)$ — because operation only requires pointer adjustments and allocation, which are constant time.
 - **Deletion:**
-   - **Beginning** $O(1)$ — because operation requires updating only the head pointer and the previous pointer of the next node.
-   - **Middle** $O(n)$ — because operation requires traversing to that position, though pointer adjustments are constant time.
-   - **End** $O(1)$ — direct access to the last node using the tail pointer simplifies deletion.
+   - **Beginning** $O(1)$ — because operation only requires pointer adjustments and clean up, which are constant time.
+   - **Middle** $O(n)$ — because operation requires prior traversal to that position, though pointer adjustments and clean up are constant time.
+   - **End** $O(1)$ — because operation only requires pointer adjustments and clean up, which are constant time.
 - **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
 
 ---
@@ -363,7 +363,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
 - **Slow Access** — doubly linked lists require sequential traversal to access elements that are not on the ends. This negatively impacts performance, because each access involves moving through nodes step-by-step instead of allowing direct access.
 - **Extra Memory for Pointers** — each node stores two pointers, doubling memory usage for pointers compared to singly linked lists.
 - **Poor Cache Performance** — doubly linked lists are less cache-friendly, as each node may be stored at a different memory location. This non-localized storage disrupts cache line utilization, leading to more frequent cache misses and reduced performance, especially for large lists.
-- **More Complex Operations** — doubly linked lists are more complex due to the need to maintain both previous and next pointers for each node. This increases the chance for errors in pointer updates, making certain operations more error-prone and potentially harder to debug.
+- **Complex Linked Structure** — doubly linked lists are more complex due to the need to maintain both previous and next pointers for each node. This increases the chance for errors in pointer updates, making certain operations more error-prone and potentially harder to debug.
 
 
 
