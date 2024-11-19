@@ -27,9 +27,13 @@
 
 ## Important Details
 1. **Size (Fixed)** — static array has a fixed size, meaning the size can't be changed during runtime.
+
 2. **Time for Allocation (Compile)** — static array requires knowing size at a compile time, meaning its size can only be based on values known during the compilation phase.
+
 3. **Place for Allocation (Stack)** — static array usually allocated in the stack memory section, limiting its size to relatively small amounts (since stack memory is limited). However, static arrays can also be allocated in the global/static/heap memory section, though this is less common.
+
 4. **Memory Management (Automatic)** — static array allocated on stack doesn't require manual memory management, meaning the system automatically handles allocation and deallocation, avoiding risks such as dangling pointers or memory leaks.
+
 5. **Speed of Allocation (Fast)** — static array's allocation on the stack is faster than on the heap, because it doesn't require additional operations or resources to manage memory.
 
 
@@ -67,10 +71,11 @@ When working with static array, it's important to note that there is no universa
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
 - `size()` — returns the number of elements in the container; basically distance from begin to end.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
 
 ---
-**Operations:**
-- `assign()` — assigns the given value to the elements.
+**Modifiers:**
+- `assign()` — assigns the given value to the elements; any previous values will be replaced; invalidates any references, pointers, and iterators referring to contained elements.
 - `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
 
 

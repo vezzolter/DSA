@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «$?$». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «(?)». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 ---
 **The Structure:**
@@ -59,18 +59,25 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/KaratsubaAlgorithm) ✅
     - FFT (Fast Fourier Transform) (?)
     - Newton's Method (?)
-  - Two-Pointer
+  - Two-Pointers
+    - TwoPointers.md
+    - Floyd's Tortoise and Hare Algorithm
+    - Dutch National Flag Algorithm
   - Sliding Window
   - Bit Manipulation
   - Dynamic Programming
+    - DynamicProgramming.md
+    - Kadane's Algorithm
   - Greedy Programming
+    - GreedyProgramming.md
+    - Huffman Encoding
   - String Algorithms
     - StringAlgorithms.md
-    - KMP (Knuth-Morris-Pratt)
-    - Rabin-Karp
-    - Boyer-Moore
+    - KMP (Knuth-Morris-Pratt) Algorithm
+    - Rabin-Karp Algorithm
+    - Boyer-Moore Algorithm
     - Levenshtein Distance
-    - Needleman-Wunsh Algorithm
+    - Needleman-Wunsch Algorithm
     - RLE (Run-Length Encoding) 
   - Tree & Graph Algorithms
     - TreeGraphAlgorithms.md
@@ -88,12 +95,12 @@ This list provides a straightforward overview of the repository's contents. For 
     - A*
 - Data Structures
   - Array
-    - [Array.md](https://github.com/vezzolter/DSA/blob/split-array/DataStructures/Array/Array.md) ✅
-    - [Static Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/StaticArray) ✅
-    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/split-array/DataStructures/Array/DynamicArray) ✅
+    - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
+    - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray) ✅
+    - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray) ✅
   - Linked List 
-    - [List.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) ✅
-    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList)✅
+    - [LinkedList.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/LinkedList.md) ✅
+    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList) ✅
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
   - Queue

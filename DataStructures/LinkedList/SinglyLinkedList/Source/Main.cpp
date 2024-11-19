@@ -1,81 +1,98 @@
-// Simplified ADT: Singly Linked List
-// by vezzolter
-// February 3, 2024
-//
-// This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called singly linked list.
+// Title:   Singly Linked List Container
+// Authors: by vezzolter
+// Date:    February 3, 2024
+// ----------------------------------------------------------------------------
+
 
 #include <iostream>
 #include "SinglyLinkedList.h"
 
 
-void printList(const SLL<int>& list) {
-	std::cout << "Elements:\t";
-	for (int i = 0; i < list.size(); i++)
-		std::cout << list[i] << " ";
+void printList(const SLL& list) {
+	for (auto it = list.cbegin(); it != list.cend(); ++it) {
+		std::cout << *it << " ";
+	}
 	std::cout << std::endl;
 }
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n";
+	std::cout << "\tWelcome to the 'Singly Linked List' console application!\n\n";
 
-	// Create initial list
-	std::cout << "\nCreating & filling initial list #1...\n";
-	SLL<int> list1;
-	list1.pushFront(9);
-	list1.pushFront(1);
-	list1.pushFront(1);
-	list1.pushFront(7);
+	// Constructors
+	std::cout << "Constructors:\n";
+	std::cout << " -> SLL l1:\t\t\t\t";
+	SLL l1;
+	for (int i = 9; i >= 0; --i) { l1.pushFront(i); }
+	printList(l1);
+	std::cout << " -> SLL l2(l1):\t\t\t\t";
+	SLL l2(l1);
+	printList(l2);
+	std::cout << " -> SLL l3 = l1:\t\t\t";
+	SLL l3 = l1;
+	printList(l3);
+	std::cout << std::endl;
 
-	// Show list #1
-	std::cout << "Is it empty:\t" << list1.empty() << std::endl;
-	printList(list1);
+	// Helper Iterators
+	SLL::iterator it = l1.begin();
+	SLL::iterator last = it;
+	for (; it != l1.end(); ++it) { last = it; }
 
-	// Modify list #1
-	std::cout << "\nChange first element ('7') to '5'...\n";
-	list1.front() = 5;
-	printList(list1);
+	// Element Access
+	std::cout << "Element Access:\n";
+	std::cout << " -> l1.front():\t\t\t\t" << l1.front() << std::endl;
+	std::cout << std::endl;
 
-	// Insert into list #1
-	std::cout << "\nInsert element '3' in the middle...\n";
-	list1.insertAfter(list1.size()/2, 3);
-	printList(list1);
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " -> l1.empty():\t\t\t\t" << l1.empty() << std::endl;
+	std::cout << " -> l1.size(): \t\t\t\t" << l1.size() << std::endl;
+	std::cout << std::endl;
 
-	// Deep copy functionality
-	std::cout << "\nCreate a list copies and compare...\n";
-	SLL<int> list2(list1);
-	SLL<int> list3 = list1;
-	printList(list1);
-	printList(list2);
-	printList(list3);
-
-	// Remove functionality
-	std::cout << "\nFrom list #1 remove first ('5') and last ('9') elements...\n";
-	list1.popFront();
-	list1.eraseAfter(list1.size() - 2);
-	printList(list1);
-	printList(list2);
-	printList(list3);
-
-	// Clear
-	std::cout << "\nClear list #2 and #3...\n";
-	list2.clear();
-	list3.clear();
-	printList(list1);
-	printList(list2);
-	printList(list3);
-	std::cout << "Are they empty: ";
-	std::cout << list1.empty();
-	std::cout << list2.empty();
-	std::cout << list3.empty();
+	// Modifiers
+	std::cout << "Modifiers:\n";
+	std::cout << " -> l1.insertAfter(itrTo9, 3):  \t";
+	l1.insertAfter(last, 3);
+	printList(l1);
+	std::cout << " -> l1.eraseAfter(itrTo9): \t\t";
+	l1.eraseAfter(last);
+	printList(l1);
+	std::cout << " -> l1.pushFront(3): \t\t\t";
+	l1.pushFront(3);
+	printList(l1);
+	std::cout << " -> l1.popFront(): \t\t\t";
+	l1.popFront();
+	printList(l1);
+	std::cout << " -> l1.reverse(): \t\t\t";
+	l1.reverse();
+	printList(l1);
+	std::cout << " -> l1.assign(5, 3): \t\t\t";
+	l1.assign(5, 3);
+	printList(l1);
+	std::cout << " -> l1.assign(l2.cbegin(), l2.cend()):  ";
+	l1.assign(l2.cbegin(), l3.cend());
+	printList(l1);
+	std::cout << " -> l1.clear(): \t\t\t";
+	l1.clear();
+	printList(l1);
+	std::cout << " -> l1.resize(5): \t\t\t";
+	l1.resize(5);
+	printList(l1);
+	std::cout << " -> l1.resize(10, 3): \t\t\t";
+	l1.resize(10, 3);
+	printList(l1);
+	std::cout << " -> l1.swap(l2): \t\t\t";
+	l1.swap(l2);
+	printList(l1);
+	std::cout << "   - l2:\t\t\t\t";
+	printList(l2);
+	std::cout << "   - l3:\t\t\t\t";
+	printList(l3);
 	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

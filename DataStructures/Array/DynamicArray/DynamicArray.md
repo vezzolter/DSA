@@ -27,10 +27,15 @@
 
 ## Important Details
 1. **Size (Dynamic)** — dynamic array can't change its size in a direct way, instead it creates a new array of the required size, copies the values, and adjusts memory allocation. Since this process involves multiple operations, dynamic arrays leverage the concept of capacity to minimize the need for frequent resizing.
+
 2. **Capacity** — dynamic arrays include a feature called capacity, which refers to the maximum number of elements for which memory is currently allocated, as opposed to the size, which is the actual number of elements in the array. Dynamic arrays allocate additional memory beyond the current size to accommodate future growth without needing to resize frequently, and if a resize occurs, typically it doubles the capacity..
+
 3. **Time for Allocation (Runtime)** — dynamic array doesn't require knowing size at its creation, meaning its size can be based on values that are not known during compilation.
+
 4. **Place for Allocation (Heap)** — dynamic array is allocated in the heap memory section, meaning size can be extremely large compared to the stack and provided there is enough available memory.
+
 5. **Memory Management (Manual)** — dynamic array requires manual memory management, meaning you must handle allocation and deallocation yourself, which introduces risks such as dangling pointers or memory leaks, if not properly managed.
+
 6. **Speed of Allocation (Slow)** — dynamic array's allocation on heap is generally slower than allocating on the stack, because it requires more operations and resources to manage memory.
 
 
@@ -44,7 +49,7 @@ When working with dynamic array, it's important to note that there is no univers
 - **Move Constructor** — creates a new array by moving elements from another array, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
 - **Copy Assignment Operator** — overwrites every element of already existing array with the corresponding element of another array by copying them.
 - **Move Assignment Operator** — overwrites every element of already existing array with the corresponding element of another array by moving them, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Destructor** — performs end-actions on array: for primitive data types does nothing because they don't hold resources that need to be explicitly cleaned up, for complex data types calls the corresponding destructors.
+- **Destructor** — performs end-actions on array: deallocates all elements in the array, calling destructors for complex data types to ensure resources are cleaned up.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -68,7 +73,7 @@ When working with dynamic array, it's important to note that there is no univers
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
 - `size()` — returns the number of elements in the container; basically distance from begin to end.
-- `maxSize()` — returns the maximum number of elements the container is able to hold.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
 - `capacity()` — returns the number of elements that can be held in currently allocated storage.
 - `reserve()` — increases the capacity of the array to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
 - `shrinkToFit()` — reduces the capacity to the size of an array
@@ -77,14 +82,14 @@ When working with dynamic array, it's important to note that there is no univers
 <p align="center"><img src="./Images/OperationsModifiers.png"/></p>
 
 **Modifiers:**
-- `assign()` — assigns the given value to the elements.
-- `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
-- `clear()` — erases all elements from the container; invalidates any references, pointers, and iterators referring to contained elements; doesn't change capacity.
 - `insert()` — inserts elements at the specified location in the container; if after the operations size is greater than capacity a reallocations takes place.
 - `erase()` — erases the specified elements from the container. 
 - `pushBack()` — appends the given element to the end of the container; if after the operations size is greater than capacity a reallocations takes place.
 - `popBack()` — removes the last element of the container; calling on an empty container causes undefined behavior.
+- `assign()` — assigns the given value to the elements; any previous values will be replaced; invalidates any references, pointers, and iterators referring to contained elements.
+- `clear()` — erases all elements from the container; invalidates any references, pointers, and iterators referring to contained elements; doesn't change capacity.
 - `resize()` — resizes the container to contain given amount of elements; if given amount equals to size, does nothing; if given amount is less than size, the container is reduced to its first given elements; if given amount is greater, additional default (or specified) elements are appended.
+- `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
 
 
 

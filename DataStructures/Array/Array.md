@@ -26,7 +26,7 @@
 
 ## Essential Terminology
 - **Data Structure** — is a theoretical model of data organization, used to design containers in an efficient or specific ways.
-  - **Container** — is a concrete implementation of data structure, used to manage actual data via specific operations. Since, in practice, containers are primarily used for the operations they provide and the guarantees they offer. As long as those guarantees are met, the underlying data structure can be changed or adapted.
+  - **Container** — is a concrete implementation of data structure, used to manage actual data through specific operations. Since, in practice, containers are primarily used for the operations they provide and the guarantees they offer. As long as those guarantees are met, the underlying data structure can be changed or adapted.
 - **Array** — is a data structure that stores elements of the same memory size (thus same data type) in contiguous memory locations, meaning a single block of memory with no gaps between elements.
   - **Size** — is a number of elements contained in the array. 
 - **Element** — is an individual entity within a collection.
@@ -63,7 +63,8 @@ However, accessing an element outside the defined bounds of the array (either du
 ## Existing Solutions
 Quite often in computer science, there is ambiguity between definitions, as the term data structure typically refers to the abstract organization of data, focusing on logical operations such as insertion, deletion, and traversal. However, in practical applications, these data structures are implemented as containers, which not only provide these operations but also manage underlying performance and memory constraints.
 
-When it comes to arrays, there are two primary types, each tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their respective sections of this repository, here’s a brief description to give you a foundational understanding:
+---
+When it comes to arrays, there are two primary types, each tailored for different use cases and optimized for specific performance characteristics. While the detailed differences between these types can be found in their corresponding sections of this repository, here’s a brief description to give you a foundational understanding:
 - **Static Array** — is a type of array where the main property is that the size is fixed, meaning it can't be changed during runtime.
 - **Dynamic Array** — is a type of array where the main property is that the size is dynamic, meaning it can be changed during runtime.
 
@@ -97,7 +98,7 @@ For detailed evaluations of specific container characteristics, please refer to 
 
  
 # &#128221; Application
-The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage (and disadvantage) of static arrays is that their size must be known ahead of time, at compile time. Therefore, the corresponding use case (and anti use case) would be a situation where the size of the data structure known ahead and remains constant throughout the entire runtime. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage of static arrays is that their size must be known and fixed at compile time. Therefore, a suitable use case would be a scenario where the size is known in advance or remains constant throughout the entire runtime, while an anti-use case would involve situations where the size can’t be determined at the moment of creation or requires changing during runtime. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
