@@ -59,18 +59,25 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/KaratsubaAlgorithm) ✅
     - FFT (Fast Fourier Transform) (?)
     - Newton's Method (?)
-  - Two-Pointer
+  - Two-Pointers
+    - TwoPointers.md
+    - Floyd's Tortoise and Hare Algorithm
+    - Dutch National Flag Algorithm
   - Sliding Window
   - Bit Manipulation
   - Dynamic Programming
+    - DynamicProgramming.md
+    - Kadane's Algorithm
   - Greedy Programming
+    - GreedyProgramming.md
+    - Huffman Encoding
   - String Algorithms
     - StringAlgorithms.md
-    - KMP (Knuth-Morris-Pratt)
-    - Rabin-Karp
-    - Boyer-Moore
+    - KMP (Knuth-Morris-Pratt) Algorithm
+    - Rabin-Karp Algorithm
+    - Boyer-Moore Algorithm
     - Levenshtein Distance
-    - Needleman-Wunsh Algorithm
+    - Needleman-Wunsch Algorithm
     - RLE (Run-Length Encoding) 
   - Tree & Graph Algorithms
     - TreeGraphAlgorithms.md
@@ -92,10 +99,10 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Static Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/StaticArray) ✅
     - [Dynamic Array](https://github.com/vezzolter/DSA/tree/main/DataStructures/Array/DynamicArray) ✅
   - Linked List 
-    - [LinkedList.md](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/LinkedList.md) ✅
-    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/split-list/DataStructures/LinkedList/SinglyLinkedList) ✅
-    - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/split-list/DataStructures/LinkedList/DoublyLinkedList) ✅
-    - [Circular Linked List](https://github.com/vezzolter/DSA/tree/split-list/DataStructures/LinkedList/CircularLinkedList) 🎯
+    - [LinkedList.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/LinkedList.md) ✅
+    - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList) ✅
+    - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
+    - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
   - Queue
     - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
     - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅

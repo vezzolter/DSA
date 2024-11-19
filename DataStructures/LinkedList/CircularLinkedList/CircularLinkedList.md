@@ -4,8 +4,9 @@
 	- [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
-	- [Iterator Implementation](#iterator-implementation)
 	- [Container Implementation](#container-implementation)
+	- [Node Implementation](#node-implementation)
+	- [Iterators Implementation](#iterators-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -36,7 +37,7 @@
 ## Container Methods
 When working with a circular linked list, it’s important to note that there is no universal standard defining its operations or implementation guidelines. The design and functionality of a circular linked list container can vary based on factors like programming language, library goals, and performance needs. Although circular linked lists are not natively available in the C++ Standard Library, they can be adapted from `std::forward_list` or `std::list`. Additionally, Boost provides an existing circular data structure, `boost::circular_buffer`, which may meet similar needs.
 
-Circular linked list operations are mostly similar to those of [singly](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md#-overview) or [doubly](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md#-overview) linked lists, but with one key difference: the last node links back to the first, forming a continuous loop with no `nullptr` at the end. This circular structure removes the need for a `nullptr` check at the list's end, meaning traversal or modification operations that typically stop at the last node will continue looping to the head. To avoid infinite loops, implementations often track the starting node or count traversed elements, stopping once all nodes have been visited. In cases requiring multiple iterations over the list, careful control of the iteration process is essential to prevent unintended cycling.
+Circular linked list operations are mostly similar to those of [singly](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md#-overview) or [doubly](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md#-overview) linked lists, but with one key difference: the last node links back to the first, forming a continuous loop with no `nullptr` at the end. This circular structure removes the need for a `nullptr` check at the list's end, meaning traversal or modification operations that typically stop at the last node will continue looping to the head. To avoid infinite loops, implementations often track the starting node or count traversed elements, stopping once all nodes have been visited. In cases requiring multiple iterations over the list, careful control of the iteration process is essential to prevent unintended cycling.
 
 
 # &#x1F4BB; Implementation 
@@ -45,11 +46,19 @@ The implemented console application demonstrates the basic functionality of the 
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Resembling the behavior of `SLL` (which is based on `std::forward_list`) to provide familiarity for users.
+- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
+- Relying on manual memory management without using smart pointers.
+- Implementing both regular and const iterators.
+- Avoiding any exception handling, thus certain range validations.
+- Omitting certain optimizations to the container.
 
 
 ## Container Implementation
-The container is implemented within the `CLL` class, which is declared in [CircularLinkedList.h](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/CircularLinkedList/Include/CircularLinkedList.h) header file and defined in [CircularLinkedList.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/CircularLinkedList/Source/CircularLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/CircularLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `CLL` class, which is declared in [CircularLinkedList.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/CircularLinkedList/Include/CircularLinkedList.h) header file and defined in [CircularLinkedList.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/CircularLinkedList/Source/CircularLinkedList.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/CircularLinkedList/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class CLL {
@@ -299,7 +308,7 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 ## Common Use Cases
-As mentioned in the [LinkedList.md](https://github.com/vezzolter/DSA/blob/split-list/DataStructures/LinkedList/LinkedList.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since circular linked lists share the foundational principles of the general concept of linked lists, their common usage is best described in the [linked lists respective section](../LinkedList.md#-application).
+As mentioned in the [LinkedList.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/LinkedList.md), the concrete use cases (and anti use cases) directly derive from the advantages (and disadvantages) of the container, so there is no need for this sort of rephrasing. Since circular linked lists share the foundational principles of the general concept of linked lists, their common usage is best described in the [linked lists respective section](../LinkedList.md#-application).
 
 
 ## Some Practical Problems
@@ -308,7 +317,7 @@ Since circular linked lists share the foundational principles of the general con
 
 
 # &#x1F559; Origins
-Since circular linked lists share the foundational principles of the general concept of linked lists, their historical development is best described in the [linked lists respective section](../LinkedList.md#-application).
+Since circular linked lists share the foundational principles of the general concept of linked lists, their historical development is best described in the [linked lists respective section](../LinkedList.md#-origins).
 
 
 
