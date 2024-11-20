@@ -11,17 +11,17 @@
 //  Compiler Generated 
 // --------------------
 
-// Initializes an empty array
+// Constructs an empty array
 SA::SA() { 
     for (int i = 0; i < _SIZE; ++i) { _data[i] = 0; }
 }
 
-// Initializes an array with data by shallow copying it from another one
-SA::SA(const SA& rhs) { 
-    for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; }
+// Constructs an array with the contents of 'other'
+SA::SA(const SA& other) { 
+    for (int i = 0; i < _SIZE; ++i) { _data[i] = other._data[i]; }
 }
 
-// Assigns an array with data by shallow copying it from another one
+// Replaces the contents with a copy of the contents of 'rhs'
 SA& SA::operator=(const SA& rhs) {
     if (this == &rhs) { return *this; } // self-assignment guard
     for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; }
@@ -35,10 +35,16 @@ SA& SA::operator=(const SA& rhs) {
 // -----------
 
 // Returns an iterator to the first element of the array
-SAIterator SA::begin() { return SAIterator(_data); }
+SA::Iterator SA::begin() { return Iterator(_data); }
 
 // Returns an iterator to one past the last element of the array
-SAIterator SA::end() { return SAIterator(_data + _SIZE); } 
+SA::Iterator SA::end() { return Iterator(_data + _SIZE); } 
+
+// Returns a const iterator to the first element of the array
+SA::ConstIterator SA::cbegin() const { return ConstIterator(_data); }
+
+// Returns a const iterator to one past the last element of the array
+SA::ConstIterator SA::cend() const { return ConstIterator(_data + _SIZE); }
 
 
 // ----------------
@@ -68,7 +74,7 @@ const int& SA::back() const { return _data[_SIZE - 1]; }
 //  Capacity
 // ----------
 
-// Returns true if the array has no elements
+// Returns true if array has no elements
 bool SA::empty() const { return (_SIZE == 0); }
 
 // Returns the number of stored elements
@@ -79,12 +85,12 @@ int  SA::size() const { return _SIZE; }
 //  Operations
 // ------------
 
-// Assigns the specified value to all elements
+// Replaces the contents with 'data'
 void SA::assign(int val) {
     for (int i = 0; i < _SIZE; ++i) { _data[i] = val; }
 }
 
-// Swaps the data with another array
+// Exchanges the contents of the array with those of 'other'
 void SA::swap(SA& other) {
     // Case: the same container
     if (this == &other) { return; }

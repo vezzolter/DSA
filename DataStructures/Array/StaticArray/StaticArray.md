@@ -4,8 +4,8 @@
 	- [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
-	- [Iterator Implementation](#iterator-implementation)
 	- [Container Implementation](#container-implementation)
+	- [Iterator Implementation](#iterator-implementation)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -42,12 +42,12 @@ When working with static array, it's important to note that there is no universa
 
 ---
 **Compiler Generated:**
-- **Default Constructor** — creates a new array: for primitive data types allocates space without initializing, for complex data types calls their corresponding constructors.
-- **Copy Constructor** — creates a new array by copying elements from another array.
-- **Move Constructor** — creates a new array by moving elements from another array, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Copy Assignment Operator** — overwrites every element of already existing array with the corresponding element of another array by copying them.
-- **Move Assignment Operator** — overwrites every element of already existing array with the corresponding element of another array by moving them, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- **Destructor** — performs end-actions on array: for primitive data types does nothing because they don't hold resources that need to be explicitly cleaned up, for complex data types calls the corresponding destructors.
+- `Default Constructor` — creates a new array: for primitive data types allocates space without initializing, for complex data types calls their corresponding constructors.
+- `Copy Constructor` — creates a new array by copying elements from another array.
+- `Move Constructor` — creates a new array by moving elements from another array, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- `Copy Assignment Operator` — overwrites every element of already existing array with the corresponding element of another array by copying them.
+- `Move Assignment Operator` — overwrites every element of already existing array with the corresponding element of another array by moving them, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
+- `Destructor` — performs end-actions on array: for primitive data types does nothing because they don't hold resources that need to be explicitly cleaned up, for complex data types calls the corresponding destructors.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -88,48 +88,14 @@ The implemented console application demonstrates the basic functionality of the 
 ## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::array` to provide familiarity for users.
-- Replacing certain library implementations with custom solutions to minimize external dependencies.
 - Restricting the implementation to the `int` data type to avoid the use of templates.
-- Not considering cases where the container is allocated on the heap.
-- Opting to use constant as a size, since no heap and no templates.
-- Implementing only regular iterator (no reverse, no const).
-- Avoiding any exception handling, thus range checks.
-- Omitting certain optimizations to the container.
-
-
-## Iterator Implementation
-Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::array`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this implementation uses a single, regular iterator class. This iterator covers the basic $[begin, end)$ range and demonstrates how typical iterator operations are handled, as well as how the iterator class is integrated into the static array container.
-<p align="center"><img src="./Images/LibraryIterators.png"/></p>
-
----
-The iterator is implemented within the `SAIterator` class, which is declared in [SAIterator.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Include/SAIterator.h) header file and defined in [SAIterator.cpp ](https://github.com/vezzolter/DSA/blob/main//DataStructures/Array/StaticArray/Source/SAIterator.cpp)source file. To see the iterator's functionality in action, you can examine the `main()` and `printArray()` functions located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/Source/Main.cpp) file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. While full implementation can be found in the corresponding files, the class declaration below offers a quick overview:
-
-```cpp
-class SAIterator {
-private:
-	int* _ptr = nullptr;
-
-public:
-	// Compiler Generated
-	SAIterator() = default;
-	SAIterator(int* ptr);
-	SAIterator(const SAIterator& rhs) = default;
-	SAIterator& operator=(const SAIterator& rhs) = default;
-	SAIterator(SAIterator&& rhs) = default;
-	SAIterator& operator=(SAIterator&& rhs) = default;
-	~SAIterator() = default;
-
-	// Overloaded Operators
-	int& operator*();
-	//const int& operator*() const; // instead use dedicated const itr
-	SAIterator& operator++();
-	SAIterator operator++(int);
-	SAIterator& operator--();
-	SAIterator operator--(int);
-	friend bool operator==(const SAIterator& lhs, const SAIterator& rhs);
-	friend bool operator!=(const SAIterator& lhs, const SAIterator& rhs);
-};
-```
+- Excluding move semantics to keep the focus on fundamental mechanics.
+- Relying on manual memory management without using smart pointers.
+- Omitting cases where the container (object itself) is created on the heap.
+- Opting to use constant as a size of the container.
+- Implementing only regular and const iterators (no reverse versions).
+- Avoiding any exception handling, thus certain range validations.
+- Omitting certain possible optimizations to the container.
 
 
 ## Container Implementation
@@ -138,41 +104,188 @@ The container is implemented within the `SA` class, which is declared in [Static
 ```cpp
 class SA {
 private:
-	static const int _SIZE = 9; // since no heap/template
+	static const int _SIZE = 10; // since no heap/template
 	int _data[_SIZE];
 
 public:
-	// Compiler Generated 
+	// --------------------
+	//  Compiler Generated
+	// --------------------
 	SA();
-	//SA(std::initializer_list<int> values); // external dependencies
-	SA(const SA& rhs);
-	SA& operator=(const SA& rhs);	
-	SA(SA&& rhs) = delete;
+	SA(const SA& other);
+	SA(SA&& other)          = delete;
+	SA& operator=(const SA& rhs);
 	SA& operator=(SA&& rhs) = delete;
-	~SA() = default;
+	~SA()                   = default;
 
-	// Iterators
-	using iterator = SAIterator;
+	// -----------
+	//  Iterators
+	// -----------
+	class Iterator;
+	using iterator = Iterator;
 	iterator begin();
 	iterator end();
+	class ConstIterator;
+	using const_iterator = ConstIterator;
+	const_iterator cbegin() const;
+	const_iterator cend() const;
 
-	// Element Access
-	//int& at(const int index); // throws exceptions
-	//const int& at(const int index) const; // throws exceptions
-	int& operator[](const int index);
-	const int& operator[](const int index) const;
+	// ----------------
+	//  Element Access
+	// ----------------
+	int& operator[](const int pos);
+	const int& operator[](const int pos) const;
 	int& front();
 	const int& front() const;
 	int& back();
 	const int& back() const;
 
-	// Capacity
+	// ----------
+	//  Capacity
+	// ----------
 	bool empty() const;
 	int size() const;
 
-	// Operations
+	// -----------
+	//  Modifiers
+	// -----------
 	void assign(int val);
 	void swap(SA& other);
+};
+```
+
+
+## Iterator Implementation
+Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::array`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this container implements regular and constant iterator classes. Those iterators cover the basic $[begin, end)$ range and demonstrates how typical iterators operations are handled, as well as how the iterators classes are integrated into the static array container.
+<p align="center"><img src="./Images/LibraryIterators.png"/></p>
+
+---
+The `Iterator` class is defined as a public nested class within the `SA` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
+
+```cpp
+class SA::Iterator {
+private:
+	int* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Iterator()                                 = default;
+	explicit Iterator(int* ptr) : _ptr(ptr) {}
+	Iterator(const Iterator& other)            = default;
+	Iterator(Iterator&& other)                 = default;
+	Iterator& operator=(const Iterator& rhs)   = default;
+	Iterator& operator=(Iterator&& rhs)        = default;
+	~Iterator()                                = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a reference to the element pointed to by the iterator
+	int& operator*() { return *_ptr; }
+
+	// Advances the iterator to the next element and returns a reference to it
+	Iterator& operator++() {
+		++_ptr;
+		return *this;
+	}
+
+	// Returns a copy of the iterator and then advances to the next element
+	Iterator operator++(int) {
+		Iterator temp(*this);
+		++_ptr;
+		return temp;
+	}
+
+	// Moves the iterator to the previous element and returns a reference to it
+	Iterator& operator--() {
+		--_ptr;
+		return *this;
+	}
+
+	// Returns a copy of the iterator and then moves to the previous element
+	Iterator operator--(int) {
+		Iterator temp(*this);
+		--_ptr;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const Iterator& lhs, const Iterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const Iterator& lhs, const Iterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
+```
+
+---
+The `ConstIterator` class is defined as a public nested class within the `DLL` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+
+```cpp
+class SA::ConstIterator {
+private:
+	const int* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	ConstIterator()                                      = default;
+	explicit ConstIterator(const int* ptr) : _ptr(ptr) {}
+	ConstIterator(const ConstIterator& other)            = default;
+	ConstIterator(ConstIterator&& other)                 = default;
+	ConstIterator& operator=(const ConstIterator& rhs)   = default;
+	ConstIterator& operator=(ConstIterator&& rhs)        = default;
+	~ConstIterator()                                     = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a const reference to the element pointed to by the iterator
+	const int& operator*() { return *_ptr; }
+
+	// Advances the iterator to the next element and returns a reference to it
+	ConstIterator& operator++() {
+		++_ptr;
+		return *this;
+	}
+
+	// Returns a copy of the iterator and then advances to the next element
+	ConstIterator operator++(int) {
+		ConstIterator temp(*this);
+		++_ptr;
+		return temp;
+	}
+
+	// Moves the iterator to the previous element and returns a reference to it
+	ConstIterator& operator--() {
+		--_ptr;
+		return *this;
+	}
+
+	// Returns a copy of the iterator and then moves to the previous element
+	ConstIterator operator--(int) {
+		ConstIterator temp(*this);
+		--_ptr;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const ConstIterator& lhs, const ConstIterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const ConstIterator& lhs, const ConstIterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
 };
 ```
 

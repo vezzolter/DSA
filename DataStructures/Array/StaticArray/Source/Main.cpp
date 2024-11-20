@@ -8,9 +8,8 @@
 #include "StaticArray.h"
 
 
-// Utilizes non-const array, since there is no const iterator
-void printArray(SA& arr) {
-	for (auto it = arr.begin(); it != arr.end(); ++it) { 
+void printArray(const SA& arr) {
+	for (auto it = arr.cbegin(); it != arr.cend(); ++it) { 
 		std::cout << *it << " "; 
 	}
 	std::cout << std::endl;
@@ -30,7 +29,7 @@ int main() {
 	SA arr2(arr1);
 	printArray(arr2);
 	std::cout << " -> SA arr3 = arr1:\t";
-	SA arr3 = arr1;
+	SA arr3 = arr1;																																																																																																									
 	printArray(arr3);
 	std::cout << std::endl;
 
@@ -47,8 +46,8 @@ int main() {
 	std::cout << " -> arr1.size(): \t" << arr1.size() << std::endl;
 	std::cout << std::endl;
 
-	// Operations
-	std::cout << "Operations:\n";
+	// Modifiers
+	std::cout << "Modifiers:\n";
 	std::cout << " -> arr1.assign(5):\t";
 	arr1.assign(5);
 	printArray(arr1);
