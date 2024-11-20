@@ -8,9 +8,8 @@
 #include "DynamicArray.h"
 
 
-// Utilizes non-const array, since there is no const iterator
-void printArray(DA& arr) {
-	for (auto it = arr.begin(); it != arr.end(); ++it) { 
+void printArray(const DA& arr) {
+	for (auto it = arr.cbegin(); it != arr.cend(); ++it) { 
 		std::cout << *it << " "; 
 	}
 	std::cout << std::endl;
@@ -54,8 +53,8 @@ int main() {
 	std::cout << "   - arr1.capacity(): \t" << arr1.capacity() << std::endl;
 	std::cout << std::endl;
 
-	// Operations
-	std::cout << "Operations:\n";
+	// Modifiers
+	std::cout << "Modifiers:\n";
 	std::cout << " -> arr1.insert(10, 3): ";
 	arr1.insert(10, 3);
 	printArray(arr1);

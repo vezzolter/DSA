@@ -11,34 +11,34 @@
 //  Compiler Generated
 // --------------------
 
-// Initializes an empty array
+// Constructs an empty array
 DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
-// Initializes an array with given size and all elements with zeros
+// Constructs a list with 'size' copies of elements initialized to zeros
 DA::DA(int size)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
     for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
 
-// Initializes an array with given size and all elements with one value
+// Constructs a list with 'size' copies of elements with 'data' value
 DA::DA(int size, int data)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
     for (int i = 0; i < _size; ++i) { _data[i] = data; }
 }
 
-// Initializes an array with data by deep copying it from another one
-DA::DA(const DA& rhs)
-    : _size(rhs._size), _capacity(rhs._capacity) {
+// Constructs an array with the contents of 'other'
+DA::DA(const DA& other)
+    : _size(other._size), _capacity(other._capacity) {
     // Copy the data (if any), the size and capacity are in init list
-    if (rhs._data) {
+    if (other._data) {
         _data = new int[_capacity];
-        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }      
+        for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
     } else {
         _data = nullptr;
     }  
 }
 
-// Assigns an array with data by shallow copying it from another one
+// Replaces the contents with a copy of the contents of 'rhs'
 DA& DA::operator=(const DA& rhs) {  
     // Prepare: check for self-assignment and deallocate any old memory
     if (this == &rhs) { return *this; } 
@@ -57,7 +57,7 @@ DA& DA::operator=(const DA& rhs) {
     return *this;
 }
 
-// Destructor
+// Destructs the array
 DA::~DA() { delete[] _data; }
 
 
@@ -66,10 +66,16 @@ DA::~DA() { delete[] _data; }
 // -----------
 
 // Returns an iterator to the first element of the array
-DAIterator DA::begin() { return DAIterator(_data);  }
+DA::Iterator DA::begin() { return Iterator(_data); }
 
 // Returns an iterator to one past the last element of the array
-DAIterator DA::end() { return DAIterator(_data + _size); }
+DA::Iterator DA::end() { return Iterator(_data + _size); }
+
+// Returns a const iterator to the first element of the array
+DA::ConstIterator DA::cbegin() const { return ConstIterator(_data); }
+
+// Returns a const iterator to one past the last element of the array
+DA::ConstIterator DA::cend() const { return ConstIterator(_data + _size); }
 
 
 // ----------------
@@ -99,7 +105,7 @@ const int& DA::back() const { return _data[_size - 1]; }
 //  Capacity
 // ----------
 
-// Returns true if the array has no elements
+// Returns true if array has no elements
 bool DA::empty() const { return (_size == 0); }
 
 // Returns the number of stored elements
@@ -108,13 +114,13 @@ int DA::size() const { return _size; }
 // Returns the number of possible elements
 int DA::capacity() const { return _capacity; }
 
-// Reserves memory for elements at least of given capacity
-void DA::reserve(int cap) {
+// Reserves memory for new elements at least of given `capacity`
+void DA::reserve(int capacity) {
     // Case: capacity is enough (for decreasing - shrinkToFit())
-    if (cap <= _capacity) { return; }
+    if (capacity <= _capacity) { return; }
 
     // Allocate new memory with the requested capacity
-    int* data = new int[cap];
+    int* data = new int[capacity];
 
     // Copy existing elements to the new array
     for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
@@ -124,7 +130,7 @@ void DA::reserve(int cap) {
     _data = data;
 
     // Update the capacity to the requested capacity
-    _capacity = cap;
+    _capacity = capacity;
 }
 
 // Requests the removal of unused capacity
@@ -168,6 +174,7 @@ void DA::insert(int pos, const int& val) {
         // Deallocate old memory and point to new one
         delete[] _data;
         _data = data;
+
     } else {
         // Shifting from the beginning result in premature overwrite
         for (int i = _size; i > pos; --i) { _data[i] = _data[i - 1]; }
@@ -204,9 +211,6 @@ void DA::pushBack(const int& data) {
 void DA::popBack() {
     // Case: empty container
     if (_size == 0) { return; }
-
-    // TODO: Invalidate iterators pointing to element
-    // TODO: Call the destructor for each element
     
     // Avoid stale data
     _data[_size] = 0;
@@ -235,19 +239,16 @@ void DA::assign(int val) {
     for (int i = 0; i < _size; ++i) { _data[i] = val; }
 }
 
-// Removes all elements, keeps the capacity unchanged
+// Erases all elements from the array, keeps the capacity unchanged
 void DA::clear() {
     // Case: empty container
     if (_size == 0) { return; }
-
-    // TODO: Invalidate iterators pointing to elements
-    // TODO: Call the destructor for each element
 
     // Reflect removed elements on size
     _size = 0;
 }
 
-// Resizes the array to the specified size, reallocating if necessary
+// Resizes the array to contain 'size' elements
 void DA::resize(int size) {
     // Case 1: new size is the same as current one
     if (size == _size) { return; }
@@ -286,9 +287,9 @@ void DA::resize(int size) {
     }
 }
 
-// Swaps the data with another array
+// Exchanges the contents of the array with those of 'other'
 void DA::swap(DA& other) {
-    // Case: the same container
+    // Case: the same array
     if (this == &other) { return; }
 
     int* tempData = _data;
