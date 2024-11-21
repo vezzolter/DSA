@@ -21,68 +21,79 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
-	std::cout << " -> DA arr1:\t\t";
-	DA arr1;
-	for (int i = 0; i < 10; ++i) { arr1.pushBack(i); } // 5 allocations
-	printArray(arr1);
-	std::cout << " -> DA arr2(arr1):\t";
-	DA arr2(arr1);
-	printArray(arr2);
-	std::cout << " -> DA arr3 = arr1:\t";
-	DA arr3 = arr1;
-	printArray(arr3);
+	std::cout << " -> DA a1:\t\t\t\t";
+	DA a1;
+	for (int i = 0; i < 10; ++i) { a1.pushBack(i); } // 5 allocations
+	printArray(a1);
+	std::cout << " -> DA a2(a1):\t\t\t\t";
+	DA a2(a1);
+	printArray(a2);
+	std::cout << " -> DA a3 = a1:\t\t\t\t";
+	DA a3 = a1;
+	printArray(a3);
 	std::cout << std::endl;
+
+	// Helper Iterators
+	DA::iterator it = a1.begin();
+	DA::iterator last = it;
+	for (; it != a1.end(); ++it) { last = it; }
 
 	// Element Access
 	std::cout << "Element Access:\n";
-	std::cout << " -> arr1.operator[3]:\t" << arr1[3] << std::endl;
-	std::cout << " -> arr1.front():\t" << arr1.front() << std::endl;
-	std::cout << " -> arr1.back(): \t" << arr1.back() << std::endl;
+	std::cout << " -> a1.operator[3]:\t\t\t" << a1[3] << std::endl;
+	std::cout << " -> a1.front():\t\t\t\t" << a1.front() << std::endl;
+	std::cout << " -> a1.back(): \t\t\t\t" << a1.back() << std::endl;
 	std::cout << std::endl;
 
 	// Capacity
 	std::cout << "Capacity:\n";
-	std::cout << " -> arr1.empty():\t" << arr1.empty() << std::endl;
-	std::cout << " -> arr1.size(): \t" << arr1.size() << std::endl;
-	std::cout << " -> arr1.capacity(): \t" << arr1.capacity() << std::endl;
-	std::cout << " -> arr1.reserve(20): \t" << std::endl;
-	arr1.reserve(20);
-	std::cout << "   - arr1.capacity(): \t" << arr1.capacity() << std::endl;
-	std::cout << " -> arr1.shrinkToFit() \t" << std::endl;
-	arr1.shrinkToFit();
-	std::cout << "   - arr1.capacity(): \t" << arr1.capacity() << std::endl;
+	std::cout << " -> a1.empty():\t\t\t\t" << a1.empty() << std::endl;
+	std::cout << " -> a1.size(): \t\t\t\t" << a1.size() << std::endl;
+	std::cout << " -> a1.capacity(): \t\t\t" << a1.capacity() << std::endl;
+	std::cout << " -> a1.reserve(20): \t\t\t\t" << std::endl;
+	a1.reserve(20);
+	std::cout << "   - a1.capacity(): \t\t\t" << a1.capacity() << std::endl;
+	std::cout << " -> a1.shrinkToFit() \t\t\t\t" << std::endl;
+	a1.shrinkToFit();
+	std::cout << "   - a1.capacity(): \t\t\t" << a1.capacity() << std::endl;
 	std::cout << std::endl;
 
 	// Modifiers
 	std::cout << "Modifiers:\n";
-	std::cout << " -> arr1.insert(10, 3): ";
-	arr1.insert(10, 3);
-	printArray(arr1);
-	std::cout << " -> arr1.pushBack(3): \t";
-	arr1.pushBack(3);
-	printArray(arr1);
-	std::cout << " -> arr1.popBack(): \t";
-	arr1.popBack();
-	printArray(arr1);
-	std::cout << " -> arr1.erase(10): \t";
-	arr1.erase(10);
-	printArray(arr1);
-	std::cout << " -> arr1.assign(5): \t";
-	arr1.assign(5);
-	printArray(arr1);
-	std::cout << " -> arr1.clear(): \t";
-	arr1.clear();
-	printArray(arr1);
-	std::cout << " -> arr1.resize(10): \t";
-	arr1.resize(10);
-	printArray(arr1);
-	std::cout << " -> arr1.swap(arr2): \t";
-	arr1.swap(arr2);
-	printArray(arr1);
-	std::cout << "   - arr2:\t\t";
-	printArray(arr2);
-	std::cout << "   - arr3:\t\t";
-	printArray(arr3);
+	std::cout << " -> a1.insert(10, 3): \t\t\t";
+	a1.insert(10, 3);
+	printArray(a1);
+	std::cout << " -> a1.erase(10): \t\t\t";
+	a1.erase(10);
+	printArray(a1);
+	std::cout << " -> a1.pushBack(3): \t\t\t";
+	a1.pushBack(3);
+	printArray(a1);
+	std::cout << " -> a1.popBack(): \t\t\t";
+	a1.popBack();
+	printArray(a1);
+	std::cout << " -> a1.assign(5, 3): \t\t\t";
+	a1.assign(5, 3);
+	printArray(a1);
+	std::cout << " -> a1.assign(a2.begin(), a2.end()):    ";
+	a1.assign(a2.begin(), a2.end());
+	printArray(a1);
+	std::cout << " -> a1.clear(): \t\t\t";
+	a1.clear();
+	printArray(a1);
+	std::cout << " -> a1.resize(5): \t\t\t";
+	a1.resize(5);
+	printArray(a1);
+	std::cout << " -> a1.resize(10, 3): \t\t\t";
+	a1.resize(10, 3);
+	printArray(a1);
+	std::cout << " -> a1.swap(arr2): \t\t\t";
+	a1.swap(a2);
+	printArray(a1);
+	std::cout << "   - a2:\t\t\t\t";
+	printArray(a2);
+	std::cout << "   - a3:\t\t\t\t";
+	printArray(a3);
 	std::cout << std::endl;
 
 	// Exit

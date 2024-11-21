@@ -21,43 +21,51 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
-	std::cout << " -> SA arr1:\t\t";
-	SA arr1;
-	for (int i = 0; i < 10; ++i) { arr1[i] = i; }
-	printArray(arr1);
-	std::cout << " -> SA arr2(arr1):\t";
-	SA arr2(arr1);
-	printArray(arr2);
-	std::cout << " -> SA arr3 = arr1:\t";
-	SA arr3 = arr1;																																																																																																									
-	printArray(arr3);
+	std::cout << " -> SA a1:\t\t\t\t";
+	SA a1;
+	for (int i = 0; i < 10; ++i) { a1[i] = i; }
+	printArray(a1);
+	std::cout << " -> SA a2(a1):\t\t\t\t";
+	SA a2(a1);
+	printArray(a2);
+	std::cout << " -> SA a3 = a1:\t\t\t\t";
+	SA a3 = a1;																																																																																																									
+	printArray(a3);
 	std::cout << std::endl;
+
+	// Helper Iterators
+	SA::iterator it = a1.begin();
+	SA::iterator last = it;
+	for (; it != a1.end(); ++it) { last = it; }
 
 	// Element Access
 	std::cout << "Element Access:\n";
-	std::cout << " -> arr1.operator[3]:\t" << arr1[3] << std::endl;
-	std::cout << " -> arr1.front():\t" << arr1.front() << std::endl;
-	std::cout << " -> arr1.back(): \t" << arr1.back() << std::endl;
+	std::cout << " -> a1.operator[3]:\t\t\t" << a1[3] << std::endl;
+	std::cout << " -> a1.front():\t\t\t\t" << a1.front() << std::endl;
+	std::cout << " -> a1.back(): \t\t\t\t" << a1.back() << std::endl;
 	std::cout << std::endl;
 
 	// Capacity
 	std::cout << "Capacity:\n";
-	std::cout << " -> arr1.empty():\t" << arr1.empty() << std::endl;
-	std::cout << " -> arr1.size(): \t" << arr1.size() << std::endl;
+	std::cout << " -> a1.empty():\t\t\t\t" << a1.empty() << std::endl;
+	std::cout << " -> a1.size(): \t\t\t\t" << a1.size() << std::endl;
 	std::cout << std::endl;
 
 	// Modifiers
 	std::cout << "Modifiers:\n";
-	std::cout << " -> arr1.assign(5):\t";
-	arr1.assign(5);
-	printArray(arr1);
-	std::cout << " -> arr1.swap(arr2):\t";
-	arr1.swap(arr2);
-	printArray(arr1);
-	std::cout << "   - arr2:\t\t";
-	printArray(arr2);
-	std::cout << "   - arr3:\t\t";
-	printArray(arr3);
+	std::cout << " -> a3.fill(3):\t\t\t\t";
+	a3.fill(3);
+	printArray(a3);
+	std::cout << " -> a2.fill(a3.begin(), a3.end()):\t";
+	a2.fill(a3.begin(), a3.end());
+	printArray(a2);
+	std::cout << " -> a1.swap(a2):\t\t\t";
+	a1.swap(a2);
+	printArray(a1);
+	std::cout << "   - a2:\t\t\t\t";
+	printArray(a2);
+	std::cout << "   - a3:\t\t\t\t";
+	printArray(a3);
 	std::cout << std::endl;
 
 	// Exit

@@ -149,7 +149,8 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void assign(int val);
+	void fill(int val);
+	void fill(iterator first, iterator last);
 	void swap(SA& other);
 };
 ```
@@ -225,7 +226,7 @@ public:
 ```
 
 ---
-The `ConstIterator` class is defined as a public nested class within the `DLL` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+The `ConstIterator` class is defined as a public nested class within the `SA` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
 class SA::ConstIterator {

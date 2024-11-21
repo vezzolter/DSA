@@ -85,9 +85,15 @@ int  SA::size() const { return _SIZE; }
 //  Operations
 // ------------
 
-// Replaces the contents with 'data'
-void SA::assign(int val) {
+// Replaces the contents with 'val'
+void SA::fill(int val) {
     for (int i = 0; i < _SIZE; ++i) { _data[i] = val; }
+}
+
+// Fills the array with elements from the range [first, last)
+void SA::fill(Iterator first, Iterator last) {
+    int index = 0;
+    for (auto it = first; it != last && index < _SIZE; ++it) { _data[index++] = *it; }
 }
 
 // Exchanges the contents of the array with those of 'other'

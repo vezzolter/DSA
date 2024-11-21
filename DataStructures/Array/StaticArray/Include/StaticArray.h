@@ -55,7 +55,8 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void assign(int val);
+	void fill(int val);
+	void fill(iterator first, iterator last);
 	void swap(SA& other);
 };
 

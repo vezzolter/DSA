@@ -235,8 +235,32 @@ void DA::erase(int pos) {
 }
 
 // Assigns the specified value to all elements
-void DA::assign(int val) {
-    for (int i = 0; i < _size; ++i) { _data[i] = val; }
+void DA::assign(int size, const int& val) {
+    // Ensure sufficient capacity for the requested size
+    if (size > _capacity) { reserve(size); }
+
+    // Fill all elements with the specified value
+    for (int i = 0; i < size; ++i) { _data[i] = val; }
+
+    // Match the requested size
+    _size = size;
+}
+
+// Assigns elements from the range [first, last) to the array
+void DA::assign(Iterator first, Iterator last) {
+    // Calculate the number of elements in the range
+    int newSize = 0;
+    for (auto it = first; it != last; ++it) { ++newSize; }
+
+    // Ensure sufficient capacity for the range
+    if (newSize > _capacity) { reserve(newSize); }
+
+    // Copy elements from the range into the array
+    int index = 0;
+    for (auto it = first; it != last; ++it) { _data[index++] = *it; }
+
+    // Match the size to the number of elements in the range
+    _size = newSize;
 }
 
 // Erases all elements from the array, keeps the capacity unchanged
@@ -249,7 +273,7 @@ void DA::clear() {
 }
 
 // Resizes the array to contain 'size' elements
-void DA::resize(int size) {
+void DA::resize(int size, const int& val) {
     // Case 1: new size is the same as current one
     if (size == _size) { return; }
 
@@ -268,8 +292,8 @@ void DA::resize(int size) {
         // Copy existing elements
         for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
 
-        // Default initialize new elements to 0
-        for (int i = _size; i < size; ++i) { data[i] = 0; }
+        // Initialize new elements
+        for (int i = _size; i < size; ++i) { data[i] = val; }
 
         // Deallocate old memory and point to new one
         delete[] _data;
@@ -277,10 +301,10 @@ void DA::resize(int size) {
 
         // Update size to the new size
         _size = size;
-    }
-    else {
+
+    } else {
         // Capacity is sufficient, just default initialize new elements
-        for (int i = _size; i < size; ++i) { _data[i] = 0; }
+        for (int i = _size; i < size; ++i) { _data[i] = val; }
 
         // Update size to the new size
         _size = size;

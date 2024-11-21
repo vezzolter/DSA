@@ -62,12 +62,13 @@ public:
 	//  Modifiers
 	// -----------
 	void insert(int pos, const int& data);
+	void erase(int pos);
 	void pushBack(const int& data);
 	void popBack();
-	void erase(int pos);
-	void assign(int val);
+	void assign(int size, const int& val);
+	void assign(Iterator first, Iterator last);
 	void clear();
-	void resize(int size);
+	void resize(int size, const int& val = 0);
 	void swap(DA& other);
 };
 
