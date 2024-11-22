@@ -5,7 +5,7 @@
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
 	- [Container Implementation](#container-implementation)
-	- [Iterator Implementation](#iterator-implementation)
+	- [Iterators Implementations](#iterators-implementations)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -27,10 +27,15 @@
 
 ## Important Details
 1. **Size (Dynamic)** — dynamic array can't change its size in a direct way, instead it creates a new array of the required size, copies the values, and adjusts memory allocation. Since this process involves multiple operations, dynamic arrays leverage the concept of capacity to minimize the need for frequent resizing.
-2. **Capacity** — dynamic arrays include a feature called capacity, which refers to the maximum number of elements for which memory is currently allocated, as opposed to the size, which is the actual number of elements in the array. Dynamic arrays allocate additional memory beyond the current size to accommodate future growth without needing to resize frequently, and if a resize occurs, typically it doubles the capacity..
+
+2. **Capacity** — dynamic arrays include a feature called capacity, which refers to the maximum number of elements for which memory is currently allocated, as opposed to the size, which is the actual number of elements in the array. Dynamic arrays allocate additional memory beyond the current size to accommodate future growth without needing to resize frequently, and if a resize occurs, typically it doubles the capacity.
+
 3. **Time for Allocation (Runtime)** — dynamic array doesn't require knowing size at its creation, meaning its size can be based on values that are not known during compilation.
+
 4. **Place for Allocation (Heap)** — dynamic array is allocated in the heap memory section, meaning size can be extremely large compared to the stack and provided there is enough available memory.
+
 5. **Memory Management (Manual)** — dynamic array requires manual memory management, meaning you must handle allocation and deallocation yourself, which introduces risks such as dangling pointers or memory leaks, if not properly managed.
+
 6. **Speed of Allocation (Slow)** — dynamic array's allocation on heap is generally slower than allocating on the stack, because it requires more operations and resources to manage memory.
 
 
@@ -44,7 +49,7 @@ When working with dynamic array, it's important to note that there is no univers
 - `Move Constructor` — creates a new array by moving elements from another array, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
 - `Copy Assignment Operator` — overwrites every element of already existing array with the corresponding element of another array by copying them.
 - `Move Assignment Operator` — overwrites every element of already existing array with the corresponding element of another array by moving them, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- `Destructor` — performs end-actions on array: for primitive data types does nothing because they don't hold resources that need to be explicitly cleaned up, for complex data types calls the corresponding destructors.
+- `Destructor` — performs end-actions on array: deallocates all elements in the array, calling destructors for complex data types to ensure resources are cleaned up.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -68,7 +73,7 @@ When working with dynamic array, it's important to note that there is no univers
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
 - `size()` — returns the number of elements in the container; basically distance from begin to end.
-- `maxSize()` — returns the maximum number of elements the container is able to hold.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
 - `capacity()` — returns the number of elements that can be held in currently allocated storage.
 - `reserve()` — increases the capacity of the array to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
 - `shrinkToFit()` — reduces the capacity to the size of an array
@@ -77,16 +82,14 @@ When working with dynamic array, it's important to note that there is no univers
 <p align="center"><img src="./Images/OperationsModifiers.png"/></p>
 
 **Modifiers:**
-- `assign()` — assigns the given value to the elements.
-- `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
-- `clear()` — erases all elements from the container; invalidates any references, pointers, and iterators referring to contained elements; doesn't change capacity.
 - `insert()` — inserts elements at the specified location in the container; if after the operations size is greater than capacity a reallocations takes place.
 - `erase()` — erases the specified elements from the container. 
 - `pushBack()` — appends the given element to the end of the container; if after the operations size is greater than capacity a reallocations takes place.
 - `popBack()` — removes the last element of the container; calling on an empty container causes undefined behavior.
+- `assign()` — assigns the given value to the elements; any previous values will be replaced; invalidates any references, pointers, and iterators referring to contained elements.
+- `clear()` — erases all elements from the container; invalidates any references, pointers, and iterators referring to contained elements; doesn't change capacity.
 - `resize()` — resizes the container to contain given amount of elements; if given amount equals to size, does nothing; if given amount is less than size, the container is reduced to its first given elements; if given amount is greater, additional default (or specified) elements are appended.
-
-
+- `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
 
 # &#x1F4BB; Implementation 
 The implemented console application demonstrates the basic functionality of the dynamic array by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
@@ -96,12 +99,12 @@ The implemented console application demonstrates the basic functionality of the 
 ## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::vector` to provide familiarity for users.
+- Doubling the capacity whenever reallocation occurs.
+- Implementing only regular and const iterators (no reverse).
 - Restricting the implementation to the `int` data type to avoid the use of templates.
+- Omitting cases where the container (object itself) is created on the heap.
 - Excluding move semantics to keep the focus on fundamental mechanics.
 - Relying on manual memory management without using smart pointers.
-- Omitting cases where the container (object itself) is created on the heap.
-- Doubling the capacity whenever reallocation occurs.
-- Implementing only regular and const iterators (no reverse versions).
 - Avoiding any exception handling, thus certain range validations.
 - Omitting certain possible optimizations to the container.
 
@@ -176,12 +179,12 @@ public:
 ```
 
 
-## Iterator Implementation
-Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::vector`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this container implements regular and constant iterator classes. Those iterators cover the basic $[begin, end)$ range and demonstrates how typical iterators operations are handled, as well as how the iterators classes are integrated into the static array container.
+## Iterators Implementations
+Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::vector`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this container implements regular and constant iterator classes. Those iterators cover the basic $[begin, end)$ range and demonstrates how typical iterators operations are handled, as well as how the iterators classes are integrated into the dynamic array container.
 <p align="center"><img src="./Images/LibraryIterators.png"/></p>
 
 ---
-The `Iterator` class is defined as a public nested class within the `DA` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
+The `Iterator` class is defined as a public nested class within the `DA` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with array elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
 class DA::Iterator {
@@ -247,7 +250,7 @@ public:
 ```
 
 ---
-The `ConstIterator` class is defined as a public nested class within the `DA` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+The `ConstIterator` class is defined as a public nested class within the `DA` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with array elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
 class DA::ConstIterator {
@@ -329,7 +332,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
    - **Beginning** $O(n)$ — because removing the first element requires shifting all remaining elements one position to the left to fill the gap.
    - **Middle** $O(n)$ — because removing an element from the middle requires shifting all elements after the deletion point one position to the left.
    - **End** $O(1)$ — because deleting the last element is a simple operation that doesn't require any shifting, making it a constant-time operation.
- - **Other** — while more operations exist, they are generally not considered core functionalities to pick a container for.
+- **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
 
 ---
 🧠 **Space Expenses:**
@@ -340,16 +343,14 @@ Understanding how to analyze the particular container is crucial for optimizing 
 ## Trade-Offs
 ➕ **Advantages:**
 - **Efficient Random Access** — dynamic arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.
-- **Efficient Memory Utilization** — dynamic arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
-- **Scalable Size** — dynamic arrays can grow or shrink as needed, making them more flexible for situations where the amount of data is not known ahead of time. This ensures efficient memory use without preallocating excess space.
-- **Multi-Dimensional Representations** — static arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matrices.
-
+- **Efficient Memory Utilization** — dynamic arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements.
+- **Reduced Memory Fragmentation** — dynamic arrays allocate memory in a single continuous block, minimizing the risk of memory fragmentation that can occur with multiple small allocations across different memory locations.
+- **Scalable Size Blocks** — dynamic arrays can grow or shrink as needed, making them more flexible for situations where the amount of data is not known ahead of time. This ensures efficient memory use without preallocating excess space.
 
 ---
 ➖ **Disadvantages:**
-- **Not Really Flexible** — dynamic arrays provide efficient access to elements, allowing constant time complexity for accessing any element, regardless of the array’s length.
 - **Enormous Single Block** — dynamic arrays with large size can be problematic to allocate due to contiguous memory locations, which potentially can cause a crash.
-- **Wasted Space** — dynamic arrays that are not not fully populated, may leave lots of memory unused.
+- **Unused Space** — dynamic arrays that are not not fully populated, may leave lots of memory unused.
 - **Out-of-Bound Access** — dynamic arrays make it easy to miscalculate an index, leading to access outside the valid range and causing undefined behavior.
 
 

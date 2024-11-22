@@ -6,7 +6,7 @@
 	- [Design Decisions](#design-decisions)
 	- [Container Implementation](#container-implementation)
 	- [Node Implementation](#node-implementation)
-	- [Iterators Implementation](#iterators-implementation)
+	- [Iterators Implementations](#iterators-implementations)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -48,13 +48,13 @@ The implemented console application demonstrates the basic functionality of the 
 ## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `SLL` (which is based on `std::forward_list`) to provide familiarity for users.
+- Implementing only regular and const iterators (no reverse).
 - Restricting the implementation to the `int` data type to avoid the use of templates.
 - Omitting cases where the container (object itself) is created on the heap.
 - Excluding move semantics to keep the focus on fundamental mechanics.
 - Relying on manual memory management without using smart pointers.
-- Implementing both regular and const iterators.
 - Avoiding any exception handling, thus certain range validations.
-- Omitting certain optimizations to the container.
+- Omitting certain possible optimizations to the container.
 
 
 ## Container Implementation
@@ -141,7 +141,7 @@ public:
 };
 ```
 
-## Iterators Implementation
+## Iterators Implementations
 Since there are various types of iterators that can be implemented, it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this container implements regular and constant iterator classes. Those iterators cover the basic $[begin, end)$ range and demonstrates how typical iterators operations are handled, as well as how the iterators classes are integrated into the circular linked list container.
 
 ---

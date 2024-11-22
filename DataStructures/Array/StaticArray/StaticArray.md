@@ -5,7 +5,7 @@
 - [💻 Implementation](#-implementation)
 	- [Design Decisions](#design-decisions)
 	- [Container Implementation](#container-implementation)
-	- [Iterator Implementation](#iterator-implementation)
+	- [Iterators Implementations](#iterators-implementations)
 - [📊 Analysis](#-analysis)
 	- [Characteristics](#characteristics)
 	- [Trade-Offs](#trade-offs)
@@ -75,7 +75,7 @@ When working with static array, it's important to note that there is no universa
 
 ---
 **Modifiers:**
-- `assign()` — assigns the given value to the elements; any previous values will be replaced; invalidates any references, pointers, and iterators referring to contained elements.
+- `fill()` — assigns the given value to the elements; any previous values will be replaced; invalidates any references, pointers, and iterators referring to contained elements.
 - `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
 
 
@@ -88,12 +88,12 @@ The implemented console application demonstrates the basic functionality of the 
 ## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::array` to provide familiarity for users.
-- Restricting the implementation to the `int` data type to avoid the use of templates.
-- Excluding move semantics to keep the focus on fundamental mechanics.
-- Relying on manual memory management without using smart pointers.
-- Omitting cases where the container (object itself) is created on the heap.
 - Opting to use constant as a size of the container.
 - Implementing only regular and const iterators (no reverse versions).
+- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
+- Relying on manual memory management without using smart pointers.
 - Avoiding any exception handling, thus certain range validations.
 - Omitting certain possible optimizations to the container.
 
@@ -156,12 +156,12 @@ public:
 ```
 
 
-## Iterator Implementation
+## Iterators Implementations
 Since there are various types of iterators that can be implemented (e.g. the image below shows the iterators for `std::array`), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this container implements regular and constant iterator classes. Those iterators cover the basic $[begin, end)$ range and demonstrates how typical iterators operations are handled, as well as how the iterators classes are integrated into the static array container.
 <p align="center"><img src="./Images/LibraryIterators.png"/></p>
 
 ---
-The `Iterator` class is defined as a public nested class within the `SA` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
+The `Iterator` class is defined as a public nested class within the `SA` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with array elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
 class SA::Iterator {
@@ -226,7 +226,7 @@ public:
 ```
 
 ---
-The `ConstIterator` class is defined as a public nested class within the `SA` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+The `ConstIterator` class is defined as a public nested class within the `SA` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with array elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
 class SA::ConstIterator {
@@ -313,7 +313,6 @@ Understanding how to analyze the particular container is crucial for optimizing 
 - **Compile-Time Storage** — static arrays allow the storage of values at compile time, which removes the need for runtime memory allocation. This leads to better memory management and increased stability in situations where data size and content are known ahead and fixed during program execution.
 - **Efficient Random Access** — static arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.
 - **Efficient Memory Utilization** — static arrays store data in contiguous memory locations, preventing additional memory wastage for tracking elements. Also, ability for the allocation of memory in a single block, reduces memory fragmentation.
-- **Multi-Dimensional Representations** — dynamic arrays provide a straightforward and natural way to represent multi-dimensional data structures, especially some type of grids or matrices.
 
 ---
 ➖ **Disadvantages:**
