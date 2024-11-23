@@ -35,8 +35,9 @@ int main() {
 
 	// Helper Iterators
 	DA::iterator it = a1.begin();
-	DA::iterator last = it;
-	for (; it != a1.end(); ++it) { last = it; }
+	//DA::iterator last = it;
+	//for (; it != a1.end(); ++it) { last = it; }
+	//for (int i = 0; i < 6; ++i) { last++; }
 
 	// Element Access
 	std::cout << "Element Access:\n";
@@ -60,12 +61,12 @@ int main() {
 
 	// Modifiers
 	std::cout << "Modifiers:\n";
-	std::cout << " -> a1.insert(10, 3): \t\t\t";
-	a1.insert(10, 3);
+	std::cout << " -> a1.insert(unidentified, 3): \t\t\t";
+	a1.insert(it, 3);
 	printArray(a1);
-	std::cout << " -> a1.erase(10): \t\t\t";
-	a1.erase(10);
-	printArray(a1);
+	//std::cout << " -> a1.erase(--itrTo9): \t\t\t";
+	//a1.erase(last);
+	//printArray(a1);
 	std::cout << " -> a1.pushBack(3): \t\t\t";
 	a1.pushBack(3);
 	printArray(a1);

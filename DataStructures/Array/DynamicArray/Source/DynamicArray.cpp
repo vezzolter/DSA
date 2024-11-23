@@ -21,9 +21,9 @@ DA::DA(int size)
 }
 
 // Constructs a list with 'size' copies of elements with 'data' value
-DA::DA(int size, int data)
+DA::DA(int size, int val)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
-    for (int i = 0; i < _size; ++i) { _data[i] = data; }
+    for (int i = 0; i < _size; ++i) { _data[i] = val; }
 }
 
 // Constructs an array with the contents of 'other'
@@ -158,7 +158,7 @@ void DA::shrinkToFit() {
 //  Operations
 // ------------
 
-// Inserts an element at the specified position, shifting other elements
+// Inserts an element at the specified position, shifting subsequent elements
 void DA::insert(int pos, const int& val) {
     // If memory isn't enough - reallocate; Otherwise shift within from the end
     if (_size == _capacity) {
@@ -185,8 +185,71 @@ void DA::insert(int pos, const int& val) {
     ++_size; 
 }
 
+// Inserts an element at the iterator position, shifting subsequent elements
+void DA::insert(iterator pos, const int& val) {
+    // Get the index out of itr
+    int index = pos - this->begin();
+
+    // If memory isn't enough - reallocate; Otherwise shift within from the end
+    if (_size == _capacity) {
+        // Allocate new memory (double if needed, or assign 1 if no at all)
+        _capacity = _capacity == 0 ? 1 : _capacity * 2;
+        int* data = new int[_capacity];
+
+        // Copy elements before the position, insert, copy elements after
+        for (int i = 0; i < index; ++i) { data[i] = _data[i]; }
+        data[index] = val;
+        for (int i = index; i < _size; ++i) { data[i + 1] = _data[i]; }
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = data;
+
+    } else {
+        // Shifting from the beginning result in premature overwrite
+        for (int i = _size; i > index; --i) { _data[i] = _data[i - 1]; }
+        _data[index] = val;
+    }
+
+    // Reflect new element on size
+    ++_size;
+}
+
+// Removes an element at the specified position, shifting subsequent elements to the left
+void DA::erase(int pos) {
+    // Case: one element
+    if (_size == 1) {
+        clear();
+        return;
+    }
+
+    // Shift elements to the left to fill the gap
+    for (int i = pos; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
+
+    // Reflect removed element on size
+    --_size;
+}
+
+// Removes an element at the iterator position, shifting subsequent elements to the left
+void DA::erase(iterator pos) {
+    // Case: one element
+    if (_size == 1) {
+        clear();
+        return;
+    }
+    
+    // Get the index out of itr
+    int index = pos - this->begin();
+
+    // Shift elements to the left to fill the gap
+    for (int i = index; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
+
+    // Reflect removed element on size
+    --_size;
+}
+
 // Appends the given element to the end of the array
-void DA::pushBack(const int& data) {
+void DA::pushBack(const int& val) {
     if (_size == _capacity) {
         // Allocate new memory (double if needed, or assign 1 if no at all)
         _capacity = _capacity == 0 ? 1 : _capacity * 2;
@@ -201,7 +264,7 @@ void DA::pushBack(const int& data) {
     }
 
     // Insert the new value at the end
-    _data[_size] = data;
+    _data[_size] = val;
 
     // Reflect new element on size
     ++_size; 
@@ -214,21 +277,6 @@ void DA::popBack() {
     
     // Avoid stale data
     _data[_size] = 0;
-
-    // Reflect removed element on size
-    --_size;
-}
-
-// Removes an element at the specified position, shifting others left
-void DA::erase(int pos) {
-    // Case: one element
-    if (_size == 1) {
-        clear();
-        return;
-    }
-
-    // Shift elements to the left to fill the gap
-    for (int i = pos; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
 
     // Reflect removed element on size
     --_size;
