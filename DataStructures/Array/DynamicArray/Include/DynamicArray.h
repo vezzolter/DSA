@@ -61,9 +61,7 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insert(int pos, const int& val);
 	void insert(iterator pos, const int& val);
-	void erase(int pos);
 	void erase(iterator pos);
 	void pushBack(const int& val);
 	void popBack();

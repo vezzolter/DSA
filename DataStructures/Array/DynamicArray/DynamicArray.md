@@ -125,7 +125,7 @@ public:
 	// --------------------
 	DA();
 	DA(int size);
-	DA(int size, int data);
+	DA(int size, int val);
 	DA(const DA& other);
 	DA(const DA&& other)          = delete;
 	DA& operator=(const DA& rhs);
@@ -166,9 +166,9 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insert(int pos, const int& data);
-	void erase(int pos);
-	void pushBack(const int& data);
+	void insert(iterator pos, const int& val);
+	void erase(iterator pos);
+	void pushBack(const int& val);
 	void popBack();
 	void assign(int size, const int& val);
 	void assign(Iterator first, Iterator last);
@@ -210,6 +210,10 @@ public:
 
 	// Returns a reference to the element pointed to by the iterator
 	int& operator*() { return *_ptr; }
+
+	// Subtraction operator for random access
+	// P.s. ptrdiff_t is much better type due to semantics and portability
+	int operator-(const ConstIterator& other) const { return _ptr - other._ptr; }
 
 	// Advances the iterator to the next element (pre-increment)
 	Iterator& operator++() {
@@ -276,6 +280,10 @@ public:
 	
 	// Returns a const reference to the element pointed to by the iterator
 	const int& operator*() { return *_ptr; }
+
+	// Subtraction operator for random access
+	// P.s. ptrdiff_t is much better type due to semantics and portability
+	int operator-(const ConstIterator& other) const { return _ptr - other._ptr; }
 
 	// Advances the iterator to the next element (pre-increment)
 	ConstIterator& operator++() {

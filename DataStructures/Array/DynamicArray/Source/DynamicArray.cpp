@@ -158,33 +158,6 @@ void DA::shrinkToFit() {
 //  Operations
 // ------------
 
-// Inserts an element at the specified position, shifting subsequent elements
-void DA::insert(int pos, const int& val) {
-    // If memory isn't enough - reallocate; Otherwise shift within from the end
-    if (_size == _capacity) {
-        // Allocate new memory (double if needed, or assign 1 if no at all)
-        _capacity = _capacity == 0 ? 1 : _capacity * 2;
-        int* data = new int[_capacity];
-
-        // Copy elements before the position, insert, copy elements after
-        for (int i = 0; i < pos; ++i) { data[i] = _data[i]; }
-        data[pos] = val;
-        for (int i = pos; i < _size; ++i) { data[i + 1] = _data[i]; }
-
-        // Deallocate old memory and point to new one
-        delete[] _data;
-        _data = data;
-
-    } else {
-        // Shifting from the beginning result in premature overwrite
-        for (int i = _size; i > pos; --i) { _data[i] = _data[i - 1]; }
-        _data[pos] = val;
-    }
-
-    // Reflect new element on size
-    ++_size; 
-}
-
 // Inserts an element at the iterator position, shifting subsequent elements
 void DA::insert(iterator pos, const int& val) {
     // Get the index out of itr
@@ -213,21 +186,6 @@ void DA::insert(iterator pos, const int& val) {
 
     // Reflect new element on size
     ++_size;
-}
-
-// Removes an element at the specified position, shifting subsequent elements to the left
-void DA::erase(int pos) {
-    // Case: one element
-    if (_size == 1) {
-        clear();
-        return;
-    }
-
-    // Shift elements to the left to fill the gap
-    for (int i = pos; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
-
-    // Reflect removed element on size
-    --_size;
 }
 
 // Removes an element at the iterator position, shifting subsequent elements to the left
