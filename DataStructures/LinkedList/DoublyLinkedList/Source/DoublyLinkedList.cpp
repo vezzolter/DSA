@@ -14,16 +14,16 @@
 // Constructs an empty list
 DLL::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 
-// Constructs a list with 'size' copies of elements with 'data' value
-DLL::DLL(int size, int data) :
+// Constructs a list with 'size' copies of elements with 'val'
+DLL::DLL(int size, int val) :
 	_size(size), _head(nullptr), _tail(nullptr) {
 	// Create the head node
-	_head = new Node(data);
+	_head = new Node(val);
 
 	// Create rest of the nodes
 	Node* curr = _head;
 	for (int i = 1; i < size; ++i) {
-		Node* newNode = new Node(data);
+		Node* newNode = new Node(val);
 		curr->_next = newNode;
 		newNode->_prev = curr;
 		curr = newNode;
@@ -155,13 +155,13 @@ int DLL::size() const { return _size; }
 //  Modifiers
 // -----------
 
-// Inserts a copy of 'data' before 'pos'
-void DLL::insert(iterator pos, const int& data) {
+// Inserts a copy of 'val' before 'pos'
+void DLL::insert(iterator pos, const int& val) {
 	Node* nextNode = pos.operator->();
 	Node* prevNode = nextNode->_prev;
 
 	// Create the new node
-	Node* newNode = new Node(data);
+	Node* newNode = new Node(val);
 	newNode->_next = nextNode;
 	newNode->_prev = prevNode;
 
@@ -193,14 +193,15 @@ void DLL::erase(iterator pos) {
 	--_size;
 }
 
-// Prepends the given 'data' to the beginning of the list
-void DLL::pushFront(const int& data) {
-	// Create a new node with the given data
-	Node* newNode = new Node(data);
+// Prepends the given 'val' to the beginning of the list
+void DLL::pushFront(const int& val) {
+	// Create a new node with the given val
+	Node* newNode = new Node(val);
 
 	// Case: empty list
 	if (_size == 0) {
 		_head = _tail = newNode;
+
 	} else {
 		// Push front
 		_head->_prev = newNode;
@@ -235,16 +236,16 @@ void DLL::popFront() {
 	--_size;
 }
 
-// Appends the given 'data' to the end of the list
-void DLL::pushBack(const int& data) {
-	// Create a new node with the given data
-	Node* newNode = new Node(data);
+// Appends the given 'val' to the end of the list
+void DLL::pushBack(const int& val) {
+	// Create a new node with the given val
+	Node* newNode = new Node(val);
 
 	// Case: empty list
 	if (_size == 0) {
 		_head = _tail = newNode;
-	} 
-	else {
+
+	} else {
 		// Push back
 		_tail->_next = newNode;
 		newNode->_prev = _tail;
@@ -300,17 +301,17 @@ void DLL::reverse() {
 	_tail = temp;
 }
 
-// Replaces the contents with 'size' copies of 'data'
-void DLL::assign(int size, const int& data) {
+// Replaces the contents with 'size' copies of 'val'
+void DLL::assign(int size, const int& val) {
 	// Clear the existing contents
 	clear();
 
-	// Add 'size' nodes with 'data'
-	for (int i = 0; i < size; ++i) { pushBack(data); }
+	// Add 'size' nodes with 'val'
+	for (int i = 0; i < size; ++i) { pushBack(val); }
 }
 
 // Replaces the contents with copies of those in the range [first, last)
-void DLL::assign(const_iterator first, const_iterator last) {
+void DLL::assign(iterator first, iterator last) {
 	// Clear the existing contents
 	clear();
 
@@ -336,7 +337,7 @@ void DLL::clear() {
 }
 
 // Resizes the list to contain 'size' elements
-void DLL::resize(int size, const int& data) {
+void DLL::resize(int size, const int& val) {
 	// Case 1: new size is the same 
 	if (size == _size) { return; }
 
@@ -366,7 +367,7 @@ void DLL::resize(int size, const int& data) {
 
 		// Case: empty list
 		if (!curr) {
-			_head = new Node(data);
+			_head = new Node(val);
 			curr = _head;
 			_tail = _head;
 			--size; // adjust to account first node
@@ -374,7 +375,7 @@ void DLL::resize(int size, const int& data) {
 
 		// Add new nodes until reaching new size
 		for (int i = _size; i < size; ++i) {
-			Node* newNode = new Node(data);
+			Node* newNode = new Node(val);
 			curr->_next = newNode;
 			newNode->_prev = curr;
 			curr = newNode;

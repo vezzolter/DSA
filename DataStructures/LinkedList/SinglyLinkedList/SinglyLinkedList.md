@@ -107,7 +107,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	SLL();
-	SLL(int size, int data);
+	SLL(int size, int val);
 	SLL(const SLL& other);
 	SLL(SLL&& other)          = delete;
 	SLL& operator=(const SLL& rhs);
@@ -141,15 +141,15 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insertAfter(iterator pos, const int& data);
+	void insertAfter(iterator pos, const int& val);
 	void eraseAfter(iterator pos);
-	void pushFront(const int& data);
+	void pushFront(const int& val);
 	void popFront();
 	void reverse();
-	void assign(int size, const int& data);
+	void assign(int size, const int& val);
 	void assign(iterator first, iterator last);
 	void clear();
-	void resize(int size, const int& data = 0);
+	void resize(int size, const int& val = 0);
 	void swap(SLL& other);
 };
 ```
@@ -168,7 +168,8 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Node() : _data(0), _next(nullptr) {}
-	Node(const int& data, Node* next = nullptr) : _data(data), _next(next) {}
+	Node(const int& val, Node* next = nullptr)
+	 : _data(val), _next(next) {}
 	Node(const Node& other)          = delete; // no copying/moving to
 	Node(Node&& other)               = delete; // ensure uniqueness of 
 	Node& operator=(const Node& rhs) = delete; // the node within the list

@@ -14,16 +14,17 @@
 // Constructs an empty list
 SLL::SLL() : _size(0), _head(nullptr) {}
 
-// Constructs a list with 'size' copies of elements with 'data' value
-SLL::SLL(int size, int data)
+// Constructs a list with 'size' copies of elements with 'val'
+SLL::SLL(int size, int val)
 	: _size(size), _head(nullptr) {
+
 	// Create the head node
-	_head = new Node(data);
+	_head = new Node(val);
 
 	// Create rest of the nodes
 	Node* curr = _head;
 	for (int i = 1; i < size; ++i) {
-		curr->_next = new Node(data);
+		curr->_next = new Node(val);
 		curr = curr->_next;
 	}
 }
@@ -31,6 +32,7 @@ SLL::SLL(int size, int data)
 // Constructs a list with the contents of 'other'
 SLL::SLL(const SLL& other)
 	: _size(other._size) {
+
 	// Case: empty list
 	if (!other._head) {
 		_head = nullptr;
@@ -136,13 +138,13 @@ int SLL::size() const { return _size; }
 //  Modifiers
 // -----------
 
-// Inserts a copy of 'data' after 'pos'
-void SLL::insertAfter(iterator pos, const int& data) {
+// Inserts a copy of 'val' after 'pos'
+void SLL::insertAfter(iterator pos, const int& val) {
 	// Case: wrong iterator
 	if (pos == this->end()) { return; }
 
 	// Create a new node with the given data
-	Node* newNode = new Node(data);
+	Node* newNode = new Node(val);
 
 	// Get the given node
 	Node* curr = pos.operator->();
@@ -175,10 +177,10 @@ void SLL::eraseAfter(iterator pos) {
 }
 
 
-// Prepends the given 'data' to the beginning of the list
-void SLL::pushFront(const int& data) {
-	// Create a new node with the given data
-	Node* newNode = new Node(data);
+// Prepends the given 'val' to the beginning of the list
+void SLL::pushFront(const int& val) {
+	// Create a new node with the given val
+	Node* newNode = new Node(val);
 
 	// Push front
 	newNode->_next = _head;
@@ -234,15 +236,15 @@ void SLL::reverse() {
 	_head = prev;
 }
 
-// Replaces the contents with 'size' copies of 'data'
-void SLL::assign(int size, const int& data) {
+// Replaces the contents with 'size' copies of 'val'
+void SLL::assign(int size, const int& val) {
 	// Clear the existing contents
 	clear();
 
-	// Add 'size' nodes with 'data'
-	for (int i = 0; i < size; ++i) { pushFront(data); }
+	// Add 'size' nodes with 'val'
+	for (int i = 0; i < size; ++i) { pushFront(val); }
 
-	// No reverse(), since data is the same
+	// No reverse(), since val is the same
 }
 
 // Replaces the contents with copies of those in the range [first, last)
@@ -275,7 +277,7 @@ void SLL::clear() {
 }
 
 // Resizes the list to contain 'size' elements
-void SLL::resize(int size, const int& data) {
+void SLL::resize(int size, const int& val) {
 	// Case 1: new size is the same 
 	if (size == _size) { return; }
 
@@ -309,7 +311,7 @@ void SLL::resize(int size, const int& data) {
 
 		// Add new nodes until reaching new size
 		for (int i = _size; i < size; ++i) {
-			Node* newNode = new Node(data);
+			Node* newNode = new Node(val);
 			if (curr) {
 				curr->_next = newNode;
 			} else {

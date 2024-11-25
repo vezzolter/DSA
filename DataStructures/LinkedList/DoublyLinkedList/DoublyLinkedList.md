@@ -112,7 +112,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	DLL();
-	DLL(int size, int data);
+	DLL(int size, int val);
 	DLL(const DLL& other);
 	DLL(DLL&& other)          = delete;
 	DLL& operator=(const DLL& rhs);
@@ -148,17 +148,17 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insert(iterator pos, const int& data);
+	void insert(iterator pos, const int& val);
 	void erase(iterator pos);
-	void pushFront(const int& data);
+	void pushFront(const int& val);
 	void popFront();
-	void pushBack(const int& data);
+	void pushBack(const int& val);
 	void popBack();
 	void reverse();
-	void assign(int size, const int& data);
-	void assign(const_iterator first, const_iterator last);
+	void assign(int size, const int& val);
+	void assign(iterator first, iterator last);
 	void clear();
-	void resize(int size, const int& data = 0);
+	void resize(int size, const int& val = 0);
 	void swap(DLL& other);
 };
 ```
@@ -177,8 +177,8 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Node() : _data(0), _next(nullptr), _prev(nullptr) {}
-	Node(const int& data, Node* next = nullptr, Node* prev = nullptr)
-		: _data(data), _next(next), _prev(prev) {}
+	Node(const int& val, Node* next = nullptr, Node* prev = nullptr)
+		: _data(val), _next(next), _prev(prev) {}
 	Node(const Node& other)             = delete;  // no copying/moving to
 	Node(Node&& other)                  = delete;  // ensure uniqueness of 
 	Node& operator=(const Node& rhs)    = delete;  // the node within the list

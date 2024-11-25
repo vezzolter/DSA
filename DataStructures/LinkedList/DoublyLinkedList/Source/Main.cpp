@@ -76,8 +76,8 @@ int main() {
 	std::cout << " -> l1.assign(5, 3): \t\t\t";
 	l1.assign(5, 3);
 	printList(l1);
-	std::cout << " -> l1.assign(l2.cbegin(), l2.cend()):  ";
-	l1.assign(l2.cbegin(), l3.cend());
+	std::cout << " -> l1.assign(l2.begin(), l2.end()):  ";
+	l1.assign(l2.begin(), l3.end());
 	printList(l1);
 	std::cout << " -> l1.clear(): \t\t\t";
 	l1.clear();

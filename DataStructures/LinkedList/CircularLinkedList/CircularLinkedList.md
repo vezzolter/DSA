@@ -72,7 +72,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	CLL();
-	CLL(int size, int data);
+	CLL(int size, int val);
 	CLL(const CLL& other);
 	CLL(CLL&& other)          = delete;
 	CLL& operator=(const CLL& rhs);
@@ -106,15 +106,15 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
-	void insertAfter(iterator pos, const int& data);
+	void insertAfter(iterator pos, const int& val);
 	void eraseAfter(iterator pos);
-	void pushFront(const int& data);
+	void pushFront(const int& val);
 	void popFront();
 	void reverse();
-	void assign(int size, const int& data);
+	void assign(int size, const int& val);
 	void assign(const_iterator first, const_iterator last);
 	void clear();
-	void resize(int size, const int& data = 0);
+	void resize(int size, const int& val = 0);
 	void swap(CLL& other);
 };
 ```
@@ -132,7 +132,8 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Node() : _data(0), _next(nullptr) {}
-	Node(const int& data, Node* next = nullptr) : _data(data), _next(next) {}
+	Node(const int& val, Node* next = nullptr) 
+		: _data(val), _next(next) {}
 	Node(const Node& other)          = delete;  // no copying/moving to
 	Node(Node&& other)               = delete;  // ensure uniqueness of 
 	Node& operator=(const Node& rhs) = delete;  // the node within the list
@@ -158,7 +159,8 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Iterator()                               = default;
-	explicit Iterator(Node* ptr, Node* head) : _ptr(ptr), _head(head) {}
+	explicit Iterator(Node* ptr, Node* head)
+		: _ptr(ptr), _head(head) {}
 	Iterator(const Iterator& other)          = default;
 	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
@@ -217,7 +219,8 @@ public:
 	//  Compiler Generated
 	// --------------------
 	ConstIterator()                                    = default;
-	explicit ConstIterator(const Node* ptr, const Node* head) : _ptr(ptr), _head(head) {}
+	explicit ConstIterator(const Node* ptr, const Node* head) 
+		: _ptr(ptr), _head(head) {}
 	ConstIterator(const ConstIterator& other)          = default;
 	ConstIterator(ConstIterator&& other)               = default;
 	ConstIterator& operator=(const ConstIterator& rhs) = default;

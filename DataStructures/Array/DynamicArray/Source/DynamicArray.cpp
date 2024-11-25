@@ -17,22 +17,26 @@ DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 // Constructs a list with 'size' copies of elements initialized to zeros
 DA::DA(int size)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
+
     for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
 
-// Constructs a list with 'size' copies of elements with 'data' value
+// Constructs a list with 'size' copies of elements with 'val'
 DA::DA(int size, int val)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
+
     for (int i = 0; i < _size; ++i) { _data[i] = val; }
 }
 
 // Constructs an array with the contents of 'other'
 DA::DA(const DA& other)
     : _size(other._size), _capacity(other._capacity) {
+
     // Copy the data (if any), the size and capacity are in init list
     if (other._data) {
         _data = new int[_capacity];
         for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
+
     } else {
         _data = nullptr;
     }  
@@ -49,7 +53,8 @@ DA& DA::operator=(const DA& rhs) {
     _capacity = rhs._capacity;
     if (rhs._data) {
         _data = new int[_capacity];
-        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }   
+        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }
+
     } else {
         _data = nullptr;
     }
