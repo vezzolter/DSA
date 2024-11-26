@@ -90,7 +90,8 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 - Resembling the behavior of `std::array` to provide familiarity for users.
 - Opting to use constant as a size of the container.
 - Implementing only regular and const iterators (no reverse versions).
-- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Limiting iterator functions to regular iterators to avoid templates.
+- Restricting the container to `int` to avoid templates.
 - Omitting cases where the container (object itself) is created on the heap.
 - Excluding move semantics to keep the focus on fundamental mechanics.
 - Relying on manual memory management without using smart pointers.
@@ -127,6 +128,8 @@ public:
 	iterator end();
 	class ConstIterator;
 	using const_iterator = ConstIterator;
+	const_iterator begin() const;
+	const_iterator end() const;
 	const_iterator cbegin() const;
 	const_iterator cend() const;
 

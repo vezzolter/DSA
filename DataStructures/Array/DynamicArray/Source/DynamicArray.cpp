@@ -77,10 +77,17 @@ DA::Iterator DA::begin() { return Iterator(_data); }
 DA::Iterator DA::end() { return Iterator(_data + _size); }
 
 // Returns a const iterator to the first element of the array
-DA::ConstIterator DA::cbegin() const { return ConstIterator(_data); }
+DA::const_iterator DA::begin() const { return ConstIterator(_data); }
 
 // Returns a const iterator to one past the last element of the array
+DA::const_iterator DA::end() const { return ConstIterator(_data + _size); }
+
+// Explicitly returns a const iterator to the first element of the array
+DA::ConstIterator DA::cbegin() const { return ConstIterator(_data); }
+
+// Explicitly returns a const iterator to one past the last element of the array
 DA::ConstIterator DA::cend() const { return ConstIterator(_data + _size); }
+
 
 
 // ----------------

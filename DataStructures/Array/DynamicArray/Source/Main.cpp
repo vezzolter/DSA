@@ -9,6 +9,7 @@
 
 
 void printArray(const DA& arr) {
+	//for (auto x : arr) { std::cout << x << " "; }
 	for (auto it = arr.cbegin(); it != arr.cend(); ++it) { 
 		std::cout << *it << " "; 
 	}

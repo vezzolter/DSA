@@ -41,9 +41,15 @@ SA::Iterator SA::begin() { return Iterator(_data); }
 SA::Iterator SA::end() { return Iterator(_data + _SIZE); } 
 
 // Returns a const iterator to the first element of the array
-SA::ConstIterator SA::cbegin() const { return ConstIterator(_data); }
+SA::const_iterator SA::begin() const { return ConstIterator(_data); }
 
 // Returns a const iterator to one past the last element of the array
+SA::const_iterator SA::end() const { return ConstIterator(_data + _SIZE); }
+
+// Explicitly returns a const iterator to the first element of the array
+SA::ConstIterator SA::cbegin() const { return ConstIterator(_data); }
+
+// Explicitly returns a const iterator to one past the last element of the array
 SA::ConstIterator SA::cend() const { return ConstIterator(_data + _SIZE); }
 
 
