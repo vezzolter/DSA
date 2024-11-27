@@ -117,9 +117,15 @@ DLL::Iterator DLL::begin() { return iterator(_head); }
 DLL::Iterator DLL::end() { return iterator(nullptr); }
 
 // Returns a const iterator to the first element of the list
-DLL::ConstIterator DLL::cbegin() const { return const_iterator(_head); }
+DLL::ConstIterator DLL::begin() const { return const_iterator(_head); }
 
 // Returns a const iterator to one past the last element of the list
+DLL::ConstIterator DLL::end() const { return const_iterator(nullptr); }
+
+// Explicitly returns a const iterator to the first element of the list
+DLL::ConstIterator DLL::cbegin() const { return const_iterator(_head); }
+
+// Explicitly returns a const iterator to one past the last element of the list
 DLL::ConstIterator DLL::cend() const { return const_iterator(nullptr); }
 
 
@@ -359,6 +365,9 @@ void DLL::resize(int size, const int& val) {
 			delete temp;
 		}
 
+		// Ensure the tail's next pointer is null
+		if (_tail) { _tail->_next = nullptr; }
+
 	} else if (size > _size) {
 		// Case 3: new size is greater
 
@@ -370,16 +379,25 @@ void DLL::resize(int size, const int& val) {
 			_head = new Node(val);
 			curr = _head;
 			_tail = _head;
-			--size; // adjust to account first node
+
+			// Add remaining nodes, starting from 1
+			for (int i = 1; i < size; ++i) {
+				Node* newNode = new Node(val);
+				curr->_next = newNode;
+				newNode->_prev = curr;
+				curr = newNode;
+			}
+
+		} else {
+			// Add new nodes until reaching new size
+			for (int i = _size; i < size; ++i) {
+				Node* newNode = new Node(val);
+				curr->_next = newNode;
+				newNode->_prev = curr;
+				curr = newNode;
+			}
 		}
 
-		// Add new nodes until reaching new size
-		for (int i = _size; i < size; ++i) {
-			Node* newNode = new Node(val);
-			curr->_next = newNode;
-			newNode->_prev = curr;
-			curr = newNode;
-		}
 
 		// Update the tail to the last added node
 		_tail = curr;

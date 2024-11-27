@@ -49,7 +49,8 @@ The implemented console application demonstrates the basic functionality of the 
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `SLL` (which is based on `std::forward_list`) to provide familiarity for users.
 - Implementing only regular and const iterators (no reverse).
-- Restricting the implementation to the `int` data type to avoid the use of templates.
+- Limiting iterator functions to regular iterators to avoid templates.
+- Restricting the container to `int` to avoid templates.
 - Omitting cases where the container (object itself) is created on the heap.
 - Excluding move semantics to keep the focus on fundamental mechanics.
 - Relying on manual memory management without using smart pointers.
@@ -88,6 +89,8 @@ public:
 	iterator end();
 	class ConstIterator;
 	using const_iterator = ConstIterator;
+	const_iterator begin() const;
+	const_iterator end() const;
 	const_iterator cbegin() const;
 	const_iterator cend() const;
 
@@ -112,7 +115,7 @@ public:
 	void popFront();
 	void reverse();
 	void assign(int size, const int& val);
-	void assign(const_iterator first, const_iterator last);
+	void assign(iterator first, iterator last);
 	void clear();
 	void resize(int size, const int& val = 0);
 	void swap(CLL& other);

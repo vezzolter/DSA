@@ -9,9 +9,10 @@
 
 
 void printList(const DLL& list) {
-	for (auto it = list.cbegin(); it != list.cend(); ++it) {
-		std::cout << *it << " ";
-	}
+	for (auto x : list) { std::cout << x << " "; }
+	//for (auto it = list.cbegin(); it != list.cend(); ++it) {
+	//	std::cout << *it << " ";
+	//}
 	std::cout << std::endl;
 }
 
@@ -76,7 +77,7 @@ int main() {
 	std::cout << " -> l1.assign(5, 3): \t\t\t";
 	l1.assign(5, 3);
 	printList(l1);
-	std::cout << " -> l1.assign(l2.begin(), l2.end()):  ";
+	std::cout << " -> l1.assign(l2.begin(), l2.end()): \t";
 	l1.assign(l2.begin(), l3.end());
 	printList(l1);
 	std::cout << " -> l1.clear(): \t\t\t";

@@ -107,9 +107,15 @@ CLL::Iterator CLL::begin() { return iterator(_head, _head); }
 CLL::Iterator CLL::end() { return iterator(nullptr, _head); }
 
 // Returns a const iterator to the first element of the list
-CLL::ConstIterator CLL::cbegin() const { return const_iterator(_head, _head); }
+CLL::ConstIterator CLL::begin() const { return const_iterator(_head, _head); }
 
 // Returns a const iterator to one past the last element of the list
+CLL::ConstIterator CLL::end() const { return const_iterator(nullptr, _head); }
+
+// Explicitly returns a const iterator to the first element of the list
+CLL::ConstIterator CLL::cbegin() const { return const_iterator(_head, _head); }
+
+// Explicitly returns a const iterator to one past the last element of the list
 CLL::ConstIterator CLL::cend() const { return const_iterator(nullptr, _head); }
 
 
@@ -277,7 +283,7 @@ void CLL::assign(int size, const int& val) {
 }
 
 // Replaces the contents with copies of those in the range [first, last)
-void CLL::assign(const_iterator first, const_iterator last) {
+void CLL::assign(iterator first, iterator last) {
 	clear();
 
 	// Create the first node

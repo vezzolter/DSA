@@ -106,9 +106,15 @@ SLL::Iterator SLL::begin() { return iterator(_head); }
 SLL::Iterator SLL::end() { return iterator(nullptr); }
 
 // Returns a const iterator to the first element of the list
-SLL::ConstIterator SLL::cbegin() const { return const_iterator(_head); }
+SLL::ConstIterator SLL::begin() const { return const_iterator(_head); }
 
 // Returns a const iterator to one past the last element of the list
+SLL::ConstIterator SLL::end() const { return const_iterator(nullptr); }
+
+// Explicitly returns a const iterator to the first element of the list
+SLL::ConstIterator SLL::cbegin() const { return const_iterator(_head); }
+
+// Explicitly returns a const iterator to one past the last element of the list
 SLL::ConstIterator SLL::cend() const { return const_iterator(nullptr); }
 
 
@@ -248,7 +254,7 @@ void SLL::assign(int size, const int& val) {
 }
 
 // Replaces the contents with copies of those in the range [first, last)
-void SLL::assign(const_iterator first, const_iterator last) {
+void SLL::assign(iterator first, iterator last) {
 	// Clear the existing contents
 	clear();
 

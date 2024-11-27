@@ -35,6 +35,8 @@ public:
 	iterator end();
 	class ConstIterator;
 	using const_iterator = ConstIterator;
+	const_iterator begin() const;
+	const_iterator end() const;
 	const_iterator cbegin() const;
 	const_iterator cend() const;
 
@@ -59,7 +61,7 @@ public:
 	void popFront();
 	void reverse();
 	void assign(int size, const int& val);
-	void assign(const_iterator first, const_iterator last);
+	void assign(iterator first, iterator last);
 	void clear();
 	void resize(int size, const int& val = 0);
 	void swap(CLL& other);
