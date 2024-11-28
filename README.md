@@ -113,8 +113,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
     - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
   - String
-    - String.md
-    - String
+    - [String.md](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/String.md) 🎯
+    - [String Container](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/StringContainer/StringContainer.md) 🎯
   - Tree
     - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
