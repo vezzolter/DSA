@@ -103,29 +103,26 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList) ✅
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
-  - Queue
-    - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
-    - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
-    - Double-Ended Queue
-    - Circular Queue
-    - Priority Queue
-  - Stack
-    - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
-    - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
-  - String
-    - [String.md](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/String.md) 🎯
-    - [String Container](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/StringContainer/StringContainer.md) 🎯
-    - Gap Buffer (?)
-    - Rope (?)
-    - Trie (?)
   - Tree
     - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
     - AVL Tree  
     - Red-Black Tree 
     - B-Tree
-    - Trie (?)
+    - Trie
   - Graph
+  - Stack (Abstract)
+    - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
+    - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
+  - Queue (Abstract)
+    - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
+    - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
+    - Double-Ended Queue
+    - Circular Queue
+    - Priority Queue
+  - String (Abstract)
+    - [String.md](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/String.md) 🎯
+    - [String Container](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/StringContainer/StringContainer.md) 🎯
   - Heap
   - Hash
 - General

@@ -1,13 +1,15 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
   - [Essential Terminology](#essential-terminology)
-- [💻 Implementation](#-implementation)
   - [Core Mechanics](#core-mechanics)
-  - [Existing Solutions](#existing-solutions)
-  - [Repository Containers](#repository-containers)
+  - [Container Methods](#container-methods)
+- [💻 Implementation](#-implementation)
+  - [Design Decisions](#design-decisions)
+  - [Container Implementation](#container-implementation)
+  - [Iterator Implementation](#iterator-implementation)
 - [📊 Analysis](#-analysis)
-  - [Evaluating Characteristics](#evaluating-characteristics)
-  - [Comparing Containers](#comparing-containers)
+  - [Characteristics](#characteristics)
+  - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -27,33 +29,40 @@ Currently in Progress...
 Currently in Progress...
 
 
+## Core Mechanics
+Currently in Progress...
+
+
+## Container Methods
+Currently in Progress...
+
+
 
 # &#x1F4BB; Implementation 
 Currently in Progress...
 
 
-## Core Mechanics
+## Design Decisions
 Currently in Progress...
 
 
-## Existing Solutions
+## Container Implementation
 Currently in Progress...
 
 
-## Repository Containers
+## Iterator Implementation
 Currently in Progress...
-
 
 
 # &#128202; Analysis
 Currently in Progress...
 
 
-## Evaluating Characteristics
+## Characteristics
 Currently in Progress...
 
 
-## Comparing Containers
+## Trade-Offs
 Currently in Progress...
 
  
@@ -99,9 +108,6 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**
 - [String (computer science)](https://en.wikipedia.org/wiki/String_(computer_science)) (Wikipedia)
 - [Character (computing)](https://en.wikipedia.org/wiki/Character_(computing)) (Wikipedia)
-- [Gap buffer](https://en.wikipedia.org/wiki/Gap_buffer) (Wikipedia)
-- [Rope (data structure)](https://en.wikipedia.org/wiki/Rope_(data_structure)) (Wikipedia)
-- [Trie](https://en.wikipedia.org/wiki/Trie) (Wikipedia)
 - [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 
 
