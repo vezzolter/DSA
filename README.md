@@ -115,13 +115,16 @@ This list provides a straightforward overview of the repository's contents. For 
   - String
     - [String.md](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/String.md) 🎯
     - [String Container](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/StringContainer/StringContainer.md) 🎯
+    - Gap Buffer (?)
+    - Rope (?)
+    - Trie (?)
   - Tree
     - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
     - AVL Tree  
     - Red-Black Tree 
     - B-Tree
-    - Trie
+    - Trie (?)
   - Graph
   - Heap
   - Hash
@@ -139,10 +142,6 @@ As my educational journey progresses, I may discover new areas of interest withi
 - If you have any suggestions or ideas, please reach out via email, GitHub, LinkedIn or Telegram. 
 - If you want to contribute code or other resources, please try to keep the existing style guidelines.
 - Please respect both your and mine time and effort.
-
----
-**Backlog:**
-1. Algorithms: Decide how to structure analysis section of the RNG - it has interesting characteristics to test out: period, distribution, predictability, etc.
 
 
 
@@ -175,9 +174,9 @@ As my educational journey progresses, I may discover new areas of interest withi
 ---
 &#127891; **Courses:**
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
-  - Gives a great structural understanding of the data structures along with decent practical quizes & coding challenges in C++.
+  - Gives a great structural understanding of the data structures basics along with decent practical quizes & coding challenges in C++.
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
-  - Guides into any topics with ease, no matter how complex you think it is, therefore makes you start.
+  - Guides into basic DSA topics with ease, no matter how complex you think it is, therefore makes you start.
 
 ---
 &#128156; **Special Thanks:**

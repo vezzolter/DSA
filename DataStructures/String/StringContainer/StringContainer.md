@@ -94,7 +94,7 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+String container share the foundational principles of the general concept of strings, the resources that contributed to their understanding are best described in the [arrays credits section](../String.md#-credits).
 
 
 

@@ -86,7 +86,23 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#128218; **Books:**
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 3.6: Strings
+
+---
+&#127891; **Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Section 8: Strings
+
+--- 
+&#127760; **Web-Resources:**
+- [String (computer science)](https://en.wikipedia.org/wiki/String_(computer_science)) (Wikipedia)
+- [Character (computing)](https://en.wikipedia.org/wiki/Character_(computing)) (Wikipedia)
+- [Gap buffer](https://en.wikipedia.org/wiki/Gap_buffer) (Wikipedia)
+- [Rope (data structure)](https://en.wikipedia.org/wiki/Rope_(data_structure)) (Wikipedia)
+- [Trie](https://en.wikipedia.org/wiki/Trie) (Wikipedia)
+- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 
 
 
