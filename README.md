@@ -111,18 +111,18 @@ This list provides a straightforward overview of the repository's contents. For 
     - B-Tree
     - Trie
   - Graph
-  - Stack (Abstract)
+  - Stack
     - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
     - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
-  - Queue (Abstract)
+  - Queue
     - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
     - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
     - Double-Ended Queue
     - Circular Queue
     - Priority Queue
-  - String (Abstract)
+  - String
     - [String.md](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/String.md) 🎯
-    - [String Container](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/StringContainer/StringContainer.md) 🎯
+    - [String](https://github.com/vezzolter/DSA/tree/string/DataStructures/String) 🎯
   - Heap
   - Hash
 - General

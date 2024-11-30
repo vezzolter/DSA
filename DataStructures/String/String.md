@@ -22,7 +22,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**String** refers to both an abstract data structure and a concrete container, embodying a sequence of characters designed for storing and manipulating text or symbolic data. This dual nature arises from its ability to represent a conceptual guarantee of functionality while being implemented in diverse ways. The term _«string»_ comes from its resemblance to a string of characters, much like beads strung together on a physical string. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/String.png"/></p>
 
 
 ## Essential Terminology
