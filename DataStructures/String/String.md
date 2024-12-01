@@ -22,12 +22,19 @@
 
 
 # &#128161; Overview
-**String** refers to both an abstract data structure and a concrete container, embodying a sequence of characters designed for storing and manipulating text or symbolic data. This dual nature arises from its ability to represent a conceptual guarantee of functionality while being implemented in diverse ways. The term _«string»_ comes from its resemblance to a string of characters, much like beads strung together on a physical string. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+**String** refers to both an abstract data structure and a concrete container, embodying a sequence of characters designed for storing and manipulating text or symbolic data. The term _«string»_ comes from its resemblance to a string of characters, much like beads strung together on a physical string. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
 <p align="center"><img src="./Images/String.png"/></p>
 
 
 ## Essential Terminology
-Currently in Progress...
+- **Abstract Data Structure** — is a theoretical model that defines a set of operations and guarantees for organizing and manipulating data, independent of memory organization or specific implementation details.
+  - **Data Structure** — is a theoretical model of data organization in memory, used to design containers in an efficient or specific ways.
+  - **Container** — is a concrete implementation, used to manage actual data through specific operations. Containers are primarily defined by the operations and guarantees they provide, which can originate from the data structure itself or from an abstract data structure. As long as those guarantees are fulfilled, the underlying model can be modified or replaced.
+- **String** — refers to both an abstract data structure and a concrete container, embodying a sequence of characters designed for storing and manipulating text or symbolic data. This dual nature arises from its ability to represent a conceptual guarantee of functionality while being implemented in diverse ways.
+  - **Character** — the smallest unit of a string, representing a single symbol or letter.
+  - **Null-Terminator** — is a special character «`\0`» used in C-style strings to indicate the end of the string for functions. String containers don't require it because they keep track of the string's length internally; however, it can be added to maintain compatibility when necessary.
+- **Character Encoding** — is a mapping between characters and their binary representations (sequence of bits), so that text can be stored, transmitted, and processed by computers.
+
 
 
 ## Core Mechanics
