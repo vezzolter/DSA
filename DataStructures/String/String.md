@@ -32,7 +32,6 @@
   - **Container** — is a concrete implementation, used to manage actual data through specific operations. Containers are primarily defined by the operations and guarantees they provide, which can originate from the data structure itself or from an abstract data structure. As long as those guarantees are fulfilled, the underlying model can be modified or replaced.
 - **String** — refers to both an abstract data structure and a concrete container, embodying a sequence of characters designed for storing and manipulating text or symbolic data. This dual nature arises from its ability to represent a conceptual guarantee of functionality while being implemented in diverse ways.
   - **Character** — the smallest unit of a text that has semantic value.
-  - **Null-Terminator** — is a special character «`\0`» used in C-style strings to indicate the end of the string for functions. String containers don't require it because they keep track of the string's length internally; however, it can be added to maintain compatibility when necessary.
 
 
 
@@ -51,6 +50,16 @@ Different mappings exist to efficiently represent diverse characters, symbols, a
   - **UTF-16** — is variable-length encoding, which uses $2$ bytes for most characters, with some requiring $4$ bytes.
   - **UTF-32** — is fixed-length encoding, which uses $4$ bytes per character.
   <p align="center"><img src="./Images/EncodingUTF.png"/></p>
+
+
+---
+At its core, a string is simply a representation of a sequence of characters, and it imposes no strict requirements on how it must be implemented. While the most common implementations rely on **arrays**, strings can also be built using linked lists, trees, or other data structures in specialized contexts.
+<p align="center"><img src="./Images/DifferentMemoryLayouts.png"/></p>
+
+Most string implementations rely on arrays because of their simplicity, efficiency in accessing elements, and excellent memory locality, which optimizes performance for sequential processing. This is why, in the C language, strings are represented as contiguous arrays of characters, with a **null terminator** «`\0`» marking the end of the sequence. This design enables string-processing functions to traverse the array until they encounter the null character, making it lightweight and straightforward. However, this approach has limitations: it requires manual memory management, lacks built-in size tracking, and is prone to issues like buffer overflows if not carefully handled. Despite these challenges, null-terminated strings remain widely used today, particularly in low-level programming and embedded systems, due to their minimal overhead.
+<p align="center"><img src="./Images/NullTerminator.png"/></p>
+
+Modern programming languages, particularly with the advent of object-oriented programming, have enhanced the concept of array-based strings by introducing string containers as dedicated classes. These classes encapsulate string functionality, providing built-in methods for operations such as concatenation, slicing, and searching, while abstracting away low-level details like resizing, size tracking with null-terminator (however, it can be added to maintain compatibility when necessary), and memory management. This design significantly improves safety, flexibility, and ease of use compared to traditional string implementations.
 
 
 
