@@ -64,8 +64,25 @@ Modern programming languages, particularly with the advent of object-oriented pr
 
 
 ## Container Methods
-Currently in Progress...
+When working with strings, it's important to note that there is no universal standard defining a strict list of operations or guidelines for how they should be implemented. The design and functionality of a container can vary depending on several factors, such as the programming language, the purpose of the library, performance considerations, etc. Despite these variations, there are still common operations found across most implementations, typically derived from the fundamental needs of data manipulation, like accessing, modifying, or iterating over elements. Since this repository is dedicated to C++, the operations provided will closely resemble those found in `std::string`.
 
+---
+**Compiler Generated:**
+- `Default Constructor` — creates an empty string, initializing its internal structure to represent a sequence with no characters. If applicable, metadata such as size or capacity is set to indicate an empty state.
+- `Copy Constructor` — creates a new string by copying characters and metadata from another string.
+- `Move Constructor` — creates a new string by transferring ownership of characters and metadata from another string, leaving the original string in a valid, but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory through a simple transfer of ownership.
+- `Copy Assignment Operator` — overwrites the existing string with the characters and metadata of another string by copying them.
+- `Move Assignment Operator` — overwrites the existing string with the characters and metadata of another string by transferring ownership, leaving the original string in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory through a simple transfer of ownership.
+- `Destructor` — performs cleanup on the string: deallocates memory for stored characters and properly handles any associated resources or metadata, ensuring there are no memory leaks.
+
+---
+<p align="center"><img src="./Images/OperationsIterators.png"/></p>
+
+**Iterators:**
+- `begin`, `cbegin` — returns an iterator (or constant iterator) to the first element.
+- `end`, `cend` — returns an iterator (or constant iterator) to the position one past the last element, making range $[begin, end)$ easy for traversal.
+- `rbegin`, `crbegin` — returns an iterator (or constant one) to the last element.
+- `rend`, `crend` — returns an iterator (or constant one) to the position one before the first element, making range $[rend, rbegin)$ easy for traversal.
 
 
 # &#x1F4BB; Implementation 
