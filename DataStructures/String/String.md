@@ -84,6 +84,26 @@ When working with strings, it's important to note that there is no universal sta
 - `rbegin`, `crbegin` — returns an iterator (or constant one) to the last element.
 - `rend`, `crend` — returns an iterator (or constant one) to the position one before the first element, making range $[rend, rbegin)$ easy for traversal.
 
+---
+<p align="center"><img src="./Images/OperationsAccess.png"/></p>
+
+**Element Access:**
+- `at()` — returns specified element with bounds checking; if element is not within the range of the container, throws an exception.
+- `operator[]` — returns specified element without bounds checking; accessing a nonexistent element through this operator is undefined behavior.
+- `front()` — returns the first element in the container; calling on an empty container causes undefined behavior.
+- `back()` — returns the last element in the container; calling on an empty container causes undefined behavior.
+- `data()` — returns a pointer to the underlying array serving as character storage; the returned pointer is valid only as long as the string is not modified.
+- `c_str()` — returns a pointer to a null-terminated character array with data equivalent to those stored in the string; the returned pointer is valid only as long as the string is not modified.
+
+---
+**Capacity:**
+- `empty()` — returns `true` if container is empty, otherwise `false`.
+- `size()` — returns the number of elements in the container; basically distance from begin to end.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
+- `capacity()` — returns the number of elements that can be held in currently allocated storage.
+- `reserve()` — increases the capacity of the string to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
+- `shrinkToFit()` — reduces the capacity to the size of the string.
+
 
 # &#x1F4BB; Implementation 
 Currently in Progress...
