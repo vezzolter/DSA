@@ -88,21 +88,66 @@ When working with strings, it's important to note that there is no universal sta
 <p align="center"><img src="./Images/OperationsAccess.png"/></p>
 
 **Element Access:**
-- `at()` — returns specified element with bounds checking; if element is not within the range of the container, throws an exception.
-- `operator[]` — returns specified element without bounds checking; accessing a nonexistent element through this operator is undefined behavior.
-- `front()` — returns the first element in the container; calling on an empty container causes undefined behavior.
-- `back()` — returns the last element in the container; calling on an empty container causes undefined behavior.
-- `data()` — returns a pointer to the underlying array serving as character storage; the returned pointer is valid only as long as the string is not modified.
-- `c_str()` — returns a pointer to a null-terminated character array with data equivalent to those stored in the string; the returned pointer is valid only as long as the string is not modified.
+- `at()` — returns the specified element with bounds checking.
+  - if the element is not within the range of the container, throws an exception.
+- `operator[]` — returns the specified element without bounds checking.
+  - accessing a nonexistent element through this operator is undefined behavior.
+- `front()` — returns the first element in the container.
+  - calling on an empty container causes undefined behavior.
+- `back()` — returns the last element in the container.
+  - calling on an empty container causes undefined behavior.
+- `data()` — returns a pointer to the underlying array serving as character storage.
+  - the returned pointer is valid only as long as the string is not modified.
+- `c_str()` — returns a pointer to a null-terminated character array with data equivalent to those stored in the string.
+  - the returned pointer is valid only as long as the string is not modified.
 
 ---
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
-- `size()` — returns the number of elements in the container; basically distance from begin to end.
+- `size()` — returns the number of elements in the container, i.e. basically distance from begin to end.
 - `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
 - `capacity()` — returns the number of elements that can be held in currently allocated storage.
-- `reserve()` — increases the capacity of the string to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
+- `reserve()` — increases the capacity of the string to a value that's greater or equal to the given capacity.
+  - if the given capacity is greater than current, new storage is allocated; otherwise, does nothing.
 - `shrinkToFit()` — reduces the capacity to the size of the string.
+
+---
+**Modifiers:**
+- `insert()` — inserts character(s), substring(s), or another string into the string at the specified position. 
+  - requires proper valid indices/iterators in order to avoid exceptions or undefined behaviors;
+  - if after the operations size is greater than capacity a reallocations takes place.
+- `erase()` — erases the specified character(s) or substring from the string. 
+  - requires valid indices or iterators to avoid exceptions or undefined behavior;
+  - invalidates iterators pointing to elements after the erased range.
+- `push_back()` — appends the given character to the end of the string. 
+  - if, after the operation, the size is greater than the capacity, a reallocation takes place.
+- `pop_back()` — removes the last character of the string. 
+  - calling on an empty string causes undefined behavior.
+- `assign()` — replaces the entire content of the string with the given value (characters, substring, or another string). 
+  - any previous values will be replaced, invalidating any references, pointers, and iterators referring to contained characters.
+- `clear()` — erases all characters from the string. 
+  - invalidates any references, pointers, and iterators to the contained characters;
+  - does not change the string's capacity.
+- `resize()` — resizes the string to contain the specified number of characters.
+  - if the new size is smaller, the string is truncated to the first `n` characters;
+  - if the new size is greater, additional characters are appended and initialized to a default or specified value;
+  - if the new size exceeds the capacity, reallocation occurs.
+- `swap()` — exchanges the contents of the string with another given string. 
+  - does not invalidate iterators or references but associates them with the swapped strings.
+- `append()` — appends character(s), substring(s), or another string to the end of the string. 
+  - if the new size exceeds the capacity, a reallocation takes place.
+- `operator+=` — concatenates character(s), substring(s), or another string to the current string, modifying it in place. 
+  - behaves similarly to `append()`.
+- `operator+` — concatenates character(s), substring(s), or another string to the current string, returning a new string as a result. 
+  - does not modify the original strings;
+  - can involve additional memory allocation for the result.
+- `replace()` — replaces a portion of the string with character(s), substring(s), or another string.
+  - requires valid indices or iterators to avoid exceptions or undefined behavior;
+  - if the resulting size exceeds the capacity, a reallocation takes place.
+- `copy()` — copies a substring of the string into a provided character array. 
+  - requires valid indices to avoid exceptions;
+  - does not null-terminate the copied characters unless explicitly handled by the user.
+
 
 
 # &#x1F4BB; Implementation 
