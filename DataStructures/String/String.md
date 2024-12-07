@@ -148,6 +148,41 @@ When working with strings, it's important to note that there is no universal sta
   - requires valid indices to avoid exceptions;
   - does not null-terminate the copied characters unless explicitly handled by the user.
 
+---
+**Operations:**
+- `find()` — searches for the first occurrence of a character, substring, or another string within the string.
+  - returns the index of the first occurrence if found; 
+  - returns a special value (often `npos`) if the search fails.
+- `rfind()` — searches for the last occurrence of a character, substring, or another string within the string.
+  - returns the index of the last occurrence if found; 
+  - returns a special value (often `npos`) if the search fails.
+- `compare()` — compares the string with another string or substring lexicographically.
+  - returns `0` if the strings are equal, a negative value if the current string is less, and a positive value if it's greater.
+- `substr()` — extracts a substring starting from a specified position for a given length.
+  - returns a new string containing the requested substring; 
+  - throws an exception (e.g. `std::out_of_range`) if the position is invalid.
+
+---
+**Numeric Conversions:**
+- `stoi()` — converts a string to an `int`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stol()` — converts a string to a `long`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stoll()` — converts a string to a `long long`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stoul()` — converts a string to an `unsigned long`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stoull()` — converts a string to an `unsigned long long`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stof()` — converts a string to a `float`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stod()` — converts a string to a `double`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `stold()` — converts a string to a `long double`.
+  - throws an exception if the conversion fails (e.g. invalid format or out of range).
+- `to_string()` — converts a numeric value to a string.
+  - supports various data types such as `int`, `long`, `float`, `double`, etc.
+
 
 
 # &#x1F4BB; Implementation 
