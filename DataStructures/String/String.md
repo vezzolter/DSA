@@ -112,6 +112,8 @@ When working with strings, it's important to note that there is no universal sta
 - `shrinkToFit()` — reduces the capacity to the size of the string.
 
 ---
+<p align="center"><img src="./Images/OperationsModifiers.png"/></p>
+
 **Modifiers:**
 - `insert()` — inserts character(s), substring(s), or another string into the string at the specified position. 
   - requires proper valid indices/iterators in order to avoid exceptions or undefined behaviors;
