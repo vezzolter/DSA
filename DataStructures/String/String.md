@@ -188,11 +188,21 @@ When working with strings, it's important to note that there is no universal sta
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the basic functionality of the string container based on dynamic array by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Resembling the behavior of `std::string` to provide familiarity for users.
+- Doubling the capacity whenever reallocation occurs.
+- Implementing only regular and const iterators (no reverse).
+- Limiting iterator functions to regular iterators to avoid templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
+- Relying on manual memory management without using smart pointers.
+- Avoiding any exception handling, thus certain range validations.
+- Omitting certain possible optimizations to the container.
 
 
 ## Container Implementation
