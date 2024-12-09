@@ -10,11 +10,23 @@
 
 class Str {
 private:
+	int _size;
+	int _capacity;
+	char* _data;
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
+	Str();
+	//explicit Str(const std::string& str);
+	explicit Str(const char* str);
+	Str(const Str& other);
+	Str(Str&& other)                = delete;
+	Str& operator=(const Str& rhs);
+	Str& operator=(Str&& rhs)       = delete;
+	~Str();
+	
 
 	// -----------
 	//  Iterators
@@ -31,6 +43,14 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
+
+	// ------------
+	//  Operations
+	// ------------
+
+	// ---------------------
+	//  Numeric Conversions
+	// ---------------------
 };
 
 

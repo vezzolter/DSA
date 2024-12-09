@@ -206,8 +206,11 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-Currently in Progress...
+The container is implemented within the `Str` class, which is declared in [Str.h](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Include/Str.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Source/Str.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
+```cpp
+// Currently in Progress...
+```
 
 ## Iterator Implementation
 Currently in Progress...
