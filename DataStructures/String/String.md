@@ -233,7 +233,7 @@ For a detailed analysis of these underlying structures, refer to:
 
 
 ## Trade-Offs
-Currently in Progress...
+The trade-offs for string containers, much like their characteristics, are inherently tied to the underlying data structure. For a deeper understanding of these trade-offs, refer to the detailed analyses of the respective data structures linked above.
 
  
 
