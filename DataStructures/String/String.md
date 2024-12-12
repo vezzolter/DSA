@@ -216,12 +216,20 @@ The container is implemented within the `Str` class, which is declared in [Str.h
 Currently in Progress...
 
 
+
 # &#128202; Analysis
-Currently in Progress...
+In practice, when analyzing a data structure, it's really about analyzing the containers that are based on that structure, because data structures themselves are theoretical concepts, whereas containers are the actual implementations you can use. Containers may not only perform the same operations differently, leading to distinct behaviors and performance characteristics, but they may also offer entirely different operations. Moreover, when working with existing solutions, each developer may implement the container in a unique way, resulting in additional variations. Therefore, it's always recommended to first consult the documentation to understand how the specific container operates and what guarantees it provides to the user.
 
 
 ## Characteristics
-Currently in Progress...
+Strings generally lack strict requirements or performance guarantees, making them highly versatile and adaptable to various implementations. Consequently, evaluating a string's characteristics is best done by examining the underlying data structure. The most common implementations rely on arrays, with linked lists being less frequently used, each offering distinct performance traits and trade-offs.
+
+For a detailed analysis of these underlying structures, refer to:
+- [Static Array Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/Array/StaticArray/StaticArray.md)
+- [Dynamic Array Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/Array/DynamicArray/DynamicArray.md)
+- [Singly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md)
+- [Doubly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md)
+- [Circular LinkedList Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/LinkedList/CircularLinkedList/CircularLinkedList.md)
 
 
 ## Trade-Offs
