@@ -22,9 +22,9 @@ public:
 	DA(int size);
 	DA(int size, int val);
 	DA(const DA& other);
-	DA(const DA&& other)          = delete;
+	DA(DA&& other)          = delete;
 	DA& operator=(const DA& rhs);
-	DA& operator=(const DA&& rhs) = delete;
+	DA& operator=(DA&& rhs) = delete;
 	~DA();
 
 	// -----------
