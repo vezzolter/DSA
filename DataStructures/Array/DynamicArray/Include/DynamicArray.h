@@ -83,7 +83,6 @@ public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-
 	Iterator()                               = default;
 	Iterator(int* ptr) : _ptr(ptr) {}
 	Iterator(const Iterator& other)          = default;
@@ -149,7 +148,6 @@ public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-
 	ConstIterator()                                    = default;
 	ConstIterator(const int* ptr) : _ptr(ptr) {}
 	ConstIterator(const ConstIterator& other)          = default;
