@@ -8,13 +8,13 @@
 #include "Str.h"
 
 
-//void printString(const StrA& str) {
-//	//for (auto x : str) { std::cout << x << " "; }
-//	for (auto it = str.cbegin(); it != str.cend(); ++it) {
-//		std::cout << *it << " ";
-//	}
-//	std::cout << std::endl;
-//}
+void printString(const Str& str) {
+	//for (auto x : str) { std::cout << x << " "; }
+	for (auto it = str.cbegin(); it != str.cend(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
 
 int main() {
 	// Greet
@@ -22,6 +22,16 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
+	std::cout << " -> Str s1(const char*):\t\t";
+	const char* test = "Hello!";
+	Str s1(test);
+	printString(s1);
+	std::cout << " -> Str s2(s1):\t\t\t\t";
+	Str s2(s1);
+	printString(s2);
+	std::cout << " -> Str s3 = s1:\t\t\t";
+	Str s3 = s1;
+	printString(s3);
 	std::cout << std::endl;
 
 	// Element Access

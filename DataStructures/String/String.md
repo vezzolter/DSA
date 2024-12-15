@@ -209,7 +209,59 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 The container is implemented within the `Str` class, which is declared in [Str.h](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Include/Str.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Source/Str.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
-// Currently in Progress...
+class Str {
+private:
+	int _size;
+	int _capacity;
+	char* _data;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Str();
+	//explicit Str(const std::string& str);
+	explicit Str(const char* str);
+	Str(const Str& other);
+	Str(Str&& other)          = delete;
+	Str& operator=(const Str& rhs);
+	Str& operator=(Str&& rhs) = delete;
+	~Str();
+	
+	// -----------
+	//  Iterators
+	// -----------
+	class Iterator;
+	using iterator = Iterator;
+	iterator begin();
+	iterator end();
+	class ConstIterator;
+	using const_iterator = ConstIterator;
+	const_iterator begin() const;
+	const_iterator end() const;
+	const_iterator cbegin() const;
+	const_iterator cend() const;
+
+	// ----------------
+	//  Element Access
+	// ----------------
+
+	// ----------
+	//  Capacity
+	// ----------
+
+	// -----------
+	//  Modifiers
+	// -----------
+
+	// ------------
+	//  Operations
+	// ------------
+
+	// ---------------------
+	//  Numeric Conversions
+	// ---------------------
+};
 ```
 
 
