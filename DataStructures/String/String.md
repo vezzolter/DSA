@@ -221,14 +221,138 @@ Since there are various types of iterators that can be implemented (e.g. the ima
 The `Iterator` class is defined as a public nested class within the `Str` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with array elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
-// Currently in Progress...
+class Str::Iterator {
+private:
+	char* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Iterator()                               = default;
+	Iterator(char* ptr) : _ptr(ptr) {}
+	Iterator(const Iterator& other)          = default;
+	Iterator(Iterator&& other)               = default;
+	Iterator& operator=(const Iterator& rhs) = default;
+	Iterator& operator=(Iterator&& rhs)      = default;
+	~Iterator()                              = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a reference to the element pointed to by the iterator
+	char& operator*() { return *_ptr; }
+
+	// Subtraction operator for random access
+	// P.s. ptrdiff_t is much better type due to semantics and portability
+	int operator-(const Iterator& other) const { return _ptr - other._ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	Iterator& operator++() {
+		++_ptr;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	Iterator operator++(int) {
+		Iterator temp(*this);
+		++_ptr;
+		return temp;
+	}
+
+	// Moves the iterator to the previous element (pre-decrement)
+	Iterator& operator--() {
+		--_ptr;
+		return *this;
+	}
+
+	// Moves the iterator to the previous element, returning the previous state
+	Iterator operator--(int) {
+		Iterator temp(*this);
+		--_ptr;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const Iterator& lhs, const Iterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const Iterator& lhs, const Iterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
 ```
 
 ---
 The `ConstIterator` class is defined as a public nested class within the `Str` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with array elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
-// Currently in Progress...
+class Str::ConstIterator {
+private:
+	const char* _ptr = nullptr;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	ConstIterator()                                    = default;
+	ConstIterator(const char* ptr) : _ptr(ptr) {}
+	ConstIterator(const ConstIterator& other)          = default;
+	ConstIterator(ConstIterator&& other)               = default;
+	ConstIterator& operator=(const ConstIterator& rhs) = default;
+	ConstIterator& operator=(ConstIterator&& rhs)      = default;
+	~ConstIterator()                                   = default;
+
+	// ----------------------
+	//  Overloaded Operators
+	// ----------------------
+
+	// Returns a const reference to the element pointed to by the iterator
+	const char& operator*() { return *_ptr; }
+
+	// Subtraction operator for random access
+	// P.s. ptrdiff_t is much better type due to semantics and portability
+	int operator-(const ConstIterator& other) const { return _ptr - other._ptr; }
+
+	// Advances the iterator to the next element (pre-increment)
+	ConstIterator& operator++() {
+		++_ptr;
+		return *this;
+	}
+
+	// Advances the iterator to the next element, returning the previous state
+	ConstIterator operator++(int) {
+		ConstIterator temp(*this);
+		++_ptr;
+		return temp;
+	}
+
+	// Moves the iterator to the previous element (pre-decrement)
+	ConstIterator& operator--() {
+		--_ptr;
+		return *this;
+	}
+
+	// Moves the iterator to the previous element, returning the previous state
+	ConstIterator operator--(int) {
+		ConstIterator temp(*this);
+		--_ptr;
+		return temp;
+	}
+
+	// Returns true if two iterators point to the same element
+	friend bool operator==(const ConstIterator& lhs, const ConstIterator& rhs) {
+		return lhs._ptr == rhs._ptr;
+	}
+
+	// Returns true if two iterators point to different elements
+	friend bool operator!=(const ConstIterator& lhs, const ConstIterator& rhs) {
+		return lhs._ptr != rhs._ptr;
+	}
+};
 ```
 
 
@@ -251,10 +375,10 @@ For a detailed analysis of these underlying structures, refer to:
 ## Trade-Offs
 The trade-offs for string containers, much like their characteristics, are inherently tied to the underlying data structure. For a deeper understanding of these trade-offs, refer to the detailed analyses of the respective data structures linked above.
 
- 
+
 
 # &#128221; Application
-The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage of a string container is its dynamic nature, which allows for efficient resizing and manipulation of text. This makes it well-suited for use cases such as constructing text in real-time (e.g., logs, user inputs, or dynamically generated documents). Conversely, strings may not be the best choice in scenarios where fixed-size, memory-efficient data storage is needed, such as embedding small sets of immutable identifiers. Additionally, the overhead of frequent dynamic memory allocation can be costly in performance-critical applications. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
+The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. For example, one advantage of a string container based on dynamic array is its dynamic nature, which allows for efficient resizing and manipulation of text. This makes it well-suited for use cases such as constructing text in real-time (e.g., logs, user inputs, or dynamically generated documents). Conversely, strings on dynamic array may not be the best choice in scenarios where fixed-size, memory-efficient data storage is needed, such as embedding small sets of immutable identifiers. Additionally, the overhead of frequent dynamic memory allocation can be costly in performance-critical applications. In order to avoid, this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
