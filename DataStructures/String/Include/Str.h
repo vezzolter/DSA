@@ -44,6 +44,14 @@ public:
 	// ----------------
 	//  Element Access
 	// ----------------
+	char& operator[](const int pos);
+	const char& operator[](const int pos) const;
+	char& front();
+	const char& front() const;
+	char& back();
+	const char& back() const;
+	// void data();
+	// void c_str();
 
 	// ----------
 	//  Capacity

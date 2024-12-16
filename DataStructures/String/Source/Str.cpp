@@ -92,8 +92,33 @@ Str::const_iterator Str::cend() const { return ConstIterator(_data + _size); }
 
 
 // ----------------
-//  Element Access
+//  Element Access 
 // ----------------
+
+// Returns a modifiable reference to the element at the given position
+char& Str::operator[](const int pos) { return _data[pos]; }
+
+// Returns a non-modifiable reference to the element at the given position
+const char& Str::operator[](const int pos) const { return _data[pos]; }
+
+// Returns a modifiable reference to the first element
+char& Str::front() { return _data[0]; }
+
+// Returns a non-modifiable reference to the first element
+const char& Str::front() const { return _data[0]; }
+
+// Returns a modifiable reference to the last element
+char& Str::back() { return _data[_size - 1]; }
+
+// Returns a non-modifiable reference to the last element
+const char& Str::back() const { return _data[_size - 1]; }
+
+// Description
+// void data();
+
+// Description
+// void c_str();
+
 
 // ----------
 //  Capacity
