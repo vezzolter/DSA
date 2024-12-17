@@ -113,11 +113,29 @@ char& Str::back() { return _data[_size - 1]; }
 // Returns a non-modifiable reference to the last element
 const char& Str::back() const { return _data[_size - 1]; }
 
-// Description
-// void data();
+//// Returns a pointer to the underlying character array
+//char* Str::data() { return _data; }
+//
+//// Returns a pointer to the underlying character array (const version)
+//const char* Str::data() const { return _data; }
 
-// Description
-// void c_str();
+//// Returns a null-terminated character array
+//const char* Str::c_str() const {
+//	// Case: empty, no data
+//	if (!_data || _size == 0) {
+//		static const char null_terminator = '\0';
+//		return &null_terminator;
+//	}
+//
+//	// Allocate temporary storage to append null terminator
+//	char* temp = new char[_size + 1];
+//	for (int i = 0; i < _size; ++i) {
+//		temp[i] = _data[i];
+//	}
+//	temp[_size] = '\0'; // Add null terminator
+//
+//	return temp;
+//}
 
 
 // ----------

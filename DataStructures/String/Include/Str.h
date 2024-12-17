@@ -50,8 +50,9 @@ public:
 	const char& front() const;
 	char& back();
 	const char& back() const;
-	// void data();
-	// void c_str();
+	//char* data();
+	//const char* data() const;
+	//const char* c_str() const;
 
 	// ----------
 	//  Capacity

@@ -36,6 +36,10 @@ int main() {
 
 	// Element Access
 	std::cout << "Element Access:\n";
+	std::cout << " -> s1.operator[1]:\t\t\t" << s1[1] << std::endl;
+	std::cout << " -> s1.front():\t\t\t\t" << s1.front() << std::endl;
+	std::cout << " -> s1.back(): \t\t\t\t" << s1.back() << std::endl;
+	//std::cout << " -> s1.data(): \t\t\t\t" << s1.data() << std::endl;
 	std::cout << std::endl;
 
 	// Capacity
