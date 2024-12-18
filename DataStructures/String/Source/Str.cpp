@@ -114,16 +114,51 @@ char& Str::back() { return _data[_size - 1]; }
 // Returns a non-modifiable reference to the last element
 const char& Str::back() const { return _data[_size - 1]; }
 
-//// Returns a pointer to the underlying character array
-//char* Str::data() { return _data; }
+// Returns a pointer to the underlying character array
+char* Str::data() { return _data; }
 
-//// Returns a pointer to the underlying character array (const version)
-//const char* Str::data() const { return _data; }
+// Returns a pointer to the underlying character array (const version)
+const char* Str::data() const { return _data; }
 
 
 // ----------
 //  Capacity
 // ----------
+
+// Returns true if array has no elements
+bool Str::empty() const { return (_size == 0); }
+
+// Returns the number of stored elements
+int Str::size() const { return _size; }
+
+// Returns the number of possible elements
+int Str::capacity() const { return _capacity; }
+
+// Reserves memory for new elements at least of given `capacity`
+void Str::reserve(int capacity) {
+	// Case: capacity is enough (for decreasing - shrinkToFit())
+	if (capacity <= _capacity) { return; }
+
+	char* data = new char[capacity];
+	for (int i = 0; i <= _size; ++i) { data[i] = _data[i]; } // <= to include null-terminator
+
+	delete[] _data;
+	_data = data;
+	_capacity = capacity;
+}
+
+// Requests the removal of unused capacity
+void Str::shrinkToFit() {
+	// Case: capacity is equal (for increasing - reserve())
+	if (_capacity == _size + 1) { return; }
+
+	char* data = new char[_size + 1];
+	for (int i = 0; i <= _size; ++i) { data[i] = _data[i]; } // <= to include null-terminator
+
+	delete[] _data;
+	_data = data;
+	_capacity = _size + 1; // to include null-terminator
+}
 
 // -----------
 //  Modifiers

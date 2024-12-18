@@ -50,12 +50,17 @@ public:
 	const char& front() const;
 	char& back();
 	const char& back() const;
-	//char* data();
-	//const char* data() const;
+	char* data();
+	const char* data() const;
 
 	// ----------
 	//  Capacity
 	// ----------
+	bool empty() const;
+	int size() const;
+	int capacity() const;
+	void reserve(int capacity);
+	void shrinkToFit();
 
 	// -----------
 	//  Modifiers

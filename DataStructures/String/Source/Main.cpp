@@ -12,9 +12,7 @@
 
 void printString(const Str& str) {
 	//for (auto x : str) { std::cout << x << " "; }
-	for (auto it = str.cbegin(); it != str.cend(); ++it) {
-		std::cout << *it << " ";
-	}
+	for (auto it = str.cbegin(); it != str.cend(); ++it) { std::cout << *it << " "; }
 	std::cout << std::endl;
 }
 
@@ -41,11 +39,20 @@ int main() {
 	std::cout << " -> s1.operator[1]:\t\t\t" << s1[1] << std::endl;
 	std::cout << " -> s1.front():\t\t\t\t" << s1.front() << std::endl;
 	std::cout << " -> s1.back(): \t\t\t\t" << s1.back() << std::endl;
-	//std::cout << " -> s1.data(): \t\t\t\t" << s1.data() << std::endl;
+	std::cout << " -> s1.data(): \t\t\t\t" << s1.data() << std::endl;
 	std::cout << std::endl;
 
 	// Capacity
 	std::cout << "Capacity:\n";
+	std::cout << " -> s1.empty():\t\t\t\t" << s1.empty() << std::endl;
+	std::cout << " -> s1.size(): \t\t\t\t" << s1.size() << std::endl;
+	std::cout << " -> s1.capacity(): \t\t\t" << s1.capacity() << std::endl;
+	std::cout << " -> s1.reserve(20): \t\t\t\t" << std::endl;
+	s1.reserve(20);
+	std::cout << "   - s1.capacity(): \t\t\t" << s1.capacity() << std::endl;
+	std::cout << " -> s1.shrinkToFit() \t\t\t\t" << std::endl;
+	s1.shrinkToFit();
+	std::cout << "   - s1.capacity(): \t\t\t" << s1.capacity() << std::endl;
 	std::cout << std::endl;
 
 	// Modifiers
