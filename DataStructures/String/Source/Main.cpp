@@ -7,6 +7,8 @@
 #include <iostream>
 #include "Str.h"
 
+#include <string>
+
 
 void printString(const Str& str) {
 	//for (auto x : str) { std::cout << x << " "; }

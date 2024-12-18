@@ -12,39 +12,42 @@
 // --------------------
 
 // Constructs an empty string
-Str::Str() : _size(0), _capacity(0), _data(nullptr) {}
+Str::Str() : _size(0), _capacity(1), _data(nullptr) {
+	_data = new char[_capacity];
+	_data[_size] = '\0';
+}
 
 // Constructs a string from a C-style null-terminated string
 Str::Str(const char* str) {
 	// Case: empty
 	if (!str) {
 		_size = 0;
-		_capacity = 0;
-		_data = nullptr;
+		_capacity = 1;
+		_data = new char[_capacity];
+		_data[_size] = '\0';
 		return;
 	}
 
-	// Determine the size without null
+	// Determine the size
 	_size = 0;
 	for (; str[_size] != '\0'; ) { ++_size; }
 	
 	// Allocate and copy
-	_capacity = _size;
+	_capacity = _size + 1;
 	_data = new char[_capacity];
 	for (int i = 0; i < _size; ++i) { _data[i] = str[i]; }
+	_data[_size] = '\0';
 }
 
 // Constructs a string with the contents of 'other'
 Str::Str(const Str& other)
 	: _size(other._size), _capacity(other._capacity) {
 
+	_data = new char[_capacity];
 	if (other._data) {
-		_data = new char[_capacity];
 		for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
-
-	} else {
-		_data = nullptr;
 	}
+	_data[_size] = '\0';
 }
 
 // Replaces the contents with a copy of the contents of 'rhs'
@@ -54,13 +57,11 @@ Str& Str::operator=(const Str& rhs) {
 
 	_size = rhs._size;
 	_capacity = rhs._capacity;
+	_data = new char[_capacity];
 	if (rhs._data) {
-		_data = new char[_capacity];
 		for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }
-
-	} else {
-		_data = nullptr;
 	}
+	_data[_size] = '\0';
 }
 
 // Destructs the string
@@ -115,27 +116,9 @@ const char& Str::back() const { return _data[_size - 1]; }
 
 //// Returns a pointer to the underlying character array
 //char* Str::data() { return _data; }
-//
+
 //// Returns a pointer to the underlying character array (const version)
 //const char* Str::data() const { return _data; }
-
-//// Returns a null-terminated character array
-//const char* Str::c_str() const {
-//	// Case: empty, no data
-//	if (!_data || _size == 0) {
-//		static const char null_terminator = '\0';
-//		return &null_terminator;
-//	}
-//
-//	// Allocate temporary storage to append null terminator
-//	char* temp = new char[_size + 1];
-//	for (int i = 0; i < _size; ++i) {
-//		temp[i] = _data[i];
-//	}
-//	temp[_size] = '\0'; // Add null terminator
-//
-//	return temp;
-//}
 
 
 // ----------

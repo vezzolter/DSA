@@ -52,7 +52,6 @@ public:
 	const char& back() const;
 	//char* data();
 	//const char* data() const;
-	//const char* c_str() const;
 
 	// ----------
 	//  Capacity
