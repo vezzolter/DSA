@@ -65,6 +65,15 @@ public:
 	// -----------
 	//  Modifiers
 	// -----------
+	void insert(iterator pos, const char& val);
+	void erase(iterator pos);
+	void pushBack(const char& val);
+	void popBack();
+	void assign(int size, const char& val);
+	void assign(Iterator first, Iterator last);
+	void clear();
+	//void resize(int size, const char& val = ' ');
+	//void swap(Str& other);
 
 	// ------------
 	//  Operations

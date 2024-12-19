@@ -7,8 +7,6 @@
 #include <iostream>
 #include "Str.h"
 
-#include <string>
-
 
 void printString(const Str& str) {
 	//for (auto x : str) { std::cout << x << " "; }
@@ -57,6 +55,27 @@ int main() {
 
 	// Modifiers
 	std::cout << "Modifiers:\n";
+	std::cout << " -> s1.insert(s1.end(), 'x'): \t\t";
+	s1.insert(s1.end(), 'x');
+	printString(s1);
+	std::cout << " -> s1.erase(--s1.end()): \t\t";
+	s1.erase(--s1.end());
+	printString(s1);
+	std::cout << " -> s1.pushBack('x'): \t\t\t";
+	s1.pushBack('x');
+	printString(s1);
+	std::cout << " -> s1.popBack(): \t\t\t";
+	s1.popBack();
+	printString(s1);
+	std::cout << " -> s1.assign(9, 'x'): \t\t\t";
+	s1.assign(9, 'x');
+	printString(s1);
+	std::cout << " -> s1.assign(s2.begin(), s2.end()):    ";
+	s1.assign(s2.begin(), s2.end());
+	printString(s1);
+	std::cout << " -> s1.clear(): \t\t\t";
+	s1.clear();
+	printString(s1);
 	std::cout << std::endl;
 
 	// Exit

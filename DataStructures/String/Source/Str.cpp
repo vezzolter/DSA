@@ -125,7 +125,7 @@ const char* Str::data() const { return _data; }
 //  Capacity
 // ----------
 
-// Returns true if array has no elements
+// Returns true if string has no elements
 bool Str::empty() const { return (_size == 0); }
 
 // Returns the number of stored elements
@@ -160,9 +160,93 @@ void Str::shrinkToFit() {
 	_capacity = _size + 1; // to include null-terminator
 }
 
+
 // -----------
 //  Modifiers
 // -----------
+
+// Inserts an element at the iterator position, shifting subsequent elements
+void Str::insert(iterator pos, const char& val) {
+    int index = pos - this->begin();
+
+    // Ensure enough capacity for the new element and null-terminator
+    if (_size + 1 >= _capacity) { reserve(_capacity == 0 ? 2 : _capacity * 2); }
+
+    // Shifting from the beginning result in premature overwrite
+    for (int i = _size; i > index; --i) { _data[i] = _data[i - 1]; }
+    _data[index] = val;
+
+    ++_size;
+    _data[_size] = '\0';
+}
+
+// Removes an element at the iterator position, shifting subsequent elements to the left
+void Str::erase(iterator pos) {
+    // Case: one element
+    if (_size == 1) {
+        clear();
+        return;
+    }
+
+    int index = pos - this->begin();
+    for (int i = index; i < _size - 1; ++i) { _data[i] = _data[i + 1]; }
+
+    --_size;
+    _data[_size] = '\0';
+}
+
+// Appends the given element to the end of the string
+void Str::pushBack(const char& val) {
+    // 2 is to account for null and new element
+    if (_size + 2 >= _capacity) { reserve(_capacity == 0 ? 2 : _capacity * 2); }
+
+    _data[_size] = val;
+    ++_size;
+    _data[_size] = '\0';
+}
+
+// Removes the last element from the string
+void Str::popBack() {
+    // Case: empty container
+    if (_size == 0) { return; }
+
+    --_size;
+    _data[_size] = '\0';
+}
+
+// Assigns the specified value to all elements
+void Str::assign(int size, const char& val) {
+    if (size + 1 > _capacity) { reserve(size + 1); }
+
+    for (int i = 0; i < size; ++i) { _data[i] = val; }
+
+    _size = size;
+    _data[_size] = '\0';
+}
+
+// Assigns elements from the range [first, last) to the string
+void Str::assign(Iterator first, Iterator last) {
+    int size = 0;
+    for (auto it = first; it != last; ++it) { ++size; }
+
+    if (size + 1 > _capacity) { reserve(size + 1); }
+
+    int index = 0;
+    for (auto it = first; it != last; ++it) { _data[index++] = *it; }
+
+    _size = size;
+	_data[_size] = '\0';
+}
+
+// Erases all elements from the string, keeps the capacity unchanged
+void Str::clear() {
+    // Case: empty container
+    if (_size == 0) { return; }
+
+    _size = 0;
+	_data[0] = '\0';
+}
+
 
 // ------------
 //  Operations
