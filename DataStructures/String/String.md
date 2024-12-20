@@ -273,8 +273,8 @@ public:
 	void assign(int size, const char& val);
 	void assign(Iterator first, Iterator last);
 	void clear();
-	//void resize(int size, const char& val = ' ');
-	//void swap(Str& other);
+	void resize(int size, const char& val = ' ');
+	void swap(Str& other);
 	
 	// ------------
 	//  Operations

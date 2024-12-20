@@ -76,6 +76,19 @@ int main() {
 	std::cout << " -> s1.clear(): \t\t\t";
 	s1.clear();
 	printString(s1);
+	std::cout << " -> s1.resize(5): \t\t\t";
+	s1.resize(5);
+	printString(s1);
+	std::cout << " -> s1.resize(10, 'x'): \t\t";
+	s1.resize(10, 'x');
+	printString(s1);
+	std::cout << " -> s1.swap(s2): \t\t\t";
+	s1.swap(s2);
+	printString(s1);
+	std::cout << "   - s2:\t\t\t\t";
+	printString(s2);
+	std::cout << "   - s3:\t\t\t\t";
+	printString(s3);
 	std::cout << std::endl;
 
 	// Exit

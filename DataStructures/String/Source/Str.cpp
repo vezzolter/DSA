@@ -247,6 +247,44 @@ void Str::clear() {
 	_data[0] = '\0';
 }
 
+// Resizes the string to contain 'size' elements
+void Str::resize(int size, const char& val) {
+    // Case 1: new size is the same as current one
+    if (size == _size) {
+        return;
+    }
+
+    // Case 2: new size is smaller than current one 
+    if (size < _size) {
+        _size = size;
+        _data[_size] = '\0';
+        return;
+    }
+
+    if (size + 1 > _capacity) { reserve(size + 1); }
+    for (int i = _size; i < size; ++i) { _data[i] = val; }
+
+    _size = size;
+    _data[_size] = '\0';
+}
+
+// Exchanges the contents of the string with those of 'other'
+void Str::swap(Str& other) {
+    // Case: the same string
+    if (this == &other) { return; }
+
+    char* data = _data;
+    _data = other._data;
+    other._data = data;
+
+    int size = _size;
+    _size = other._size;
+    other._size = size;
+
+    int capacity = _capacity;
+    _capacity = other._capacity;
+    other._capacity = capacity;
+}
 
 // ------------
 //  Operations
