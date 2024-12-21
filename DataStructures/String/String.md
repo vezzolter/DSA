@@ -279,7 +279,11 @@ public:
 	// ------------
 	//  Operations
 	// ------------
-
+	int find(const char* str, int start = 0) const;
+	//int find(char c, int start = 0) const;
+	//int compare(const Str& other) const;
+	//Str substr(int start, int length) const;
+	
 	// ---------------------
 	//  Numeric Conversions
 	// ---------------------

@@ -91,6 +91,16 @@ int main() {
 	printString(s3);
 	std::cout << std::endl;
 
+	// Operations
+	std::cout << "Operations:\n";
+	std::cout << " -> s1.find(\"Hello\"):\t\t\t" << s1.find("Hello") << std::endl;
+	std::cout << " -> s1.find(\"Hello\", 2):\t\t" << s1.find("Hello", 2) << std::endl;
+	std::cout << " -> s1.find(\"world\"):\t\t\t" << s1.find("world") << std::endl;
+	std::cout << " -> s1.find(\"lo\", 3):\t\t\t" << s1.find("lo", 3) << std::endl;
+	std::cout << " -> s1.find(\"\"):\t\t\t" << s1.find("") << std::endl;
+
+	std::cout << std::endl;
+
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";

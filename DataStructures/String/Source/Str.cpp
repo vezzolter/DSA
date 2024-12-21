@@ -290,6 +290,39 @@ void Str::swap(Str& other) {
 //  Operations
 // ------------
 
+// Finds the first occurrence of the substring starting from `start`
+int Str::find(const char* str, int start) const {
+    if (start < 0 || start >= _size) { return -1; }
+
+    int strLen = 0;
+    for (; str[strLen] != '\0'; ) { ++strLen; }
+
+    for (int i = start; i <= _size - strLen; ++i) {
+        bool match = true;
+        for (int j = 0; j < strLen; ++j) {
+            if (_data[i + j] != str[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) { return i; }
+    }
+
+    return -1;
+}
+
+//int Str::find(char c, int start = 0) const {
+//
+//}
+//
+//int Str::compare(const Str& other) const {
+//
+//}
+//
+//Str Str::substr(int start, int length) const {
+//
+//}
+
 // ---------------------
 //  Numeric Conversions
 // ---------------------
