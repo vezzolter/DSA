@@ -98,7 +98,16 @@ int main() {
 	std::cout << " -> s1.find(\"world\"):\t\t\t" << s1.find("world") << std::endl;
 	std::cout << " -> s1.find(\"lo\", 3):\t\t\t" << s1.find("lo", 3) << std::endl;
 	std::cout << " -> s1.find(\"\"):\t\t\t" << s1.find("") << std::endl;
-
+	std::cout << " -> s1.find('H'):\t\t\t" << s1.find('H') << std::endl;
+	std::cout << " -> s1.find('h'):\t\t\t" << s1.find('h') << std::endl;
+	std::cout << " -> s1.find('l', 2):\t\t\t" << s1.find('l', 2) << std::endl;
+	std::cout << " -> s1.find('l', 3):\t\t\t" << s1.find('l', 3) << std::endl;
+	std::cout << " -> s1.find('l', 4):\t\t\t" << s1.find('l', 4) << std::endl;
+	std::cout << " -> s1.find('\\0'):\t\t\t" << s1.find('\0') << std::endl;
+	std::cout << " -> s1.compare(s1):\t\t\t" << s1.compare(s1) << std::endl;
+	std::cout << " -> s1.compare(s2):\t\t\t" << s1.compare(s2) << std::endl;
+	std::cout << " -> s1.compare(s3):\t\t\t" << s1.compare(s3) << std::endl;
+	//std::cout << " -> s1.substr(\"Hell\"):\t\t\t" << s1.substr("Hell") << std::endl;
 	std::cout << std::endl;
 
 	// Exit

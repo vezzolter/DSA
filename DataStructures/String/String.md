@@ -280,9 +280,9 @@ public:
 	//  Operations
 	// ------------
 	int find(const char* str, int start = 0) const;
-	//int find(char c, int start = 0) const;
-	//int compare(const Str& other) const;
-	//Str substr(int start, int length) const;
+	int find(char c, int start = 0) const;
+	int compare(const Str& other) const;
+	//Str substr(int start, int length) const; // requires disabling the RVO, or enabling move cstr
 	
 	// ---------------------
 	//  Numeric Conversions

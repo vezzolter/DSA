@@ -250,9 +250,7 @@ void Str::clear() {
 // Resizes the string to contain 'size' elements
 void Str::resize(int size, const char& val) {
     // Case 1: new size is the same as current one
-    if (size == _size) {
-        return;
-    }
+    if (size == _size) { return; }
 
     // Case 2: new size is smaller than current one 
     if (size < _size) {
@@ -311,16 +309,52 @@ int Str::find(const char* str, int start) const {
     return -1;
 }
 
-//int Str::find(char c, int start = 0) const {
-//
-//}
-//
-//int Str::compare(const Str& other) const {
-//
-//}
-//
+// Finds the first occurrence of the character starting from `start`
+int Str::find(char c, int start) const {
+    if (start < 0 || start >= _size) { return -1; }
+
+    for (int i = start; i < _size; ++i) { 
+        if (_data[i] == c) { return i; }
+    }
+
+    return -1;
+}
+
+// Compares the current string with another string
+int Str::compare(const Str& other) const {
+    int minLength = (_size < other._size) ? _size : other._size;
+
+    // Compare characters one by one
+    for (int i = 0; i < minLength; ++i) {
+        if (_data[i] < other._data[i]) { return -1; } // lexicographically smaller
+        if (_data[i] > other._data[i]) { return 1; } // lexicographically greater
+    }
+
+    // If all characters are equal, compare lengths
+    if (_size < other._size) { return -1; } // shorter
+    if (_size > other._size) { return 1; } // lomger
+
+    return 0; // equal
+}
+
+
+//// Returns a substring starting from `start` with the specified `length`
 //Str Str::substr(int start, int length) const {
+//    // Adjust length if it exceeds the remaining size
+//    if (start + length > _size) { length = _size - start; }
 //
+//    // Create a new Str object with enough capacity for substr and null
+//    Str result;
+//    result.reserve(length + 1);
+//
+//    // Copy characters from the original string to the new one
+//    for (int i = 0; i < length; ++i) { result._data[i] = _data[start + i]; }
+//
+//    // Update the size and null-terminate the new string
+//    result._size = length;
+//    result._data[length] = '\0';
+//
+//    return result; // requires disabling the RVO, or enabling move cstr
 //}
 
 // ---------------------
