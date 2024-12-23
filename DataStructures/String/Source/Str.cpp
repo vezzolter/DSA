@@ -290,6 +290,7 @@ void Str::swap(Str& other) {
 
 // Finds the first occurrence of the substring starting from `start`
 int Str::find(const char* str, int start) const {
+    // Case: invalid range (aligns with the logic and no exceptions decision)
     if (start < 0 || start >= _size) { return -1; }
 
     int strLen = 0;
@@ -311,6 +312,7 @@ int Str::find(const char* str, int start) const {
 
 // Finds the first occurrence of the character starting from `start`
 int Str::find(char c, int start) const {
+    // Case: invalid range (aligns with the logic and no exceptions decision)
     if (start < 0 || start >= _size) { return -1; }
 
     for (int i = start; i < _size; ++i) { 
@@ -357,8 +359,54 @@ int Str::compare(const Str& other) const {
 //    return result; // requires disabling the RVO, or enabling move cstr
 //}
 
+
 // ---------------------
 //  Numeric Conversions
 // ---------------------
 
+// Converts the string to an integer, to -1 if an error occurs
+int Str::toInt() const {
+    int ans = 0;
+    int sign = 1;
+    int i = 0; // string traversing
 
+    // Case: empty string
+    if (_size == 0) { return -1; }
+
+    // Skipping trailing whitespace (needed when they preceed the sign char)
+    for (; i < _size && (_data[i] == ' ' || _data[i] == '\t'); ++i) { }
+
+    // Handle sign
+    if (i < _size && _data[i] == '-') {
+        sign = -1;
+        ++i;
+
+    } else if (i < _size && _data[i] == '+') {
+        ++i;
+    }
+
+    // Parse digits
+    for (; i < _size; ++i) {
+        // Case: invalid char
+        if (_data[i] < '0' || _data[i] > '9') { 
+            if (_data[i] == ' ' || _data[i] == '\t') { continue; } // trailing whitespace
+            return -1; 
+        }
+
+        // by subtracting '0' we get the distance from '0' in ASCII table, i.e. digit
+        // e.g. '5' - '0' = 53 - 48 = 5
+        int digit = _data[i] - '0';
+
+        // Case: overflow (32-bit signed int) check from inequality of 'ans * 10 + digit <= INT_MAX'
+        if (ans > (2147483647 - digit) / 10) { return -1; }
+
+        // shift to the left, add new digit to build the int incrementally
+        // e.g. "123", ans 0
+        // 1: 0 * 10 + 1 = 1
+        // 2: 1 * 10 + 2 = 12
+        // 3: 12 * 10 + 3 = 123
+        ans = ans * 10 + digit;
+    }
+
+    return ans * sign;
+}

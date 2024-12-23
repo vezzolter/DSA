@@ -287,6 +287,10 @@ public:
 	// ---------------------
 	//  Numeric Conversions
 	// ---------------------
+	int toInt() const;
+	//double toDouble() const;
+	//static Str toStr(int value);
+	//static Str toStr(double value);
 };
 ```
 
