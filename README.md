@@ -103,18 +103,6 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Singly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/SinglyLinkedList) ✅
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
-  - Queue
-    - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
-    - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
-    - Double-Ended Queue
-    - Circular Queue
-    - Priority Queue
-  - Stack
-    - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
-    - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
-  - String
-    - String.md
-    - String
   - Tree
     - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
@@ -123,6 +111,18 @@ This list provides a straightforward overview of the repository's contents. For 
     - B-Tree
     - Trie
   - Graph
+  - Stack
+    - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
+    - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
+  - Queue
+    - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
+    - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
+    - Double-Ended Queue
+    - Circular Queue
+    - Priority Queue
+  - String
+    - [String.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/String/String.md) ✅
+    - [String](https://github.com/vezzolter/DSA/tree/main/DataStructures/String) ✅
   - Heap
   - Hash
 - General
@@ -139,10 +139,6 @@ As my educational journey progresses, I may discover new areas of interest withi
 - If you have any suggestions or ideas, please reach out via email, GitHub, LinkedIn or Telegram. 
 - If you want to contribute code or other resources, please try to keep the existing style guidelines.
 - Please respect both your and mine time and effort.
-
----
-**Backlog:**
-1. Algorithms: Decide how to structure analysis section of the RNG - it has interesting characteristics to test out: period, distribution, predictability, etc.
 
 
 
@@ -175,9 +171,9 @@ As my educational journey progresses, I may discover new areas of interest withi
 ---
 &#127891; **Courses:**
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
-  - Gives a great structural understanding of the data structures along with decent practical quizes & coding challenges in C++.
+  - Gives a great structural understanding of the data structures basics along with decent practical quizes & coding challenges in C++.
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
-  - Guides into any topics with ease, no matter how complex you think it is, therefore makes you start.
+  - Guides into basic DSA topics with ease, no matter how complex you think it is, therefore makes you start.
 
 ---
 &#128156; **Special Thanks:**

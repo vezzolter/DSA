@@ -89,7 +89,6 @@ DA::ConstIterator DA::cbegin() const { return ConstIterator(_data); }
 DA::ConstIterator DA::cend() const { return ConstIterator(_data + _size); }
 
 
-
 // ----------------
 //  Element Access 
 // ----------------
@@ -163,7 +162,6 @@ void DA::shrinkToFit() {
     // Update capacity to match the current size
     _capacity = _size;
 }
-
 
 
 // ------------

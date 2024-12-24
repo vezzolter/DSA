@@ -1,32 +1,32 @@
-// Title:   Header file for Dynamic Array
+// Title:   Header file for String
 // Authors: by vezzolter
-// Date:    January 31, 2024
+// Date:    November 28, 2024
 // ----------------------------------------------------------------------------
 
 
-#ifndef DA_H
-#define DA_H
+#ifndef STR_H
+#define STR_H
 
 
-class DA {
+class Str {
 private:
 	int _size;
 	int _capacity;
-	int* _data;
+	char* _data;
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
-	DA();
-	DA(int size);
-	DA(int size, int val);
-	DA(const DA& other);
-	DA(DA&& other)          = delete;
-	DA& operator=(const DA& rhs);
-	DA& operator=(DA&& rhs) = delete;
-	~DA();
-
+	Str();
+	//explicit Str(const std::string& str);
+	explicit Str(const char* str);
+	Str(const Str& other);
+	Str(Str&& other)          = delete;
+	Str& operator=(const Str& rhs);
+	Str& operator=(Str&& rhs) = delete;
+	~Str();
+	
 	// -----------
 	//  Iterators
 	// -----------
@@ -44,12 +44,14 @@ public:
 	// ----------------
 	//  Element Access
 	// ----------------
-	int& operator[](const int pos);
-	const int& operator[](const int pos) const;
-	int& front();
-	const int& front() const;
-	int& back();
-	const int& back() const;
+	char& operator[](const int pos);
+	const char& operator[](const int pos) const;
+	char& front();
+	const char& front() const;
+	char& back();
+	const char& back() const;
+	char* data();
+	const char* data() const;
 
 	// ----------
 	//  Capacity
@@ -59,32 +61,46 @@ public:
 	int capacity() const;
 	void reserve(int capacity);
 	void shrinkToFit();
-	
+
 	// -----------
 	//  Modifiers
 	// -----------
-	void insert(iterator pos, const int& val);
+	void insert(iterator pos, const char& val);
 	void erase(iterator pos);
-	void pushBack(const int& val);
+	void pushBack(const char& val);
 	void popBack();
-	void assign(int size, const int& val);
+	void assign(int size, const char& val);
 	void assign(Iterator first, Iterator last);
 	void clear();
-	void resize(int size, const int& val = 0);
-	void swap(DA& other);
+	void resize(int size, const char& val = ' ');
+	void swap(Str& other);
+
+	// ------------
+	//  Operations
+	// ------------
+	int find(const char* str, int start = 0) const;
+	int find(char c, int start = 0) const;
+	int compare(const Str& other) const;
+	//Str substr(int start, int length) const; // requires disabling the RVO, or enabling move cstr
+
+	// ---------------------
+	//  Numeric Conversions
+	// ---------------------
+	int toInt() const;
+	double toDouble() const;
 };
 
 
-class DA::Iterator {
+class Str::Iterator {
 private:
-	int* _ptr = nullptr;
+	char* _ptr = nullptr;
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
 	Iterator()                               = default;
-	Iterator(int* ptr) : _ptr(ptr) {}
+	Iterator(char* ptr) : _ptr(ptr) {}
 	Iterator(const Iterator& other)          = default;
 	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
@@ -96,7 +112,7 @@ public:
 	// ----------------------
 
 	// Returns a reference to the element pointed to by the iterator
-	int& operator*() { return *_ptr; }
+	char& operator*() { return *_ptr; }
 
 	// Subtraction operator for random access
 	// P.s. ptrdiff_t is much better type due to semantics and portability
@@ -140,16 +156,16 @@ public:
 };
 
 
-class DA::ConstIterator {
+class Str::ConstIterator {
 private:
-	const int* _ptr = nullptr;
+	const char* _ptr = nullptr;
 
 public:
 	// --------------------
 	//  Compiler Generated
 	// --------------------
 	ConstIterator()                                    = default;
-	ConstIterator(const int* ptr) : _ptr(ptr) {}
+	ConstIterator(const char* ptr) : _ptr(ptr) {}
 	ConstIterator(const ConstIterator& other)          = default;
 	ConstIterator(ConstIterator&& other)               = default;
 	ConstIterator& operator=(const ConstIterator& rhs) = default;
@@ -159,9 +175,9 @@ public:
 	// ----------------------
 	//  Overloaded Operators
 	// ----------------------
-	
+
 	// Returns a const reference to the element pointed to by the iterator
-	const int& operator*() { return *_ptr; }
+	const char& operator*() { return *_ptr; }
 
 	// Subtraction operator for random access
 	// P.s. ptrdiff_t is much better type due to semantics and portability
@@ -205,4 +221,4 @@ public:
 };
 
 
-#endif // DA_H
+#endif // STR_H
