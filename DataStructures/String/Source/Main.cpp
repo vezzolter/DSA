@@ -110,8 +110,8 @@ int main() {
 	//std::cout << " -> s1.substr(\"Hell\"):\t\t\t" << s1.substr("Hell") << std::endl;
 	std::cout << std::endl;
 
-	// Conversions
-	std::cout << "Conversions:\n";
+	// Integer Conversions
+	std::cout << "Conversions (from string to integer):\n";
 	s1.clear();
 	for (char c : {'+', ' ', '1', '2', ' ', '3'}) { s1.pushBack(c); }
 	std::cout << "   - s1 (updated):\t\t\t";
@@ -126,6 +126,24 @@ int main() {
 	printString(s3);
 	std::cout << " -> s1.toInt() + s2.toInt():\t\t" << s1.toInt() + s2.toInt() << std::endl;
 	std::cout << " -> s3.toInt():\t\t\t\t" << s3.toInt() << std::endl;
+	std::cout << std::endl;
+
+	// Double Conversions
+	std::cout << "Conversions (from string to double):\n";
+	s1.clear();
+	for (char c : {'+', ' ', '1', '2', ' ', '.', '3', '4'}) { s1.pushBack(c); }
+	std::cout << "   - s1 (updated):\t\t\t";
+	printString(s1);
+	s2.clear();
+	for (char c : {' ', '-', '4', '5', '.', '6'}) { s2.pushBack(c); }
+	std::cout << "   - s2 (updated):\t\t\t";
+	printString(s2);
+	s3.clear();
+	for (char c : {'7', '8', '.', 'a', '9'}) { s3.pushBack(c); }
+	std::cout << "   - s3 (updated):\t\t\t";
+	printString(s3);
+	std::cout << " -> s1.toDouble() + s2.toDouble():\t" << s1.toDouble() + s2.toDouble() << std::endl;
+	std::cout << " -> s3.toDouble():\t\t\t" << s3.toDouble() << std::endl;
 	std::cout << std::endl;
 
 	// Exit

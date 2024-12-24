@@ -87,9 +87,7 @@ public:
 	//  Numeric Conversions
 	// ---------------------
 	int toInt() const;
-	//double toDouble() const;
-	//static Str toStr(int value);
-	//static Str toStr(double value);
+	double toDouble() const;
 };
 
 
@@ -221,7 +219,6 @@ public:
 		return lhs._ptr != rhs._ptr;
 	}
 };
-
 
 
 #endif // STR_H

@@ -367,13 +367,13 @@ int Str::compare(const Str& other) const {
 // Converts the string to an integer, to -1 if an error occurs
 int Str::toInt() const {
     int ans = 0;
-    int sign = 1;
+    int sign = 1; // most numbers are positive unless explicitly indicated
     int i = 0; // string traversing
 
     // Case: empty string
     if (_size == 0) { return -1; }
 
-    // Skipping trailing whitespace (needed when they preceed the sign char)
+    // Skipping leading whitespace allows to properly detect sign
     for (; i < _size && (_data[i] == ' ' || _data[i] == '\t'); ++i) { }
 
     // Handle sign
@@ -387,9 +387,9 @@ int Str::toInt() const {
 
     // Parse digits
     for (; i < _size; ++i) {
-        // Case: invalid char
+        // Invalid chars (often implementations still parse the string)
         if (_data[i] < '0' || _data[i] > '9') { 
-            if (_data[i] == ' ' || _data[i] == '\t') { continue; } // trailing whitespace
+            if (_data[i] == ' ' || _data[i] == '\t') { continue; } // internal and trailing whitespaces
             return -1; 
         }
 
@@ -408,5 +408,67 @@ int Str::toInt() const {
         ans = ans * 10 + digit;
     }
 
-    return ans * sign;
+    return ans * sign; // apply the sign
+}
+
+// Converts the string to a double, returns -1.0 on failure
+double Str::toDouble() const {
+    double ans = 0.0;
+    int sign = 1; // most numbers are positive unless explicitly indicated
+    int i = 0; // string traversing
+    double fraction = 0.0;
+    bool hasFraction = false; // marker to indicate start of fraction
+    double fractionDivider = 10.0; // allows to shift fractional digits
+
+    // Case: empty string
+    if (_size == 0) { return -1.0; }
+
+    // Skipping leading whitespace allows to properly detect sign
+    for (; i < _size && (_data[i] == ' ' || _data[i] == '\t'); ++i) {}
+
+    // Handle sign
+    if (i < _size && _data[i] == '-') {
+        sign = -1;
+        ++i;
+
+    } else if (i < _size && _data[i] == '+') {
+        ++i;
+    }
+
+    // Parse digits
+    for (; i < _size; ++i) {
+        if (_data[i] >= '0' && _data[i] <= '9') {
+            if (hasFraction) {
+                // by subtracting '0' we get the distance from '0' in ASCII table, i.e. digit
+                // e.g. '5' - '0' = 53 - 48 = 5
+                // by dividing we shift digit to its correct place, and account it for next digit
+                // e.g. '3' in '12.3' is divided by '10.0' to represent '0.3'
+                fraction += (_data[i] - '0') / fractionDivider;
+                fractionDivider *= 10.0;
+
+            } else {
+                // shift to the left, add new digit to build the int incrementally
+                // e.g. "123", ans 0.0
+                // 1: 0.0 * 10.0 + 1 = 1.0
+                // 2: 1.0 * 10.0 + 2 = 12.0
+                // 3: 12.0 * 10.0 + 3 = 123.0
+                ans = ans * 10.0 + (_data[i] - '0');
+            }
+
+        // First dot means start of the fraction part
+        } else if (_data[i] == '.' && !hasFraction) {
+            hasFraction = true;
+
+        // Skip trailing whitespace (internal are handled within digit check)
+        } else if (_data[i] == ' ' || _data[i] == '\t') {
+            continue;
+
+        // Invalid chars (often implementations still parse the string)
+        } else {
+            return -1.0;
+        }
+    }
+
+    ans += fraction; // combine int and fractional parts
+    return ans * sign; // apply the sign
 }
