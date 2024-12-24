@@ -196,6 +196,7 @@ The implemented console application demonstrates the basic functionality of the 
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Resembling the behavior of `std::string` to provide familiarity for users.
 - Doubling the capacity whenever reallocation occurs.
+- Limiting numerical conversions only to popular: string-to-int and string-to-double.
 - Implementing only regular and const iterators (no reverse).
 - Limiting iterator functions to regular iterators to avoid templates.
 - Omitting cases where the container (object itself) is created on the heap.
@@ -206,7 +207,7 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-The container is implemented within the `Str` class, which is declared in [Str.h](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Include/Str.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Source/Str.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/string/DataStructures/String/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `Str` class, which is declared in [Str.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/String/Include/Str.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/String/Source/Str.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/String/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class Str {
@@ -445,11 +446,11 @@ In practice, when analyzing a data structure, it's really about analyzing the co
 Strings generally lack strict requirements or performance guarantees, making them highly versatile and adaptable to various implementations. Consequently, evaluating a string's characteristics is best done by examining the underlying data structure. The most common implementations rely on arrays, with linked lists being less frequently used, each offering distinct performance traits and trade-offs.
 
 For a detailed analysis of these underlying structures, refer to:
-- [Static Array Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/Array/StaticArray/StaticArray.md)
-- [Dynamic Array Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/Array/DynamicArray/DynamicArray.md)
-- [Singly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md)
-- [Doubly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md)
-- [Circular LinkedList Characteristics](https://github.com/vezzolter/DSA/blob/string/DataStructures/LinkedList/CircularLinkedList/CircularLinkedList.md)
+- [Static Array Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/StaticArray.md)
+- [Dynamic Array Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/DynamicArray.md)
+- [Singly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md)
+- [Doubly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md)
+- [Circular LinkedList Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/CircularLinkedList/CircularLinkedList.md)
 
 
 ## Trade-Offs

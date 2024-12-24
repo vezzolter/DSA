@@ -121,8 +121,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - Circular Queue
     - Priority Queue
   - String
-    - [String.md](https://github.com/vezzolter/DSA/tree/string/DataStructures/String/String.md) 🎯
-    - [String](https://github.com/vezzolter/DSA/tree/string/DataStructures/String) 🎯
+    - [String.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/String/String.md) ✅
+    - [String](https://github.com/vezzolter/DSA/tree/main/DataStructures/String) ✅
   - Heap
   - Hash
 - General
