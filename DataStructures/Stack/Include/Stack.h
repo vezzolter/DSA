@@ -1,6 +1,8 @@
-// Header file for simplified ADT: Stack
-// by vezzolter
-// March 2, 2024
+// Title:   Header file for Stack
+// Authors: by vezzolter
+// Date:    March 2, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef STACK_H
 #define STACK_H
@@ -43,7 +45,5 @@ public:
 	void pop();
 };
 
-
-#include "Stack.cpp"
 
 #endif

@@ -1,9 +1,8 @@
-// Source file for simplified ADT: Stack
-// by vezzolter
-// March 2, 2024
+// Title:   Source file for Stack
+// Authors: by vezzolter
+// Date:    March 2, 2024
+// ----------------------------------------------------------------------------
 
-#ifndef STACK_CPP
-#define STACK_CPP
 
 #include "Stack.h"
 
@@ -147,6 +146,3 @@ void Stack<T>::pop() {
 	// Update the size
 	--_size;
 }
-
-
-#endif
