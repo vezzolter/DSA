@@ -22,11 +22,17 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Stack** refers to both an abstract data structure and a concrete container, that operates on a Last-In-First-Out (LIFO) principle. The term _«stack»_ comes from this real-world analogy of stacking objects on top of each other, much like stack of dishes where the topmost item is the first to be accessed. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/Stack.png"/></p>
 
 
 ## Essential Terminology
-Currently in Progress...
+- **Abstract Data Structure** — is a theoretical model that defines a set of operations and guarantees for organizing and manipulating data, independent of memory organization or specific implementation details.
+  - **Data Structure** — is a theoretical model of data organization in memory, used to design containers in an efficient or specific ways.
+  - **Container** — is a concrete implementation, used to manage actual data through specific operations. Containers are primarily defined by the operations and guarantees they provide, which can originate from the data structure itself or from an abstract data structure. As long as those guarantees are fulfilled, the underlying model can be modified or replaced.
+- **Stack** — refers to both an abstract data structure and a concrete container, that operates on a LIFO principle. This dual nature arises from its ability to represent a conceptual guarantee of functionality while being implemented in diverse ways.
+  - **Top** — is the end of the collection at which elements are added and removed.
+  - **Bottom** — is the end of the collection opposite to the top.
 
 
 ## Core Mechanics
