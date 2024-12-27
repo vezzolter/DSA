@@ -36,7 +36,15 @@
 
 
 ## Core Mechanics
-Currently in Progress...
+Work of many computer programs is organized in a way that naturally aligns with how a stack operates. Programs frequently postpone certain tasks to handle others, and often need to return to the most recently postponed task. This behavior reflects the **LIFO** principle, making the stack a fundamental data structure for managing tasks in a wide range of algorithms.
+
+To better understand the stack, specific terms are introduced to describe its structure and operations. The end of the collection where elements are added and removed is called the **top**, while the **bottom** refers to the opposite end, which remains fixed unless the stack is emptied. The design of a stack enforces the LIFO principle by restricting operations to the **top**. Elements can be added (an operation known as **push**) or removed (**pop**) only from this end. Many implementations also include a **peek** operation, allowing the value of the top element to be viewed without modifying the stack. These constraints have their own advantages and disadvantages, which are discussed in the [Trade-Offs](#trade-offs) section.
+
+---
+At its core, a stack is simply a collection that enforces the **LIFO** principle, and it imposes no strict requirements on how it must be implemented. While the most common implementations allow users to choose the underlying data structure, by default they rely on **arrays** and then on **linked lists**, although stack can also be built using other data structures in specialized contexts.
+<p align="center"><img src="./Images/DifferentMemoryLayouts.png"/></p>
+
+Most stack implementations rely on arrays due to their simplicity, efficiency, and excellent memory locality, which improves performance for sequential processing. In array-based stacks, elements are stored in contiguous memory, with a pointer or index used to track the top of the stack. This design ensures $O(1)$ performance for push and pop operations under normal conditions. Additionally, arrays eliminate the need for dynamic memory allocation during individual operations, reducing overhead. In contrast to linked lists, arrays benefit from superior cache locality and lower memory overhead. However, this approach comes with limitations: fixed-size arrays require a predefined capacity, leading to potential **overflow**. To address this, modern implementations often use dynamically resizable arrays, which double their size when full, balancing efficiency and memory management. 
 
 
 ## Container Methods
@@ -107,9 +115,12 @@ For contact details and additional information, please refer to the [root direct
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 10.1: Stacks and Queues
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Section 3.7: Compound Data Structures
-  - Section 4: Abstract Data Types
+  - Section 4.2: Pushdown Stack ADT
+  - Section 4.3: Examples of Stack ADT Clients
+  - Section 4.4: Stack ADT Implementations
+  - Section 4.5: Creation of a New ADT
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 3.1: Abstract Data Types (ADTs)
   - Section 3.6: The Stack ADT
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
   - Section 3.2: Stacks and Queues
