@@ -38,17 +38,53 @@
 ## Core Mechanics
 Work of many computer programs is organized in a way that naturally aligns with how a stack operates. Programs frequently postpone certain tasks to handle others, and often need to return to the most recently postponed task. This behavior reflects the **LIFO** principle, making the stack a fundamental data structure for managing tasks in a wide range of algorithms.
 
-To better understand the stack, specific terms are introduced to describe its structure and operations. The end of the collection where elements are added and removed is called the **top**, while the **bottom** refers to the opposite end, which remains fixed unless the stack is emptied. The design of a stack enforces the LIFO principle by restricting operations to the **top**. Elements can be added (an operation known as **push**) or removed (**pop**) only from this end. Many implementations also include a **peek** operation, allowing the value of the top element to be viewed without modifying the stack. These constraints have their own advantages and disadvantages, which are discussed in the [Trade-Offs](#trade-offs) section.
+To better understand the stack, specific terms are introduced to describe its structure and operations. The end of the collection where elements are added and removed is called the **top**, while the **bottom** refers to the opposite end, which remains fixed unless the stack is emptied. The design of a stack enforces the LIFO principle by restricting operations to the top. Elements can be added (an operation known as **push**) or removed (**pop**) only from this end. Many implementations also include a **peek** operation, allowing the value of the top element to be viewed without modifying the stack. These constraints have their own advantages and disadvantages, which are discussed in the [Trade-Offs](#trade-offs) section.
 
 ---
-At its core, a stack is simply a collection that enforces the **LIFO** principle, and it imposes no strict requirements on how it must be implemented. While the most common implementations allow users to choose the underlying data structure, by default they rely on **arrays** and then on **linked lists**, although stack can also be built using other data structures in specialized contexts.
+At its core, a stack is simply a collection that enforces the LIFO principle, and it imposes no strict requirements on how it must be implemented. While the most common implementations allow users to choose the underlying data structure, by default they rely on **arrays** and then on **linked lists**, although stack can also be built using other data structures in specialized contexts.
 <p align="center"><img src="./Images/DifferentMemoryLayouts.png"/></p>
 
 Most stack implementations rely on arrays due to their simplicity, efficiency, and excellent memory locality, which improves performance for sequential processing. In array-based stacks, elements are stored in contiguous memory, with a pointer or index used to track the top of the stack. This design ensures $O(1)$ performance for push and pop operations under normal conditions. Additionally, arrays eliminate the need for dynamic memory allocation during individual operations, reducing overhead. In contrast to linked lists, arrays benefit from superior cache locality and lower memory overhead. However, this approach comes with limitations: fixed-size arrays require a predefined capacity, leading to potential **overflow**. To address this, modern implementations often use dynamically resizable arrays, which double their size when full, balancing efficiency and memory management. 
 
 
 ## Container Methods
-Currently in Progress...
+When working with stack, it's important to note that there is no universal standard defining a strict list of operations or guidelines for how they should be implemented. The design and functionality of a container can vary depending on several factors, such as the programming language, the purpose of the library, performance considerations, etc. Despite these variations, there are still common operations found across most implementations, typically derived from the fundamental needs of data manipulation, like accessing, modifying, or iterating over elements. Since this repository is dedicated to C++, the operations provided will closely resemble those found in `std::stack`.
+
+---
+**Compiler Generated:**
+- `Default Constructor` — creates an empty stack, initializing its internal structure to represent a collection with no elements. Metadata such as size is set to indicate an empty state.
+- `Copy Constructor` — creates a new stack by copying elements and metadata from another stack.
+- `Move Constructor` — creates a new stack by transferring ownership of elements and metadata from another stack, leaving the original stack in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing memory through ownership transfer.
+- `Copy Assignment Operator` — overwrites the existing stack with the elements and metadata of another stack by copying them.
+- `Move Assignment Operator` — overwrites the existing stack with the elements and metadata of another stack by transferring ownership, leaving the original stack in a valid but unspecified state. This avoids the overhead of copying by reusing the original memory.
+- `Destructor` — performs cleanup on the stack: deallocates memory for stored elements and ensures no memory leaks.
+
+---
+**Iterators:**
+- **Not Typically Provided** — stack implementations, such as `std::stack`, do not provide iterators because stacks are designed to enforce the LIFO principle, restricting access to only the top element. This ensures that the stack abstraction remains intact and prevents iteration, which could violate the conceptual constraints of the data structure. If iteration is needed, it is typically performed by accessing the underlying container (e.g. `std::deque`, `std::vector`, `std::list`).
+
+
+---
+**Element Access:**
+- `top()` — retrieves a reference to the top element of the stack.
+  - accessing the top element of an empty stack causes undefined behavior;
+  - the returned reference allows for modification of the top element if the stack is not const-qualified.
+
+---
+**Capacity:**
+- `empty()` — returns `true` if the stack is empty, otherwise `false`.
+- `size()` — returns the number of elements currently stored in the stack.
+
+---
+**Modifiers:**
+- `push()` — adds an element to the top of the stack.
+  - if the underlying container is full and cannot grow dynamically, this may cause an overflow error or require resizing.
+- `emplace()` — constructs a new element in place at the top of the stack.
+  - avoids unnecessary copies by directly constructing the element in the storage.
+- `pop()` — removes the top element of the stack.
+  - calling `pop()` on an empty stack causes undefined behavior.
+- `swap()` — exchanges the contents of two stacks.
+  - does not invalidate iterators but associates them with the swapped stacks.
 
 
 
