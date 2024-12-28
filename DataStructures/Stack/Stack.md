@@ -83,15 +83,53 @@ Currently in Progress...
 
 
 # &#128221; Application
-Currently in Progress...
+The concrete situations where a data structure is best (and worst) used stem directly from the inherent advantages (and disadvantages) of the container. Аor example, one advantage of stacks is their ability to manage data using the LIFO principle, making them suitable for scenarios where tasks need to be processed in reverse order, such as undo operations or managing function calls. Conversely, a disadvantage of stacks is their restriction to sequential access, which makes them a poor choice for situations requiring direct access to arbitrary elements within the collection. In order to avoid this sort of rephrasing, the following section outlines common real-world scenarios where these use cases are frequently encountered. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Call Stack** — stack is used in programming languages to keep track of function calls. Whenever function is called its respective information is pushed onto the call stack, and when function returns it is popped off from the stack.
+
+- **Exception Handling** — stack is involved in exception handling mechanisms to propagate and handle exceptions. Technique known as stack unwinding implies the process of stack "unwound" or traversal backwards to find the appropriate exception handler.
+
+- **Backtracking Algorithms** — stack is used in backtracking algorithms to keep track of the current path or state. Whenever those algorithms reach a dead-end, they can backtrack by popping elements off the stack.
+
+- **Undo Mechanics** — stack is used in different applications to implement undo functionality. Each action performed is recorded as an operation on the stack, allowing to undo certain actions by popping off the stack in reverse order.
+
+- **Expression Evaluation** — stack is used in reverse Polish notation to evaluate expressions. It helps to track the order of operations allowing to evaluate the result linearly; e.g. the conventional notation expression «$3-4+5$» in Polish becomes «$+-345$», adding each entity sequentially to the stack.
 
 
 ## Some Practical Problems
-Currently in Progress...
+**Easy Problems:**
+1. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
+2. [Backspace String Compare](https://leetcode.com/problems/backspace-string-compare)
+3. [Baseball Game](https://leetcode.com/problems/baseball-game)
+4. [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i)
+5. [Clear Digits](https://leetcode.com/problems/clear-digits)
+6. [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues)
+
+---
+**Medium Problems:** 
+1. [Min stack](https://leetcode.com/problems/min-stack)
+2. [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)
+3. [Daily Temperatures](https://leetcode.com/problems/daily-temperatures)
+4. [132 Pattern](https://leetcode.com/problems/132-pattern)
+5. [Remove K Digits](https://leetcode.com/problems/remove-k-digits)
+6. [Online Stock Span](https://leetcode.com/problems/online-stock-span)
+7. [Simplify Path](https://leetcode.com/problems/simplify-path)
+8. [Decode String](https://leetcode.com/problems/decode-string)
+9. [Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string)
+10. [Asteroid Collision](https://leetcode.com/problems/asteroid-collision)
+11. [Score of Parentheses](https://leetcode.com/problems/score-of-parentheses)
+12. [Design Browser History](https://leetcode.com/problems/design-browser-history)
+
+---
+**Hard Problems:** 
+1. [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses)
+2. [Basic Calculator](https://leetcode.com/problems/basic-calculator)
+3. [Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack)
+4. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)
+5. [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram)
+6. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle)
 
 
 
