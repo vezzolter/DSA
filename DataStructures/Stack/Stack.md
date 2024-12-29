@@ -106,8 +106,46 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-Currently in Progress...
+The container is implemented within the `Stack` class, which is declared in [Stack.h](https://github.com/vezzolter/DSA/blob/stack/DataStructures/Stack/Include/Stack.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/stack/DataStructures/Stack/Include/Stack.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/stack/DataStructures/Stack/Include/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
+```cpp
+class Stack {
+private:
+	int _size;
+	int _capacity;
+	int* _data;
+
+public:
+	// --------------------
+	//  Compiler Generated
+	// --------------------
+	Stack();
+	Stack(const Stack& other);
+	Stack(Stack&& other)          = delete;
+	Stack& operator=(const Stack& rhs);
+	Stack& operator=(Stack&& rhs) = delete;
+	~Stack();
+
+	// ----------------
+	//  Element Access
+	// ----------------
+	int& top();
+	const int& top() const;
+
+	// ----------
+	//  Capacity
+	// ----------
+	bool empty() const;
+	int size() const;
+
+	// -----------
+	//  Modifiers
+	// -----------
+	void push(const int& val);
+	void pop();
+	void swap(Stack& other);
+};
+```
 
 ## Iterator Implementation
 Currently in Progress...
