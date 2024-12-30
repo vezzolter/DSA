@@ -18,7 +18,6 @@ Stack::Stack() : _size(0), _capacity(0), _data(nullptr) {}
 Stack::Stack(const Stack& other)
     : _size(other._size), _capacity(other._capacity) {
 
-    // Copy the data (if any), the size and capacity are in init list
     if (other._data) {
         _data = new int[_capacity];
         for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
@@ -34,7 +33,6 @@ Stack& Stack::operator=(const Stack& rhs) {
     if (this == &rhs) { return *this; }
     delete[] _data;
 
-    // Copy the size, capacity, data (if any)
     _size = rhs._size;
     _capacity = rhs._capacity;
     if (rhs._data) {
@@ -67,7 +65,7 @@ const int& Stack::top() const { return _data[_size - 1]; }
 //  Capacity
 // ----------
 
-// Returns true if stack  has no elements
+// Returns true if stack has no elements
 bool Stack::empty() const { return (_size == 0); }
 
 // Returns the number of stored elements
@@ -80,12 +78,14 @@ int Stack::size() const { return _size; }
 
 // Appends the given element to the end of the stack
 void Stack::push(const int& val) {
+    // Moving out memory handling to a separate reserve() is unnecessary for the stack,
+    // as resizing is only required in push(), and it would add an extra layer without benefit
     if (_size == _capacity) {
         // Allocate new memory (double if needed, or assign 1 if no at all)
         _capacity = _capacity == 0 ? 1 : _capacity * 2;
         int* data = new int[_capacity];
 
-        // Copy elements from the old stack to the new one
+        // Copy elements
         for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
 
         // Deallocate old memory and point to new one
@@ -93,10 +93,8 @@ void Stack::push(const int& val) {
         _data = data;
     }
 
-    // Insert the new value at the end
+    // Insert new element and reflect on size
     _data[_size] = val;
-
-    // Reflect new element on size
     ++_size;
 }
 
@@ -117,15 +115,15 @@ void Stack::swap(Stack& other) {
     // Case: the same stack
     if (this == &other) { return; }
 
-    int* tempData = _data;
+    int* data = _data;
     _data = other._data;
-    other._data = tempData;
+    other._data = data;
 
-    int tempSize = _size;
+    int size = _size;
     _size = other._size;
-    other._size = tempSize;
+    other._size = size;
 
-    int tempCapacity = _capacity;
+    int capacity = _capacity;
     _capacity = other._capacity;
-    other._capacity = tempCapacity;
+    other._capacity = capacity;
 }

@@ -148,7 +148,7 @@ public:
 ```
 
 ## Iterator Implementation
-Currently in Progress...
+Iterators are not provided in this implementation, as previously explained in the [Container Methods](##container-methods) section. Stacks, including implementations like `std::stack`, are designed to enforce the LIFO principle, restricting access to the top element only. Allowing iteration would violate this core abstraction, and iteration is typically performed by accessing the underlying container if necessary.
 
 
 
