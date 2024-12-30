@@ -106,7 +106,7 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-The container is implemented within the `Stack` class, which is declared in [Stack.h](https://github.com/vezzolter/DSA/blob/stack/DataStructures/Stack/Include/Stack.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/stack/DataStructures/Stack/Include/Stack.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/stack/DataStructures/Stack/Include/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `Stack` class, which is declared in [Stack.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Stack/Include/Stack.h) header file and defined in [Str.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Stack/Include/Stack.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Stack/Include/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class Stack {
@@ -147,21 +147,32 @@ public:
 };
 ```
 
+
 ## Iterator Implementation
 Iterators are not provided in this implementation, as previously explained in the [Container Methods](##container-methods) section. Stacks, including implementations like `std::stack`, are designed to enforce the LIFO principle, restricting access to the top element only. Allowing iteration would violate this core abstraction, and iteration is typically performed by accessing the underlying container if necessary.
 
 
 
 # &#128202; Analysis
-Currently in Progress...
+In practice, when analyzing a data structure, it's really about analyzing the containers that are based on that structure, because data structures themselves are theoretical concepts, whereas containers are the actual implementations you can use. Containers may not only perform the same operations differently, leading to distinct behaviors and performance characteristics, but they may also offer entirely different operations. Moreover, when working with existing solutions, each developer may implement the container in a unique way, resulting in additional variations. Therefore, it's always recommended to first consult the documentation to understand how the specific container operates and what guarantees it provides to the user.
 
 
 ## Characteristics
-Currently in Progress...
+Strings generally lack strict requirements or performance guarantees, making them highly versatile and adaptable to various implementations. Consequently, evaluating a string's characteristics is best done by examining the underlying data structure. The most common implementations rely on arrays, with linked lists being less frequently used, each offering distinct performance traits and trade-offs.
 
 
 ## Trade-Offs
-Currently in Progress...
+The trade-offs for stack containers, much like their characteristics, are inherently tied to the underlying data structure. For a deeper understanding of these trade-offs, refer to the detailed analyses of the respective data structures linked above. However, some inherent pros and cons arise directly from the LIFO principle.
+
+---
+➕ **Advantages:**  
+- **Simple and Intuitive** — stacks provide an easy-to-understand LIFO mechanism, which aligns naturally with many problem-solving scenarios like recursion, backtracking, and parsing expressions.  
+- **Efficient Push and Pop** — pushing and popping elements from the stack are constant time operations $O(1)$, making stacks highly efficient for sequential operations.  
+
+---  
+➖ **Disadvantages:**  
+- **Restricted Access** — stacks only allow access to the top element, which makes them unsuitable for use cases requiring random or indexed access.  
+- **Limited Flexibility** — stacks are highly specialized, limiting their direct application to LIFO-specific problems (unlike general-purpose containers, e.g. vectors or linked lists).  
 
 
 
