@@ -1,152 +1,129 @@
-// Source file for simplified ADT: Stack
-// by vezzolter
-// March 2, 2024
+// Title:   Source file for Stack (Array-Based)
+// Authors: by vezzolter
+// Date:    March 2, 2024
+// ----------------------------------------------------------------------------
 
-#ifndef STACK_CPP
-#define STACK_CPP
 
 #include "Stack.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// --------------------
+//  Compiler Generated
+// --------------------
 
-// Default constructor
-template<typename T>
-Stack<T>::Stack() : _size(0), _top(nullptr) {}
+// Constructs an empty stack 
+Stack::Stack() : _size(0), _capacity(0), _data(nullptr) {}
 
-// Deep copy constructor
-template<class T>
-Stack<T>::Stack(const Stack& rhs) : _size(0), _top(nullptr) {
-	// Iterate through the nodes of rhs stack and copy each element
-	Node* rhsCurrent = rhs._top;
-	Node* prevNode = nullptr;
-	while (rhsCurrent != nullptr) {
-		// Create a new node with the same data
-		Node* newNode = new Node(rhsCurrent->_data);
+// Constructs a stack with the contents of 'other'
+Stack::Stack(const Stack& other)
+    : _size(other._size), _capacity(other._capacity) {
 
-		// Attach the new node to the current stack
-		if (prevNode == nullptr)
-			_top = newNode;
-		else
-			prevNode->_next = newNode;
+    if (other._data) {
+        _data = new int[_capacity];
+        for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
 
-		// Move to the next node in rhs stack
-		prevNode = newNode;
-		rhsCurrent = rhsCurrent->_next;
-	}
-
-	// Update the size
-	_size = rhs._size;
+    } else {
+        _data = nullptr;
+    }
 }
 
-// Deep copy assignment operator
-template<class T>
-Stack<T>& Stack<T>::operator=(const Stack& rhs) {
-	// Self-assignnment guard
-	if (this == &rhs)
-		return *this;
+// Replaces the contents with a copy of the contents of 'rhs'
+Stack& Stack::operator=(const Stack& rhs) {
+    // Prepare: check for self-assignment and deallocate any old memory
+    if (this == &rhs) { return *this; }
+    delete[] _data;
 
-	// Ensure that the destination stack doesn't retain any of its existing elements
-	while (!empty())
-		pop();
+    _size = rhs._size;
+    _capacity = rhs._capacity;
+    if (rhs._data) {
+        _data = new int[_capacity];
+        for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }
 
-	// Set corresponding size
-	_size = rhs._size;
+    } else {
+        _data = nullptr;
+    }
 
-	// Case: empty stack
-	if (rhs._top == nullptr) {
-		_top = nullptr;
-	}
-	else {
-		// Perform deep copy from rhs to this stack
-		Node* rhsCurrent = rhs._top;
-		while (rhsCurrent != nullptr) {
-			push(rhsCurrent->data);
-			rhsCurrent = rhsCurrent->next;
-		}
-	}
-
-	return *this;
+    return *this;
 }
 
-// Destructor
-template<typename T>
-Stack<T>::~Stack() {
-	while (!empty())
-		pop();
+// Destructs the stack 
+Stack::~Stack() { delete[] _data; }
+
+
+// ----------------
+//  Element Access 
+// ----------------
+
+// Returns a modifiable reference to the last element
+int& Stack::top() { return _data[_size - 1]; }
+
+// Returns a non-modifiable reference to the last element
+const int& Stack::top() const { return _data[_size - 1]; }
+
+
+// ----------
+//  Capacity
+// ----------
+
+// Returns true if stack has no elements
+bool Stack::empty() const { return (_size == 0); }
+
+// Returns the number of stored elements
+int Stack::size() const { return _size; }
+
+
+// -----------
+//  Modifiers
+// -----------
+
+// Appends the given element to the end of the stack
+void Stack::push(const int& val) {
+    // Moving out memory handling to a separate reserve() is unnecessary for the stack,
+    // as resizing is only required in push(), and it would add an extra layer without benefit
+    if (_size == _capacity) {
+        // Allocate new memory (double if needed, or assign 1 if no at all)
+        _capacity = _capacity == 0 ? 1 : _capacity * 2;
+        int* data = new int[_capacity];
+
+        // Copy elements
+        for (int i = 0; i < _size; ++i) { data[i] = _data[i]; }
+
+        // Deallocate old memory and point to new one
+        delete[] _data;
+        _data = data;
+    }
+
+    // Insert new element and reflect on size
+    _data[_size] = val;
+    ++_size;
 }
 
+// Removes the last element from the stack
+void Stack::pop() {
+    // Case: empty container
+    if (_size == 0) { return; }
 
+    // Reflect removed element on size
+    --_size;
 
-// --------------
-// Element Access
-// --------------
-
-// Accesses the last element in the container, no range validation, allows modification
-template<class T>
-T& Stack<T>::peek() { return _top->_data; }
-
-// Accesses the last element in the container, no range validation, denies modification
-template<class T>
-const T& Stack<T>::peek() const { return _top->_data; };
-
-
-
-// --------
-// Capacity
-// --------
-
-// Checks if the container has no elements
-template<class T>
-bool Stack<T>::empty() const { return _size == 0; }
-
-// Returns the number of elements in the container
-template<typename T>
-int Stack<T>::size() const { return _size; }
-
-
-
-// ---------
-// Modifiers
-// ---------
-
-// Appends the given element to the end of the container
-template<class T>
-void Stack<T>::push(const T& newData) {
-	// Create a new node with the given data
-	Node* newNode = new Node(newData);
-
-	// Case: empty stack
-	if (_top == nullptr) {
-		_top = newNode;
-	}
-	else {
-		newNode->_next = _top;
-		_top = newNode;
-	}
-
-	// Update the size
-	++_size;
+    // Avoid stale data
+    _data[_size] = 0;
 }
 
-// Removes the last element of the container
-// Note: with no bounds check, assumes that stack contains at least 1 element
-template<class T>
-void Stack<T>::pop() {
-	// Case: empty stack
-	if (_top == nullptr)
-		return;
+// Exchanges the contents of the stack with those of 'other'
+void Stack::swap(Stack& other) {
+    // Case: the same stack
+    if (this == &other) { return; }
 
-	// Move the top ptr to the next node
-	Node* temp = _top;
-	_top = _top->_next;
-	delete temp;
+    int* data = _data;
+    _data = other._data;
+    other._data = data;
 
-	// Update the size
-	--_size;
+    int size = _size;
+    _size = other._size;
+    other._size = size;
+
+    int capacity = _capacity;
+    _capacity = other._capacity;
+    other._capacity = capacity;
 }
-
-
-#endif

@@ -1,76 +1,80 @@
-// Simplified ADT: Stack
-// by vezzolter
-// March 2, 2024
-//
-// This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called Stack.
+// Title:   Stack Container (Array-Based)
+// Authors: by vezzolter
+// Date:    March 2, 2024
+// ----------------------------------------------------------------------------
+
 
 #include <iostream>
 #include "Stack.h"
 
 
-
-// via copy of stack
-void printStack(const Stack<int>& stack) {
-	std::cout << "Elements:\t";
-	Stack<int> tempStack = stack; 
-	while (!tempStack.empty()) {
-		std::cout << tempStack.peek() << " ";
-		tempStack.pop();
+// Creates a copy of stack
+void printStack(Stack stack) {
+	for (; !stack.empty(); ) {
+		std::cout << stack.top() << " ";
+		stack.pop();
 	}
 	std::cout << std::endl;
-
 }
 
-int main()
-{
+int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Stack' console application!\n";
+	std::cout << "\tWelcome to the 'Stack (Array)' console application!\n\n";
 
-	// Create initial stack
-	std::cout << "\nCreating & filling initial stack #1...\n";
-	Stack<int> stack1;
-	stack1.push(7);
-	stack1.push(1);
-	stack1.push(1);
-	stack1.push(9);
+	// Constructors
+	std::cout << "Constructors:\n";
+	std::cout << " -> Stack s1(0, 9, 1, 3, 0, 2, 7):\t";
+	Stack s1;
+	s1.push(0);
+	s1.push(9);
+	s1.push(1);
+	s1.push(3);
+	s1.push(0);
+	s1.push(2);
+	s1.push(7);
+	printStack(s1);
+	std::cout << " -> Stack s2(s1):\t\t\t";
+	Stack s2(s1);
+	printStack(s2);
+	std::cout << " -> Stack s3 = s1:\t\t\t";
+	Stack s3 = s1;
+	printStack(s3);
+	std::cout << std::endl;
 
-	// Show stack #1
-	std::cout << "Is it empty:\t" << stack1.empty() << std::endl;
-	printStack(stack1);
-	std::cout << "Top element:\t" << stack1.peek() << std::endl;
+	// Element Access
+	std::cout << "Element Access:\n";
+	std::cout << " -> s1.top:\t\t\t\t" << s1.top() << std::endl;
+	std::cout << std::endl;
 
-	// Modify stack #1
-	std::cout << "\nChange top element '9' to '0'...\n";
-	stack1.peek() = 0;
-	printStack(stack1);
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " -> s1.empty():\t\t\t\t" << s1.empty() << std::endl;
+	std::cout << " -> s1.size(): \t\t\t\t" << s1.size() << std::endl;
+	std::cout << std::endl;
 
-	// Insert into stack #1
-	std::cout << "\nAdd element '3' to the stack..\n";
-	stack1.push(3);
-	printStack(stack1);
-
-	// Deep copy functionality
-	std::cout << "\nCreate a stack copies and compare...\n";
-	Stack<int> stack2(stack1);
-	Stack<int> stack3 = stack1;
-	printStack(stack1);
-	printStack(stack2);
-	printStack(stack3);
-
-	// Remove functionality
-	std::cout << "\nFrom stack #1 remove two top-most elements: '3' and '0'...\n";
-	stack1.pop();
-	stack1.pop();
-	printStack(stack1);
-	printStack(stack2);
-	printStack(stack3);
+	// Modifiers
+	std::cout << "Modifiers:\n";
+	std::cout << " -> s1.push(3): \t\t\t";
+	s1.push(3);
+	printStack(s1);
+	std::cout << " -> s1.push(3): \t\t\t";
+	s1.push(3);
+	printStack(s1);
+	std::cout << " -> s1.pop(): \t\t\t\t";
+	s1.pop();
+	printStack(s1);
+	std::cout << " -> s1.swap(s2): \t\t\t";
+	s1.swap(s2);
+	printStack(s1);
+	std::cout << "   - s2:\t\t\t\t";
+	printStack(s2);
+	std::cout << "   - s3:\t\t\t\t";
+	printStack(s3);
+	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
 	std::cin.get();
 	return 0;
 }

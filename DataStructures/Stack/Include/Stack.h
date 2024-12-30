@@ -1,49 +1,49 @@
-// Header file for simplified ADT: Stack
-// by vezzolter
-// March 2, 2024
+// Title:   Header file for Stack (Array-Based)
+// Authors: by vezzolter
+// Date:    March 2, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef STACK_H
 #define STACK_H
 
 
-template<class T>
 class Stack {
 private:
-	class Node {
-	public:
-		T _data;
-		Node* _next;
-
-		Node(T data) : _data(data), _next(nullptr) {}
-		Node()                           = default;
-		Node(const Node& rhs)            = delete;
-		Node& operator=(const Node& rhs) = delete;
-	};
-
 	int _size;
-	Node* _top;
+	int _capacity;
+	int* _data;
 
 public:
-	// Special Member Functions
+	// --------------------
+	//  Compiler Generated
+	// --------------------
 	Stack();
-	Stack(const Stack& rhs);
+	Stack(const Stack& other);
+	Stack(Stack&& other)          = delete;
 	Stack& operator=(const Stack& rhs);
+	Stack& operator=(Stack&& rhs) = delete;
 	~Stack();
 
-	// Element Access
-	T& peek();
-	const T& peek() const;
+	// ----------------
+	//  Element Access
+	// ----------------
+	int& top();
+	const int& top() const;
 
-	// Capacity 
+	// ----------
+	//  Capacity
+	// ----------
 	bool empty() const;
 	int size() const;
 
-	// Modifiers
-	void push(const T& newData);
+	// -----------
+	//  Modifiers
+	// -----------
+	void push(const int& val);
 	void pop();
+	void swap(Stack& other);
 };
 
-
-#include "Stack.cpp"
 
 #endif
