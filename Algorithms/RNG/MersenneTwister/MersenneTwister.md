@@ -47,8 +47,7 @@ The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining
 ## Algorithm Steps
 1. Start by setting the first element of the state array to the initial seed value. Fill the remaining elements of the state array using the recurrence relation with `f = 1812433253u`:
    $$MT[i] = f \times (MT[i-1] \oplus (MT[i-1] \gg \text{nBits} - 1)) + i$$     
-2. Perform the «twist» by combining bits from consecutive elements of the state array using the formula:  
-$$x = (MT[i] \& \text{upMask}) + (MT[(i+1) \% n] \& \text{lowMask})$$
+2. Perform the «twist» by combining bits from consecutive elements of the state array using the formula: `x = (MT[i] & upMask + (MT[(i+1) % n] & lowMask)`
 3. Then, apply the XOR operation using constant `a`:  
 $$xA = (x \gg 1) \oplus (a \text{ if } x \% 2 \neq 0)$$
 4. Apply tempering to the twisted values. Take the current value `y = MT[i]`, and:

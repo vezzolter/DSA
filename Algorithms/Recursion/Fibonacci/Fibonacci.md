@@ -84,12 +84,12 @@ Algorithm implemented within the function `fibonacci()`, which is declared in `F
 
 
 ## Call Stack Interaction
-1. First things first, the program calls `main()` function and its frame is added on top of the call stack.  <p align="center"><img src="./Images/step_0.png"/></p>
-2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:  <p align="center"><img src="./Images/step_1.png"/></p> 
-3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls: <p align="center"><img src="./Images/step_2.png"/></p> 
-4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack. <p align="center"><img src="./Images/step_3.png"/></p>
-5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in other area. Unfortunately, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming. <p align="center"><img src="./Images/step_4.png"/></p> 
-6. So the control flow continues this process until we reach the initial (first) function call. <p align="center"><img src="./Images/step_5.png"/></p>
+1. First things first, the program calls `main()` function and its frame is added on top of the call stack.  <p align="center"><img src="./Images/Step_0.png"/></p>
+2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:  <p align="center"><img src="./Images/Step_1.png"/></p> 
+3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls: <p align="center"><img src="./Images/Step_2.png"/></p> 
+4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack. <p align="center"><img src="./Images/Step_3.png"/></p>
+5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in other area. Unfortunately, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming. <p align="center"><img src="./Images/Step_4.png"/></p> 
+6. So the control flow continues this process until we reach the initial (first) function call. <p align="center"><img src="./Images/Step_5.png"/></p>
 
 
 

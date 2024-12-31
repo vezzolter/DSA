@@ -14,14 +14,14 @@
 // Constructs an empty array
 DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
-// Constructs a list with 'size' copies of elements initialized to zeros
+// Constructs an array with 'size' copies of elements initialized to zeros
 DA::DA(int size)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
 
     for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
 
-// Constructs a list with 'size' copies of elements with 'val'
+// Constructs an array with 'size' copies of elements with 'val'
 DA::DA(int size, int val)
     : _size(size), _capacity(size), _data(new int[_capacity]) {
 
@@ -332,15 +332,15 @@ void DA::swap(DA& other) {
     // Case: the same array
     if (this == &other) { return; }
 
-    int* tempData = _data;
+    int* data = _data;
     _data = other._data;
-    other._data = tempData;
+    other._data = data;
 
-    int tempSize = _size;
+    int size = _size;
     _size = other._size;
-    other._size = tempSize;
+    other._size = size;
 
-    int tempCapacity = _capacity;
+    int capacity = _capacity;
     _capacity = other._capacity;
-    other._capacity = tempCapacity;
+    other._capacity = capacity;
 }

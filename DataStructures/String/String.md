@@ -445,12 +445,6 @@ In practice, when analyzing a data structure, it's really about analyzing the co
 ## Characteristics
 Strings generally lack strict requirements or performance guarantees, making them highly versatile and adaptable to various implementations. Consequently, evaluating a string's characteristics is best done by examining the underlying data structure. The most common implementations rely on arrays, with linked lists being less frequently used, each offering distinct performance traits and trade-offs.
 
-For a detailed analysis of these underlying structures, refer to:
-- [Static Array Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/StaticArray/StaticArray.md)
-- [Dynamic Array Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/DynamicArray/DynamicArray.md)
-- [Singly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/SinglyLinkedList/SinglyLinkedList.md)
-- [Doubly Linked List Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/DoublyLinkedList/DoublyLinkedList.md)
-- [Circular LinkedList Characteristics](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/CircularLinkedList/CircularLinkedList.md)
 
 
 ## Trade-Offs
@@ -591,6 +585,9 @@ For contact details and additional information, please refer to the [root direct
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 3.6: Strings
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 3.1: Abstract Data Types (ADTs)
+  - Section 4.5: Creation of a New ADT
 
 ---
 &#127891; **Courses:**

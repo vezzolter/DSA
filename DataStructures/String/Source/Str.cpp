@@ -68,7 +68,6 @@ Str& Str::operator=(const Str& rhs) {
 Str::~Str() { delete[] _data; }
 
 
-
 // -----------
 //  Iterators
 // -----------
