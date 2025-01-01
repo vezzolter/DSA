@@ -104,8 +104,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
   - Tree
-    - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
-    - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
+    - [Tree.md](https://github.com/vezzolter/DSA/tree/bst/DataStructures/Tree/Tree.md) 🎯
+    - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/bst/DataStructures/Tree/BST)🎯
     - AVL Tree  
     - Red-Black Tree 
     - B-Tree
