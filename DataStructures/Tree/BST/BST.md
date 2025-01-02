@@ -22,7 +22,9 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Binary Search Tree (BST)** is an implementation of binary tree, designed to organize data for efficient search, insertion, and deletion operations. The name reflects its key feature: enabling fast searches by maintaining a sorted hierarchical structure. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/BST.png"/></p>
+
 
 
 ## Important Details
@@ -92,7 +94,6 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
 
 
 
