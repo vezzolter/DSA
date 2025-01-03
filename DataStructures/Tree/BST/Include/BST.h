@@ -1,57 +1,70 @@
-// Header file for Binary Search Tree
-// by vezzolter
-// April 29, 2024
+// Title:   Header file for BST
+// Authors: by vezzolter
+// Date:    April 29, 2024
+// ----------------------------------------------------------------------------
+
 
 #ifndef BST_H
 #define BST_H
 
 
-template <typename T>
 class BST {
 private:
-    struct Node {
-        T _data;
-        Node* _left;
-        Node* _right;
-
-        Node(const T& val) : _data(val), _left(nullptr), _right(nullptr) {}
-    };
-
-    Node* _root;
     int _size;
+    struct Node;
+    Node* _root;
 
-    // Helper functions (due to lack of iterator class)
+    // --------------------------------
+    //  Helper Functions (lack of itr)
+    // --------------------------------
     Node* copyNodes(Node* root);
-    int heightHelper(Node* root, const T& value) const;
-    int depthHelper(Node* root, const T& value, int depth) const;
+    int heightHelper(Node* root, const int& val) const;
+    int depthHelper(Node* root, const int& val, int depth) const;
 
 public:
-    // Special Member Functions
+    // --------------------
+    //  Compiler Generated
+    // --------------------
     BST();
-    BST(const BST& rhs);
+    BST(const BST& other);
+    BST(BST&& other)          = delete;
     BST& operator=(const BST& rhs);
+    BST& operator=(BST&& rhs) = delete;
     ~BST();
 
-    // Element Access
-    bool search(const T& value) const;
-    T maximum() const;
-    T minimum() const;
-    T predecessor(const T& value) const;
-    T successor(const T& value) const;
+    // ----------------
+    //  Element Access
+    // ----------------
+    bool search(const int& val) const;
+    int maximum() const;
+    int minimum() const;
+    int predecessor(const int& val) const;
+    int successor(const int& val) const;
 
-    // Capacity
+    // ----------
+    //  Capacity
+    // ----------
     bool empty() const;
     int size() const;
-    int height(const T& value) const;
-    int depth(const T& value) const;
+    int height(const int& val) const;
+    int depth(const int& val) const;
 
-    // Modifiers
-    void insert(const T& value);
-    void remove(const T& value);
+    // -----------
+    //  Modifiers
+    // -----------
+    void insert(const int& val);
+    void remove(const int& val);
     void clear();
 };
 
 
-#include "BST.cpp"
+struct BST::Node {
+    int _data;
+    Node* _left;
+    Node* _right;
 
-#endif
+    Node(const int& val) : _data(val), _left(nullptr), _right(nullptr) {}
+};
+
+
+#endif // BST_H
