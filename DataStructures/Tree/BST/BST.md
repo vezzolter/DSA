@@ -75,7 +75,33 @@ Currently in Progress...
 
 
 ## Some Practical Problems
-Currently in Progress...
+**Easy Problems:**
+1. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
+2. [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
+3. [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)
+4. [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
+5. [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree)
+6. [Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
+
+---
+**Medium Problems:** 
+1. [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
+2. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
+3. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
+4. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
+5. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
+6. [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
+7. [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)
+8. [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree)
+9. [Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
+10. [All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees)
+
+---
+**Hard Problems:** 
+1. [Maximum Sum BST in Binary Tree](https://leetcode.com/problems/maximum-sum-bst-in-binary-tree)
+2. [Number of Ways to Reorder Array to Get Same BST](https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)
+3. [Merge BSTs to Create Single BST](https://leetcode.com/problems/merge-bsts-to-create-single-bst)
+
 
 
 # &#x1F559; Origins
