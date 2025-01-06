@@ -28,7 +28,9 @@
 
 
 ## Important Details
-Currently in Progress...
+- **Ordering Property** — for any given node, all values in the left subtree are less than the nodes's value, and all the values in the right subtree are greater than the node's value. This property is the core of BST, ensuring a hierarchical structure that supports efficient operations; any violation compromises the tree's integrity and reliability.
+- **Duplicates** — while some implementations of BSTs disallow duplicates altogether, others allow them but require consistent handling. A common approach is to add a counter to each node to track the frequency of duplicate values, or to consistently place duplicates in either the left or right subtree. The decision is left to the developer and depends on the specific use case, but consistent handling is crucial to maintaining the BST’s structure.
+- **Balancing** — insertions and deletions can affect the balance of a BST, causing the heights of the left and right subtrees to differ significantly. While the tree may still function correctly in such cases, its performance (both in terms of time and space) can degrade, particularly for large datasets. Without rebalancing, a BST can degenerate into a structure resembling a linked list, with a height of $O(n)$, where $n$ is the number of nodes, resulting in lookup performance equivalent to linear search. To maintain efficiency, balancing mechanisms are employed to keep the tree height bounded by $O(\log n)$, ensuring optimal performance even during updates (e.g. AVL, Red-Black).
 
 
 ## Container Methods
