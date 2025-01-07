@@ -34,7 +34,61 @@
 
 
 ## Container Methods
-Currently in Progress...
+When working with BSTs, it's important to note that there is no universal standard defining a strict list of operations or guidelines for how they should be implemented. Moreover, raw BSTs are rarely implemented directly in modern programming libraries. Instead, **self-balancing trees** (e.g. Red-Black Trees, AVL Trees) are used to maintain efficient $O(\log n)$ operations and are employed **internally** to implement higher-level containers such as `std::map` (C++), `TreeMap` (Java), or `SortedSet` (C#). Since the design and functionality of containers vary significantly depending on several factors, it is difficult to pinpoint a definitive list of operations. Therefore, in this repository, the container methods aim to replicate some of the fundamental operations present in most implementations.
+
+---
+**Compiler Generated**:
+- `Default Constructor` — creates an empty BST, initializing its internal structure to represent a tree with no nodes.
+- `Copy Constructor` — creates a new BST by copying the structure and values of another tree.
+- `Move Constructor` — creates a new BST by transferring the structure and values from another tree, leaving the original tree in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory.
+- `Copy Assignment Operator` — replaces the contents of the current BST with the structure and values of another tree by copying them.
+- `Move Assignment Operator` — replaces the contents of the current BST by transferring the structure and values from another tree, leaving the original tree in a valid but unspecified state.
+- `Destructor` — performs cleanup on the BST: deallocates memory for stored nodes and properly handles any associated resources, ensuring no memory leaks.
+
+---
+<p align="center"><img src="./Images/OperationsIterators.png"/></p>
+
+**Iterators:**
+- `begin`, `cbegin` — returns an iterator (or constant iterator) pointing to the smallest node in the tree (in-order traversal).
+- `end`, `cend` — returns an iterator (or constant iterator) pointing past the largest node in the tree.
+- `rbegin`, `crbegin` — returns an iterator (or constant iterator) pointing to the largest node in the tree (reverse in-order traversal).
+- `rend`, `crend` — returns an iterator (or constant iterator) pointing past the smallest node in reverse traversal.
+
+---
+<p align="center"><img src="./Images/OperationsAccess.png"/></p>
+
+**Elements Access**:
+- `find(key)` — returns a pointer or iterator to the node containing the specified key.
+  - returns `nullptr` or equivalent if the key is not found.
+- `min()` — returns a pointer or iterator to the node with the smallest key in the tree.
+- `max()` — returns a pointer or iterator to the node with the largest key in the tree.
+- `successor(key)` — returns a pointer or iterator to the node with the smallest key greater than the specified key (in-order successor).
+- `predecessor(key)` — returns a pointer or iterator to the node with the largest key smaller than the specified key (in-order predecessor).
+
+---
+**Capacity**:
+- `empty()` — returns `true` if the tree contains no nodes, otherwise `false`.
+- `size()` — returns the number of nodes in the tree.
+- `maxSize()` — returns the theoretical maximum number of nodes the tree can hold, depending on memory limits.
+- `height()` — returns the height of the tree (the length of the longest path from the root to a leaf).
+
+---
+<p align="center"><img src="./Images/OperationsModifiers.png"/></p>
+
+**Modifiers**:
+- `insert(key)` — inserts a new node with the specified key into the tree, maintaining the BST ordering property.
+- `erase(key)` — removes the node with the specified key from the tree, adjusting the structure as needed to maintain the ordering property.
+  - if the node has two children, it is replaced with its in-order successor or predecessor.
+- `clear()` — removes all nodes from the tree, leaving it empty.
+- `swap(other)` — exchanges the contents of the current tree with another tree, avoiding expensive deep copies.
+
+---
+**Operations**:
+- `traverse()` — traverses the tree in the specified order (`in-order`, `pre-order`, `post-order`, or `level-order`) and applies a function to each node.
+- `contains(key)` — checks whether the tree contains a node with the specified key.
+- `validate()` — checks whether the tree satisfies the BST ordering property, useful for debugging or verifying correctness.
+- `count(key)` — returns the number of nodes in the tree containing the specified key.
+  - for trees that disallow duplicates, this returns either `0` or `1`.
 
 
 
