@@ -93,7 +93,8 @@ When working with BSTs, it's important to note that there is no universal standa
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the basic functionality of the BST by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
