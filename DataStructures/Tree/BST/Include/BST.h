@@ -14,13 +14,6 @@ private:
     struct Node;
     Node* _root;
 
-    // --------------------------------
-    //  Helper Functions (lack of itr)
-    // --------------------------------
-    Node* copyNodes(Node* root);
-    int heightHelper(Node* root, const int& val) const;
-    int depthHelper(Node* root, const int& val, int depth) const;
-
 public:
     // --------------------
     //  Compiler Generated
@@ -32,14 +25,31 @@ public:
     BST& operator=(BST&& rhs) = delete;
     ~BST();
 
+    // -----------
+    //  Iterators
+    // -----------
+    class Iterator;
+    using iterator = Iterator;
+    iterator begin();
+    iterator end();
+    class ConstIterator;
+    using const_iterator = ConstIterator;
+    const_iterator begin() const;
+    const_iterator end() const;
+    const_iterator cbegin() const;
+    const_iterator cend() const;
+
     // ----------------
     //  Element Access
     // ----------------
-    bool search(const int& val) const;
+    iterator find(const int& val);
+    const_iterator find(const int& val) const;
     int maximum() const;
     int minimum() const;
-    int predecessor(const int& val) const;
-    int successor(const int& val) const;
+    iterator predecessor(const int& val);
+    const_iterator predecessor(const int& val) const;
+    iterator successor(const int& val);
+    const_iterator successor(const int& val) const;
 
     // ----------
     //  Capacity
@@ -55,6 +65,15 @@ public:
     void insert(const int& val);
     void remove(const int& val);
     void clear();
+    void swap(BST& other);
+
+    // ------------
+    //  Operations
+    // ------------
+    // void traverse();
+    // bool contains(const int& val) const;
+    // void validate() const;
+    // int count(const int& val) const;
 };
 
 
@@ -64,6 +83,45 @@ struct BST::Node {
     Node* _right;
 
     Node(const int& val) : _data(val), _left(nullptr), _right(nullptr) {}
+};
+
+
+class BST::Iterator {
+private:
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    Iterator()                               = default;
+    //Iterator(char* ptr) : _ptr(ptr) { }
+    Iterator(const Iterator& other)          = default;
+    Iterator(Iterator&& other)               = default;
+    Iterator& operator=(const Iterator& rhs) = default;
+    Iterator& operator=(Iterator&& rhs)      = default;
+    ~Iterator()                              = default;
+
+    // ----------------------
+    //  Overloaded Operators
+    // ----------------------
+};
+
+
+class BST::ConstIterator {
+private:
+    const char* _ptr = nullptr;
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    ConstIterator()                  = default;
+    //ConstIterator(const char* ptr) : _ptr(ptr) { }
+    ConstIterator(const ConstIterator& other)          = default;
+    ConstIterator(ConstIterator&& other)               = default;
+    ConstIterator& operator=(const ConstIterator& rhs) = default;
+    ConstIterator& operator=(ConstIterator&& rhs)      = default;
+    ~ConstIterator();
 };
 
 
