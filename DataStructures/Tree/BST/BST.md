@@ -128,7 +128,13 @@ Currently in Progress...
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Efficient Searching** — BSTs are used for searching elements efficiently, as they maintain a hierarchical ordering of data. In a well-structured BST, searches can be performed in $O(\log n)$ time on average, leveraging the ordering property to reduce comparisons.
+
+- **Data Sorting** — BSTs are utilized for sorting data dynamically through their in-order traversal. This traversal produces a sorted sequence of elements, leveraging the hierarchical structure of the tree to organize data efficiently.
+
+- **Range Queries** — BSTs are applied to retrieve all elements within a specific range of values. By traversing only the relevant portions of the tree, range queries efficiently access the data while maintaining the overall structure.
+
+- **Educational Purposes** — BSTs are frequently used in education to demonstrate core concepts in data structures. Their simplicity helps in understanding recursion, tree traversals, and hierarchical ordering of data, also they serve as a starting point for understanding how balancing affects performance.
 
 
 ## Some Practical Problems
