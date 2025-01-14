@@ -10,12 +10,18 @@
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Binary Search Tree' console application!\n";
+	std::cout << "\tWelcome to the 'Binary Search Tree' console application!\n\n";
 
 	// Constructors
 	std::cout << "Constructors:\n";
 	std::cout << " -> BST t1:\t\t\t\t";
 	BST t1;
+	std::cout << std::endl;
+	std::cout << " -> BST t2(t1):\t\t\t\t";
+	BST t2(t1);
+	std::cout << std::endl;
+	std::cout << " -> DLL t3 = t1:\t\t\t";
+	BST t3 = t1;
 	std::cout << std::endl;
 
 	// Exit

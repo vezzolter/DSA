@@ -20,7 +20,7 @@ BST::Node* BST::copyNodes(Node* src, Node* parent) {
 	Node* newNode = new Node(src->_data);
 	newNode->_parent = parent;
 
-	// Recursively copy both subtrees
+	// Recursively copy both subtrees (post-order traversal)
 	newNode->_left = copyNodes(src->_left, newNode);
 	newNode->_right = copyNodes(src->_right, newNode);
 
@@ -36,21 +36,34 @@ BST::Node* BST::copyNodes(Node* src, Node* parent) {
 BST::BST() : _size(0), _root(nullptr) {}
 
 // Constructs a BST with the deep copy contents of 'other'
-//BST::BST(const BST& other) 
-//	: _size(other._size), _root(nullptr) {
-//
-//	// Case: empty tree
-//	if (!other._root) {
-//
-//	}
-//
-//	for (auto it = other.begin(); it != other.end(); ++it) {
-//		insert(*it);
-//	}
-//}
+BST::BST(const BST& other) : _size(other._size), _root(nullptr) {
+	// Case: empty tree
+	if (!other._root) { return; }
+
+	// Delegate actual copy to utility function
+	_root = copyNodes(other._root, nullptr);
+}
 
 // Replaces the contents of this BST with a deep copy of 'rhs'
-//BST& BST::operator=(const BST& rhs) { }
+BST& BST::operator=(const BST& rhs) {
+	// Prepare: self-assignment & deallocate any old memory
+	if (this == &rhs) { return *this; }
+	clear();
+
+	// Set corresponding size
+	_size = rhs._size;
+
+	// Case: empty tree
+	if (!rhs._root) {
+		_root = nullptr;
+		return *this;
+	}
+
+	// Delegate actual copy to utility function
+	_root = copyNodes(rhs._root, nullptr);
+
+	return *this;
+}
 
 // Destroys the BST, resetting it to its initial state
 BST::~BST() { clear(); }

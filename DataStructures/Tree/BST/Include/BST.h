@@ -17,6 +17,10 @@ private:
     // -----------------
     //  Utility Methods
     // -----------------
+
+    // For self-balancing trees, the copy constructor and copy assignment operator
+    // often rely on iterators, because insertions automatically balance the tree,
+    // but for BST, balancing isn't a concern, so it would add unnecessary complexity
     Node* copyNodes(Node* src, Node* parent);
 
 public:
@@ -24,9 +28,9 @@ public:
     //  Compiler Generated
     // --------------------
     BST();
-    //BST(const BST& other);
+    BST(const BST& other);
     BST(BST&& other)          = delete;
-    //BST& operator=(const BST& rhs);
+    BST& operator=(const BST& rhs);
     BST& operator=(BST&& rhs) = delete;
     ~BST();
 
