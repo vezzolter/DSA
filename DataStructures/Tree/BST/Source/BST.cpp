@@ -27,6 +27,13 @@ BST::Node* BST::copyNodes(Node* src, Node* parent) {
 	return newNode;
 }
 
+// Find the leftmost node starting from the given node (begin)
+BST::Node* BST::findLeftmost(Node* node) const {
+	// Traverse until its not empty and there is a left child
+	for (; node && node->_left; ) { node = node->_left; }
+	return node;
+}
+
 
 // --------------------
 //  Compiler Generated
@@ -73,23 +80,23 @@ BST::~BST() { clear(); }
 //  Iterators
 // -----------
 
-// Returns an iterator to the first element of the string
+// Returns an iterator to the first element of the BST
 //BST::iterator BST::begin() { }
 
-// Returns an iterator to one past the last element of the string
+// Returns an iterator to one past the last element of the BST
 //BST::iterator BST::end() { }
 
-// Returns a const iterator to the first element of the string
+// Returns a const iterator to the first element of the BST
 //BST::const_iterator BST::begin() const { }
 
-// Returns a const iterator to one past the last element of the string
+// Returns a const iterator to one past the last element of the BST
 //BST::const_iterator BST::end() const { }
 
-// Explicitly returns a const iterator to the first element of the string
-//BST::const_iterator BST::cbegin() const { }
+// Explicitly returns a const iterator to the first element of the BST
+BST::const_iterator BST::cbegin() const { return const_iterator(findLeftmost(_root), this); }
 
-// Explicitly returns a const iterator to one past the last element of the string
-//BST::const_iterator BST::cend() const { }
+// Explicitly returns a const iterator to one past the last element of the BST
+BST::const_iterator BST::cend() const { return const_iterator(nullptr, this); }
 
 
 // ----------------
@@ -142,8 +149,37 @@ BST::~BST() { clear(); }
 //  Modifiers
 // -----------
 
-// Description
-//void BST::insert(const int& val) { }
+// Inserts a new element into the BST, maintaining BST ordering (not balancing)
+void BST::insert(const int& val) {
+	Node* parent = nullptr; // keep track of parent during traversal and helps to insert
+
+	// Traverse to ifnd the insertion point
+	for (Node* curr = _root; curr; ) {
+		parent = curr;
+
+		if (val < curr->_data) {
+			curr = curr->_left;
+		} else if (val > curr->_data) {
+			curr = curr->_right;
+		} else {
+			curr->_count++;
+			return;
+		}
+	}
+
+	// Create new node and place it in appropriate spot
+	Node* newNode = new Node(val, parent);
+	if (!parent) {
+		_root = newNode;
+	} else if (val < parent->_data) {
+		parent->_left = newNode;
+	} else {
+		parent->_right = newNode;
+	}
+
+	// Reflect new element on size
+	++_size;
+}
 
 // Description
 //void BST::remove(const int& val) { }

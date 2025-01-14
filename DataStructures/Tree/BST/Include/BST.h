@@ -22,6 +22,7 @@ private:
     // often rely on iterators, because insertions automatically balance the tree,
     // but for BST, balancing isn't a concern, so it would add unnecessary complexity
     Node* copyNodes(Node* src, Node* parent);
+    Node* findLeftmost(Node* node) const;
 
 public:
     // --------------------
@@ -37,16 +38,16 @@ public:
     // -----------
     //  Iterators
     // -----------
-    //class Iterator;
-    //using iterator = Iterator;
+    class Iterator;
+    using iterator = Iterator;
     //iterator begin();
     //iterator end();
-    //class ConstIterator;
-    //using const_iterator = ConstIterator;
-    //const_iterator begin() const;
-    //const_iterator end() const;
-    //const_iterator cbegin() const;
-    //const_iterator cend() const;
+    class ConstIterator;
+    using const_iterator = ConstIterator;
+    const_iterator begin() const;
+    const_iterator end() const;
+    const_iterator cbegin() const;
+    const_iterator cend() const;
 
     // ----------------
     //  Element Access
@@ -71,7 +72,7 @@ public:
     // -----------
     //  Modifiers
     // -----------
-    //void insert(const int& val);
+    void insert(const int& val);
     //void remove(const int& val);
     void clear();
     //void swap(BST& other);
@@ -118,43 +119,151 @@ public:
 };
 
 
-//class BST::Iterator {
-//private:
-//
-//public:
-//    // --------------------
-//    //  Compiler Generated
-//    // --------------------
-//    Iterator()                               = default;
-//    //Iterator(char* ptr) : _ptr(ptr) { }
-//    Iterator(const Iterator& other)          = default;
-//    Iterator(Iterator&& other)               = default;
-//    Iterator& operator=(const Iterator& rhs) = default;
-//    Iterator& operator=(Iterator&& rhs)      = default;
-//    ~Iterator()                              = default;
-//
-//    // ----------------------
-//    //  Overloaded Operators
-//    // ----------------------
-//};
+class BST::Iterator {
+private:
+    Node* _curr;
+    const BST* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
+
+    // -----------------
+    //  Utility Methods
+    // -----------------
+
+    // Find the leftmost node starting from the given node (begin)
+    Node* findLeftmost(Node* node) const { return _tree->findLeftmost(node); }
+
+    // Find the next node of the given node (in-order successor)
+    Node* findNext(Node* node) const {
+        // Case: empty node
+        if (!node) { return nullptr; }
+
+        // Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->_right) { return findLeftmost(node->_right); }
+
+        // Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        Node* parent = node->_parent;
+        for (; parent && node == parent->_right; ) {
+            node = parent;
+            parent = parent->_parent;
+        }
+        return parent;
+    }
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    Iterator() : _curr(nullptr), _tree(nullptr) {}
+    Iterator(Node* node, const BST* tree) : _curr(node), _tree(tree) {}
+    Iterator(const Iterator& other)          = default;
+    Iterator(Iterator&& other)               = default;
+    Iterator& operator=(const Iterator& rhs) = default;
+    Iterator& operator=(Iterator&& rhs)      = default;
+    ~Iterator()                              = default;
+
+    // ----------------------
+    //  Overloaded Operators
+    // ----------------------
+
+    // Returns a reference to the data of the current node
+    int& operator*() { return _curr->_data; }
+
+    // Advances the iterator to the next element in in-order traversal (pre-increment)
+    Iterator& operator++() {
+        _curr = findNext(_curr);
+        return *this;
+    }
+
+    // Advances the iterator to the next element, returning the previous state (post-increment)
+    Iterator operator++(int) {
+        Iterator temp(_curr, _tree);
+        _curr = findNext(_curr);
+        return temp;
+    }
+
+    // Returns true if two iterators point to the same node
+    friend bool operator==(const BST::Iterator& lhs, const BST::Iterator& rhs) {
+        return lhs._curr == rhs._curr;
+    }
+
+    // Returns true if two iterators point to different nodes
+    friend bool operator!=(const BST::Iterator& lhs, const BST::Iterator& rhs) {
+        return lhs._curr != rhs._curr;
+    }
+};
 
 
-//class BST::ConstIterator {
-//private:
-//    const char* _ptr = nullptr;
-//
-//public:
-//    // --------------------
-//    //  Compiler Generated
-//    // --------------------
-//    ConstIterator()                  = default;
-//    //ConstIterator(const char* ptr) : _ptr(ptr) { }
-//    ConstIterator(const ConstIterator& other)          = default;
-//    ConstIterator(ConstIterator&& other)               = default;
-//    ConstIterator& operator=(const ConstIterator& rhs) = default;
-//    ConstIterator& operator=(ConstIterator&& rhs)      = default;
-//    ~ConstIterator();
-//};
+class BST::ConstIterator {
+private:
+    const Node* _curr;
+    const BST* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
+
+    // -----------------
+    //  Utility Methods
+    // -----------------
+
+    // Find the leftmost node starting from the given node (begin)
+    const Node* findLeftmost(Node* node) const { return _tree->findLeftmost(node); }
+
+    // Find the next node of the given node (in-order successor)
+    const Node* findNext(const Node* node) const {
+        // Case: empty node
+        if (!node) { return nullptr; }
+
+        // Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->_right) { return findLeftmost(node->_right); }
+
+        // Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        const Node* parent = node->_parent;
+        for (; parent && node == parent->_right; ) {
+            node = parent;
+            parent = parent->_parent;
+        }
+        return parent;
+    }
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+
+    ConstIterator() : _curr(nullptr), _tree(nullptr) {}
+    ConstIterator(const Node* node, const BST* tree) : _curr(node), _tree(tree) {}
+    ConstIterator(const ConstIterator& other)          = default;
+    ConstIterator(ConstIterator&& other)               = default;
+    ConstIterator& operator=(const ConstIterator& rhs) = default;
+    ConstIterator& operator=(ConstIterator&& rhs)      = default;
+    ~ConstIterator()                                   = default;
+
+    // ----------------------
+    //  Overloaded Operators
+    // ----------------------
+
+    // Returns a const reference to the data of the current node
+    const int& operator*() const { return _curr->_data; }
+
+    // Advances the iterator to the next element in in-order traversal (pre-increment)
+    ConstIterator& operator++() {
+        _curr = findNext(_curr);
+        return *this;
+    }
+
+    // Advances the iterator to the next element, returning the previous state (post-increment)
+    ConstIterator operator++(int) {
+        ConstIterator temp = *this;
+        _curr = findNext(_curr);
+        return temp;
+    }
+
+    // Returns true if two iterators point to the same node
+    friend bool operator==(const BST::ConstIterator& lhs, const BST::ConstIterator& rhs) {
+        return lhs._curr == rhs._curr;
+    }
+
+    // Returns true if two iterators point to different nodes
+    friend bool operator!=(const BST::ConstIterator& lhs, const BST::ConstIterator& rhs) {
+        return lhs._curr != rhs._curr;
+    }
+};
 
 
 #endif // BST_H
