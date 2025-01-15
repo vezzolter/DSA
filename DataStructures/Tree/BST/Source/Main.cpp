@@ -21,7 +21,7 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
-	std::cout << " -> BST t1:\t\t\t\t";
+	std::cout << " -> BST t1 (8,3,13,2,6,10,17,0,3,7,9,11,14):\t";
 	BST t1;
 	t1.insert(8); // level 0
 	t1.insert(4); // level 1
@@ -37,10 +37,10 @@ int main() {
 	t1.insert(11);
 	t1.insert(14);
 	printTree(t1);
-	std::cout << " -> BST t2(t1):\t\t\t\t";
+	std::cout << " -> BST t2(t1):\t\t\t\t\t";
 	BST t2(t1);
 	printTree(t2);
-	std::cout << " -> BST t3 = t1:\t\t\t";
+	std::cout << " -> BST t3 = t1:\t\t\t\t";
 	BST t3 = t1;
 	printTree(t3);
 	std::cout << std::endl;

@@ -81,16 +81,16 @@ BST::~BST() { clear(); }
 // -----------
 
 // Returns an iterator to the first element of the BST
-//BST::iterator BST::begin() { }
+BST::iterator BST::begin() { return iterator(findLeftmost(_root), this); }
 
 // Returns an iterator to one past the last element of the BST
-//BST::iterator BST::end() { }
+BST::iterator BST::end() { return iterator(nullptr, this); }
 
 // Returns a const iterator to the first element of the BST
-//BST::const_iterator BST::begin() const { }
+BST::const_iterator BST::begin() const { return const_iterator(findLeftmost(_root), this);}
 
 // Returns a const iterator to one past the last element of the BST
-//BST::const_iterator BST::end() const { }
+BST::const_iterator BST::end() const { return const_iterator(nullptr, this); }
 
 // Explicitly returns a const iterator to the first element of the BST
 BST::const_iterator BST::cbegin() const { return const_iterator(findLeftmost(_root), this); }
@@ -153,7 +153,7 @@ BST::const_iterator BST::cend() const { return const_iterator(nullptr, this); }
 void BST::insert(const int& val) {
 	Node* parent = nullptr; // keep track of parent during traversal and helps to insert
 
-	// Traverse to ifnd the insertion point
+	// Traverse to find the insertion point
 	for (Node* curr = _root; curr; ) {
 		parent = curr;
 
@@ -162,8 +162,7 @@ void BST::insert(const int& val) {
 		} else if (val > curr->_data) {
 			curr = curr->_right;
 		} else {
-			curr->_count++;
-			return;
+			return; // if BST handles duplicates, there could be counter increment added
 		}
 	}
 

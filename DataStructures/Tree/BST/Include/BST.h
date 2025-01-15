@@ -40,8 +40,8 @@ public:
     // -----------
     class Iterator;
     using iterator = Iterator;
-    //iterator begin();
-    //iterator end();
+    iterator begin();
+    iterator end();
     class ConstIterator;
     using const_iterator = ConstIterator;
     const_iterator begin() const;
@@ -90,7 +90,6 @@ public:
 struct BST::Node {
 public:
     int _data;
-    int _count; // duplicate handling
     Node* _parent;
     Node* _left;
     Node* _right;
@@ -98,9 +97,9 @@ public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    Node() : _data(0), _count(0), _parent(nullptr), _left(nullptr), _right(nullptr) {}
+    Node() : _data(0), _parent(nullptr), _left(nullptr), _right(nullptr) {}
     Node(const int& val, Node* parent = nullptr)
-        : _data(val), _count(1), _left(nullptr), _right(nullptr) {}
+        : _data(val), _parent(parent), _left(nullptr), _right(nullptr) {}
     Node(const Node& other)          = delete;  // no copying or moving to ensure 
     Node(Node&& other)               = delete;  // uniqueness of the node within    
     Node& operator=(const Node& rhs) = delete;  // the tree and prevent accidental 
