@@ -52,14 +52,19 @@ public:
     // ----------------
     //  Element Access
     // ----------------
-    //iterator find(const int& val);
-    //const_iterator find(const int& val) const;
-    //int maximum() const;
-    //int minimum() const;
-    //iterator predecessor(const int& val);
-    //const_iterator predecessor(const int& val) const;
-    //iterator successor(const int& val);
-    //const_iterator successor(const int& val) const;
+    iterator find(const int& val);
+    const_iterator find(const int& val) const;
+    iterator predecessor(const int& val);
+    const_iterator predecessor(const int& val) const;
+    iterator successor(const int& val);
+    const_iterator successor(const int& val) const;
+    iterator predecessor(const iterator& it);
+    const_iterator predecessor(iterator& it) const;
+    iterator successor(const iterator& it);
+    const_iterator successor(iterator& it) const;
+    int minimum() const;
+    int maximum() const;
+
 
     // ----------
     //  Capacity
@@ -105,21 +110,12 @@ public:
     Node& operator=(const Node& rhs) = delete;  // the tree and prevent accidental 
     Node& operator=(Node&& rhs)      = delete;  // duplicates or dangling nodes
     ~Node()                          = default; 
-
-    // -----------------
-    //  Utility Methods
-    // -----------------
-    
-    // Description
-    //bool isLeaf() const;
-
-    // Description
-    //bool hasSignleChild() const;
 };
 
 
 class BST::Iterator {
 private:
+    friend class BST; // so that itr-based element access fcn would work
     Node* _curr;
     const BST* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
 
@@ -127,7 +123,7 @@ private:
     //  Utility Methods
     // -----------------
 
-    // Find the leftmost node starting from the given node (begin)
+    // Find the leftmost node starting from the given node (begin/smallest)
     Node* findLeftmost(Node* node) const { return _tree->findLeftmost(node); }
 
     // Find the next node of the given node (in-order successor)
@@ -193,6 +189,7 @@ public:
 
 class BST::ConstIterator {
 private:
+    friend class BST; // so that itr-based element access fcn would work
     const Node* _curr;
     const BST* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
 
@@ -200,7 +197,7 @@ private:
     //  Utility Methods
     // -----------------
 
-    // Find the leftmost node starting from the given node (begin)
+    // Find the leftmost node starting from the given node (begin/smallest)
     const Node* findLeftmost(Node* node) const { return _tree->findLeftmost(node); }
 
     // Find the next node of the given node (in-order successor)

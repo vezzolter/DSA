@@ -27,7 +27,7 @@ BST::Node* BST::copyNodes(Node* src, Node* parent) {
 	return newNode;
 }
 
-// Find the leftmost node starting from the given node (begin)
+// Find the leftmost node starting from the given node (begin/smallest)
 BST::Node* BST::findLeftmost(Node* node) const {
 	// Traverse until its not empty and there is a left child
 	for (; node && node->_left; ) { node = node->_left; }
@@ -103,29 +103,220 @@ BST::const_iterator BST::cend() const { return const_iterator(nullptr, this); }
 //  Element Access 
 // ----------------
 
-// Description
-//BST::iterator BST::find(const int& val) { } 
+// Returns an iterator to the element with given value
+BST::iterator BST::find(const int& val) {
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			curr = curr->_right;
+		} else if (val < curr->_data) {
+			curr = curr->_left;
+		} else {
+			return iterator(curr, this);
+		}
+	}
 
-// Description
-//BST::const_iterator BST::find(const int& val) const { }
+	return end(); // if not present
+}
 
-// Description
-//int BST::maximum() const { }
+// Returns a const iterator to the element with given value
+BST::const_iterator BST::find(const int& val) const {
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			curr = curr->_right;
+		} else if (val < curr->_data) {
+			curr = curr->_left;
+		} else {
+			return const_iterator(curr, this);
+		}
+	}
 
-// Description
-//int BST::minimum() const { }
+	return cend(); // if not present
+}
 
-// Description
-//BST::iterator BST::predecessor(const int& val)  { }
+// Returns an iterator to the predecessor of the given value
+BST::iterator BST::predecessor(const int& val) {
+	Node* pred = nullptr;
 
-// Description
-//BST::const_iterator BST::predecessor(const int& val) const { }
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			pred = curr;
+			curr = curr->_right;
+		} else {
+			curr = curr->_left;
+		}
+	}
 
-// Description
-//BST::iterator BST::successor(const int& val) { }
+	return pred ? iterator(pred, this) : end();
+}
 
-// Description
-//BST::const_iterator BST::successor(const int& val) const { }
+// Returns a const_iterator to the predecessor of the given value
+BST::const_iterator BST::predecessor(const int& val) const {
+	Node* pred = nullptr;
+
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			pred = curr;
+			curr = curr->_right;
+		} else {
+			curr = curr->_left;
+		}
+	}
+
+	return pred ? const_iterator(pred, this) : cend();
+}
+
+// Returns an iterator to the successor of the given value
+BST::iterator BST::successor(const int& val) {
+	Node* succ = nullptr;
+
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr; ) {
+		if (val < curr->_data) {
+			succ = curr;
+			curr = curr->_left;
+		} else {
+			curr = curr->_right;
+		}
+	}
+
+	return succ ? iterator(succ, this) : end();
+}
+
+// Returns a const_iterator to the successor of the given value
+BST::const_iterator BST::successor(const int& val) const {
+	Node* succ = nullptr;
+
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr;) {
+		if (val < curr->_data) {
+			succ = curr;
+			curr = curr->_left;
+		} else {
+			curr = curr->_right;
+		}
+	}
+
+	return succ ? const_iterator(succ, this) : cend();
+}
+
+// Returns an iterator to the predecessor of the node pointed to by the given iterator
+BST::iterator BST::predecessor(const iterator& it) {
+	Node* pred = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
+	if (curr->_left) {
+		pred = curr->_left;
+		for (; pred->_right; ) { pred = pred->_right; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_left; ) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		pred = parent;
+	}
+
+	return pred ? iterator(pred, this) : end();
+}
+
+// Returns a const_iterator to the predecessor of the node pointed to by the given iterator
+BST::const_iterator BST::predecessor(iterator& it) const {
+	Node* pred = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
+	if (curr->_left) {
+		pred = curr->_left;
+		for (; pred->_right; ) { pred = pred->_right; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_left; ) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		pred = parent;
+	}
+
+	return pred ? const_iterator(pred, this) : cend();
+}
+
+// Returns an iterator to the successor of the node pointed to by the given iterator
+BST::iterator BST::successor(const iterator& it) {
+	Node* succ = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+	if (curr->_right) {
+		succ = curr->_right;
+		for (; succ->_left; ) { succ = succ->_left; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_right;) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		succ = parent;
+	}
+
+	return succ ? iterator(succ, this) : end();
+}
+
+// Returns a const_iterator to the successor of the node pointed to by the given iterator
+BST::const_iterator BST::successor(iterator& it) const {
+	Node* succ = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+	if (curr->_right) {
+		
+		succ = curr->_right;
+		for (; succ->_left; ) { succ = succ->_left; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_right; ) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		succ = parent;
+	}
+
+	return succ ? const_iterator(succ, this) : cend();
+}
+
+// Returns the minimum value in the tree
+int BST::minimum() const {
+	// Case: empty tree
+	if (!_root) { return -1; }
+
+	// The leftmost in balanced version is the min
+	Node* curr = _root;
+	for (; curr->_left; ) { curr = curr->_left; }
+
+	return curr->_data;
+}
+
+// Returns the maximum value in the tree
+int BST::maximum() const {
+	// Case: empty tree
+	if (!_root) { return -1; }
+
+	// The righmost in balanced version is the max
+	Node* curr = _root;
+	for (; curr->_right; ) { curr = curr->_right; }
+
+	return curr->_data;
+}
 
 
 // ----------

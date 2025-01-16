@@ -45,6 +45,17 @@ int main() {
 	printTree(t3);
 	std::cout << std::endl;
 
+	// Element Access
+	std::cout << "Element Access:\n";
+	std::cout << " -> *(t1.find(11)):\t\t\t\t" << *(t1.find(11)) << std::endl;
+	std::cout << " -> *(t1.predecessor(11)):\t\t\t" << *(t1.predecessor(11)) << std::endl;
+	std::cout << " -> *(t1.successor(11)):\t\t\t" << *(t1.successor(11)) << std::endl;
+	std::cout << " -> *(t1.predecessor(t1.find(11)):\t\t" << *(t1.predecessor(t1.find(11))) << std::endl;
+	std::cout << " -> *(t1.successor(t1.find(11))):\t\t" << *(t1.successor(t1.find(11))) << std::endl;
+	std::cout << " -> t1.minimum():\t\t\t\t" << t1.minimum() << std::endl;
+	std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
+	std::cout << std::endl;
+
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
