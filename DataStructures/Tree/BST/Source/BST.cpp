@@ -323,17 +323,58 @@ int BST::maximum() const {
 //  Capacity
 // ----------
 
-// Description
-//bool BST::empty() const { }
+// Returns true if the tree has no elements
+bool BST::empty() const { return _size == 0; }
 
-// Description
-//int BST::size() const { }
+// Returns the total number of elements in the tree
+int BST::size() const { return _size; }
 
-// Description
-//int BST::height(const int& val) const { }
+// Returns the height of the subtree rooted at the given value, or the root if no value
+int BST::height(const int& val) const {
+	// Lambda allows to compute height within function via recursion
+	auto computeHeight = [](Node* node, auto& selfRef) -> int {
+		// Case: empty tree
+		if (!node) { return -1; }
 
-// Description
-//int BST::depth(const int& val) const { }
+		// Height itself is just a max out of left subtree and right subtree
+		int lHeight = selfRef(node->_left, selfRef);
+		int rHeight = selfRef(node->_right, selfRef);
+		return 1 + (lHeight > rHeight ? lHeight : rHeight); // replaces "std::max(lHeight, rHeight) + 1"
+	};
+
+	// If given values is not root, find it
+	Node* startNode = _root;
+	if (val != _root->_data) {
+		for (Node* curr = _root; curr;) {
+			// If found break, otherwise navigate left or right
+			if (val == curr->_data) {
+				startNode = curr;
+				break;
+			}
+			curr = (val < curr->_data) ? curr->_left : curr->_right;
+		}
+	}
+
+	// If the value doesn't exist (validation)
+	if (!startNode) { return -1; }
+
+	// Compute and return the height starting from the found node
+	return computeHeight(startNode, computeHeight);
+}
+
+// Returns the depth of the node with the given value, or the root if no value
+int BST::depth(const int& val) const {
+	// Traverse the tree from root until given val, each turn incrementing the depth
+	Node* curr = _root;
+	int depth = 0;
+	for (; curr; ) {
+		if (val == curr->_data) { return depth; }
+		curr = (val < curr->_data) ? curr->_left : curr->_right;
+		++depth;
+	}
+
+	return -1;
+}
 
 
 // -----------

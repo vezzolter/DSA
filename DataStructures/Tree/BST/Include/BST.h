@@ -65,14 +65,13 @@ public:
     int minimum() const;
     int maximum() const;
 
-
     // ----------
     //  Capacity
     // ----------
-    //bool empty() const;
-    //int size() const;
-    //int height(const int& val) const;
-    //int depth(const int& val) const;
+    bool empty() const;
+    int size() const;
+    int height(const int& val) const;
+    int depth(const int& val) const;
 
     // -----------
     //  Modifiers

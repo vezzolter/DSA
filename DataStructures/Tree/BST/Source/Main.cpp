@@ -56,6 +56,20 @@ int main() {
 	std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
 	std::cout << std::endl;
 
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " -> t1.empty():\t\t\t\t\t" << t1.empty() << std::endl;
+	std::cout << " -> t1.size(): \t\t\t\t\t" << t1.size() << std::endl;
+	std::cout << " -> t1.height(8): \t\t\t\t" << t1.height(8) << std::endl;
+	std::cout << " -> t1.height(4): \t\t\t\t" << t1.height(4) << std::endl;
+	std::cout << " -> t1.height(2): \t\t\t\t" << t1.height(2) << std::endl;
+	std::cout << " -> t1.height(0): \t\t\t\t" << t1.height(0) << std::endl;
+	std::cout << " -> t1.depth(8): \t\t\t\t" << t1.depth(8) << std::endl;
+	std::cout << " -> t1.depth(4): \t\t\t\t" << t1.depth(4) << std::endl;
+	std::cout << " -> t1.depth(2): \t\t\t\t" << t1.depth(2) << std::endl;
+	std::cout << " -> t1.depth(0): \t\t\t\t" << t1.depth(0) << std::endl;
+	std::cout << std::endl;
+
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
