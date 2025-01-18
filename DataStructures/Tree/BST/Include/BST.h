@@ -77,9 +77,9 @@ public:
     //  Modifiers
     // -----------
     void insert(const int& val);
-    //void remove(const int& val);
+    void remove(const int& val);
     void clear();
-    //void swap(BST& other);
+    void swap(BST& other);
 
     // ------------
     //  Operations

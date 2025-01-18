@@ -412,8 +412,51 @@ void BST::insert(const int& val) {
 	++_size;
 }
 
-// Description
-//void BST::remove(const int& val) { }
+// Removes a node with the given value from the BST
+void BST::remove(const int& val) {
+	// Lamda keeps the logic local, preventing mess
+	auto deleteNode = [](Node* root, const int& key, auto& selfRef) -> Node* {
+		// Case: value not found
+		if (!root) { return nullptr; }
+
+		// Traverse to (left, right, found)
+		if (key < root->_data) {
+			root->_left = selfRef(root->_left, key, selfRef);
+		} else if (key > root->_data) {
+			root->_right = selfRef(root->_right, key, selfRef);
+		} else {
+
+			// Case: only right or no at all
+			if (!root->_left) {
+				Node* temp = root->_right;
+				delete root;
+				return temp;
+
+			// Case: only left
+			} else if (!root->_right) {
+				Node* temp = root->_left;
+				delete root;
+				return temp;
+
+			// Case: both
+			} else {
+				// Find the in-order successor (smallest in the right subtree)
+				Node* succ = root->_right;
+				for (; succ->_left; ) { succ = succ->_left; }
+				// Copy the in-order successor's data to this node
+				root->_data = succ->_data;
+				// Delete the in-order successor
+				root->_right = selfRef(root->_right, succ->_data, selfRef);
+			}
+		}
+
+		return root;
+	};
+
+	// Deletion start from the root
+	_root = deleteNode(_root, val, deleteNode);
+	if (find(val) == end()) { --_size; }
+}
 
 // Removes all nodes from the BST, resetting it to its initial state
 void BST::clear() {
@@ -438,8 +481,19 @@ void BST::clear() {
 	_size = 0;
 }
 
-// Description
-//void BST::swap(BST& other) { }
+// Exchanges the contents of this BST with another BST
+void BST::swap(BST& other) {
+	// Case: the same tree
+	if (this == &other) { return; }
+
+	Node* root = _root;
+	_root = other._root;
+	other._root = root;
+
+	int size = _size;
+	_size = other._size;
+	other._size = size;
+}
 
 
 // ------------

@@ -70,6 +70,30 @@ int main() {
 	std::cout << " -> t1.depth(0): \t\t\t\t" << t1.depth(0) << std::endl;
 	std::cout << std::endl;
 
+	// Modifiers
+	std::cout << "Modifiers:\n";
+	std::cout << " -> t1.insert(12):  \t\t\t\t";
+	t1.insert(12);
+	printTree(t1);
+	std::cout << "   - t1.depth(12):\t\t\t\t" << t1.depth(12) << std::endl;
+	t1.depth(12);
+	std::cout << " -> l1.remove(12): \t\t\t\t";
+	t1.remove(12);
+	printTree(t1);
+	std::cout << "   - t1.depth(12):\t\t\t\t" << t1.depth(12) << std::endl;
+	t1.depth(12);
+	std::cout << " -> t1.clear(): \t\t\t\t";
+	t1.clear();
+	printTree(t1);
+	std::cout << " -> t1.swap(t2): \t\t\t\t";
+	t1.swap(t2);
+	printTree(t1);
+	std::cout << "   - t2:\t\t\t\t\t";
+	printTree(t2);
+	std::cout << "   - t3:\t\t\t\t\t";
+	printTree(t3);
+	std::cout << std::endl;
+
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
