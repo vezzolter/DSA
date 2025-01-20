@@ -80,14 +80,6 @@ public:
     void remove(const int& val);
     void clear();
     void swap(BST& other);
-
-    // ------------
-    //  Operations
-    // ------------
-    // void traverse();
-    // bool contains(const int& val) const;
-    // void validate() const;
-    // int count(const int& val) const;
 };
 
 

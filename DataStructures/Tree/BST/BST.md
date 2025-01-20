@@ -58,37 +58,42 @@ When working with BSTs, it's important to note that there is no universal standa
 <p align="center"><img src="./Images/OperationsAccess.png"/></p>
 
 **Elements Access**:
-- `find(key)` — returns a pointer or iterator to the node containing the specified key.
-  - returns `nullptr` or equivalent if the key is not found.
-- `min()` — returns a pointer or iterator to the node with the smallest key in the tree.
-- `max()` — returns a pointer or iterator to the node with the largest key in the tree.
-- `successor(key)` — returns a pointer or iterator to the node with the smallest key greater than the specified key (in-order successor).
-- `predecessor(key)` — returns a pointer or iterator to the node with the largest key smaller than the specified key (in-order predecessor).
+- `find(val)` — returns a pointer or iterator to the node containing the specified value.
+  - returns `nullptr` or equivalent, if the value is not found.
+- `min()` — returns an iterator to the node with the smallest value in the tree.
+  - returns `nullptr` or equivalent, if the tree is empty.
+- `max()` — returns an iterator to the node with the largest value in the tree.
+  - returns `nullptr` or equivalent, if the tree is empty.
+- `successor(val)` — returns a pointer or iterator to the node with the smallest value greater than the specified value (in-order successor).
+   - returns `nullptr` or equivalent, if specified value has no successor (e.g. the largest value, sole value).
+- `predecessor(val)` — returns a pointer or iterator to the node with the largest value smaller than the specified value (in-order predecessor).
+  - returns `nullptr` or equivalent, if specified value has no predecessor (e.g. the largest value, sole value).
 
 ---
 **Capacity**:
-- `empty()` — returns `true` if the tree contains no nodes, otherwise `false`.
-- `size()` — returns the number of nodes in the tree.
+- `empty()` — returns `true` if the tree contains no nodes; otherwise `false`.
+- `size()` — returns the total number of nodes in the tree.
 - `maxSize()` — returns the theoretical maximum number of nodes the tree can hold, depending on memory limits.
-- `height()` — returns the height of the tree (the length of the longest path from the root to a leaf).
+  - return value depends on platform architecture and the size of the node structure.
+- `height(val)` — returns the height of the given's value node, which is the length (number of edges) of the longest path from the node to a leaf.
+  - if the value is not found in the tree, it returns `-1`;
+  - the height of a leaf node is `0`.
+- `depth(val)` — returns the depth of the given's value node, which is the length (number of edges) of the path from the root to the node.
+  - if the value is not found in the tree, it returns `-1`;
+  - the depth of the root node is `0`.
 
 ---
 <p align="center"><img src="./Images/OperationsModifiers.png"/></p>
 
 **Modifiers**:
-- `insert(key)` — inserts a new node with the specified key into the tree, maintaining the BST ordering property.
-- `erase(key)` — removes the node with the specified key from the tree, adjusting the structure as needed to maintain the ordering property.
-  - if the node has two children, it is replaced with its in-order successor or predecessor.
-- `clear()` — removes all nodes from the tree, leaving it empty.
+- `insert(val)` — inserts a new node with the specified value into the tree, maintaining the BST ordering property.
+- `erase(val)` — removes the node with the specified value from the tree, adjusting the structure as needed to maintain the ordering property.
+  - if the node has no children (leaf), simply remove node;
+  - if the node has one child, replace the node with its child;
+  - if the node has two children, it is replaced with its in-order successor or predecessor, depending on the design decision.
+- `clear()` — removes all nodes from the tree,  resetting it to its initial state.
 - `swap(other)` — exchanges the contents of the current tree with another tree, avoiding expensive deep copies.
-
----
-**Operations**:
-- `traverse()` — traverses the tree in the specified order (`in-order`, `pre-order`, `post-order`, or `level-order`) and applies a function to each node.
-- `contains(key)` — checks whether the tree contains a node with the specified key.
-- `validate()` — checks whether the tree satisfies the BST ordering property, useful for debugging or verifying correctness.
-- `count(key)` — returns the number of nodes in the tree containing the specified key.
-  - for trees that disallow duplicates, this returns either `0` or `1`.
+  - assigning a tree to itself has no effect, as the function exits early without performing any operations.
 
 
 

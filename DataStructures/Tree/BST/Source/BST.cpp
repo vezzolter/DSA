@@ -494,20 +494,3 @@ void BST::swap(BST& other) {
 	_size = other._size;
 	other._size = size;
 }
-
-
-// ------------
-//  Operations
-// ------------
-
-// Description
-// void traverse() { }
-
-// Description
-// bool contains(const int& val) const { }
-
-// Description
-//void validate() const { }
-
-// Description
-//int count(const int& val) const { }
