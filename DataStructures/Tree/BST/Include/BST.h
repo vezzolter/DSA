@@ -106,7 +106,7 @@ public:
 
 class BST::Iterator {
 private:
-    friend class BST; // so that itr-based element access fcn would work
+    friend class BST; // So that itr-based element access fcn would work
     Node* _curr;
     const BST* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
 
@@ -180,7 +180,7 @@ public:
 
 class BST::ConstIterator {
 private:
-    friend class BST; // so that itr-based element access fcn would work
+    friend class BST; // So that itr-based element access fcn would work
     const Node* _curr;
     const BST* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
 
