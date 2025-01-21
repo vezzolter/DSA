@@ -103,7 +103,16 @@ The implemented console application demonstrates the basic functionality of the 
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Disallowing the addition of duplicate elements.
+- Implementing only regular and const iterators (no reverse).
+- Limiting iterator functions to receive only one type of iterators to avoid templates.
+- Restricting the container to `int` to avoid templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
+- Relying on manual memory management without using smart pointers.
+- Avoiding any exception handling, thus certain range validations.
+- Omitting certain possible optimizations to the container.
 
 
 ## Container Implementation
@@ -219,7 +228,6 @@ Since there are various types of iterators that can be implemented (e.g. forward
 The `Iterator` class is defined as a public nested class within the `BST` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
 
 ```cpp
-
 class BST::Iterator {
 private:
     friend class BST; // So that itr-based element access fcn would work
