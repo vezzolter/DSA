@@ -383,20 +383,46 @@ public:
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
-## Characteristics 
-Currently in Progress...
+## Characteristics
+🚀 **Time Complexities:**  
+- **Access:**
+   - **Access** $O(height)$ — while the actual dereferencing of a pointer for any access operation is pretty straightforward $O(1)$, the prior traversal step determines the overall complexity, and it depends entirely on the height of the tree. In a balanced tree, the operation takes $O(\log n)$ as the number of elements is halved at each level; however, in an unbalanced tree (which BSTs can quickly degrade into), the operation takes $O(n)$ due to its skewed structure, resembling a linked list.
+- **Insertion:**
+   - **Beginning** $O(height)$ — while the actual pointer adjustment and allocation during insertion is $O(1)$, the prior traversal step determines the overall complexity, and it depends entirely on the height of the tree. In a balanced tree, the operation takes $O(\log n)$ as the number of elements is halved at each level; however, in an unbalanced tree (which BSTs can quickly degrade into), the operation takes $O(n)$ due to its skewed structure, resembling a linked list.
+- **Deletion:**
+   - **Deletion** $O(height)$ — while the actual pointer adjustment and cleanup during deletion is $O(1)$, the operation depends on two factors:
+     - **Height of the Tree** — in a balanced tree, the operation takes $O(\log n)$ as the number of elements is halved at each level; however, in an unbalanced tree (which BSTs can quickly degrade into), the operation takes $O(n)$ due to its skewed structure, resembling a linked list.
+     - **Amount of Children** — for a node with no children the removal is direct $O(1)$; for a node with one child, the removal also requires reassigning of pointers $O(1)$; and for a node with two children, the removal also requires an additional $O(height)$ to locate the in-order successor/predecessor.
+- **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
+
+---
+🧠 **Space Expenses:**
+- **Pointer Overhead** — each node contains three pointers: one to its parent, one to its left child, and one to its right child, resulting in additional space proportional to the number of nodes.
+- **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, which may lead to fragmentation and reduced cache locality, especially for large trees.
+- **Call Stack Usage** — many tree operations, such as traversal, height, or depth computation, rely on recursion, which consumes call stack space. The required stack depth is proportional to the height of the tree, similarly to time complexities. In a balanced tree, this usage is $O(\log n)$ as the number of elements is halved at each level; however, in an unbalanced tree (which BSTs can quickly degrade into), it increases to $O(n)$ due to the deeper recursive call stack.
 
 
 ## Trade-Offs
-Currently in Progress...
+➕ **Advantages:**
+- **Efficient Search, Insert, and Delete** — in a balanced tree, all these operations have a time complexity of $O(\log n)$ on average due to the binary search property.
+- **Ordered Data** — BSTs naturally store data in sorted order, enabling efficient in-order traversal to retrieve elements in ascending order without additional sorting operations.
+- **Flexible Size** — BSTs can dynamically grow or shrink as elements are inserted or removed, without reallocating the entire structure, which also efficient in scenarios where the data size is unknown beforehand.
+- **No Wasted Capacity** — BSTs do not preallocate extra memory beyond what is needed for their elements, preventing unused space.
 
+---
+➖ **Disadvantages:**
+- **No Direct Access** — BSTs do not support direct indexing of elements; accessing a specific value requires traversal, which depends on the height of the tree, which can be faster then linked list, but not as fast as direct index calculation.
+- **Skewed Trees** — without balancing mechanisms, a BST can degrade into a linked list if elements are inserted in sorted or nearly sorted order, resulting in $O(n)$ time complexity for operations.
+- **Recursive Overhead** — many operations (like traversal, insertion, or height computation) involve recursion, which consumes additional call stack space proportional to the tree’s height, leading to $O(n)$ overhead in the worst case.
+- **Extra Memory for Pointers** — each node requires memory for three pointers (parent, left child, right child), regardless of whether the node actually has children or not.
+- **Complex Linked Structure** — BST are more complex due to the need to maintain main property and properly adjust pointers for each node. This increases the chance for errors in pointer updates, making certain operations more error-prone and potentially harder to debug.
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of a container is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
