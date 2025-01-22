@@ -466,7 +466,13 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The BST is a data structure whose origins are intertwined with the collaborative contributions of early computer scientists. It is difficult to attribute its creation to a single individual, as it emerged through incremental developments and applications. However, several key figures played a pivotal role in its formalization and early implementations:  
+
+- **Alexander Shafto "Sandy" Douglas (1959)** — introduced the concept of "binary chopping," which laid the foundation for binary search operations and likely influenced the development of BSTs.  
+- **P. F. Windley (1960)** — provided formal insights into tree-based data structures, including ideas foundational to the BST.  
+- **Andrew Donald Booth and Andrew John Theodore Colin (1960)** — described efficient dictionary construction methods that align closely with the principles of BSTs.  
+- **Thomas Nathaniel Hibbard (1962)** — introduced and analyzed sequence search trees, laying out combinatorial properties and practical applications such as sorting and searching. Hibbard's paper also contributed to the deletion algorithm still commonly used in BSTs today.  
+- **William C. Lynch (1966)** — analyzed the combinatorial and probabilistic properties of trees, refining the understanding of BST performance and complementing earlier work by Hibbard and others.
 
 
 
@@ -508,7 +514,10 @@ For contact details and additional information, please refer to the [root direct
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/) (Article)
 - [Balancing a binary search tree](https://appliedgo.net/balancedtree/) (Article)
+- [Techniques for the Recording of, and Reference to data in a Computer](http://comjnl.oxfordjournals.org/content/2/1/1.full.pdf#page%3D1%26view%3DFitH) (Research Paper)
+- [Trees, Forests and Rearranging](https://academic.oup.com/comjnl/article-pdf/3/2/84/1358330/030084.pdf) (Research Paper)
 - [On the efficiency of a new method of dictionary construction](https://www.sciencedirect.com/science/article/pii/S0019995860909013) (Research Paper)
+- [Some Combinatorial Properties of Certain Trees](https://dl.acm.org/doi/abs/10.1145/321105.321108) (Research Paper)
 - [More combinatorial properties of certain trees](http://comjnl.oxfordjournals.org/content/7/4/299.full.pdf) (Research Paper)
 
 
