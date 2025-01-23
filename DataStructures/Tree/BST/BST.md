@@ -43,7 +43,7 @@ When working with BSTs, it's important to note that there is no universal standa
 - `Move Constructor` — creates a new BST by transferring the structure and values from another tree, leaving the original tree in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory.
 - `Copy Assignment Operator` — replaces the contents of the current BST with the structure and values of another tree by copying them.
 - `Move Assignment Operator` — replaces the contents of the current BST by transferring the structure and values from another tree, leaving the original tree in a valid but unspecified state.
-- `Destructor` — performs cleanup on the BST: deallocates memory for stored nodes and properly handles any associated resources, ensuring no memory leaks.
+- `Destructor` — performs clean up on the BST: deallocates memory for stored nodes and properly handles any associated resources, ensuring no memory leaks.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -70,6 +70,8 @@ When working with BSTs, it's important to note that there is no universal standa
   - returns `nullptr` or equivalent, if specified value has no predecessor (e.g. the largest value, sole value).
 
 ---
+<p align="center"><img src="./Images/OperationsCapacity.png"/></p>
+
 **Capacity**:
 - `empty()` — returns `true` if the tree contains no nodes; otherwise `false`.
 - `size()` — returns the total number of nodes in the tree.
@@ -393,7 +395,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
 - **Insertion:**
    - **Beginning** $O(height)$ — while the actual pointer adjustment and allocation during insertion is $O(1)$, the prior traversal step determines the overall complexity, and it depends entirely on the height of the tree. In a balanced tree, the operation takes $O(\log n)$ as the number of elements is halved at each level; however, in an unbalanced tree (which BSTs can quickly degrade into), the operation takes $O(n)$ due to its skewed structure, resembling a linked list.
 - **Deletion:**
-   - **Deletion** $O(height)$ — while the actual pointer adjustment and cleanup during deletion is $O(1)$, the operation depends on two factors:
+   - **Deletion** $O(height)$ — while the actual pointer adjustment and clean up during deletion is $O(1)$, the operation depends on two factors:
      - **Height of the Tree** — in a balanced tree, the operation takes $O(\log n)$ as the number of elements is halved at each level; however, in an unbalanced tree (which BSTs can quickly degrade into), the operation takes $O(n)$ due to its skewed structure, resembling a linked list.
      - **Amount of Children** — for a node with no children the removal is direct $O(1)$; for a node with one child, the removal also requires reassigning of pointers $O(1)$; and for a node with two children, the removal also requires an additional $O(height)$ to locate the in-order successor/predecessor.
 - **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
