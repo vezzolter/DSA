@@ -191,7 +191,9 @@ For contact details and additional information, please refer to the [root direct
 # &#128591; Credits
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 10.4: Representing Rooted Trees
   - Section 12: Binary Search Trees
+  - Section 12.8: Insertion at the Root of BSTs
   - Section 13: Red-Black Trees
   - Section 14: Augmenting Data Structures
   - Section 18: B-Trees
@@ -205,7 +207,9 @@ For contact details and additional information, please refer to the [root direct
   - Section 15.4: Multiway Tries and TSTs
   - Section 16.3: B Trees
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 4: Trees
+  - Section 4.1: Preliminaries
+  - Section 4.2: Binary Trees
+  - Section 4.8: Sets and Maps in the Standard Library
   - Section 12: Advanced Data Structures
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
   - Section 3.4: Binary Search Trees
@@ -213,6 +217,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 12.6: Kd-Trees
 - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section: 2.3: Trees
+  - Section 2.6: History and Bibliography
 
 ---
 &#127891; **Courses:**

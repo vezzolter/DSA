@@ -118,7 +118,7 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-The container is implemented within the `BST` class, which is declared in [BST.h](https://github.com/vezzolter/DSA/blob/bst/DataStructures/Tree/BST/Include/BST.h) header file and defined in [BST.cpp](https://github.com/vezzolter/DSA/blob/bst/DataStructures/Tree/BST/Source/BST.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/bst/DataStructures/Tree/BST/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `BST` class, which is declared in [BST.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/BST/Include/BST.h) header file and defined in [BST.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/BST/Source/BST.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/BST/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class BST {
@@ -521,6 +521,7 @@ For contact details and additional information, please refer to the [root direct
 - [On the efficiency of a new method of dictionary construction](https://www.sciencedirect.com/science/article/pii/S0019995860909013) (Research Paper)
 - [Some Combinatorial Properties of Certain Trees](https://dl.acm.org/doi/abs/10.1145/321105.321108) (Research Paper)
 - [More combinatorial properties of certain trees](http://comjnl.oxfordjournals.org/content/7/4/299.full.pdf) (Research Paper)
+
 
 
 # &#128271; License
