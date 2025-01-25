@@ -1,403 +1,496 @@
-// Source file for Binary Search Tree
-// by vezzolter
-// April 29, 2024
+// Title:   Source file for BST
+// Authors: by vezzolter
+// Date:    April 29, 2024
+// ----------------------------------------------------------------------------
 
-#ifndef BST_CPP
-#define BST_CPP
 
 #include "BST.h"
 
 
-// ------------------------
-// Special Member Functions
-// ------------------------
+// -----------------
+//  Utility Methods
+// -----------------
 
-// Default constructor
-template<typename T>
-BST<T>::BST() : _root(nullptr), _size(0) { }
+// Recursively copies nodes with relationships from 'src' into a new tree
+BST::Node* BST::copyNodes(Node* src, Node* parent) {
+	// Case: node is empty
+	if (!src) { return nullptr; }
 
-//// Parametrized constructor
-//template<class T>
-//BST<T>::BST(const std::initializer_list<T>& initList) { }
+	// Create new node with the same val as src and same parent
+	Node* newNode = new Node(src->_data);
+	newNode->_parent = parent;
 
+	// Recursively copy both subtrees (post-order traversal)
+	newNode->_left = copyNodes(src->_left, newNode);
+	newNode->_right = copyNodes(src->_right, newNode);
 
-// Helper function to recursively copy nodes
-template<typename T>
-typename BST<T>::Node* BST<T>::copyNodes(Node* src) {
-    if (src == nullptr) {
-        return nullptr;
-    }
-
-    Node* newNode = new Node(src->_data);
-    newNode->_left = copyNodes(src->_left);
-    newNode->_right = copyNodes(src->_right);
-    return newNode;
+	return newNode;
 }
 
-// Deep copy constructor
-template<typename T>
-BST<T>::BST(const BST& rhs) : _root(nullptr), _size(rhs._size) {
-    _root = copyNodes(rhs._root);
-}
-
-// Deep copy assignment operator
-template<typename T>
-BST<T>& BST<T>::operator=(const BST& rhs) {
-    if (this != &rhs) {
-        clear(); // prevent existing values
-        _root = copyNodes(rhs._root);
-        _size = rhs._size;
-    }
-    return *this;
-}
-
-// Destructor
-template<typename T>
-BST<T>::~BST() { clear(); }
-
-
-// --------------
-// Element Access
-// --------------
-
-// Checks if a specific element is present within the container
-template<typename T>
-bool BST<T>::search(const T& value) const {
-    Node* current = _root;
-
-    while (current != nullptr) {
-        if (current->_data == value) {
-            return true;
-        }
-        else if (current->_data > value) {
-            current = current->_left;
-        }
-        else {
-            current = current->_right;
-        }
-    }
-
-    return false;
-}
-
-// Finds the value of maximum element within the container
-template<typename T>
-T BST<T>::maximum() const {
-    if (_root == nullptr) {
-        return 0;
-    }
-
-    Node* current = _root;
-
-    while (current->_right != nullptr) {
-        current = current->_right;
-    }
-
-    return current->_data; 
-}
-
-// Finds the value of minimum element within the container
-template<typename T>
-T BST<T>::minimum() const {
-    if (_root == nullptr) {
-        return 0;
-    }
-
-    Node* current = _root;
-
-    while (current->_left != nullptr) {
-        current = current->_left;
-    }
-
-    return current->_data;
-}
-
-// Finds the value of predecessor for a given value
-template<typename T>
-T BST<T>::predecessor(const T& value) const {
-    Node* current = _root;
-    Node* pred = nullptr;
-
-    while (current != nullptr) {
-        if (current->_data < value) {
-            pred = current;
-            current = current->_right;
-        }
-        else {
-            current = current->_left;
-        }
-    }
-
-    if (pred != nullptr) {
-        return pred->_data;
-    }
-    else {
-        return T(); // 0
-    }
-}
-
-// Finds the value of successor for a given value
-template<typename T>
-T BST<T>::successor(const T& value) const {
-    Node* current = _root;
-    Node* succ = nullptr;
-
-    while (current != nullptr) {
-        if (current->_data > value) {
-            succ = current;
-            current = current->_left;
-        }
-        else {
-            current = current->_right;
-        }
-    }
-
-    if (succ != nullptr) {
-        return succ->_data;
-    }
-    else {
-        return T(); // 0
-    }
+// Find the leftmost node starting from the given node (begin/smallest)
+BST::Node* BST::findLeftmost(Node* node) const {
+	// Traverse until its not empty and there is a left child
+	for (; node && node->_left; ) { node = node->_left; }
+	return node;
 }
 
 
-// --------
-// Capacity
-// --------
+// --------------------
+//  Compiler Generated
+// --------------------
 
-// Checks if the container has no elements
-template<class T>
-bool BST<T>::empty() const { return _root == nullptr; }
+// Constructs an empty BST
+BST::BST() : _size(0), _root(nullptr) {}
 
-// Returns the number of elements in the container
-template<typename T>
-int BST<T>::size() const { return _size; }
+// Constructs a BST with the deep copy contents of 'other'
+BST::BST(const BST& other) : _size(other._size), _root(nullptr) {
+	// Case: empty tree
+	if (!other._root) { return; }
 
-// Helper function to calculate the height
-template<typename T>
-int BST<T>::heightHelper(Node* root, const T& value) const {
-    if (root == nullptr) {
-        return -1; // Height of an empty subtree is -1
-    }
-
-    if (value < root->_data) {
-        return 1 + heightHelper(root->_left, value);
-    }
-    else if (value > root->_data) {
-        return 1 + heightHelper(root->_right, value);
-    }
-    else {
-        auto maxHeight = [](int leftHeight, int rightHeight) {
-            return leftHeight > rightHeight ? leftHeight : rightHeight;
-        };
-        return maxHeight(heightHelper(root->_left, value), heightHelper(root->_right, value)) + 1;
-    }
+	// Delegate actual copy to utility function
+	_root = copyNodes(other._root, nullptr);
 }
 
-// Returns the number of edges from leaf node to a particular node
-template<typename T>
-int BST<T>::height(const T& value) const { return heightHelper(_root, value); }
+// Replaces the contents of this BST with a deep copy of 'rhs'
+BST& BST::operator=(const BST& rhs) {
+	// Prepare: self-assignment & deallocate any old memory
+	if (this == &rhs) { return *this; }
+	clear();
 
-// Helper function to calculate the depth
-template<typename T>
-int BST<T>::depthHelper(Node* root, const T& value, int depth) const {
-    if (root == nullptr) {
-        return -1; // Node not found, return -1
-    }
+	// Set corresponding size
+	_size = rhs._size;
 
-    if (root->_data == value) {
-        return depth;
-    }
-    else if (value < root->_data) {
-        return depthHelper(root->_left, value, depth + 1);
-    }
-    else {
-        return depthHelper(root->_right, value, depth + 1);
-    }
+	// Case: empty tree
+	if (!rhs._root) {
+		_root = nullptr;
+		return *this;
+	}
+
+	// Delegate actual copy to utility function
+	_root = copyNodes(rhs._root, nullptr);
+
+	return *this;
 }
 
-// Returns the number of edges from root to a particular node
-template<typename T>
-int BST<T>::depth(const T& value) const { return depthHelper(_root, value, 0); }
+// Destroys the BST, resetting it to its initial state
+BST::~BST() { clear(); }
 
 
-// ---------
-// Modifiers
-// ---------
+// -----------
+//  Iterators
+// -----------
 
-// Appends specified element to the container based on criteria for every node:
-// all values in the left subtree are less than the value of the node,
-// and all values in the right subtree are greater than the value of the node
-template<typename T>
-void BST<T>::insert(const T& value) {
-    Node* newNode = new Node(value);
+// Returns an iterator to the first element of the BST
+BST::iterator BST::begin() { return iterator(findLeftmost(_root), this); }
 
-    if (_root == nullptr) {
-        _root = newNode;
-    }
-    else {
-        Node* current = _root;
-        while (true) {
-            if (current->_data > value) {
-                if (current->_left == nullptr) {
-                    current->_left = newNode;
-                    break;
-                }
-                else {
-                    current = current->_left;
-                }
-            }
-            else {
-                if (current->_right == nullptr) {
-                    current->_right = newNode;
-                    break;
-                }
-                else {
-                    current = current->_right;
-                }
-            }
-        }
-    }
+// Returns an iterator to one past the last element of the BST
+BST::iterator BST::end() { return iterator(nullptr, this); }
 
-    _size++;
+// Returns a const iterator to the first element of the BST
+BST::const_iterator BST::begin() const { return const_iterator(findLeftmost(_root), this);}
+
+// Returns a const iterator to one past the last element of the BST
+BST::const_iterator BST::end() const { return const_iterator(nullptr, this); }
+
+// Explicitly returns a const iterator to the first element of the BST
+BST::const_iterator BST::cbegin() const { return const_iterator(findLeftmost(_root), this); }
+
+// Explicitly returns a const iterator to one past the last element of the BST
+BST::const_iterator BST::cend() const { return const_iterator(nullptr, this); }
+
+
+// ----------------
+//  Element Access 
+// ----------------
+
+// Returns an iterator to the element with given value
+BST::iterator BST::find(const int& val) {
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			curr = curr->_right;
+		} else if (val < curr->_data) {
+			curr = curr->_left;
+		} else {
+			return iterator(curr, this);
+		}
+	}
+
+	return end(); // if not present
 }
 
-// Removes the particular element of the container
-template<typename T>
-void BST<T>::remove(const T& value) {
-    Node* parent = nullptr;
-    Node* current = _root;
+// Returns a const iterator to the element with given value
+BST::const_iterator BST::find(const int& val) const {
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			curr = curr->_right;
+		} else if (val < curr->_data) {
+			curr = curr->_left;
+		} else {
+			return const_iterator(curr, this);
+		}
+	}
 
-    // Search for the node with the given value (instead of iterator)
-    while (current != nullptr && current->_data != value) {
-        parent = current;
-        if (value < current->_data) {
-            current = current->_left;
-        }
-        else {
-            current = current->_right;
-        }
-    }
-
-    // If the value is not found, return
-    if (current == nullptr) {
-        return;
-    }
-
-    // Case 1: Node to be deleted has no children (leaf node)
-    if (current->_left == nullptr && current->_right == nullptr) {
-        if (parent == nullptr) {
-            _root = nullptr;
-        }
-        else if (parent->_left == current) {
-            parent->_left = nullptr;
-        }
-        else {
-            parent->_right = nullptr;
-        }
-        delete current;
-        _size--;
-    }
-    // Case 2: Node to be deleted has one child
-    else if (current->_left == nullptr) {
-        if (parent == nullptr) {
-            _root = current->_right;
-        }
-        else if (parent->_left == current) {
-            parent->_left = current->_right;
-        }
-        else {
-            parent->_right = current->_right;
-        }
-        delete current;
-        _size--;
-    }
-    else if (current->_right == nullptr) {
-        if (parent == nullptr) {
-            _root = current->_left;
-        }
-        else if (parent->_left == current) {
-            parent->_left = current->_left;
-        }
-        else {
-            parent->_right = current->_left;
-        }
-        delete current;
-        _size--;
-    }
-    // Case 3: Node to be deleted has two children
-    else {
-        Node* successorParent = current;
-        Node* successor = current->_right;
-        while (successor->_left != nullptr) {
-            successorParent = successor;
-            successor = successor->_left;
-        }
-        current->_data = successor->_data;
-        if (successorParent->_left == successor) {
-            successorParent->_left = successor->_right;
-        }
-        else {
-            successorParent->_right = successor->_right;
-        }
-        delete successor;
-        _size--;
-    }
+	return cend(); // if not present
 }
 
-// Erases all elements from the container
-template<typename T>
-void BST<T>::clear() {
-    // Post-order traversal
-    while (_root != nullptr) {
-        Node* current = _root;
+// Returns an iterator to the predecessor of the given value
+BST::iterator BST::predecessor(const int& val) {
+	Node* pred = nullptr;
 
-        // Traverse to the leftmost leaf node
-        while (current->_left != nullptr || current->_right != nullptr) {
-            if (current->_left != nullptr) {
-                current = current->_left;
-            }
-            else {
-                current = current->_right;
-            }
-        }
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			pred = curr;
+			curr = curr->_right;
+		} else {
+			curr = curr->_left;
+		}
+	}
 
-        // Leaf delete directly, internal based on position
-        if (current == _root) {
-            delete _root;
-            _root = nullptr;
-        }
-        else {
-            // Find the parent of the current node
-            T currentData = current->_data;
-            Node* parent = nullptr;
-            Node* node = _root;
-            while (node != nullptr && node->_data != currentData) {
-                parent = node;
-                if (currentData < node->_data) {
-                    node = node->_left;
-                }
-                else {
-                    node = node->_right;
-                }
-            }
+	return pred ? iterator(pred, this) : end();
+}
 
-            // Delete the current node based on its position relative to the parent
-            if (parent != nullptr) {
-                if (parent->_left != nullptr && parent->_left->_data == currentData) {
-                    delete parent->_left;
-                    parent->_left = nullptr;
-                }
-                else if (parent->_right != nullptr && parent->_right->_data == currentData) {
-                    delete parent->_right;
-                    parent->_right = nullptr;
-                }
-            }
-        }
-    }
+// Returns a const_iterator to the predecessor of the given value
+BST::const_iterator BST::predecessor(const int& val) const {
+	Node* pred = nullptr;
 
-    _size = 0;
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->_data) {
+			pred = curr;
+			curr = curr->_right;
+		} else {
+			curr = curr->_left;
+		}
+	}
+
+	return pred ? const_iterator(pred, this) : cend();
+}
+
+// Returns an iterator to the successor of the given value
+BST::iterator BST::successor(const int& val) {
+	Node* succ = nullptr;
+
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr; ) {
+		if (val < curr->_data) {
+			succ = curr;
+			curr = curr->_left;
+		} else {
+			curr = curr->_right;
+		}
+	}
+
+	return succ ? iterator(succ, this) : end();
+}
+
+// Returns a const_iterator to the successor of the given value
+BST::const_iterator BST::successor(const int& val) const {
+	Node* succ = nullptr;
+
+	// We have to traverse from the root, since we have only value
+	for (Node* curr = _root; curr;) {
+		if (val < curr->_data) {
+			succ = curr;
+			curr = curr->_left;
+		} else {
+			curr = curr->_right;
+		}
+	}
+
+	return succ ? const_iterator(succ, this) : cend();
+}
+
+// Returns an iterator to the predecessor of the node pointed to by the given iterator
+BST::iterator BST::predecessor(const iterator& it) {
+	Node* pred = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
+	if (curr->_left) {
+		pred = curr->_left;
+		for (; pred->_right; ) { pred = pred->_right; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_left; ) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		pred = parent;
+	}
+
+	return pred ? iterator(pred, this) : end();
+}
+
+// Returns a const_iterator to the predecessor of the node pointed to by the given iterator
+BST::const_iterator BST::predecessor(iterator& it) const {
+	Node* pred = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
+	if (curr->_left) {
+		pred = curr->_left;
+		for (; pred->_right; ) { pred = pred->_right; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_left; ) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		pred = parent;
+	}
+
+	return pred ? const_iterator(pred, this) : cend();
+}
+
+// Returns an iterator to the successor of the node pointed to by the given iterator
+BST::iterator BST::successor(const iterator& it) {
+	Node* succ = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+	if (curr->_right) {
+		succ = curr->_right;
+		for (; succ->_left; ) { succ = succ->_left; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_right;) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		succ = parent;
+	}
+
+	return succ ? iterator(succ, this) : end();
+}
+
+// Returns a const_iterator to the successor of the node pointed to by the given iterator
+BST::const_iterator BST::successor(iterator& it) const {
+	Node* succ = nullptr;
+	Node* curr = it._curr;
+
+	// Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+	if (curr->_right) {
+		
+		succ = curr->_right;
+		for (; succ->_left; ) { succ = succ->_left; }
+
+	// Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+	} else {
+		Node* parent = curr->_parent;
+		for (; parent && curr == parent->_right; ) {
+			curr = parent;
+			parent = parent->_parent;
+		}
+		succ = parent;
+	}
+
+	return succ ? const_iterator(succ, this) : cend();
+}
+
+// Returns the minimum value in the tree
+int BST::minimum() const {
+	// Case: empty tree
+	if (!_root) { return -1; }
+
+	// The leftmost in balanced version is the min
+	Node* curr = _root;
+	for (; curr->_left; ) { curr = curr->_left; }
+
+	return curr->_data;
+}
+
+// Returns the maximum value in the tree
+int BST::maximum() const {
+	// Case: empty tree
+	if (!_root) { return -1; }
+
+	// The righmost in balanced version is the max
+	Node* curr = _root;
+	for (; curr->_right; ) { curr = curr->_right; }
+
+	return curr->_data;
 }
 
 
-#endif
+// ----------
+//  Capacity
+// ----------
+
+// Returns true if the tree has no elements
+bool BST::empty() const { return _size == 0; }
+
+// Returns the total number of elements in the tree
+int BST::size() const { return _size; }
+
+// Returns the height of the subtree rooted at the given value, or the root if no value
+int BST::height(const int& val) const {
+	// Lambda allows to compute height within function via recursion
+	auto computeHeight = [](Node* node, auto& selfRef) -> int {
+		// Case: empty tree
+		if (!node) { return -1; }
+
+		// Height itself is just a max out of left subtree and right subtree
+		int lHeight = selfRef(node->_left, selfRef);
+		int rHeight = selfRef(node->_right, selfRef);
+		return 1 + (lHeight > rHeight ? lHeight : rHeight); // replaces "std::max(lHeight, rHeight) + 1"
+	};
+
+	// If given values is not root, find it
+	Node* startNode = _root;
+	if (val != _root->_data) {
+		for (Node* curr = _root; curr;) {
+			// If found break, otherwise navigate left or right
+			if (val == curr->_data) {
+				startNode = curr;
+				break;
+			}
+			curr = (val < curr->_data) ? curr->_left : curr->_right;
+		}
+	}
+
+	// If the value doesn't exist (validation)
+	if (!startNode) { return -1; }
+
+	// Compute and return the height starting from the found node
+	return computeHeight(startNode, computeHeight);
+}
+
+// Returns the depth of the node with the given value, or the root if no value
+int BST::depth(const int& val) const {
+	// Traverse the tree from root until given val, each turn incrementing the depth
+	Node* curr = _root;
+	int depth = 0;
+	for (; curr; ) {
+		if (val == curr->_data) { return depth; }
+		curr = (val < curr->_data) ? curr->_left : curr->_right;
+		++depth;
+	}
+
+	return -1;
+}
+
+
+// -----------
+//  Modifiers
+// -----------
+
+// Inserts a new element into the BST, maintaining BST ordering (not balancing)
+void BST::insert(const int& val) {
+	Node* parent = nullptr; // keep track of parent during traversal and helps to insert
+
+	// Traverse to find the insertion point
+	for (Node* curr = _root; curr; ) {
+		parent = curr;
+
+		if (val < curr->_data) {
+			curr = curr->_left;
+		} else if (val > curr->_data) {
+			curr = curr->_right;
+		} else {
+			return; // if BST handles duplicates, there could be counter increment added
+		}
+	}
+
+	// Create new node and place it in appropriate spot
+	Node* newNode = new Node(val, parent);
+	if (!parent) {
+		_root = newNode;
+	} else if (val < parent->_data) {
+		parent->_left = newNode;
+	} else {
+		parent->_right = newNode;
+	}
+
+	// Reflect new element on size
+	++_size;
+}
+
+// Removes a node with the given value from the BST
+void BST::remove(const int& val) {
+	// Lamda keeps the logic local, preventing mess
+	auto deleteNode = [](Node* root, const int& key, auto& selfRef) -> Node* {
+		// Case: value not found
+		if (!root) { return nullptr; }
+
+		// Traverse to (left, right, found)
+		if (key < root->_data) {
+			root->_left = selfRef(root->_left, key, selfRef);
+		} else if (key > root->_data) {
+			root->_right = selfRef(root->_right, key, selfRef);
+		} else {
+
+			// Case: only right or no at all
+			if (!root->_left) {
+				Node* temp = root->_right;
+				delete root;
+				return temp;
+
+			// Case: only left
+			} else if (!root->_right) {
+				Node* temp = root->_left;
+				delete root;
+				return temp;
+
+			// Case: both
+			} else {
+				// Find the in-order successor (smallest in the right subtree)
+				Node* succ = root->_right;
+				for (; succ->_left; ) { succ = succ->_left; }
+				// Copy the in-order successor's data to this node
+				root->_data = succ->_data;
+				// Delete the in-order successor
+				root->_right = selfRef(root->_right, succ->_data, selfRef);
+			}
+		}
+
+		return root;
+	};
+
+	// Deletion start from the root
+	_root = deleteNode(_root, val, deleteNode);
+	if (find(val) == end()) { --_size; }
+}
+
+// Removes all nodes from the BST, resetting it to its initial state
+void BST::clear() {
+	// Lamda keeps the logic local, preventing mess
+	auto deleteNodes = [](Node* node, auto& deleteNodesRef) -> void {
+		// Case: empty node
+		if (!node) { return; }
+
+		// Recursively delete all nodes in the left and right subtrees (post-order)
+		deleteNodesRef(node->_left, deleteNodesRef);
+		deleteNodesRef(node->_right, deleteNodesRef);
+
+		// Deletion itself
+		delete node;
+	};
+
+	// Start recursive deletion from the root via lambda
+	deleteNodes(_root, deleteNodes); 
+
+	// Reset the tree to an empty state
+	_root = nullptr;
+	_size = 0;
+}
+
+// Exchanges the contents of this BST with another BST
+void BST::swap(BST& other) {
+	// Case: the same tree
+	if (this == &other) { return; }
+
+	Node* root = _root;
+	_root = other._root;
+	other._root = root;
+
+	int size = _size;
+	_size = other._size;
+	other._size = size;
+}

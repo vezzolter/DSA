@@ -1,100 +1,102 @@
-// Simplified ADT: Binary Search Tree
-// by vezzolter
-// April 29, 2024
-//
-// This C++ project demonstrates the implementation of the
-// simplified version of abstract data type called Binary Search Tree
+// Title:   Binary Search Tree Container
+// Authors: by vezzolter
+// Date:    April 29, 2024
+// ----------------------------------------------------------------------------
+
 
 #include <iostream>
 #include "BST.h"
 
 
+void printTree(const BST& tree) {
+	for (auto it = tree.cbegin(); it != tree.cend(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Binary Search Tree' console application!\n";
+	std::cout << "\tWelcome to the 'Binary Search Tree' console application!\n\n";
 
-	// Create initial tree #1
-	// Note: there is no balancing
-	std::cout << "\nCreating & filling initial tree #1...\n";
-	std::cout << "Using: 8, 4, 13, 2, 6, 10, 17, 0, 3, 7, 9, 11, 14\n";
-	BST<int> tree1;
-	tree1.insert(8); // level 0
-	tree1.insert(4); // level 1
-	tree1.insert(13);
-	tree1.insert(2); // level 2
-	tree1.insert(6);
-	tree1.insert(10);
-	tree1.insert(17);
-	tree1.insert(0); // level 3
-	tree1.insert(3);
-	tree1.insert(7);
-	tree1.insert(9);
-	tree1.insert(11);
-	tree1.insert(14);
-	std::cout << "Success: BST #1 has been created!\n";
+	// Constructors
+	std::cout << "Constructors:\n";
+	std::cout << " -> BST t1 (8,3,13,2,6,10,17,0,3,7,9,11,14):\t";
+	BST t1;
+	t1.insert(8); // level 0
+	t1.insert(4); // level 1
+	t1.insert(13);
+	t1.insert(2); // level 2
+	t1.insert(6);
+	t1.insert(10);
+	t1.insert(17);
+	t1.insert(0); // level 3
+	t1.insert(3);
+	t1.insert(7);
+	t1.insert(9);
+	t1.insert(11);
+	t1.insert(14);
+	printTree(t1);
+	std::cout << " -> BST t2(t1):\t\t\t\t\t";
+	BST t2(t1);
+	printTree(t2);
+	std::cout << " -> BST t3 = t1:\t\t\t\t";
+	BST t3 = t1;
+	printTree(t3);
+	std::cout << std::endl;
 
-	// Visualization is from markdown file
-	//                  8
-	//           /             \
-	//         4                13
-	//      /    \            /     \
-	//     2      6         10        17
-	//   /   \     \       /  \      /
-	//  0     3     7     9   11   14
+	// Element Access
+	std::cout << "Element Access:\n";
+	std::cout << " -> *(t1.find(11)):\t\t\t\t" << *(t1.find(11)) << std::endl;
+	std::cout << " -> *(t1.predecessor(11)):\t\t\t" << *(t1.predecessor(11)) << std::endl;
+	std::cout << " -> *(t1.successor(11)):\t\t\t" << *(t1.successor(11)) << std::endl;
+	std::cout << " -> *(t1.predecessor(t1.find(11)):\t\t" << *(t1.predecessor(t1.find(11))) << std::endl;
+	std::cout << " -> *(t1.successor(t1.find(11))):\t\t" << *(t1.successor(t1.find(11))) << std::endl;
+	std::cout << " -> t1.minimum():\t\t\t\t" << t1.minimum() << std::endl;
+	std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
+	std::cout << std::endl;
 
-    // Show capacity
-	std::cout << "\nShowing capacity methods for tree #1...\n";
-	std::cout << "Is it empty:\t" << (tree1.empty() ? "Yes" : "No") << std::endl;
-	std::cout << "Tree size:\t" << tree1.size() << std::endl;
-	std::cout << "Height of '8':\t" << tree1.height(8) << std::endl;
-	std::cout << "Depth of '8':\t" << tree1.depth(8) << std::endl;
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " -> t1.empty():\t\t\t\t\t" << t1.empty() << std::endl;
+	std::cout << " -> t1.size(): \t\t\t\t\t" << t1.size() << std::endl;
+	std::cout << " -> t1.height(8): \t\t\t\t" << t1.height(8) << std::endl;
+	std::cout << " -> t1.height(4): \t\t\t\t" << t1.height(4) << std::endl;
+	std::cout << " -> t1.height(2): \t\t\t\t" << t1.height(2) << std::endl;
+	std::cout << " -> t1.height(0): \t\t\t\t" << t1.height(0) << std::endl;
+	std::cout << " -> t1.depth(8): \t\t\t\t" << t1.depth(8) << std::endl;
+	std::cout << " -> t1.depth(4): \t\t\t\t" << t1.depth(4) << std::endl;
+	std::cout << " -> t1.depth(2): \t\t\t\t" << t1.depth(2) << std::endl;
+	std::cout << " -> t1.depth(0): \t\t\t\t" << t1.depth(0) << std::endl;
+	std::cout << std::endl;
 
-	// Show stats
-    std::cout << "\nShowing element access methods for tree #1...\n";
-	std::cout << "Is '14' present:\t" << (tree1.search(14) ? "Yes" : "No") << std::endl;
-	std::cout << "Maximum element:\t" << tree1.maximum() << std::endl;
-	std::cout << "Minimum element:\t" << tree1.minimum() << std::endl;
-	std::cout << "Predecessor of '8':\t" << tree1.predecessor(8) << std::endl;
-	std::cout << "Successor of '8':\t" << tree1.successor(8) << std::endl;
-	
-	// Show copy constructor
-	std::cout << "\nCreating a copy tree #2 via copy constructor...\n";
-	BST<int> tree2(tree1);
-	std::cout << "Success: BST #2 has been created!\n";
-
-	// Verify
-	std::cout << "Tree size:\t" << tree2.size() << std::endl;
-	std::cout << "Maximum:\t" << tree2.maximum() << std::endl;
-	std::cout << "Minimum:\t" << tree2.minimum() << std::endl;
-	
-	// Show assignment operator
-	std::cout << "\nCreating a copy tree #3 via assignment operator...\n";
-	BST<int> tree3 = tree1;
-	std::cout << "Success: BST #3 has been created!\n";
-	std::cout << "Tree size:\t" << tree3.size() << std::endl;
-	std::cout << "Maximum:\t" << tree3.maximum() << std::endl;
-	std::cout << "Minimum:\t" << tree3.minimum() << std::endl;
-
-	// Remove
-	std::cout << "\nRemoving all elements from tree #1 at 3 level...\n";
-	tree1.remove(0); // level 3
-	tree1.remove(3);
-	tree1.remove(7);
-	tree1.remove(9);
-	tree1.remove(11);
-	tree1.remove(14);
-	std::cout << "Success: Elements from BST #1 has been removed!\n";
-
-	// Verify
-	std::cout << "\nChecking how it affected the trees...\n";
-	std::cout << "Tree #1 size:\t" << tree1.size() << std::endl;
-	std::cout << "Tree #2 size:\t" << tree2.size() << std::endl;
-	std::cout << "Tree #3 size:\t" << tree3.size() << std::endl;
+	// Modifiers
+	std::cout << "Modifiers:\n";
+	std::cout << " -> t1.insert(12):  \t\t\t\t";
+	t1.insert(12);
+	printTree(t1);
+	std::cout << "   - t1.depth(12):\t\t\t\t" << t1.depth(12) << std::endl;
+	t1.depth(12);
+	std::cout << " -> l1.remove(12): \t\t\t\t";
+	t1.remove(12);
+	printTree(t1);
+	std::cout << "   - t1.depth(12):\t\t\t\t" << t1.depth(12) << std::endl;
+	t1.depth(12);
+	std::cout << " -> t1.clear(): \t\t\t\t";
+	t1.clear();
+	printTree(t1);
+	std::cout << " -> t1.swap(t2): \t\t\t\t";
+	t1.swap(t2);
+	printTree(t1);
+	std::cout << "   - t2:\t\t\t\t\t";
+	printTree(t2);
+	std::cout << "   - t3:\t\t\t\t\t";
+	printTree(t3);
+	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
 	std::cout << "Press <Enter> to exit...";
-	std::cin.clear(); // ensure that stream is in a good state
-	std::cin.ignore(32767, '\n'); // clear from any remaining chars
+	std::cin.get();
 	return 0;
 }
