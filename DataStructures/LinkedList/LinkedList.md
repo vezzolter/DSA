@@ -181,9 +181,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 3.3: Linked Lists
   - Section 3.4: Elementary List Processing
   - Section 3.5: Memory Allocation for Lists
-  - Section 4: Abstract Data Types
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 3.1: Abstract Data Types
   - Section 3.2: The List ADT
   - Section 3.3: `vector` and `list` in the STL
   - Section 3.5: Implementation of `list`
@@ -206,9 +204,9 @@ For contact details and additional information, please refer to the [root direct
 ---  
 &#127760; **Web-Resources:**  
 - [Linked List](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
-- [std::forward_list](https://en.cppreference.com/w/cpp/container/forward_list)
-- [std::list](https://en.cppreference.com/w/cpp/container/list)
-- [Iterator library](https://en.cppreference.com/w/cpp/iterator)
+- [std::forward_list](https://en.cppreference.com/w/cpp/container/forward_list) (Documentation)
+- [std::list](https://en.cppreference.com/w/cpp/container/list) (Documentation)
+- [Iterator library](https://en.cppreference.com/w/cpp/iterator) (Documentation)
 - [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 
 

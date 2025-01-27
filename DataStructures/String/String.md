@@ -68,12 +68,17 @@ When working with strings, it's important to note that there is no universal sta
 
 ---
 **Compiler Generated:**
-- `Default Constructor` — creates an empty string, initializing its internal structure to represent a sequence with no characters. If applicable, metadata such as size or capacity is set to indicate an empty state.
-- `Copy Constructor` — creates a new string by copying characters and metadata from another string.
-- `Move Constructor` — creates a new string by transferring ownership of characters and metadata from another string, leaving the original string in a valid, but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory through a simple transfer of ownership.
-- `Copy Assignment Operator` — overwrites the existing string with the characters and metadata of another string by copying them.
-- `Move Assignment Operator` — overwrites the existing string with the characters and metadata of another string by transferring ownership, leaving the original string in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory through a simple transfer of ownership.
-- `Destructor` — performs cleanup on the string: deallocates memory for stored characters and properly handles any associated resources or metadata, ensuring there are no memory leaks.
+- `Default Constructor` — creates an empty string.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new string by copying the structure and values of another string.
+  - if the other string is empty, initializes an empty string.
+- `Move Constructor` — creates a new string by transferring ownership of the memory from another string, leaving the original string in a valid but unspecified state.
+  - if the other string is empty, initializes an empty string.
+- `Copy Assignment Operator` — overwrites each element of already existing string with the corresponding element of another string by copying them.
+  - if the other string is empty, initializes an empty string.
+- `Move Assignment Operator` — overwrites each element of already existing string with the corresponding element of another string by transferring ownership of the memory from another string, leaving the original string in a valid but unspecified state.
+  - if the other string is empty, initializes an empty string.
+- `Destructor` — releases the string's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -104,12 +109,11 @@ When working with strings, it's important to note that there is no universal sta
 ---
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
-- `size()` — returns the number of elements in the container, i.e. basically distance from begin to end.
-- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
+- `size()` — returns the total number of elements in the string, equivalent to the distance between `begin` and `end`.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically based on system's memory limitations, if all available memory were dedicated to that single container.
 - `capacity()` — returns the number of elements that can be held in currently allocated storage.
-- `reserve()` — increases the capacity of the string to a value that's greater or equal to the given capacity.
-  - if the given capacity is greater than current, new storage is allocated; otherwise, does nothing.
-- `shrinkToFit()` — reduces the capacity to the size of the string.
+- `reserve()` — increases the capacity of the array to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
+- `shrinkToFit()` — reduces the capacity to match the current size of the string, potentially deallocating unused memory.
 
 ---
 <p align="center"><img src="./Images/OperationsModifiers.png"/></p>
@@ -599,8 +603,8 @@ For contact details and additional information, please refer to the [root direct
 - [String (computer science)](https://en.wikipedia.org/wiki/String_(computer_science)) (Wikipedia)
 - [Character (computing)](https://en.wikipedia.org/wiki/Character_(computing)) (Wikipedia)
 - [Character encoding](https://en.wikipedia.org/wiki/Character_encoding) (Wikipedia)
-- [ASCII Table](https://www.ascii-code.com)
-- [UTF-8 encoding table and Unicode characters](https://www.utf8-chartable.de)
+- [ASCII Table](https://www.ascii-code.com) (Documentation)
+- [UTF-8 encoding table and Unicode characters](https://www.utf8-chartable.de) (Documentation)
 - [What is character encoding? Exporing Unicode, UTF8, ASCII, and more](https://youtu.be/4i0beu7qct0?si=b6blUlFWpxhDletM) (Video)
 - [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 

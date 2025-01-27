@@ -23,7 +23,9 @@ SA::SA(const SA& other) {
 
 // Replaces the contents with a copy of the contents of 'rhs'
 SA& SA::operator=(const SA& rhs) {
-    if (this == &rhs) { return *this; } // self-assignment guard
+    // Case: the same container
+    if (this == &rhs) { return *this; }
+
     for (int i = 0; i < _SIZE; ++i) { _data[i] = rhs._data[i]; }
 
     return *this;

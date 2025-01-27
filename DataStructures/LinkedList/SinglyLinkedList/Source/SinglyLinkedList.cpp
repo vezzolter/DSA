@@ -15,9 +15,7 @@
 SLL::SLL() : _size(0), _head(nullptr) {}
 
 // Constructs a list with 'size' copies of elements with 'val'
-SLL::SLL(int size, int val)
-	: _size(size), _head(nullptr) {
-
+SLL::SLL(int size, int val) : _size(size), _head(nullptr) {
 	// Create the head node
 	_head = new Node(val);
 
@@ -30,9 +28,7 @@ SLL::SLL(int size, int val)
 }
 
 // Constructs a list with the contents of 'other'
-SLL::SLL(const SLL& other)
-	: _size(other._size) {
-
+SLL::SLL(const SLL& other) : _size(other._size) {
 	// Case: empty list
 	if (!other._head) {
 		_head = nullptr;
@@ -82,7 +78,7 @@ SLL& SLL::operator=(const SLL& rhs) {
 	return *this;
 }
 
-// Destructs the list
+// Performs final cleanup and terminates the object
 SLL::~SLL() {
 	Node* curr = _head;
 	for (; curr; ) {
@@ -333,16 +329,14 @@ void SLL::resize(int size, const int& val) {
 
 // Exchanges the contents of the list with those of 'other'
 void SLL::swap(SLL& other) {
-	// Case: the list
+	// Case: the same list
 	if (this == &other) { return; }
 
-	// Swap the head pointers
-	Node* tempHead = _head;
+	Node* head = _head;
 	_head = other._head;
-	other._head = tempHead;
+	other._head = head;
 
-	// Swap the sizes
-	int tempSize = _size;
+	int size = _size;
 	_size = other._size;
-	other._size = tempSize;
+	other._size = size;
 }

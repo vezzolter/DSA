@@ -77,8 +77,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Node() : _data(0), _next(nullptr) {}
-	Node(const int& val, Node* next = nullptr) 
-		: _data(val), _next(next) {}
+	Node(const int& val, Node* next = nullptr) : _data(val), _next(next) {}
 	Node(const Node& other)          = delete;  // no copying/moving to
 	Node(Node&& other)               = delete;  // ensure uniqueness of 
 	Node& operator=(const Node& rhs) = delete;  // the node within the list
@@ -97,8 +96,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Iterator()                               = default;
-	explicit Iterator(Node* ptr, Node* head)
-		: _ptr(ptr), _head(head) {}
+	explicit Iterator(Node* ptr, Node* head) : _ptr(ptr), _head(head) {}
 	Iterator(const Iterator& other)          = default;
 	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
@@ -154,8 +152,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	ConstIterator()                                    = default;
-	explicit ConstIterator(const Node* ptr, const Node* head) 
-		: _ptr(ptr), _head(head) {}
+	explicit ConstIterator(const Node* ptr, const Node* head) : _ptr(ptr), _head(head) {}
 	ConstIterator(const ConstIterator& other)          = default;
 	ConstIterator(ConstIterator&& other)               = default;
 	ConstIterator& operator=(const ConstIterator& rhs) = default;

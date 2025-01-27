@@ -72,7 +72,7 @@ BST& BST::operator=(const BST& rhs) {
 	return *this;
 }
 
-// Destroys the BST, resetting it to its initial state
+// Performs final cleanup and terminates the object
 BST::~BST() { clear(); }
 
 

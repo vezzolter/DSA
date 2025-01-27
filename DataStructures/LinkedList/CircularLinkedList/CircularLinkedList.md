@@ -135,8 +135,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Node() : _data(0), _next(nullptr) {}
-	Node(const int& val, Node* next = nullptr) 
-		: _data(val), _next(next) {}
+	Node(const int& val, Node* next = nullptr) : _data(val), _next(next) {}
 	Node(const Node& other)          = delete;  // no copying/moving to
 	Node(Node&& other)               = delete;  // ensure uniqueness of 
 	Node& operator=(const Node& rhs) = delete;  // the node within the list
@@ -162,8 +161,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Iterator()                               = default;
-	explicit Iterator(Node* ptr, Node* head)
-		: _ptr(ptr), _head(head) {}
+	explicit Iterator(Node* ptr, Node* head): _ptr(ptr), _head(head) {}
 	Iterator(const Iterator& other)          = default;
 	Iterator(Iterator&& other)               = default;
 	Iterator& operator=(const Iterator& rhs) = default;
@@ -293,7 +291,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 ---
 🧠 **Space Expenses:**
-- **Pointer Overhead** — each node stores one pointer to the next node.
+- **Pointer Overhead** — each node stores one pointer to the next node, regardless of whether the node actually has one or not.
 - **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, potentially causing fragmentation and reducing cache efficiency.
 
 

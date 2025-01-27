@@ -15,8 +15,7 @@
 DLL::DLL() : _size(0), _head(nullptr), _tail(nullptr) {}
 
 // Constructs a list with 'size' copies of elements with 'val'
-DLL::DLL(int size, int val) :
-	_size(size), _head(nullptr), _tail(nullptr) {
+DLL::DLL(int size, int val) : _size(size), _head(nullptr), _tail(nullptr) {
 	// Create the head node
 	_head = new Node(val);
 
@@ -34,8 +33,7 @@ DLL::DLL(int size, int val) :
 }
 
 // Constructs a list with the contents of 'other'
-DLL::DLL(const DLL& other) 
-	: _size(other._size) {
+DLL::DLL(const DLL& other) : _size(other._size) {
 	// Case: empty list
 	if (!other._head) {
 		_head = _tail = nullptr;
@@ -48,7 +46,7 @@ DLL::DLL(const DLL& other)
 	// Copy rest of nodes
 	Node* currSrc = other._head->_next;
 	Node* curr = _head;
-	while (currSrc) {
+	for (; currSrc; ) {
 		curr->_next = new Node(currSrc->_data);
 		curr->_next->_prev = curr;
 		curr = curr->_next;
@@ -93,7 +91,7 @@ DLL& DLL::operator=(const DLL& rhs) {
 	return *this;
 }
 
-// Destructs the list
+// Performs final cleanup and terminates the object
 DLL::~DLL() {
 	Node* curr = _head;
 	for(; curr; ) {
@@ -250,7 +248,6 @@ void DLL::pushBack(const int& val) {
 	// Case: empty list
 	if (_size == 0) {
 		_head = _tail = newNode;
-
 	} else {
 		// Push back
 		_tail->_next = newNode;
@@ -412,18 +409,15 @@ void DLL::swap(DLL& other) {
 	// Case: the same list
 	if (this == &other) { return; }
 
-	// Swap the head pointers
-	Node* tempHead = _head;
+	Node* head = _head;
 	_head = other._head;
-	other._head = tempHead;
+	other._head = head;
 
-	// Swap the tail pointers
-	Node* tempTail = _tail;
+	Node* tail = _tail;
 	_tail = other._tail;
-	other._tail = tempTail;
+	other._tail = tail;
 
-	// Swap the sizes
-	int tempSize = _size;
+	int size = _size;
 	_size = other._size;
-	other._size = tempSize;
+	other._size = size;
 }

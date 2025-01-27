@@ -15,28 +15,21 @@
 DA::DA() : _size(0), _capacity(0), _data(nullptr) {}
 
 // Constructs an array with 'size' copies of elements initialized to zeros
-DA::DA(int size)
-    : _size(size), _capacity(size), _data(new int[_capacity]) {
-
+DA::DA(int size) : _size(size), _capacity(size), _data(new int[_capacity]) {
     for (int i = 0; i < _size; ++i) { _data[i] = 0; }
 }
 
 // Constructs an array with 'size' copies of elements with 'val'
-DA::DA(int size, int val)
-    : _size(size), _capacity(size), _data(new int[_capacity]) {
-
+DA::DA(int size, int val) : _size(size), _capacity(size), _data(new int[_capacity]) {
     for (int i = 0; i < _size; ++i) { _data[i] = val; }
 }
 
 // Constructs an array with the contents of 'other'
-DA::DA(const DA& other)
-    : _size(other._size), _capacity(other._capacity) {
-
+DA::DA(const DA& other) : _size(other._size), _capacity(other._capacity) {
     // Copy the data (if any), the size and capacity are in init list
     if (other._data) {
         _data = new int[_capacity];
         for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
-
     } else {
         _data = nullptr;
     }  
@@ -54,7 +47,6 @@ DA& DA::operator=(const DA& rhs) {
     if (rhs._data) {
         _data = new int[_capacity];
         for (int i = 0; i < _size; ++i) { _data[i] = rhs._data[i]; }
-
     } else {
         _data = nullptr;
     }
@@ -62,7 +54,7 @@ DA& DA::operator=(const DA& rhs) {
     return *this;
 }
 
-// Destructs the array
+// Performs final cleanup and terminates the object
 DA::~DA() { delete[] _data; }
 
 
@@ -173,7 +165,7 @@ void DA::insert(iterator pos, const int& val) {
     // Get the index out of itr
     int index = pos - this->begin();
 
-    // If memory isn't enough - reallocate; Otherwise shift within from the end
+    // If memory isn't enough - reallocate; otherwise shift within from the end
     if (_size == _capacity) {
         // Allocate new memory (double if needed, or assign 1 if no at all)
         _capacity = _capacity == 0 ? 1 : _capacity * 2;
@@ -299,7 +291,7 @@ void DA::resize(int size, const int& val) {
         return;
     }
 
-    // Case 3: new size is larger and exceeds capacity; Otherwise its within
+    // Case 3: new size is larger and exceeds capacity; otherwise its within
     if (size > _capacity) {
         // Allocate new memory (assign given or double it)
         _capacity = size > _capacity * 2 ? size : _capacity * 2;

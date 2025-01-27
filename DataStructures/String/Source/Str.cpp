@@ -19,7 +19,7 @@ Str::Str() : _size(0), _capacity(1), _data(nullptr) {
 
 // Constructs a string from a C-style null-terminated string
 Str::Str(const char* str) {
-	// Case: empty
+	// Case: empty string
 	if (!str) {
 		_size = 0;
 		_capacity = 1;
@@ -40,9 +40,7 @@ Str::Str(const char* str) {
 }
 
 // Constructs a string with the contents of 'other'
-Str::Str(const Str& other)
-	: _size(other._size), _capacity(other._capacity) {
-
+Str::Str(const Str& other) : _size(other._size), _capacity(other._capacity) {
 	_data = new char[_capacity];
 	if (other._data) {
 		for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
@@ -64,7 +62,7 @@ Str& Str::operator=(const Str& rhs) {
 	_data[_size] = '\0';
 }
 
-// Destructs the string
+// Performs final cleanup and terminates the object
 Str::~Str() { delete[] _data; }
 
 
@@ -379,7 +377,6 @@ int Str::toInt() const {
     if (i < _size && _data[i] == '-') {
         sign = -1;
         ++i;
-
     } else if (i < _size && _data[i] == '+') {
         ++i;
     }
@@ -429,7 +426,6 @@ double Str::toDouble() const {
     if (i < _size && _data[i] == '-') {
         sign = -1;
         ++i;
-
     } else if (i < _size && _data[i] == '+') {
         ++i;
     }
@@ -444,7 +440,6 @@ double Str::toDouble() const {
                 // e.g. '3' in '12.3' is divided by '10.0' to represent '0.3'
                 fraction += (_data[i] - '0') / fractionDivider;
                 fractionDivider *= 10.0;
-
             } else {
                 // shift to the left, add new digit to build the int incrementally
                 // e.g. "123", ans 0.0

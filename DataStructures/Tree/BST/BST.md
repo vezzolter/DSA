@@ -26,11 +26,12 @@
 <p align="center"><img src="./Images/BST.png"/></p>
 
 
-
 ## Important Details
-- **Ordering Property** — for any given node, all values in the left subtree are less than the nodes's value, and all the values in the right subtree are greater than the node's value. This property is the core of BST, ensuring a hierarchical structure that supports efficient operations; any violation compromises the tree's integrity and reliability.
-- **Duplicates** — while some implementations of BSTs disallow duplicates altogether, others allow them but require consistent handling. A common approach is to add a counter to each node to track the frequency of duplicate values, or to consistently place duplicates in either the left or right subtree. The decision is left to the developer and depends on the specific use case, but consistent handling is crucial to maintaining the BST’s structure.
-- **Balancing** — insertions and deletions can affect the balance of a BST, causing the heights of the left and right subtrees to differ significantly. While the tree may still function correctly in such cases, its performance (both in terms of time and space) can degrade, particularly for large datasets. Without rebalancing, a BST can degenerate into a structure resembling a linked list, with a height of $O(n)$, where $n$ is the number of nodes, resulting in lookup performance equivalent to linear search. To maintain efficiency, balancing mechanisms are employed to keep the tree height bounded by $O(\log n)$, ensuring optimal performance even during updates (e.g. AVL, Red-Black).
+1. **Ordering Property** — for any given node, all values in the left subtree are less than the nodes's value, and all the values in the right subtree are greater than the node's value. This property is the core of BST, ensuring a hierarchical structure that supports efficient operations; any violation compromises the tree's integrity and reliability.
+
+2. **Duplicates** — while some implementations of BSTs disallow duplicates altogether, others allow them but require consistent handling. A common approach is to add a counter to each node to track the frequency of duplicate values, or to consistently place duplicates in either the left or right subtree. The decision is left to the developer and depends on the specific use case, but consistent handling is crucial to maintaining the BST’s structure.
+
+3. **Balancing** — insertions and deletions can affect the balance of a BST, causing the heights of the left and right subtrees to differ significantly. While the tree may still function correctly in such cases, its performance (both in terms of time and space) can degrade, particularly for large datasets. Without rebalancing, a BST can degenerate into a structure resembling a linked list, with a height of $O(n)$, where $n$ is the number of nodes, resulting in lookup performance equivalent to linear search. To maintain efficiency, balancing mechanisms are employed to keep the tree height bounded by $O(\log n)$, ensuring optimal performance even during updates (e.g. AVL, Red-Black).
 
 
 ## Container Methods
@@ -38,12 +39,17 @@ When working with BSTs, it's important to note that there is no universal standa
 
 ---
 **Compiler Generated**:
-- `Default Constructor` — creates an empty BST, initializing its internal structure to represent a tree with no nodes.
-- `Copy Constructor` — creates a new BST by copying the structure and values of another tree.
-- `Move Constructor` — creates a new BST by transferring the structure and values from another tree, leaving the original tree in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing the original memory.
-- `Copy Assignment Operator` — replaces the contents of the current BST with the structure and values of another tree by copying them.
-- `Move Assignment Operator` — replaces the contents of the current BST by transferring the structure and values from another tree, leaving the original tree in a valid but unspecified state.
-- `Destructor` — performs clean up on the BST: deallocates memory for stored nodes and properly handles any associated resources, ensuring no memory leaks.
+- `Default Constructor` — creates an empty BST.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new BST by copying the structure and values of another BST.
+  - if the other BST is empty, initializes an empty BST.
+- `Move Constructor` — creates a new BST by transferring ownership of the memory from another BST, leaving the original BST in a valid but unspecified state.
+  - if the other BST is empty, initializes an empty BST.
+- `Copy Assignment Operator` — overwrites each element of already existing BST with the corresponding element of another BST by copying them.
+  - if the other BST is empty, initializes an empty BST.
+- `Move Assignment Operator` — overwrites each element of already existing BST with the corresponding element of another BST by transferring ownership of the memory from another BST, leaving the original BST in a valid but unspecified state.
+  - if the other BST is empty, initializes an empty BST.
+- `Destructor` — releases the BST's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -75,8 +81,7 @@ When working with BSTs, it's important to note that there is no universal standa
 **Capacity**:
 - `empty()` — returns `true` if the tree contains no nodes; otherwise `false`.
 - `size()` — returns the total number of nodes in the tree.
-- `maxSize()` — returns the theoretical maximum number of nodes the tree can hold, depending on memory limits.
-  - return value depends on platform architecture and the size of the node structure.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically based on system's memory limitations, if all available memory were dedicated to that single container.
 - `height(val)` — returns the height of the given's value node, which is the length (number of edges) of the longest path from the node to a leaf.
   - if the value is not found in the tree, it returns `-1`;
   - the height of a leaf node is `0`.

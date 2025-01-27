@@ -52,17 +52,21 @@ When working with stack, it's important to note that there is no universal stand
 
 ---
 **Compiler Generated:**
-- `Default Constructor` — creates an empty stack, initializing its internal structure to represent a collection with no elements. Metadata such as size is set to indicate an empty state.
-- `Copy Constructor` — creates a new stack by copying elements and metadata from another stack.
-- `Move Constructor` — creates a new stack by transferring ownership of elements and metadata from another stack, leaving the original stack in a valid but unspecified state. This avoids the overhead of copying by efficiently reusing memory through ownership transfer.
-- `Copy Assignment Operator` — overwrites the existing stack with the elements and metadata of another stack by copying them.
-- `Move Assignment Operator` — overwrites the existing stack with the elements and metadata of another stack by transferring ownership, leaving the original stack in a valid but unspecified state. This avoids the overhead of copying by reusing the original memory.
-- `Destructor` — performs cleanup on the stack: deallocates memory for stored elements and ensures no memory leaks.
+- `Default Constructor` — creates an empty stack.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new stack by copying the structure and values of another stack.
+  - if the other stack is empty, initializes an empty stack.
+- `Move Constructor` — creates a new stack by transferring ownership of the memory from another stack, leaving the original stack in a valid but unspecified state.
+  - if the other stack is empty, initializes an empty stack.
+- `Copy Assignment Operator` — overwrites each element of already existing stack with the corresponding element of another stack by copying them.
+  - if the other stack is empty, initializes an empty stack.
+- `Move Assignment Operator` — overwrites each element of already existing stack with the corresponding element of another stack by transferring ownership of the memory from another stack, leaving the original stack in a valid but unspecified state.
+  - if the other stack is empty, initializes an empty stack.
+- `Destructor` — releases the stack's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
 
 ---
 **Iterators:**
 - **Not Typically Provided** — stack implementations, such as `std::stack`, do not provide iterators because stacks are designed to enforce the LIFO principle, restricting access to only the top element. This ensures that the stack abstraction remains intact and prevents iteration, which could violate the conceptual constraints of the data structure. If iteration is needed, it is typically performed by accessing the underlying container (e.g. `std::deque`, `std::vector`, `std::list`).
-
 
 ---
 **Element Access:**
@@ -73,7 +77,7 @@ When working with stack, it's important to note that there is no universal stand
 ---
 **Capacity:**
 - `empty()` — returns `true` if the stack is empty, otherwise `false`.
-- `size()` — returns the number of elements currently stored in the stack.
+- `size()` — returns the total number of elements in the stack.
 
 ---
 **Modifiers:**

@@ -39,12 +39,17 @@ When working with singly linked list, it's important to note that there is no un
 
 ---
 **Compiler Generated:**
-- `Default Constructor` — creates a new singly linked list with no nodes.
-- `Copy Constructor` — creates a new singly linked list by copying elements from another list.
-- `Move Constructor` — creates a new singly linked list by moving elements from another list, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- `Copy Assignment Operator` — overwrites every element of already existing singly linked list with the corresponding element of another list by copying them.
-- `Move Assignment Operator` — overwrites every element of already existing singly linked list with the corresponding element of another list by moving them, leaving the original list in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- `Destructor` — performs end-actions on singly linked list: deallocates all nodes in the list, calling destructors for complex data types to ensure resources are cleaned up.
+- `Default Constructor` — creates an empty list.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new list by copying the structure and values of another list.
+  - if the other list is empty, initializes an empty list.
+- `Move Constructor` — creates a new list by transferring ownership of the memory from another list, leaving the original list in a valid but unspecified state.
+  - if the other list is empty, initializes an empty list.
+- `Copy Assignment Operator` — overwrites each element of already existing list with the corresponding element of another list by copying them.
+  - if the other list is empty, initializes an empty list.
+- `Move Assignment Operator` — overwrites each element of already existing list with the corresponding element of another list by transferring ownership of the memory from another list, leaving the original list in a valid but unspecified state.
+  - if the other list is empty, initializes an empty list.
+- `Destructor` — releases the list's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
 
 ---
 **Iterators:**
@@ -54,13 +59,14 @@ When working with singly linked list, it's important to note that there is no un
 
 ---
 **Element Access:**
-- `front()` — returns the first element in the container; calling on an empty container causes undefined behavior.
+- `front()` — returns the first element in the container.
+  - calling on an empty container results in undefined behavior.
 
 ---
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
-- `size()` — returns the number of elements in the container; basically distance from begin to end.
-- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
+- `size()` — returns the total number of elements in the list, equivalent to the distance between `begin` and `end`.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically based on system's memory limitations, if all available memory were dedicated to that single container.
 
 ---
 **Modifiers:**
@@ -171,8 +177,7 @@ public:
 	//  Compiler Generated
 	// --------------------
 	Node() : _data(0), _next(nullptr) {}
-	Node(const int& val, Node* next = nullptr)
-	 : _data(val), _next(next) {}
+	Node(const int& val, Node* next = nullptr) : _data(val), _next(next) {}
 	Node(const Node& other)          = delete; // no copying/moving to
 	Node(Node&& other)               = delete; // ensure uniqueness of 
 	Node& operator=(const Node& rhs) = delete; // the node within the list
@@ -318,7 +323,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 ---
 🧠 **Space Expenses:**
-- **Pointer Overhead** — each node stores an additional pointer to the next node.
+- **Pointer Overhead** — each node stores an additional pointer to the next node, regardless of whether the node actually has next or not.
 - **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, potentially causing fragmentation and reducing cache efficiency.
 
 

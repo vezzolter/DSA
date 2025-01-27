@@ -193,9 +193,7 @@ For contact details and additional information, please refer to the [root direct
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 3.1: Building Blocks
   - Section 3.2: Arrays
-  - Section 4: Abstract Data Types
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 3.1: Abstract Data Types
   - Section 3.3: `vector` and `list` in the STL
   - Section 3.4: implementation of `vector`
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
@@ -218,10 +216,9 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**
 - [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)) (Wikipedia)
 - [Dynamic array](https://en.wikipedia.org/wiki/Dynamic_array) (Wikipedia)
-- [Pointer Arithmetic](https://hackingcpp.com/cpp/lang/pointer_arithmetic.html)
-- [std::array](https://en.cppreference.com/w/cpp/container/array)
-- [std::vector](https://en.cppreference.com/w/cpp/container/vector)
-- [Iterator library](https://en.cppreference.com/w/cpp/iterator)
+- [std::array](https://en.cppreference.com/w/cpp/container/array) (Documentation)
+- [std::vector](https://en.cppreference.com/w/cpp/container/vector) (Documentation)
+- [Iterator library](https://en.cppreference.com/w/cpp/iterator) (Documentation)
 - [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
 
 

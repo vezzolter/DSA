@@ -15,9 +15,7 @@
 CLL::CLL() : _size(0), _head(nullptr) {}
 
 // Constructs a list with 'size' copies of elements with 'val'
-CLL::CLL(int size, int val) 
-	: _size(size), _head(nullptr) {
-
+CLL::CLL(int size, int val)  : _size(size), _head(nullptr) {
 	_head = new Node(val);
 
 	Node* curr = _head;
@@ -31,9 +29,7 @@ CLL::CLL(int size, int val)
 }
 
 // Constructs a list with the contents of 'other'
-CLL::CLL(const CLL& other)
-	: _size(other._size) {
-
+CLL::CLL(const CLL& other) : _size(other._size) {
 	if (!other._head) {
 		_head = nullptr;
 		return;
@@ -81,7 +77,7 @@ CLL& CLL::operator=(const CLL& rhs) {
 	return *this;
 }
 
-// Destructs the list
+// Performs final cleanup and terminates the object
 CLL::~CLL() {
 	Node* curr = _head;
 	for (Node* next = nullptr; ; ) {
@@ -157,7 +153,6 @@ void CLL::insertAfter(iterator pos, const int& val) {
 	if (curr->_next == _head) {
 		newNode->_next = _head;
 		curr->_next = newNode;
-
 	} else {
 		newNode->_next = curr->_next;
 		curr->_next = newNode;
@@ -182,7 +177,6 @@ void CLL::eraseAfter(iterator pos) {
 			curr->_next = _head->_next;
 			delete _head;
 			_head = curr->_next;
-
 		} else {
 			curr->_next = nodeToDelete->_next;
 			delete nodeToDelete;
@@ -201,7 +195,6 @@ void CLL::pushFront(const int& val) {
 		// Case: empty list
 		newNode->_next = newNode; // point to itself to maintain circularity
 		_head = newNode;         
-
 	} else {
 		// Maintain circularity via tail pointer,
         // whose _next will allow to link back
@@ -375,16 +368,14 @@ void CLL::resize(int size, const int& val) {
 
 // Exchanges the contents of the list with those of 'other'
 void CLL::swap(CLL& other) {
-	// Case: the list
+	// Case: the same list
 	if (this == &other) { return; }
 
-	// Swap the head pointers
-	Node* tempHead = _head;
+	Node* head = _head;
 	_head = other._head;
-	other._head = tempHead;
+	other._head = head;
 
-	// Swap the sizes
-	int tempSize = _size;
+	int size = _size;
 	_size = other._size;
-	other._size = tempSize;
+	other._size = size;
 }

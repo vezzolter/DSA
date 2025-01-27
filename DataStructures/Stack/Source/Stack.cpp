@@ -15,13 +15,10 @@
 Stack::Stack() : _size(0), _capacity(0), _data(nullptr) {}
 
 // Constructs a stack with the contents of 'other'
-Stack::Stack(const Stack& other)
-    : _size(other._size), _capacity(other._capacity) {
-
+Stack::Stack(const Stack& other) : _size(other._size), _capacity(other._capacity) {
     if (other._data) {
         _data = new int[_capacity];
         for (int i = 0; i < _size; ++i) { _data[i] = other._data[i]; }
-
     } else {
         _data = nullptr;
     }
@@ -46,7 +43,7 @@ Stack& Stack::operator=(const Stack& rhs) {
     return *this;
 }
 
-// Destructs the stack 
+// Performs final cleanup and terminates the object
 Stack::~Stack() { delete[] _data; }
 
 

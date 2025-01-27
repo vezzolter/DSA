@@ -355,7 +355,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 ---
 🧠 **Space Expenses:**
-- **Pointer Overhead** — each node contains two pointers to the previous and to the next element.
+- **Pointer Overhead** — each node contains two pointers to the previous and to the next element, regardless of whether the node actually has them or not.
 - **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, potentially causing fragmentation and reducing cache efficiency.
 
 

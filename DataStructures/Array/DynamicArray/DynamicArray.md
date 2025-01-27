@@ -44,12 +44,17 @@ When working with dynamic array, it's important to note that there is no univers
 
 ---
 **Compiler Generated:**
-- `Default Constructor` — creates a new array: for primitive data types allocates space without initializing, for complex data types calls their corresponding constructors.
-- `Copy Constructor` — creates a new array by copying elements from another array.
-- `Move Constructor` — creates a new array by moving elements from another array, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- `Copy Assignment Operator` — overwrites every element of already existing array with the corresponding element of another array by copying them.
-- `Move Assignment Operator` — overwrites every element of already existing array with the corresponding element of another array by moving them, leaving the original array in a valid, but unspecified state. This avoids the overhead of copying and instead merely shifts the ownership of the memory.
-- `Destructor` — performs end-actions on array: deallocates all elements in the array, calling destructors for complex data types to ensure resources are cleaned up.
+- `Default Constructor` — creates an empty array.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new array by copying the structure and values of another array.
+  - if the other array is empty, initializes an empty array.
+- `Move Constructor` — creates a new array by transferring ownership of the memory from another array, leaving the original array in a valid but unspecified state.
+  - if the other array is empty, initializes an empty array.
+- `Copy Assignment Operator` — overwrites each element of already existing array with the corresponding element of another array by copying them.
+  - if the other array is empty, initializes an empty array.
+- `Move Assignment Operator` — overwrites each element of already existing array with the corresponding element of another array by transferring ownership of the memory from another array, leaving the original array in a valid but unspecified state.
+  - if the other array is empty, initializes an empty array.
+- `Destructor` — releases the array's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
 
 ---
 <p align="center"><img src="./Images/OperationsIterators.png"/></p>
@@ -64,19 +69,23 @@ When working with dynamic array, it's important to note that there is no univers
 <p align="center"><img src="./Images/OperationsAccess.png"/></p>
 
 **Element Access:**
-- `at()` — returns specified element with bounds checking; if element is not within the range of the container, throws an exception.
-- `operator[]` — returns specified element without bounds checking; accessing a nonexistent element through this operator is undefined behavior.
-- `front()` — returns the first element in the container; calling on an empty container causes undefined behavior.
-- `back()` — returns the last element in the container; calling on an empty container causes undefined behavior.
+- `at()` — returns specified element with bounds checking.
+  - if the specified element is out of range, throws an exception.
+- `operator[]` — returns specified element without bounds checking.
+  - accessing an element outside the range of the container results in undefined behavior
+- `front()` — returns the first element in the container.
+  - calling on an empty container results in undefined behavior.
+- `back()` — returns the last element in the container.
+  - calling on an empty container results in undefined behavior.
 
 ---
 **Capacity:**
 - `empty()` — returns `true` if container is empty, otherwise `false`.
-- `size()` — returns the number of elements in the container; basically distance from begin to end.
-- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically, if all available memory were dedicated to that single container.
+- `size()` — returns the total number of elements in the array, equivalent to the distance between `begin` and `end`.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically based on system's memory limitations, if all available memory were dedicated to that single container.
 - `capacity()` — returns the number of elements that can be held in currently allocated storage.
 - `reserve()` — increases the capacity of the array to a value that's greater or equal to given capacity; if given capacity is greater than current, new storage is allocated, otherwise does nothing.
-- `shrinkToFit()` — reduces the capacity to the size of an array
+- `shrinkToFit()` — reduces the capacity to match the current size of the array, potentially deallocating unused memory.
 
 ---
 <p align="center"><img src="./Images/OperationsModifiers.png"/></p>
@@ -90,6 +99,8 @@ When working with dynamic array, it's important to note that there is no univers
 - `clear()` — erases all elements from the container; invalidates any references, pointers, and iterators referring to contained elements; doesn't change capacity.
 - `resize()` — resizes the container to contain given amount of elements; if given amount equals to size, does nothing; if given amount is less than size, the container is reduced to its first given elements; if given amount is greater, additional default (or specified) elements are appended.
 - `swap()` — exchanges the contents of the container with other given container; doesn't cause iterators and references to associate with the other container.
+
+
 
 # &#x1F4BB; Implementation 
 The implemented console application demonstrates the basic functionality of the dynamic array by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
