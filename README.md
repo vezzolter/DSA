@@ -51,7 +51,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
-    - GCD (Greatest Common Divisor)
+    - [Euclidean Algorithm](https://github.com/vezzolter/DSA/tree/euclidean/Algorithms/Recursion/EuclideanAlgorithm) 🎯
     - Taylor Series (?)
   - Divide-and-Conquer
     - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
@@ -68,6 +68,7 @@ This list provides a straightforward overview of the repository's contents. For 
   - Dynamic Programming
     - DynamicProgramming.md
     - Kadane's Algorithm
+    - Longest Increasing Subsequence
   - Greedy Programming
     - GreedyProgramming.md
     - Huffman Encoding
@@ -93,6 +94,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - Kruskal's Algorithm
     - Floyd-Warshall Algorithm
     - A*
+    - Topological Sort
+    - Tarjan’s Algorithm
+    - Kosaraju’s Algorithm
 - Data Structures
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
@@ -110,7 +114,14 @@ This list provides a straightforward overview of the repository's contents. For 
     - Red-Black Tree 
     - B-Tree
     - Trie
+    - Fenwick Tree
+    - Segment Tree
+    - Suffix Tree (?)
+    - K-Dimension Tree (?)
   - Graph
+    - Adjacency List
+    - Adjacency Matrix
+    - Incidence Matrix
   - Stack
     - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
     - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
@@ -120,17 +131,18 @@ This list provides a straightforward overview of the repository's contents. For 
     - Double-Ended Queue
     - Circular Queue
     - Priority Queue
+  - Heap
+    - Heap.md
+    - Max-Heap
+    - Min-Heap
   - String
     - [String.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/String/String.md) ✅
     - [String](https://github.com/vezzolter/DSA/tree/main/DataStructures/String) ✅
-  - Heap
   - Hash
-- General
-    - [Analysis.md](https://github.com/vezzolter/DSA/tree/main/General/Analysis/Analysis.md) 🔄
-    - Validation
-    - Testing
-    - Optimization
-    - Security
+    - Hash.md
+    - Hash Table
+    - Hash Map
+    - Hash Set
 
 
 
