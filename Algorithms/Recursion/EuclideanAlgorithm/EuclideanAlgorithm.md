@@ -23,7 +23,9 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Euclidean Algorithm** is one of the oldest and most efficient methods for computing the greatest common divisor (GCD) of two integers, widely used in number theory and various algorithmic applications. It is named after the ancient Greek mathematician Euclid, who first described it in his work Elements. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/EuclideanAlgorithm.png"/></p>
+
 
 
 ## Introduction
