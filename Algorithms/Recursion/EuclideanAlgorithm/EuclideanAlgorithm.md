@@ -105,7 +105,25 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#128218; **Books:**
+- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+  - Section 31.2: Greatest common divisor
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 5.1: Recursive Algorithms
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 2.4: Running-Time Calculations
+- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+  - Section 9.2.3: Least Common Multiple
+
+---
+&#127891; **Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Section 5: Recursion
+
+---
+&#127760; **Web-Resources:**
+- [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) (Wikipedia)
+- [Greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor) (Wikipedia)
 
 
 
