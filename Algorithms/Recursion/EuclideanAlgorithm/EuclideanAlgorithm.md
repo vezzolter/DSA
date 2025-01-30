@@ -2,7 +2,7 @@
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
-  - [Algorithm Steps](#algorithm-steps)
+  - [Algorithm Steps (Recursive)](#algorithm-steps-recursive)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
@@ -23,21 +23,36 @@
 
 
 # &#128161; Overview
-The **Euclidean Algorithm** is one of the oldest and most efficient methods for computing the greatest common divisor (GCD) of two integers, widely used in number theory and various algorithmic applications. It is named after the ancient Greek mathematician Euclid, who first described it in his work Elements. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **Euclidean Algorithm** is one of the oldest and most efficient methods for computing the greatest common divisor (GCD) of two integers, widely used in number theory, cryptography and various other algorithmic applications. It is named after the ancient Greek mathematician Euclid, who first described it in his work Elements. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/EuclideanAlgorithm.png"/></p>
 
 
-
 ## Introduction
-Currently in Progress...
+The core idea behind finding the GCD of two integers using the Euclidean algorithm is that we repeatedly replace the larger number with its remainder when divided by the smaller number, continuing until one of the numbers becomes zero. The last nonzero number is the GCD. Mathematically, this is expressed as:
+
+$
+\gcd(a, b) =
+\begin{cases} 
+b, & \text{if } (a \mod b) = 0 \\  
+\gcd(b, a \mod b), & \text{otherwise}
+\end{cases}
+$
 
 
 ## Important Details
-Currently in Progress...
+1. The algorithm operates on **two non-negative integers**.
+
+2. The core property of algorithm lies in the fact that equation $\gcd(a, b) = \gcd(b, a \mod b)$ holds at every step, ensuring that the **GCD remains unchanged** throughout the process.
+
+3. The algorithm can be implemented both **recursively and iteratively**, where the recursive approach mirrors the mathematical definition, while the iterative version is more efficient as it avoids function call overhead.
+
+4. There are many other interesting concepts related to the Euclidean Algorithm, such as Bézout’s identity, the extended Euclidean algorithm, and its connection to LCM, but the most essential ones for a basic understanding of the algorithm have been covered.
 
 
-## Algorithm Steps
-Currently in Progress...
+## Algorithm Steps (Recursive)
+1. Define the base case, based on the rule $\gcd(a, 0) = a$.
+2. Define the recursive case, based on the rule $\gcd(a, b) = \gcd(b, a \mod b)$.
+
 
 
 # &#x1F4BB; Implementation
