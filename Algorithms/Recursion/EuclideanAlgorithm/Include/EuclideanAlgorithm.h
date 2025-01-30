@@ -1,4 +1,4 @@
-// Title:   Header file for Euclidean Algorithm
+// Title:   Header file for Euclidean Algorithm (Recursive)
 // Authors: by vezzolter
 // Date:    January 28, 2025
 // ----------------------------------------------------------------------------
@@ -8,7 +8,7 @@
 #define EUCLIDEAN_H
 
 
-void euclidean();
+int euclidean(int a, int b);
 
 
 #endif // EUCLIDEAN_H

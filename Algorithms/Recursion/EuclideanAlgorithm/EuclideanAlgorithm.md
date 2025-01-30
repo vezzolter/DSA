@@ -56,16 +56,25 @@ $
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program prompts the user to input two non-negative integers, computes their GCD using a recursive implementation of the Euclidean Algorithm, and displays the result.  
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
-Currently in Progress...
+Algorithm implemented within the function `euclidean()`, which is declared in [EuclideanAlgorithm.h](https://github.com/vezzolter/DSA/blob/euclidean/Algorithms/Recursion/EuclideanAlgorithm/Include/EuclideanAlgorithm.h) header file and defined in [EuclideanAlgorithm.cpp](https://github.com/vezzolter/DSA/blob/euclidean/Algorithms/Recursion/EuclideanAlgorithm/Source/EuclideanAlgorithm.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of factorial computation is conducted within the `main()` function located in the [Maincpp](https://github.com/vezzolter/DSA/blob/euclidean/Algorithms/Recursion/EuclideanAlgorithm/Source/Main.cpp) file. Below you can find related code snippets.
 
+```cpp
+int euclidean(int a, int b) {
+	if (b == 0) { return a; }
+	return euclidean(b, a % b);
+}
+```
 
 
 ## Detailed Walkthrough
