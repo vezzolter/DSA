@@ -78,11 +78,14 @@ int euclidean(int a, int b) {
 
 
 ## Detailed Walkthrough
-Currently in Progress...
-
-
-## Call Stack Interaction
-Currently in Progress...
+1. Start by setting up the base case, where if `b` $= 0$, the function immediately returns `a`. 
+```cpp
+  if (b == 0) { return a; }
+```
+2. If `b` $\neq 0$, proceed to the recursive step by calling the function with `b` as the new first argument and the remainder of dividing `a` by `b` as the new second argument. This progressively reduces the values of `a` and `b` until the base case is reached.
+```cpp
+  return euclidean(b, a % b);
+```
 
 
 
