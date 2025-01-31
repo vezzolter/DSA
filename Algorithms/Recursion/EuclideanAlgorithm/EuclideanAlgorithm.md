@@ -90,15 +90,25 @@ int euclidean(int a, int b) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations, and capabilities. Additionally, understanding its strengths and weaknesses enables more informed decisions, helping to determine the most suitable algorithm for a given problem among alternative approaches.
 
 
 ## Algorithm Characteristics
-Currently in Progress...
+- **Time Complexities:**  
+  - $O(\log \min(a, b))$ — еhe number of recursive calls is determined by how many times the smaller number can be reduced before reaching zero, as each step shrinks the remainder to at most half of the previous value in the worst case, causing the number to decrease exponentially and resulting in a logarithmic number of steps.
+- **Auxiliary Space Complexity:** 
+   - $O(n)$ — some memory gets allocated in the stack, which depends on the amount of calls.
 
 
-## Algorithm Comparison
-Currently in Progress...
+## Trade-Offs
+➕ **Advantages:**  
+- **Easy to Follow** — algorithm consists of a simple steps making it straightforward to understand and apply.  
+- **Fast Computation** — algorithm efficiently finds the GCD in $O(\log \min(a, b))$ time, with variations (e.g. extended, binary) further optimizing performance in specific cases.  
+- **Robust Input Handling** — algorithm works efficiently for both small and large numbers, regardless of whether they are prime, composite, or relatively prime.  
+
+---  
+➖ **Disadvantages:**  
+- **Call Stack Overhead** — while algorithm requires auxiliary space for function calls in the recursive implementation, it can be reduced to $O(1)$ in the iterative version.  
 
 
 
