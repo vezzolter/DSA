@@ -67,7 +67,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-Algorithm implemented within the function `euclidean()`, which is declared in [EuclideanAlgorithm.h](https://github.com/vezzolter/DSA/blob/euclidean/Algorithms/Recursion/EuclideanAlgorithm/Include/EuclideanAlgorithm.h) header file and defined in [EuclideanAlgorithm.cpp](https://github.com/vezzolter/DSA/blob/euclidean/Algorithms/Recursion/EuclideanAlgorithm/Source/EuclideanAlgorithm.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of factorial computation is conducted within the `main()` function located in the [Maincpp](https://github.com/vezzolter/DSA/blob/euclidean/Algorithms/Recursion/EuclideanAlgorithm/Source/Main.cpp) file. Below you can find related code snippets.
+Algorithm implemented within the function `euclidean()`, which is declared in [EuclideanAlgorithm.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/EuclideanAlgorithm/Include/EuclideanAlgorithm.h) header file and defined in [EuclideanAlgorithm.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/EuclideanAlgorithm/Source/EuclideanAlgorithm.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of factorial computation is conducted within the `main()` function located in the [Maincpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/EuclideanAlgorithm/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
 int euclidean(int a, int b) {
