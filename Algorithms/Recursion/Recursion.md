@@ -91,7 +91,7 @@ When working with concepts that lack standalone functionality, there aren’t pr
 The focus here is on understanding how these concepts are applied in specific algorithmic solutions. Below are implementations of popular algorithms that showcase how recursion can be used in practice:
 - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
 - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
-- GCD (Greatest Common Divisor)
+- [Euclidean Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/EuclideanAlgorithm) ✅
 - Taylor Series (?)
 
 
