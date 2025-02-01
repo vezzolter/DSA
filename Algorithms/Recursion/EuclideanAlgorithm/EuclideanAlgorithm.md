@@ -113,16 +113,27 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **GCD Calculation** — algorithm is used to efficiently compute the GCD of two numbers. By iteratively reducing the problem size, it finds the largest integer that divides both numbers without a remainder, making it fundamental in number theory.
 
+- **Fraction Simplification** — algorithm is applied to reduce fractions to their simplest form. By computing $\gcd(a, b)$, both the numerator and denominator can be divided by their GCD, ensuring the fraction is in its lowest terms.
+
+- **Modular Arithmetic** — algorithm is used to compute modular inverses in number theory and cryptography. The Extended Euclidean Algorithm finds coefficients satisfying $ax + by = \gcd(a, b)$, which is essential for solving modular equations and encryption systems like RSA.
+
+- **Least Common Multiple Computation** — algorithm is utilized to compute the LCM efficiently. Using the formula $\text{lcm}(a, b) = \frac{|a \times b|}{\gcd(a, b)}$, it avoids prime factorization and speeds up LCM calculations.
+
+- **Solving Diophantine Equations** — algorithm is used to determine integer solutions for linear Diophantine equations of the form $ax + by = c$. If $\gcd(a, b)$ divides $c$, integer solutions exist and can be computed using the Extended Euclidean Algorithm.
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Find Greatest Common Divisor of Array](https://leetcode.com/problems/find-greatest-common-divisor-of-array)
+- [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings)
+- [GCD Sort of an Array](https://leetcode.com/problems/gcd-sort-of-an-array)
+- [Sorted GCD Pair Queries](https://leetcode.com/problems/sorted-gcd-pair-queries)
+- [Greatest Common Divisor Traversal](https://leetcode.com/problems/greatest-common-divisor-traversal)
 
 
 
