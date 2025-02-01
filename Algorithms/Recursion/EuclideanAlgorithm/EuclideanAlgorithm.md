@@ -138,7 +138,11 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The Euclidean Algorithm, one of the oldest known algorithms still in use today, was first documented in Elements by the Greek mathematician **Euclid** around 300 BCE. It is difficult to pinpoint exactly how the idea behind the Euclidean Algorithm was first conceived, as it likely emerged from practical problems in measuring and dividing quantities rather than from a purely theoretical approach. Ancient mathematicians may have independently discovered its principles through trial and error while working with lengths, areas, and ratios, gradually formalizing the process into a structured algorithm over time.
+
+Despite its long history, formal mathematical analysis of the Euclidean Algorithm only emerged in the 19th century. The first significant time complexity analysis is credited to **Gabriel Lamé** in 1844, who established that the number of steps is proportional to the number of digits in the smaller input. However, earlier work on the algorithm’s efficiency can be traced to **Antoine-André-Louis Reynaud** in 1811, **Émile Léger** in 1837, and **Pierre-Joseph-Étienne Finck** in 1841, who made key observations about its worst-case behavior and Fibonacci sequence connections.
+
+Over time, the algorithm has been optimized and extended in various ways, including the Extended Euclidean Algorithm, which finds coefficients satisfying Bézout’s identity, and the Binary GCD Algorithm, which improves performance in certain cases.
 
 
 
@@ -172,6 +176,7 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**
 - [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) (Wikipedia)
 - [Greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor) (Wikipedia)
+- [Origins of the Analysis of the Euclidean Algorithm ](https://www.sciencedirect.com/science/article/pii/S0315086084710317/pdf?md5=8f1036a4e7079a56daf22434498f19a6&pid=1-s2.0-S0315086084710317-main.pdf) (Research Paper)
 
 
 
