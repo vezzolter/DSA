@@ -14,7 +14,7 @@ Greetings! In this repository I'm dedicated to mastering problem-solving approac
 
 
 # &#128193; Structure
-This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «(?)». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
+This list provides a straightforward overview of the repository's contents. For a better navigation, completed projects (although they still can receive updates to improve quality) are marked with «✅», currently paused ones with «🔄», the main target under development with «🎯», and projects I am still considering adding are marked with «❔». The order in which they are arranged primarily serves the purpose of facilitating learning, namely, starting with the upper projects enables better comprehension of the subsequent ones. Please note, that this structure will remain dynamic and adaptable throughout its evolution.
 
 ---
 **The Structure:**
@@ -36,29 +36,29 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Linear Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/LinearSearch) ✅
     - [Binary Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/BinarySearch) ✅
     - [Interpolation Search](https://github.com/vezzolter/DSA/tree/main/Algorithms/Searching/InterpolationSearch) ✅
-    - Fibonacci Search (?)
-    - Exponential Search (?)
-    - Jump Search (?)
+    - Fibonacci Search ❔
+    - Exponential Search ❔
+    - Jump Search ❔
   - RNG
     - [RNG.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/RNG.md) 🔄
     - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MiddleSquareMethod) ✅
     - [LCG (Linear Conguential Generator)](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/LCG)  ✅
     - [Mersenne Twister](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MersenneTwister) ✅
-    - Xorshift
-    - PCG (Permuted Congruential Generator) (?)
-    - Xoshiro128 (?)
+    - [Xorshift](https://github.com/vezzolter/DSA/tree/xorshift/Algorithms/RNG/Xorshift) 🎯
+    - PCG (Permuted Congruential Generator)
+    - Xoshiro128 ❔
   - Recursion
     - [Recursion.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Recursion.md) ✅
     - [Factorial](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Factorial) ✅
     - [Fibonacci](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/Fibonacci) ✅
     - [Euclidean Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/Recursion/EuclideanAlgorithm) ✅
-    - Taylor Series (?)
+    - Taylor Series ❔
   - Divide-and-Conquer
     - [DivideAndConquer.md](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/DivideAndConquer.md) ✅
     - [Strassen's Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/StrassensAlgorithm) ✅
     - [Karatsuba Algorithm](https://github.com/vezzolter/DSA/tree/main/Algorithms/DivideAndConquer/KaratsubaAlgorithm) ✅
-    - FFT (Fast Fourier Transform) (?)
-    - Newton's Method (?)
+    - FFT (Fast Fourier Transform) ❔
+    - Newton's Method ❔
   - Two-Pointers
     - TwoPointers.md
     - Floyd's Tortoise and Hare Algorithm
@@ -116,8 +116,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - Trie
     - Fenwick Tree
     - Segment Tree
-    - Suffix Tree (?)
-    - K-Dimension Tree (?)
+    - Suffix Tree ❔
+    - K-Dimension Tree ❔
   - Graph
     - Adjacency List
     - Adjacency Matrix

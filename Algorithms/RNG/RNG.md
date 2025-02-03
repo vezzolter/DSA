@@ -75,9 +75,9 @@ Discussing practical implementations, it's evident that well-established and wid
   - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MiddleSquareMethod) ✅
   - [LCG (Linear Conguential Generator)](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/LCG)  ✅
   - [Mersenne Twister](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MersenneTwister) ✅
-  - Xorshift
-  - PCG (Permuted Congruential Generator) (?)
-  - Xoshiro128 (?)
+  - [Xorshift](https://github.com/vezzolter/DSA/tree/xorshift/Algorithms/RNG/Xorshift) 🎯
+  - PCG (Permuted Congruential Generator)
+  - Xoshiro128 ❔
 
 
 
