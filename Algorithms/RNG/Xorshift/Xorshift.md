@@ -97,7 +97,9 @@ For contact details and additional information, please refer to the [root direct
 
 
 # &#128591; Credits
-Currently in Progress...
+&#127760; **Web-Resources:**  
+- [Xorshift](https://en.wikipedia.org/wiki/Xorshift) (Wikipedia)
+- [On the xorshift random number generators](https://www.researchgate.net/publication/220136542_On_the_xorshift_random_number_generators) (Research Paper)
 
 
 
