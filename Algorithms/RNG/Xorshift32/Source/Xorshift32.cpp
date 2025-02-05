@@ -1,7 +1,7 @@
-// Title:   Source file for Xorshift
+// Title:   Source file for Xorshift32
 // Authors: by vezzolter
 // Date:    February 3, 2025
 // ----------------------------------------------------------------------------
 
 
-#include "Xorshift.h"
+#include "Xorshift32.h"

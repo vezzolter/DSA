@@ -1,12 +1,12 @@
-// Title:   Header file for Xorshift
+// Title:   Header file for Xorshift32
 // Authors: by vezzolter
 // Date:    February 3, 2025
 // ----------------------------------------------------------------------------
 
 
-#ifndef XORSHIFT_H
-#define XORSHIFT_H
+#ifndef XORSHIFT32_H
+#define XORSHIFT32_H
 
 
 
-#endif // XORSHIFT_H
+#endif // XORSHIFT32_H

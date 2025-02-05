@@ -1,16 +1,16 @@
-// Title:   Xorshift Algorithm
+// Title:   Xorshift32 Algorithm
 // Authors: by vezzolter
 // Date:    February 3, 2025
 // ----------------------------------------------------------------------------
 
 
 #include <iostream>
-#include "Xorshift.h"
+#include "Xorshift32.h"
 
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'Xorshift' console application!\n\n";
+	std::cout << "\tWelcome to the 'Xorshift32' console application!\n\n";
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";

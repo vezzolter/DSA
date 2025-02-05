@@ -22,7 +22,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Xorshift32** is a lightweight and early pseudorandom number generator (PRNG) that generates numbers using exclusive OR (XOR) and bit shifts, avoiding expensive arithmetic operations. The **Xorshift** name represents a family of PRNGs that rely on efficient bitwise operations to transform their internal state, while individual variants modify the family name to indicate differences in state size, transformation steps, or additional modifications. Xorshift32 is named this way because its internal state is stored in a 32-bit variable, and all transformations operate within that fixed size. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/Xorshift32.png"/></p>
 
 
 ## Introduction
