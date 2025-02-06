@@ -45,7 +45,13 @@ The program prompts the user to enter the number of random values to generate an
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Utilizing the standard library type uint32_t to represent the internal state as a single 32-bit value.
+- Using fixed seed value to ensure reproducible results.
+- Choosing range values that are easily interpretable by humans ($0-100$).
+- Limiting the number of elements to a relatively small ($10$).
+- Assuming valid input values from the user.
+- Omitting certain optimizations to the algorithm.
 
 
 ## Complete Implementation
