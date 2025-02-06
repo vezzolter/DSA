@@ -40,7 +40,8 @@ Currently in Progress...
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program prompts the user to enter the number of random values to generate and define the range, then it uses the implemented PRNG, Xorshift32, to generate and display the results.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
@@ -48,7 +49,18 @@ Currently in Progress...
 
 
 ## Complete Implementation
-Currently in Progress...
+PRNG is implemented within the class `Xorshift32`, which is declared in [Xorshift32.h](https://github.com/vezzolter/DSA/blob/xorshift/Algorithms/RNG/Xorshift32/Include/Xorshift32.h) header file and defined in [Xorshift32.cpp](https://github.com/vezzolter/DSA/blob/xorshift/Algorithms/RNG/Xorshift32/Source/Xorshift32.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/xorshift/Algorithms/RNG/Xorshift32/Source/Main.cpp) file. Below you can find declaration of the class.
+
+```cpp
+class Xorshift32 {
+private:
+	uint32_t state;
+
+public:
+	explicit Xorshift32(uint32_t seed);
+	uint32_t generate();
+};
+```
 
 
 ## Detailed Walkthrough
