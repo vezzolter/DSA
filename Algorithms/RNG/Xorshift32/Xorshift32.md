@@ -27,15 +27,31 @@ The **Xorshift32** is a lightweight and early pseudorandom number generator (PRN
 
 
 ## Introduction
-Currently in Progress...
+Xorshift32 is a simple way to generate random numbers using bitwise operations. Instead of relying on complex mathematical formulas, it works by storing a number (internal state) and repeatedly modifying it using a combination of XOR (exclusive OR) and bit shifts. The shifts follow a specific sequence with constants selected through extensive testing to ensure a maximum period of $2^{32} - 1$ ($4,294,967,295$) and high-quality randomness. Each transformation efficiently spreads and mixes bits, producing values that are highly unpredictable. The updated number then becomes the new internal state, continuing the sequence.
 
 
 ## Important Details
-Currently in Progress...
+1. Algorithm is highly depended on choosing the correct constants:
+   - `a = 13` — the first shift constant, responsible for spreading higher bits into lower positions, ensuring a wider influence of bits across the state.  
+   - `b = 17` — the second shift constant, applied in the opposite direction, introducing non-linearity and disrupting simple bit propagation.
+   - `c = 5` — the final shift constant, further refining the randomness and ensuring additional scrambling of bits.
+2. Algorithm is highly depended on choosing the correct order of shifts:
+   - `<<` — the first left shift expands high-order bits into lower positions, ensuring that previously unoccupied bits gain new information.
+   - `>>` — the right shift counteracts some of the previous expansion, introducing controlled bit reduction and increasing unpredictability.
+   - `<<` — the final left shift reinforces mixing, ensuring that the transformation is not easily reversible and maximizes the spread of bit changes.
 
 
 ## Algorithm Steps
-Currently in Progress...
+1. Set the internal state to an initial non-zero $32$-bit seed value.
+2. Perform a left shift by 13 bits and XOR the result with the state:  
+   ${\text{state} = \text{state} \oplus (\text{state} \ll 13)}$
+3. Perform a right shift by 17 bits and XOR the result with the state:  
+   ${\text{state} = \text{state} \oplus (\text{state} \gg 17)}$
+4. Perform a left shift by 5 bits and XOR the result with the state:  
+    ${\text{state} = \text{state} \oplus (\text{state} \ll 5)}$
+5. Return the updated state as the next random number.
+6. Repeat the process for each new number generated.
+
 
 
 
