@@ -86,20 +86,34 @@ public:
 
 
 ## Detailed Walkthrough
-Currently in Progress...
-
-
+1. Start by calling the constructor `Xorshift32()` with a seed value. This initializes the internal state with the given seed while ensuring it is never zero.
+```cpp
+  Xorshift32::Xorshift32(uint32_t seed) {
+      state = seed ? seed : 1;
+  }
+```
+2. Once the PRNG is initialized, the user can call the `generate()` function to produce a new random number. Inside this function, the internal state is modified using a sequence of XOR and shift operations discussed earlier.
+```cpp
+  state ^= state << 13;
+  state ^= state >> 17;
+  state ^= state << 5;
+```
+3. Return the updated state the next random number.
+```cpp
+  return state;
+```
+4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the PRNG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
+```cpp
+	for (int i = 0; i < n; ++i) {
+		uint32_t randomNumber = minVal + (prng.generate() % (maxVal - minVal + 1));
+		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
+	}
+```
 
 # &#128202; Analysis
-Currently in Progress...
+Will be updated in future...
 
-
-## Algorithm Characteristics
-Currently in Progress...
-
-
-## Trade-Offs
-Currently in Progress...
+> **Note:** I'm currently considering how to best structure this section, as it involves several characteristics that I find intriguing to explore, such as period, distribution, predictability, and correlation.
 
 
 
