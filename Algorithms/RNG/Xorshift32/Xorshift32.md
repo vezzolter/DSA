@@ -131,7 +131,9 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The Xorshift family of PRNGs was introduced in **2003** by American mathematician and computer scientist **George Marsaglia**. A pioneer in random number generation, Marsaglia had already made significant contributions to the field, including the **Marsaglia Polar Method** for generating normally distributed numbers and the **Ziggurat algorithm**. By the early 2000s, he was exploring fast, efficient PRNGs that relied purely on bitwise operations, aiming to eliminate costly arithmetic computations.
+
+Marsaglia’s breakthrough came with the realization that exclusive OR (XOR) and bit shifts could be combined to produce high-speed random sequences with long periods. His 2003 paper, Xorshift RNGs, outlined the theory behind the method and provided tested shift constants that ensured maximum period length while maintaining good statistical properties. Xorshift PRNGs quickly gained attention due to their simplicity, efficiency, and suitability for performance-critical applications. Although Xorshift32 was the simplest form, variations such as **Xorshift128**, **Xorshift64**, and **Xorshift+** were later introduced to improve randomness and address statistical weaknesses. In **2014**, the development of **Xoshiro** and **Xoroshiro PRNGs** by **David Blackman** and **Sebastiano Vigna** built upon the principles of Xorshift, refining its statistical performance while maintaining its speed, ensuring its influence on the design of modern high-speed PRNGs.
 
 
 
