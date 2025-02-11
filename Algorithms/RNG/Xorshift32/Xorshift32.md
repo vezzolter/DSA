@@ -110,6 +110,8 @@ public:
 	}
 ```
 
+
+
 # &#128202; Analysis
 Will be updated in future...
 
@@ -118,15 +120,19 @@ Will be updated in future...
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. While there aren’t specific problems designed to practice this exact approach, the concept of randomness it implements is essential for solving many foundational challenges that test the core idea of randomness itself, applicable across various algorithms. 
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Basic Randomness Generation** — PRNG is used in applications where fast and lightweight randomness is needed without high statistical quality. Xorshift32’s reliance on simple bitwise operations makes it ideal for scenarios requiring quick, non-secure random values with minimal computational overhead.
+
+- **Procedural Content Generation** — PRNG is used in gaming, graphics, and simulation environments to create randomized worlds, textures, or assets. Xorshift32’s efficiency allows it to generate vast amounts of pseudo-random data quickly, making it a suitable choice when performance is a priority over statistical quality.
+
+- **Basic Simulations and Testing** — PRNG is used in Monte Carlo simulations, randomized testing, and algorithm benchmarking where deterministic yet fast randomness is sufficient. Xorshift32’s simplicity ensures that it provides repeatable sequences without introducing unnecessary computational overhead.
 
 
 ## Some Practical Problems
-Currently in Progress...
+- Refer to [RNG's Practical Problems](../RNG/RNG.md#some-practical-problems) for examples of problems that explore randomness as a fundamental concept.
 
 
 
