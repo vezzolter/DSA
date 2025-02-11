@@ -71,7 +71,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-PRNG is implemented within the class `Xorshift32`, which is declared in [Xorshift32.h](https://github.com/vezzolter/DSA/blob/xorshift/Algorithms/RNG/Xorshift32/Include/Xorshift32.h) header file and defined in [Xorshift32.cpp](https://github.com/vezzolter/DSA/blob/xorshift/Algorithms/RNG/Xorshift32/Source/Xorshift32.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/xorshift/Algorithms/RNG/Xorshift32/Source/Main.cpp) file. Below you can find declaration of the class.
+PRNG is implemented within the class `Xorshift32`, which is declared in [Xorshift32.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/Xorshift32/Include/Xorshift32.h) header file and defined in [Xorshift32.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/Xorshift32/Source/Xorshift32.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/Xorshift32/Source/Main.cpp) file. Below you can find declaration of the class.
 
 ```cpp
 class Xorshift32 {
@@ -132,7 +132,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-- Refer to [RNG's Practical Problems](../RNG/RNG.md#some-practical-problems) for examples of problems that explore randomness as a fundamental concept.
+- Refer to [RNG's Practical Problems](../RNG.md#some-practical-problems) for examples of problems that explore randomness as a fundamental concept.
 
 
 
