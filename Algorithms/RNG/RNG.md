@@ -37,6 +37,7 @@
   - **Uniform Distribution** — where every value within a given range has the same probability of occurring.
   - **Normal (Gaussian/Bell) Distribution** — where most values cluster around the mean, with fewer values farther from the mean.
   - **Binomial Distribution** — where the distribution describes the number of successes in a fixed number of independent trials, each with the same probability of success.
+- **Internal State** — most PRNGs do not generate numbers from thin air but maintain an internal state, a set of stored values that is repeatedly modified using a defined transformation rule. This process determines the sequence, period length, and ensures the next output appears random.
 
 
 
@@ -74,10 +75,10 @@ When implementing or using random number generation, it’s crucial to consider 
 Discussing practical implementations, it's evident that well-established and widely recognized solutions already exist. In the context of C++, the `<random>` library provides access to robust RNG implementations, such as Mersenne Twister, Linear Congruential Generator and others. It's commonly recommended to rely on these proven implementations rather than reinventing the wheel. However, within the scope of this section, we'll take a closer look at simplified versions of popular RNG. This will help us gain a deeper understanding of the core mechanisms and design principles behind them.
   - [Middle-Square Method](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MiddleSquareMethod) ✅
   - [LCG (Linear Conguential Generator)](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/LCG)  ✅
+  - PCG (Permuted Congruential Generator)
+  - [Xorshift32](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/Xorshift32) ✅
+  - Xoshiro128
   - [Mersenne Twister](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MersenneTwister) ✅
-  - Xorshift
-  - PCG (Permuted Congruential Generator) (?)
-  - Xoshiro128 (?)
 
 
 
