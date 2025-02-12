@@ -25,7 +25,7 @@ The **Mersenne Twister** is a complex and highly efficient pseudorandom number g
 
 
 ## Introduction
-The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining an internal state array. This array holds intermediate values used to produce random numbers. The algorithm periodically updates the state array through a process called "twisting," which mixes bits from consecutive elements. The final numbers are produced through "tempering," which applies bit shifts and masks to ensure the numbers are well-distributed. Both twisting and tempering involve specific constants, carefully chosen from mathematical research, to control how the bits are manipulated and ensure the algorithm's long period and high-quality randomness.
+The Mersenne Twister generates a sequence of pseudorandom numbers by maintaining an internal state array. This array holds intermediate values used to produce random numbers. The algorithm periodically updates the state array through a process called «twisting», which mixes bits from consecutive elements. The final numbers are produced through «tempering», which applies bit shifts and masks to ensure the numbers are well-distributed. Both twisting and tempering involve specific constants, carefully chosen from mathematical research, to control how the bits are manipulated and ensure the algorithm's long period and high-quality randomness.
 
 
 ## Important Details
@@ -76,7 +76,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-PRNG is implemented within the class `MersenneTwister`, which is declared in `MersenneTwister.h` header file and defined in `MersenneTwister.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find declaration of the class.
+PRNG is implemented within the class `MersenneTwister`, which is declared in [MersenneTwister.h](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MersenneTwister/Include/MersenneTwister.h) header file and defined in [MersenneTwister.cpp](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MersenneTwister/Source/MersenneTwister.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/tree/main/Algorithms/RNG/MersenneTwister/Source/Main.cpp) file. Below you can find declaration of the class.
 
 ```cpp
 class MersenneTwister {
@@ -93,7 +93,7 @@ private:
     static const uint32_t c = 0xEFC60000;     // Another mask used in the tempering process
     static const uint32_t f = 1812433253u;    // Multiplier used during the initialization of the state array
 
-    std::vector<uint32_t> stateArr;
+    std::vector<uint32_t> state;
     int index = n + 1;
 
     void initialize(uint32_t seed);
@@ -111,15 +111,14 @@ public:
 ```cpp
   MersenneTwister::MersenneTwister(uint32_t seed) { initialize(seed); }
 ```
-2. Within this `initialize()` function do following actions: resize the state array to number of elements, initialize it by setting the first element to the provided seed, and fill the rest using a recurrence relation.
+2. Within this `initialize()` function do following actions: resize the state array to number of elements, initialize it by setting the first element to the provided seed, and fill the rest using linear recurrence method from the MT19937 algorithm.
 ```cpp
   void MersenneTwister::initialize(uint32_t seed) {
-      stateArr.resize(n);
-      stateArr[0] = seed;
+      state.resize(n);
+      state[0] = seed;
       for (int i = 1; i < n; i++) {
-        stateArr[i] = f * (stateArr[i - 1] ^ (stateArr[i - 1] >> 30)) + i;
-      }
-          
+        state[i] = f * (state[i - 1] ^ (state[i - 1] >> 30)) + i;
+      }    
   }
 ```
 3. When PRNG is set up, the user can call function `generate()` to X. In this function, the first thing to check is whether the index has exceeded the size of the state array (n = 624). If this condition is met, the state array has been fully used, and we need to call the `twist()` function to generate new values. Twisting allows us to refill the state array with fresh random numbers. For now, let’s assume everything is fine, and we don't need to twist. Later, I’ll explain exactly how twisting works. After checking this condition, the function proceeds to extract the next random number from the state array.
@@ -129,7 +128,7 @@ public:
 ```
 4. Now that we know that state array contains fresh random numbers, the next step is to retrieve the current value from the state array at the position index. The index++ ensures that the next time `generate()` is called, we will move to the next element in the array. This gives us the raw number y to work with.
 ```cpp
-  uint32_t y = stateArr[index++];
+  uint32_t y = state[index++];
 ```
 5. Once the raw number `y` is extracted from the state array, a tempering process is applied to modify the bits in a specific way that ensures better distribution. The initial right shift by $11$ bits brings high-order bits into the lower positions, redistributing variability and reducing the influence of predictable lower bits. The left shift by $7$ bits, combined with a mask, adjusts the high-order bits, adding complexity to the most significant part of the number. The second left shift by $15$ bits targets the middle bits, with another mask ensuring that this critical range is randomized as well. Finally, the right shift by $18$ bits tweaks the higher bits once more, ensuring that they are fully influenced by the entire process.
 ```cpp
@@ -148,10 +147,10 @@ public:
       const uint32_t lowMask = (1u << r) - 1;  // Lowest r bits
       const uint32_t upMask = ~lowMask;        // Upper w-r bits
 ```
-8. Iterate over all elements in the state array where the main part of twist operation happens. Use the masks to combine the upper bits of the current element `stateArr[i]` with the lower bits of the next element `stateArr[(i + 1) % n]`. This operation ensures that no single element's bits are kept in isolation, increasing the randomness of the process.
+8. Iterate over all elements in the state array where the main part of twist operation happens. Use the masks to combine the upper bits of the current element `state[i]` with the lower bits of the next element `state[(i + 1) % n]`. This operation ensures that no single element's bits are kept in isolation, increasing the randomness of the process.
 ```cpp
   for (int i = 0; i < n; i++) {
-      uint32_t x = (stateArr[i] & upMask) + (stateArr[(i + 1) % n] & lowMask);
+      uint32_t x = (state[i] & upMask) + (state[(i + 1) % n] & lowMask);
 ```
 9. Perform a right shift on the combined value x, discarding the least significant bit (LSB). This reduces the impact of lower bits that might carry less useful randomness.
 ```cpp
@@ -161,9 +160,9 @@ public:
 ```cpp
   if (x % 2 != 0) { xA ^= a; } // If the lowest bit is 1
 ```
-11.  Update the current element `stateArr[i]` by XORing the result `xA` with the element m = 397 positions ahead in the state array. This ensures that each element in the state array is influenced not only by its neighbors but also by elements further down the array, enhancing randomness.
+11.  Update the current element `state[i]` by XORing the result `xA` with the element m = 397 positions ahead in the state array. This ensures that each element in the state array is influenced not only by its neighbors but also by elements further down the array, enhancing randomness.
 ```cpp
-  stateArr[i] = stateArr[(i + m) % n] ^ xA;
+  state[i] = state[(i + m) % n] ^ xA;
 ```
 12.  Finally, once all elements in the state array have been processed, reset the `index` to `0` so that the next number generation can start from the beginning of the state array.
 ```cpp
@@ -171,8 +170,8 @@ public:
 ```
 13. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the PRNG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
 ```cpp
-	for (int i = 0; i < numbers; i++) {
-		uint32_t randomNumber = minVal + (mt.generate() % (maxVal - minVal + 1));
+	for (int i = 0; i < n; i++) {
+		uint32_t randomNumber = minVal + (prng.generate() % (maxVal - minVal + 1));
 		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
 	}
 ```
@@ -195,14 +194,14 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-- Refer to RNG's practical problems
+- Refer to [RNG's Practical Problems](../RNG.md#some-practical-problems) for examples of problems that explore randomness as a fundamental concept.
 
 
 
 # &#x1F559; Origins
 The Mersenne Twister was introduced in **1997** by Japanese mathematicians **Makoto Matsumoto (松本 眞)** and **Takuji Nishimura (西村 拓士)** as a solution to the limitations of existing PRNGs. At the time, many of them either suffered from short periods, poor statistical properties, or slow performance, making them unsuitable for simulations and other applications that required large amounts of high-quality random numbers.
 
-Their breakthrough came with the idea of improving the Generalized Feedback Shift Register (GFSR) by "twisting" the recurrence relation in a way that better preserved randomness. They incorporated a matrix linear recurrence over a finite binary field, which led to the creation of a twisted GFSR (TGFSR). This method involved manipulating the sequence of numbers using a recurrence relation and introducing a tempering matrix to improve the uniformity of the generated numbers, ensuring better distribution and randomness.
+Their breakthrough came with the idea of improving the Generalized Feedback Shift Register (GFSR) by «twisting» the recurrence relation in a way that better preserved randomness. They incorporated a matrix linear recurrence over a finite binary field, which led to the creation of a twisted GFSR (TGFSR). This method involved manipulating the sequence of numbers using a recurrence relation and introducing a tempering matrix to improve the uniformity of the generated numbers, ensuring better distribution and randomness.
 
 Mersenne Twister quickly became the standard in many fields, offering an ideal balance of speed, long period, and strong statistical properties. Its widespread adoption in software platforms like Python, R, and C++, as well as tools like SPSS, highlights its reliability and versatility in generating high-quality random numbers across diverse applications.
 
@@ -220,8 +219,8 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#127760; **Web-Resources:**  
-- [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister)
-- [Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator](https://dl.acm.org/doi/pdf/10.1145/272991.272995) (Research)
+- [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister) (Wikipedia)
+- [Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator](https://dl.acm.org/doi/pdf/10.1145/272991.272995) (Research Paper)
 
 
 

@@ -26,7 +26,7 @@ private:
     static const uint32_t c = 0xEFC60000;     // Another mask used in the tempering process
     static const uint32_t f = 1812433253u;    // Multiplier used during the initialization of the state array
 
-    std::vector<uint32_t> stateArr;
+    std::vector<uint32_t> state;
     int index = n + 1;
 
     void initialize(uint32_t seed);
