@@ -7,7 +7,7 @@
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
-- [📊 Analysis](#-analysis)
+- [📊 Analysis (Exploring Options)](#-analysis-exploring-options)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -178,7 +178,7 @@ public:
 
 
 
-# &#128202; Analysis
+# &#128202; Analysis (Exploring Options)
 Will be updated in future...
 
 > **Note:** I'm currently considering how to best structure this section, as it involves several characteristics that I find intriguing to explore, such as period, distribution, predictability, and correlation.

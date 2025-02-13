@@ -5,7 +5,7 @@
   - [How to Implement](#how-to-implement)
   - [Pitfalls and Optimizations](#pitfalls-and-optimizations)
   - [Implemented Algorithms](#implemented-algorithms)
-- [📊 Analysis](#-analysis)
+- [📊 Analysis (Exploring Options)](#-analysis-exploring-options)
   - [How to Analyze](#how-to-analyze)
   - [Trade-Offs](#trade-offs)
   - [Alternatives](#alternatives)
@@ -82,7 +82,7 @@ Discussing practical implementations, it's evident that well-established and wid
 
 
 
-# &#128202; Analysis
+# &#128202; Analysis (Exploring Options)
 Understanding how to analyze a concept is crucial for identifying its key characteristics and evaluating its performance across different scenarios. Additionally, examining the trade-offs allows you to understand what you gain and what you give up when applying the concept. Finally, considering alternatives helps you determine when the concept is the best choice and when other approaches might be more appropriate.
 
 
@@ -158,12 +158,12 @@ For contact details and additional information, please refer to the [root direct
 
 ---  
 &#127760; **Web-Resources:**  
-- [Statistical Analysis](https://www.random.org/analysis/)
+- [Statistical Analysis](https://www.random.org/analysis/) (Article)
 - [Random number generation](https://en.wikipedia.org/wiki/Random_number_generation) (Wikipedia)
 - [List of random number generators](https://en.wikipedia.org/wiki/List_of_random_number_generators) (Wikipedia)
-- [Understanding Entropy: The Key to Secure Cryptography and Randomness](https://blog.netdata.cloud/understanding-entropy-the-key-to-secure-cryptography-and-randomness/)
-- [How do lava lamps help with Internet encryption?](https://www.cloudflare.com/ru-ru/learning/ssl/lava-lamp-encryption/)
-- [<random\>](https://cplusplus.com/reference/random/)
+- [Understanding Entropy: The Key to Secure Cryptography and Randomness](https://blog.netdata.cloud/understanding-entropy-the-key-to-secure-cryptography-and-randomness/) (Article)
+- [How do lava lamps help with Internet encryption?](https://www.cloudflare.com/ru-ru/learning/ssl/lava-lamp-encryption/) (Article)
+- [<random\>](https://cplusplus.com/reference/random/) (Documentation)
 
 
 
