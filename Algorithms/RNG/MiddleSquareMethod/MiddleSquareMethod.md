@@ -7,7 +7,7 @@
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
-- [📊 Analysis](#-analysis)
+- [📊 Analysis (Exploring Options)](#-analysis-exploring-options)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -58,7 +58,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-PRNG algorithm implemented within the function `middleSquareMethod()`, which is declared in `MiddleSquareMethod.h` header file and defined in `MiddleSquareMethod.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+PRNG algorithm implemented within the function `middleSquareMethod()`, which is declared in [MiddleSquareMethod.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/MiddleSquareMethod/Include/MiddleSquareMethod.h) header file and defined in [MiddleSquareMethod.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/MiddleSquareMethod/Source/MiddleSquareMethod.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/MiddleSquareMethod/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
 unsigned long long seed = 12345;
@@ -84,8 +84,7 @@ unsigned long long middleSquareMethod() {
 ```cpp
   int power = static_cast<int>(pow(10, digits));
   int shift = digits / 2;
-  unsigned long long randomNumber = (squared 
-    / static_cast<unsigned long long>(pow(10, shift))) % power;
+  unsigned long long randomNumber = (squared / static_cast<unsigned long long>(pow(10, shift))) % power;
 ```
 3. After extracting the middle digits, the new value becomes the updated seed, which is stored for future iterations. This new seed is returned for further use in the next iteration.
 ```cpp
@@ -94,15 +93,15 @@ unsigned long long middleSquareMethod() {
 ```
 4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the PRNG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
 ```cpp
-	for (int i = 0; i < numbers; i++) {
+	for (int i = 0; i < n; ++i) {
     int randomNumber = minVal + (middleSquareMethod() % (maxVal - minVal + 1));
-		std::cout << " " << i + 1 << ":\t" randomNumber << () << std::endl;
+		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
   }
 ```
 
 
 
-# &#128202; Analysis
+# &#128202; Analysis (Exploring Options)
 Will be updated in the future...
 
 > **Note:** I'm currently considering how to best structure this section, as it involves several characteristics that I find intriguing to explore, such as period, distribution, predictability, and correlation.
@@ -114,11 +113,11 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Common Use Cases
-- **Education** — algorithm is used only in educational context. Its inefficiency, bad randomness distribution period and insecurity make it largely obsolete in modern software development context, even for niche applications.
+- **Education** — PRNG is used only in educational context. Its inefficiency, bad randomness distribution period and insecurity make it largely obsolete in modern software development context, even for niche applications.
 
 
 ## Some Practical Problems
-- Refer to RNG's practical problems
+- Refer to [RNG's Practical Problems](../RNG.md#some-practical-problems) for examples of problems that explore randomness as a fundamental concept.
 
 
 
@@ -145,9 +144,9 @@ For contact details and additional information, please refer to the [root direct
 ---
 &#127760; **Web-Resources:**  
 - [Middle-square method](https://en.wikipedia.org/wiki/Middle-square_method) (Wikipedia)
-- [Solved Example: Extracting Digits of a Number](https://www.knowledgeboat.com/learn/icse-computer-applications-bluej-class-10/lecture/ml4Jm/java-digit-extract)
-- [The Middle of the Square](http://bit-player.org/2022/the-middle-of-the-square)
-- [Too Big to Fail](https://www.pcg-random.org/posts/too-big-to-fail.html)
+- [Solved Example: Extracting Digits of a Number](https://www.knowledgeboat.com/learn/icse-computer-applications-bluej-class-10/lecture/ml4Jm/java-digit-extract) (Article)
+- [The Middle of the Square](http://bit-player.org/2022/the-middle-of-the-square) (Article)
+- [Too Big to Fail](https://www.pcg-random.org/posts/too-big-to-fail.html) (Article)
 
 
 
