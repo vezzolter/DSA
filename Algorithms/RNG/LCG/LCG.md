@@ -7,7 +7,7 @@
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
-- [📊 Analysis](#-analysis)
+- [📊 Analysis (Exploring Options)](#-analysis-exploring-options)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -74,7 +74,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-PRNG is implemented within the function `lcg()` (and parameters as global variables), which is declared in `LCG.h` header file and defined in `LCG.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+PRNG is implemented within the function `lcg()` (and parameters as global variables), which is declared in [LCG.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/LCG/Include/LCG.h) header file and defined in [LCG.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/LCG/Source/LCG.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of generated values is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/RNG/LCG/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
 const unsigned long long a = 1664525;          // Multiplier
@@ -107,7 +107,7 @@ unsigned long long lcg() {
 ```
 4. To make the generated value more practical and human-readable, a user-defined range can be applied. The range is defined by `maxVal` and `minVal`, which translates to `[minVal, maxVal)` and adding $1$ ensures inclusivity of the maximum value, resulting in the range `[minVal, maxVal]`. The modulo operator is then used to confine the LCG output within `[0, range]`. Adding `minVal` shifts the range to `[minVal, maxVal]`, ensuring the final value is within the user’s desired range, therefore can be tested easily.
 ```cpp
-	for (int i = 0; i < numbers; i++) {
+	for (int i = 0; i < n; ++i) {
 		int randomNumber = minVal + (lcg() % (maxVal - minVal + 1));
 		std::cout << " " << i + 1 << ":\t" << randomNumber << std::endl;
 	}	
@@ -115,7 +115,7 @@ unsigned long long lcg() {
 
 
 
-# &#128202; Analysis
+# &#128202; Analysis (Exploring Options)
 Will be updated in future...
 
 > **Note:** I'm currently considering how to best structure this section, as it involves several characteristics that I find intriguing to explore, such as period, distribution, predictability, and correlation.
@@ -127,11 +127,11 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Common Use Cases
-- **Basic Randomness Generation** — algorithm is primarily used in situations where just enough randomness is needed for non-critical parts of an application. Its simple implementation and sufficient efficiency make it ideal for simulating random behavior or generating varied outputs without the overhead of more complex algorithms.
+- **Basic Randomness Generation** — PRNG is primarily used in situations where just enough randomness is needed for non-critical parts of an application. Its simple implementation and sufficient efficiency make it ideal for simulating random behavior or generating varied outputs without the overhead of more complex algorithms.
 
 
 ## Some Practical Problems
-- Refer to RNG's practical problems
+- Refer to [RNG's Practical Problems](../RNG.md#some-practical-problems) for examples of problems that explore randomness as a fundamental concept.
 
 
 
@@ -161,7 +161,7 @@ For contact details and additional information, please refer to the [root direct
 
 ---
 &#127760; **Web-Resources:**  
-- [Linear congruential generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)
+- [Linear congruential generator](https://en.wikipedia.org/wiki/Linear_congruential_generator) (Wikipedia)
 
 
 
