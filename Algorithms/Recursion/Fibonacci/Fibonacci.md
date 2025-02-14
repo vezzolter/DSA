@@ -7,10 +7,9 @@
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
-  - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
   - [Algorithm Characteristics](#algorithm-characteristics)
-  - [Algorithm Comparison](#algorithm-comparison)
+  - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -61,7 +60,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-Algorithm implemented within the function `fibonacci()`, which is declared in `Fibonacci.h` header file and defined in `Fibonacci.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of fibonacci sequence computation is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+Algorithm implemented within the function `fibonacci()`, which is declared in [Fibonacci.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/Fibonacci/Include/Fibonacci.h) header file and defined in [Fibonacci.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/Fibonacci/Source/Fibonacci.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of fibonacci sequence computation is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/Fibonacci/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
   int fibonacci(int n) {
@@ -78,18 +77,8 @@ Algorithm implemented within the function `fibonacci()`, which is declared in `F
 ```
 2. If the number is greater than `1`, the function recursively calls itself twice: once for `fibonacci(n - 1)` and once for `fibonacci(n - 2)`. The results of these two recursive calls are added together to produce the Fibonacci number for the input `n`. This continues until the base case is reached for each recursive branch.
 ```cpp
-	return fibonacci(n - 1) + fibonacci(n - 2);
+  return fibonacci(n - 1) + fibonacci(n - 2);
 ```
-
-
-
-## Call Stack Interaction
-1. First things first, the program calls `main()` function and its frame is added on top of the call stack.  <p align="center"><img src="./Images/Step_0.png"/></p>
-2. When we encounter the call of `fibonacci(int n)` function, we add its frame (`fibonacci(5)`) on top of the call stack. As long as given number ($n=5$) is not equals to $0$ or $1$, we reach `return fibonacci(n - 1) + fibonacci(n - 2);` this part of function, where start to add two another frames - `fibonacci(4)` for `fibonacci(n - 1)` and  `fibonacci(3)` for `fibonacci(n - 2)`:  <p align="center"><img src="./Images/Step_1.png"/></p> 
-3. This process of breaking of problem continues until we delve to the base cases, therefore forming next sequence of calls: <p align="center"><img src="./Images/Step_2.png"/></p> 
-4. Upon reaching base cases, the called functions now start to return values and pop off their frames from the stack. <p align="center"><img src="./Images/Step_3.png"/></p>
-5. This visualization allows to see recursive nature in action and denoting, that there is no need to actually calculate some function calls, because they were already calculated in other area. Unfortunately, this implementation of recursion can't affect that, thats the area of memoization and dynamic programming. <p align="center"><img src="./Images/Step_4.png"/></p> 
-6. So the control flow continues this process until we reach the initial (first) function call. <p align="center"><img src="./Images/Step_5.png"/></p>
 
 
 
@@ -99,13 +88,21 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 ## Algorithm Characteristics
 - **Time Complexity:**
-    - $O(n!)$ — every function calls two other functions.
+    - $O(2^n)$ — each function call branches into two more calls, leading to an exponential growth in the number of calls.
 - **Auxiliary Space Complexity:** 
-   - $O(n)$ — maximum depth of the recursion tree is $n$.
+   - $O(n)$ — the maximum depth of the recursion tree is $n$ because each recursive call adds a new frame to the call stack until it reaches the base case.
 
 
-## Algorithm Comparison
-Will be Updated in the Future...
+## Trade-Offs
+➕ **Advantages:**  
+- **Simplicity and Clarity** — algorithm is easy to implement and understand due to its direct translation from the mathematical definition of the Fibonacci sequence.
+- **Good for Small Inputs** — algorithm works fine for small input values where the exponential time complexity does not pose significant performance issues.
+
+---  
+➖ **Disadvantages:**  
+- **Exponential Time Complexity** — algorithm runs in $O(2^n)$ time due to repeated recomputation of the same subproblems, making it highly inefficient for larger inputs.
+- **High Function Call Overhead** — algorithm incurs significant overhead from recursive function calls, leading to a deep recursion stack and potential stack overflow for larger values of $n$.
+- **Lack of Memoization** — algorithm does not store previously computed values, resulting in redundant calculations that slow down performance drastically.
 
 
 
@@ -115,9 +112,10 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 ## Common Use Cases
 - **Fibonacci Heaps** — sequence is used in priority queue data structures to manage heap-ordered trees. When two trees of the same rank are merged, the number of trees is reduced based on Fibonacci numbers, ensuring that the structure remains balanced and  contributing to the overall amortized time of operations.
-- **Fibonacci Search** — sequence is used in algorithm to search within sorted arrays. The sequence’s predictable growth pattern helps determine optimal probing positions, minimizing the number of comparisons during the search process.
-- **Lagged Fibonacci Generator (LFG)** — sequence is used in pseudo-random number generator. The recursive relationship of the sequence combines previous values with a lag, improving the statistical properties and period length of the generated sequence.
 
+- **Fibonacci Search** — sequence is used in algorithm to search within sorted arrays. The sequence’s predictable growth pattern helps determine optimal probing positions, minimizing the number of comparisons during the search process.
+
+- **Lagged Fibonacci Generator (LFG)** — sequence is used in pseudo-random number generator. The recursive relationship of the sequence combines previous values with a lag, improving the statistical properties and period length of the generated sequence.
 
 
 ## Some Practical Problems
@@ -134,9 +132,9 @@ The first mention of sequence was around 200 BC done by Indian mathematician **A
 
 Centuries later, in 1170, an Italian mathematician named **Leonardo** was born in Pisa. As a teenager, he accompanied his father to work in the port city of Bugia, present-day Algeria, where he represented Italian merchants. In Bugia, Leonardo encountered numerous merchants using Hindi and Arab numerals in their calculations. Intrigued by the efficiency and simplicity of this numerical system, which contrasted with the widely used Roman numerals in Europe, Leonardo began to learn and appreciate the advantages of it.
 
-Over the course of his life, Leonardo interacted with numerous merchants, absorbing knowledge from them and translating his insights into several books. These works covered the advantages of Hindu numerals, delved into various mathematical problems, explored geometry and delved into number theory. However, his most renowned contribution is arguably found in "Liber Abaci" (1202). In this book, Leonardo explained how adopting this numerical system could greatly simplify business transactions.
+Over the course of his life, Leonardo interacted with numerous merchants, absorbing knowledge from them and translating his insights into several books. These works covered the advantages of Hindu numerals, delved into various mathematical problems, explored geometry and delved into number theory. However, his most renowned contribution is arguably found in «Liber Abaci» (1202). In this book, Leonardo explained how adopting this numerical system could greatly simplify business transactions.
 
-Besides popularizing the Hindu-Arabic numerical system, he introduced the discussed sequence while addressing a challenge linked to the proliferation of rabbit populations. Notably, he did not explicitly named it the "Fibonacci sequence." It was only later, as his books gained popularity, that the name "Fibonacci", derived from "filius Bonacci" (roughly meaning "son of the Bonacci family"), was coined by Franco-Italian historian Guillaume Libri in 1838 to distinguish him from other Leonardo.
+Besides popularizing the Hindu-Arabic numerical system, he introduced the discussed sequence while addressing a challenge linked to the proliferation of rabbit populations. Notably, he did not explicitly named it the «Fibonacci sequence». It was only later, as his books gained popularity, that the name «Fibonacci», derived from «filius Bonacci» (roughly meaning «son of the Bonacci family»), was coined by Franco-Italian historian Guillaume Libri in 1838 to distinguish him from other Leonardo.
 
 
 
@@ -152,11 +150,11 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 5.3: Dynamic programming
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 2.4: Running-Time Calculations
-- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Section 5.2: Dynamic programming
- - **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth 
+- **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth 
   - Section 1.2.8: Fibonacci Numbers
 
 ---
@@ -168,10 +166,10 @@ For contact details and additional information, please refer to the [root direct
 &#127760; **Web-Resources:**
 - [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) (Wikipedia)
 - [Golden ratio](https://en.wikipedia.org/wiki/Golden_ratio) (Wikipedia)
-- [Golden ratio: A beginner's guide](https://www.adobe.com/creativecloud/design/discover/golden-ratio.html)
-- [Binet's Formula](https://artofproblemsolving.com/wiki/index.php/Binet%27s_Formula)
-- [The Fibonacci Sequence. Its history, Significance, and Manifestations in Nature](https://core.ac.uk/download/pdf/58824887.pdf) (Thesis)
-- [The so-called fibonacci numbers in ancient and medieval India](https://www.sciencedirect.com/science/article/pii/0315086085900217?via%3Dihub) (Research)
+- [Golden ratio: A beginner's guide](https://www.adobe.com/creativecloud/design/discover/golden-ratio.html) (Article)
+- [Binet's Formula](https://artofproblemsolving.com/wiki/index.php/Binet%27s_Formula) (Article)
+- [The Fibonacci Sequence. Its history, Significance, and Manifestations in Nature](https://core.ac.uk/download/pdf/58824887.pdf) (Research Paper)
+- [The so-called fibonacci numbers in ancient and medieval India](https://www.sciencedirect.com/science/article/pii/0315086085900217?via%3Dihub) (Research Paper)
 
 
 
