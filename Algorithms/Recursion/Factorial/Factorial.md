@@ -7,10 +7,9 @@
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
-  - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
   - [Algorithm Characteristics](#algorithm-characteristics)
-  - [Algorithm Comparison](#algorithm-comparison)
+  - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -24,10 +23,11 @@
 
 # &#128161; Overview
 The **factorial** is one of the most fundamental mathematical operations, widely recognized for its role in combinatorics, permutations, and many other mathematical contexts. The term «factorial» comes from «factor», as the operation involves multiplying a sequence of factors to produce a product. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/Factorial.png"/></p>
 
 
 ## Introduction
-**Factorial** of a number (denoted $n!$) is a math operation, which represents product of all positive integers from number $1$ to the given $(n)$, mathematically expressed as $n! = (n-1)!×n$, exception is $0! = 1$, because there is only one way to arrange $0$ as element. 
+**Factorial** of a number (denoted $n!$) is a math operation, which represents product of all positive integers from number $1$ to the given $(n)$, mathematically expressed as $n! = n × (n-1)!$ and the only exception is $0! = 1$, because there is only one way to arrange $0$ as element. 
 
 
 ## Important Details
@@ -37,8 +37,8 @@ The **factorial** is one of the most fundamental mathematical operations, widely
 
 
 ## Algorithm Steps (Recursive)
-1. Define base case, based on the rule «$0! = 1$».
-2. Define recursive case, based on the rule «$n! = (n-1)!×n$».
+1. Define base case, based on the rule: $0! = 1$.
+2. Define recursive case, based on the rule: $n! = n × (n-1)!$.
 
 
 
@@ -55,7 +55,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-Algorithm implemented within the function `factorial()`, which is declared in `Factorial.h` header file and defined in `Factorial.cpp` source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of factorial computation is conducted within the `main()` function located in the `Main.cpp` file. Below you can find related code snippets.
+Algorithm implemented within the function `factorial()`, which is declared in [Factorial.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/Factorial/Include/Factorial.h) header file and defined in [Factorial.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/Factorial/Source/Factorial.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. Examination of factorial computation is conducted within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/Recursion/Factorial/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
   int factorial(int n) {
@@ -76,15 +76,6 @@ Algorithm implemented within the function `factorial()`, which is declared in `F
 ```
 
 
-## Call Stack Interaction
-1. Starting the recursion process with the input number $6$. <p align="center"><img src="./Images/Step_1.png"/></p>
-2. Invoking the recursive case repeatedly until the specified criteria are met ($6$ times). <p align="center"><img src="./Images/Step_2.png"/></p>
-3. Upon the $7$-th recursive call, when the value becomes $0$, we initiate the base case, therefore existing the recursive process. <p align="center"><img src="./Images/Step_3.png"/></p>
-4. This marks the phase where the recursion is concluding, and the process of returning the calculated value is underway. <p align="center"><img src="./Images/Step_4.png"/></p> 
-5. Continuing this process until we reach the initial (first) function call. <p align="center"><img src="./Images/Step_5.png"/></p>
-6. Concluding the recursion by returning the final calculated value. <p align="center"><img src="./Images/Step_6.png"/></p> 
-
-
 
 # &#128202; Analysis
 Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
@@ -97,8 +88,15 @@ Understanding the characteristics of an algorithm is essential for choosing the 
    - $O(n)$ — some memory gets allocated in the stack, which depends on the amount of calls.
 
 
-## Algorithm Comparison
-Will be Updated in the Future...
+## Trade-Offs
+➕ **Advantages:**  
+- **Simplicity and Clarity** — algorithm consists of simple steps, making it straightforward to understand and implement.  
+
+---  
+➖ **Disadvantages:**  
+- **Slow Computation** — algorithm runs in $O(n)$ time as it performs exactly $n$ multiplications, making it less efficient for very large inputs compared to iterative methods with optimizations.  
+- **Call Stack Overhead** — algorithm requires auxiliary space for function calls in the recursive implementation, leading to $O(n)$ space complexity due to the recursion stack, which can cause stack overflow for large values of $n$.
+
 
 
 # &#128221; Application
@@ -113,6 +111,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 1. [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes)
 2. [Clumsy Factorial](https://leetcode.com/problems/clumsy-factorial)
 3. [Memoize](https://leetcode.com/problems/memoize)
+
 
 
 # &#x1F559; Origins
@@ -136,12 +135,10 @@ For contact details and additional information, please refer to the [root direct
 
 # &#128591; Credits
 &#128218; **Books:**
-- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
-  - Appendix C: Counting and Probability.
-- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Section 2.4: Running-Time Calculations.
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Section 5.1: Recursive Algorithms.
+  - Section 5.1: Recursive Algorithms
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 2.4: Running-Time Calculations
 
 ---
 &#127891; **Courses:**
