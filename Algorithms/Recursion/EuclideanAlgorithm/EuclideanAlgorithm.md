@@ -7,10 +7,9 @@
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
-  - [Call Stack Interaction](#call-stack-interaction)
 - [📊 Analysis](#-analysis)
   - [Algorithm Characteristics](#algorithm-characteristics)
-  - [Algorithm Comparison](#algorithm-comparison)
+  - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -95,16 +94,16 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 ## Algorithm Characteristics
 - **Time Complexities:**  
-  - $O(\log \min(a, b))$ — еhe number of recursive calls is determined by how many times the smaller number can be reduced before reaching zero, as each step shrinks the remainder to at most half of the previous value in the worst case, causing the number to decrease exponentially and resulting in a logarithmic number of steps.
+  - $O(\log \min(a, b))$ — the number of recursive calls is determined by how many times the smaller number can be reduced before reaching zero, as each step shrinks the remainder to at most half of the previous value in the worst case, causing the number to decrease exponentially and resulting in a logarithmic number of steps.
 - **Auxiliary Space Complexity:** 
-   - $O(n)$ — some memory gets allocated in the stack, which depends on the amount of calls.
+   - $O(\log \min(a, b))$ — the recursion depth corresponds to the number of times the algorithm reduces the problem size before termination. Since each call processes a smaller remainder, the total number of recursive calls—and thus the stack depth—is logarithmic in the size of the input.
 
 
 ## Trade-Offs
 ➕ **Advantages:**  
-- **Easy to Follow** — algorithm consists of a simple steps making it straightforward to understand and apply.  
+- **Easy to Follow** — algorithm consists of a two simple steps making it straightforward to understand and apply.  
 - **Fast Computation** — algorithm efficiently finds the GCD in $O(\log \min(a, b))$ time, with variations (e.g. extended, binary) further optimizing performance in specific cases.  
-- **Robust Input Handling** — algorithm works efficiently for both small and large numbers, regardless of whether they are prime, composite, or relatively prime.  
+- **Robust Input Handling** — algorithm remains efficient even for very large numbers, making it robust in practical applications.
 
 ---  
 ➖ **Disadvantages:**  

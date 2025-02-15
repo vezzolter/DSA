@@ -95,14 +95,14 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 ## Trade-Offs
 ➕ **Advantages:**  
-- **Simplicity and Clarity** — algorithm is easy to implement and understand due to its direct translation from the mathematical definition of the Fibonacci sequence.
-- **Good for Small Inputs** — algorithm works fine for small input values where the exponential time complexity does not pose significant performance issues.
+- **Simplicity and Clarity** — algorithm directly follows the mathematical recurrence relation of the Fibonacci sequence, making it easy to translate into code.  
+- **Good for Small Inputs** — algorithm works fine for small input values where the growing number of function calls does not impact performance significantly.  
 
 ---  
 ➖ **Disadvantages:**  
-- **Exponential Time Complexity** — algorithm runs in $O(2^n)$ time due to repeated recomputation of the same subproblems, making it highly inefficient for larger inputs.
-- **High Function Call Overhead** — algorithm incurs significant overhead from recursive function calls, leading to a deep recursion stack and potential stack overflow for larger values of $n$.
-- **Lack of Memoization** — algorithm does not store previously computed values, resulting in redundant calculations that slow down performance drastically.
+- **Call Stack Overhead** — recursive calls consume additional memory on the stack, leading to inefficiency and potential stack overflow for large inputs.
+- **Slow Computation** — algorithm repeatedly recalculates the same values, leading to excessive redundant work that slows down performance.
+- **Lack of Reuse of Computed Values** — algorithm does not store previously computed results, causing unnecessary recomputation and inefficiency.
 
 
 

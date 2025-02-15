@@ -83,19 +83,19 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 ## Algorithm Characteristics
 - **Time Complexity:**
-    - $O(n)$ — number of recursive calls made by this algorithm is directly proportional to the input.
+    - $O(n)$ — the algorithm makes exactly $n$ recursive calls, reducing the problem size by one at each step, leading to a linear runtime.
 - **Auxiliary Space Complexity:** 
-   - $O(n)$ — some memory gets allocated in the stack, which depends on the amount of calls.
+   - $O(n)$ — the recursion stack grows linearly with the input size as each recursive call adds a new frame to the stack until the base case is reached, requiring memory proportional to $n$.
 
 
 ## Trade-Offs
 ➕ **Advantages:**  
-- **Simplicity and Clarity** — algorithm consists of simple steps, making it straightforward to understand and implement.  
+- **Simplicity and Clarity** — algorithm follows a straightforward recursive structure where each call reduces the problem size by one, making it easy to implement and reason about.  
 
 ---  
 ➖ **Disadvantages:**  
-- **Slow Computation** — algorithm runs in $O(n)$ time as it performs exactly $n$ multiplications, making it less efficient for very large inputs compared to iterative methods with optimizations.  
-- **Call Stack Overhead** — algorithm requires auxiliary space for function calls in the recursive implementation, leading to $O(n)$ space complexity due to the recursion stack, which can cause stack overflow for large values of $n$.
+- **Call Stack Overhead** — recursive calls consume additional memory on the stack, which can cause stack overflow for large inputs.
+- **Slow Computation** — algorithm performs a large number of multiplications as input size increases, making it inefficient for very large numbers compared to optimized iterative approaches. 
 
 
 
