@@ -360,6 +360,9 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 ## Trade-Offs
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
 ➕ **Advantages:**
 - **Efficient Operations at Both Ends** — doubly linked lists support efficient insertions and deletions at the head and tail. This is because these operations require only updating a few pointers without shifting elements or traversing the entire list.
 - **Flexible Size** — doubly linked lists can dynamically grow or shrink as needed without reallocating the entire structure, which also efficient in scenarios where the data size is unknown beforehand.

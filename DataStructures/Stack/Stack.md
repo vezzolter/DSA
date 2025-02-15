@@ -168,15 +168,7 @@ Strings generally lack strict requirements or performance guarantees, making the
 ## Trade-Offs
 The trade-offs for stack containers, much like their characteristics, are inherently tied to the underlying data structure. For a deeper understanding of these trade-offs, refer to the detailed analyses of the respective data structures linked above. However, some inherent pros and cons arise directly from the LIFO principle.
 
----
-➕ **Advantages:**  
-- **Simple and Intuitive** — stacks provide an easy-to-understand LIFO mechanism, which aligns naturally with many problem-solving scenarios like recursion, backtracking, and parsing expressions.  
-- **Efficient Push and Pop** — pushing and popping elements from the stack are constant time operations $O(1)$, making stacks highly efficient for sequential operations.  
-
----  
-➖ **Disadvantages:**  
-- **Restricted Access** — stacks only allow access to the top element, which makes them unsuitable for use cases requiring random or indexed access.  
-- **Limited Flexibility** — stacks are highly specialized, limiting their direct application to LIFO-specific problems (unlike general-purpose containers, e.g. vectors or linked lists).  
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
 
 
 

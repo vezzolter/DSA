@@ -100,8 +100,11 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 
 ## Trade-Offs
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
 ➕ **Advantages:**  
-- **Easy to Follow** — algorithm consists of a two simple steps making it straightforward to understand and apply.  
+- **Simplicity and Clarity** — algorithm consists of a two simple steps making it straightforward to understand and apply.  
 - **Fast Computation** — algorithm efficiently finds the GCD in $O(\log \min(a, b))$ time, with variations (e.g. extended, binary) further optimizing performance in specific cases.  
 - **Robust Input Handling** — algorithm remains efficient even for very large numbers, making it robust in practical applications.
 

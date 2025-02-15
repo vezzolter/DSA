@@ -8,8 +8,7 @@
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+  - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -225,14 +224,18 @@ Matrix strassensAlgorithm(const Matrix& A, const Matrix& B) {
 
 
 # &#128202; Analysis
-Analyzing the gives and takes of the algorithm reveals how the divide-and-conquer concept influences design choices, efficiency, and overall complexity. Mastering this approach not only improves performance in large-scale problems but also provides foundational insights applicable to various algorithmic strategies.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations, and capabilities. Additionally, understanding its strengths and weaknesses enables more informed decisions, helping to determine the most suitable algorithm for a given problem among alternative approaches.
 
 
-## Advantages
+## Trade-Offs
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
+➕ **Advantages:**  
 - **Asymptotic Improvement** — algorithm reduces the number of multiplications, resulting in a better time complexity of $O(n^{2.81})$ compared to the standard one  $O(n^{3})$.
 
-
-## Disadvantages
+---  
+➖ **Disadvantages:**  
 - **Overhead** — algorithm requires extra additions and subtractions, as well as recursively partitioning the matrices and respective memory operations, which can outweigh its benefits quite often in practice.
 - **Accuracy Issues** — algorithm involves more floating-point operations compared to the traditional version, which can introduce numerical instability and rounding errors, especially in the long run.
 - **Size Requirements** — algorithm typically requires matrices to be of size of a power of two for efficient recursion, which is not often the case in day-to-day scenarios, and fixing it could add extra overhead to an already existing one.

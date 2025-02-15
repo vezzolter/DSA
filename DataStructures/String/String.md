@@ -450,9 +450,10 @@ In practice, when analyzing a data structure, it's really about analyzing the co
 Strings generally lack strict requirements or performance guarantees, making them highly versatile and adaptable to various implementations. Consequently, evaluating a string's characteristics is best done by examining the underlying data structure. The most common implementations rely on arrays, with linked lists being less frequently used, each offering distinct performance traits and trade-offs.
 
 
-
 ## Trade-Offs
 The trade-offs for string containers, much like their characteristics, are inherently tied to the underlying data structure. For a deeper understanding of these trade-offs, refer to the detailed analyses of the respective data structures linked above.
+
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
 
 
 

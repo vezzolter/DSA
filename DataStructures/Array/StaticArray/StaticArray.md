@@ -321,6 +321,9 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 ## Trade-Offs
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
 ➕ **Advantages:**
 - **Compile-Time Storage** — static arrays allow the storage of values at compile time, which removes the need for runtime memory allocation. This leads to better memory management and increased stability in situations where data size and content are known ahead and fixed during program execution.
 - **Efficient Random Access** — static arrays facilitate efficient access to the elements within the collection. Regardless of the array's length, accessing elements has a constant time complexity.

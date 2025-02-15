@@ -78,7 +78,7 @@ Algorithm implemented within the function `factorial()`, which is declared in [F
 
 
 # &#128202; Analysis
-Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations and capabilities. Comparing the algorithm with other approaches provides insights into its strengths and weaknesses, helping to make informed decisions in various scenarios.
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations, and capabilities. Additionally, understanding its strengths and weaknesses enables more informed decisions, helping to determine the most suitable algorithm for a given problem among alternative approaches.
 
 
 ## Algorithm Characteristics
@@ -89,6 +89,9 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 
 ## Trade-Offs
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
 ➕ **Advantages:**  
 - **Simplicity and Clarity** — algorithm follows a straightforward recursive structure where each call reduces the problem size by one, making it easy to implement and reason about.  
 
