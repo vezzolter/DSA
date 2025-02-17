@@ -124,7 +124,7 @@ Within the scope of this repository, we'll take a closer look at simplified vers
 ## Implemented Trees
 One of the most important things behind binary trees is how elements are inserted into them. The insertion process similar linked lists, albeit with slight adjustments — elements are inserted based on specific criteria. These criteria can vary, making the binary tree an adaptable container to diverse needs. Perhaps this adaptability is the reason why there's no single container that precisely represents a general binary tree, and it's certainly the reason I've chosen not to implement one. Instead, I suggest starting with this brief overview of binary trees to avoid overwhelming complexity, and head to next types of trees listed in this repository in the following order:
   - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
-  - AVL Tree (will be updated in the future...)
+  - [AVL Tree](https://github.com/vezzolter/DSA/tree/avl/DataStructures/Tree/AVL)🎯 
   - Red-Black Tree (will be updated in the future...)
   - B-Tree (will be updated in the future...)
 
