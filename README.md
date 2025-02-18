@@ -111,7 +111,9 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
     - [AVL Tree](https://github.com/vezzolter/DSA/tree/avl/DataStructures/Tree/AVL)🎯  
+    - Splay Tree
     - Red-Black Tree 
+    - 2-3-4 Tree
     - B-Tree
     - Trie
     - Fenwick Tree
@@ -146,22 +148,6 @@ This list provides a straightforward overview of the repository's contents. For 
 
 
 
-# &#129309; Contributing
-As my educational journey progresses, I may discover new areas of interest within data structures and algorithms. I welcome and value contributions from the community, as they greatly enrich my competence and knowledge in this domain. Whether it's code improvements, bug reports, suggestions for new projects or you are just interested in discussions on particular topics — feel free to reach out. Your input is highly appreciated indeed!  
-- If you have any suggestions or ideas, please reach out via email, GitHub, LinkedIn or Telegram. 
-- If you want to contribute code or other resources, please try to keep the existing style guidelines.
-- Please respect both your and mine time and effort.
-
-
-
-# &#128231; Contacts
-- &#128236; Email: [vezzolter@gmail.com](mailto:vezzolter@gmail.com)
-- &#128572; GitHub: [Maksym Ozerov's profile](https://github.com/vezzolter)
-- &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/vezzolter/)
-- &#128172; Telegram: [@vezzolter](https://t.me/vezzolter)
-
-
-
 # &#128591; Credits
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
@@ -192,6 +178,24 @@ As my educational journey progresses, I may discover new areas of interest withi
 - I am grateful to the [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) for providing valuable insights on applying best practices to code, all while maintaining simplicity to convey ideas clearly and concisely.
 - Sheer gratitude to my university, [the NTUU Igor Sikorsky KPI](https://kpi.ua/en), for providing an environment where I had the privilege to connect with numerous ambitious individuals, who inspired me to strive for more.
 - Special thanks to [ChatGPT](https://chat.openai.com/) for its continuous guidance & support on numerous topics.
+
+
+
+# &#129309; Contributing
+I welcome and appreciate contributions from the community, as they greatly enhance my knowledge and understanding in this field. Whether it's code improvements, bug reports, project suggestions, or discussions on specific topics — feel free to reach out. Your input is truly valued!
+
+---
+**Ideas for Consideration:**
+- **Origins Structure** — I believe it would be valuable to have a structured approach for examining a data structure or algorithm from a historical perspective — a heuristic or shortcut that distills just enough information to grasp its core idea and evolution. To achieve this, the first step should be defining the key aspects to analyze. These may include: the original problem that led to its creation, the initial attempts to solve it and why they failed, the thought process that led to the breakthrough, how the first solution emerged and evolved, the major contributions and updates made over time, its current state and potential future developments, etc. These kinds of questions would help others understand the thought processes of the people who created these structures, allowing them to mentally simulate the situations in which those ideas emerged. I believe that knowing this information would significantly enhance the way we teach problem-solving today and would serve as valuable documentation for future generations. One major challenge, however, is that finding answers to such questions can be difficult. Many early developments were poorly documented, and historical truths are often vague, hidden, or distorted due to human nature.
+- **Template Coverage in Data Structures** — in the initial versions of my data structures, I implemented them using templates. However, I soon realized that properly implementing generic versions requires significant effort and involves many complex nuances. As a result, I reworked the data structures to use one type versions instead, as they are much better for learning purposes. That said, I still want this repository to cover the use of templates, as they are fundamental to how data structures are implemented in real libraries. The first key aspect to explore is how data structures are designed to store user-defined types and how they handle them internally. This knowledge is important, but implementing everything alone would take more time than is rational. For example, instead of building a single, fully optimized array implementation (which, due to my current level of experience, might still miss certain edge cases), I can focus on creating more data structures that are tailored toward one of the simplest types. This way, I believe it would provide more useful knowledge to more people.
+- **Move Mechanics in Data Structures** — currently, move semantics are not implemented in the data structures. Adding support for move constructors and move assignment operators would be a significant improvement, making the implementations more efficient and modern.
+- **Analysis for RNGs** — it would be interesting to add statistical testing for random number generators, including visualizations such as scatter plots to observe key properties like period, variation, spread, and distribution. This would help in analyzing the quality and behavior of different RNGs, making it easier to identify patterns or biases.
+
+---
+**Contact Information:**
+- &#128231; Email: [vezzolter@gmail.com](mailto:vezzolter@gmail.com)
+- &#128172; Telegram: [@vezzolter](https://t.me/vezzolter)
+- &#128100; LinkedIn: [Maksym Ozerov's profile](https://www.linkedin.com/in/vezzolter)
 
 
 
