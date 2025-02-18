@@ -14,9 +14,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -486,17 +485,7 @@ The BST is a data structure whose origins are intertwined with the collaborative
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 12: Binary Search Trees
@@ -520,7 +509,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 16: Binary Search Trees
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/) (Article)
 - [Balancing a binary search tree](https://appliedgo.net/balancedtree/) (Article)
@@ -529,6 +518,11 @@ For contact details and additional information, please refer to the [root direct
 - [On the efficiency of a new method of dictionary construction](https://www.sciencedirect.com/science/article/pii/S0019995860909013) (Research Paper)
 - [Some Combinatorial Properties of Certain Trees](https://dl.acm.org/doi/abs/10.1145/321105.321108) (Research Paper)
 - [More combinatorial properties of certain trees](http://comjnl.oxfordjournals.org/content/7/4/299.full.pdf) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

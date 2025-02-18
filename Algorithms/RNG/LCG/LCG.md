@@ -12,9 +12,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -140,17 +139,7 @@ The development of electronic computing spurred innovations like **Derrick Henry
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 3.2.1: Linear Congruential Method
@@ -160,8 +149,13 @@ For contact details and additional information, please refer to the [root direct
   - Section 13.7: Random Number Generation
 
 ---
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Linear congruential generator](https://en.wikipedia.org/wiki/Linear_congruential_generator) (Wikipedia)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

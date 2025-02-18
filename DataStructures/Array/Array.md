@@ -12,9 +12,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -178,17 +177,7 @@ The idea of the array, due to its simplicity and efficiency, can be observed in 
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 3.1: Building Blocks
@@ -212,14 +201,22 @@ For contact details and additional information, please refer to the [root direct
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
    - Course 2.1: Linear Structures
 
+---
+&#127916; **Recordings:**
+- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
+
 --- 
-&#127760; **Web-Resources:**
+&#127760; **Web-Pages:**
 - [Array (data structure)](https://en.wikipedia.org/wiki/Array_(data_structure)) (Wikipedia)
 - [Dynamic array](https://en.wikipedia.org/wiki/Dynamic_array) (Wikipedia)
 - [std::array](https://en.cppreference.com/w/cpp/container/array) (Documentation)
 - [std::vector](https://en.cppreference.com/w/cpp/container/vector) (Documentation)
 - [Iterator library](https://en.cppreference.com/w/cpp/iterator) (Documentation)
-- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

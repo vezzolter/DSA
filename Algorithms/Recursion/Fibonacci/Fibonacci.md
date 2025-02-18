@@ -14,9 +14,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -141,17 +140,7 @@ Besides popularizing the Hindu-Arabic numerical system, he introduced the discus
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 5.3: Dynamic programming
@@ -166,13 +155,18 @@ For contact details and additional information, please refer to the [root direct
    - Section 5: Recursion
 
 ---
-&#127760; **Web-Resources:**
+&#127760; **Web-Pages:**
 - [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence) (Wikipedia)
 - [Golden ratio](https://en.wikipedia.org/wiki/Golden_ratio) (Wikipedia)
 - [Golden ratio: A beginner's guide](https://www.adobe.com/creativecloud/design/discover/golden-ratio.html) (Article)
 - [Binet's Formula](https://artofproblemsolving.com/wiki/index.php/Binet%27s_Formula) (Article)
 - [The Fibonacci Sequence. Its history, Significance, and Manifestations in Nature](https://core.ac.uk/download/pdf/58824887.pdf) (Research Paper)
 - [The so-called fibonacci numbers in ancient and medieval India](https://www.sciencedirect.com/science/article/pii/0315086085900217?via%3Dihub) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

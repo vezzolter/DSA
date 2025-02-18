@@ -13,9 +13,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -261,17 +260,7 @@ The idea of this algorithm dates back to **1969**, when the well-known German ma
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 4: Divide-and-Conquer
@@ -282,10 +271,19 @@ For contact details and additional information, please refer to the [root direct
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 4.6.4: Evaluation of Polynomials
 
+---
+&#127916; **Recordings:**
+- [Strassen's Algorithm](https://www.youtube.com/watch?v=D1GRgMfeRNk&ab_channel=%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%91%D0%98%D0%A1) (Lecture)
+
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Strassen algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm) (Wikipedia)
-- [Strassen's Algorithm](https://www.youtube.com/watch?v=D1GRgMfeRNk&ab_channel=%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%91%D0%98%D0%A1) (Video-Lecture)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
+
 
 
 # &#128271; License

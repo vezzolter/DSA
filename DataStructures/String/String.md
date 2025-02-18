@@ -1,22 +1,21 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-  - [Essential Terminology](#essential-terminology)
-  - [Core Mechanics](#core-mechanics)
-  - [Container Methods](#container-methods)
+	- [Essential Terminology](#essential-terminology)
+	- [Core Mechanics](#core-mechanics)
+	- [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
-  - [Design Decisions](#design-decisions)
-  - [Container Implementation](#container-implementation)
-  - [Iterator Implementation](#iterator-implementation)
+	- [Design Decisions](#design-decisions)
+	- [Container Implementation](#container-implementation)
+	- [Iterator Implementation](#iterator-implementation)
 - [📊 Analysis](#-analysis)
-  - [Characteristics](#characteristics)
-  - [Trade-Offs](#trade-offs)
+	- [Characteristics](#characteristics)
+	- [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
-  - [Common Use Cases](#common-use-cases)
-  - [Some Practical Problems](#some-practical-problems)
+	- [Common Use Cases](#common-use-cases)
+	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -576,17 +575,7 @@ Strings, as a fundamental concept, have existed for as long as written communica
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 3.6: Strings
@@ -599,15 +588,23 @@ For contact details and additional information, please refer to the [root direct
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
    - Section 8: Strings
 
+---
+&#127916; **Recordings:**
+- [What is character encoding? Exporing Unicode, UTF8, ASCII, and more](https://youtu.be/4i0beu7qct0?si=b6blUlFWpxhDletM) (Video)
+- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
+
 --- 
-&#127760; **Web-Resources:**
+&#127760; **Web-Pages:**
 - [String (computer science)](https://en.wikipedia.org/wiki/String_(computer_science)) (Wikipedia)
 - [Character (computing)](https://en.wikipedia.org/wiki/Character_(computing)) (Wikipedia)
 - [Character encoding](https://en.wikipedia.org/wiki/Character_encoding) (Wikipedia)
 - [ASCII Table](https://www.ascii-code.com) (Documentation)
 - [UTF-8 encoding table and Unicode characters](https://www.utf8-chartable.de) (Documentation)
-- [What is character encoding? Exporing Unicode, UTF8, ASCII, and more](https://youtu.be/4i0beu7qct0?si=b6blUlFWpxhDletM) (Video)
-- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

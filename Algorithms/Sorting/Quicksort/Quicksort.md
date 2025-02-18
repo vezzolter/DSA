@@ -14,9 +14,8 @@
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -194,17 +193,7 @@ QuickSort was conceived by British computer scientist **Tony Hoare** in **1959**
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 7: Quicksort
@@ -223,10 +212,15 @@ For contact details and additional information, please refer to the [root direct
    - Section 20: Sorting Techniques
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) (Wikipedia)
-- [Quicksort by C. A. R. Hoare](https://academic.oup.com/comjnl/article-pdf/5/1/10/1111445/050010.pdf)
-- [Hoare’s vs Lomuto partition scheme in QuickSort](https://www.educative.io/answers/hoares-vs-lomuto-partition-scheme-in-quicksort)
+- [Quicksort by C. A. R. Hoare](https://academic.oup.com/comjnl/article-pdf/5/1/10/1111445/050010.pdf) (Research Paper)
+- [Hoare’s vs Lomuto partition scheme in QuickSort](https://www.educative.io/answers/hoares-vs-lomuto-partition-scheme-in-quicksort) (Article)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

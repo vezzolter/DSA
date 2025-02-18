@@ -12,9 +12,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -137,21 +136,16 @@ Marsaglia’s breakthrough came with the realization that exclusive OR (XOR) and
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
-&#127760; **Web-Resources:**  
+# &#128214; Resources
+&#127760; **Web-Pages:**  
 - [Xorshift](https://en.wikipedia.org/wiki/Xorshift) (Wikipedia)
 - [Xorshift RNGs](https://www.jstatsoft.org/article/view/v008i14) (Research Paper)
 - [On the xorshift random number generators](https://www.researchgate.net/publication/220136542_On_the_xorshift_random_number_generators) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

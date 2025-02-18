@@ -1,9 +1,8 @@
 # &#128209; Table of Contents
 - [💡 About](#-about)
 - [📁 Structure](#-structure)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
   
@@ -148,7 +147,7 @@ This list provides a straightforward overview of the repository's contents. For 
 
 
 
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - A cornerstone resource that inspired me to learn DSA.
@@ -174,10 +173,24 @@ This list provides a straightforward overview of the repository's contents. For 
   - Guides into basic DSA topics with ease, no matter how complex you think it is, therefore makes you start.
 
 ---
-&#128156; **Special Thanks:**
-- I am grateful to the [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md) for providing valuable insights on applying best practices to code, all while maintaining simplicity to convey ideas clearly and concisely.
-- Sheer gratitude to my university, [the NTUU Igor Sikorsky KPI](https://kpi.ua/en), for providing an environment where I had the privilege to connect with numerous ambitious individuals, who inspired me to strive for more.
-- Special thanks to [ChatGPT](https://chat.openai.com/) for its continuous guidance & support on numerous topics.
+&#127916; **Channels:**
+- [MIT OpenCourseWare](https://www.youtube.com/@mitocw)
+   - It's amazing to learn from top professors who truly know their field — thank you, MIT!
+- [NeetCode](https://www.youtube.com/@NeetCode)
+   - Very detailed explanations — an excellent resource when you start applying your knowledge to problems.
+- [Programming Live with Larry](https://www.youtube.com/@Algorithmist)
+   - He is a talented person, and I really enjoy his live sessions — you can watch a master at work.
+
+---  
+&#127760; **Web-Sites:**  
+- [Wikipedia](https://www.wikipedia.org)
+  - A simple starting point. Many people dislike Wikipedia as a "source," but at the very least, it allows you to trace the original sources and verify them yourself — unlike some "guides" or "tutorial" sites that many people recommend.
+- [OpenDSA](https://lti.cs.vt.edu/LTI_ruby/Books/CSC215/html/index.html)
+  - A university-based, open-source online platform with interactive learning materials — a valuable resource.
+- [cppreference](https://en.cppreference.com/w/)
+  - Since this repository is built upon C++, this site comes in handy for understanding how certain things work.
+- [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+  - Essentially just guidelines for coding style, but in real-life development, everyone follows their own conventions. It’s not a strict cookbook, but rather a helpful reference if you don’t have your own style established yet. 
 
 
 

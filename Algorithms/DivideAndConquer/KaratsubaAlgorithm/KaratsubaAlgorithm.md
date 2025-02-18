@@ -13,9 +13,8 @@
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -162,17 +161,7 @@ Since then, many mathematicians have developed further optimizations and new alg
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
   - Section 10.2.4: Theoretical Improvements for Arithmetic Problems
@@ -180,9 +169,17 @@ For contact details and additional information, please refer to the [root direct
   - Section 4.3.3: How Fast Can We Multiply?
 
 ---
-&#127760; **Web-Resources:**  
+&#127916; **Recordings:**
+- [Karatsuba Algorithm](https://youtu.be/m9yO12Zlb1g?si=K4SSGMbXjzwv2ilF) (Lecture)
+
+---
+&#127760; **Web-Pages:**  
 - [Karatsuba Algorithm](https://en.wikipedia.org/wiki/Karatsuba_algorithm) (Wikipedia)
-- [Karatsuba Algorithm](https://youtu.be/m9yO12Zlb1g?si=K4SSGMbXjzwv2ilF) (Video-Lecture)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

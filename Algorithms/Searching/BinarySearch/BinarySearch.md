@@ -14,9 +14,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -165,17 +164,7 @@ The idea of binary search has evolved over time and there is no single individua
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 12.4: Binary Search
@@ -194,9 +183,14 @@ For contact details and additional information, please refer to the [root direct
    - Section 7: The Array ADT (Binary Search)
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Binary search algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm) (Wikipedia)
-- [Why start + (end – start)/2 is preferable method for calculating middle of an array over (start + end)/2 ?](https://www.geeksforgeeks.org/start-end-start2-preferrable-method-calculating-middle-array-start-end2/)
+- [Why start + (end – start)/2 is preferable method for calculating middle of an array over (start + end)/2 ?](https://www.geeksforgeeks.org/start-end-start2-preferrable-method-calculating-middle-array-start-end2/) (Article)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

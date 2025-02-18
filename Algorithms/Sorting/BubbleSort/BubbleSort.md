@@ -13,9 +13,8 @@
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -146,17 +145,7 @@ In terms of computer science, Bubble Sort was one of the earliest sorting algori
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 6.4: Bubble Sort
@@ -169,9 +158,14 @@ For contact details and additional information, please refer to the [root direct
    - Section 20: Sorting Techniques
   
 ---
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sortt) (Wikipedia)
-- [Bubble Sort: An Archaeological Algorithmic Analysis](https://users.cs.duke.edu/~ola/papers/bubble.pdf)
+- [Bubble Sort: An Archaeological Algorithmic Analysis](https://users.cs.duke.edu/~ola/papers/bubble.pdf) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

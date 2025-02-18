@@ -12,12 +12,11 @@
   - [Advantages](#advantages)
   - [Disadvantages](#disadvantages)
 - [📝 Application](#-application)
-  - [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
-  - [Common Practical Problems](#common-practical-problems)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -124,9 +123,16 @@ Within the scope of this repository, we'll take a closer look at simplified vers
 ## Implemented Trees
 One of the most important things behind binary trees is how elements are inserted into them. The insertion process similar linked lists, albeit with slight adjustments — elements are inserted based on specific criteria. These criteria can vary, making the binary tree an adaptable container to diverse needs. Perhaps this adaptability is the reason why there's no single container that precisely represents a general binary tree, and it's certainly the reason I've chosen not to implement one. Instead, I suggest starting with this brief overview of binary trees to avoid overwhelming complexity, and head to next types of trees listed in this repository in the following order:
   - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
-  - [AVL Tree](https://github.com/vezzolter/DSA/tree/avl/DataStructures/Tree/AVL)🎯 
-  - Red-Black Tree (will be updated in the future...)
-  - B-Tree (will be updated in the future...)
+  - [AVL Tree](https://github.com/vezzolter/DSA/tree/avl/DataStructures/Tree/AVL)🎯  
+  - Splay Tree
+  - Red-Black Tree 
+  - 2-3-4 Tree
+  - B-Tree
+  - Trie
+  - Fenwick Tree
+  - Segment Tree
+  - Suffix Tree ❔
+  - K-Dimension Tree ❔
 
 
 
@@ -151,7 +157,7 @@ Assuming that tree is based on a [linked list](https://github.com/vezzolter/DSA/
 Understanding some of the most well-known use cases of a data structure is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
-## Some of the Most Well-Known Use Cases
+## Common Use Cases
 - **File Systems** — trees are used in file systems to represent hierarchy. Each node in the tree represents a directory or folder, and the branches represent subdirectories or files contained within each directory.
 - **Database Indexing** — trees often used in database indexing to organize and search records based on keys. They enable quick retrieval of data in databases by providing an efficient index structure that allows for fast lookup operations.
 - **GUIs** — trees often used in GUIs to represent the hierarchical structure of user interface elements such as menus, widgets, and windows. Each node in the tree represents a UI component, and the branches represent the containment relationships between these components.
@@ -159,7 +165,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 - **Decision Making** — trees often used in decision-making processes to model complex decision scenarios and evaluate different options. Each node in the tree represents a decision or a possible outcome, and the branches represent the different choices or paths that can be taken. By traversing the tree, decision-makers can analyze the potential outcomes of different choices and make informed decisions based on the available information.
 
 
-## Common Practical Problems
+## Some Practical Problems
 - Maximum depth of binary tree
 - Construct binary tree from preorder and inorder traversal
 - Invert binary tree
@@ -178,17 +184,7 @@ In the context of computer programming, the origins of trees came from mathemati
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 10.4: Representing Rooted Trees
@@ -231,12 +227,17 @@ For contact details and additional information, please refer to the [root direct
   - Section 18: Search Trees
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Tree (data structure)](https://en.wikipedia.org/wiki/Tree_(data_structure)) (Wikipedia)
 - [Tree structure](https://en.wikipedia.org/wiki/Tree_structure) (Wikipedia)
-- [Tree - Terminology](http://www.btechsmartclass.com/data_structures/tree-terminology.html)
+- [Tree - Terminology](http://www.btechsmartclass.com/data_structures/tree-terminology.html) (Article)
 - [Binary tree](https://en.wikipedia.org/wiki/Binary_tree) (Wikipedia)
-- [Binary Tree: Properties, Types, Representation, Application](https://www.enjoyalgorithms.com/blog/introduction-to-binary-tree)
+- [Binary Tree: Properties, Types, Representation, Application](https://www.enjoyalgorithms.com/blog/introduction-to-binary-tree) (Article)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

@@ -1,4 +1,5 @@
 # &#128209; Table of Contents
+- [� Table of Contents](#-table-of-contents)
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
@@ -14,9 +15,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -148,17 +148,7 @@ Over time, the algorithm has been optimized and extended in various ways, includ
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 31.2: Greatest common divisor
@@ -175,10 +165,15 @@ For contact details and additional information, please refer to the [root direct
    - Section 5: Recursion
 
 ---
-&#127760; **Web-Resources:**
+&#127760; **Web-Pages:**
 - [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) (Wikipedia)
 - [Greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor) (Wikipedia)
 - [Origins of the Analysis of the Euclidean Algorithm ](https://www.sciencedirect.com/science/article/pii/S0315086084710317/pdf?md5=8f1036a4e7079a56daf22434498f19a6&pid=1-s2.0-S0315086084710317-main.pdf) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 
