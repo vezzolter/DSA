@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **AVL Tree** is a self-balancing implementation of the binary search tree (BST) that strictly maintains height balance by enforcing a maximum difference of 1 between subtree heights at every node. The tree is named after its two Soviet inventors, Georgy Adelson-Velsky and Evgenii Landis, who introduced it in 1962 as the first self-balancing BST. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/AVL.png"/></p>
 
 
 ## Important Details
@@ -109,6 +110,7 @@ Currently in Progress...
 - [AVL tree](https://en.wikipedia.org/wiki/AVL_tree) (Wikipedia)
 - [Self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree) (Wikipedia)
 - [Tree rotation](https://en.wikipedia.org/wiki/Tree_rotation) (Wikipedia)
+- [An anlgorithm for the organization of information](https://zhjwpku.com/assets/pdf/AED2-10-avl-paper.pdf) (Research Paper)
 
 
 
