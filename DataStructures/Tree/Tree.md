@@ -1,16 +1,13 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
   - [Essential Terminology](#essential-terminology)
-  - [Important Details](#important-details)
-  - [Types of Trees](#types-of-trees)
-  - [Operation Details](#operation-details)
 - [💻 Implementation](#-implementation)
+  - [Core Mechanics](#core-mechanics)
   - [Existing Solutions](#existing-solutions)
-  - [Implemented Trees](#implemented-trees)
+  - [Repository Containers](#repository-containers)
 - [📊 Analysis](#-analysis)
-  - [How to Analyze](#how-to-analyze)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+  - [Evaluating Characteristics](#evaluating-characteristics)
+  - [Comparing Containers](#comparing-containers)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
@@ -56,12 +53,17 @@ The **Tree** stands out as one of the most fundamental concept in computer scien
   - **Degree of a Tree** — is the highest degree among all the nodes.
 
 
-## Important Details
+
+# &#x1F4BB; Implementation
+Understanding the underlying mechanics of a data structure is essential to grasp how it operates and manages data. Since one data structure can have different implementations, it's crucial to recognize these distinctions, especially by learning from existing solutions, which often offer efficient, well-tested approaches to handling data and optimizing performance.
+
+
+## Core Mechanics
 When delving into the world of trees, it's essential to begin with binary tree, often regarded as the foundational building block. Before exploring more intricate tree structures, let's first establish a solid understanding of two fundamental concepts:
 - **Binary Tree** — is a tree structure in which each node can have a maximum of $2$ children, referred to as the left child and the right child.  
 - **M-ary Tree** — is a generalization of binary trees, where each node can have a maximum of `m` children.
 
-
+---
 <p align="center"><img src="./Images/BinaryTreeTypes.png"/></p>
 
 **Binary Trees can be described as:**
@@ -91,27 +93,6 @@ When delving into the world of trees, it's essential to begin with binary tree, 
 > Note: There is no need to remember all the properties, but you should understand how to come up with them if the task requires. Additionally, practice breaking down binary tree structures and analyzing their components to build intuition for deriving relevant knowledge.
 
 
-## Types of Trees
-Will be updated in the future...
-
-
-## Operation Details
-- **Access/Search** — retrieving elements based on certain criteria (e.g. minimum, maximum, predecessor, successor)
-- **Insertion/Grafting** — inserting a new element (or whole section) into the tree, while maintaining the tree's properties.
-- **Deletion/Pruning** — removing specific elements (or whole section), while maintaining the tree's properties.
-- **Clear** — removing all elements, resetting it to an empty state.
-- **Empty** — checking if the tree contains no elements.
-- **Size** — determining the number of elements.
-- **Height** — determining the height of elements/tree.
-- **Depth** — determining the depth of elements/tree.
-- **Traversal** — visiting all the elements in a specific order (e.g. in-order, pre-order, post-order, DFS)
-
-
-
-# &#x1F4BB; Implementation
-Will be updated in the future...
-
-
 ## Existing Solutions
 When it comes to the implementation of abstract data types (ADTs), there are many different ways to represent trees. While some share common ideas, each possesses distinctive characteristics. To cover them all, it's essential to understand the fundamental concept behind the most well-known representations and make slight adjustments to the chosen tree structure.
 
@@ -120,7 +101,7 @@ Note that it is commonly recommended to rely on proven, well-established, and wi
 Within the scope of this repository, we'll take a closer look at simplified versions of popular trees to gain a deeper understanding of the fundamental concepts that underlie them. After this section, it would be beneficial to examine previously mentioned implementations in practice (e.g. pet-projects, LeetCode-like sites) to solidify the knowledge
 
 
-## Implemented Trees
+## Repository Containers
 One of the most important things behind binary trees is how elements are inserted into them. The insertion process similar linked lists, albeit with slight adjustments — elements are inserted based on specific criteria. These criteria can vary, making the binary tree an adaptable container to diverse needs. Perhaps this adaptability is the reason why there's no single container that precisely represents a general binary tree, and it's certainly the reason I've chosen not to implement one. Instead, I suggest starting with this brief overview of binary trees to avoid overwhelming complexity, and head to next types of trees listed in this repository in the following order:
   - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
   - [AVL Tree](https://github.com/vezzolter/DSA/tree/avl/DataStructures/Tree/AVL)🎯  
@@ -139,17 +120,13 @@ One of the most important things behind binary trees is how elements are inserte
 # &#128202; Analysis
 Understanding how to analyze the particular implementation of a data structure in terms of time and space complexity is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing the pros and cons of different data structures allows to make informed decisions, helping to choose the most suitable approach for a given problem.
 
-## How to Analyze
-Assuming that tree is based on a [linked list](https://github.com/vezzolter/DSA/blob/main/DataStructures/LinkedList/List.md) structure, it incorporates its pros (dynamic nature, diverse memory allocation, minimizing unused space) and cons (inefficient sequential access, additional memory consumption), which is worthwhile to keep in mind.
 
-## Advantages
-- **Hierarchical Structure** — trees structure allows for a natural representation of parent-child relationships, making it easy to understand and visualize the data.
-- **Searching and Retrieval** — some trees that posses ordering properties like Binary Search Tree ensure rapid access, as they can reduce the searching space in half at each step.
+## Evaluating Characteristics
+Currently in Progress...
 
-## Disadvantages
-- **Space Overhead** — trees may incur a higher memory consumption compared to other data structure, due to the need for additional pointers or metadata to maintain the structure.
-- **Complexity of Operations** — trees have more complex implementation of operations compared to linear data structures. Handling balancing, traversal, and manipulations require additional attention to intricate details, which can easily be overlooked.
-- **Potential Degraded Performance** — trees may suffer from degraded performance if they become unbalanced or exhibit poor structural properties. This can compromise the efficiency of searching and maintenance, adding to the complexity of implementation and resource requirements.
+
+## Comparing Containers
+Currently in Progress...
 
 
 
@@ -159,21 +136,18 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 ## Common Use Cases
 - **File Systems** — trees are used in file systems to represent hierarchy. Each node in the tree represents a directory or folder, and the branches represent subdirectories or files contained within each directory.
+
 - **Database Indexing** — trees often used in database indexing to organize and search records based on keys. They enable quick retrieval of data in databases by providing an efficient index structure that allows for fast lookup operations.
+
 - **GUIs** — trees often used in GUIs to represent the hierarchical structure of user interface elements such as menus, widgets, and windows. Each node in the tree represents a UI component, and the branches represent the containment relationships between these components.
+
 - **Networking** — trees often used in networking to represent network topologies and routing tables. They provide a structured way to organize and manage network devices and connections, making it easier to route data packets efficiently between different nodes in the network.
+
 - **Decision Making** — trees often used in decision-making processes to model complex decision scenarios and evaluate different options. Each node in the tree represents a decision or a possible outcome, and the branches represent the different choices or paths that can be taken. By traversing the tree, decision-makers can analyze the potential outcomes of different choices and make informed decisions based on the available information.
 
 
 ## Some Practical Problems
-- Maximum depth of binary tree
-- Construct binary tree from preorder and inorder traversal
-- Invert binary tree
-- Same tree
-- Binary tree level order traversal
-- Binary tree maximum path sum
-- Serialize and deserialize binary tree
-- Count valid paths in a tree
+- Currently in Progress...
 
 
 
