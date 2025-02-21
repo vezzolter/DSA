@@ -50,6 +50,47 @@ The **AVL Tree** is a self-balancing implementation of the binary search tree (B
 
 
 ## Container Methods
+When working with AVL trees, it's important to note that there is no universal standard defining a strict list of operations or guidelines for how they should be implemented. Moreover, raw AVLs are rarely implemented directly in modern programming libraries. Instead, Red-Black Trees are preferred for their balance between performance and rebalancing overhead, making them the internal choice for implementing higher-level containers such as  `std::map` (C++), `TreeMap` (Java), or `SortedSet` (C#). Since the design and functionality of containers vary significantly depending on several factors, it is difficult to pinpoint a definitive list of operations. Therefore, in this repository, the container methods aim to replicate some of the fundamental operations present in most implementations.
+
+---
+**Compiler Generated**:
+- `Default Constructor` — creates an empty AVL.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new AVL by copying the structure and values of another AVL.
+  - if the other AVL is empty, initializes an empty AVL.
+- `Move Constructor` — creates a new AVL by transferring ownership of the memory from another AVL, leaving the original AVL in a valid but unspecified state.
+  - if the other AVL is empty, initializes an empty AVL.
+- `Copy Assignment Operator` — overwrites each element of already existing AVL with the corresponding element of another AVL by copying them.
+  - if the other AVL is empty, initializes an empty AVL.
+- `Move Assignment Operator` — overwrites each element of already existing AVL with the corresponding element of another AVL by transferring ownership of the memory from another AVL, leaving the original AVL in a valid but unspecified state.
+  - if the other AVL is empty, initializes an empty AVL.
+- `Destructor` — releases the AVL's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
+
+---
+<p align="center"><img src="./Images/OperationsIterators.png"/></p>
+
+**Iterators:**
+- `begin`, `cbegin` — returns an iterator (or constant iterator) pointing to the smallest node in the tree (in-order traversal).
+- `end`, `cend` — returns an iterator (or constant iterator) pointing past the largest node in the tree.
+- `rbegin`, `crbegin` — returns an iterator (or constant iterator) pointing to the largest node in the tree (reverse in-order traversal).
+- `rend`, `crend` — returns an iterator (or constant iterator) pointing past the smallest node in reverse traversal.
+
+---
+<p align="center"><img src="./Images/OperationsAccess.png"/></p>
+
+**Elements Access**:
+- `find(val)` — returns a pointer or iterator to the node containing the specified value.
+  - returns `nullptr` or equivalent, if the value is not found.
+- `min()` — returns an iterator to the node with the smallest value in the tree.
+  - returns `nullptr` or equivalent, if the tree is empty.
+- `max()` — returns an iterator to the node with the largest value in the tree.
+  - returns `nullptr` or equivalent, if the tree is empty.
+- `successor(val)` — returns a pointer or iterator to the node with the smallest value greater than the specified value (in-order successor).
+   - returns `nullptr` or equivalent, if specified value has no successor (e.g. the largest value, sole value).
+- `predecessor(val)` — returns a pointer or iterator to the node with the largest value smaller than the specified value (in-order predecessor).
+  - returns `nullptr` or equivalent, if specified value has no predecessor (e.g. the largest value, sole value).
+
+---
 Currently in Progress...
 
 
