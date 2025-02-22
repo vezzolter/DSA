@@ -30,14 +30,14 @@ The **AVL Tree** is a self-balancing implementation of the binary search tree (B
 
 2. **BST Ordering Property** — for any given node (`x`), all values in the left subtree are less than the node's value (`left` $<$ `x`), and all values in the right subtree are greater than the node's value (`right` $>$ `x`). This property is the core of BSTs, ensuring a hierarchical structure that supports efficient operations; any violation compromises the tree's integrity and reliability.
 
-3. **AVL Height-Balancing Property** — for any given node, the height difference between its left and right subtrees is at most $1$, which can be expressed as $|$`leftHeight` $-$ `rightHeight`$| \leqslant 1$. This constraint prevents the tree from becoming excessively skewed, ensuring that its height remains logarithmic in relation to the number of nodes. 
+3. **AVL Height-Balancing Property** — for any given node, the height difference between its left and right subtrees is at most $1$, which can be expressed as $|$ `leftHeight` $-$ `rightHeight` $| \leqslant 1$. This constraint prevents the tree from becoming excessively skewed, ensuring that its height remains logarithmic in relation to the number of nodes. 
 
 4. **Balance Factor (BF)** — is a numerical value that represents the height difference between a node's left and right subtrees, calculated as `BF` $=$ `leftHeight` - `rightHeight` (although some people reverse the formula, the idea remains the same). Basically it is a metric that enforces the AVL height-balancing property, because it allows determining whether node is balanced or not, and if at any time `BF` exceeds the balanced range (i.e. node becomes unbalanced), rebalancing is performed to restore that property. The node is considered:
    - **balanced** if its `BF` equals $-1$, $0$, or $1$;
    - **right-heavy** if its `BF` $< -1$ (because right subtree is taller);
    - **left-heavy** if its `BF` $> 1$ (because left subtree is taller).
    
-   Pretty often, to simplify height calculations, some implementations define the height of a leaf's child pointers as $-1$, this way the formula for height $max($`leftHeight`, `rightHeight`$) + 1$ results in $max(-1,-1) + 1 = -1 + 1 = 0$, which correctly represents the height of a leaf node (it takes $0$ steps to get from a leaf to a itself).
+   Pretty often, to simplify height calculations, some implementations define the height of a leaf's child pointers as $-1$, this way the formula for height $max($ `leftHeight`, `rightHeight` $) + 1$ results in $max(-1,-1) + 1 = -1 + 1 = 0$, which correctly represents the height of a leaf node (it takes $0$ steps to get from a leaf to a itself).
    
 5. **Only Two Bits** — is currently in progress...
 
@@ -89,6 +89,34 @@ When working with AVL trees, it's important to note that there is no universal s
    - returns `nullptr` or equivalent, if specified value has no successor (e.g. the largest value, sole value).
 - `predecessor(val)` — returns a pointer or iterator to the node with the largest value smaller than the specified value (in-order predecessor).
   - returns `nullptr` or equivalent, if specified value has no predecessor (e.g. the largest value, sole value).
+
+---
+<p align="center"><img src="./Images/OperationsCapacity.png"/></p>
+
+**Capacity**:
+- `empty()` — returns `true` if the tree contains no nodes; otherwise `false`.
+- `size()` — returns the total number of nodes in the tree.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically based on system's memory limitations, if all available memory were dedicated to that single container.
+- `height(val)` — returns the height of the given's value node, which is the length (number of edges) of the longest path from the node to a leaf.
+  - if the value is not found in the tree, it returns `-1`;
+  - the height of a leaf node is `0`.
+- `depth(val)` — returns the depth of the given's value node, which is the length (number of edges) of the path from the root to the node.
+  - if the value is not found in the tree, it returns `-1`;
+  - the depth of the root node is `0`.
+
+
+---
+<p align="center"><img src="./Images/OperationsModifiers.png"/></p>
+
+**Modifiers**:
+- `insert(val)` — inserts a new node with the specified value into the tree, maintaining the BST ordering property and ensuring balance by applying rotations if needed.
+- `erase(val)` — removes the node with the specified value from the tree, adjusting the structure as needed to maintain the ordering property and restoring balance via rotations if required.
+  - if the node has no children (leaf), simply remove node;
+  - if the node has one child, replace the node with its child;
+  - if the node has two children, it is replaced with its in-order successor or predecessor, depending on the design decision.
+- `clear()` — removes all nodes from the tree, resetting it to its initial state.
+- `swap(other)` — exchanges the contents of the current tree with another tree, avoiding expensive deep copies.
+  - assigning a tree to itself has no effect, as the function exits early without performing any operations.
 
 ---
 Currently in Progress...
