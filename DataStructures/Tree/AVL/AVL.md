@@ -171,7 +171,9 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...
+The AVL tree was introduced in **1962** by Soviet mathematicians **Georgy Adelson-Velsky** and **Evgenii Landis** as the first self-balancing BST. Their motivation was to address the fundamental weakness of unbalanced BSTs — unbounded growth in height, which severely degraded search performance. By enforcing a strict balance factor constraint and applying rotations when necessary, they ensured that AVL trees maintained logarithmic height, preserving efficient operations.
+
+While AVL trees provided a robust solution to the balancing problem, their frequent rotations made insertion and deletion more expensive compared to later self-balancing structures. This led to the development of alternative balancing methods, starting with **B-Trees (1970)**, which extended AVL principles to multi-way trees and became the foundation of modern database indexing. Later, **Red-Black Trees (1972)** relaxed balance constraints to reduce rotations, making them the preferred choice for many standard libraries. **Splay Trees (1985)** introduced self-adjusting heuristics to optimize access patterns, further expanding the landscape of balanced search trees. Over time, numerous other balancing techniques have been explored, each tailored to specific use cases. While many of these have overtaken AVL trees in mainstream usage, AVL trees laid the foundation for all future balanced search trees, influencing the design of efficient search algorithms and data structures.
 
 
 
