@@ -39,9 +39,15 @@ The **AVL Tree** is a self-balancing implementation of the binary search tree (B
    
    Pretty often, to simplify height calculations, some implementations define the height of a leaf's child pointers as $-1$, this way the formula for height $max($ `leftHeight`, `rightHeight` $) + 1$ results in $max(-1,-1) + 1 = -1 + 1 = 0$, which correctly represents the height of a leaf node (it takes $0$ steps to get from a leaf to a itself).
    
-5. **Only Two Bits** — is currently in progress...
+5. **Rebalancing via Rotations** — the process of rebalancing are build upon operations called rotations. Basically, these are local restructuring operations that modify the tree's structure to restore balance without altering its in-order sequence. Rotations are common in various self-balancing trees, but AVL trees enforce their own **strict** balance conditions, making rotations essential. There are four types of rotation based on the type of imbalance:
+   - **Left Rotation (\\)** — applied when the imbalance is in a straight-line pattern in the right subtree (e.g. 5 -> 10 -> 15);
+   - **Right Rotation (/)** — applied when the imbalance is in a straight-line pattern in the left subtree (e.g. 15 -> 10 -> 5);
+   - **Left-Right Rotation (<)** — applied when the imbalance is in a zig-zag pattern, where the middle node is in the left subtree (e.g. 15 -> 5 -> 10)
+   - **Right-Left Rotation (>)** — applied when the imbalance is in a zig-zag pattern, where the middle node is in the right subtree (e.g. 5 -> 15 -> 10).
+   
+   The details of each rotation will be covered in the [container methods](##container-methods) section. Although they are internal operations, explaining them in the container methods section keeps all crucial tree operations organized in one place while maintaining a clear separation between modifiers and rotations categories.
 
-6. **Rebalancing via Rotations** — will be covered later, since the topic of rotations is common for multiple trees and [Tree.md](https://github.com/vezzolter/DSA/blob/avl/DataStructures/Tree/Tree.md) is still in progress...
+6. **Only Two Bits** — is currently in progress...
 
 7. **Fibonacci Relation** — is currently in progress...
 
@@ -119,7 +125,15 @@ When working with AVL trees, it's important to note that there is no universal s
   - assigning a tree to itself has no effect, as the function exits early without performing any operations.
 
 ---
-Currently in Progress...
+**Rotations (Private Part):**
+- `leftRotate(node)` — performs a left rotation on the given node to restore balance when its right subtree is too tall.
+<p align="center"><img src="./Images/OperationsLeftRotation.png"/></p>
+
+- `rightRotate(node)` — performs a right rotation on the given node to restore balance when its left subtree is too tall.
+<p align="center"><img src="./Images/OperationsRightRotation.png"/></p>
+
+- `leftRightRotate(node)` — Currently in Progress...
+- `rightLeftRotate(node)` — Currently in Progress...
 
 
 
