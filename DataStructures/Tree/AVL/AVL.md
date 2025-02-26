@@ -126,14 +126,15 @@ When working with AVL trees, it's important to note that there is no universal s
 
 ---
 **Rotations (Private Part):**
-- `leftRotate(node)` — performs a left rotation on the given node to restore balance when its right subtree is too tall.
+- `rotateLeft(node)` — performs a left rotation on the given node to restore balance when its right subtree is too tall.
 <p align="center"><img src="./Images/OperationsLeftRotation.png"/></p>
 
-- `rightRotate(node)` — performs a right rotation on the given node to restore balance when its left subtree is too tall.
+- `rotateRight(node)` — performs a right rotation on the given node to restore balance when its left subtree is too tall.
 <p align="center"><img src="./Images/OperationsRightRotation.png"/></p>
 
-- `leftRightRotate(node)` — Currently in Progress...
-- `rightLeftRotate(node)` — Currently in Progress...
+- `rotateLeftRight(node)` — Currently in Progress...
+- `rotateRightLeft(node)` — performs a right-left rotation on the given node to restore balance when its left subtree is too tall and in zig-zag shape.
+<p align="center"><img src="./Images/OperationsRightLeftRotation.png"/></p>
 
 
 
