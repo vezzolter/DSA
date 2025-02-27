@@ -45,7 +45,7 @@ The **AVL Tree** is a self-balancing implementation of the binary search tree (B
    - **Left-Right Rotation (<)** — applied when the imbalance is in a zig-zag pattern, where the middle node is in the left subtree (e.g. 15 -> 5 -> 10)
    - **Right-Left Rotation (>)** — applied when the imbalance is in a zig-zag pattern, where the middle node is in the right subtree (e.g. 5 -> 15 -> 10).
    
-   The details of each rotation will be covered in the [container methods](##container-methods) section. Although they are internal operations, explaining them in the container methods section keeps all crucial tree operations organized in one place while maintaining a clear separation between modifiers and rotations categories.
+   The details of each rotation will be covered in the [container methods](#container-methods) section. Although they are internal operations, explaining them in the container methods section keeps all crucial tree operations organized in one place while maintaining a clear separation between modifiers and rotations categories.
 
 6. **Only Two Bits** — is currently in progress...
 
@@ -125,16 +125,13 @@ When working with AVL trees, it's important to note that there is no universal s
   - assigning a tree to itself has no effect, as the function exits early without performing any operations.
 
 ---
+<p align="center"><img src="./Images/OperationsRotations.png"/></p>
+
 **Rotations (Private Part):**
 - `rotateLeft(node)` — performs a left rotation on the given node to restore balance when its right subtree is too tall.
-<p align="center"><img src="./Images/OperationsLeftRotation.png"/></p>
-
 - `rotateRight(node)` — performs a right rotation on the given node to restore balance when its left subtree is too tall.
-<p align="center"><img src="./Images/OperationsRightRotation.png"/></p>
-
-- `rotateLeftRight(node)` — Currently in Progress...
+- `rotateLeftRight(node)` — performs a left-left rotation on the given node to restore balance when its right subtree is too tall and in zig-zag shape.
 - `rotateRightLeft(node)` — performs a right-left rotation on the given node to restore balance when its left subtree is too tall and in zig-zag shape.
-<p align="center"><img src="./Images/OperationsRightLeftRotation.png"/></p>
 
 
 
