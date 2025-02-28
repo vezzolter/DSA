@@ -136,11 +136,21 @@ When working with AVL trees, it's important to note that there is no universal s
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the basic functionality of the AVL by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Disallowing the addition of duplicate elements.
+- Implementing only regular and const iterators (no reverse).
+- Limiting iterator functions to receive only one type of iterators to avoid templates.
+- Restricting the container to `int` to avoid templates.
+- Omitting cases where the container (object itself) is created on the heap.
+- Excluding move semantics to keep the focus on fundamental mechanics.
+- Relying on manual memory management without using smart pointers.
+- Avoiding any exception handling, thus certain range validations.
+- Omitting certain possible optimizations to the container.
 
 
 ## Container Implementation
