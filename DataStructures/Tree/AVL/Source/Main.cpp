@@ -8,9 +8,90 @@
 #include "AVL.h"
 
 
+void printTree(const AVL& tree) {
+	for (auto it = tree.cbegin(); it != tree.cend(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
 int main() {
 	// Greet
 	std::cout << "\tWelcome to the 'AVL Tree' console application!\n\n";
+
+	// Constructors
+	std::cout << "Constructors:\n";
+	std::cout << " -> AVL t1 (25,11,46,7,17,30,88,9,26,37):\t";
+	AVL t1;
+	t1.insert(25); // level 0
+	t1.insert(11); // level 1
+	t1.insert(46);
+	t1.insert(7); // level 2
+	t1.insert(17);
+	t1.insert(30);
+	t1.insert(88);
+	t1.insert(9); // level 3
+	t1.insert(26);
+	t1.insert(37);
+	printTree(t1);
+	std::cout << " -> AVL t2(t1):\t\t\t\t\t";
+	AVL t2(t1);
+	printTree(t2);
+	std::cout << " -> AVL t3 = t1:\t\t\t\t";
+	AVL t3 = t1;
+	printTree(t3);
+	std::cout << std::endl;
+
+	// Element Access
+	std::cout << "Element Access:\n";
+	std::cout << " -> *(t1.find(25)):\t\t\t\t" << *(t1.find(25)) << std::endl;
+	std::cout << " -> *(t1.predecessor(25)):\t\t\t" << *(t1.predecessor(25)) << std::endl;
+	std::cout << " -> *(t1.successor(25)):\t\t\t" << *(t1.successor(25)) << std::endl;
+	std::cout << " -> *(t1.predecessor(t1.find(25)):\t\t" << *(t1.predecessor(t1.find(25))) << std::endl;
+	std::cout << " -> *(t1.successor(t1.find(25))):\t\t" << *(t1.successor(t1.find(25))) << std::endl;
+	std::cout << " -> t1.minimum():\t\t\t\t" << t1.minimum() << std::endl;
+	std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
+	std::cout << std::endl;
+
+	// Capacity
+	std::cout << "Capacity:\n";
+	std::cout << " -> t1.empty():\t\t\t\t\t" << t1.empty() << std::endl;
+	std::cout << " -> t1.size(): \t\t\t\t\t" << t1.size() << std::endl;
+	std::cout << " -> t1.height(25): \t\t\t\t" << t1.height(25) << std::endl;
+	std::cout << " -> t1.height(11): \t\t\t\t" << t1.height(11) << std::endl;
+	std::cout << " -> t1.height(7): \t\t\t\t" << t1.height(7) << std::endl;
+	std::cout << " -> t1.height(9): \t\t\t\t" << t1.height(9) << std::endl;
+	std::cout << " -> t1.depth(25): \t\t\t\t" << t1.depth(25) << std::endl;
+	std::cout << " -> t1.depth(11): \t\t\t\t" << t1.depth(11) << std::endl;
+	std::cout << " -> t1.depth(7): \t\t\t\t" << t1.depth(7) << std::endl;
+	std::cout << " -> t1.depth(9): \t\t\t\t" << t1.depth(9) << std::endl;
+	std::cout << std::endl;
+
+	// Modifiers
+	std::cout << "Modifiers (no rebalancing at this moment):\n";
+	std::cout << " -> t1.insert(6):  \t\t\t\t";
+	t1.insert(6);
+	printTree(t1);
+	std::cout << "   - t1.depth(6):\t\t\t\t" << t1.depth(6) << std::endl;
+	t1.depth(12);
+	std::cout << "   - t1.size():\t\t\t\t\t" << t1.size() << std::endl;
+	std::cout << " -> l1.remove(26): \t\t\t\t";
+	t1.remove(12);
+	printTree(t1);
+	std::cout << "   - t1.depth(26):\t\t\t\t" << t1.depth(26) << std::endl;
+	t1.depth(12);
+	std::cout << "   - t1.size():\t\t\t\t\t" << t1.size() << std::endl;
+	std::cout << " -> t1.clear(): \t\t\t\t\t";
+	t1.clear();
+	printTree(t1);
+	std::cout << " -> t1.swap(t2): \t\t\t\t";
+	t1.swap(t2);
+	printTree(t1);
+	std::cout << "   - t2:\t\t\t\t\t";
+	printTree(t2);
+	std::cout << "   - t3:\t\t\t\t\t";
+	printTree(t3);
+	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
