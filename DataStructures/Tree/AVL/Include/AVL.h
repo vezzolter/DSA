@@ -96,11 +96,11 @@ public:
     Node() : _data(0), _parent(nullptr), _left(nullptr), _right(nullptr) {}
     Node(const int& val, Node* parent = nullptr)
         : _data(val), _parent(parent), _left(nullptr), _right(nullptr) {}
-    Node(const Node& other) = delete;  // no copying or moving to ensure 
-    Node(Node&& other) = delete;  // uniqueness of the node within    
+    Node(const Node& other)          = delete;  // no copying or moving to ensure 
+    Node(Node&& other)               = delete;  // uniqueness of the node within    
     Node& operator=(const Node& rhs) = delete;  // the tree and prevent accidental 
-    Node& operator=(Node&& rhs) = delete;  // duplicates or dangling nodes
-    ~Node() = default;
+    Node& operator=(Node&& rhs)      = delete;  // duplicates or dangling nodes
+    ~Node()                          = default;
 };
 
 
