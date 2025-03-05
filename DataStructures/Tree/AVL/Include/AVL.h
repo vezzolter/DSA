@@ -23,6 +23,8 @@ private:
     // but for AVL, balancing isn't a concern, so it would add unnecessary complexity
     Node* copyNodes(Node* src, Node* parent);
     Node* findLeftmost(Node* node) const;
+    int computeHeight(Node* node) const;
+    int computeDepth(Node* node) const;
 
 public:
     // --------------------
@@ -70,8 +72,12 @@ public:
     // ----------
     bool empty() const;
     int size() const;
+    int height() const;
     int height(const int& val) const;
+    int height(const iterator& it) const;
+    int depth() const;
     int depth(const int& val) const;
+    int depth(const iterator& it) const;
 
     // -----------
     //  Modifiers

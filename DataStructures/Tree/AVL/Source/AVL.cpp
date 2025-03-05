@@ -30,6 +30,24 @@ AVL::Node* AVL::findLeftmost(Node* node) const {
 	return node;
 }
 
+// Recursively computes the height of a subtree
+int AVL::computeHeight(Node* node) const {
+	if (!node) { return -1; }
+	int leftHeight = computeHeight(node->_left);
+	int rightHeight = computeHeight(node->_right);
+	return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight); // ?: instead of std::max
+}
+
+// Computes the depth of a given node
+int AVL::computeDepth(Node* node) const {
+	int depth = 0;
+	Node* curr = _root;
+	for (; curr && curr != node; ++depth) {
+		curr = (node->_data < curr->_data) ? curr->_left : curr->_right;
+	}
+	return curr ? depth : -1;
+}
+
 
 // --------------------
 //  Compiler Generated
@@ -300,37 +318,42 @@ bool AVL::empty() const { return _size == 0; }
 // Returns the total number of elements in the tree
 int AVL::size() const { return _size; }
 
-// Returns the height of the subtree rooted at the given value, or the root if no value
-int AVL::height(const int& val) const {
-	// Lambda allows to compute height within function via recursion
-	auto computeHeight = [](Node* node, auto& selfRef) -> int {
-		if (!node) { return -1; }
-		int lHeight = selfRef(node->_left, selfRef);
-		int rHeight = selfRef(node->_right, selfRef);
-		return 1 + (lHeight > rHeight ? lHeight : rHeight); // ternary is replacement of std::max
-	};
-
-	// Locate the 'val' node
-	Node* startNode = _root;
-	for (; startNode && startNode->_data != val; ) {
-		startNode = (val < startNode->_data) ? startNode->_left : startNode->_right;
-	}
-
-	return startNode ? computeHeight(startNode, computeHeight) : -1;
+// Returns the height of the entire tree
+int AVL::height() const {
+	return computeHeight(_root);
 }
 
-// Returns the depth of the node with the given value, or the root if no value
-int AVL::depth(const int& val) const {
-	Node* curr = _root;
-	int depth = 0;
-
-	for (; curr; ) {
-		if (val == curr->_data) { return depth; }
-		curr = (val < curr->_data) ? curr->_left : curr->_right;
-		++depth;
+// Returns the height of the subtree rooted at the given value
+int AVL::height(const int& val) const {
+	Node* node = _root;
+	for (; node && node->_data != val; ) {
+		node = (val < node->_data) ? node->_left : node->_right;
 	}
+	return computeHeight(node);
+}
 
-	return -1;
+// Returns the height of the subtree rooted at the given iterator
+int AVL::height(const iterator& it) const {
+	return computeHeight(it._curr);
+}
+
+// Returns the depth of the entire tree
+int AVL::depth() const {
+	return computeHeight(_root);
+}
+
+// Returns the depth of the node with the given value
+int AVL::depth(const int& val) const {
+	Node* node = _root;
+	for (; node && node->_data != val; ) {
+		node = (val < node->_data) ? node->_left : node->_right;
+	}
+	return computeDepth(node);
+}
+
+// Returns the depth of the node given an iterator
+int AVL::depth(const iterator& it) const {
+	return computeDepth(it._curr);
 }
 
 
