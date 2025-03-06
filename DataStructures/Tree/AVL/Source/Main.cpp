@@ -51,30 +51,29 @@ int main() {
 	//std::cout << " -> *(t1.successor(t1.find(25))):\t\t" << *(t1.successor(t1.find(25))) << std::endl;
 	//std::cout << " -> t1.minimum():\t\t\t\t" << t1.minimum() << std::endl;
 	//std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
-	std::cout << std::endl;
+	//std::cout << std::endl;
 
 	// Capacity
-	std::cout << "Capacity:\n";
+	//std::cout << "Capacity:\n";
 	//std::cout << " -> t1.empty():\t\t\t\t\t" << t1.empty() << std::endl;
 	//std::cout << " -> t1.size(): \t\t\t\t\t" << t1.size() << std::endl;
-	std::cout << " -> t1.height(): \t\t\t\t" << t1.height() << std::endl;
-	std::cout << " -> t1.height(25): \t\t\t\t" << t1.height(25) << std::endl;
-	std::cout << " -> t1.height(*(t1.find(25)): \t\t\t" << t1.height(*(t1.find(25))) << std::endl;
-	std::cout << " -> t1.height(11): \t\t\t\t" << t1.height(11) << std::endl;
-	std::cout << " -> t1.height(7): \t\t\t\t" << t1.height(7) << std::endl;
-	std::cout << " -> t1.height(9): \t\t\t\t" << t1.height(9) << std::endl;
-	//std::cout << " -> t1.height(100): \t\t\t\t" << t1.height(100) << std::endl;
-	//std::cout << " -> t1.height(*(t1.find(100)): \t\t\t\t" << t1.height(*(t1.find(100))) << std::endl; // dereference of invalid itr
-	std::cout << " -> t1.depth(): \t\t\t\t" << t1.depth() << std::endl;
-	std::cout << " -> t1.depth(25): \t\t\t\t" << t1.depth(25) << std::endl;
-	std::cout << " -> t1.depth(*(t1.find(25)): \t\t\t" << t1.depth(*(t1.find(25))) << std::endl;
-	std::cout << " -> t1.depth(11): \t\t\t\t" << t1.depth(11) << std::endl;
-	std::cout << " -> t1.depth(7): \t\t\t\t" << t1.depth(7) << std::endl;
-	std::cout << " -> t1.depth(9): \t\t\t\t" << t1.depth(9) << std::endl;
-	//std::cout << " -> t1.depth(100): \t\t\t\t" << t1.depth(100) << std::endl;
-    //std::cout << " -> t1.depth(*(t1.find(100)): \t\t\t\t" << t1.depth(*(t1.find(100))) << std::endl; // dereference of invalid itr
-
-	std::cout << std::endl;
+	//std::cout << " -> t1.height(): \t\t\t\t" << t1.height() << std::endl; // no param
+	//std::cout << " -> t1.height(25): \t\t\t\t" << t1.height(25) << std::endl; // val as param
+	//std::cout << " -> t1.height(*(t1.find(25)): \t\t\t" << t1.height(*(t1.find(25))) << std::endl; // itr as param
+	//std::cout << " -> t1.height(11): \t\t\t\t" << t1.height(11) << std::endl;
+	//std::cout << " -> t1.height(7): \t\t\t\t" << t1.height(7) << std::endl;
+	//std::cout << " -> t1.height(9): \t\t\t\t" << t1.height(9) << std::endl;
+	////std::cout << " -> t1.height(100): \t\t\t\t" << t1.height(100) << std::endl; // invalid val
+	////std::cout << " -> t1.height(*(t1.find(100)): \t\t\t\t" << t1.height(*(t1.find(100))) << std::endl; // invalid itr
+	//std::cout << " -> t1.depth(): \t\t\t\t" << t1.depth() << std::endl; // no param
+	//std::cout << " -> t1.depth(25): \t\t\t\t" << t1.depth(25) << std::endl; // val as param
+	//std::cout << " -> t1.depth(*(t1.find(25)): \t\t\t" << t1.depth(*(t1.find(25))) << std::endl; // itr as param
+	//std::cout << " -> t1.depth(11): \t\t\t\t" << t1.depth(11) << std::endl;
+	//std::cout << " -> t1.depth(7): \t\t\t\t" << t1.depth(7) << std::endl;
+	//std::cout << " -> t1.depth(9): \t\t\t\t" << t1.depth(9) << std::endl;
+	////std::cout << " -> t1.depth(100): \t\t\t\t" << t1.depth(100) << std::endl; // invalide val
+    ////std::cout << " -> t1.depth(*(t1.find(100)): \t\t\t\t" << t1.depth(*(t1.find(100))) << std::endl; // invalid itr
+	//std::cout << std::endl;
 
 	//// Modifiers
 	//std::cout << "Modifiers (no rebalancing at this moment):\n";
@@ -90,17 +89,17 @@ int main() {
 	//std::cout << "   - t1.depth(26):\t\t\t\t" << t1.depth(26) << std::endl;
 	//t1.depth(12);
 	//std::cout << "   - t1.size():\t\t\t\t\t" << t1.size() << std::endl;
-	//std::cout << " -> t1.clear(): \t\t\t\t\t";
-	//t1.clear();
-	//printTree(t1);
-	//std::cout << " -> t1.swap(t2): \t\t\t\t";
-	//t1.swap(t2);
-	//printTree(t1);
-	//std::cout << "   - t2:\t\t\t\t\t";
-	//printTree(t2);
-	//std::cout << "   - t3:\t\t\t\t\t";
-	//printTree(t3);
-	//std::cout << std::endl;
+	std::cout << " -> t1.clear(): \t\t\t\t\t";
+	t1.clear();
+	printTree(t1);
+	std::cout << " -> t1.swap(t2): \t\t\t\t";
+	t1.swap(t2);
+	printTree(t1);
+	std::cout << "   - t2:\t\t\t\t\t";
+	printTree(t2);
+	std::cout << "   - t3:\t\t\t\t\t";
+	printTree(t3);
+	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";

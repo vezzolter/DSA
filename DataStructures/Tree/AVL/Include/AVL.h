@@ -17,11 +17,8 @@ private:
     // -----------------
     //  Utility Methods
     // -----------------
-
-    // For self-balancing trees, the copy constructor and copy assignment operator
-    // often rely on iterators, because insertions automatically balance the tree,
-    // but for AVL, balancing isn't a concern, so it would add unnecessary complexity
-    Node* copyNodes(Node* src, Node* parent);
+    Node* copySubtree(Node* src, Node* parent);
+    void destroySubtree(Node* node);
     Node* findLeftmost(Node* node) const;
     Node* findRightmost(Node* node) const;
     int computeHeight(Node* node) const;

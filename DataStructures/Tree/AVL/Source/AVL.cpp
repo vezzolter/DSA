@@ -11,17 +11,22 @@
 //  Utility Methods
 // -----------------
 
-// Recursively copies nodes with relationships from 'src' into a new tree
-AVL::Node* AVL::copyNodes(Node* src, Node* parent) {
+// Recursively creates a deep copy of a subtree
+AVL::Node* AVL::copySubtree(Node* src, Node* parent) {
 	if (!src) { return nullptr; }
-
 	Node* newNode = new Node(src->_data);
 	newNode->_parent = parent;
-
-	newNode->_left = copyNodes(src->_left, newNode);
-	newNode->_right = copyNodes(src->_right, newNode);
-
+	newNode->_left = copySubtree(src->_left, newNode);
+	newNode->_right = copySubtree(src->_right, newNode);
 	return newNode;
+}
+
+// Recursively deletes all nodes in a subtree
+void AVL::destroySubtree(Node* node) {
+	if (!node) { return; }
+	destroySubtree(node->_left);
+	destroySubtree(node->_right);
+	delete node;
 }
 
 // Find the leftmost node starting from the given node (the smallest)
@@ -65,23 +70,21 @@ int AVL::computeDepth(Node* node) const {
 AVL::AVL() : _size(0), _root(nullptr) {}
 
 // Constructs a AVL with the deep copy contents of 'other'
-AVL::AVL(const AVL& other) : _size(other._size), _root(nullptr) {
-	if (other._root) { _root = copyNodes(other._root, nullptr); }
-}
+AVL::AVL(const AVL& other) : _size(other._size), _root(copySubtree(other._root, nullptr)) {}
 
 // Replaces the contents of this AVL with a deep copy of 'rhs'
 AVL& AVL::operator=(const AVL& rhs) {
 	if (this == &rhs) { return *this; }
 	clear();
 	_size = rhs._size;
-
-	_root = rhs._root ? copyNodes(rhs._root, nullptr) : nullptr;
-
+	_root = copySubtree(rhs._root, nullptr);
 	return *this;
 }
 
 // Performs final cleanup and terminates the object
-AVL::~AVL() { clear(); }
+AVL::~AVL() {
+	clear();
+}
 
 
 // -----------
@@ -429,16 +432,9 @@ void AVL::remove(const int& val) {
 	if (find(val) == end()) { --_size; }
 }
 
-// Removes all nodes from the AVL, resetting it to its initial state
+// Removes all nodes from the tree and resets it to an empty state
 void AVL::clear() {
-	auto deleteNodes = [](Node* node, auto& deleteNodesRef) -> void {
-		if (!node) { return; }
-		deleteNodesRef(node->_left, deleteNodesRef);
-		deleteNodesRef(node->_right, deleteNodesRef);
-		delete node;
-	};
-
-	deleteNodes(_root, deleteNodes);
+	destroySubtree(_root);
 	_root = nullptr;
 	_size = 0;
 }
