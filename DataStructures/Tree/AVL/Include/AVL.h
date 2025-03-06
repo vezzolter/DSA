@@ -23,6 +23,7 @@ private:
     // but for AVL, balancing isn't a concern, so it would add unnecessary complexity
     Node* copyNodes(Node* src, Node* parent);
     Node* findLeftmost(Node* node) const;
+    Node* findRightmost(Node* node) const;
     int computeHeight(Node* node) const;
     int computeDepth(Node* node) const;
 

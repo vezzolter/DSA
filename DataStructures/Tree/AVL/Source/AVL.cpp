@@ -24,13 +24,21 @@ AVL::Node* AVL::copyNodes(Node* src, Node* parent) {
 	return newNode;
 }
 
-// Find the leftmost node starting from the given node (begin/smallest)
+// Find the leftmost node starting from the given node (the smallest)
 AVL::Node* AVL::findLeftmost(Node* node) const {
+	if (!node) { return nullptr; }
 	for (; node && node->_left; ) { node = node->_left; }
 	return node;
 }
 
-// Recursively computes the height of a subtree
+// Find the rightmost node starting from the given node (the biggest)
+AVL::Node* AVL::findRightmost(Node* node) const {
+	if (!node) { return nullptr; }
+	for (; node && node->_right; ) { node = node->_right; }
+	return node;
+}
+
+// Compute the height of a given node
 int AVL::computeHeight(Node* node) const {
 	if (!node) { return -1; }
 	int leftHeight = computeHeight(node->_left);
@@ -40,12 +48,12 @@ int AVL::computeHeight(Node* node) const {
 
 // Computes the depth of a given node
 int AVL::computeDepth(Node* node) const {
+	if (!node) { return -1; }
 	int depth = 0;
-	Node* curr = _root;
-	for (; curr && curr != node; ++depth) {
+	for (Node* curr = _root; curr && curr != node; ++depth) {
 		curr = (node->_data < curr->_data) ? curr->_left : curr->_right;
 	}
-	return curr ? depth : -1;
+	return depth;
 }
 
 
@@ -290,21 +298,15 @@ AVL::const_iterator AVL::successor(iterator& it) const {
 // Returns the minimum value in the tree
 int AVL::minimum() const {
 	if (!_root) { return -1; }
-
-	Node* curr = _root;                           // Could be substituted with findLeftmost(),
-	for (; curr->_left; ) { curr = curr->_left; } // but kept for symmetry with maximum()
-
-	return curr->_data;
+	Node* leftmost = findLeftmost(_root);
+	return leftmost->_data;
 }
 
 // Returns the maximum value in the tree
 int AVL::maximum() const {
 	if (!_root) { return -1; }
-
-	Node* curr = _root;
-	for (; curr->_right; ) { curr = curr->_right; }
-
-	return curr->_data;
+	Node* rightmost = findRightmost(_root);
+	return rightmost->_data;
 }
 
 
@@ -313,10 +315,14 @@ int AVL::maximum() const {
 // ----------
 
 // Returns true if the tree has no elements
-bool AVL::empty() const { return _size == 0; }
+bool AVL::empty() const { 
+	return _size == 0; 
+}
 
 // Returns the total number of elements in the tree
-int AVL::size() const { return _size; }
+int AVL::size() const {
+	return _size;
+}
 
 // Returns the height of the entire tree
 int AVL::height() const {
