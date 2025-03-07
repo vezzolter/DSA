@@ -89,17 +89,16 @@ public:
 
 struct AVL::Node {
 public:
-    int _data;
-    Node* _parent;
-    Node* _left;
-    Node* _right;
+    int data;
+    Node* parent;
+    Node* left;
+    Node* right;
 
     // --------------------
     //  Compiler Generated
     // --------------------
-    Node() : _data(0), _parent(nullptr), _left(nullptr), _right(nullptr) {}
-    Node(const int& val, Node* parent = nullptr)
-        : _data(val), _parent(parent), _left(nullptr), _right(nullptr) {}
+    Node() : data(0), parent(nullptr), left(nullptr), right(nullptr) {}
+    Node(const int& val, Node* parent = nullptr) : data(val), parent(parent), left(nullptr), right(nullptr) {}
     Node(const Node& other)          = delete;  // no copying or moving to ensure 
     Node(Node&& other)               = delete;  // uniqueness of the node within    
     Node& operator=(const Node& rhs) = delete;  // the tree and prevent accidental 
@@ -110,30 +109,31 @@ public:
 
 class AVL::Iterator {
 private:
-    friend class AVL; // So that itr-based element access fcn would work
+    friend class AVL; // to handle iterator-based methods in AVL
     Node* _curr;
-    const AVL* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
+    const AVL* _tree; // to ease traversing
 
     // -----------------
     //  Utility Methods
     // -----------------
 
-    // Find the leftmost node starting from the given node (begin/smallest)
-    Node* findLeftmost(Node* node) const { return _tree->findLeftmost(node); }
+    // Find the leftmost node starting from the given node (the smallest)
+    Node* findLeftmost(Node* node) const { 
+        return _tree->findLeftmost(node);
+    }
 
     // Find the next node of the given node (in-order successor)
     Node* findNext(Node* node) const {
-        // Case: empty node
         if (!node) { return nullptr; }
 
-        // Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
-        if (node->_right) { return findLeftmost(node->_right); }
+        // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->right) { return findLeftmost(node->right); }
 
-        // Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
-        Node* parent = node->_parent;
-        for (; parent && node == parent->_right; ) {
+        // Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        Node* parent = node->parent;
+        for (; parent && node == parent->right; ) {
             node = parent;
-            parent = parent->_parent;
+            parent = parent->parent;
         }
         return parent;
     }
@@ -155,7 +155,9 @@ public:
     // ----------------------
 
     // Returns a reference to the data of the current node
-    int& operator*() { return _curr->_data; }
+    int& operator*() { 
+        return _curr->data;
+    }
 
     // Advances the iterator to the next element in in-order traversal (pre-increment)
     Iterator& operator++() {
@@ -184,30 +186,31 @@ public:
 
 class AVL::ConstIterator {
 private:
-    friend class AVL; // So that itr-based element access fcn would work
+    friend class AVL; // to handle iterator-based methods in AVL
     const Node* _curr;
-    const AVL* _tree; // Eases some operations (traversing, reversing, sentinel, caching, etc)
+    const AVL* _tree; // to ease traversing
 
     // -----------------
     //  Utility Methods
     // -----------------
 
     // Find the leftmost node starting from the given node (begin/smallest)
-    const Node* findLeftmost(Node* node) const { return _tree->findLeftmost(node); }
+    const Node* findLeftmost(Node* node) const {
+        return _tree->findLeftmost(node);
+    }
 
     // Find the next node of the given node (in-order successor)
     const Node* findNext(const Node* node) const {
-        // Case: empty node
         if (!node) { return nullptr; }
 
-        // Case: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
-        if (node->_right) { return findLeftmost(node->_right); }
+        // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->right) { return findLeftmost(node->right); }
 
-        // Case: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
-        const Node* parent = node->_parent;
-        for (; parent && node == parent->_right; ) {
+        // Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        const Node* parent = node->parent;
+        for (; parent && node == parent->right; ) {
             node = parent;
-            parent = parent->_parent;
+            parent = parent->parent;
         }
         return parent;
     }
@@ -216,7 +219,6 @@ public:
     // --------------------
     //  Compiler Generated
     // --------------------
-
     ConstIterator() : _curr(nullptr), _tree(nullptr) {}
     ConstIterator(const Node* node, const AVL* tree) : _curr(node), _tree(tree) {}
     ConstIterator(const ConstIterator& other)          = default;
@@ -230,7 +232,9 @@ public:
     // ----------------------
 
     // Returns a const reference to the data of the current node
-    const int& operator*() const { return _curr->_data; }
+    const int& operator*() const {
+        return _curr->data;
+    }
 
     // Advances the iterator to the next element in in-order traversal (pre-increment)
     ConstIterator& operator++() {

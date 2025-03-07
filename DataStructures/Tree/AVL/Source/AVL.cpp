@@ -14,40 +14,40 @@
 // Recursively creates a deep copy of a subtree
 AVL::Node* AVL::copySubtree(Node* src, Node* parent) {
 	if (!src) { return nullptr; }
-	Node* newNode = new Node(src->_data);
-	newNode->_parent = parent;
-	newNode->_left = copySubtree(src->_left, newNode);
-	newNode->_right = copySubtree(src->_right, newNode);
+	Node* newNode = new Node(src->data);
+	newNode->parent = parent;
+	newNode->left = copySubtree(src->left, newNode);
+	newNode->right = copySubtree(src->right, newNode);
 	return newNode;
 }
 
 // Recursively deletes all nodes in a subtree
 void AVL::destroySubtree(Node* node) {
 	if (!node) { return; }
-	destroySubtree(node->_left);
-	destroySubtree(node->_right);
+	destroySubtree(node->left);
+	destroySubtree(node->right);
 	delete node;
 }
 
 // Find the leftmost node starting from the given node (the smallest)
 AVL::Node* AVL::findLeftmost(Node* node) const {
 	if (!node) { return nullptr; }
-	for (; node && node->_left; ) { node = node->_left; }
+	for (; node && node->left; ) { node = node->left; }
 	return node;
 }
 
 // Find the rightmost node starting from the given node (the biggest)
 AVL::Node* AVL::findRightmost(Node* node) const {
 	if (!node) { return nullptr; }
-	for (; node && node->_right; ) { node = node->_right; }
+	for (; node && node->right; ) { node = node->right; }
 	return node;
 }
 
 // Compute the height of a given node
 int AVL::computeHeight(Node* node) const {
 	if (!node) { return -1; }
-	int leftHeight = computeHeight(node->_left);
-	int rightHeight = computeHeight(node->_right);
+	int leftHeight = computeHeight(node->left);
+	int rightHeight = computeHeight(node->right);
 	return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight); // ?: instead of std::max
 }
 
@@ -56,7 +56,7 @@ int AVL::computeDepth(Node* node) const {
 	if (!node) { return -1; }
 	int depth = 0;
 	for (Node* curr = _root; curr && curr != node; ++depth) {
-		curr = (node->_data < curr->_data) ? curr->_left : curr->_right;
+		curr = (node->data < curr->data) ? curr->left : curr->right;
 	}
 	return depth;
 }
@@ -117,10 +117,10 @@ AVL::const_iterator AVL::cend() const { return const_iterator(nullptr, this); }
 // Returns an iterator to the element with given value
 AVL::iterator AVL::find(const int& val) {
 	for (Node* curr = _root; curr; ) {
-		if (val > curr->_data) {
-			curr = curr->_right;
-		} else if (val < curr->_data) {
-			curr = curr->_left;
+		if (val > curr->data) {
+			curr = curr->right;
+		} else if (val < curr->data) {
+			curr = curr->left;
 		} else {
 			return iterator(curr, this); // found
 		}
@@ -132,10 +132,10 @@ AVL::iterator AVL::find(const int& val) {
 // Returns a const iterator to the element with given value
 AVL::const_iterator AVL::find(const int& val) const {
 	for (Node* curr = _root; curr; ) {
-		if (val > curr->_data) {
-			curr = curr->_right;
-		} else if (val < curr->_data) {
-			curr = curr->_left;
+		if (val > curr->data) {
+			curr = curr->right;
+		} else if (val < curr->data) {
+			curr = curr->left;
 		} else {
 			return const_iterator(curr, this); // found
 		}
@@ -149,11 +149,11 @@ AVL::iterator AVL::predecessor(const int& val) {
 	Node* pred = nullptr;
 
 	for (Node* curr = _root; curr; ) {
-		if (val > curr->_data) {
+		if (val > curr->data) {
 			pred = curr;
-			curr = curr->_right;
+			curr = curr->right;
 		} else {
-			curr = curr->_left;
+			curr = curr->left;
 		}
 	}
 
@@ -165,11 +165,11 @@ AVL::const_iterator AVL::predecessor(const int& val) const {
 	Node* pred = nullptr;
 
 	for (Node* curr = _root; curr; ) {
-		if (val > curr->_data) {
+		if (val > curr->data) {
 			pred = curr;
-			curr = curr->_right;
+			curr = curr->right;
 		} else {
-			curr = curr->_left;
+			curr = curr->left;
 		}
 	}
 
@@ -182,11 +182,11 @@ AVL::iterator AVL::successor(const int& val) {
 
 	// We have to traverse from the root, since we have only value
 	for (Node* curr = _root; curr; ) {
-		if (val < curr->_data) {
+		if (val < curr->data) {
 			succ = curr;
-			curr = curr->_left;
+			curr = curr->left;
 		} else {
-			curr = curr->_right;
+			curr = curr->right;
 		}
 	}
 
@@ -199,11 +199,11 @@ AVL::const_iterator AVL::successor(const int& val) const {
 
 	// We have to traverse from the root, since we have only value
 	for (Node* curr = _root; curr;) {
-		if (val < curr->_data) {
+		if (val < curr->data) {
 			succ = curr;
-			curr = curr->_left;
+			curr = curr->left;
 		} else {
-			curr = curr->_right;
+			curr = curr->right;
 		}
 	}
 
@@ -216,17 +216,17 @@ AVL::iterator AVL::predecessor(const iterator& it) {
 	if (!curr) { return end(); }
 
 	// Case 1: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
-	if (curr->_left) {
-		Node* pred = curr->_left;
-		for (; pred->_right; ) { pred = pred->_right; }
+	if (curr->left) {
+		Node* pred = curr->left;
+		for (; pred->right; ) { pred = pred->right; }
 		return iterator(pred, this);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
-	Node* parent = curr->_parent;
-	for (; parent && curr == parent->_left; ) {
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->left; ) {
 		curr = parent;
-		parent = parent->_parent;
+		parent = parent->parent;
 	}
 
 	return parent ? iterator(parent, this) : end();
@@ -238,17 +238,17 @@ AVL::const_iterator AVL::predecessor(iterator& it) const {
 	if (!curr) { return end(); }
 
 	// Case 1: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
-	if (curr->_left) {
-		Node* pred = curr->_left;
-		for (; pred->_right; ) { pred = pred->_right; }
+	if (curr->left) {
+		Node* pred = curr->left;
+		for (; pred->right; ) { pred = pred->right; }
 		return const_iterator(pred, this);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
-	Node* parent = curr->_parent;
-	for (; parent && curr == parent->_left; ) {
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->left; ) {
 		curr = parent;
-		parent = parent->_parent;
+		parent = parent->parent;
 	}
 
 	return parent ? const_iterator(parent, this) : cend();
@@ -260,17 +260,17 @@ AVL::iterator AVL::successor(const iterator& it) {
 	if (!curr) { return end(); }
 
 	// Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
-	if (curr->_right) {
-		Node* succ = curr->_right;
-		for (; succ->_left; ) { succ = succ->_left; }
+	if (curr->right) {
+		Node* succ = curr->right;
+		for (; succ->left; ) { succ = succ->left; }
 		return iterator(succ, this);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
-	Node* parent = curr->_parent;
-	for (; parent && curr == parent->_right;) {
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->right;) {
 		curr = parent;
-		parent = parent->_parent;
+		parent = parent->parent;
 	}
 
 	return parent ? iterator(parent, this) : end();
@@ -282,17 +282,17 @@ AVL::const_iterator AVL::successor(iterator& it) const {
 	if (!curr) { return cend(); }
 
 	// Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
-	if (curr->_right) {
-		Node* succ = curr->_right;
-		for (; succ->_left; ) { succ = succ->_left; }
+	if (curr->right) {
+		Node* succ = curr->right;
+		for (; succ->left; ) { succ = succ->left; }
 		return const_iterator(succ, this);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
-	Node* parent = curr->_parent;
-	for (; parent && curr == parent->_right; ) {
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->right; ) {
 		curr = parent;
-		parent = parent->_parent;
+		parent = parent->parent;
 	}
 
 	return parent ? const_iterator(parent, this) : cend();
@@ -302,14 +302,14 @@ AVL::const_iterator AVL::successor(iterator& it) const {
 int AVL::minimum() const {
 	if (!_root) { return -1; }
 	Node* leftmost = findLeftmost(_root);
-	return leftmost->_data;
+	return leftmost->data;
 }
 
 // Returns the maximum value in the tree
 int AVL::maximum() const {
 	if (!_root) { return -1; }
 	Node* rightmost = findRightmost(_root);
-	return rightmost->_data;
+	return rightmost->data;
 }
 
 
@@ -335,8 +335,8 @@ int AVL::height() const {
 // Returns the height of the subtree rooted at the given value
 int AVL::height(const int& val) const {
 	Node* node = _root;
-	for (; node && node->_data != val; ) {
-		node = (val < node->_data) ? node->_left : node->_right;
+	for (; node && node->data != val; ) {
+		node = (val < node->data) ? node->left : node->right;
 	}
 	return computeHeight(node);
 }
@@ -354,8 +354,8 @@ int AVL::depth() const {
 // Returns the depth of the node with the given value
 int AVL::depth(const int& val) const {
 	Node* node = _root;
-	for (; node && node->_data != val; ) {
-		node = (val < node->_data) ? node->_left : node->_right;
+	for (; node && node->data != val; ) {
+		node = (val < node->data) ? node->left : node->right;
 	}
 	return computeDepth(node);
 }
@@ -378,10 +378,10 @@ void AVL::insert(const int& val) {
 	for (Node* curr = _root; curr; ) {
 		parent = curr;
 
-		if (val < curr->_data) {
-			curr = curr->_left;
-		} else if (val > curr->_data) {
-			curr = curr->_right;
+		if (val < curr->data) {
+			curr = curr->left;
+		} else if (val > curr->data) {
+			curr = curr->right;
 		} else {
 			return; // if AVL handles duplicates, there could be counter increment added
 		}
@@ -391,10 +391,10 @@ void AVL::insert(const int& val) {
 	Node* newNode = new Node(val, parent);
 	if (!parent) {
 		_root = newNode;
-	} else if (val < parent->_data) {
-		parent->_left = newNode;
+	} else if (val < parent->data) {
+		parent->left = newNode;
 	} else {
-		parent->_right = newNode;
+		parent->right = newNode;
 	}
 
 	++_size;
@@ -406,23 +406,23 @@ void AVL::remove(const int& val) {
 		if (!root) { return nullptr; }
 
 		// Locate node to delete
-		if (key < root->_data) {
-			root->_left = selfRef(root->_left, key, selfRef);
-		} else if (key > root->_data) {
-			root->_right = selfRef(root->_right, key, selfRef);
+		if (key < root->data) {
+			root->left = selfRef(root->left, key, selfRef);
+		} else if (key > root->data) {
+			root->right = selfRef(root->right, key, selfRef);
 		} else {
 			// Case 1: at most one child
-			if (!root->_left || !root->_right) {
-				Node* temp = root->_left ? root->_left : root->_right;
+			if (!root->left || !root->right) {
+				Node* temp = root->left ? root->left : root->right;
 				delete root;
 				return temp;
 			}
 
 			// Case 2: two children (replace with in-order successor)
-			Node* succ = root->_right;
-			for (; succ->_left; ) { succ = succ->_left; }
-			root->_data = succ->_data;
-			root->_right = selfRef(root->_right, succ->_data, selfRef);
+			Node* succ = root->right;
+			for (; succ->left; ) { succ = succ->left; }
+			root->data = succ->data;
+			root->right = selfRef(root->right, succ->data, selfRef);
 		}
 
 		return root;
