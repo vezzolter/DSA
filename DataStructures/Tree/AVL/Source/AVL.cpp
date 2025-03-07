@@ -92,22 +92,22 @@ AVL::~AVL() {
 // -----------
 
 // Returns an iterator to the first element of the AVL
-AVL::iterator AVL::begin() { return iterator(findLeftmost(_root), this); }
+AVL::iterator AVL::begin() { return iterator(findLeftmost(_root)); }
 
 // Returns an iterator to one past the last element of the AVL
-AVL::iterator AVL::end() { return iterator(nullptr, this); }
+AVL::iterator AVL::end() { return iterator(nullptr); }
 
 // Returns a const iterator to the first element of the AVL
-AVL::const_iterator AVL::begin() const { return const_iterator(findLeftmost(_root), this); }
+AVL::const_iterator AVL::begin() const { return const_iterator(findLeftmost(_root)); }
 
 // Returns a const iterator to one past the last element of the AVL
-AVL::const_iterator AVL::end() const { return const_iterator(nullptr, this); }
+AVL::const_iterator AVL::end() const { return const_iterator(nullptr); }
 
 // Explicitly returns a const iterator to the first element of the AVL
-AVL::const_iterator AVL::cbegin() const { return const_iterator(findLeftmost(_root), this); }
+AVL::const_iterator AVL::cbegin() const { return const_iterator(findLeftmost(_root)); }
 
 // Explicitly returns a const iterator to one past the last element of the AVL
-AVL::const_iterator AVL::cend() const { return const_iterator(nullptr, this); }
+AVL::const_iterator AVL::cend() const { return const_iterator(nullptr); }
 
 
 // ----------------
@@ -122,7 +122,7 @@ AVL::iterator AVL::find(const int& val) {
 		} else if (val < curr->data) {
 			curr = curr->left;
 		} else {
-			return iterator(curr, this); // found
+			return iterator(curr); // found
 		}
 	}
 
@@ -137,7 +137,7 @@ AVL::const_iterator AVL::find(const int& val) const {
 		} else if (val < curr->data) {
 			curr = curr->left;
 		} else {
-			return const_iterator(curr, this); // found
+			return const_iterator(curr); // found
 		}
 	}
 
@@ -157,7 +157,7 @@ AVL::iterator AVL::predecessor(const int& val) {
 		}
 	}
 
-	return pred ? iterator(pred, this) : end();
+	return pred ? iterator(pred) : end();
 }
 
 // Returns a const_iterator to the predecessor of the given value
@@ -173,7 +173,7 @@ AVL::const_iterator AVL::predecessor(const int& val) const {
 		}
 	}
 
-	return pred ? const_iterator(pred, this) : cend();
+	return pred ? const_iterator(pred) : cend();
 }
 
 // Returns an iterator to the successor of the given value
@@ -190,7 +190,7 @@ AVL::iterator AVL::successor(const int& val) {
 		}
 	}
 
-	return succ ? iterator(succ, this) : end();
+	return succ ? iterator(succ) : end();
 }
 
 // Returns a const_iterator to the successor of the given value
@@ -207,7 +207,7 @@ AVL::const_iterator AVL::successor(const int& val) const {
 		}
 	}
 
-	return succ ? const_iterator(succ, this) : cend();
+	return succ ? const_iterator(succ) : cend();
 }
 
 // Returns an iterator to the predecessor of the node pointed to by the given iterator
@@ -219,7 +219,7 @@ AVL::iterator AVL::predecessor(const iterator& it) {
 	if (curr->left) {
 		Node* pred = curr->left;
 		for (; pred->right; ) { pred = pred->right; }
-		return iterator(pred, this);
+		return iterator(pred);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
@@ -229,7 +229,7 @@ AVL::iterator AVL::predecessor(const iterator& it) {
 		parent = parent->parent;
 	}
 
-	return parent ? iterator(parent, this) : end();
+	return parent ? iterator(parent) : end();
 }
 
 // Returns a const_iterator to the predecessor of the node pointed to by the given iterator
@@ -241,7 +241,7 @@ AVL::const_iterator AVL::predecessor(iterator& it) const {
 	if (curr->left) {
 		Node* pred = curr->left;
 		for (; pred->right; ) { pred = pred->right; }
-		return const_iterator(pred, this);
+		return const_iterator(pred);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
@@ -251,7 +251,7 @@ AVL::const_iterator AVL::predecessor(iterator& it) const {
 		parent = parent->parent;
 	}
 
-	return parent ? const_iterator(parent, this) : cend();
+	return parent ? const_iterator(parent) : cend();
 }
 
 // Returns an iterator to the successor of the node pointed to by the given iterator
@@ -263,7 +263,7 @@ AVL::iterator AVL::successor(const iterator& it) {
 	if (curr->right) {
 		Node* succ = curr->right;
 		for (; succ->left; ) { succ = succ->left; }
-		return iterator(succ, this);
+		return iterator(succ);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
@@ -273,7 +273,7 @@ AVL::iterator AVL::successor(const iterator& it) {
 		parent = parent->parent;
 	}
 
-	return parent ? iterator(parent, this) : end();
+	return parent ? iterator(parent) : end();
 }
 
 // Returns a const_iterator to the successor of the node pointed to by the given iterator
@@ -285,7 +285,7 @@ AVL::const_iterator AVL::successor(iterator& it) const {
 	if (curr->right) {
 		Node* succ = curr->right;
 		for (; succ->left; ) { succ = succ->left; }
-		return const_iterator(succ, this);
+		return const_iterator(succ);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
@@ -295,7 +295,7 @@ AVL::const_iterator AVL::successor(iterator& it) const {
 		parent = parent->parent;
 	}
 
-	return parent ? const_iterator(parent, this) : cend();
+	return parent ? const_iterator(parent) : cend();
 }
 
 // Returns the minimum value in the tree

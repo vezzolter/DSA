@@ -111,19 +111,19 @@ class AVL::Iterator {
 private:
     friend class AVL; // to handle iterator-based methods in AVL
     Node* _curr;
-    const AVL* _tree; // to ease traversing
 
     // -----------------
     //  Utility Methods
     // -----------------
 
     // Find the leftmost node starting from the given node (the smallest)
-    Node* findLeftmost(Node* node) const { 
-        return _tree->findLeftmost(node);
+    static Node* findLeftmost(Node* node) {
+        for (; node && node->left; ) { node = node->left; }
+        return node;
     }
 
     // Find the next node of the given node (in-order successor)
-    Node* findNext(Node* node) const {
+    static Node* findNext(Node* node) {
         if (!node) { return nullptr; }
 
         // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
@@ -142,8 +142,8 @@ public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    Iterator() : _curr(nullptr), _tree(nullptr) {}
-    Iterator(Node* node, const AVL* tree) : _curr(node), _tree(tree) {}
+    Iterator() : _curr(nullptr) {}
+    explicit Iterator(Node* node) : _curr(node) {}
     Iterator(const Iterator& other)          = default;
     Iterator(Iterator&& other)               = default;
     Iterator& operator=(const Iterator& rhs) = default;
@@ -167,7 +167,7 @@ public:
 
     // Advances the iterator to the next element, returning the previous state (post-increment)
     Iterator operator++(int) {
-        Iterator temp(_curr, _tree);
+        Iterator temp(_curr);
         _curr = findNext(_curr);
         return temp;
     }
@@ -188,19 +188,19 @@ class AVL::ConstIterator {
 private:
     friend class AVL; // to handle iterator-based methods in AVL
     const Node* _curr;
-    const AVL* _tree; // to ease traversing
 
     // -----------------
     //  Utility Methods
     // -----------------
 
-    // Find the leftmost node starting from the given node (begin/smallest)
-    const Node* findLeftmost(Node* node) const {
-        return _tree->findLeftmost(node);
+    // Find the leftmost node starting from the given node (the smallest)
+    static const Node* findLeftmost(Node* node) {
+        for (; node && node->left; ) { node = node->left; }
+        return node;
     }
 
     // Find the next node of the given node (in-order successor)
-    const Node* findNext(const Node* node) const {
+    static const Node* findNext(const Node* node) {
         if (!node) { return nullptr; }
 
         // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
@@ -219,8 +219,8 @@ public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    ConstIterator() : _curr(nullptr), _tree(nullptr) {}
-    ConstIterator(const Node* node, const AVL* tree) : _curr(node), _tree(tree) {}
+    ConstIterator() : _curr(nullptr){}
+    ConstIterator(const Node* node) : _curr(node) {}
     ConstIterator(const ConstIterator& other)          = default;
     ConstIterator(ConstIterator&& other)               = default;
     ConstIterator& operator=(const ConstIterator& rhs) = default;

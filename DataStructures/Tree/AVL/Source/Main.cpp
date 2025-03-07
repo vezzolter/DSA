@@ -43,15 +43,15 @@ int main() {
 	std::cout << std::endl;
 
 	// Element Access
-	//std::cout << "Element Access:\n";
-	//std::cout << " -> *(t1.find(25)):\t\t\t\t" << *(t1.find(25)) << std::endl;
-	//std::cout << " -> *(t1.predecessor(25)):\t\t\t" << *(t1.predecessor(25)) << std::endl;
-	//std::cout << " -> *(t1.successor(25)):\t\t\t" << *(t1.successor(25)) << std::endl;
-	//std::cout << " -> *(t1.predecessor(t1.find(25)):\t\t" << *(t1.predecessor(t1.find(25))) << std::endl;
-	//std::cout << " -> *(t1.successor(t1.find(25))):\t\t" << *(t1.successor(t1.find(25))) << std::endl;
-	//std::cout << " -> t1.minimum():\t\t\t\t" << t1.minimum() << std::endl;
-	//std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
-	//std::cout << std::endl;
+	std::cout << "Element Access:\n";
+	std::cout << " -> *(t1.find(25)):\t\t\t\t" << *(t1.find(25)) << std::endl;
+	std::cout << " -> *(t1.predecessor(25)):\t\t\t" << *(t1.predecessor(25)) << std::endl;
+	std::cout << " -> *(t1.successor(25)):\t\t\t" << *(t1.successor(25)) << std::endl;
+	std::cout << " -> *(t1.predecessor(t1.find(25)):\t\t" << *(t1.predecessor(t1.find(25))) << std::endl;
+	std::cout << " -> *(t1.successor(t1.find(25))):\t\t" << *(t1.successor(t1.find(25))) << std::endl;
+	std::cout << " -> t1.minimum():\t\t\t\t" << t1.minimum() << std::endl;
+	std::cout << " -> t1.maximum():\t\t\t\t" << t1.maximum() << std::endl;
+	std::cout << std::endl;
 
 	// Capacity
 	//std::cout << "Capacity:\n";
@@ -89,17 +89,17 @@ int main() {
 	//std::cout << "   - t1.depth(26):\t\t\t\t" << t1.depth(26) << std::endl;
 	//t1.depth(12);
 	//std::cout << "   - t1.size():\t\t\t\t\t" << t1.size() << std::endl;
-	std::cout << " -> t1.clear(): \t\t\t\t\t";
-	t1.clear();
-	printTree(t1);
-	std::cout << " -> t1.swap(t2): \t\t\t\t";
-	t1.swap(t2);
-	printTree(t1);
-	std::cout << "   - t2:\t\t\t\t\t";
-	printTree(t2);
-	std::cout << "   - t3:\t\t\t\t\t";
-	printTree(t3);
-	std::cout << std::endl;
+	//std::cout << " -> t1.clear(): \t\t\t\t\t";
+	//t1.clear();
+	//printTree(t1);
+	//std::cout << " -> t1.swap(t2): \t\t\t\t";
+	//t1.swap(t2);
+	//printTree(t1);
+	//std::cout << "   - t2:\t\t\t\t\t";
+	//printTree(t2);
+	//std::cout << "   - t3:\t\t\t\t\t";
+	//printTree(t3);
+	//std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
