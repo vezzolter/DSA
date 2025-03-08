@@ -147,7 +147,40 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 
 ## Some Practical Problems
-- Currently in Progress...
+**Easy Problems:**
+1. [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree)
+2. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
+3. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)
+4. [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree)
+5. [Same Tree](https://leetcode.com/problems/same-tree)
+6. [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
+7. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
+8. [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
+9. [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)
+10. [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
+11. [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree)
+12. [Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
+
+---
+**Medium Problems:** 
+1. [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
+2. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal)
+3. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
+4. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
+5. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
+6. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
+7. [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
+8. [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)
+9. [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree)
+10. [Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
+11. [All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees)
+
+---
+**Hard Problems:** 
+1. [Maximum Sum BST in Binary Tree](https://leetcode.com/problems/maximum-sum-bst-in-binary-tree)
+2. [Number of Ways to Reorder Array to Get Same BST](https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)
+3. [Merge BSTs to Create Single BST](https://leetcode.com/problems/merge-bsts-to-create-single-bst)
+4. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum)
 
 
 
