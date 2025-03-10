@@ -21,8 +21,12 @@ private:
     void destroySubtree(Node* node);
     Node* findLeftmost(Node* node) const;
     Node* findRightmost(Node* node) const;
-    int computeHeight(Node* node) const;
     int computeDepth(Node* node) const;
+    int computeBF(Node* node) const;
+    int getHeight(Node* node) const;
+    void updateHeight(Node* node);
+    void leftRotate(Node* node);
+    void rightRotate(Node* node);
 
 public:
     // --------------------
@@ -90,6 +94,7 @@ public:
 struct AVL::Node {
 public:
     int data;
+    int height; // any node start as a leaf (1)
     Node* parent;
     Node* left;
     Node* right;
@@ -97,8 +102,8 @@ public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    Node() : data(0), parent(nullptr), left(nullptr), right(nullptr) {}
-    Node(const int& val, Node* parent = nullptr) : data(val), parent(parent), left(nullptr), right(nullptr) {}
+    Node() : data(0), height(1), parent(nullptr), left(nullptr), right(nullptr) {}
+    Node(const int& val, Node* parent = nullptr) : data(val), height(1), parent(parent), left(nullptr), right(nullptr) {}
     Node(const Node& other)          = delete;  // no copying or moving to ensure 
     Node(Node&& other)               = delete;  // uniqueness of the node within    
     Node& operator=(const Node& rhs) = delete;  // the tree and prevent accidental 

@@ -43,22 +43,94 @@ AVL::Node* AVL::findRightmost(Node* node) const {
 	return node;
 }
 
-// Compute the height of a given node
-int AVL::computeHeight(Node* node) const {
-	if (!node) { return -1; }
-	int leftHeight = computeHeight(node->left);
-	int rightHeight = computeHeight(node->right);
-	return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight); // ?: instead of std::max
-}
-
 // Computes the depth of a given node
 int AVL::computeDepth(Node* node) const {
 	if (!node) { return -1; }
-	int depth = 0;
+	int depth = 1; // to match the height calculation
 	for (Node* curr = _root; curr && curr != node; ++depth) {
 		curr = (node->data < curr->data) ? curr->left : curr->right;
 	}
 	return depth;
+}
+
+// Returns the balance factor of a given node
+int AVL::computeBF(Node* node) const {
+	if (!node) { return 0; } // null nodes are balanced
+	int leftHeight = node->left ? node->left->height : 0;
+	int rightHeight = node->right ? node->right->height : 0;
+	return leftHeight - rightHeight;
+}
+
+// Returns the height stored in a given node
+int AVL::getHeight(Node* node) const {
+	if (!node) { return -1; }
+	return node->height;
+}
+
+// Updates the height of a given node based on its children's heights
+void AVL::updateHeight(Node* node) {
+	if (!node) { return; }
+	int leftHeight = node->left ? node->left->height : 0;
+	int rightHeight = node->right ? node->right->height : 0;
+	node->height = 1 + (leftHeight > rightHeight ? leftHeight : rightHeight); // ?: instead of std::max
+}
+
+// Performs a left rotation around the given node
+void AVL::leftRotate(Node* x) {
+	Node* y = x->right;
+	if (!y) { return; } // cannot rotate if there is no right child
+	Node* T2 = y->left;
+
+	// Perform rotation
+	y->left = x;
+	x->right = T2;
+
+	// Update parent pointers
+	y->parent = x->parent;
+	x->parent = y;
+	if (T2) { T2->parent = x; }
+
+	// If x was the root, update _root
+	if (!y->parent) {
+		_root = y;
+	} else if (x == y->parent->left) {
+		y->parent->left = y;
+	} else {
+		y->parent->right = y;
+	}
+
+	// Update heights
+	updateHeight(x);
+	updateHeight(y);
+}
+
+// Performs a right rotation around the given node
+void AVL::rightRotate(Node* y) {
+	Node* x = y->left;
+	if (!x) { return; } // cannot rotate if there is no left child
+	Node* T2 = x->right;
+
+	// Perform rotation
+	x->right = y;
+	y->left = T2;
+
+	// Update parent pointers
+	x->parent = y->parent;
+	y->parent = x;
+	if (T2) { T2->parent = y; }
+
+	// If y was the root, update _root
+	if (!x->parent) {
+		_root = x;
+	} else if (y == x->parent->left) {
+		x->parent->left = x;
+	} else {
+		x->parent->right = x;
+	}
+
+	// Update heights
+	updateHeight(y);
+	updateHeight(x);
 }
 
 
@@ -329,7 +401,7 @@ int AVL::size() const {
 
 // Returns the height of the entire tree
 int AVL::height() const {
-	return computeHeight(_root);
+	return getHeight(_root);
 }
 
 // Returns the height of the subtree rooted at the given value
@@ -338,17 +410,17 @@ int AVL::height(const int& val) const {
 	for (; node && node->data != val; ) {
 		node = (val < node->data) ? node->left : node->right;
 	}
-	return computeHeight(node);
+	return getHeight(node);
 }
 
 // Returns the height of the subtree rooted at the given iterator
 int AVL::height(const iterator& it) const {
-	return computeHeight(it._curr);
+	return getHeight(it._curr);
 }
 
 // Returns the depth of the entire tree
 int AVL::depth() const {
-	return computeHeight(_root);
+	return getHeight(_root);
 }
 
 // Returns the depth of the node with the given value
@@ -383,7 +455,7 @@ void AVL::insert(const int& val) {
 		} else if (val > curr->data) {
 			curr = curr->right;
 		} else {
-			return; // if AVL handles duplicates, there could be counter increment added
+			return; // duplicates are ignored
 		}
 	}
 
@@ -396,8 +468,36 @@ void AVL::insert(const int& val) {
 	} else {
 		parent->right = newNode;
 	}
-
 	++_size;
+
+	// Go up the tree, update heights and check BF
+	for (Node* curr = parent; curr; curr = curr->parent) {
+		updateHeight(curr);
+		int BF = computeBF(curr);
+
+		// Case: Left-Left or Left-Right
+		if (BF > 1) {
+			if (curr->left && val < curr->left->data) {
+				rightRotate(curr);
+			} else {
+				leftRotate(curr->left);
+				rightRotate(curr);
+			}
+			break; // stop at first imbalance
+		}
+
+		// Case: Right-Right or Right-Left
+		if (BF < -1) {
+			if (curr->right && val > curr->right->data) {
+				leftRotate(curr);
+			} else {
+				rightRotate(curr->right);
+				leftRotate(curr);
+			}
+			break; // stop at first imbalance
+		}
+
+	}
 }
 
 // Removes a node with the given value from the AVL
