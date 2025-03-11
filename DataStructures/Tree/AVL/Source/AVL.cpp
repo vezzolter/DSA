@@ -29,6 +29,63 @@ void AVL::destroySubtree(Node* node) {
 	delete node;
 }
 
+//// Removes a node from the tree and returns the new subtree root
+//AVL::Node* AVL::removeNode(Node* root, const int& val) {
+//	if (!root) { return nullptr; }
+//
+//	// Locate the node to remove
+//	if (val < root->data) {
+//		root->left = removeNode(root->left, val);
+//	} else if (val > root->data) {
+//		root->right = removeNode(root->right, val);
+//	} else {
+//		// Case 1: at most one child
+//		if (!root->left || !root->right) {
+//			Node* temp = root->left ? root->left : root->right;
+//			delete root;
+//			return temp;
+//		}
+//
+//		// Case 2: two children (replace with in-order successor)
+//		Node* succ = findLeftmost(root->right);
+//		root->data = succ->data;
+//		root->right = removeNode(root->right, succ->data);
+//	}
+//
+//	return root;
+//}
+
+// Removes a node from the tree and returns the new subtree root
+AVL::Node* AVL::removeNode(Node* root, const int& val, Node*& parent) {
+	if (!root) { return nullptr; }
+
+	// Locate the node to remove
+	if (val < root->data) {
+		root->left = removeNode(root->left, val, root);  // Track parent
+	}
+	else if (val > root->data) {
+		root->right = removeNode(root->right, val, root); // Track parent
+	}
+	else {
+		// Case 1: at most one child
+		if (!root->left || !root->right) {
+			Node* temp = root->left ? root->left : root->right;
+			if (temp) { temp->parent = root->parent; } // Update parent pointer
+			delete root;
+			return temp;
+		}
+
+		// Case 2: Two children: replace with in-order successor
+		Node* succ = findLeftmost(root->right);
+		root->data = succ->data;
+		root->right = removeNode(root->right, succ->data, root);
+	}
+
+	updateHeight(root);  // Update height after deletion
+	return root;  // Return new subtree root
+}
+
+
 // Find the leftmost node starting from the given node (the smallest)
 AVL::Node* AVL::findLeftmost(Node* node) const {
 	if (!node) { return nullptr; }
@@ -77,20 +134,21 @@ void AVL::updateHeight(Node* node) {
 
 // Performs a left rotation around the given node
 void AVL::leftRotate(Node* x) {
-	Node* y = x->right;
-	if (!y) { return; } // cannot rotate if there is no right child
-	Node* T2 = y->left;
+	if (!x->right) { return; } // cannot rotate if there is no right child
+
+	Node* y = x->right; // new subtree root
+	Node* T2 = y->left; // this will be x's right
 
 	// Perform rotation
 	y->left = x;
 	x->right = T2;
 
-	// Update parent pointers
+	// Maintaint tree structure
 	y->parent = x->parent;
 	x->parent = y;
 	if (T2) { T2->parent = x; }
 
-	// If x was the root, update _root
+	// Update connections from the parent
 	if (!y->parent) {
 		_root = y;
 	} else if (x == y->parent->left) {
@@ -99,27 +157,28 @@ void AVL::leftRotate(Node* x) {
 		y->parent->right = y;
 	}
 
-	// Update heights
+	// Affected nodes still have old heights
 	updateHeight(x);
 	updateHeight(y);
 }
 
 // Performs a right rotation around the given node
 void AVL::rightRotate(Node* y) {
-	Node* x = y->left;
-	if (!x) { return; } // cannot rotate if there is no left child
-	Node* T2 = x->right;
+	if (!y->left) { return; } // cannot rotate if there is no left child
+
+	Node* x = y->left; // new subtree root
+	Node* T2 = x->right; // this will be y's left
 
 	// Perform rotation
 	x->right = y;
 	y->left = T2;
 
-	// Update parent pointers
+	// Maintaint tree structure
 	x->parent = y->parent;
 	y->parent = x;
 	if (T2) { T2->parent = y; }
 
-	// If y was the root, update _root
+	// Update connections from the parent
 	if (!x->parent) {
 		_root = x;
 	} else if (y == x->parent->left) {
@@ -128,7 +187,7 @@ void AVL::rightRotate(Node* y) {
 		x->parent->right = x;
 	}
 
-	// Update heights
+	// Affected nodes still have old heights
 	updateHeight(y);
 	updateHeight(x);
 }
@@ -442,7 +501,7 @@ int AVL::depth(const iterator& it) const {
 //  Modifiers
 // -----------
 
-// Inserts a new element into the AVL, maintaining AVL ordering (not balancing)
+// Inserts a new element into the AVL, maintaining ordering and balance 
 void AVL::insert(const int& val) {
 	Node* parent = nullptr;
 
@@ -496,41 +555,76 @@ void AVL::insert(const int& val) {
 			}
 			break; // stop at first imbalance
 		}
-
 	}
 }
 
-// Removes a node with the given value from the AVL
+//// Removes a node with the given value from the AVL, maintaining order and balance
+//void AVL::remove(const int& val) {
+//	Node* parent = nullptr;
+//	_root = removeNode(_root, val);
+//	if (find(val) == end()) { --_size; }
+//
+//	// Go up the tree, update heights and check BF
+//	for (Node* curr = parent; curr; curr = curr->parent) {
+//		updateHeight(curr);
+//		int BF = computeBF(curr);
+//
+//		// Case: Left-Left or Left-Right
+//		if (BF > 1) {
+//			if (computeBF(curr->left) >= 0) {
+//				rightRotate(curr);
+//			} else {
+//				leftRotate(curr->left);
+//				rightRotate(curr);
+//			}
+//		}
+//
+//		// Case: Right-Right or Right-Left
+//		if (BF < -1) {
+//			if (computeBF(curr->right) <= 0) {
+//				leftRotate(curr);
+//			}
+//			else {
+//				rightRotate(curr->right);
+//				leftRotate(curr);
+//			}
+//		}
+//	}
+//}
+
+// Removes a node with the given value from the AVL, maintaining order and balance
 void AVL::remove(const int& val) {
-	auto deleteNode = [](Node* root, const int& key, auto& selfRef) -> Node* {
-		if (!root) { return nullptr; }
+	Node* parent = nullptr;
+	_root = removeNode(_root, val, parent);
+	if (!_root || find(val) == end()) { --_size; }
 
-		// Locate node to delete
-		if (key < root->data) {
-			root->left = selfRef(root->left, key, selfRef);
-		} else if (key > root->data) {
-			root->right = selfRef(root->right, key, selfRef);
-		} else {
-			// Case 1: at most one child
-			if (!root->left || !root->right) {
-				Node* temp = root->left ? root->left : root->right;
-				delete root;
-				return temp;
+	// Go up the tree, update heights and check balance
+	for (Node* curr = parent; curr; curr = curr->parent) {
+		updateHeight(curr);
+		int BF = computeBF(curr);
+
+		// Case: Left-Left or Left-Right
+		if (BF > 1) {
+			if (computeBF(curr->left) >= 0) {
+				rightRotate(curr);
+			} else {
+				leftRotate(curr->left);
+				rightRotate(curr);
 			}
-
-			// Case 2: two children (replace with in-order successor)
-			Node* succ = root->right;
-			for (; succ->left; ) { succ = succ->left; }
-			root->data = succ->data;
-			root->right = selfRef(root->right, succ->data, selfRef);
 		}
 
-		return root;
-	};
-
-	_root = deleteNode(_root, val, deleteNode);
-	if (find(val) == end()) { --_size; }
+		// Case: Right-Right or Right-Left
+		if (BF < -1) {
+			if (computeBF(curr->right) <= 0) {
+				leftRotate(curr);
+			} else {
+				rightRotate(curr->right);
+				leftRotate(curr);
+			}
+		}
+	}
 }
+
 
 // Removes all nodes from the tree and resets it to an empty state
 void AVL::clear() {

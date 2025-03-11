@@ -19,7 +19,8 @@ private:
     // -----------------
     Node* copySubtree(Node* src, Node* parent);
     void destroySubtree(Node* node);
-    Node* findLeftmost(Node* node) const;
+    Node* removeNode(Node* root, const int& val, Node*& parent);
+    Node * findLeftmost(Node * node) const;
     Node* findRightmost(Node* node) const;
     int computeDepth(Node* node) const;
     int computeBF(Node* node) const;

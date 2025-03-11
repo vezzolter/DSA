@@ -21,12 +21,12 @@ int main() {
 
 	// Constructors
 	std::cout << "Constructors:\n";
-	std::cout << " -> AVL t1 (46,88,25,11,7,17,30,26,37,9):\t";
-	AVL t1; // BST: 25,11,46,7,17,30,88,9,26,37;
+	std::cout << " -> AVL t1 (25,11,46,7,17,30,88,9,26,37):\t";
+	AVL t1;
 	t1.insert(25); // level 0
 	t1.insert(11); // level 1
 	t1.insert(46);
-	t1.insert(7); // level 2
+	t1.insert(7);  // level 2
 	t1.insert(17);
 	t1.insert(30);
 	t1.insert(88);
@@ -57,38 +57,37 @@ int main() {
 	std::cout << "Capacity:\n";
 	std::cout << " -> t1.empty():\t\t\t\t\t" << t1.empty() << std::endl;
 	std::cout << " -> t1.size(): \t\t\t\t\t" << t1.size() << std::endl;
-	std::cout << " -> t1.height(): \t\t\t\t" << t1.height() << std::endl; // no param
-	std::cout << " -> t1.height(25): \t\t\t\t" << t1.height(25) << std::endl; // val as param
-	std::cout << " -> t1.height(*(t1.find(25)): \t\t\t" << t1.height(*(t1.find(25))) << std::endl; // itr as param
+	std::cout << " -> t1.height(): \t\t\t\t" << t1.height() << std::endl;
+	std::cout << " -> t1.height(25): \t\t\t\t" << t1.height(25) << std::endl;
+	std::cout << " -> t1.height(*(t1.find(25)): \t\t\t" << t1.height(*(t1.find(25))) << std::endl;
 	std::cout << " -> t1.height(11): \t\t\t\t" << t1.height(11) << std::endl;
 	std::cout << " -> t1.height(7): \t\t\t\t" << t1.height(7) << std::endl;
 	std::cout << " -> t1.height(9): \t\t\t\t" << t1.height(9) << std::endl;
-	//std::cout << " -> t1.height(100): \t\t\t\t" << t1.height(100) << std::endl; // invalid val
-	//std::cout << " -> t1.height(*(t1.find(100)): \t\t\t\t" << t1.height(*(t1.find(100))) << std::endl; // invalid itr
-	std::cout << " -> t1.depth(): \t\t\t\t" << t1.depth() << std::endl; // no param
-	std::cout << " -> t1.depth(25): \t\t\t\t" << t1.depth(25) << std::endl; // val as param
-	std::cout << " -> t1.depth(*(t1.find(25)): \t\t\t" << t1.depth(*(t1.find(25))) << std::endl; // itr as param
+	std::cout << " -> t1.depth(): \t\t\t\t" << t1.depth() << std::endl;
+	std::cout << " -> t1.depth(25): \t\t\t\t" << t1.depth(25) << std::endl;
+	std::cout << " -> t1.depth(*(t1.find(25)): \t\t\t" << t1.depth(*(t1.find(25))) << std::endl;
 	std::cout << " -> t1.depth(11): \t\t\t\t" << t1.depth(11) << std::endl;
 	std::cout << " -> t1.depth(7): \t\t\t\t" << t1.depth(7) << std::endl;
 	std::cout << " -> t1.depth(9): \t\t\t\t" << t1.depth(9) << std::endl;
-	//std::cout << " -> t1.depth(100): \t\t\t\t" << t1.depth(100) << std::endl; // invalide val
-    //std::cout << " -> t1.depth(*(t1.find(100)): \t\t\t\t" << t1.depth(*(t1.find(100))) << std::endl; // invalid itr
 	std::cout << std::endl;
 
 	// Modifiers
-	//std::cout << "Modifiers:\n";
-	//std::cout << " -> t1.insert(10):  \t\t\t\t";
-	//t1.insert(10);
-	//printTree(t1);
-	//std::cout << "   - t1.depth(6):\t\t\t\t" << t1.depth(6) << std::endl;
-	//t1.depth(12);
-	//std::cout << "   - t1.size():\t\t\t\t\t" << t1.size() << std::endl;
-	//std::cout << " -> l1.remove(26): \t\t\t\t";
-	//t1.remove(12);
-	//printTree(t1);
-	//std::cout << "   - t1.depth(26):\t\t\t\t" << t1.depth(26) << std::endl;
-	//t1.depth(12);
-	//std::cout << "   - t1.size():\t\t\t\t\t" << t1.size() << std::endl;
+	std::cout << "Modifiers:\n";
+	std::cout << " -> t1.insert(8):  \t\t\t\t";
+	t1.insert(8);
+	printTree(t1);
+	std::cout << "   - t1.depth(8):\t\t\t\t" << t1.depth(8) << std::endl;
+	std::cout << "   - t1.depth(7):\t\t\t\t" << t1.depth(7) << std::endl;
+	std::cout << "   - t1.depth(9):\t\t\t\t" << t1.depth(9) << std::endl;
+	std::cout << " -> t1.remove(17): \t\t\t\t";
+	t1.remove(17);
+	printTree(t1);
+	std::cout << "   - t1.depth(25):\t\t\t\t" << t1.depth(25) << std::endl;
+	std::cout << "   - t1.depth(17):\t\t\t\t" << t1.depth(17) << std::endl;
+	std::cout << "   - t1.depth(8):\t\t\t\t" << t1.depth(8) << std::endl;
+	std::cout << "   - t1.depth(7):\t\t\t\t" << t1.depth(7) << std::endl;
+	std::cout << "   - t1.depth(11):\t\t\t\t" << t1.depth(11) << std::endl;
+	std::cout << "   - t1.depth(9):\t\t\t\t" << t1.depth(9) << std::endl;
 	//std::cout << " -> t1.clear(): \t\t\t\t\t";
 	//t1.clear();
 	//printTree(t1);
@@ -99,7 +98,7 @@ int main() {
 	//printTree(t2);
 	//std::cout << "   - t3:\t\t\t\t\t";
 	//printTree(t3);
-	//std::cout << std::endl;
+	std::cout << std::endl;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";
