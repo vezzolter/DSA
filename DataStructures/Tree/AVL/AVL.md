@@ -128,10 +128,8 @@ When working with AVL trees, it's important to note that there is no universal s
 <p align="center"><img src="./Images/OperationsRotations.png"/></p>
 
 **Rotations (Private Part):**
-- `rotateLeft(node)` — performs a left rotation on the given node to restore balance when its right subtree is too tall.
-- `rotateRight(node)` — performs a right rotation on the given node to restore balance when its left subtree is too tall.
-- `rotateLeftRight(node)` — performs a left-left rotation on the given node to restore balance when its right subtree is too tall and in zig-zag shape.
-- `rotateRightLeft(node)` — performs a right-left rotation on the given node to restore balance when its left subtree is too tall and in zig-zag shape.
+- `rotateLeft(node)` — performs a left rotation on the given node to restore balance when its right subtree is too tall. It's also used to perform left-right and right-left rotations on zig-zag shapes of branches that are too tall.
+- `rotateRight(node)` — performs a right rotation on the given node to restore balance when its left subtree is too tall. It's also used to perform left-right and right-left rotations on zig-zag shapes of branches that are too tall.
 
 
 
@@ -143,6 +141,7 @@ The implemented console application demonstrates the basic functionality of the 
 ## Design Decisions
 To prioritize simplicity and emphasize data structure itself, several design decisions were made:
 - Disallowing the addition of duplicate elements.
+- Height calculations use `0` for non-existing nodes, depth is `+1` to match.
 - Implementing only regular and const iterators (no reverse).
 - Limiting iterator functions to receive only one type of iterators to avoid templates.
 - Restricting the container to `int` to avoid templates.
@@ -154,15 +153,283 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-Currently in Progress...
+The container is implemented within the `AVL` class, which is declared in [AVL.h](https://github.com/vezzolter/DSA/blob/avl/DataStructures/Tree/AVL/Include/AVL.h) header file and defined in [AVL.cpp](https://github.com/vezzolter/DSA/blob/avl/DataStructures/Tree/AVL/Source/AVL.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/avl/DataStructures/Tree/AVL/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
+```cpp
+class AVL {
+private:
+    int _size;
+    struct Node;
+    Node* _root;
+
+    // -----------------
+    //  Utility Methods
+    // -----------------
+    Node* copySubtree(Node* src, Node* parent);
+    void destroySubtree(Node* node);
+    Node* removeNode(Node* root, const int& val, Node*& parent);
+    Node * findLeftmost(Node * node) const;
+    Node* findRightmost(Node* node) const;
+    int computeDepth(Node* node) const;
+    int computeBF(Node* node) const;
+    int getHeight(Node* node) const;
+    void updateHeight(Node* node);
+    void leftRotate(Node* node);
+    void rightRotate(Node* node);
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    AVL();
+    AVL(const AVL& other);
+    AVL(AVL&& other)          = delete;
+    AVL& operator=(const AVL& rhs);
+    AVL& operator=(AVL&& rhs) = delete;
+    ~AVL();
+
+    // -----------
+    //  Iterators
+    // -----------
+    class Iterator;
+    using iterator = Iterator;
+    iterator begin();
+    iterator end();
+    class ConstIterator;
+    using const_iterator = ConstIterator;
+    const_iterator begin() const;
+    const_iterator end() const;
+    const_iterator cbegin() const;
+    const_iterator cend() const;
+
+    // ----------------
+    //  Element Access
+    // ----------------
+    iterator find(const int& val);
+    const_iterator find(const int& val) const;
+    iterator predecessor(const int& val);
+    const_iterator predecessor(const int& val) const;
+    iterator successor(const int& val);
+    const_iterator successor(const int& val) const;
+    iterator predecessor(const iterator& it);
+    const_iterator predecessor(iterator& it) const;
+    iterator successor(const iterator& it);
+    const_iterator successor(iterator& it) const;
+    int minimum() const;
+    int maximum() const;
+
+    // ----------
+    //  Capacity
+    // ----------
+    bool empty() const;
+    int size() const;
+    int height() const;
+    int height(const int& val) const;
+    int height(const iterator& it) const;
+    int depth() const;
+    int depth(const int& val) const;
+    int depth(const iterator& it) const;
+
+    // -----------
+    //  Modifiers
+    // -----------
+    void insert(const int& val);
+    void remove(const int& val);
+    void clear();
+    void swap(AVL& other);
+};
+```
 
 ## Node Implementation
-Currently in Progress...
+The `Node` structure is defined as a private nested structure within the `AVL` container. This design keeps `Node` as an internal component, accessible only within the container, and enhances encapsulation. Given the simplicity of the `Node` structure, its functions are defined inline within the container's header file.
 
+```cpp
+struct AVL::Node {
+public:
+    int data;
+    int height; // any node start as a leaf (1)
+    Node* parent;
+    Node* left;
+    Node* right;
+
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    Node() : data(0), height(1), parent(nullptr), left(nullptr), right(nullptr) {}
+    Node(const int& val, Node* parent = nullptr) : data(val), height(1), parent(parent), left(nullptr), right(nullptr) {}
+    Node(const Node& other)          = delete;  // no copying or moving to ensure 
+    Node(Node&& other)               = delete;  // uniqueness of the node within    
+    Node& operator=(const Node& rhs) = delete;  // the tree and prevent accidental 
+    Node& operator=(Node&& rhs)      = delete;  // duplicates or dangling nodes
+    ~Node()                          = default;
+};
+```
 
 ## Iterator Implementation
-Currently in Progress...
+Since there are various types of iterators that can be implemented (e.g. forward, const forward, reverse, const reverse), it's common practice to define them in separate classes and files. However, despite being implemented separately, their underlying principles are usually similar, with only slight adjustments for specific purposes. To keep things simpler and avoid cluttering the core concepts, this container implements regular and constant iterator classes. Those iterators cover the basic $[begin, end)$ range and demonstrates how typical iterators operations are handled, as well as how the iterators classes are integrated into the AVL container.
+
+---
+The `Iterator` class is defined as a public nested class within the `AVL` container. This design makes `Iterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `Iterator` class, its functions are defined inline within the container's header file.
+
+```cpp
+class AVL::Iterator {
+private:
+    friend class AVL; // to handle iterator-based methods in AVL
+    Node* _curr;
+
+    // -----------------
+    //  Utility Methods
+    // -----------------
+
+    // Find the leftmost node starting from the given node (the smallest)
+    static Node* findLeftmost(Node* node) {
+        for (; node && node->left; ) { node = node->left; }
+        return node;
+    }
+
+    // Find the next node of the given node (in-order successor)
+    static Node* findNext(Node* node) {
+        if (!node) { return nullptr; }
+
+        // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->right) { return findLeftmost(node->right); }
+
+        // Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        Node* parent = node->parent;
+        for (; parent && node == parent->right; ) {
+            node = parent;
+            parent = parent->parent;
+        }
+        return parent;
+    }
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    Iterator() : _curr(nullptr) {}
+    explicit Iterator(Node* node) : _curr(node) {}
+    Iterator(const Iterator& other)          = default;
+    Iterator(Iterator&& other)               = default;
+    Iterator& operator=(const Iterator& rhs) = default;
+    Iterator& operator=(Iterator&& rhs)      = default;
+    ~Iterator()                              = default;
+
+    // ----------------------
+    //  Overloaded Operators
+    // ----------------------
+
+    // Returns a reference to the data of the current node
+    int& operator*() { 
+        return _curr->data;
+    }
+
+    // Advances the iterator to the next element in in-order traversal (pre-increment)
+    Iterator& operator++() {
+        _curr = findNext(_curr);
+        return *this;
+    }
+
+    // Advances the iterator to the next element, returning the previous state (post-increment)
+    Iterator operator++(int) {
+        Iterator temp(_curr);
+        _curr = findNext(_curr);
+        return temp;
+    }
+
+    // Returns true if two iterators point to the same node
+    friend bool operator==(const AVL::Iterator& lhs, const AVL::Iterator& rhs) {
+        return lhs._curr == rhs._curr;
+    }
+
+    // Returns true if two iterators point to different nodes
+    friend bool operator!=(const AVL::Iterator& lhs, const AVL::Iterator& rhs) {
+        return lhs._curr != rhs._curr;
+    }
+};
+```
+
+
+---
+The `ConstIterator` class is defined as a public nested class within the `AVL` container. This design makes `ConstIterator` accessible to users, enabling them to traverse and interact with list elements directly. Given the simplicity of the `ConstIterator` class, its functions are defined inline within the container's header file.
+
+```cpp
+class AVL::ConstIterator {
+private:
+    friend class AVL; // to handle iterator-based methods in AVL
+    const Node* _curr;
+
+    // -----------------
+    //  Utility Methods
+    // -----------------
+
+    // Find the leftmost node starting from the given node (the smallest)
+    static const Node* findLeftmost(Node* node) {
+        for (; node && node->left; ) { node = node->left; }
+        return node;
+    }
+
+    // Find the next node of the given node (in-order successor)
+    static const Node* findNext(const Node* node) {
+        if (!node) { return nullptr; }
+
+        // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->right) { return findLeftmost(node->right); }
+
+        // Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        const Node* parent = node->parent;
+        for (; parent && node == parent->right; ) {
+            node = parent;
+            parent = parent->parent;
+        }
+        return parent;
+    }
+
+public:
+    // --------------------
+    //  Compiler Generated
+    // --------------------
+    ConstIterator() : _curr(nullptr){}
+    ConstIterator(const Node* node) : _curr(node) {}
+    ConstIterator(const ConstIterator& other)          = default;
+    ConstIterator(ConstIterator&& other)               = default;
+    ConstIterator& operator=(const ConstIterator& rhs) = default;
+    ConstIterator& operator=(ConstIterator&& rhs)      = default;
+    ~ConstIterator()                                   = default;
+
+    // ----------------------
+    //  Overloaded Operators
+    // ----------------------
+
+    // Returns a const reference to the data of the current node
+    const int& operator*() const {
+        return _curr->data;
+    }
+
+    // Advances the iterator to the next element in in-order traversal (pre-increment)
+    ConstIterator& operator++() {
+        _curr = findNext(_curr);
+        return *this;
+    }
+
+    // Advances the iterator to the next element, returning the previous state (post-increment)
+    ConstIterator operator++(int) {
+        ConstIterator temp = *this;
+        _curr = findNext(_curr);
+        return temp;
+    }
+
+    // Returns true if two iterators point to the same node
+    friend bool operator==(const AVL::ConstIterator& lhs, const AVL::ConstIterator& rhs) {
+        return lhs._curr == rhs._curr;
+    }
+
+    // Returns true if two iterators point to different nodes
+    friend bool operator!=(const AVL::ConstIterator& lhs, const AVL::ConstIterator& rhs) {
+        return lhs._curr != rhs._curr;
+    }
+};
+```
 
 
 
@@ -196,7 +463,7 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 ## Some Practical Problems
-Since BST share the foundational principles of the general concept of trees, their common problems is best described in the [tree's respective section](../Tree.md#-application).
+Since AVL share the foundational principles of the general concept of trees, their common problems is best described in the [tree's respective section](../Tree.md#-some-practical-problems).
 
 
 

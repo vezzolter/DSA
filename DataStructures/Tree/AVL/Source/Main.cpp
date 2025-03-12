@@ -17,7 +17,7 @@ void printTree(const AVL& tree) {
 
 int main() {
 	// Greet
-	std::cout << "\tWelcome to the 'AVL Tree' console application!\n\n";
+	std::cout << "\t\tWelcome to the 'AVL Tree' console application!\n\n";
 
 	// Constructors
 	std::cout << "Constructors:\n";
