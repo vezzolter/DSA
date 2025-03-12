@@ -29,62 +29,39 @@ void AVL::destroySubtree(Node* node) {
 	delete node;
 }
 
-//// Removes a node from the tree and returns the new subtree root
-//AVL::Node* AVL::removeNode(Node* root, const int& val) {
-//	if (!root) { return nullptr; }
-//
-//	// Locate the node to remove
-//	if (val < root->data) {
-//		root->left = removeNode(root->left, val);
-//	} else if (val > root->data) {
-//		root->right = removeNode(root->right, val);
-//	} else {
-//		// Case 1: at most one child
-//		if (!root->left || !root->right) {
-//			Node* temp = root->left ? root->left : root->right;
-//			delete root;
-//			return temp;
-//		}
-//
-//		// Case 2: two children (replace with in-order successor)
-//		Node* succ = findLeftmost(root->right);
-//		root->data = succ->data;
-//		root->right = removeNode(root->right, succ->data);
-//	}
-//
-//	return root;
-//}
-
 // Removes a node from the tree and returns the new subtree root
 AVL::Node* AVL::removeNode(Node* root, const int& val, Node*& parent) {
 	if (!root) { return nullptr; }
 
 	// Locate the node to remove
 	if (val < root->data) {
-		root->left = removeNode(root->left, val, root);  // Track parent
-	}
-	else if (val > root->data) {
-		root->right = removeNode(root->right, val, root); // Track parent
-	}
-	else {
+		root->left = removeNode(root->left, val, parent);
+	} else if (val > root->data) {
+		root->right = removeNode(root->right, val, parent);
+	} else {
+		// Ensure parent is properly tracked BEFORE deletion
+		parent = root->parent;
+
 		// Case 1: at most one child
 		if (!root->left || !root->right) {
 			Node* temp = root->left ? root->left : root->right;
-			if (temp) { temp->parent = root->parent; } // Update parent pointer
+			if (temp) { temp->parent = root->parent; }
 			delete root;
 			return temp;
 		}
 
-		// Case 2: Two children: replace with in-order successor
+		// Case 2: two children (replace with in-order successor)
 		Node* succ = findLeftmost(root->right);
 		root->data = succ->data;
-		root->right = removeNode(root->right, succ->data, root);
+
+		// Ensure `parent` tracks the correct node for balancing
+		parent = succ->parent;
+		root->right = removeNode(root->right, succ->data, parent);
 	}
 
-	updateHeight(root);  // Update height after deletion
-	return root;  // Return new subtree root
+	if (root) { updateHeight(root); } // ensure `root` is not nullptr before accessing it
+	return root;
 }
-
 
 // Find the leftmost node starting from the given node (the smallest)
 AVL::Node* AVL::findLeftmost(Node* node) const {
@@ -557,40 +534,6 @@ void AVL::insert(const int& val) {
 		}
 	}
 }
-
-//// Removes a node with the given value from the AVL, maintaining order and balance
-//void AVL::remove(const int& val) {
-//	Node* parent = nullptr;
-//	_root = removeNode(_root, val);
-//	if (find(val) == end()) { --_size; }
-//
-//	// Go up the tree, update heights and check BF
-//	for (Node* curr = parent; curr; curr = curr->parent) {
-//		updateHeight(curr);
-//		int BF = computeBF(curr);
-//
-//		// Case: Left-Left or Left-Right
-//		if (BF > 1) {
-//			if (computeBF(curr->left) >= 0) {
-//				rightRotate(curr);
-//			} else {
-//				leftRotate(curr->left);
-//				rightRotate(curr);
-//			}
-//		}
-//
-//		// Case: Right-Right or Right-Left
-//		if (BF < -1) {
-//			if (computeBF(curr->right) <= 0) {
-//				leftRotate(curr);
-//			}
-//			else {
-//				rightRotate(curr->right);
-//				leftRotate(curr);
-//			}
-//		}
-//	}
-//}
 
 // Removes a node with the given value from the AVL, maintaining order and balance
 void AVL::remove(const int& val) {
