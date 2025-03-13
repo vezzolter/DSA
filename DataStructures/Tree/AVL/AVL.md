@@ -434,11 +434,30 @@ public:
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
 ## Characteristics
-Currently in Progress...
+🚀 **Time Complexities:**  
+- **Access:**
+   - **Access** $O(\log n)$ — while the actual dereferencing of a pointer for any access operation is pretty straightforward $O(1)$, the operation's overall complexity depends on the next factor:
+     - **Traversal Cost** — this part depends entirely on the height of the tree and since an AVL tree is always balanced, its height remains $O(\log n)$, because the balancing mechanism ensures that at every level, the number of nodes is roughly halved.
+- **Insertion:**
+   - **Insertion** $O(\log n)$ — while the actual pointer adjustment and allocation during insertion is $O(1)$, the operation's overall complexity depends on two factors:
+     - **Traversal Cost** — this part depends entirely on the height of the tree and since an AVL tree is always balanced, its height remains $O(\log n)$, because the balancing mechanism ensures that at every level, the number of nodes is roughly halved.
+     - **Balance Cost** — after insertion, the tree traverses up from the inserted node to the root to update heights $O(\log n)$, and performs rotations if an imbalance is detected $O(1)$, ensuring the tree remains balanced.
+- **Deletion:**
+   - **Deletion** $O(\log n)$ — while the actual pointer adjustment and clean up during deletion is $O(1)$, the operation's overall complexity depends on three factors:
+     - **Traversal Cost** — this part depends entirely on the height of the tree and since an AVL tree is always balanced, its height remains $O(\log n)$, because the balancing mechanism ensures that at every level, the number of nodes is roughly halved.
+     - **Children Care Cost** — for a node with no children the removal is direct $O(1)$; for a node with one child, the removal also requires reassigning of pointers $O(1)$; and for a node with two children, the removal also requires an additional $O(\log n)$ to locate the in-order successor/predecessor.
+     - **Balance Cost** — after deletion, the tree traverses up from the deleted node to the root to update heights $O(\log n)$, and performs rotations if an imbalance is detected $O(1)$, ensuring the tree remains balanced.
+- **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
+
+---
+🧠 **Space Expenses:**
+- **Node Overhead** — each node stores pointers (e.g., left, right, parent) and values (e.g., data, height), increasing the total space usage. The exact overhead depends on the implementation, but AVL trees generally require slightly more memory than standard BSTs.
+- **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, which may lead to fragmentation and reduced cache locality, especially for large trees.
+- **Call Stack Usage** — many tree operations, such as traversal, height, or depth computation, rely on recursion, which consumes call stack space. The required stack depth is proportional to the height of the tree, similarly to time complexities.
 
 
 ## Trade-Offs
