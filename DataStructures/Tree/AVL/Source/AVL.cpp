@@ -47,6 +47,7 @@ AVL::Node* AVL::removeNode(Node* root, const int& val, Node*& parent) {
 			Node* temp = root->left ? root->left : root->right;
 			if (temp) { temp->parent = root->parent; }
 			delete root;
+			--_size;
 			return temp;
 		}
 
@@ -511,7 +512,7 @@ void AVL::insert(const int& val) {
 		updateHeight(curr);
 		int BF = computeBF(curr);
 
-		// Case: Left-Left or Left-Right
+		// Case: Left subtree is taller, so either Right or Left-Right rotation
 		if (BF > 1) {
 			if (curr->left && val < curr->left->data) {
 				rightRotate(curr);
@@ -522,7 +523,7 @@ void AVL::insert(const int& val) {
 			break; // stop at first imbalance
 		}
 
-		// Case: Right-Right or Right-Left
+		// Case: Right subtree is taller, so either Left or Right-Left rotation
 		if (BF < -1) {
 			if (curr->right && val > curr->right->data) {
 				leftRotate(curr);
@@ -537,16 +538,15 @@ void AVL::insert(const int& val) {
 
 // Removes a node with the given value from the AVL, maintaining order and balance
 void AVL::remove(const int& val) {
-	Node* parent = nullptr;
+	Node* parent = nullptr; // after deletion, we need to be able to go up the tree and fix BF
 	_root = removeNode(_root, val, parent);
-	if (!_root || find(val) == end()) { --_size; }
 
-	// Go up the tree, update heights and check balance
+	// Go up the tree, update heights and check BF
 	for (Node* curr = parent; curr; curr = curr->parent) {
 		updateHeight(curr);
 		int BF = computeBF(curr);
 
-		// Case: Left-Left or Left-Right
+		// Case: Left subtree is taller, so either Right or Left-Right rotation
 		if (BF > 1) {
 			if (computeBF(curr->left) >= 0) {
 				rightRotate(curr);
@@ -556,7 +556,7 @@ void AVL::remove(const int& val) {
 			}
 		}
 
-		// Case: Right-Right or Right-Left
+		// Case: Right subtree is taller, so either Left or Right-Left rotation
 		if (BF < -1) {
 			if (computeBF(curr->right) <= 0) {
 				leftRotate(curr);
