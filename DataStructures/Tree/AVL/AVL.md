@@ -455,13 +455,29 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 ---
 🧠 **Space Expenses:**
-- **Node Overhead** — each node stores pointers (e.g., left, right, parent) and values (e.g., data, height), increasing the total space usage. The exact overhead depends on the implementation, but AVL trees generally require slightly more memory than standard BSTs.
+- **Node Overhead** — each node stores pointers (e.g. left, right, parent) and values (e.g. data, height), increasing the total space usage. The exact overhead depends on the implementation, but AVL trees generally require slightly more memory than standard BSTs.
 - **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, which may lead to fragmentation and reduced cache locality, especially for large trees.
 - **Call Stack Usage** — many tree operations, such as traversal, height, or depth computation, rely on recursion, which consumes call stack space. The required stack depth is proportional to the height of the tree, similarly to time complexities.
 
 
 ## Trade-Offs
-Currently in Progress...
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
+➕ **Advantages:**
+- **Strict Self-Balancing Mechanism** — AVL trees strictly enforce balance by continuously tracking height differences and applying rotations immediately upon detecting an imbalance, ensuring that no node ever becomes more than one level unbalanced—unlike other self-balancing trees that may delay or amortize balancing operations, AVL guarantees optimal performance at all times.
+- **Ordered Data** — AVLs naturally store data in sorted order, enabling efficient in-order traversal to retrieve elements in ascending order without additional sorting operations.
+- **Efficient and Predictable Performance** — the BST property structures data hierarchically, halving the search space at each step, combined with AVL’s strict balancing, this ensures operations consistently run in $O(\log n)$, even in the worst case.
+- **Flexible Size** — AVLs can dynamically grow or shrink as elements are inserted or removed, without reallocating the entire structure, making them well-suited for scenarios where the data size is unknown beforehand.
+- **No Wasted Capacity** — AVLs do not preallocate extra memory beyond what is needed for their elements, preventing unused space.
+
+---
+➖ **Disadvantages:**
+- **Access via Traversal** — AVLs do not support direct indexing of elements; accessing a specific value requires traversal, which depends on the height of the tree, which, while can be faster than linked list, is till slower than direct access structure like arrays or hash tables.
+- **Rotation Overhead** — AVLs perform additional rotations after insertions and deletions to maintain balance, while each rotation runs in $O(1)$, the added rebalancing steps increase the constant factor in performance (which is quite important since many implementations tend to opt for other trees due to this sole factor).
+- **Recursive Overhead** — AVLs may rely on recursion for many operations, which consumes additional call stack space proportional to the tree’s height, leading to substantial overhead in large trees.
+- **Node Overhead** — as mentioned earlier in [characteristics](#-characteristics), node implementation may vary, but the fact remains — each node contains multiple values and pointers that may seem negligible individually but accumulate significantly at scale.
+- **Intricate Structure Maintenance** — AVLs requires careful pointer adjustments during insertions, deletions, and rotations to simultaneously preserve ordering, update parent-child relationships, and maintain strict height balance, creating numerous opportunities for subtle logical errors that can disrupt the tree's structure or make certain issues more difficult to debug.
 
 
 
