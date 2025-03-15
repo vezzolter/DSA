@@ -1,4 +1,5 @@
 # &#128209; Table of Contents
+- [� Table of Contents](#-table-of-contents)
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Algorithm Steps](#algorithm-steps)
@@ -13,9 +14,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -134,17 +134,7 @@ The idea of Linear Search can be observed in many real life activities due to it
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
   - Section 6.1: Sequential Searching
@@ -157,8 +147,13 @@ For contact details and additional information, please refer to the [root direct
    - Section 7: The Array ADT (Linear Search)
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Linear Search](https://en.wikipedia.org/wiki/Linear_search) (Wikipedia)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

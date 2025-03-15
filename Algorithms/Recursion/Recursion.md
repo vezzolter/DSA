@@ -13,9 +13,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -178,20 +177,10 @@ While Kurt Gödel, Rózsa Péter, and Stephen Kleene made significant contributi
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
-  - Section 4: Divide-and-Conquer.
+  - Section 4: Divide-and-Conquer
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 5.1: Recursive Algorithms
 - **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
@@ -205,12 +194,17 @@ For contact details and additional information, please refer to the [root direct
    - Section 5: Recursion
 
 ---
-&#127760; **Web-Resources:**
+&#127760; **Web-Pages:**
 - [Recursion in Computer Science](https://en.wikipedia.org/wiki/Recursion_(computer_science)) (Wikipedia)
 - [Call stack](https://en.wikipedia.org/wiki/Call_stack) (Wikipedia)
-- [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization)
-- [The Advent of Recursion in Programming, 1950s-1960s](https://eprints.illc.uva.nl/id/document/935#:~:text=The%20notion%20of%20recursion%20dates,the%20foundations%20of%20mathematics%20cf.)
-- [Computability and Recursion](http://www.people.cs.uchicago.edu/~soare/History/compute.pdf)
+- [Tail Call Optimization](https://wiki.c2.com/?TailCallOptimization) (Article)
+- [The Advent of Recursion in Programming, 1950s-1960s](https://eprints.illc.uva.nl/id/document/935#:~:text=The%20notion%20of%20recursion%20dates,the%20foundations%20of%20mathematics%20cf.) (Research Paper)
+- [Computability and Recursion](http://www.people.cs.uchicago.edu/~soare/History/compute.pdf) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

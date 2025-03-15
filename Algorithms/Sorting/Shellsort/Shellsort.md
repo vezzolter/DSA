@@ -179,17 +179,7 @@ Shellsort was invented by American computer scientist **Donald Lewis Shell** in 
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 6.6: Shellsort
@@ -204,10 +194,15 @@ For contact details and additional information, please refer to the [root direct
    - Section 20: Sorting Techniques
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Shellsort](https://en.wikipedia.org/wiki/Shellsort) (Wikipedia)
-- [A High-Speed Sorting Procedure](https://doi.org/10.1145/368370.368387)
-- [Best increments for the Average Case of Shellsort](https://web.archive.org/web/20180923235211/http://sun.aei.polsl.pl/~mciura/publikacje/shellsort.pdf)
+- [A High-Speed Sorting Procedure](https://doi.org/10.1145/368370.368387) (Research Paper)
+- [Best increments for the Average Case of Shellsort](https://web.archive.org/web/20180923235211/http://sun.aei.polsl.pl/~mciura/publikacje/shellsort.pdf) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

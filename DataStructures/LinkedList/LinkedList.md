@@ -1,20 +1,19 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-	- [Essential Terminology](#essential-terminology)
+  - [Essential Terminology](#essential-terminology)
 - [💻 Implementation](#-implementation)
-	- [Core Mechanics](#core-mechanics)
-	- [Existing Solutions](#existing-solutions)
-	- [Repository Containers](#repository-containers)
+  - [Core Mechanics](#core-mechanics)
+  - [Existing Solutions](#existing-solutions)
+  - [Repository Containers](#repository-containers)
 - [📊 Analysis](#-analysis)
-	- [Evaluating Characteristics](#evaluating-characteristics)
-	- [Comparing Containers](#comparing-containers)
+  - [Evaluating Characteristics](#evaluating-characteristics)
+  - [Comparing Containers](#comparing-containers)
 - [📝 Application](#-application)
-	- [Common Use Cases](#common-use-cases)
-	- [Some Practical Problems](#some-practical-problems)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -161,17 +160,7 @@ The concept of the linked list doesn’t have a single inventor, but it has evol
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 10.2: Linked Lists
@@ -201,13 +190,21 @@ For contact details and additional information, please refer to the [root direct
 - [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) from Coursera
    - Course 2.1: Linear Structures
 
+---
+&#127916; **Recordings:**
+- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
+
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Linked List](https://en.wikipedia.org/wiki/Linked_list) (Wikipedia)
 - [std::forward_list](https://en.cppreference.com/w/cpp/container/forward_list) (Documentation)
 - [std::list](https://en.cppreference.com/w/cpp/container/list) (Documentation)
 - [Iterator library](https://en.cppreference.com/w/cpp/iterator) (Documentation)
-- [Writing an ITERATOR in C++](https://www.youtube.com/watch?app=desktop&v=F9eDv-YIOQ0) (Video)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 

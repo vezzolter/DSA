@@ -1,21 +1,20 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-	- [Introduction](#introduction)
-	- [Algorithm Steps](#algorithm-steps)
+  - [Introduction](#introduction)
+  - [Algorithm Steps](#algorithm-steps)
 - [💻 Implementation](#-implementation)
-	- [Design Decisions](#design-decisions)
-	- [Complete Implementation](#complete-implementation)
-	- [Detailed Walkthrough](#detailed-walkthrough)
+  - [Design Decisions](#design-decisions)
+  - [Complete Implementation](#complete-implementation)
+  - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
-	- [Algorithm Characteristics](#algorithm-characteristics)
-	- [Algorithm Comparison](#algorithm-comparison)
+  - [Algorithm Characteristics](#algorithm-characteristics)
+  - [Algorithm Comparison](#algorithm-comparison)
 - [📝 Application](#-application)
-	- [Common Use Cases](#common-use-cases)
-	- [Some Practical Problems](#some-practical-problems)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -168,17 +167,7 @@ Heapsort was invented by British computer scientist **John William Joseph (Bill)
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 6: Heapsort
@@ -197,8 +186,14 @@ For contact details and additional information, please refer to the [root direct
    - Section 19: Heap
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Heapsort](https://en.wikipedia.org/wiki/Heapsort) (Wikipedia)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
+
 
 
 # &#128271; License

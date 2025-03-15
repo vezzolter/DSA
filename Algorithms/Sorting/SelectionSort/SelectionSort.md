@@ -13,9 +13,8 @@
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -142,17 +141,7 @@ The idea of Selection Sort can be observed in many real life activities due to i
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
   - Section 6.2: Selection Sort
@@ -167,10 +156,15 @@ For contact details and additional information, please refer to the [root direct
    - Section 20: Sorting Techniques
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) (Wikipedia)
-- [How does Selection Sort Algorithm work?](https://www.geeksforgeeks.org/selection-sort/)
-- [Selection Sort Algorithm](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm)
+- [How does Selection Sort Algorithm work?](https://www.geeksforgeeks.org/selection-sort/) (Article)
+- [Selection Sort Algorithm](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm) (Article)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

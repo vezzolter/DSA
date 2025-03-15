@@ -12,9 +12,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -126,27 +125,22 @@ The **Middle-Square Method** was one of the first attempts to use a computationa
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
   - Section 3.1: Introduction
 
 ---
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Middle-square method](https://en.wikipedia.org/wiki/Middle-square_method) (Wikipedia)
 - [Solved Example: Extracting Digits of a Number](https://www.knowledgeboat.com/learn/icse-computer-applications-bluej-class-10/lecture/ml4Jm/java-digit-extract) (Article)
 - [The Middle of the Square](http://bit-player.org/2022/the-middle-of-the-square) (Article)
 - [Too Big to Fail](https://www.pcg-random.org/posts/too-big-to-fail.html) (Article)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

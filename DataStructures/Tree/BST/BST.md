@@ -1,22 +1,21 @@
 # &#128209; Table of Contents
 - [💡 Overview](#-overview)
-  - [Essential Terminology](#essential-terminology)
   - [Important Details](#important-details)
-  - [Operation Details](#operation-details)
+  - [Container Methods](#container-methods)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
-  - [Detailed Overview](#detailed-overview)
+  - [Container Implementation](#container-implementation)
+  - [Node Implementation](#node-implementation)
+  - [Iterator Implementation](#iterator-implementation)
 - [📊 Analysis](#-analysis)
-  - [How to Analyze](#how-to-analyze)
-  - [Advantages](#advantages)
-  - [Disadvantages](#disadvantages)
+  - [Characteristics](#characteristics)
+  - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
-  - [Some of the Most Well-Known Use Cases](#some-of-the-most-well-known-use-cases)
-  - [Common Practical Problems](#common-practical-problems)
+  - [Common Use Cases](#common-use-cases)
+  - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -446,32 +445,7 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 ## Some Practical Problems
-**Easy Problems:**
-1. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
-2. [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
-3. [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)
-4. [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
-5. [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree)
-6. [Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
-
----
-**Medium Problems:** 
-1. [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
-2. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
-3. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
-4. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
-5. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
-6. [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
-7. [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)
-8. [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree)
-9. [Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
-10. [All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees)
-
----
-**Hard Problems:** 
-1. [Maximum Sum BST in Binary Tree](https://leetcode.com/problems/maximum-sum-bst-in-binary-tree)
-2. [Number of Ways to Reorder Array to Get Same BST](https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)
-3. [Merge BSTs to Create Single BST](https://leetcode.com/problems/merge-bsts-to-create-single-bst)
+Since BST share the foundational principles of the general concept of trees, their common problems is best described in the [tree's respective section](../Tree.md#-application).
 
 
 
@@ -486,17 +460,7 @@ The BST is a data structure whose origins are intertwined with the collaborative
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 12: Binary Search Trees
@@ -520,7 +484,7 @@ For contact details and additional information, please refer to the [root direct
   - Section 16: Binary Search Trees
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/) (Article)
 - [Balancing a binary search tree](https://appliedgo.net/balancedtree/) (Article)
@@ -529,6 +493,11 @@ For contact details and additional information, please refer to the [root direct
 - [On the efficiency of a new method of dictionary construction](https://www.sciencedirect.com/science/article/pii/S0019995860909013) (Research Paper)
 - [Some Combinatorial Properties of Certain Trees](https://dl.acm.org/doi/abs/10.1145/321105.321108) (Research Paper)
 - [More combinatorial properties of certain trees](http://comjnl.oxfordjournals.org/content/7/4/299.full.pdf) (Research Paper)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

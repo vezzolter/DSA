@@ -13,9 +13,8 @@
 	- [Common Use Cases](#common-use-cases)
 	- [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -235,17 +234,7 @@ The idea of merging goes back in **1938** to the invention of a card machine, th
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
   - Section 2.3: Designining Algorithms (Merge Sort)
@@ -264,10 +253,15 @@ For contact details and additional information, please refer to the [root direct
    - Section 20: Sorting Techniques
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) (Wikipedia)
-- [Merge Sort Algorithm: Design, Implementation, and Analysis](https://www.enjoyalgorithms.com/blog/merge-sort-algorithm)
-- [Merge Sort And It's Early History](https://www.linkedin.com/pulse/merge-sort-its-early-history-abdur-rahmaan-janhangeer/)
+- [Merge Sort Algorithm: Design, Implementation, and Analysis](https://www.enjoyalgorithms.com/blog/merge-sort-algorithm) (Article)
+- [Merge Sort And It's Early History](https://www.linkedin.com/pulse/merge-sort-its-early-history-abdur-rahmaan-janhangeer/) (Article)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../../#-contributing).
 
 
 

@@ -13,9 +13,8 @@
   - [Common Use Cases](#common-use-cases)
   - [Some Practical Problems](#some-practical-problems)
 - [🕙 Origins](#-origins)
+- [📖 Resources](#-resources)
 - [🤝 Contributing](#-contributing)
-- [📧 Contacts](#-contacts)
-- [🙏 Credits](#-credits)
 - [🔏 License](#-license)
 
 
@@ -137,17 +136,7 @@ Today, companies like **Cloudflare** have taken innovative approaches to RNG, ex
 
 
 
-# &#129309; Contributing
-Contributions are highly appreciated! For detailed guidelines, please refer to the [root directory's contributing section](../../#-contributing).
-
-
-
-# &#128231; Contacts
-For contact details and additional information, please refer to the [root directory's contact information section](../../#-contacts).
-
-
-
-# &#128591; Credits
+# &#128214; Resources
 &#128218; **Books:**
 - **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
   - Section 13.7: Random Number Generation
@@ -157,13 +146,18 @@ For contact details and additional information, please refer to the [root direct
   - Section 3: Random Numbers
 
 ---  
-&#127760; **Web-Resources:**  
+&#127760; **Web-Pages:**  
 - [Statistical Analysis](https://www.random.org/analysis/) (Article)
 - [Random number generation](https://en.wikipedia.org/wiki/Random_number_generation) (Wikipedia)
 - [List of random number generators](https://en.wikipedia.org/wiki/List_of_random_number_generators) (Wikipedia)
 - [Understanding Entropy: The Key to Secure Cryptography and Randomness](https://blog.netdata.cloud/understanding-entropy-the-key-to-secure-cryptography-and-randomness/) (Article)
 - [How do lava lamps help with Internet encryption?](https://www.cloudflare.com/ru-ru/learning/ssl/lava-lamp-encryption/) (Article)
 - [<random\>](https://cplusplus.com/reference/random/) (Documentation)
+
+
+
+# &#129309; Contributing
+Contributions are highly appreciated! For detailed guidelines, contact details, and additional information, please refer to the [root directory's contributing section](../../#-contributing).
 
 
 
