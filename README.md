@@ -79,23 +79,34 @@ This list provides a straightforward overview of the repository's contents. For 
     - Levenshtein Distance
     - Needleman-Wunsch Algorithm
     - RLE (Run-Length Encoding) 
-  - Tree & Graph Algorithms
-    - TreeGraphAlgorithms.md
+  - Tree Algorithms
+    - TreeAlgorithms.md
     - Inorder Traversal
     - Preorder Traversal
     - Postoreder Traversal
+    - Level-Order Traversal
+    - Height Computation
+    - Depth Computation
+    - Diameter Computation
     - LCA (Lowest Common Ancestor)
+    - Serialization
+    - Deserialization
+  - Graph Algorithms
+    - GraphAlgorithms.md
     - DFS (Depth-First Search)
     - BFS (Breadth-First Search)
     - Dijkstra's Algorithm
     - Bellman-Ford Algorithm
-    - Prim's Algorithms
-    - Kruskal's Algorithm
     - Floyd-Warshall Algorithm
     - A*
+    - Prim's Algorithms
+    - Kruskal's Algorithm
     - Topological Sort
     - Tarjan’s Algorithm
     - Kosaraju’s Algorithm
+    - Ford-Fulkerson
+    - Edmond-Karp
+    - Dinic
 - Data Structures
   - Array
     - [Array.md](https://github.com/vezzolter/DSA/blob/main/DataStructures/Array/Array.md) ✅
