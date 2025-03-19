@@ -26,15 +26,27 @@
 
 
 ## Introduction
-Currently in Progress...
+The algorithm visits the root node in between its left and right children — following the order Left-Root-Right in the standard version, and Right-Root-Left in the reversed version.
 
 
 ## Important Details
-Currently in Progress...
+1. When inorder traversal is applied to a BST, it visits nodes in **ascending sorted order** due to the tree’s inherent ordering property; when reversed inorder traversal is used, it processes nodes in **descending sorted order** instead.
+2. Can be implemented using **recursion**, **iteration**, or **Morris traversal**, where the recursive approach relies on an implicit function call stack, the iterative approach uses an explicit stack, and Morris traversal achieves the same result with $O(1)$ extra space by temporarily modifying tree links.
 
 
-## Algorithm Steps
-Currently in Progress...
+## Algorithm Steps (Recursive)
+**Standard Version:**
+1. Set up the base case, stopping recursion when traversal reaches the end of a branch.
+2. Recursively traverse the left subtree by calling the function on the left child.
+3. Process the current node (this step depends on the specific task at hand).
+4. Recursively traverse the right subtree by calling the function on the right child.
+
+---
+**Reversed Version:**
+1. Set up the base case, stopping recursion when traversal reaches the end of a branch.
+2. Recursively traverse the right subtree by calling the function on the right child.
+3. Process the current node (this step depends on the specific task at hand).
+4. Recursively traverse the left subtree by calling the function on the left child.
 
 
 
