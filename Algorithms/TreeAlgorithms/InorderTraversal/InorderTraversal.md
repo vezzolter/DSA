@@ -2,7 +2,7 @@
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
-  - [Algorithm Steps](#algorithm-steps)
+  - [Algorithm Steps (Recursive)](#algorithm-steps-recursive)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
@@ -51,19 +51,73 @@ The algorithm visits the root node in between its left and right children — fo
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program manually constructs a binary tree that resembles a BST, but does not strictly enforce its rules — nodes are added in a predefined order rather than inserted dynamically. It then displays the order of insertion, applies inorder traversal, which prints the values in ascending order, and reversed inorder traversal, which prints them in descending order.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Replacing tree-like structure with a simple node struct and predefined order of nodes.
+- Printing node values as the only processing step during traversal.
 
 
 ## Complete Implementation
-Currently in Progress...
+The inorder traversal algorithm is implemented in `inorderTraversal()`, the reversed inorder traversal in `reversedInorderTraversal()`, both are declared in [InorderTraversal.h](https://github.com/vezzolter/DSA/blob/inorder-traversal/Algorithms/TreeAlgorithms/InorderTraversal/Include/InorderTraversal.h) header file and defined in [InorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/inorder-traversal/Algorithms/TreeAlgorithms/InorderTraversal/Source/InorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/inorder-traversal/Algorithms/TreeAlgorithms/InorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
+
+```cpp
+void inorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+	inorderTraversal(root->left);
+	std::cout << root->val << " ";
+	inorderTraversal(root->right);
+}
+
+void reversedInorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+	reversedInorderTraversal(root->right);
+	std::cout << root->val << " ";
+	reversedInorderTraversal(root->left);
+}
+```
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+**Standard Version:**
+1. Start by setting up the base case, where if the current node is `nullptr`, the function returns immediately, stopping recursion.
+```cpp
+  if (node == nullptr) { return; }
+```
+2. Recursively traverse the left subtree by calling the function on the left child. This ensures all left-side nodes are processed before visiting the root.
+```cpp
+  inorderTraversal(node->left);
+```
+3. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << node->val << " ";
+```
+4. Recursively traverse the right subtree by calling the function on the right child. This ensures all right-side nodes are processed after visiting the root.
+```cpp
+  inorderTraversal(node->right);
+```
+
+---
+**Reversed Version:**
+1. Start by setting up the base case, where if the current node is `nullptr`, the function returns immediately, stopping recursion.  
+```cpp
+  if (node == nullptr) { return; }
+```
+2. Recursively traverse the right subtree by calling the function on the right child. This ensures all right-side nodes are processed before visiting the root.
+```cpp
+  reversedInorderTraversal(node->right);
+```
+3. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << node->val << " ";
+```
+4. Recursively traverse the left subtree by calling the function on the left child. This ensures all left-side nodes are processed after visiting the root.
+```cpp
+  reversedInorderTraversal(node->left);
+```
 
 
 
