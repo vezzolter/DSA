@@ -138,15 +138,22 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...
+- **Tree Traversal in BSTs** — inorder traversal is used to retrieve sorted elements from a BST in ascending order. This works because the Left-Root-Right order ensures that elements are visited in increasing sequence without additional sorting.
+
+- **Expression Tree Evaluation** — inorder traversal is used to reconstruct infix expressions from expression trees. Since the traversal naturally follows operand-operator-operand ordering, it directly mirrors standard infix notation in arithmetic expressions. 
+
+- **Serialization & Deserialization** — inorder traversal is used alongside preorder or postorder traversal to uniquely encode and reconstruct binary trees. While inorder alone does not preserve structure, combining it with another traversal method allows complete tree reconstruction.  
 
 
 ## Some Practical Problems
-Currently in Progress...
+- [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)
+- [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+- [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
+
 
 
 # &#x1F559; Origins
