@@ -150,16 +150,31 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../Tree/Tree.md#-application).
+Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#-application).
 
 
 
 # &#x1F559; Origins
-Currently in Progress...
+I couldn’t find any definitive records tracing its origins, so I’m assuming it just naturally emerged as people started working with trees in computer science. As trees became more common, the Left-Root-Right order was probably recognized as an obvious and systematic way to process hierarchical data.  
+
 
 
 # &#128214; Resources
-Currently in Progress...
+&#128218; **Books:**
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 5.6: Tree Traversal
+  - Section 5.7: Recursive Binary-Tree Algorithms
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 4.1: Preliminaries
+  - Section 4.2: Binary Trees
+  - Section 4.6: Tree Traversals (Revisited)
+- **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Section: 2.3.1: Traversing Binary Trees
+
+---
+&#127891; **Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+  - Section 15: Trees
 
 
 
