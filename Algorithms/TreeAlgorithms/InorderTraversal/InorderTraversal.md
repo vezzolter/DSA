@@ -62,7 +62,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-The inorder traversal algorithm is implemented in `inorderTraversal()`, the reversed inorder traversal in `reversedInorderTraversal()`, both are declared in [InorderTraversal.h](https://github.com/vezzolter/DSA/blob/inorder-traversal/Algorithms/TreeAlgorithms/InorderTraversal/Include/InorderTraversal.h) header file and defined in [InorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/inorder-traversal/Algorithms/TreeAlgorithms/InorderTraversal/Source/InorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/inorder-traversal/Algorithms/TreeAlgorithms/InorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
+The inorder traversal algorithm is implemented in `inorderTraversal()`, the reversed inorder traversal in `reversedInorderTraversal()`, both are declared in [InorderTraversal.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/TreeAlgorithms/InorderTraversal/Include/InorderTraversal.h) header file and defined in [InorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/TreeAlgorithms/InorderTraversal/Source/InorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/TreeAlgorithms/InorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
 void inorderTraversal(TreeNode* root) {
@@ -150,7 +150,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#-application).
+Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#-some-practical-problems).
 
 
 
