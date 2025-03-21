@@ -148,32 +148,38 @@ Understanding some of the most well-known use cases of a data structure is cruci
 
 ## Some Practical Problems
 **Easy Problems:**
-1. [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree)
-2. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
-3. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)
-4. [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree)
-5. [Same Tree](https://leetcode.com/problems/same-tree)
-6. [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
-7. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
-8. [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
-9. [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)
-10. [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
-11. [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree)
-12. [Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
+1. [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)
+2. [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree)
+3. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
+4. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)
+5. [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree)
+6. [Same Tree](https://leetcode.com/problems/same-tree)
+7. [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree)
+8. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
+9. [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
+10. [Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)
+11. [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
+12. [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree)
+13. [Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree)
 
 ---
 **Medium Problems:** 
 1. [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
 2. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal)
-3. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
-4. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
-5. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
-6. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
-7. [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
-8. [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)
-9. [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree)
-10. [Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
-11. [All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees)
+3. [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view)
+4. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
+5. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree)
+6. [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree)
+7. [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree)
+8. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
+9. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
+10. [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+11. [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
+12. [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
+13. [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)
+14. [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree)
+15. [Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
+16. [All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees)
 
 ---
 **Hard Problems:** 
@@ -181,6 +187,7 @@ Understanding some of the most well-known use cases of a data structure is cruci
 2. [Number of Ways to Reorder Array to Get Same BST](https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)
 3. [Merge BSTs to Create Single BST](https://leetcode.com/problems/merge-bsts-to-create-single-bst)
 4. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum)
+5. [Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal)
 
 
 

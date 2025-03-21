@@ -150,9 +150,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-- [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)
-- [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
-- [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
+Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../Tree/Tree.md#-application).
 
 
 
