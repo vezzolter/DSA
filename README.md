@@ -81,7 +81,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - RLE (Run-Length Encoding) 
   - Tree Algorithms
     - TreeAlgorithms.md
-    - Inorder Traversal
+    - [Inorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/InorderTraversal) ✅ 
     - Preorder Traversal
     - Postoreder Traversal
     - Level-Order Traversal
@@ -118,7 +118,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Doubly Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/DoublyLinkedList) ✅
     - [Circular Linked List](https://github.com/vezzolter/DSA/tree/main/DataStructures/LinkedList/CircularLinkedList) ✅
   - Tree
-    - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🎯
+    - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
     - [AVL Tree](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/AVL)✅  
     - Splay Tree
