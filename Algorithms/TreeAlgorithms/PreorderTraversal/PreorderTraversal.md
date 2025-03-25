@@ -82,7 +82,7 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...  
+I couldn’t find any definitive records tracing its origins, so I’m assuming it just naturally emerged as people started working with trees in computer science. As trees became more common, the Root-Left-Right order was probably recognized as a natural way to process hierarchical structures by visiting parents before their children.
 
 
 
