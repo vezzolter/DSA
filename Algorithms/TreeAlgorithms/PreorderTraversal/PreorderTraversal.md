@@ -87,7 +87,21 @@ Currently in Progress...
 
 
 # &#128214; Resources
-Currently in Progress...
+&#128218; **Books:**
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 5.6: Tree Traversal
+  - Section 5.7: Recursive Binary-Tree Algorithms
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 4.1: Preliminaries
+  - Section 4.2: Binary Trees
+  - Section 4.6: Tree Traversals (Revisited)
+- **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+  - Section: 2.3.1: Traversing Binary Trees
+
+---
+&#127891; **Courses:**
+- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+  - Section 15: Trees
 
 
 
