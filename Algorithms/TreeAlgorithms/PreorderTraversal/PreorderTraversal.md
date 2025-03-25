@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Preorder traversal** is a fundamental algorithm for visiting nodes in a binary tree. When you think of traversal names as root placement plus left-to-right reading order, it is possible to observe that the name «PREorder» means the root is visited BEFORE the left and right subtrees. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/PreorderTraversal.png"/></p>
 
 
 ## Introduction
