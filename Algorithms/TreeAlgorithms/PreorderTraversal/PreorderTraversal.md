@@ -26,15 +26,26 @@
 
 
 ## Introduction
-Currently in Progress...
+The algorithm visits the root node before its left and right children — following the order Root-Left-Right in the standard version, and Root-Right-Left in the reversed version.
 
 
 ## Important Details
-Currently in Progress...
+1. Can be implemented using **recursion** or **iteration**, where the recursive approach relies on an implicit function call stack, and the iterative approach uses an explicit stack to manually manage the traversal state.
 
 
 ## Algorithm Steps (Recursive)
-Currently in Progress...
+**Standard Version:**
+1. Set up the base case, stopping recursion when traversal reaches the end of a branch.
+2. Process the current node (this step depends on the specific task at hand).
+3. Recursively traverse the left subtree by calling the function on the left child.
+4. Recursively traverse the right subtree by calling the function on the right child.
+
+---
+**Reversed Version:**
+1. Set up the base case, stopping recursion when traversal reaches the end of a branch.
+2. Process the current node (this step depends on the specific task at hand).
+3. Recursively traverse the right subtree by calling the function on the right child.
+4. Recursively traverse the left subtree by calling the function on the left child.
 
 
 
@@ -100,6 +111,8 @@ I couldn’t find any definitive records tracing its origins, so I’m assuming 
 
 ---
 &#127891; **Courses:**
+- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
+  - Section 2.2: Introduction to Tree Structures
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
   - Section 15: Trees
 
