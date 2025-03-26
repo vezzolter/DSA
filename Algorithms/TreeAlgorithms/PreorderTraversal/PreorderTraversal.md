@@ -50,19 +50,73 @@ The algorithm visits the root node before its left and right children — follow
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program manually constructs a binary tree that resembles a BST, but does not strictly enforce its rules — nodes are added in a predefined order rather than inserted dynamically. It then displays the order of insertion and applies both preorder and reversed preorder traversals, each of which simply prints the visited node values.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Replacing tree-like structure with a simple node struct and predefined order of nodes.
+- Printing node values as the only processing step during traversal.
 
 
 ## Complete Implementation
-Currently in Progress...
+The preorder traversal algorithm is implemented in `preorderTraversal()`, the reversed preorder traversal in `reversedPreorderTraversal()`, both are declared in [PreorderTraversal.h](https://github.com/vezzolter/DSA/blob/preorder-traversal/Algorithms/TreeAlgorithms/PreorderTraversal/Include/PreorderTraversal.h) header file and defined in [PreorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/preorder-traversal/Algorithms/TreeAlgorithms/PreorderTraversal/Source/PreorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/preorder-traversal/Algorithms/TreeAlgorithms/PreorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
+
+```cpp
+void preorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+	std::cout << root->val << " ";
+	preorderTraversal(root->left);
+	preorderTraversal(root->right);
+}
+
+void reversedPreorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+	std::cout << root->val << " ";
+	reversedPreorderTraversal(root->right);
+	reversedPreorderTraversal(root->left);
+}
+```
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+**Standard Version:**
+1. Start by setting up the base case, where if the current node is `nullptr`, the function returns immediately, stopping recursion.  
+```cpp
+  if (node == nullptr) { return; }
+```
+2. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << node->val << " ";
+```
+3. Recursively traverse the left subtree by calling the function on the left child.
+```cpp
+  preorderTraversal(node->left);
+```
+4. Recursively traverse the right subtree by calling the function on the right child.
+```cpp
+  preorderTraversal(node->right);
+```
+
+---
+**Reversed Version:**
+1. Start by setting up the base case, where if the current node is `nullptr`, the function returns immediately, stopping recursion.
+```cpp
+  if (node == nullptr) { return; }
+```
+2. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << node->val << " ";
+```
+3. Recursively traverse the right subtree by calling the function on the right child.
+```cpp
+  reversedPreorderTraversal(node->right);
+```
+4. Recursively traverse the left subtree by calling the function on the left child.
+```cpp
+  reversedPreorderTraversal(node->left);
+```
 
 
 
