@@ -81,7 +81,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - RLE (Run-Length Encoding) 
   - Tree Algorithms
     - TreeAlgorithms.md
-    - [Preorder Traversal](https://github.com/vezzolter/DSA/tree/preorder-traversal/Algorithms/TreeAlgorithms/PreorderTraversal) 🎯 
+    - [Preorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/PreorderTraversal) ✅ 
     - [Inorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/InorderTraversal) ✅ 
     - Postoreder Traversal
     - Level-Order Traversal
