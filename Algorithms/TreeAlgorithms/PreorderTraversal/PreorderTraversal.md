@@ -137,15 +137,21 @@ Understanding the characteristics of an algorithm is essential for choosing the 
 
 
 # &#128221; Application
-Currently in Progress...
+Understanding some of the most well-known use cases of an algorithm is crucial for grasping its practical relevance and potential impact in real-world scenarios. Additionally, familiarizing oneself with common practical problems and practicing their solutions ensures that you remember the essential details and develop a deep, intuitive understanding of the functionality and limitations.
 
 
 ## Common Use Cases
-Currently in Progress...  
+- **Tree Copying or Cloning** — preorder traversal is ideal when you want to replicate a binary tree's structure, since it visits the root before its subtrees. This makes it easy to create a new node first and then recursively attach its left and right children.
+
+- **Serialization & Deserialization** — preorder traversal is widely used in binary tree serialization, as visiting the root first allows the structure to be preserved during encoding. When combined with a marker for `nullptr` (or similar) children, it enables complete and unambiguous reconstruction of the original tree.
+
+- **Expression Tree Construction** — preorder traversal reflects prefix notation (Polish notation), where operators come before their operands. It’s used to construct or evaluate prefix expressions from expression trees in compilers or interpreters.
+
 
 
 ## Some Practical Problems
-Currently in Progress...
+Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#some-practical-problems).
+
 
 
 
