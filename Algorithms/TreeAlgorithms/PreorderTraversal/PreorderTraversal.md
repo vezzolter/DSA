@@ -121,15 +121,18 @@ void reversedPreorderTraversal(TreeNode* root) {
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations, and capabilities. Additionally, understanding its strengths and weaknesses enables more informed decisions, helping to determine the most suitable algorithm for a given problem among alternative approaches.
 
 
 ## Characteristics
-Currently in Progress...
+- **Time Complexities:**  
+  - $O(n)$ — each node is visited exactly once.
+- **Auxiliary Space Complexity:**  
+  - $O(height)$ — the recursion depth depends on the height of the tree, which is $O(\log n)$ for balanced trees and $O(n)$ for skewed trees. The iterative implementation uses a stack to track nodes.
 
 
 ## Trade-Offs
-Currently in Progress...
+> **Note**: I think it doesn’t make sense to evaluate this algorithm in terms of «pros and cons» — just like a tool, it serves a specific purpose. We don’t ask whether a hammer or a table has advantages or disadvantages; we simply use them as needed for the task at hand. 
 
 
 
