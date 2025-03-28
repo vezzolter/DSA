@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-The **Linear Search** stands out as the simplest known approach to search for an element in a collection. The algorithm is named for its linear (or sequential) traversal of the dataset, making it straightforward intuitive approach. Knowledge and understanding of it, lays the foundation for tackling more complex searching algorithms and problem-solving strategies.
+The **Linear Search** stands out as the simplest known approach to search for an element in a collection. The algorithm is named for its linear (or sequential) traversal of the dataset, making it straightforward intuitive approach. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/LinearSearch.png"/></p>
 
 

@@ -20,8 +20,8 @@
 
 
 # &#128161; Overview
-The **Stassen's Algorithm** is undoubtedly a well-known algorithm for matrix multiplication, heavily reliant on the idea of divide-and-conquer approach. This subsection aims to establish a solid foundation for complex algorithmic designs and strengthen comprehension of problem-solving strategies by exploring this illustrative example.
-<p align="center"><img src="./Images/Strassens.png"/></p>
+The **Stassen's Algorithm** is undoubtedly a well-known algorithm for matrix multiplication, heavily reliant on the idea of divide-and-conquer approach. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/StrassensAlgorithm.png"/></p>
 
 
 ## Introduction

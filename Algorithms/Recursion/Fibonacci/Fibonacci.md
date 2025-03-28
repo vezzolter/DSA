@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-The **Fibonacci sequence** is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. It is named after Leonardo of Pisa, who introduces it to Western mathematics. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **Fibonacci sequence** is one of the simplest and earliest known sequences defined by a recurrence relation, which stands among the fundamental mathematical patterns with widespread applications in algorithms and data structures. It is named after Leonardo of Pisa, who introduces it to Western mathematics. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/Fibonacci.png"/></p>
 
 

@@ -22,7 +22,7 @@
 
 
 # &#128161; Overview
-The **Shellsort** stands out as an early and efficient optimization of insertion sort, known for sorting elements more quickly by comparing and moving items that are far apart before focusing on those that are close together. Shellsort is named after its inventor, Donald Lewis Shell. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
+The **Shellsort** stands out as an early and efficient optimization of insertion sort, known for sorting elements more quickly by comparing and moving items that are far apart before focusing on those that are close together. Shellsort is named after its inventor, Donald Lewis Shell. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/Shellsort.png"/></p>
 
 

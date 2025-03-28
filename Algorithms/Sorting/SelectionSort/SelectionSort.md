@@ -20,7 +20,7 @@
 
 
 # &#128161; Overview
-The **Selection Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for its method of selecting the smallest (or largest) elements from a collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting methods and problem-solving strategies.
+The **Selection Sort** stands out as one of the simplest and earliest known sorting technique, renowned for its straightforward implementation. The algorithm is named for its method of selecting the smallest (or largest) elements from a collection. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/SelectionSort.png"/></p>
 
 

@@ -1,5 +1,4 @@
 # &#128209; Table of Contents
-- [� Table of Contents](#-table-of-contents)
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
@@ -9,7 +8,7 @@
   - [Complete Implementation](#complete-implementation)
   - [Detailed Walkthrough](#detailed-walkthrough)
 - [📊 Analysis](#-analysis)
-  - [Algorithm Characteristics](#algorithm-characteristics)
+  - [Characteristics](#characteristics)
   - [Trade-Offs](#trade-offs)
 - [📝 Application](#-application)
   - [Common Use Cases](#common-use-cases)
@@ -92,7 +91,7 @@ int euclidean(int a, int b) {
 Understanding the characteristics of an algorithm is essential for choosing the right solution to a problem, as it reveals their impact on resource utilization, potential limitations, and capabilities. Additionally, understanding its strengths and weaknesses enables more informed decisions, helping to determine the most suitable algorithm for a given problem among alternative approaches.
 
 
-## Algorithm Characteristics
+## Characteristics
 - **Time Complexities:**  
   - $O(\log \min(a, b))$ — the number of recursive calls is determined by how many times the smaller number can be reduced before reaching zero, as each step shrinks the remainder to at most half of the previous value in the worst case, causing the number to decrease exponentially and resulting in a logarithmic number of steps.
 - **Auxiliary Space Complexity:** 

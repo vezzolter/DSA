@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-The **factorial** is one of the most fundamental mathematical operations, widely recognized for its role in combinatorics, permutations, and many other mathematical contexts. The term «factorial» comes from «factor», as the operation involves multiplying a sequence of factors to produce a product. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **factorial** is one of the most fundamental mathematical operations, widely recognized for its role in combinatorics, permutations, and many other mathematical contexts. The term «factorial» comes from «factor», as the operation involves multiplying a sequence of factors to produce a product. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/Factorial.png"/></p>
 
 

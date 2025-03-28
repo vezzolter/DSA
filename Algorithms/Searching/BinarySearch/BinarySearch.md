@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-The **Binary Search** stands out as one of the most fundamental approaches to search for an element in an ordered collection. The algorithm is named for the way it divides the search interval in half with each step. Knowledge and understanding of it, lays a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+The **Binary Search** stands out as one of the most fundamental approaches to search for an element in an ordered collection. The algorithm is named for the way it divides the search interval in half with each step. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/BinarySearch.png"/></p>
 
 

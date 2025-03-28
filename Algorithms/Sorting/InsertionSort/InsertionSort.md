@@ -20,7 +20,7 @@
 
 
 # &#128161; Overview
-The **Insertion Sort** stands out as one of the simplest and earliest known sorting techniques, renowned for its straightforward implementation and effectiveness. The algorithm is named for the way the elements are inserted into their proper portion of the collection. Knowledge and understanding of it, lays the foundation for tackling more complex sorting algorithms and problem-solving strategies.
+The **Insertion Sort** stands out as one of the simplest and earliest known sorting techniques, renowned for its straightforward implementation and effectiveness. The algorithm is named for the way the elements are inserted into their proper portion of the collection. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/InsertionSort.png"/></p>
 
 

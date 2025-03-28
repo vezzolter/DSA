@@ -150,7 +150,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#some-practical-problems).
+Since preorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#some-practical-problems).
 
 
 
