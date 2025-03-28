@@ -21,7 +21,7 @@
 
 
 # &#128161; Overview
-**Inorder traversal** is a fundamental algorithm for visiting nodes in a binary tree. When you think of traversal names as root placement plus left-to-right reading order, it is possible to observe that the name «inorder» means the root is visited IN between the left and right subtrees. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+**Inorder traversal** is a fundamental algorithm for visiting nodes in a binary tree. When you think of traversal names as root placement plus left-to-right reading order, it is possible to observe that the name «INorder» means the root is visited IN between the left and right subtrees. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
 <p align="center"><img src="./Images/InorderTraversal.png"/></p>
 
 
@@ -150,7 +150,7 @@ Understanding some of the most well-known use cases of an algorithm is crucial f
 
 
 ## Some Practical Problems
-Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#-some-practical-problems).
+Since inorder traversal is widely used in tree-related problems, common problems that involve it are best described in the [tree's respective section](../../../DataStructures/Tree/Tree.md#some-practical-problems).
 
 
 
@@ -173,6 +173,8 @@ I couldn’t find any definitive records tracing its origins, so I’m assuming 
 
 ---
 &#127891; **Courses:**
+- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
+  - Section 2.2: Introduction to Tree Structures
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
   - Section 15: Trees
 
