@@ -82,7 +82,7 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...
+I couldn’t find any definitive records tracing its origins, so I’m assuming it naturally emerged as people began exploring tree structures and needed a way to process children before their parent nodes. As recursion and bottom-up processing became more common, the Left-Right-Root order likely stood out as a clean way to finalize a node only after fully handling everything beneath it.
 
 
 
