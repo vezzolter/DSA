@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+**Postorder traversal** is a fundamental algorithm for visiting nodes in a binary tree. When you think of traversal names as root placement plus left-to-right reading order, it is possible to observe that the name «POSTorder» means the root is visited AFTER the left and right subtrees. Knowledge and understanding of it lay a solid foundation for algorithmic design and tackling more complex problem-solving strategies.
+<p align="center"><img src="./Images/PostorderTraversal.png"/></p>
 
 
 ## Introduction
