@@ -26,15 +26,26 @@
 
 
 ## Introduction
-Currently in Progress...
+The algorithm visits both subtrees before processing the root node — following the order Left-Right-Root in the standard version, and Right-Left-Root in the reversed version.
 
 
 ## Important Details
-Currently in Progress...
+1. Can be implemented using **recursion** or **iteration**, but unlike inorder and preorder, iterative postorder is more complex due to the need to ensure both children are visited before the node; it often requires two stacks or clever use of a single stack with tracking.
 
 
 ## Algorithm Steps (Recursive)
-Currently in Progress...
+**Standard Version:**
+1. Set up the base case, stopping recursion when traversal reaches the end of a branch.
+2. Recursively traverse the left subtree by calling the function on the left child.
+3. Recursively traverse the right subtree by calling the function on the right child.
+4. Process the current node (this step depends on the specific task at hand).
+
+---
+**Reversed Version:**
+1. Set up the base case, stopping recursion when traversal reaches the end of a branch.
+2. Recursively traverse the right subtree by calling the function on the right child.
+3. Recursively traverse the left subtree by calling the function on the left child.
+4. Process the current node (this step depends on the specific task at hand).
 
 
 
