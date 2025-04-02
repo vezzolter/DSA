@@ -50,19 +50,73 @@ The algorithm visits both subtrees before processing the root node — following
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program manually constructs a binary tree that resembles a BST, but does not strictly enforce its rules — nodes are added in a predefined order rather than inserted dynamically. It then displays the order of insertion and applies both postorder and reversed postorder traversals, each of which simply prints the visited node values.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Replacing tree-like structure with a simple node struct and predefined order of nodes.
+- Printing node values as the only processing step during traversal.
 
 
 ## Complete Implementation
-Currently in Progress...
+The postorder traversal algorithm is implemented in `postorderTraversal()`, the reversed postorder traversal in `reversedPostorderTraversal()`, both are declared in [PostorderTraversal.h](https://github.com/vezzolter/DSA/blob/postorder-traversal/Algorithms/TreeAlgorithms/PostorderTraversal/Include/PostorderTraversal.h) header file and defined in [PostorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/postorder-traversal/Algorithms/TreeAlgorithms/PostorderTraversal/Source/PostorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/postorder-traversal/Algorithms/TreeAlgorithms/PostorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
+
+```cpp
+void postorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+	postorderTraversal(root->left);
+	postorderTraversal(root->right);
+	std::cout << root->val << " ";
+}
+
+void reversedPostorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+	reversedPostorderTraversal(root->right);
+	reversedPostorderTraversal(root->left);
+	std::cout << root->val << " ";
+}
+```
 
 
 ## Detailed Walkthrough
-Currently in Progress...
+**Standard Version:**
+1. Start by setting up the base case, where if the current node is `nullptr`, the function returns immediately, stopping recursion. 
+```cpp
+  if (node == nullptr) { return; }
+```
+2. Recursively traverse the left subtree by calling the function on the left child.
+```cpp
+  postorderTraversal(node->left);
+```
+3. Recursively traverse the right subtree by calling the function on the right child.
+```cpp
+  postorderTraversal(node->right);
+```
+4. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << node->val << " ";
+```
+
+---
+**Reversed Version:**
+1. Start by setting up the base case, where if the current node is `nullptr`, the function returns immediately, stopping recursion.
+```cpp
+  if (node == nullptr) { return; }
+```
+2. Recursively traverse the right subtree by calling the function on the right child.
+```cpp
+  reversedPostorderTraversal(node->right);
+```
+3. Recursively traverse the left subtree by calling the function on the left child.
+```cpp
+  reversedPostorderTraversal(node->left);
+```
+4. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << node->val << " ";
+```
 
 
 
