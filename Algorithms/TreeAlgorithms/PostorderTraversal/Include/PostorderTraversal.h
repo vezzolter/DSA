@@ -8,7 +8,15 @@
 #define POSTORDERTRAVERSAL_H
 
 
-// Declaration
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+
+void postorderTraversal(TreeNode* root);
+void reversedPostorderTraversal(TreeNode* root);
 
 
 #endif // POSTORDERTRAVERSAL_H
