@@ -83,7 +83,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - TreeAlgorithms.md
     - [Preorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/PreorderTraversal) ✅ 
     - [Inorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/InorderTraversal) ✅ 
-    - Postoreder Traversal
+    - [Postoreder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/PostorderTraversal) ✅
     - Level-Order Traversal
     - Height Computation
     - Depth Computation
