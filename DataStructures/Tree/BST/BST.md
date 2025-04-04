@@ -445,7 +445,7 @@ Understanding some of the most well-known use cases of a container is crucial fo
 
 
 ## Some Practical Problems
-Since BST share the foundational principles of the general concept of trees, their common problems is best described in the [tree's respective section](../Tree.md#-application).
+Since BST share the foundational principles of the general concept of trees, their common problems is best described in the [tree's respective section](../Tree.md#some-practical-problems).
 
 
 
