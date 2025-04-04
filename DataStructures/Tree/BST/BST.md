@@ -483,6 +483,10 @@ The BST is a data structure whose origins are intertwined with the collaborative
 - [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
   - Section 16: Binary Search Trees
 
+---
+&#127916; **Recordings:**
+- [Lecture 5: Binary Search Trees, BST Sort](https://youtu.be/9Jry5-82I68?si=YhKK4z5YDlAIWZ1Q) (Lecture)
+
 ---  
 &#127760; **Web-Pages:**  
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
