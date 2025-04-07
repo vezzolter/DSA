@@ -82,7 +82,7 @@ Currently in Progress...
 
 
 # &#x1F559; Origins
-Currently in Progress...
+I couldn’t find any definitive records tracing its origins, so I’m assuming it naturally emerged when people started thinking about trees as a more natural, top-down structure rather than a recursive one.
 
 
 
