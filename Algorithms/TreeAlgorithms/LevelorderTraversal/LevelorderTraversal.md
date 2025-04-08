@@ -26,15 +26,35 @@
 
 
 ## Introduction
-Currently in Progress....
+The algorithm visits nodes level by level from top to bottom — processing all nodes at the same depth from left to right before moving to the next level. The reversed version walks through the same levels from bottom to top, but still processes nodes left to right within each level.
 
 
 ## Important Details
-Currently in Progress...
+1. This algorithm is typically implemented **iteratively** using an explicit queue. The queue allows nodes to be visited in the exact order they are discovered — as each node is removed from the front, its children are added to the back, so all nodes at one depth are processed before any at the next. This structure naturally enforces level-by-level traversal without needing to track depth or use recursion, and guarantees left-to-right order within each level by preserving the sequence in which children are added.
 
 
-## Algorithm Steps
-Currently in Progress...
+## Algorithm Steps (Iterative)
+**Standard Version:**
+1. Create an empty linear queue container.
+2. Add root node to the queue — this represents the first level of the tree.
+3. Begin a loop to process nodes level by level (while the queue is not empty).
+4. Access the current node at the front of the queue — this represents the node to process at the current level.
+5. Remove the current node from the queue, since we are about to process it, it must be removed to avoid revisiting later.
+6. Process the current node (this step depends on the specific task at hand).
+7. If the current node has a left child, enqueue it to continue forming the next level (or start forming it, if this is the first node).
+8. If the node has a right child, enqueue it to continue forming the next level (or start forming it, if this is the first node).
+
+---
+**Reversed Version:**
+1. Create an empty linear queue container and an empty stack container.
+2. Add the root node to the queue — this represents the first level of the tree.
+3. Begin a loop to process nodes level by level (while the queue is not empty).
+4. Access the current node at the front of the queue — this represents the node to process at the current level.
+5. Remove the current node from the queue, since we are about to process it, it must be removed to avoid revisiting later.
+6. Push the current node onto the stack instead of processing it immediately.
+7. If the current node has a left child, enqueue it to continue forming the next level (or start forming it, if this is the first node).
+8. f the node has a right child, enqueue it to continue forming the next level (or start forming it, if this is the first node).
+9. After the queue is fully processed, pop and process all nodes from the stack to produce the final reversed order.
 
 
 
