@@ -59,19 +59,133 @@ The algorithm visits nodes level by level from top to bottom — processing all 
 
 
 # &#x1F4BB; Implementation
-Currently in Progress...
+The program manually constructs a binary tree that resembles a BST, but does not strictly enforce its rules — nodes are added in a predefined order rather than inserted dynamically. It then displays the order of insertion and applies both levelorder and reversed levelorder traversals, each of which simply prints the visited node values.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize algorithm itself, several design decisions were made:
+- Replacing tree-like structure with a simple node struct and predefined order of nodes.
+- Printing node values as the only processing step during traversal.
+- Using `queue` as the traversal core to maintain top-down and left-to-right processing order.
+- Using `stack` to reverse the output sequence for bottom-up traversal.
 
 
 ## Complete Implementation
-Currently in Progress...
+The levelorder traversal algorithm is implemented in `levelorderTraversal()`, the reversed levelorder traversal in `reversedLevelorderTraversal()`, both are declared in [LevelorderTraversal.h](https://github.com/vezzolter/DSA/blob/levelorder-traversal/Algorithms/TreeAlgorithms/LevelorderTraversal/Include/LevelorderTraversal.h) header file and defined in [LevelorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/levelorder-traversal/Algorithms/TreeAlgorithms/LevelorderTraversal/Source/LevelorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/levelorder-traversal/Algorithms/TreeAlgorithms/LevelorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
 
+```cpp
+void levelorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+
+	std::queue<TreeNode*> q;
+	q.push(root);
+
+	for (; !q.empty(); ) {
+		TreeNode* curr = q.front();
+		q.pop();
+
+		std::cout << curr->val << " ";
+
+		if (curr->left) { q.push(curr->left); }
+		if (curr->right) { q.push(curr->right); }
+	}
+}
+
+void reversedLevelorderTraversal(TreeNode* root) {
+	if (!root) { return; }
+
+	std::queue<TreeNode*> q;
+	q.push(root);
+	std::stack<TreeNode*> s;
+
+	for (; !q.empty(); ) {
+		TreeNode* curr = q.front();
+		q.pop();
+
+		s.push(curr);
+
+		if (curr->right) { q.push(curr->right); } // right should be first
+		if (curr->left) { q.push(curr->left); }
+	}
+
+	for (; !s.empty(); ) {
+		std::cout << s.top()->val << " ";
+		s.pop();
+	}
+}
+```
 
 ## Detailed Walkthrough
-Currently in Progress...
+**Standard Version:**
+1. Check if the tree (or subtree) is empty and return immediately if there is no root to process. This stops the traversal early when there's nothing to process. 
+```cpp
+  if (!root) { return; }
+```
+2. Create an empty queue to manage the traversal, and add the root node as the starting point — this represents the first level of the tree.
+```cpp
+  std::queue<TreeNode*> q;
+  q.push(root);
+```
+3. Begin a loop that continues while there are still nodes in the queue — this loop ensures all levels are processed one by one.
+```cpp
+  for (; !q.empty(); ) {
+```
+4. Get access to the current node of the level, and since we are about to process it, it must be removed from the queue to avoid revisiting later.
+```cpp
+  TreeNode* curr = q.front();
+  q.pop();
+```
+5. Process the current node, which in this case involves printing its value (designer decision).
+```cpp
+  std::cout << curr->val << " ";
+```
+6. If the current node has a left or right child, enqueue them to form the next level — children are added in left-to-right order to preserve that structure in traversal.
+```cpp
+  if (curr->left) { q.push(curr->left); }
+  if (curr->right) { q.push(curr->right); }
+```
+
+---
+**Reversed Version:**
+1. Check if the tree (or subtree) is empty and return immediately if there is no root to process. This stops the traversal early when there's nothing to process. 
+```cpp
+  if (!root) { return; }
+```
+2. Create an empty queue to manage the traversal, and add the root node as the starting point — this represents the first level of the tree.
+```cpp
+  std::queue<TreeNode*> q;
+  q.push(root);
+```
+3. Create an empty stack to temporarily store visited nodes. The stack will be used to reverse the order in which nodes are output.
+```cpp
+	std::stack<TreeNode*> s;
+```
+4. Begin a loop that continues while there are still nodes in the queue — this loop ensures all levels are processed one by one.
+```cpp
+  for (; !q.empty(); ) {
+```
+5. Get access to the current node of the level, and since we are about to process it, it must be removed from the queue to avoid revisiting later.
+```cpp
+  TreeNode* curr = q.front();
+  q.pop();
+```
+6. Push the current node onto the stack instead of printing it right away — this delays the output until all nodes are processed and allows us to reverse the order.
+```cpp
+  s.push(curr);
+```
+7. If the current node has a left or right child, enqueue them to form the next level — the right child is enqueued before the left to preserve left-to-right order when reversed.
+```cpp
+  if (curr->right) { q.push(curr->right); }
+  if (curr->left) { q.push(curr->left); }
+```
+8. After all nodes have been traversed and stored in the stack, pop and print them one by one to produce the final reversed levelorder output (designer decision).
+```cpp
+  for (; !s.empty(); ) {
+    std::cout << s.top()->val << " ";
+    s.pop();
+  }
+```
 
 
 
