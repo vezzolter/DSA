@@ -2,7 +2,7 @@
 - [💡 Overview](#-overview)
   - [Introduction](#introduction)
   - [Important Details](#important-details)
-  - [Algorithm Steps](#algorithm-steps)
+  - [Algorithm Steps (Iterative)](#algorithm-steps-iterative)
 - [💻 Implementation](#-implementation)
   - [Design Decisions](#design-decisions)
   - [Complete Implementation](#complete-implementation)
@@ -72,7 +72,7 @@ To prioritize simplicity and emphasize algorithm itself, several design decision
 
 
 ## Complete Implementation
-The levelorder traversal algorithm is implemented in `levelorderTraversal()`, the reversed levelorder traversal in `reversedLevelorderTraversal()`, both are declared in [LevelorderTraversal.h](https://github.com/vezzolter/DSA/blob/levelorder-traversal/Algorithms/TreeAlgorithms/LevelorderTraversal/Include/LevelorderTraversal.h) header file and defined in [LevelorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/levelorder-traversal/Algorithms/TreeAlgorithms/LevelorderTraversal/Source/LevelorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/levelorder-traversal/Algorithms/TreeAlgorithms/LevelorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
+The levelorder traversal algorithm is implemented in `levelorderTraversal()`, the reversed levelorder traversal in `reversedLevelorderTraversal()`, both are declared in [LevelorderTraversal.h](https://github.com/vezzolter/DSA/blob/main/Algorithms/TreeAlgorithms/LevelorderTraversal/Include/LevelorderTraversal.h) header file and defined in [LevelorderTraversal.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/TreeAlgorithms/LevelorderTraversal/Source/LevelorderTraversal.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. The tree construction and traversal execution are handled within the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/Algorithms/TreeAlgorithms/LevelorderTraversal/Source/Main.cpp) file. Below you can find related code snippets.
 
 ```cpp
 void levelorderTraversal(TreeNode* root) {
