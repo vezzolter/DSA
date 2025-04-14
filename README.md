@@ -72,7 +72,6 @@ This list provides a straightforward overview of the repository's contents. For 
     - GreedyProgramming.md
     - Huffman Encoding
   - String Algorithms
-    - StringAlgorithms.md
     - KMP (Knuth-Morris-Pratt) Algorithm
     - Rabin-Karp Algorithm
     - Boyer-Moore Algorithm
@@ -80,19 +79,16 @@ This list provides a straightforward overview of the repository's contents. For 
     - Needleman-Wunsch Algorithm
     - RLE (Run-Length Encoding) 
   - Tree Algorithms
-    - TreeAlgorithms.md
     - [Preorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/PreorderTraversal) ✅ 
-    - [Inorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/InorderTraversal) ✅ 
+    - [Inorder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/InorderTraversal) ✅
+    - Morris Traversal 
     - [Postoreder Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/PostorderTraversal) ✅
     - [Level-Order Traversal](https://github.com/vezzolter/DSA/tree/main/Algorithms/TreeAlgorithms/LevelorderTraversal)✅
-    - Height Computation
-    - Depth Computation
-    - Diameter Computation
-    - LCA (Lowest Common Ancestor)
-    - Serialization
-    - Deserialization
+    - Euler Tour Technique ❔
+    - Binary Lifting for LCA ❔
+    - Tarjan's Offline LCA Algorithm ❔
+    - Heavy-Light Decomposition ❔
   - Graph Algorithms
-    - GraphAlgorithms.md
     - DFS (Depth-First Search)
     - BFS (Breadth-First Search)
     - Dijkstra's Algorithm
