@@ -117,7 +117,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Tree.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/Tree.md) 🔄
     - [BST (Binary Search Tree)](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/BST)✅
     - [AVL Tree](https://github.com/vezzolter/DSA/tree/main/DataStructures/Tree/AVL)✅  
-    - Splay Tree
+    - [Splay Tree](https://github.com/vezzolter/DSA/tree/splay-tree/DataStructures/Tree/SplayTree)🎯  
     - Red-Black Tree 
     - 2-3-4 Tree
     - B-Tree
