@@ -21,7 +21,8 @@
 
 
 # &#128161; Overview
-Currently in Progress...
+The **Splay Tree** is a self-adjusting implementation of the binary search tree (BST) that restructures itself by moving accessed nodes to the root through rotations. The tree is named after the splay operation, introduced by Daniel Sleator and Robert Tarjan in 1985, which refers to the process of moving a node to the root to optimize access over time. Knowledge and understanding of it lay a solid foundation in designing data structures and optimizing their application.
+<p align="center"><img src="./Images/SplayTree.png"/></p>
 
 
 ## Important Details
