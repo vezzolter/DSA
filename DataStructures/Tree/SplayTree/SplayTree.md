@@ -88,7 +88,24 @@ Currently in Progress...
 
 
 # &#128214; Resources
-Currently in Progress...
+&#128218; **Books:**
+- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+  - Section 4.5: Splay Trees
+  - Section 11.5: Splay Trees
+  - Section 12.1: Top-Down Splay Trees
+- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+  - Section 13.2: Splay BSTs
+- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
+  - Section 6.2.3: Balanced Trees
+
+---
+&#127916; **Recordings:**
+- [DSA-10: Search Trees: AVL-tree, Splay-tree](https://youtu.be/cuEwDXwh300?si=4MfN4NxwRYj8n-RP) (Lecture)
+
+---  
+&#127760; **Web-Pages:**  
+- [Splay tree](https://en.wikipedia.org/wiki/Splay_tree) (Wikipedia)
+- [Self-Adjusting Binary Search Trees](https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf) (Research Paper)
 
 
 
