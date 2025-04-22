@@ -46,7 +46,83 @@ The **Splay Tree** is a self-adjusting implementation of the binary search tree 
 
 
 ## Container Methods
-Currently in Progress...
+When working with Splay Trees, it's important to note that there is no universal standard defining a strict list of operations or guidelines for how they should be implemented. In fact, raw splay trees are not commonly used in modern programming libraries, primarily because of their unpredictable worst-case performance. Instead, Red-Black Trees are preferred in most production containers such as `std::map` (C++), `TreeMap` (Java), or `SortedSet` (C#), due to their consistent $O(\log n)$ guarantees. Since the design and functionality of containers vary significantly depending on implementation goals, the list of operations provided in this repository is meant to capture the most fundamental and representative methods one would expect when implementing or experimenting with splay trees.
+
+---
+**Compiler Generated**:
+- `Default Constructor` — creates an empty tree.
+- `Parametrized Constructors` — there are usually many ways to construct and initialize the container, and it’s often up to the developer to decide which ones to implement based on the container’s needs.
+- `Copy Constructor` — creates a new tree by copying the structure and values of another tree.
+  - if the other tree is empty, initializes an empty tree.
+- `Move Constructor` — creates a new tree by transferring ownership of the memory from another tree, leaving the original tree in a valid but unspecified state.
+  - if the other tree is empty, initializes an empty tree.
+- `Copy Assignment Operator` — overwrites each element of an already existing tree with the corresponding element of another tree by copying them.
+  - if the other tree is empty, initializes an empty tree.
+- `Move Assignment Operator` — overwrites each element of an already existing tree with the corresponding element of another tree by transferring ownership of the memory, leaving the original tree in a valid but unspecified state.
+  - if the other tree is empty, initializes an empty tree.
+- `Destructor` — releases the tree's allocated memory, calling destructors for complex data types to ensure proper cleanup of resources.
+
+---
+<p align="center"><img src="./Images/OperationsIterators.png"/></p>
+
+**Iterators:**
+- `begin`, `cbegin` — returns an iterator (or constant iterator) pointing to the smallest node in the tree (in-order traversal).
+- `end`, `cend` — returns an iterator (or constant iterator) pointing past the largest node in the tree.
+- `rbegin`, `crbegin` — returns an iterator (or constant iterator) pointing to the largest node in the tree (reverse in-order traversal).
+- `rend`, `crend` — returns an iterator (or constant iterator) pointing past the smallest node in reverse traversal.
+
+---
+<p align="center"><img src="./Images/OperationsAccess.png"/></p>
+
+**Elements Access**:
+- `find(val)` — returns a pointer or iterator to the node containing the specified value.
+  - returns `nullptr` or equivalent if the value is not found;
+  - if the value is found, the corresponding node is splayed to the root.
+- `min()` — returns an iterator to the node with the smallest value in the tree.
+  - returns `nullptr` or equivalent if the tree is empty.
+- `max()` — returns an iterator to the node with the largest value in the tree.
+  - returns `nullptr` or equivalent if the tree is empty.
+- `successor(val)` — returns a pointer or iterator to the node with the smallest value greater than the specified value (in-order successor).
+  - returns `nullptr` or equivalent if the specified value has no successor (e.g. the largest value, sole value);
+  - if the successor exists, the successor node is splayed to the root.
+- `predecessor(val)` — returns a pointer or iterator to the node with the largest value smaller than the specified value (in-order predecessor).
+  - returns `nullptr` or equivalent if the specified value has no predecessor (e.g. the smallest value, sole value);
+  - if the predecessor exists, the predecessor node is splayed to the root.
+
+---
+<p align="center"><img src="./Images/OperationsCapacity.png"/></p>
+
+**Capacity**:
+- `empty()` — returns `true` if the tree contains no nodes; otherwise `false`.
+- `size()` — returns the total number of nodes in the tree.
+- `maxSize()` — returns the maximum number of elements the container is able to hold theoretically based on system's memory limitations, if all available memory were dedicated to that single container.
+- `height(val)` — returns the height of the given value's node, which is the length (number of edges) of the longest path from the node to a leaf.
+  - if the value is not found in the tree, it returns `-1`;
+  - the height of a leaf node is `0`.
+- `depth(val)` — returns the depth of the given value's node, which is the length (number of edges) of the path from the root to the node.
+  - if the value is not found in the tree, it returns `-1`;
+  - the depth of the root node is `0`.
+
+---
+<p align="center"><img src="./Images/OperationsModifiers.png"/></p>
+
+**Modifiers**:
+- `insert(val)` — inserts a new node with the specified value into the tree, maintaining the BST ordering property and splaying the new node to the root to preserve the access-based structure.
+- `erase(val)` — removes the node with the specified value from the tree, maintaining the BST ordering property and splaying either the parent or a replacement node to the root to restore the access-based structure.
+  - if the node has no children (leaf), simply remove the node;
+  - if the node has one child, replace the node with its child;
+  - if the node has two children, it is replaced with its in-order successor or predecessor, depending on the design decision;
+- `clear()` — removes all nodes from the tree, resetting it to its initial state.
+- `swap(other)` — exchanges the contents of the current tree with another tree, avoiding expensive deep copies.
+  - assigning a tree to itself has no effect, as the function exits early without performing any operations.
+
+---
+<p align="center"><img src="./Images/OperationsSplaying.png"/></p>
+
+**Splaying (Private Part):**
+- `splay(node)` — brings the specified node to the root by repeatedly performing rotations during splaying operations, following Zig, Zig-Zig, and Zig-Zag restructuring cases.
+- `rotateLeft(node)` — performs a left rotation on the given node to restructure right-leaning paths during splaying.
+- `rotateRight(node)` — performs a right rotation on the given node to restructure left-leaning paths during splaying.
 
 
 
