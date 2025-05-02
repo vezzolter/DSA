@@ -17,7 +17,8 @@ private:
     // -----------------
     //  Utility Methods
     // -----------------
-    // Declaration
+    SplayTree::Node* copySubtree(Node* src, Node* parent);
+    void destroySubtree(Node* src);
 
 public:
     // --------------------

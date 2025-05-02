@@ -13,6 +13,7 @@ int main() {
 	std::cout << "\t\tWelcome to the 'Splay Tree' console application!\n\n";
 
 	// Testing
+	SplayTree t1;
 
 	// Exit
 	std::cout << "\nThanks for using this program! Have a great day!\n";

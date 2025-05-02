@@ -11,7 +11,23 @@
 //  Utility Methods
 // -----------------
 
-// Implementation
+// Recursively creates a deep copy of a subtree
+SplayTree::Node* SplayTree::copySubtree(Node* src, Node* parent) {
+	if (!src) { return nullptr; }
+	Node* newNode = new Node(src->data);
+	newNode->parent = parent;
+	newNode->left = copySubtree(src->left, newNode);
+	newNode->right = copySubtree(src->right, newNode);
+	return newNode;
+}
+
+// Recursively deletes all nodes in a subtree
+void SplayTree::destroySubtree(Node* node) {
+	if (!node) { return; }
+	destroySubtree(node->left);
+	destroySubtree(node->right);
+	delete node;
+}
 
 
 // --------------------
@@ -19,23 +35,23 @@
 // --------------------
 
 // Constructs an empty SplayTree
-SplayTree::SplayTree() {
-	// Implementation
-}
+SplayTree::SplayTree() : _size(0), _root(nullptr) {}
 
 // Constructs a SplayTree with the deep copy contents of 'other'
-SplayTree::SplayTree(const SplayTree& other) {
-	// Implementation
-}
+SplayTree::SplayTree(const SplayTree& other) : _size(other._size), _root(copySubtree(other._root, nullptr)) {}
 
 // Replaces the contents of this SplayTree with a deep copy of 'rhs'
 SplayTree& SplayTree::operator=(const SplayTree& rhs) {
-	// Implementation
+	if (this == &rhs) { return *this; }
+	clear();
+	_size = rhs._size;
+	_root = copySubtree(rhs._root, nullptr);
+	return *this;
 }
 
 // Performs final cleanup and terminates the object
 SplayTree::~SplayTree() {
-	// Implementation
+	clear();
 }
 
 
@@ -188,7 +204,9 @@ void SplayTree::remove(const int& val) {
 
 // Removes all nodes from the tree and resets it to an empty state
 void SplayTree::clear() {
-	// Implementation
+	destroySubtree(_root);
+	_root = nullptr;
+	_size = 0;
 }
 
 // Exchanges the contents of this SplayTree with another SplayTree
