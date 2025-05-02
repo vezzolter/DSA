@@ -60,22 +60,22 @@ SplayTree::~SplayTree() {
 // -----------
 
 // Returns an iterator to the first element of the SplayTree
-SplayTree::iterator SplayTree::begin() { }
+SplayTree::iterator SplayTree::begin() { return iterator(Iterator::findLeftmost(_root)); }
 
 // Returns an iterator to one past the last element of the SplayTree
-SplayTree::iterator SplayTree::end() {  }
+SplayTree::iterator SplayTree::end() { return iterator(nullptr); }
 
 // Returns a const iterator to the first element of the SplayTree
-SplayTree::const_iterator SplayTree::begin() const { }
+SplayTree::const_iterator SplayTree::begin() const { return const_iterator(ConstIterator::findLeftmost(_root)); }
 
 // Returns a const iterator to one past the last element of the SplayTree
-SplayTree::const_iterator SplayTree::end() const { }
+SplayTree::const_iterator SplayTree::end() const { return const_iterator(nullptr); }
 
 // Explicitly returns a const iterator to the first element of the SplayTree
-SplayTree::const_iterator SplayTree::cbegin() const { }
+SplayTree::const_iterator SplayTree::cbegin() const { return const_iterator(ConstIterator::findLeftmost(_root)); }
 
 // Explicitly returns a const iterator to one past the last element of the SplayTree
-SplayTree::const_iterator SplayTree::cend() const {  }
+SplayTree::const_iterator SplayTree::cend() const { return const_iterator(nullptr); }
 
 
 // ----------------

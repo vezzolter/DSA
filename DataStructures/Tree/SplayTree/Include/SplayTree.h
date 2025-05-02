@@ -114,20 +114,32 @@ private:
 
     // Find the leftmost node starting from the given node (the smallest)
     static Node* findLeftmost(Node* node) {
-        // Implementation
+        for (; node && node->left; ) { node = node->left; }
+        return node;
     }
 
     // Find the next node of the given node (in-order successor)
     static Node* findNext(Node* node) {
-        // Implementation
+        if (!node) { return nullptr; }
+
+        // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->right) { return findLeftmost(node->right); }
+
+        // Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        Node* parent = node->parent;
+        for (; parent && node == parent->right; ) {
+            node = parent;
+            parent = parent->parent;
+        }
+        return parent;
     }
 
 public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    Iterator();
-    explicit Iterator(Node* node);
+    Iterator() : _curr(nullptr) {}
+    explicit Iterator(Node* node) : _curr(node) {}
     Iterator(const Iterator& other)          = default;
     Iterator(Iterator&& other)               = default;
     Iterator& operator=(const Iterator& rhs) = default;
@@ -140,27 +152,30 @@ public:
 
     // Returns a reference to the data of the current node
     int& operator*() {
-        // Implementation
+        return _curr->data;
     }
 
     // Advances the iterator to the next element in in-order traversal (pre-increment)
     Iterator& operator++() {
-        // Implementation
+        _curr = findNext(_curr);
+        return *this;
     }
 
     // Advances the iterator to the next element, returning the previous state (post-increment)
     Iterator operator++(int) {
-        // Implementation
+        Iterator temp(_curr);
+        _curr = findNext(_curr);
+        return temp;
     }
 
     // Returns true if two iterators point to the same node
     friend bool operator==(const SplayTree::Iterator& lhs, const SplayTree::Iterator& rhs) {
-        // Implementation
+        return lhs._curr == rhs._curr;
     }
 
     // Returns true if two iterators point to different nodes
     friend bool operator!=(const SplayTree::Iterator& lhs, const SplayTree::Iterator& rhs) {
-        // Implementation
+        return lhs._curr != rhs._curr;
     }
 };
 
@@ -176,20 +191,32 @@ private:
 
     // Find the leftmost node starting from the given node (the smallest)
     static const Node* findLeftmost(Node* node) {
-        // Implementation
+        for (; node && node->left; ) { node = node->left; }
+        return node;
     }
 
     // Find the next node of the given node (in-order successor)
     static const Node* findNext(const Node* node) {
-        // Implementation
+        if (!node) { return nullptr; }
+
+        // Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+        if (node->right) { return findLeftmost(node->right); }
+
+        // Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+        const Node* parent = node->parent;
+        for (; parent && node == parent->right; ) {
+            node = parent;
+            parent = parent->parent;
+        }
+        return parent;
     }
 
 public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    ConstIterator();
-    ConstIterator(const Node* node);
+    ConstIterator() : _curr(nullptr) {}
+    ConstIterator(const Node* node) : _curr(node) {}
     ConstIterator(const ConstIterator& other)          = default;
     ConstIterator(ConstIterator&& other)               = default;
     ConstIterator& operator=(const ConstIterator& rhs) = default;
@@ -202,27 +229,30 @@ public:
 
     // Returns a const reference to the data of the current node
     const int& operator*() const {
-        // Implementation
+        return _curr->data;
     }
 
     // Advances the iterator to the next element in in-order traversal (pre-increment)
     ConstIterator& operator++() {
-        // Implementation
+        _curr = findNext(_curr);
+        return *this;
     }
 
     // Advances the iterator to the next element, returning the previous state (post-increment)
     ConstIterator operator++(int) {
-        // Implementation
+        ConstIterator temp = *this;
+        _curr = findNext(_curr);
+        return temp;
     }
 
     // Returns true if two iterators point to the same node
     friend bool operator==(const SplayTree::ConstIterator& lhs, const SplayTree::ConstIterator& rhs) {
-        // Implementation
+        return lhs._curr == rhs._curr;
     }
 
     // Returns true if two iterators point to different nodes
     friend bool operator!=(const SplayTree::ConstIterator& lhs, const SplayTree::ConstIterator& rhs) {
-        // Implementation
+        return lhs._curr != rhs._curr;
     }
 };
 
