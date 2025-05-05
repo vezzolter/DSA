@@ -19,6 +19,8 @@ private:
     // -----------------
     SplayTree::Node* copySubtree(Node* src, Node* parent);
     void destroySubtree(Node* src);
+    SplayTree::Node* findLeftmost(Node* node) const;
+    SplayTree::Node* findRightmost(Node* node) const;
 
 public:
     // --------------------
@@ -48,8 +50,7 @@ public:
     // ----------------
     //  Element Access
     // ----------------
-    iterator find(const int& val);
-    const_iterator find(const int& val) const;
+    const_iterator find(const int& val);
     iterator predecessor(const int& val);
     const_iterator predecessor(const int& val) const;
     iterator successor(const int& val);

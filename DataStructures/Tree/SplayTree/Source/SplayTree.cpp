@@ -29,6 +29,21 @@ void SplayTree::destroySubtree(Node* node) {
 	delete node;
 }
 
+// Find the leftmost node starting from the given node (the smallest)
+SplayTree::Node* SplayTree::findLeftmost(Node* node) const {
+	if (!node) { return nullptr; }
+	for (; node && node->left; ) { node = node->left; }
+	return node;
+}
+
+// Find the rightmost node starting from the given node (the biggest)
+SplayTree::Node* SplayTree::findRightmost(Node* node) const {
+	if (!node) { return nullptr; }
+	for (; node && node->right; ) { node = node->right; }
+	return node;
+}
+
+
 
 // --------------------
 //  Compiler Generated
@@ -82,64 +97,192 @@ SplayTree::const_iterator SplayTree::cend() const { return const_iterator(nullpt
 //  Element Access 
 // ----------------
 
-// Returns an iterator to the element with given value
-SplayTree::iterator SplayTree::find(const int& val) {
-	// Implementation
-}
+// Returns a const iterator to the element with given value and performs splaying
+SplayTree::const_iterator SplayTree::find(const int& val) {
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->data) {
+			curr = curr->right;
+		}
+		else if (val < curr->data) {
+			curr = curr->left;
+		}
+		else {
+			// splay(curr);
+			return const_iterator(curr);
+		}
+	}
 
-// Returns a const iterator to the element with given value
-SplayTree::const_iterator SplayTree::find(const int& val) const {
-	// Implementation
+	return cend();
 }
 
 // Returns an iterator to the predecessor of the given value
 SplayTree::iterator SplayTree::predecessor(const int& val) {
-	// Implementation
+	Node* pred = nullptr;
+
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->data) {
+			pred = curr;
+			curr = curr->right;
+		}
+		else {
+			curr = curr->left;
+		}
+	}
+
+	return pred ? iterator(pred) : end();
 }
 
 // Returns a const_iterator to the predecessor of the given value
 SplayTree::const_iterator SplayTree::predecessor(const int& val) const {
-	// Implementation
+	Node* pred = nullptr;
+
+	for (Node* curr = _root; curr; ) {
+		if (val > curr->data) {
+			pred = curr;
+			curr = curr->right;
+		}
+		else {
+			curr = curr->left;
+		}
+	}
+
+	return pred ? const_iterator(pred) : cend();
 }
 
 // Returns an iterator to the successor of the given value
 SplayTree::iterator SplayTree::successor(const int& val) {
-	// Implementation
+	Node* succ = nullptr;
+
+	for (Node* curr = _root; curr; ) {
+		if (val < curr->data) {
+			succ = curr;
+			curr = curr->left;
+		}
+		else {
+			curr = curr->right;
+		}
+	}
+
+	return succ ? iterator(succ) : end();
 }
 
 // Returns a const_iterator to the successor of the given value
 SplayTree::const_iterator SplayTree::successor(const int& val) const {
-	// Implementation
+	Node* succ = nullptr;
+
+	for (Node* curr = _root; curr;) {
+		if (val < curr->data) {
+			succ = curr;
+			curr = curr->left;
+		}
+		else {
+			curr = curr->right;
+		}
+	}
+
+	return succ ? const_iterator(succ) : cend();
 }
 
 // Returns an iterator to the predecessor of the node pointed to by the given iterator
 SplayTree::iterator SplayTree::predecessor(const iterator& it) {
-	// Implementation
+	Node* curr = it._curr; // for readability
+	if (!curr) { return end(); }
+
+	// Case 1: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
+	if (curr->left) {
+		Node* pred = curr->left;
+		for (; pred->right; ) { pred = pred->right; }
+		return iterator(pred);
+	}
+
+	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->left; ) {
+		curr = parent;
+		parent = parent->parent;
+	}
+
+	return parent ? iterator(parent) : end();
 }
 
 // Returns a const_iterator to the predecessor of the node pointed to by the given iterator
 SplayTree::const_iterator SplayTree::predecessor(iterator& it) const {
-	// Implementation
+	Node* curr = it._curr; // for readability
+	if (!curr) { return end(); }
+
+	// Case 1: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
+	if (curr->left) {
+		Node* pred = curr->left;
+		for (; pred->right; ) { pred = pred->right; }
+		return const_iterator(pred);
+	}
+
+	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->left; ) {
+		curr = parent;
+		parent = parent->parent;
+	}
+
+	return parent ? const_iterator(parent) : cend();
 }
 
 // Returns an iterator to the successor of the node pointed to by the given iterator
 SplayTree::iterator SplayTree::successor(const iterator& it) {
-	// Implementation
+	Node* curr = it._curr; // for readability
+	if (!curr) { return end(); }
+
+	// Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+	if (curr->right) {
+		Node* succ = curr->right;
+		for (; succ->left; ) { succ = succ->left; }
+		return iterator(succ);
+	}
+
+	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->right;) {
+		curr = parent;
+		parent = parent->parent;
+	}
+
+	return parent ? iterator(parent) : end();
 }
 
 // Returns a const_iterator to the successor of the node pointed to by the given iterator
 SplayTree::const_iterator SplayTree::successor(iterator& it) const {
-	// Implementation
+	Node* curr = it._curr; // for readability
+	if (!curr) { return cend(); }
+
+	// Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
+	if (curr->right) {
+		Node* succ = curr->right;
+		for (; succ->left; ) { succ = succ->left; }
+		return const_iterator(succ);
+	}
+
+	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->right; ) {
+		curr = parent;
+		parent = parent->parent;
+	}
+
+	return parent ? const_iterator(parent) : cend();
 }
 
 // Returns the minimum value in the tree
 int SplayTree::minimum() const {
-	// Implementation
+	if (!_root) { return -1; }
+	Node* leftmost = findLeftmost(_root);
+	return leftmost->data;
 }
 
 // Returns the maximum value in the tree
 int SplayTree::maximum() const {
-	// Implementation
+	if (!_root) { return -1; }
+	Node* rightmost = findRightmost(_root);
+	return rightmost->data;
 }
 
 
