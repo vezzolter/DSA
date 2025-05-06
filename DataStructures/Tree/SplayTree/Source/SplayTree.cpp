@@ -97,22 +97,20 @@ SplayTree::const_iterator SplayTree::cend() const { return const_iterator(nullpt
 //  Element Access 
 // ----------------
 
-// Returns a const iterator to the element with given value and performs splaying
-SplayTree::const_iterator SplayTree::find(const int& val) {
+// Returns an iterator to the element with given value
+SplayTree::iterator SplayTree::find(const int& val) {
 	for (Node* curr = _root; curr; ) {
 		if (val > curr->data) {
 			curr = curr->right;
-		}
-		else if (val < curr->data) {
+		} else if (val < curr->data) {
 			curr = curr->left;
-		}
-		else {
+		} else {
 			// splay(curr);
-			return const_iterator(curr);
+			return iterator(curr);
 		}
 	}
 
-	return cend();
+	return end();
 }
 
 // Returns an iterator to the predecessor of the given value
@@ -123,30 +121,45 @@ SplayTree::iterator SplayTree::predecessor(const int& val) {
 		if (val > curr->data) {
 			pred = curr;
 			curr = curr->right;
-		}
-		else {
+		} else {
 			curr = curr->left;
 		}
 	}
 
-	return pred ? iterator(pred) : end();
+	if (pred) {
+		// splay(pred);
+		return iterator(pred);
+	}
+
+	return end();
 }
 
-// Returns a const_iterator to the predecessor of the given value
-SplayTree::const_iterator SplayTree::predecessor(const int& val) const {
-	Node* pred = nullptr;
+// Returns an iterator to the predecessor of the node pointed to by the given iterator
+SplayTree::iterator SplayTree::predecessor(iterator& it) {
+	Node* curr = it._curr;
+	if (!curr) { return end(); }
 
-	for (Node* curr = _root; curr; ) {
-		if (val > curr->data) {
-			pred = curr;
-			curr = curr->right;
-		}
-		else {
-			curr = curr->left;
-		}
+	// Case 1: if the 'given' has a left subtree, 'prev' is the rightmost node in that subtree
+	if (curr->left) {
+		Node* pred = curr->left;
+		for (; pred->right; ) { pred = pred->right; }
+		// splay(pred);
+		return iterator(pred);
 	}
 
-	return pred ? const_iterator(pred) : cend();
+	// Case 2: otherwise 'prev' is the first parent node, where the 'given' is in the right subtree
+	Node* parent = curr->parent;
+	for (; parent && curr == parent->left; ) {
+		curr = parent;
+		parent = parent->parent;
+	}
+	
+	if (parent) {
+		// splay(parent);
+		return iterator(parent);
+	}
+
+	return end();
 }
 
 // Returns an iterator to the successor of the given value
@@ -157,108 +170,30 @@ SplayTree::iterator SplayTree::successor(const int& val) {
 		if (val < curr->data) {
 			succ = curr;
 			curr = curr->left;
-		}
-		else {
+		} else {
 			curr = curr->right;
 		}
 	}
 
-	return succ ? iterator(succ) : end();
-}
-
-// Returns a const_iterator to the successor of the given value
-SplayTree::const_iterator SplayTree::successor(const int& val) const {
-	Node* succ = nullptr;
-
-	for (Node* curr = _root; curr;) {
-		if (val < curr->data) {
-			succ = curr;
-			curr = curr->left;
-		}
-		else {
-			curr = curr->right;
-		}
-	}
-
-	return succ ? const_iterator(succ) : cend();
-}
-
-// Returns an iterator to the predecessor of the node pointed to by the given iterator
-SplayTree::iterator SplayTree::predecessor(const iterator& it) {
-	Node* curr = it._curr; // for readability
-	if (!curr) { return end(); }
-
-	// Case 1: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
-	if (curr->left) {
-		Node* pred = curr->left;
-		for (; pred->right; ) { pred = pred->right; }
-		return iterator(pred);
-	}
-
-	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
-	Node* parent = curr->parent;
-	for (; parent && curr == parent->left; ) {
-		curr = parent;
-		parent = parent->parent;
-	}
-
-	return parent ? iterator(parent) : end();
-}
-
-// Returns a const_iterator to the predecessor of the node pointed to by the given iterator
-SplayTree::const_iterator SplayTree::predecessor(iterator& it) const {
-	Node* curr = it._curr; // for readability
-	if (!curr) { return end(); }
-
-	// Case 1: if the 'given' has a left subtree, 'next' is the rightmost node in that subtree
-	if (curr->left) {
-		Node* pred = curr->left;
-		for (; pred->right; ) { pred = pred->right; }
-		return const_iterator(pred);
-	}
-
-	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the right subtree
-	Node* parent = curr->parent;
-	for (; parent && curr == parent->left; ) {
-		curr = parent;
-		parent = parent->parent;
-	}
-
-	return parent ? const_iterator(parent) : cend();
-}
-
-// Returns an iterator to the successor of the node pointed to by the given iterator
-SplayTree::iterator SplayTree::successor(const iterator& it) {
-	Node* curr = it._curr; // for readability
-	if (!curr) { return end(); }
-
-	// Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
-	if (curr->right) {
-		Node* succ = curr->right;
-		for (; succ->left; ) { succ = succ->left; }
+	if (succ) {
+		// splay(succ);
 		return iterator(succ);
 	}
 
-	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
-	Node* parent = curr->parent;
-	for (; parent && curr == parent->right;) {
-		curr = parent;
-		parent = parent->parent;
-	}
-
-	return parent ? iterator(parent) : end();
+	return end();
 }
 
-// Returns a const_iterator to the successor of the node pointed to by the given iterator
-SplayTree::const_iterator SplayTree::successor(iterator& it) const {
-	Node* curr = it._curr; // for readability
-	if (!curr) { return cend(); }
+// Returns an iterator to the successor of the node pointed to by the given iterator
+SplayTree::iterator SplayTree::successor(iterator& it) {
+	Node* curr = it._curr;
+	if (!curr) { return end(); }
 
 	// Case 1: if the 'given' has a right subtree, 'next' is the leftmost node in that subtree
 	if (curr->right) {
 		Node* succ = curr->right;
 		for (; succ->left; ) { succ = succ->left; }
-		return const_iterator(succ);
+		// splay(succ);
+		return iterator(succ);
 	}
 
 	// Case 2: otherwise 'next' is the first parent node, where the 'given' is in the left subtree
@@ -267,22 +202,27 @@ SplayTree::const_iterator SplayTree::successor(iterator& it) const {
 		curr = parent;
 		parent = parent->parent;
 	}
+	
+	if (parent) {
+		// splay(parent);
+		return iterator(parent);
+	}
 
-	return parent ? const_iterator(parent) : cend();
+	return end();
 }
 
-// Returns the minimum value in the tree
-int SplayTree::minimum() const {
-	if (!_root) { return -1; }
+// Returns a const iterator to the minimum element in the tree
+SplayTree::const_iterator SplayTree::minimum() const {
+	if (!_root) { return cend(); }
 	Node* leftmost = findLeftmost(_root);
-	return leftmost->data;
+	return const_iterator(leftmost);
 }
 
-// Returns the maximum value in the tree
-int SplayTree::maximum() const {
-	if (!_root) { return -1; }
+// Returns a const iterator to the maximum element in the tree
+SplayTree::const_iterator SplayTree::maximum() const {
+	if (!_root) { return cend(); }
 	Node* rightmost = findRightmost(_root);
-	return rightmost->data;
+	return const_iterator(rightmost);
 }
 
 
@@ -290,60 +230,60 @@ int SplayTree::maximum() const {
 //  Capacity
 // ----------
 
-// Returns true if the tree has no elements
-bool SplayTree::empty() const {
-	// Implementation
-}
-
-// Returns the total number of elements in the tree
-int SplayTree::size() const {
-	// Implementation
-}
-
-// Returns the height of the entire tree
-int SplayTree::height() const {
-	// Implementation
-}
-
-// Returns the height of the subtree rooted at the given value
-int SplayTree::height(const int& val) const {
-	// Implementation
-}
-
-// Returns the height of the subtree rooted at the given iterator
-int SplayTree::height(const iterator& it) const {
-	// Implementation
-}
-
-// Returns the depth of the entire tree
-int SplayTree::depth() const {
-	// Implementation
-}
-
-// Returns the depth of the node with the given value
-int SplayTree::depth(const int& val) const {
-	// Implementation
-}
-
-// Returns the depth of the node given an iterator
-int SplayTree::depth(const iterator& it) const {
-	// Implementation
-}
+//// Returns true if the tree has no elements
+//bool SplayTree::empty() const {
+//	// Implementation
+//}
+//
+//// Returns the total number of elements in the tree
+//int SplayTree::size() const {
+//	// Implementation
+//}
+//
+//// Returns the height of the entire tree
+//int SplayTree::height() const {
+//	// Implementation
+//}
+//
+//// Returns the height of the subtree rooted at the given value
+//int SplayTree::height(const int& val) const {
+//	// Implementation
+//}
+//
+//// Returns the height of the subtree rooted at the given iterator
+//int SplayTree::height(const iterator& it) const {
+//	// Implementation
+//}
+//
+//// Returns the depth of the entire tree
+//int SplayTree::depth() const {
+//	// Implementation
+//}
+//
+//// Returns the depth of the node with the given value
+//int SplayTree::depth(const int& val) const {
+//	// Implementation
+//}
+//
+//// Returns the depth of the node given an iterator
+//int SplayTree::depth(const iterator& it) const {
+//	// Implementation
+//}
 
 
 // -----------
 //  Modifiers
 // -----------
 
-// Inserts a new element into the SplayTree, maintaining ordering and balance 
-void SplayTree::insert(const int& val) {
-	// Implementation
-}
-
-// Removes a node with the given value from the SplayTree, maintaining order and balance
-void SplayTree::remove(const int& val) {
-	// Implementation
-}
+//// Inserts a new element into the SplayTree, maintaining ordering and balance 
+//void SplayTree::insert(const int& val) {
+//	// Implementation
+//}
+//
+//// Removes a node with the given value from the SplayTree, maintaining order and balance
+//void SplayTree::remove(const int& val) {
+//	// Implementation
+//}
 
 // Removes all nodes from the tree and resets it to an empty state
 void SplayTree::clear() {
@@ -352,7 +292,7 @@ void SplayTree::clear() {
 	_size = 0;
 }
 
-// Exchanges the contents of this SplayTree with another SplayTree
-void SplayTree::swap(SplayTree& other) {
-	// Implementation
-}
+//// Exchanges the contents of this SplayTree with another SplayTree
+//void SplayTree::swap(SplayTree& other) {
+//	// Implementation
+//}

@@ -17,10 +17,10 @@ private:
     // -----------------
     //  Utility Methods
     // -----------------
-    SplayTree::Node* copySubtree(Node* src, Node* parent);
+    Node* copySubtree(Node* src, Node* parent);
     void destroySubtree(Node* src);
-    SplayTree::Node* findLeftmost(Node* node) const;
-    SplayTree::Node* findRightmost(Node* node) const;
+    Node* findLeftmost(Node* node) const;
+    Node* findRightmost(Node* node) const;
 
 public:
     // --------------------
@@ -50,17 +50,13 @@ public:
     // ----------------
     //  Element Access
     // ----------------
-    const_iterator find(const int& val);
+    iterator find(const int& val);
     iterator predecessor(const int& val);
-    const_iterator predecessor(const int& val) const;
+    iterator predecessor(iterator& it);
     iterator successor(const int& val);
-    const_iterator successor(const int& val) const;
-    iterator predecessor(const iterator& it);
-    const_iterator predecessor(iterator& it) const;
-    iterator successor(const iterator& it);
-    const_iterator successor(iterator& it) const;
-    int minimum() const;
-    int maximum() const;
+    iterator successor(iterator& it);
+    const_iterator minimum() const;
+    const_iterator maximum() const;
 
     // ----------
     //  Capacity
@@ -69,16 +65,18 @@ public:
     int size() const;
     int height() const;
     int height(const int& val) const;
-    int height(const iterator& it) const;
+    int height(const_iterator& it) const;
     int depth() const;
     int depth(const int& val) const;
-    int depth(const iterator& it) const;
+    int depth(const_iterator& it) const;
 
     // -----------
     //  Modifiers
     // -----------
     void insert(const int& val);
     void remove(const int& val);
+    void remove(iterator pos);
+    //void remove(iterator first, iterator last);
     void clear();
     void swap(SplayTree& other);
 };
@@ -94,8 +92,8 @@ public:
     // --------------------
     //  Compiler Generated
     // --------------------
-    Node();
-    Node(const int& val, Node* parent = nullptr);
+    Node() : data(0), parent(nullptr), left(nullptr), right(nullptr) {}
+    Node(const int& val, Node* parent = nullptr) : data(val), parent(parent), left(nullptr), right(nullptr) {};
     Node(const Node& other)          = delete; // no copying or moving to ensure 
     Node(Node&& other)               = delete; // uniqueness of the node within    
     Node& operator=(const Node& rhs) = delete; // the tree and prevent accidental 
@@ -140,7 +138,7 @@ public:
     //  Compiler Generated
     // --------------------
     Iterator() : _curr(nullptr) {}
-    explicit Iterator(Node* node) : _curr(node) {}
+    explicit Iterator(Node* node) : _curr(node) {} // prevents from 'node' to 'itr'
     Iterator(const Iterator& other)          = default;
     Iterator(Iterator&& other)               = default;
     Iterator& operator=(const Iterator& rhs) = default;
@@ -151,8 +149,8 @@ public:
     //  Overloaded Operators
     // ----------------------
 
-    // Returns a reference to the data of the current node
-    int& operator*() {
+    // Returns a CONST reference to the data of the current node
+    const int& operator*() {
         return _curr->data;
     }
 
@@ -217,7 +215,8 @@ public:
     //  Compiler Generated
     // --------------------
     ConstIterator() : _curr(nullptr) {}
-    ConstIterator(const Node* node) : _curr(node) {}
+    explicit ConstIterator(const Node* node) : _curr(node) {} // prevents from 'node' to 'itr'
+    ConstIterator(const Iterator& other) : _curr(other._curr) {} // allows from 'regular_itr' to 'const_itr'
     ConstIterator(const ConstIterator& other)          = default;
     ConstIterator(ConstIterator&& other)               = default;
     ConstIterator& operator=(const ConstIterator& rhs) = default;
