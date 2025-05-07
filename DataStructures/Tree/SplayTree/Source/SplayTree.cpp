@@ -212,17 +212,19 @@ SplayTree::iterator SplayTree::successor(iterator& it) {
 }
 
 // Returns a const iterator to the minimum element in the tree
-SplayTree::const_iterator SplayTree::minimum() const {
-	if (!_root) { return cend(); }
+SplayTree::iterator SplayTree::minimum() {
+	if (!_root) { return end(); }
 	Node* leftmost = findLeftmost(_root);
-	return const_iterator(leftmost);
+	// splay(leftmost);
+	return iterator(leftmost);
 }
 
 // Returns a const iterator to the maximum element in the tree
-SplayTree::const_iterator SplayTree::maximum() const {
-	if (!_root) { return cend(); }
+SplayTree::iterator SplayTree::maximum() {
+	if (!_root) { return end(); }
 	Node* rightmost = findRightmost(_root);
-	return const_iterator(rightmost);
+	// splay(rightmost);
+	return iterator(rightmost);
 }
 
 
