@@ -43,6 +43,23 @@ SplayTree::Node* SplayTree::findRightmost(Node* node) const {
 	return node;
 }
 
+// Computes the height of a given node
+int SplayTree::computeHeight(Node* node) const {
+	if (!node) { return -1; }
+	int leftHeight = computeHeight(node->left);
+	int rightHeight = computeHeight(node->right);
+	return 1 + leftHeight ? leftHeight > rightHeight : rightHeight;
+}
+
+// Computes the depth of a given node
+int SplayTree::computeDepth(Node* node) const {
+	if (!node) { return -1; }
+	int depth = 1; // to match the height calculation
+	for (Node* curr = _root; curr && curr != node; ++depth) {
+		curr = (node->data < curr->data) ? curr->left : curr->right;
+	}
+	return depth;
+}
 
 
 // --------------------
@@ -232,45 +249,53 @@ SplayTree::iterator SplayTree::maximum() {
 //  Capacity
 // ----------
 
-//// Returns true if the tree has no elements
-//bool SplayTree::empty() const {
-//	// Implementation
-//}
-//
-//// Returns the total number of elements in the tree
-//int SplayTree::size() const {
-//	// Implementation
-//}
-//
-//// Returns the height of the entire tree
-//int SplayTree::height() const {
-//	// Implementation
-//}
-//
-//// Returns the height of the subtree rooted at the given value
-//int SplayTree::height(const int& val) const {
-//	// Implementation
-//}
-//
-//// Returns the height of the subtree rooted at the given iterator
-//int SplayTree::height(const iterator& it) const {
-//	// Implementation
-//}
-//
-//// Returns the depth of the entire tree
-//int SplayTree::depth() const {
-//	// Implementation
-//}
-//
-//// Returns the depth of the node with the given value
-//int SplayTree::depth(const int& val) const {
-//	// Implementation
-//}
-//
-//// Returns the depth of the node given an iterator
-//int SplayTree::depth(const iterator& it) const {
-//	// Implementation
-//}
+// Returns true if the tree has no elements
+bool SplayTree::empty() const {
+	return _size == 0;
+}
+
+// Returns the total number of elements in the tree
+int SplayTree::size() const {
+	return _size;
+}
+
+// Returns the height of the entire tree
+int SplayTree::height() const {
+	return computeHeight(_root);
+}
+
+// Returns the height of the subtree rooted at the given value
+int SplayTree::height(const int& val) const {
+	Node* node = _root;
+	for (; node && node->data != val; ) {
+		node = (val < node->data) ? node->left : node->right;
+	}
+	return computeHeight(node);
+}
+
+// Returns the height of the subtree rooted at the given iterator
+int SplayTree::height(const iterator& it) const {
+	return computeHeight(it._curr);
+}
+
+// Returns the depth of the entire tree
+int SplayTree::depth() const {
+	return computeHeight(_root);
+}
+
+// Returns the depth of the node with the given value
+int SplayTree::depth(const int& val) const {
+	Node* node = _root;
+	for (; node && node->data != val; ) {
+		node = (val < node->data) ? node->left : node->right;
+	}
+	return computeDepth(node);
+}
+
+// Returns the depth of the node given an iterator
+int SplayTree::depth(const iterator& it) const {
+	return computeDepth(it._curr);
+}
 
 
 // -----------

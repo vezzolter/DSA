@@ -21,6 +21,7 @@ private:
     void destroySubtree(Node* src);
     Node* findLeftmost(Node* node) const;
     Node* findRightmost(Node* node) const;
+    Node* computeHeight(Node* node) const;
 
 public:
     // --------------------
@@ -55,8 +56,8 @@ public:
     iterator predecessor(iterator& it);
     iterator successor(const int& val);
     iterator successor(iterator& it);
-    const_iterator minimum() const;
-    const_iterator maximum() const;
+    iterator minimum();
+    iterator maximum();
 
     // ----------
     //  Capacity
