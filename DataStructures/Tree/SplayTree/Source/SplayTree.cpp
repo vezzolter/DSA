@@ -302,15 +302,82 @@ int SplayTree::depth(const iterator& it) const {
 //  Modifiers
 // -----------
 
-//// Inserts a new element into the SplayTree, maintaining ordering and balance 
-//void SplayTree::insert(const int& val) {
-//	// Implementation
-//}
-//
-//// Removes a node with the given value from the SplayTree, maintaining order and balance
-//void SplayTree::remove(const int& val) {
-//	// Implementation
-//}
+// Inserts a new element into the SplayTree, maintaining ordering and splaying the new node
+void SplayTree::insert(const int& val) {
+	Node* parent = nullptr;
+
+	// Locate the parent of a node to delete
+	for (Node* curr = _root; curr; ) {
+		parent = curr;
+
+		if (val < curr->data) {
+			curr = curr->left;
+		} else if (val > curr->data) {
+			curr = curr->right;
+		} else {
+			// splay(curr); // duplicates are ignored, although splayed
+			return;
+		}
+	}
+
+	// Create, insert, splay, update size
+	Node* newNode = new Node(val, parent);
+	if (!parent) {
+		_root = newNode;
+	} else if (val < parent->data) {
+		parent->left = newNode;
+	} else {
+		parent->right = newNode;
+	}
+	// splay(newNode);
+	++_size;
+}
+
+// Removes a node with the given value from the SplayTree, maintaining order
+void SplayTree::remove(const int& val) {
+	if (!_root) { return; }
+
+	// Locate the node to delete
+	Node* curr = _root;
+	for (; curr; ) {
+		if (val < curr->data) {
+			curr = curr->left;
+		} else if (val > curr->data) {
+			curr = curr->right;
+		} else {
+			break; // found
+		}
+	}
+	if (!curr) { return; } // not found
+	// splay(curr);
+
+	// Disconnect and prepare subtrees
+	Node* leftSubtree = curr->left;
+	Node* rightSubtree = curr->right;
+	if (leftSubtree) { leftSubtree->parent = nullptr; }
+	if (rightSubtree) { rightSubtree->parent = nullptr; }
+	delete curr;
+	--_size;
+
+	// Rebuild root
+	if (!leftSubtree) {
+		_root = rightSubtree;
+		return;
+	}
+
+	// Find predecessor and splay it
+	Node* predecessor = leftSubtree;
+	for (; predecessor->right; ) {
+		predecessor = predecessor->right;
+	}
+	// splay(maxLeft);
+
+	// Attach right subtree
+	predecessor->right = rightSubtree;
+	if (rightSubtree) { rightSubtree->parent = predecessor; }
+	_root = leftSubtree;
+}
+
 
 // Removes all nodes from the tree and resets it to an empty state
 void SplayTree::clear() {
@@ -319,7 +386,15 @@ void SplayTree::clear() {
 	_size = 0;
 }
 
-//// Exchanges the contents of this SplayTree with another SplayTree
-//void SplayTree::swap(SplayTree& other) {
-//	// Implementation
-//}
+// Exchanges the contents of this SplayTree with another SplayTree
+void SplayTree::swap(SplayTree& other) {
+	if (this == &other) { return; }
+
+	Node* root = _root;
+	_root = other._root;
+	other._root = root;
+
+	int size = _size;
+	_size = other._size;
+	other._size = size;
+}

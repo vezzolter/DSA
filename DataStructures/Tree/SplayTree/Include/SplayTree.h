@@ -21,7 +21,8 @@ private:
     void destroySubtree(Node* src);
     Node* findLeftmost(Node* node) const;
     Node* findRightmost(Node* node) const;
-    Node* computeHeight(Node* node) const;
+    int computeHeight(Node* node) const;
+    int computeDepth(Node* node) const;
 
 public:
     // --------------------
@@ -66,10 +67,10 @@ public:
     int size() const;
     int height() const;
     int height(const int& val) const;
-    int height(const_iterator& it) const;
+    int height(const iterator& it) const;
     int depth() const;
     int depth(const int& val) const;
-    int depth(const_iterator& it) const;
+    int depth(const iterator& it) const;
 
     // -----------
     //  Modifiers
