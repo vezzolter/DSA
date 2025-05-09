@@ -48,17 +48,106 @@ int SplayTree::computeHeight(Node* node) const {
 	if (!node) { return -1; }
 	int leftHeight = computeHeight(node->left);
 	int rightHeight = computeHeight(node->right);
-	return 1 + leftHeight ? leftHeight > rightHeight : rightHeight;
+	return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
 }
 
 // Computes the depth of a given node
 int SplayTree::computeDepth(Node* node) const {
 	if (!node) { return -1; }
-	int depth = 1; // to match the height calculation
+	int depth = 0;
 	for (Node* curr = _root; curr && curr != node; ++depth) {
 		curr = (node->data < curr->data) ? curr->left : curr->right;
 	}
 	return depth;
+}
+
+// Performs a left rotation on the given node
+void SplayTree::leftRotate(Node* x) {
+	Node* y = x->right; // y becomes the new subtree root
+	if (!y) { return; } // cannot rotate if there is no right child
+
+	Node* T2 = y->left; // T2 becomes x's new right child
+
+	// Perform rotation
+	y->left = x;
+	x->right = T2;
+
+	// Maintain parent links
+	y->parent = x->parent;
+	x->parent = y;
+	if (T2) { T2->parent = x; }
+
+	// Update connections from grandparent
+	if (!y->parent) {
+		_root = y;
+	} else if (x == y->parent->left) {
+		y->parent->left = y;
+	} else {
+		y->parent->right = y;
+	}
+}
+
+// Performs a right rotation on the given node
+void SplayTree::rightRotate(Node* y) {
+	Node* x = y->left; // x becomes the new subtree root
+	if (!x) { return; } // cannot rotate if there is no left child
+
+	Node* T2 = x->right; // T2 becomes y's new left child
+
+	// Perform rotation
+	x->right = y;
+	y->left = T2;
+
+	// Maintain parent links
+	x->parent = y->parent;
+	y->parent = x;
+	if (T2) { T2->parent = y; }
+
+	// Update connections from grandparent
+	if (!x->parent) {
+		_root = x;
+	} else if (y == x->parent->left) {
+		x->parent->left = x;
+	} else {
+		x->parent->right = x;
+	}
+}
+
+// Moves the given node to the root of the tree using splay tree rotations
+void SplayTree::splay(Node* x) {
+	if (!x) { return; }
+
+	for (; x->parent; ) {
+		Node* p = x->parent;
+		Node* g = p->parent;
+
+		if (!g) {
+			// Zig step
+			if (x == p->left) {
+				rightRotate(p);
+			} else {
+				leftRotate(p);
+			}
+		} else if (x == p->left && p == g->left) {
+			// Zig-Zig step (Left-Left)
+			rightRotate(g);
+			rightRotate(p);
+		} else if (x == p->right && p == g->right) {
+			// Zig-Zig step (Right-Right)
+			leftRotate(g);
+			leftRotate(p);
+		} else if (x == p->right && p == g->left) {
+			// Zig-Zag step (Left-Right)
+			leftRotate(p);
+			rightRotate(g);
+		} else if (x == p->left && p == g->right) {
+			// Zig-Zag step (Right-Left)
+			rightRotate(p);
+			leftRotate(g);
+		}
+	}
+
+	_root = x;
 }
 
 
@@ -122,7 +211,7 @@ SplayTree::iterator SplayTree::find(const int& val) {
 		} else if (val < curr->data) {
 			curr = curr->left;
 		} else {
-			// splay(curr);
+			splay(curr);
 			return iterator(curr);
 		}
 	}
@@ -315,7 +404,7 @@ void SplayTree::insert(const int& val) {
 		} else if (val > curr->data) {
 			curr = curr->right;
 		} else {
-			// splay(curr); // duplicates are ignored, although splayed
+			splay(curr); // duplicates are ignored, although splayed
 			return;
 		}
 	}
@@ -329,7 +418,7 @@ void SplayTree::insert(const int& val) {
 	} else {
 		parent->right = newNode;
 	}
-	// splay(newNode);
+	splay(newNode);
 	++_size;
 }
 

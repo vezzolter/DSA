@@ -23,6 +23,10 @@ private:
     Node* findRightmost(Node* node) const;
     int computeHeight(Node* node) const;
     int computeDepth(Node* node) const;
+    void leftRotate(Node* node);
+    void rightRotate(Node* node);
+    void splay(Node* x);
+
 
 public:
     // --------------------
