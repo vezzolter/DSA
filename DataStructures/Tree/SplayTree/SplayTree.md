@@ -122,8 +122,8 @@ When working with Splay Trees, it's important to note that there is no universal
 
 **Splaying (Private Part):**
 - `splay(node)` — brings the specified node to the root by repeatedly performing rotations during splaying operations, following Zig, Zig-Zig, and Zig-Zag restructuring cases.
-- `rotateLeft(node)` — performs a left rotation on the given node to restructure right-leaning paths during splaying.
 - `rotateRight(node)` — performs a right rotation on the given node to restructure left-leaning paths during splaying.
+- `rotateLeft(node)` — performs a left rotation on the given node to restructure right-leaning paths during splaying.
 
 > **Note:** To clearly follow each pointer change and structural update, view the diagrams in fullscreen.
 

@@ -61,93 +61,90 @@ int SplayTree::computeDepth(Node* node) const {
 	return depth;
 }
 
-// Performs a left rotation on the given node
-void SplayTree::leftRotate(Node* x) {
-	Node* y = x->right; // y becomes the new subtree root
-	if (!y) { return; } // cannot rotate if there is no right child
-
-	Node* T2 = y->left; // T2 becomes x's new right child
-
-	// Perform rotation
-	y->left = x;
-	x->right = T2;
-
-	// Maintain parent links
-	y->parent = x->parent;
-	x->parent = y;
-	if (T2) { T2->parent = x; }
-
-	// Update connections from grandparent
-	if (!y->parent) {
-		_root = y;
-	} else if (x == y->parent->left) {
-		y->parent->left = y;
-	} else {
-		y->parent->right = y;
-	}
-}
-
 // Performs a right rotation on the given node
-void SplayTree::rightRotate(Node* y) {
-	Node* x = y->left; // x becomes the new subtree root
-	if (!x) { return; } // cannot rotate if there is no left child
+void SplayTree::rightRotate(Node* p) {
+	if (!p->left) { return; }   // cannot rotate if there is no x
 
-	Node* T2 = x->right; // T2 becomes y's new left child
+	Node* x = p->left;          // will become the new subtree root
+	Node* T2 = x->right;        // will become p's new left child
 
 	// Perform rotation
-	x->right = y;
-	y->left = T2;
+	x->right = p;               // move p down to the right of x
+	p->left = T2;               // move T2 up to replace x as p's left child
 
-	// Maintain parent links
-	x->parent = y->parent;
-	y->parent = x;
-	if (T2) { T2->parent = y; }
+	// Maintain tree structure
+	x->parent = p->parent;      // x takes over p's original parent
+	p->parent = x;              // p is now a child of x
+	if (T2) { T2->parent = p; } // if T2 exists, it becomes a child of p
 
 	// Update connections from grandparent
 	if (!x->parent) {
-		_root = x;
-	} else if (y == x->parent->left) {
-		x->parent->left = x;
+		_root = x;              // x becomes the new root of the tree
+	}
+	else if (p == x->parent->left) {
+		x->parent->left = x;    // x replaces p as left child
+	}
+	else {
+		x->parent->right = x;   // x replaces p as right child
+	}
+}
+
+// Performs a left rotation on the given node
+void SplayTree::leftRotate(Node* p) {
+	if (!p->right) { return; }  // cannot rotate if there is no x
+
+	Node* y = p->right;         // will become the new subtree root
+	Node* T2 = y->left;         // will become p's new right child
+
+	// Perform rotation
+	y->left = p;                // move p down to the left of y
+	p->right = T2;              // move T2 up to replace y as p's right child
+
+	// Maintain tree structure
+	y->parent = p->parent;      // y takes over p's original parent
+	p->parent = y;              // p is now a child of y
+	if (T2) { T2->parent = p; } // if T2 exists, it becomes a child of p
+
+	// Update connections from grandparent
+	if (!y->parent) {
+		_root = y;              // y becomes the new root of the tree
+	} else if (p == y->parent->left) {
+		y->parent->left = y;    // y replaces p as left child
 	} else {
-		x->parent->right = x;
+		y->parent->right = y;   // y replaces p as right child
 	}
 }
 
 // Moves the given node to the root of the tree using splay tree rotations
 void SplayTree::splay(Node* x) {
-	if (!x) { return; }
+	if (!x) { return; } // nothing to do if node is null
 
 	for (; x->parent; ) {
 		Node* p = x->parent;
 		Node* g = p->parent;
 
 		if (!g) {
-			// Zig step
 			if (x == p->left) {
-				rightRotate(p);
+				rightRotate(p); // zig-right
 			} else {
-				leftRotate(p);
+				leftRotate(p); // zig-left
 			}
 		} else if (x == p->left && p == g->left) {
-			// Zig-Zig step (Left-Left)
-			rightRotate(g);
+			rightRotate(g); // zig-zig-right
 			rightRotate(p);
 		} else if (x == p->right && p == g->right) {
-			// Zig-Zig step (Right-Right)
-			leftRotate(g);
+			leftRotate(g); // zig-zig-left
 			leftRotate(p);
 		} else if (x == p->right && p == g->left) {
-			// Zig-Zag step (Left-Right)
-			leftRotate(p);
+			leftRotate(p); // zig-zag-right
 			rightRotate(g);
 		} else if (x == p->left && p == g->right) {
-			// Zig-Zag step (Right-Left)
-			rightRotate(p);
+			rightRotate(p); // zig-zag-left
 			leftRotate(g);
 		}
 	}
 
-	_root = x;
+	_root = x; // x becomes the new root after splaying
 }
 
 
