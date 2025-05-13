@@ -130,11 +130,24 @@ When working with Splay Trees, it's important to note that there is no universal
 
 
 # &#x1F4BB; Implementation 
-Currently in Progress...
+The implemented console application demonstrates the basic functionality of the Splay Tree by performing various operations and interactions with it. The program provides a clear view of changes made during usage, displaying the state of the data at different stages to illustrate its simplified behavior and characteristics.
+<p align="center"><img src="./Images/Demonstration.png"/></p>
 
 
 ## Design Decisions
-Currently in Progress...
+To prioritize simplicity and emphasize data structure itself, several design decisions were made:
+- Applied splaying for access, insertion, and removal (not used in iterators or capacity queries).
+- Disallowed duplicate elements to avoid ambiguity in access paths and rotation results.
+- Treated non-existing nodes as height `-1`, making leaf nodes start from height `0`;
+- Implemented only standard and const iterators (excluded reverse and range-based iterations).
+- Limited iterator-based functions to a single iterator type to avoid introducing templates.
+- Restricting the container to `int` to keep the focus on structure, not generalization.
+- Omitted cases where the container is created on the heap.
+- Skipped support for const-qualified container objects.
+- Excluded move semantics to reduce lifecycle complexity and highlight copy behavior.
+- Used raw pointers and manual memory control instead of smart pointers or automatic ownership.
+- Avoided exception handling, including validation for invalid accesses or range errors.
+- Omitted certain low-level optimizations.
 
 
 ## Container Implementation
