@@ -421,7 +421,7 @@ void SplayTree::insert(const int& val) {
 
 // Removes a node with the given value from the SplayTree, maintaining order
 void SplayTree::remove(const int& val) {
-	if (!_root) { return; }
+	if (!_root) { return; } // tree is empty — nothing to remove
 
 	// Locate the node to delete
 	Node* curr = _root;
@@ -435,33 +435,37 @@ void SplayTree::remove(const int& val) {
 		}
 	}
 	if (!curr) { return; } // not found
-	// splay(curr);
+
+	// Splay the found node to ensure both subtrees are directly accessible
+	splay(curr);
 
 	// Disconnect and prepare subtrees
 	Node* leftSubtree = curr->left;
 	Node* rightSubtree = curr->right;
 	if (leftSubtree) { leftSubtree->parent = nullptr; }
 	if (rightSubtree) { rightSubtree->parent = nullptr; }
+
+	// Delete the node and reflect change on size
 	delete curr;
 	--_size;
 
-	// Rebuild root
+	// If no left subtree, right becomes the new root
 	if (!leftSubtree) {
 		_root = rightSubtree;
 		return;
 	}
 
-	// Find predecessor and splay it
+	// Otherwise, it will be prdecessor
 	Node* predecessor = leftSubtree;
 	for (; predecessor->right; ) {
 		predecessor = predecessor->right;
 	}
-	// splay(maxLeft);
+	splay(predecessor);
 
-	// Attach right subtree
+	// Treattach the right subtree to the new root
 	predecessor->right = rightSubtree;
 	if (rightSubtree) { rightSubtree->parent = predecessor; }
-	_root = leftSubtree;
+	_root = predecessor;
 }
 
 
