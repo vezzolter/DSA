@@ -82,7 +82,6 @@ public:
     void insert(const int& val);
     void remove(const int& val);
     void remove(iterator pos);
-    //void remove(iterator first, iterator last);
     void clear();
     void swap(SplayTree& other);
 };

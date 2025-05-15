@@ -468,6 +468,12 @@ void SplayTree::remove(const int& val) {
 	_root = predecessor;
 }
 
+// Removes the element pointed to by the given iterator via delegation
+void SplayTree::remove(iterator pos) {
+	if (pos == end()) { return; }
+	remove(*pos);
+}
+
 
 // Removes all nodes from the tree and resets it to an empty state
 void SplayTree::clear() {
