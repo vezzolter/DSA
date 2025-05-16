@@ -428,11 +428,31 @@ public:
 
 
 # &#128202; Analysis
-Currently in Progress...
+Understanding how to analyze the particular container is crucial for optimizing performance and ensuring efficient resource utilization within the constraints of the given environment. Additionally, knowing its strengths and weaknesses allows for more informed decisions, helping to select the most suitable container for a given problem among similar options.
 
 
 ## Characteristics
-Currently in Progress...
+🚀 **Time Complexities:**  
+- **Access:**
+   - **Access** $O(\log n)/O(n)$ — while the actual dereferencing of a pointer for any access operation is pretty straightforward $O(1)$, the operation's overall complexity depends on the next factor:
+     - **Traversal Cost** — locating the target node requires walking down the tree. Since splay trees do not enforce balance, this may take up to $O(n)$ in the worst case. However, frequently accessed elements tend to stay near the root, reducing average lookup depth over time.
+     - **Splay Cost** — once found, the accessed node is moved to the root through a sequence of rotations. Each step is $O(1)$, and the number of steps equals the node’s depth. Over a sequence of operations, the amortized time becomes $O(\log n)$.
+- **Insertion:**
+   - **Insertion** $O(\log n)/O(n)$ — while the actual pointer adjustment and allocation during insertion is $O(1)$, the operation's overall complexity depends on two factors:
+     - **Traversal Cost** — locating the target node requires walking down the tree. Since splay trees do not enforce balance, this may take up to $O(n)$ in the worst case. However, frequently accessed elements tend to stay near the root, reducing average lookup depth over time.
+     - **Splay Cost** — once inserted, the new node is moved to the root through a sequence of rotations. Each step is $O(1)$, and the number of steps equals the node’s depth. Over a sequence of operations, the amortized time becomes $O(\log n)$.
+- **Deletion:**
+   - **Deletion** $O(\log n)$ — while the actual pointer adjustment and clean up during deletion is $O(1)$, the operation's overall complexity depends on three factors:
+     - **Traversal Cost** — locating the target node requires walking down the tree. Since splay trees do not enforce balance, this may take up to $O(n)$ in the worst case. However, frequently accessed elements tend to stay near the root, reducing average lookup depth over time.
+     - **SplayCost** — once found, the target node is moved to the root through a sequence of rotations. Each step is $O(1)$, and the number of steps equals the node’s depth. Over a sequence of operations, the amortized time becomes $O(\log n)$.
+     - **Combining Cost** — after the root is deleted, the remaining left and right subtrees must be joined. This requires finding the maximum node in the left subtree (if it exists), splaying it to the top, and attaching the right subtree. Though worst-case cost is $O(n)$, this process maintains the amortized $O(\log n)$ guarantee over time.
+- **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
+
+---
+🧠 **Space Expenses:**
+- **Node Overhead** — each node stores pointers (e.g. left, right, parent), increasing the total space usage. The exact overhead depends on the implementation, but Splay Trees generally require slightly more memory than standard BSTs.
+- **Memory Fragmentation** — nodes are dynamically allocated in separate memory locations, which may lead to fragmentation and reduced cache locality, especially for large trees.
+- **Call Stack Usage** — many tree operations, such as traversal, height, or depth computation, rely on recursion, which consumes call stack space. The required stack depth is proportional to the height of the tree, similarly to time complexities.
 
 
 ## Trade-Offs
