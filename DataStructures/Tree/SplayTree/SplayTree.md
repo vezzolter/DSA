@@ -456,7 +456,21 @@ Understanding how to analyze the particular container is crucial for optimizing 
 
 
 ## Trade-Offs
-Currently in Progress...
+> **Note**: You should be aware of the fact that trade-offs are inherently dualistic and not intrinsic properties of objects or concepts; rather, they are human interpretations based on context, perspective, and priorities. Also, you should consider taking into account that more of them doesn’t always mean better decisions — the weight of impactful factors plays a role. The idea of trade-offs is that they are a heuristic tool (a mental shortcut for solving problems in a quick way that delivers a result sufficient enough to be useful given time constraints), meaning that they are not proof but cues to explore more, accept imperfect knowledge and make the best choice with the available data.
+
+---
+➕ **Advantages:**
+- **Recently Accessed Elements Become Faster to Reach** — splay trees dynamically move accessed elements to the root, adapting the structure to real usage patterns. This self-adjusting behavior ensures that frequently or recently accessed nodes tend to stay near the top, leading to faster access times over time and maintaining $O(\log n)$ amortized performance.
+- **Ordered Data** — splay trees naturally store data in sorted order, enabling efficient in-order traversal to retrieve elements in ascending order without additional sorting operations.
+
+---
+➖ **Disadvantages:**
+- **Unstable Performance** — splay trees rely on repeated access patterns to maintain efficiency. When access is random or adversarial, the structure may become highly unbalanced, leading to unpredictable tree shapes and degraded performance. Unlike other self-balancing trees, splay trees do not guarantee consistent $O(\log n)$ worst-case bounds for individual operations.
+- **Access via Traversal** — splay trees do not support direct indexing of elements; accessing a specific value requires traversal, which depends on the height of the tree and frequency, which, often better than a linked list, it is still slower than direct access structure like arrays or hash tables.
+- **Rotation Overhead** — splay trees' basic operations (access, insertion, deletion) trigger a splay, which may involve multiple rotations even when no restructuring is necessary, while each rotation runs in $O(1)$, the added rebalancing steps increase the constant factor in performance.
+- **Recursive Overhead** — splay trees may rely on recursion for many operations, which consumes additional call stack space proportional to the tree’s height, leading to substantial overhead in large trees.
+- **Node Overhead** — as mentioned earlier in [characteristics](#characteristics), node implementation may vary, but the fact remains — each node contains multiple pointers alongside value that may seem negligible individually but accumulate significantly at scale.
+- **Intricate Structure Maintenance** — splay trees require precise pointer updates during rotations to preserve correct parent-child links and ordering, creating numerous opportunities for subtle logical errors that can disrupt the tree's structure or make certain issues more difficult to debug.
 
 
 
