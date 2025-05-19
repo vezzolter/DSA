@@ -85,15 +85,15 @@ int main() {
 	std::cout << "   - t2.depth(11):\t\t\t\t" << t2.depth(11) << std::endl; // deep subtree node
 	std::cout << "   - t2.depth(17):\t\t\t\t" << t2.depth(17) << std::endl; // part of splaying path
 	std::cout << "   - t2.depth(7):\t\t\t\t" << t2.depth(7) << std::endl;   // static node
-	std::cout << " -> t2.remove(): \t\t\t\t";
+	std::cout << " -> t3.remove(37): \t\t\t\t";
 	t3.remove(37);
 	printTree(t3);
+	std::cout << "   - t3.depth(37):\t\t\t\t" << t3.depth(37) << std::endl; // removed
 	std::cout << "   - t3.depth(30):\t\t\t\t" << t3.depth(30) << std::endl; // new root
 	std::cout << "   - t3.depth(26):\t\t\t\t" << t3.depth(26) << std::endl; // child of deleted node
 	std::cout << "   - t3.depth(46):\t\t\t\t" << t3.depth(46) << std::endl; // reattached to new root
 	std::cout << "   - t3.depth(9):\t\t\t\t" << t3.depth(9) << std::endl;   // checks stability of left structure
 	std::cout << "   - t3.depth(17):\t\t\t\t" << t3.depth(17) << std::endl; // confirms middle subtree preserved
-	std::cout << "   - t3.depth(88):\t\t\t\t" << t3.depth(88) << std::endl; // ensures far-right is still reachable
 	std::cout << " -> t1.clear(): \t\t\t\t\t";
 	t1.clear();
 	printTree(t1);

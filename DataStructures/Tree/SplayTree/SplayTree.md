@@ -108,10 +108,11 @@ When working with Splay Trees, it's important to note that there is no universal
 
 **Modifiers**:
 - `insert(val)` — inserts a new node with the specified value into the tree, maintaining the BST ordering property and splaying the new node to the root to preserve the access-based structure.
-- `erase(val)` — removes the node with the specified value from the tree, maintaining the BST ordering property and splaying either the parent or a replacement node to the root to restore the access-based structure.
-  - if the node has no children (leaf), simply remove the node;
-  - if the node has one child, replace the node with its child;
-  - if the node has two children, it is replaced with its in-order successor or predecessor, depending on the design decision;
+- `erase(val)` — removes the node with the specified value by first splaying it to the root, then replacing the root with either the right subtree or the splayed maximum of the left subtree (with the right subtree attached), maintaining the BST ordering and preserving the access-based structure.
+  - does nothing if the value is not found in the tree;
+  - if the left subtree is empty, the right subtree becomes the new root;
+  - if the left subtree is not empty, its maximum node is splayed and becomes the new root, with the right subtree attached.
+ decision;
 - `clear()` — removes all nodes from the tree, resetting it to its initial state.
 - `swap(other)` — exchanges the contents of the current tree with another tree, avoiding expensive deep copies.
   - assigning a tree to itself has no effect, as the function exits early without performing any operations.
@@ -444,7 +445,7 @@ Understanding how to analyze the particular container is crucial for optimizing 
 - **Deletion:**
    - **Deletion** $O(\log n)$ — while the actual pointer adjustment and clean up during deletion is $O(1)$, the operation's overall complexity depends on three factors:
      - **Traversal Cost** — locating the target node requires walking down the tree. Since splay trees do not enforce balance, this may take up to $O(n)$ in the worst case. However, frequently accessed elements tend to stay near the root, reducing average lookup depth over time.
-     - **SplayCost** — once found, the target node is moved to the root through a sequence of rotations. Each step is $O(1)$, and the number of steps equals the node’s depth. Over a sequence of operations, the amortized time becomes $O(\log n)$.
+     - **Splay Cost** — once found, the target node is moved to the root through a sequence of rotations. Each step is $O(1)$, and the number of steps equals the node’s depth. Over a sequence of operations, the amortized time becomes $O(\log n)$.
      - **Combining Cost** — after the root is deleted, the remaining left and right subtrees must be joined. This requires finding the maximum node in the left subtree (if it exists), splaying it to the top, and attaching the right subtree. Though worst-case cost is $O(n)$, this process maintains the amortized $O(\log n)$ guarantee over time.
 - **Other** — while additional operations exist, they are generally not considered core functionalities for container selection.
 
@@ -515,6 +516,7 @@ Despite the interesting idea, splay trees didn’t gain real-world popularity. T
 &#127760; **Web-Pages:**  
 - [Splay tree](https://en.wikipedia.org/wiki/Splay_tree) (Wikipedia)
 - [Self-Adjusting Binary Search Trees](https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf) (Research Paper)
+- [Visualization of splay tree](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)
 
 
 
