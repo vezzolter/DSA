@@ -455,17 +455,14 @@ void SplayTree::remove(const int& val) {
 		return;
 	}
 
-	// Otherwise, it will be prdecessor
-	Node* predecessor = leftSubtree;
-	for (; predecessor->right; ) {
-		predecessor = predecessor->right;
-	}
-	splay(predecessor);
+	// Otherwise, it will be max in left subtree
+	Node* maxInLeftsubtree = findRightmost(leftSubtree);
+	splay(maxInLeftsubtree);
 
 	// Treattach the right subtree to the new root
-	predecessor->right = rightSubtree;
-	if (rightSubtree) { rightSubtree->parent = predecessor; }
-	_root = predecessor;
+	maxInLeftsubtree->right = rightSubtree;
+	if (rightSubtree) { rightSubtree->parent = maxInLeftsubtree; }
+	_root = maxInLeftsubtree;
 }
 
 // Removes the element pointed to by the given iterator via delegation
