@@ -152,7 +152,7 @@ To prioritize simplicity and emphasize data structure itself, several design dec
 
 
 ## Container Implementation
-The container is implemented within the `SplayTree` class, which is declared in [SplayTree.h](https://github.com/vezzolter/DSA/blob/splay-tree/DataStructures/Tree/SplayTree/Include/SplayTree.h) header file and defined in [SplayTree.cpp](https://github.com/vezzolter/DSA/blob/splay-tree/DataStructures/Tree/SplayTree/Source/SplayTree.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/splay-tree/DataStructures/Tree/SplayTree/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
+The container is implemented within the `SplayTree` class, which is declared in [SplayTree.h](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/SplayTree/Include/SplayTree.h) header file and defined in [SplayTree.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/SplayTree/Source/SplayTree.cpp) source file. This approach is adopted to ensure encapsulation, modularity and compilation efficiency. To see the container's functionality in action, you can examine the `main()` function located in the [Main.cpp](https://github.com/vezzolter/DSA/blob/main/DataStructures/Tree/SplayTree/Source/Main.cpp) file. The full implementation can be found in the corresponding files, while the class declaration below offers a quick overview:
 
 ```cpp
 class SplayTree {
