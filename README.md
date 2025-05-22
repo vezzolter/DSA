@@ -156,48 +156,48 @@ This list provides a straightforward overview of the repository's contents. For 
 
 # &#128214; Resources
 &#128218; **Books:**
-- **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
-  - A cornerstone resource that inspired me to learn DSA.
-  - Provides comprehensive and structural coverage of data structures and algorithms as technology.
-- **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
-  - Describes concepts of implementing DSA in C++ programming language.
-- **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
-  - Serves as an easy to understand collection of step-by-step analyses for DSA with C++ implementation.
-- **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
-  - Helps to build a "designer/architectural" view on how to look at DSA.
-- **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
-  - Explains the basic computational background behind DSA.
-- **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
-  - Introduces to the idea of randomness in computer science, along with distributions and testing.
-- **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
-  - Tells you about basics of sorting and searching algorithms.
+1. **"Introduction to Algorithms" (3rd Edition)** — by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein
+   - A cornerstone resource that inspired me to learn DSA.
+   - Provides comprehensive and structural coverage of data structures and algorithms as technology.
+2. **"Algorithms in C++, Parts 1-4: Fundamentals, Data Structure, Sorting, Searching" (3rd Edition)** — by Robert Sedgewick
+   - Describes concepts of implementing DSA in C++ programming language.
+3. **"Data Structures and Algorithm Analysis in C++" (4th Edition)** — by Mark Allen Weiss
+   - Serves as an easy to understand collection of step-by-step analyses for DSA with C++ implementation.
+4. **"The Algorithm Design Manual" (2nd Edition)** — by Steven S. Skiena
+   - Helps to build a "designer/architectural" view on how to look at DSA.
+5. **"The Art of Computer Programming, Volume 1: Fundamental Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+   - Explains the basic computational background behind DSA.
+6. **"The Art of Computer Programming, Volume 2: Seminumerical Algorithms" (3rd Edition)** — by Donald Ervin Knuth
+   - Introduces to the idea of randomness in computer science, along with distributions and testing.
+7. **"The Art of Computer Programming, Volume 3: Sorting and Searching" (2nd Edition)** — by Donald Ervin Knuth
+   - Tells you about basics of sorting and searching algorithms.
 
 ---
 &#127891; **Courses:**
-- [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
-  - Gives a great structural understanding of the data structures basics along with decent practical quizes & coding challenges in C++.
-- [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
-  - Guides into basic DSA topics with ease, no matter how complex you think it is, therefore makes you start.
+1. [Accelerated Computer Science Fundamentals Specialization](https://www.coursera.org/specializations/cs-fundamentals) on Coursera
+   - Gives a great structural understanding of the data structures basics along with decent practical quizes & coding challenges in C++.
+2. [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) on Udemy
+   - Guides into basic DSA topics with ease, no matter how complex you think it is, therefore makes you start.
 
 ---
 &#127916; **Channels:**
-- [MIT OpenCourseWare](https://www.youtube.com/@mitocw)
+1. [MIT OpenCourseWare](https://www.youtube.com/@mitocw)
    - It's amazing to learn from top professors who truly know their field — thank you, MIT!
-- [NeetCode](https://www.youtube.com/@NeetCode)
+2. [NeetCode](https://www.youtube.com/@NeetCode)
    - Very detailed explanations — an excellent resource when you start applying your knowledge to problems.
-- [Programming Live with Larry](https://www.youtube.com/@Algorithmist)
+3. [Programming Live with Larry](https://www.youtube.com/@Algorithmist)
    - He is a talented person, and I really enjoy his live sessions — you can watch a master at work.
 
 ---  
 &#127760; **Web-Sites:**  
-- [Wikipedia](https://www.wikipedia.org)
-  - A simple starting point. Many people dislike Wikipedia as a "source," but at the very least, it allows you to trace the original sources and verify them yourself — unlike some "guides" or "tutorial" sites that many people recommend.
-- [OpenDSA](https://lti.cs.vt.edu/LTI_ruby/Books/CSC215/html/index.html)
-  - A university-based, open-source online platform with interactive learning materials — a valuable resource.
-- [cppreference](https://en.cppreference.com/w/)
-  - Since this repository is built upon C++, this site comes in handy for understanding how certain things work.
-- [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
-  - Essentially just guidelines for coding style, but in real-life development, everyone follows their own conventions. It’s not a strict cookbook, but rather a helpful reference if you don’t have your own style established yet. 
+1. [Wikipedia](https://www.wikipedia.org)
+   - A simple starting point. Many people dislike Wikipedia as a "source," but at the very least, it allows you to trace the original sources and verify them yourself — unlike some "guides" or "tutorial" sites that many people recommend.
+2. [CS-UFCA: Algorithms and Data Structures Visualization](https://www.cs.usfca.edu/galles/visualization/Algorithms.html)
+   - A great site for visualizing and interacting with various algorithms and data structures to better understand how they work.
+3. [cppreference](https://en.cppreference.com/w/)
+   - Since this repository is built upon C++, this site comes in handy for understanding how certain things work.
+4. [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+   - Essentially just guidelines for coding style, but in real-life development, everyone follows their own conventions. It’s not a strict cookbook, but rather a helpful reference if you don’t have your own style established yet. 
 
 
 
