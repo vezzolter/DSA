@@ -188,6 +188,7 @@ Heapsort was invented by British computer scientist **John William Joseph (Bill)
 ---  
 &#127760; **Web-Pages:**  
 - [Heapsort](https://en.wikipedia.org/wiki/Heapsort) (Wikipedia)
+- [USFCA: Heap Sort](https://www.cs.usfca.edu/~galles/visualization/HeapSort.html) (Visualization)
 
 
 

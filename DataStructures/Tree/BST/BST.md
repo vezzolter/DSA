@@ -490,6 +490,7 @@ The BST is a data structure whose origins are intertwined with the collaborative
 ---  
 &#127760; **Web-Pages:**  
 - [Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree) (Wikipedia)
+- [USFCA: BST](https://www.cs.usfca.edu/~galles/visualization/BST.html) (Visualization)
 - [How to handle duplicates in BST?](https://www.geeksforgeeks.org/how-to-handle-duplicates-in-binary-search-tree/) (Article)
 - [Balancing a binary search tree](https://appliedgo.net/balancedtree/) (Article)
 - [Techniques for the Recording of, and Reference to data in a Computer](http://comjnl.oxfordjournals.org/content/2/1/1.full.pdf#page%3D1%26view%3DFitH) (Research Paper)

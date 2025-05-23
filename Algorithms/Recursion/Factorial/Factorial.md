@@ -140,6 +140,7 @@ However, the term **factorial** was coined by French mathematician **Christian K
 ---
 &#127760; **Web-Pages:**
 - [Factorial](https://en.wikipedia.org/wiki/Factorial) (Wikipedia)
+- [USFCA: Factorial](https://www.cs.usfca.edu/~galles/visualization/RecFact.html) (Visualization)
 
 
 

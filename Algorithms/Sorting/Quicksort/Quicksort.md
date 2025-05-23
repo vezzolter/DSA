@@ -214,6 +214,7 @@ QuickSort was conceived by British computer scientist **Tony Hoare** in **1959**
 ---  
 &#127760; **Web-Pages:**  
 - [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) (Wikipedia)
+- [USFCA: Comparison Sorting](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) (Visualization)
 - [Quicksort by C. A. R. Hoare](https://academic.oup.com/comjnl/article-pdf/5/1/10/1111445/050010.pdf) (Research Paper)
 - [Hoare’s vs Lomuto partition scheme in QuickSort](https://www.educative.io/answers/hoares-vs-lomuto-partition-scheme-in-quicksort) (Article)
 

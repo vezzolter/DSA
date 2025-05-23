@@ -186,6 +186,7 @@ Counting Sort was first introduced by **Harold Herbert Seward** in **1954**. Sew
 ---  
 &#127760; **Web-Pages:**  
 - [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) (Wikipedia)
+- [USFCA: Counting Sort](https://www.cs.usfca.edu/~galles/visualization/CountingSort.html) (Visualization)
 
 
 

@@ -527,6 +527,7 @@ While AVL trees provided a robust solution to the balancing problem, their frequ
 ---  
 &#127760; **Web-Pages:**  
 - [AVL tree](https://en.wikipedia.org/wiki/AVL_tree) (Wikipedia)
+- [USFCA: AVL](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html) (Visualization)
 - [Self-balancing binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree) (Wikipedia)
 - [Tree rotation](https://en.wikipedia.org/wiki/Tree_rotation) (Wikipedia)
 - [An anlgorithm for the organization of information](https://zhjwpku.com/assets/pdf/AED2-10-avl-paper.pdf) (Research Paper)

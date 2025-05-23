@@ -158,6 +158,7 @@ The idea of Selection Sort can be observed in many real life activities due to i
 ---  
 &#127760; **Web-Pages:**  
 - [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) (Wikipedia)
+- [USFCA: Comparison Sorting](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) (Visualization)
 - [How does Selection Sort Algorithm work?](https://www.geeksforgeeks.org/selection-sort/) (Article)
 - [Selection Sort Algorithm](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm) (Article)
 

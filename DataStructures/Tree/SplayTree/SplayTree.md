@@ -515,8 +515,8 @@ Despite the interesting idea, splay trees didn’t gain real-world popularity. T
 ---  
 &#127760; **Web-Pages:**  
 - [Splay tree](https://en.wikipedia.org/wiki/Splay_tree) (Wikipedia)
+- [USFCA: Splay Tree](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html) (Visualization)
 - [Self-Adjusting Binary Search Trees](https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf) (Research Paper)
-- [Visualization of splay tree](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)
 
 
 

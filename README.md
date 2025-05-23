@@ -72,7 +72,7 @@ This list provides a straightforward overview of the repository's contents. For 
     - GreedyProgramming.md
     - Huffman Encoding
   - String Algorithms
-    - KMP (Knuth-Morris-Pratt) Algorithm
+    - KMP (Knuth-Morris-Pratt) Algorithm 🎯
     - Rabin-Karp Algorithm
     - Boyer-Moore Algorithm
     - Levenshtein Distance
@@ -134,8 +134,8 @@ This list provides a straightforward overview of the repository's contents. For 
     - [Stack.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack/Stack.md) ✅
     - [Stack](https://github.com/vezzolter/DSA/tree/main/DataStructures/Stack) ✅
   - Queue
-    - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) ✅
-    - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) ✅
+    - [Queue.md](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/Queue.md) 🔄
+    - [Linear Queue](https://github.com/vezzolter/DSA/tree/main/DataStructures/Queue/LinearQueue) 🔄
     - Double-Ended Queue
     - Circular Queue
     - Priority Queue

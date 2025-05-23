@@ -162,6 +162,7 @@ The idea of Insertion Sort can be observed in many real life activities due to i
 ---  
 &#127760; **Web-Pages:**  
 - [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) (Wikipedia)
+- [USFCA: Comparison Sorting](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) (Visualization)
 
 
 

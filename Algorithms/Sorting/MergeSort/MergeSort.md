@@ -255,6 +255,7 @@ The idea of merging goes back in **1938** to the invention of a card machine, th
 ---  
 &#127760; **Web-Pages:**  
 - [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) (Wikipedia)
+- [USFCA: Comparison Sorting](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) (Visualization)
 - [Merge Sort Algorithm: Design, Implementation, and Analysis](https://www.enjoyalgorithms.com/blog/merge-sort-algorithm) (Article)
 - [Merge Sort And It's Early History](https://www.linkedin.com/pulse/merge-sort-its-early-history-abdur-rahmaan-janhangeer/) (Article)
 

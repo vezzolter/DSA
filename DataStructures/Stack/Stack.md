@@ -255,6 +255,7 @@ Due to the simple and natural concept of this data structure it was quite common
 ---  
 &#127760; **Web-Pages:**  
 - [Stack (abstract data type)](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (Wikipedia)
+- [USFCA: Stack (Array Implementation)](https://www.cs.usfca.edu/~galles/visualization/StackArray.html) (Visualization)
 - [std::stack](https://en.cppreference.com/w/cpp/container/stack) (Documentation)
 - [Second-Generation Stack Computer Architecture](http://fpgacpu.ca/publications/Second-Generation_Stack_Computer_Architecture.pdf) (Research Paper)
 
